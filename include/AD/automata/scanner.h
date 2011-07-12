@@ -30,6 +30,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <cstdio>
 #include <AD/generic/generic.h>
 #include <AD/automata/lexer.h>
 

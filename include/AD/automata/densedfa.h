@@ -31,6 +31,7 @@
 // fall back on.
 //////////////////////////////////////////////////////////////////////////////
 
+#include <cstdio>
 #include <AD/automata/sparsdfa.h>  // sparse dfa tables
 
 class DenseDFA : public SparseDFA

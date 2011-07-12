@@ -12,8 +12,8 @@ ADLIB_PATH	=	../../include
 CC		=	g++
 #COPTS		=	-O2
 #  g++ 2.6.x
-#COPTS		=	-O6 -fexternal-templates
-COPTS		=	-Wno-deprecated
+COPTS		=	-O6 -fexternal-templates 
+#COPTS		=	-g -fexternal-templates 
 CINCLUDE	=	-I$(ADLIB_PATH)
 AR		= 	ar rv
 RANLIB		= 	ranlib
@@ -33,27 +33,26 @@ AREAS		= algebra automata combinat compress contain \
 		  encrypt gc generic graphics \
 		  graph graphtype hash io memory \
 		  numeric objc object objstore \
-		  pipes pretty prettypr \
-		  persist process prop resource rete \
+		  persist pipes pretty prettypr \
+		  process prop resource rete \
 		  rewrite shell stl strings symbolic \
-		  trees tries visualize
-# backend-tools
+		  trees tries vlsi backend-tools visualize
 
-all:	compile make_library
+all:	compile make_library 
 
 make_library:	lib
 
-lib:
+lib:		
 	$(RM) -f $(LIBRARY)
 	for dir in $(AREAS); do \
 	   if [ -d $$dir ]; then \
 	      ar crv $(LIBRARY) $$dir/*.o; \
 	   fi; \
-	done
+	done	
 	$(RANLIB) $(LIBRARY)
 	@echo "Done"
 
-compile:
+compile:	
 	for dir in $(AREAS); do \
 	   if [ -d $$dir ]; then \
 	      cd $$dir; \
@@ -67,8 +66,6 @@ compile:
 spotless:
 	for dir in $(AREAS); do \
 	   if [ -d $$dir ]; then $(RM) -f $$dir/*.o; fi; \
-	   if [ -d $$dir ]; then $(RM) -f $$dir/*.orig; fi; \
-	   if [ -d $$dir ]; then $(RM) -f $$dir/*.rpo; fi; \
 	done
 
 %.o:	%.cc
