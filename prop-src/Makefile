@@ -9,7 +9,7 @@ CC_INCLUDE	= -I../include
 COPTS		= -O6 -pedantic
 LDOPTS		= -lg++
 CFLAGS		= $(CC_INCLUDE) $(COPTS)
-LDFLAGS		= -L../lib-src -lprop $(LDOPTS) -lm
+LDFLAGS		= -L../lib -lprop $(LDOPTS) -lm
 PROP_OPTS_BASIC	= -strict $(CC_INCLUDE) -save_space -report -v2
 PROP_OPTS	= $(PROP_OPTS_BASIC) -O14
 

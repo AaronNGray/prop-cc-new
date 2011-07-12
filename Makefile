@@ -38,8 +38,12 @@ TarFile= prop-$(VERSION).tar.gz
 #############################################################################
 build:
 	cd lib-src; make CC="$(CC)" COPTS="$(LIBRARY_COPTS)" LDOPTS="$(LDOPTS)"
+	mkdir -p lib
+	cp lib-src/libprop.a lib/
 	cd prop-src; make CC="$(CC)" COPTS="$(PROP_COPTS)" LDOPTS="$(LDOPTS)"
 	cd docs; make
+	mkdir -p bin
+	cp prop-src/prop bin/
 	@echo Done
 
 config:
