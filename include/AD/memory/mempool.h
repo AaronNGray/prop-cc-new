@@ -36,6 +36,8 @@
 //  datatypes.
 //////////////////////////////////////////////////////////////////////////////
 
+class MemPoolMark;
+
 class MemPool : public Mem
 {
   MemPool(const MemPool&);          // no copy constructor

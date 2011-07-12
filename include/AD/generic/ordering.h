@@ -25,7 +25,7 @@
 #ifndef hashing_and_ordering_functions_h
 #define hashing_and_ordering_functions_h
 
-#include <string>
+#include <cstring>
 #include <AD/generic/generic.h>
 
 ////////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ inline Bool equal(long i, long j)                     { return i == j; }
 inline Bool equal(unsigned long i, unsigned long j)   { return i == j; }
 inline Bool equal(float a, float b)                   { return a == b; }
 inline Bool equal(double a, double b)                 { return a == b; }
-inline Bool equal(const char * a, const char * b) { return strcmp(a,b) == 0; }
+inline Bool equal(const char * a, const char * b) { return std::strcmp(a,b) == 0; }
 
 ////////////////////////////////////////////////////////////////////////////
 //  Some default ordering functions
@@ -68,10 +68,10 @@ inline Bool less(long i, long j)                   { return i < j; }
 inline Bool less(short i, short j)                 { return i < j; }
 inline Bool less(int i, int j)                     { return i < j; }
 inline Bool less(double a, double b)               { return a < b; }
-inline Bool less(const char * a, const char * b)   { return strcmp(a,b) < 0; }
+inline Bool less(const char * a, const char * b)   { return std::strcmp(a,b) < 0; }
 inline Bool lesseq(long i, long j)                 { return i <= j; }
 inline Bool lesseq(double a, double b)             { return a <= b; }
-inline Bool lesseq(const char * a, const char * b) { return strcmp(a,b) <= 0; }
+inline Bool lesseq(const char * a, const char * b) { return std::strcmp(a,b) <= 0; }
 inline int compare(int i, int j)                   { return i - j; }
 inline int compare(short i, short j)               { return i - j; }
 inline int compare(long i, long j)                 { return i - j; }
@@ -79,7 +79,7 @@ inline int compare(double a, double b)
     { return a == b ? 0 : (a > b ? 1 : 0); }
 inline int compare(float a, float b)
     { return a == b ? 0 : (a > b ? 1 : 0); }
-inline int compare(const char * a, const char * b) { return strcmp(a,b); }
+inline int compare(const char * a, const char * b) { return std::strcmp(a,b); }
 
 ////////////////////////////////////////////////////////////////////////////
 //  Constants used by hash table implementations.
