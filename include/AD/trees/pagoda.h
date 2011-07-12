@@ -66,6 +66,7 @@ public:
     (const K&)
   {
     BinaryTree<K,V>::error("Pagoda::remove");
+    return false;
   }
 };
 

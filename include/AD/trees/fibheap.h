@@ -166,7 +166,7 @@ Ix FibHeap<T>::enqueue(const T& e)
 
 template <class T>
 Bool FibHeap<T>::delete_min()
-{}
+{ return false; }
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -174,6 +174,6 @@ Bool FibHeap<T>::delete_min()
 
 template <class T>
 Bool FibHeap<T>::dequeue(Ix i)
-{}
+{ return false; }
 
 #endif

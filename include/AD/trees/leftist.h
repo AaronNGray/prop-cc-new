@@ -95,6 +95,7 @@ public:
     (const K&)
   {
     BinaryTree<K,V>::error("LeftistTree<K,V>::remove");
+    return false;
   }
 };
 
