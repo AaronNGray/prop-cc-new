@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <AD/automata/iolexerbuf.h>
 
 //////////////////////////////////////////////////////////////////////////////
@@ -47,7 +47,7 @@ IOLexerBuffer::~IOLexerBuffer()
 //  Allocate the space for a buffer
 //////////////////////////////////////////////////////////////////////////////
 
-void IOLexerBuffer::allocate_buffer( size_t n)
+void IOLexerBuffer::allocate_buffer( std::size_t n)
 {
   buffer = buffer_limit = cursor = cursor_limit = new char [n+1];
   buffer_size = n;
@@ -59,9 +59,9 @@ void IOLexerBuffer::allocate_buffer( size_t n)
 //  Method to get new input from the std::istream
 //////////////////////////////////////////////////////////////////////////////
 
-size_t IOLexerBuffer::read_buffer(char * buf, size_t n)
+std::size_t IOLexerBuffer::read_buffer(char * buf, size_t n)
 {  // Input one line at a time for interactive use.
-  size_t len;
+  std::size_t len;
 
   len = input->getline(buf, n - 1).gcount();
 
@@ -77,10 +77,10 @@ size_t IOLexerBuffer::read_buffer(char * buf, size_t n)
 //  Method to fill the input buffer
 //////////////////////////////////////////////////////////////////////////////
 
-size_t IOLexerBuffer::fill_buffer()
+std::size_t IOLexerBuffer::fill_buffer()
 {  //  Shift the remaining contents to the begining of the buffer.
-  size_t left_over = buffer_limit - cursor_limit;
-  memcpy(buffer, cursor_limit, left_over);
+  std::size_t left_over = buffer_limit - cursor_limit;
+  std::memcpy(buffer, cursor_limit, left_over);
   int count = read_buffer(buffer + left_over,buffer_size - left_over);
   more_input = count > 0;
   buffer_limit = buffer + left_over + count;

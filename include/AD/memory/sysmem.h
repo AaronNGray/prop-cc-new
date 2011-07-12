@@ -44,11 +44,11 @@ public:
   //  Memory allocation/deallocation
   ///////////////////////////////////////////////////////////////////////////
   virtual void   clear  ();                   // release all the memory within
-  virtual void * m_alloc (size_t);            // acquire a block of memory of size n
-  virtual void * c_alloc (size_t);            // acquire and initialize to 0's
+  virtual void * m_alloc (std::size_t);            // acquire a block of memory of size n
+  virtual void * c_alloc (std::size_t);            // acquire and initialize to 0's
   virtual void   free   (void *);             // release the memory
-  virtual size_t size   (const void *) const; // returns the size of a block
-  virtual size_t bytes_used () const;         // returns the amount of storage used
+  virtual std::size_t size   (const void *) const; // returns the size of a block
+  virtual std::size_t bytes_used () const;         // returns the amount of storage used
 };
 
 #endif

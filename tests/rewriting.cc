@@ -12,8 +12,8 @@
 //////////////////////////////////////////////////////////////////////////////
 //  Testing the rewriting features.
 //////////////////////////////////////////////////////////////////////////////
-#include <new.h>
-#include <iostream.h>
+#include <new>
+#include <iostream>
 
 int balance;     // number of allocation - number of deallocation
 int div_by_zero; // number of division by zeros
@@ -28,7 +28,7 @@ int div_by_zero; // number of division by zeros
 //////////////////////////////////////////////////////////////////////////////
 class MEM {
 public:
-   inline void * operator new (size_t n) 
+   inline void * operator new (std::size_t n) 
       { balance++; return new char [n]; }
    inline void   operator delete (void * x)
       { balance--; delete [] ((char*)x); }
@@ -226,7 +226,7 @@ inline EXP_var * _var(const a_EXP * _x_) { return (EXP_var *)_x_; }
 inline EXP_add * _add(const a_EXP * _x_) { return (EXP_add *)_x_; }
 inline EXP_sub * _sub(const a_EXP * _x_) { return (EXP_sub *)_x_; }
 inline EXP_mul * _mul(const a_EXP * _x_) { return (EXP_mul *)_x_; }
-inline EXP_div * _div(const a_EXP * _x_) { return (EXP_div *)_x_; }
+inline EXP_div * _std::div(const a_EXP * _x_) { return (EXP_div *)_x_; }
 inline EXP_exp_list * _exp_list(const a_EXP * _x_) { return (EXP_exp_list *)_x_; }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -308,7 +308,7 @@ ostream& operator << (ostream& f, EXP e)
             } break;
          case a_EXP::tag_div: {
 #line 63 "rewriting.pcc"
-           return f << '(' << _div(e)->_1 << " / " << _div(e)->_2 << ')'; 
+           return f << '(' << _std::div(e)->_1 << " / " << _div(e)->_2 << ')'; 
 #line 63 "rewriting.pcc"
             } break;
          default: {
@@ -531,8 +531,8 @@ replacement__:
          case a_EXP::tag_div: { 
             int s0__;
             int s1__;
-            labeler(_div(redex)->_1, s0__, r__);
-            labeler(_div(redex)->_2, s1__, r__);
+            labeler(_std::div(redex)->_1, s0__, r__);
+            labeler(_std::div(redex)->_2, s1__, r__);
             s__ = Simplify_theta_6[Simplify_mu_6_0[s0__]][Simplify_mu_6_1[s1__]]; } break;
          default: { 
             int s0__;
@@ -544,14 +544,14 @@ replacement__:
    const TreeTables::Rule * o__ = Simplify_accept_vector + Simplify_accept_base[s__];
 accept__:
    switch (*o__) {
-      case 15: if ((_num(_div(redex)->_1)->num == 0))
+      case 15: if ((_num(_std::div(redex)->_1)->num == 0))
       {
 #line 126 "rewriting.pcc"
-         { redex = _div(redex)->_1; r__ = 1; goto replacement__; }
+         { redex = _std::div(redex)->_1; r__ = 1; goto replacement__; }
 #line 126 "rewriting.pcc"
 }
       else { ++o__; goto accept__; } break;
-      case 14: if ((_num(_div(redex)->_2)->num == 0))
+      case 14: if ((_num(_std::div(redex)->_2)->num == 0))
       {
 #line 123 "rewriting.pcc"
        cout << "Division by zero!\n"; 
@@ -560,10 +560,10 @@ accept__:
 #line 125 "rewriting.pcc"
 }
       else { ++o__; goto accept__; } break;
-      case 13: if ((_num(_div(redex)->_2)->num != 0))
+      case 13: if ((_num(_std::div(redex)->_2)->num != 0))
       {
 #line 122 "rewriting.pcc"
-         { redex = num((_num(_div(redex)->_1)->num / _num(_div(redex)->_2)->num)); r__ = 1; goto replacement__; }
+         { redex = num((_num(_std::div(redex)->_1)->num / _num(_div(redex)->_2)->num)); r__ = 1; goto replacement__; }
 #line 122 "rewriting.pcc"
 }
       else { ++o__; goto accept__; } break;
@@ -582,10 +582,10 @@ accept__:
          { redex = num((_num(_add(redex)->_1)->num + _num(_add(redex)->_2)->num)); r__ = 1; goto replacement__; }
 #line 119 "rewriting.pcc"
 } break;
-      case 9: if ((_num(_div(redex)->_2)->num == 1))
+      case 9: if ((_num(_std::div(redex)->_2)->num == 1))
       {
 #line 118 "rewriting.pcc"
-         { redex = _div(redex)->_1; r__ = 1; goto replacement__; }
+         { redex = _std::div(redex)->_1; r__ = 1; goto replacement__; }
 #line 118 "rewriting.pcc"
 }
       else { ++o__; goto accept__; } break;
@@ -729,9 +729,9 @@ int main()
    //
    // (0 + x * 2) / (1 * 5 + 1 * 3) / (0 / y);
    //
-   EXP t1 = div(div(add(num(0), mul(var('x'),num(2))), 
+   EXP t1 = std::div(div(add(num(0), mul(var('x'),num(2))), 
                     add(mul(num(1), num(5)),mul(num(1),num(3)))),
-                div(num(0),var('y')));
+                std::div(num(0),var('y')));
    EXP term = mul(t1,t1);
 
    //
@@ -759,7 +759,7 @@ int main()
    //
    //  Rewrite some other term.
    //
-   EXP term3 = div(num(1),num(0));
+   EXP term3 = std::div(num(1),num(0));
    sim(term3);
 
    //
@@ -772,7 +772,7 @@ int main()
    EXP term4 = exp_list(
 #line 189 "rewriting.pcc"
 #line 189 "rewriting.pcc"
-list_1_(div(num(1),num(0)),list_1_(var('x'),nil_1_))
+list_1_(std::div(num(1),num(0)),list_1_(var('x'),nil_1_))
 #line 189 "rewriting.pcc"
 #line 189 "rewriting.pcc"
 );

@@ -20,8 +20,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <stdlib.h>
-#include <string>
+#include <cstdlib>
+#include <cstring>
 #include "basics.h"
 #include "config.h"
 #include "author.h"
@@ -261,14 +261,14 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
 #line 79 "../../prop-src/prop-main.pcc"
         
         char c[2]; c[0] = FILE_SEPARATOR; c[1] = '\0';
-        strcat(search_paths,c);
-        strcat(search_paths,argv[0]+2);
+        std::strcat(search_paths,c);
+        std::strcat(search_paths,argv[0]+2);
         
 #line 83 "../../prop-src/prop-main.pcc"
       } break;
       case 12: {
 #line 84 "../../prop-src/prop-main.pcc"
-      strcpy(output_file_name,argv[0]+2); 
+      std::strcpy(output_file_name,argv[0]+2); 
 #line 84 "../../prop-src/prop-main.pcc"
       } break;
       case 13: {
@@ -277,7 +277,7 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
         if (argc > 1)
         {
           argv++; argc--;
-          strcpy(output_file_name,argv[0]);
+          std::strcpy(output_file_name,argv[0]);
         }
         else
           help = true;
@@ -287,7 +287,7 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
       case 14: {
 #line 96 "../../prop-src/prop-main.pcc"
         
-        int opt = atol(argv[0]+2);
+        int opt = std::atol(argv[0]+2);
         optimization_level = opt <= 0 ? 1 : opt;
         fast_string_match = optimization_level & 1;
         adaptive_matching = optimization_level & 2;
@@ -334,13 +334,13 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
       } break;
       case 22: {
 #line 112 "../../prop-src/prop-main.pcc"
-       max_vector_len = atol(argv[0]+2); 
+       max_vector_len = std::atol(argv[0]+2); 
 #line 112 "../../prop-src/prop-main.pcc"
       } break;
       case 23: {
 #line 114 "../../prop-src/prop-main.pcc"
         
-        verbosity = atol(argv[0]+2);
+        verbosity = std::atol(argv[0]+2);
         if (verbosity <= 0)
           verbosity = 1;
         
@@ -411,7 +411,7 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
   if (help || file_count == 0)
   {
     error( HELP_MESSAGE, prog_name, VERSION, PATCH_LEVEL, LAST_UPDATED, prog_name);
-    exit(1);
+    std::exit(1);
   }
 }
 
@@ -424,13 +424,13 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
 static int run_prog( const char * prog, int argc, const char * argv[])
 {
   char command[4096];
-  strcpy( command, prog);
+  std::strcpy( command, prog);
   for (int i = 0; i < argc; i++)
   {
-    strcat( command, " ");
-    strcat( command, argv[i]);
+    std::strcat( command, " ");
+    std::strcat( command, argv[i]);
   }
-  int stat = system( command);
+  int stat = std::system( command);
   if (stat)
     error("Error in command: %s\n", command);
   return stat;
@@ -471,7 +471,7 @@ int main( int argc, const char * argv [])
       if (stat) break;
     }
   }
-  exit(stat);
+  std::exit(stat);
 }
 #line 207 "../../prop-src/prop-main.pcc"
 /*

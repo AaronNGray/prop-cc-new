@@ -24,13 +24,13 @@ Id PaigeGoyal::gensym(Id prefix)
 //
 //  Auxiliary routines to check whether a variable is free in an expression
 //
-Bool PaigeGoyal::is_free(Id x, Exp e) const
+Bool PaigeGoyal::is_std::free(Id x, Exp e) const
 {  IdSet S;
    free_vars(e,S);
    return ! S.contains(x);
 }
 
-Bool PaigeGoyal::is_free(Ids xs, Exp e) const
+Bool PaigeGoyal::is_std::free(Ids xs, Exp e) const
 {  IdSet S;
    free_vars(e,S);
    

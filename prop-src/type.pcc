@@ -542,7 +542,7 @@ Ty component_ty( Ty record_ty, Id label)
     }
   | ty as TUPLEty _ | label[0] == '_':
     {
-      int i = atol( label + 1);
+      int i = std::atol( label + 1);
       if (i > 0)
         return component_ty(ty,i);
     }

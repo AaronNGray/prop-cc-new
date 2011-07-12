@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/memory/cleanmem.h>
 #include <AD/memory/sysmem.h>
 
@@ -48,12 +48,12 @@ void CleanMem::error(const char message[]) const
 //  Methods for allocation/deallocation
 //////////////////////////////////////////////////////////////////////////////
 
-void * CleanMem::m_alloc(size_t n)
+void * CleanMem::m_alloc(std::size_t n)
 {
   return mem.m_alloc(n);
 }
 
-void * CleanMem::c_alloc(size_t n)
+void * CleanMem::c_alloc(std::size_t n)
 {
   return mem.c_alloc(n);
 }
@@ -67,28 +67,28 @@ void   CleanMem::free(void * p)
 {
   if (p)
   {
-    size_t n = mem.size(p);
-    memset(p,0,n);
+    std::size_t n = mem.size(p);
+    std::memset(p,0,n);
     mem.free(p);
   }
 }
 
-size_t CleanMem::size(const void * p) const
+std::size_t CleanMem::size(const void * p) const
 {
   return mem.size(p);
 }
 
-size_t CleanMem::bytes_used() const
+std::size_t CleanMem::bytes_used() const
 {
   return mem.bytes_used();
 }
 
-size_t CleanMem::init_page_size(size_t n) const
+std::size_t CleanMem::init_page_size(size_t n) const
 {
   return mem.init_page_size(n);
 }
 
-size_t CleanMem::max_size(size_t n) const
+std::size_t CleanMem::max_size(size_t n) const
 {
   return mem.max_size(n);
 }

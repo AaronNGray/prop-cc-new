@@ -12,7 +12,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <AD/strings/charesc.h>
 #include "codegen.h"
 #include "ir.h"
@@ -148,7 +148,7 @@ void CodeGen::gen_code(const char * code)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-std::ostream& CodeGen::outv( const char * fmt, va_list arg)
+std::ostream& CodeGen::outv( const char * fmt, std::va_list arg)
 {
   unsigned char c;
   while ((c = *fmt++) != 0)
@@ -178,7 +178,7 @@ std::ostream& CodeGen::outv( const char * fmt, va_list arg)
       case 's':
         {
           const char * s = va_arg( arg, const char *);
-          int len = strlen(s);
+          int len = std::strlen(s);
           (*output) << s;
           anchored = (s[len-1] == '\n');
         }
@@ -221,7 +221,7 @@ std::ostream& CodeGen::outv( const char * fmt, va_list arg)
     switch (e->tag__) {
       case a_Exp::tag_MARKEDexp: {
 #line 174 "../../prop-src/codegen.pcc"
-       pr ("%D", MARKEDdecl( _MARKEDexp(e)->_1, EXPdecl(_MARKEDexp(e)->_2))); 
+       pr ("%D", MARKEDdecl( _MARKEDstd::exp(e)->_1, EXPdecl(_MARKEDexp(e)->_2))); 
 #line 174 "../../prop-src/codegen.pcc"
         } break;
       default: {
@@ -270,7 +270,7 @@ std::ostream& CodeGen::outv( const char * fmt, va_list arg)
             if (p == TYbody)
             {
               pr ("%^const int len_;%^");
-              body_ty = mkarrayty( ty, LITERALexp( INTlit(0)));
+              body_ty = mkarrayty( ty, LITERALstd::exp( INTlit(0)));
             }
             else
             {
@@ -372,7 +372,7 @@ list_1_(integer_ty,list_1_(mkptrty(QUALty(QUALconst,ty))))
             if (! anchored)
               (*output) << '\n';
 #ifdef _MSC_VER
-			char *filename = new char[ strlen( f)];
+			char *filename = new char[ std::strlen( f)];
 
 			const char *s = f;
 			char *d = filename;
@@ -529,7 +529,7 @@ list_1_(integer_ty,list_1_(mkptrty(QUALty(QUALconst,ty))))
 
 std::ostream& CodeGen::pr( const char * fmt, ...)
 {
-  va_list arg;
+  std::va_list arg;
   va_start( arg, fmt);
   outv( fmt, arg);
   va_end( arg);

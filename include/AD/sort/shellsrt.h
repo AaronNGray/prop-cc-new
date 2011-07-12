@@ -29,7 +29,7 @@
 //
 //  Shell sort\cite{algo-hand-book}
 //
-//  e.g: shellSort(char *, names, 100, strcmp(key,names[i]) < 0);
+//  e.g: shellSort(char *, names, 100, std::strcmp(key,names[i]) < 0);
 //
 
 /////////////////////////////////////////////////////////////////////////////

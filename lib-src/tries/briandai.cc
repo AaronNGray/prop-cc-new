@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/tries/briandai.h>   // De la briandais tries
 
 typedef Briandais::Node   Node;
@@ -42,7 +42,7 @@ void Briandais::grow(int size)
   if (size > capacity)
   {
     Trie * new_nodes = new Trie [ size ];
-    memcpy(new_nodes, nodes, sizeof(Trie) * capacity);
+    std::memcpy(new_nodes, nodes, sizeof(Trie) * capacity);
     delete [] nodes;
     nodes = new_nodes;
     capacity = size;

@@ -24,7 +24,6 @@
 
 #include <iostream>
 #include <AD/rete/rete.h>         // RETE inference engine
-#include <AD/hash/lhash.h>        // coalesced chaining hash table
 #include <AD/contain/varqueue.h>  // generic queue
 #include <AD/memory/arena.h>      // arenas
 
@@ -51,6 +50,7 @@ unsigned int hash(Fact * f)
   return (unsigned int)f;
 }
 
+#include <AD/hash/lhash.h>        // coalesced chaining hash table
 /////////////////////////////////////////////////////////////////////////
 // A token
 /////////////////////////////////////////////////////////////////////////
@@ -69,7 +69,7 @@ public:
   //  Method to allocate a new token
   //////////////////////////////////////////////////////////////////////
   inline void * operator new
-  (size_t, Arena& arena, int n, RuleId id, Fact * f[], Age a)
+  (std::size_t, Arena& arena, int n, RuleId id, Fact * f[], Age a)
   {
     ReteToken * t = (ReteToken*) arena();
     t->arity = n;

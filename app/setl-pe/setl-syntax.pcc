@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include <cstdlib>
 #include "setl-lexeme.ph"
 #include "setl-syntax.ph"
 #include "setl-ast.ph"
@@ -10,7 +10,7 @@ syntax SETLSyntax
    left: 4 '+' '-';
    left: 5 ":=" "with" "less";
 
-   exp(Exp):	literal			{ $$ = LITexp($1); }
+   std::exp(Exp):	literal			{ $$ = LITexp($1); }
 	|	'(' exp ')'		{ $$ = $2; }
 	|	exp '+' exp
 	|	exp '-' exp
@@ -47,7 +47,7 @@ syntax SETLSyntax
 	|	string			{ $$ = STRINGlit($1); }
 	;
 
-   integer(int):	INTEGER		{ $$ = atol(lexer_buf.text()); };
+   integer(int):	INTEGER		{ $$ = std::atol(lexer_buf.text()); };
    real(double):	REAL;
    character(char):	CHARACTER;
    string(const char*): STRING;

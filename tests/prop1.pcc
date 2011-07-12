@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <iostream>
 #include <AD/strings/quark.h>
 
 datatype List<T> :: collectable rewrite = #[] | #[ T ... List<T> ];

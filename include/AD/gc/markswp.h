@@ -63,13 +63,13 @@ protected:
   ///////////////////////////////////////////////////////////////////////////
   //  The free lists and related info.
   ///////////////////////////////////////////////////////////////////////////
-  size_t      heap_size;       // bytes we own
-  size_t      heap_used;       // bytes used by the application
-  size_t      heap_free;       // bytes we have left
+  std::size_t      heap_size;       // bytes we own
+  std::size_t      heap_used;       // bytes used by the application
+  std::size_t      heap_free;       // bytes we have left
   Byte *      heap_pointer;    // a block of free memory
   Byte *      heap_limit;      // limit of this free block
   FreeList ** free_lists;      // free lists partitioned by object size
-  size_t      free_list_size;  // size of the free lists array
+  std::size_t      free_list_size;  // size of the free lists array
 
   ///////////////////////////////////////////////////////////////////////////
   //  Constructor and destructor
@@ -87,14 +87,14 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Methods to allocate and deallocate storage.
   ///////////////////////////////////////////////////////////////////////////
-  virtual void * m_alloc (size_t);
+  virtual void * m_alloc (std::size_t);
   virtual void   free    (void *);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Method to compute the minimal number of bytes to expand during
   //  a heap growth.
   ///////////////////////////////////////////////////////////////////////////
-  virtual size_t min_growth();
+  virtual std::size_t min_growth();
 
   ///////////////////////////////////////////////////////////////////////////
   //  Method to trace and scavenge objects.
@@ -106,7 +106,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   virtual void clear     ();
   virtual void collect   (int level = 0);
-  virtual void grow_heap (size_t);
+  virtual void grow_heap (std::size_t);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Accounting method

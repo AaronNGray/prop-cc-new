@@ -13,8 +13,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <stdlib.h>
+#include <cstring>
+#include <cstdlib>
 #include "parser.h"
 
 void PropParser::emit_doc()

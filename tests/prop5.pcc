@@ -2,8 +2,8 @@
 //  Test the view mechanism
 //
 
-#include <assert.h>
-#include <iostream.h>
+#include <cassert>
+#include <iostream>
 
 class Expression
 {
@@ -19,16 +19,16 @@ public:
 typedef Expression * Exp;
 
 int Expression::number() const 
-{ cerr << "unimplement Expression::number()\n"; exit(1); return 0; }
+{ cerr << "unimplement Expression::number()\n"; std::exit(1); return 0; }
 
 const char * Expression::ident() const 
-{ cerr << "unimplement Expression::ident()\n"; exit(1); return 0; }
+{ cerr << "unimplement Expression::ident()\n"; std::exit(1); return 0; }
 
 const Expression * Expression::child(int) const 
-{ cerr << "unimplement Expression::child(int) const\n"; exit(1); return 0; }
+{ cerr << "unimplement Expression::child(int) const\n"; std::exit(1); return 0; }
 
 Expression *& Expression::child(int) 
-{ cerr << "unimplement Expression::child(int)\n"; exit(1); 
+{ cerr << "unimplement Expression::child(int)\n"; std::exit(1); 
   static Expression * t = 0;
   return t; 
 }

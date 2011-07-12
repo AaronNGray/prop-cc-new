@@ -9,7 +9,7 @@
 //         -lad -liostream -lg++
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
+#include <iostream>
 
 datatype Number :: relation = num   (int);
 datatype Limit  :: relation = limit (int);

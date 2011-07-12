@@ -128,7 +128,7 @@ public:
 #line 33 "../../prop-src/bitfield.ph"
   Id id; Ids args; Exp guard; Exp exp; 
   inline a_FieldLaw (Id x_id, Ids x_args, Exp x_guard, Exp x_exp)
-   : id(x_id), args(x_args), guard(x_guard), exp(x_exp)
+   : id(x_id), args(x_args), guard(x_guard), std::exp(x_exp)
   {
   }
 };

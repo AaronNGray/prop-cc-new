@@ -55,7 +55,7 @@ case a_EXPR::tag_typed_exp: {
       } break;
 case a_EXPR::tag_ident_exp: {
 #line 45 "ty_setl.pcc"
-      return env[(_ident_exp(e)->ident_exp)];
+      return env[(_ident_std::exp(e)->ident_exp)];
       } break;
 case a_EXPR::tag_int_exp: {
 #line 46 "ty_setl.pcc"
@@ -79,28 +79,28 @@ case a_EXPR::tag_app_exp: {
       } break;
 case a_EXPR::tag_set_exp: {
 #line 51 "ty_setl.pcc"
-      return set_ty(infer((_set_exp(e)->set_exp),env));
+      return set_ty(infer((_set_std::exp(e)->set_exp),env));
       } break;
 case a_EXPR::tag_multiset_exp: {
 #line 52 "ty_setl.pcc"
-      return multiset_ty(infer((_multiset_exp(e)->multiset_exp),env));
+      return multiset_ty(infer((_multiset_std::exp(e)->multiset_exp),env));
       } break;
 case a_EXPR::tag_cons_exp:  break;
 case a_EXPR::tag_tuple_exp: {
 #line 53 "ty_setl.pcc"
-      return tuple_ty(infer((_tuple_exp(e)->tuple_exp),env));
+      return tuple_ty(infer((_tuple_std::exp(e)->tuple_exp),env));
       } break;
 case a_EXPR::tag_map_exp: {
 #line 54 "ty_setl.pcc"
-      return map_ty(infer((_map_exp(e)->map_exp),env));
+      return map_ty(infer((_map_std::exp(e)->map_exp),env));
       } break;
 case a_EXPR::tag_multimap_exp: {
 #line 55 "ty_setl.pcc"
-      return multimap_ty(infer((_multimap_exp(e)->multimap_exp),env));
+      return multimap_ty(infer((_multimap_std::exp(e)->multimap_exp),env));
       } break;
 case a_EXPR::tag_record_exp: {
 #line 56 "ty_setl.pcc"
-      return record_ty(infer((_record_exp(e)->record_exp),env));
+      return record_ty(infer((_record_std::exp(e)->record_exp),env));
       } break;
 case a_EXPR::tag_c_exp: {
 #line 57 "ty_setl.pcc"

@@ -1,6 +1,6 @@
-#include <stdlib.h>
-#include <iostream.h>
-#include <strstream.h>
+#include <cstdlib>
+#include <iostream>
+#include <std::strstream.h>
 #include <fstream.h>
 #include <AD/visualize/vcg.h>
 
@@ -64,7 +64,7 @@ public:
 int main()
 {
    VisualizeCFG V;
-   ostrstream S;
+   ostd::strstream S;
    const char * G = "A Sample Graph";
    const char * a = "a";
    const char * b = "b";
@@ -118,7 +118,7 @@ int main()
    ofstream TMP("./cfg.vcg");
    TMP << S.str();
    TMP.close();
-   system("xvcg ./cfg.vcg");
+   std::system("xvcg ./cfg.vcg");
 
    return 0;
 }

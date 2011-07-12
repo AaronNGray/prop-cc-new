@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <iostream>
 
 struct IA { void hasIA() {} };
 struct IB { void hasIB() {} };

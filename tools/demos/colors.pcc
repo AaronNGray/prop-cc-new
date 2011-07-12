@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 datatype Color = red | green | yellow | blue | brown 
                | black | white | grey | purple | orange;
 

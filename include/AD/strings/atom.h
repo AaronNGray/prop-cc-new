@@ -28,7 +28,7 @@
 //
 //  Like a |Quark|, class |Atom| represents atomic strings that
 //  adhere to the following identity:
-//      Atom(s1) == Atom(s2)   iff  strcmp(s1,s2)
+//      Atom(s1) == Atom(s2)   iff  std::strcmp(s1,s2)
 //
 //  This means that we can use pointer comparison on
 //  quarks where character comparison is necessary on
@@ -39,7 +39,7 @@
 //  is used to accomplish this.
 //
 
-#include <string>
+#include <cstring>
 #include <AD/generic/generic.h>
 
 class Atom
@@ -80,11 +80,11 @@ public:
   }
   friend Bool operator == (const Atom& x, const char * y)
   {
-    return strcmp(x.matter->name,y) == 0;
+    return std::strcmp(x.matter->name,y) == 0;
   }
   friend Bool operator == (const char * x, const Atom& y)
   {
-    return strcmp(x,y.matter->name) == 0;
+    return std::strcmp(x,y.matter->name) == 0;
   }
   friend Bool operator != (const Atom& x, const Atom& y)
   {
@@ -92,11 +92,11 @@ public:
   }
   friend Bool operator != (const Atom& x, const char * y)
   {
-    return strcmp(x.matter->name,y) != 0;
+    return std::strcmp(x.matter->name,y) != 0;
   }
   friend Bool operator != (const char * x, const Atom& y)
   {
-    return strcmp(x,y.matter->name) != 0;
+    return std::strcmp(x,y.matter->name) != 0;
   }
 
   friend unsigned int hash (const Atom&);

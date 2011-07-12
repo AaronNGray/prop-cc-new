@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <string>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <AD/persist/pstream.h>
 
@@ -31,11 +31,11 @@
 //  Constructors and destructor
 //////////////////////////////////////////////////////////////////////////////
 
-Piostream:: Piostream(iostream& s)
+Piostream:: Piostream(std::iostream& s)
     : Pistream(s), Postream(s)
 {}
 
-Piostream:: Piostream(iostream& s, Mem& m)
+Piostream:: Piostream(std::iostream& s, Mem& m)
     : Pistream(s,m), Postream(s)
 {}
 

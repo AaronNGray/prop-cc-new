@@ -26,7 +26,6 @@
 #include <AD/automata/lookahd.h>    // Lookahead set computation
 #include <AD/automata/firstset.h>   // Grammar analysis
 #include <AD/contain/varstack.h>    // Generic stack
-#include <AD/hash/lhash.h>          // Linear probing hash table
 #include <AD/contain/slnklist.h>    // Singly linked lists
 
 //////////////////////////////////////////////////////////////////////////////
@@ -68,6 +67,8 @@ inline unsigned int hash(Production P)
 {
   return (unsigned int)P;
 }
+
+#include <AD/hash/lhash.h>          // Linear probing hash table
 
 //////////////////////////////////////////////////////////////////////////////
 //  Internal implementation of class LookaheadSets.

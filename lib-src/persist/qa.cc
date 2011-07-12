@@ -1,6 +1,6 @@
 #include <AD/persist/pstream.h>
 #include <fstream.h>
-#include <strstream.h>
+#include <std::strstream.h>
 
 main()
 {

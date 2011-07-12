@@ -49,7 +49,7 @@ protected:
   ///////////////////////////////////////////////////////////////////////////
   //  Internal buffer and other members
   ///////////////////////////////////////////////////////////////////////////
-  size_t    buffer_size;  // size of the buffer
+  std::size_t    buffer_size;  // size of the buffer
   std::istream * input;        // input stream
 
 public:
@@ -70,9 +70,9 @@ protected:
   //  Default method for filling the buffer.
   //  This should be redefined in derive classes
   ///////////////////////////////////////////////////////////////////////////
-  virtual size_t fill_buffer();
-  virtual size_t read_buffer(char *, size_t);
-  void allocate_buffer(size_t);
+  virtual std::size_t fill_buffer();
+  virtual std::size_t read_buffer(char *, size_t);
+  void allocate_buffer(std::size_t);
 };
 
 #endif

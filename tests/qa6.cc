@@ -1,7 +1,7 @@
 //  Test tries stuff
 
-#include <assert.h>
-#include <stdio.h>
+#include <cassert>
+#include <cstdio>
 #include <AD/tries/briandai.h>
 #include <AD/tries/hashtrie.h>
 #include <AD/tries/patricia.h>

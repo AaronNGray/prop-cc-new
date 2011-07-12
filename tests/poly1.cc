@@ -370,7 +370,7 @@ inline EXP_var * _var(const a_EXP * _x_) { return (EXP_var *)_x_; }
 inline EXP_add * _add(const a_EXP * _x_) { return (EXP_add *)_x_; }
 inline EXP_sub * _sub(const a_EXP * _x_) { return (EXP_sub *)_x_; }
 inline EXP_mul * _mul(const a_EXP * _x_) { return (EXP_mul *)_x_; }
-inline EXP_div * _div(const a_EXP * _x_) { return (EXP_div *)_x_; }
+inline EXP_div * _std::div(const a_EXP * _x_) { return (EXP_div *)_x_; }
 inline EXP_list * _list(const a_EXP * _x_) { return (EXP_list *)_x_; }
 
 #line 26 "poly1.pcc"
@@ -607,9 +607,9 @@ PrettyOStream& operator << (PrettyOStream& strm__, EXP  obj__)
          break;
       case a_EXP::tag_div: 
          strm__ << "(";
-         strm__ << _div(obj__)->_1; // EXP
+         strm__ << _std::div(obj__)->_1; // EXP
          strm__ << " / ";
-         strm__ << _div(obj__)->_2; // EXP
+         strm__ << _std::div(obj__)->_2; // EXP
          strm__ << ")";
          break;
       case a_EXP::tag_list: 

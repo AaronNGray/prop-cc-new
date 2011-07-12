@@ -2,7 +2,7 @@
 //  Testing garbage collection with the rewriting features.
 //  This test is created by modifying rewriting.pcc in this directory
 //
-#include <iostream.h>
+#include <iostream>
 
 //
 //  Define an algebraic datatype.  Currently, rewriting can only be 
@@ -39,7 +39,7 @@ ostream& operator << (ostream& f, EXP e)
    |  add(a,b): { return f << '(' << a << " + " << b << ')'; }
    |  sub(a,b): { return f << '(' << a << " - " << b << ')'; }
    |  mul(a,b): { return f << '(' << a << " * " << b << ')'; }
-   |  div(a,b): { return f << '(' << a << " / " << b << ')'; }
+   |  std::div(a,b): { return f << '(' << a << " / " << b << ')'; }
    }
 }
 
@@ -106,9 +106,9 @@ void do_my_stuff()
       //
       // (0 + x * 2) / (1 * 5 + 1 * 3) / (0 / y);
       //
-      t1 = div(div(add(num(0), mul(var('x'),num(2))), 
+      t1 = std::div(div(add(num(0), mul(var('x'),num(2))), 
                    add(mul(num(1), num(5)),mul(num(1),num(3)))),
-               div(num(0),var('y')));
+               std::div(num(0),var('y')));
       term = mul(t1,t1);
 
       //

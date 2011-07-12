@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <math.h>
-#include <string>
+#include <iostream>
+#include <cmath>
+#include <cstring>
 #include <AD/numeric/vector.h>
 

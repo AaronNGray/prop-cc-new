@@ -31,7 +31,7 @@
 //  Insertion sort
 //
 //  e.g. insertionSort2(char *, int, names, salaries,
-//                      100, strcmp(key,names[i]) < 0);
+//                      100, std::strcmp(key,names[i]) < 0);
 //
 
 ///////////////////////////////////////////////////////////////////////////

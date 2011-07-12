@@ -27,7 +27,7 @@
 
 #include <iostream>
 #include <AD/generic/generic.h>
-#include <stdarg.h>
+#include <cstdarg>
 
 class VCG_Internal;
 

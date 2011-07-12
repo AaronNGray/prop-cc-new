@@ -25,7 +25,7 @@
 #ifndef character_set_h
 #define character_set_h
 
-#include <string>
+#include <cstring>
 #include <AD/generic/generic.h>
 
 class CharSet
@@ -44,7 +44,7 @@ public:
   // make it empty
   void clear()
   {
-    memset( array, 0, sizeof(array));
+    std::memset( array, 0, sizeof(array));
   }
   // Is `c' within set?
   Bool operator [] (char c) const

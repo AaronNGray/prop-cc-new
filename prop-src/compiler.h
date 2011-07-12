@@ -70,7 +70,7 @@ protected:
    ////////////////////////////////////////////////////////////////////////////
    void            gen     (Decl, Bool = true, Bool = true);
    void            gen     (Decls);
-   virtual va_list printer (char, va_list);
+   virtual std::va_list printer (char, va_list);
 };
 
 #endif

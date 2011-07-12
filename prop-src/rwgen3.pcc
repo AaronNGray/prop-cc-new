@@ -190,13 +190,13 @@ void RewritingCompiler::gen_closure( FunctorMap& F, Id rhs, MatchRules rules)
       Exp cost_exp;
       match (cost)
       {
-        NOcost:        { cost_exp = LITERALexp(INTlit(0)); }
-      | INTcost i:     { cost_exp = LITERALexp(INTlit(i)); }
+        NOcost:        { cost_exp = LITERALstd::exp(INTlit(0)); }
+      | INTcost i:     { cost_exp = LITERALstd::exp(INTlit(i)); }
       | EXPcost (e,_):
         {  // Avoid recomputation of cost
           Id v = vars.new_label();
           pr ("%^const int %s = %e;", v, e);
-          cost_exp = IDexp(v);
+          cost_exp = IDstd::exp(v);
         }
       }
       int nonterm_number = int(F.var_map[lhs]);
@@ -319,7 +319,7 @@ void RewritingCompiler::gen_dynamic_traversals( FunctorMap& F, Ty ty)
   }
 
   MatchRules rules = MatchRules( F.rule_map[ty]);
-  MatchExps  exps  = #[ MATCHexp( IDexp("redex"), 0) ];
+  MatchExps  exps  = #[ MATCHstd::exp( IDexp("redex"), 0) ];
   rules = rev( rules);
   gen_match_stmt( exps, rules,
      MATCHnocheck + MATCHnotrace + MATCHall + MATCHwithtreecost);
@@ -570,7 +570,7 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
     {
       Cons cons = terms[k];
       Ty arg_ty = apply_ty(cons->cons_ty,tys);
-      Exp e     = select(IDexp("redex"),cons);
+      Exp e     = select(IDstd::exp("redex"),cons);
 	  if (cons->ty == NOty)
       {
         error("%Ltree parsing mode cannot be used on datatype with unit constructors: %T\n", alg_ty);
@@ -585,7 +585,7 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
           for_each(Ty, t, tys)
           {
             if (Fmap->is_rewritable_type(t))
-              pr("%^labeler(%e);", DOTexp(e,index_of(i))); i++;
+              pr("%^labeler(%e);", DOTstd::exp(e,index_of(i))); i++;
           }
         }
       | RECORDty (labels,_,ts):
@@ -594,7 +594,7 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
           for (ids = labels; ids && ts; ids = ids->#2, tys = tys->#2)
           {
             if (Fmap->is_rewritable_type(tys->#1))
-              pr( "%^labeler(%e);", DOTexp(e,ids->#1));
+              pr( "%^labeler(%e);", DOTstd::exp(e,ids->#1));
           }
         }
       | ty: { if (Fmap->is_rewritable_type(ty)) pr("%^labeler(%e);",e); }
@@ -632,11 +632,11 @@ void RewritingCompiler::gen_treecost_match( Match m, const BitSet * set,
           Exp cost_exp;
           match (cost)
           {
-            NOcost:        { cost_exp = LITERALexp(INTlit(0)); }
-          | INTcost i:     { cost_exp = LITERALexp(INTlit(i)); }
+            NOcost:        { cost_exp = LITERALstd::exp(INTlit(0)); }
+          | INTcost i:     { cost_exp = LITERALstd::exp(INTlit(i)); }
           | EXPcost (e,_):
             {
-              cost_exp = IDexp(vars.new_label());
+              cost_exp = IDstd::exp(vars.new_label());
               pr("%^int %e = %e;",cost_exp,e);
             }
           }

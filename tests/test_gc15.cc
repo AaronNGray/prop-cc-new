@@ -10,10 +10,10 @@
 //  information since we'll have do some poking around with the heap.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
+#include <cassert>
 #include <unistd.h>
-#include <stdlib.h>
-#include <iostream.h>
+#include <cstdlib>
+#include <iostream>
 #include <AD/gc/bgc.h>
 #include <AD/gc/gcobject.h>
 #include <AD/gc/gcheaps.h>
@@ -77,11 +77,11 @@ void do_some_stuff()
 {  
    LIST * x  = 0; 
 
-   srand(getpid());
+   std::srand(getpid());
 
    // Allocate a list
    for (int i = 0; i < LENGTH; i++) {
-      int l = rand() % JUNK;
+      int l = std::rand() % JUNK;
       x = new (sizeof(LIST) + (l-1) * sizeof(int)) LIST (x,i / UNIT + 'a', l);
       // The following line generates some garbage.
       new (sizeof(LIST) + (l-1) * sizeof(int)) LIST (x, i / UNIT + 'a', l);  

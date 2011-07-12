@@ -64,7 +64,7 @@ public:
 //  Memory management methods
 //////////////////////////////////////////////////////////////////////////////
 
-void * UserHeap::m_alloc( size_t n)
+void * UserHeap::m_alloc( std::size_t n)
 {
   DummyVarLenGCObject * obj =
     new (n + sizeof(DummyVarLenGCObject) - sizeof(int),
@@ -72,7 +72,7 @@ void * UserHeap::m_alloc( size_t n)
   return obj->memory;
 }
 
-void * UserHeap::c_alloc( size_t n)
+void * UserHeap::c_alloc( std::size_t n)
 {
   DummyVarLenGCObject * obj =
     new (n + sizeof(DummyVarLenGCObject) - sizeof(int),

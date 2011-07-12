@@ -30,7 +30,7 @@
 //  linear hashing scheme\cite{Algorithms}.
 ////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/generic/ordering.h>
 
 ////////////////////////////////////////////////////////////////////////////
@@ -243,7 +243,7 @@ void LHashTable<K,V>::operator = (const LHashTable<K,V>& t)
 template <class K, class V>
 void LHashTable<K,V>::clear()
 {
-  memset(status,0,table_size);
+  std::memset(status,0,table_size);
   elem_count = 0;
   delete_count = 0;
 }
@@ -351,7 +351,7 @@ void LHashTable<K,V>::resize(int new_size)
   K    *         new_keys     = new K    [ new_size ];
   V    *         new_values   = new V    [ new_size ];
   unsigned int * new_hashvals = new unsigned int [ new_size ];
-  memset(new_status,0,new_size);
+  std::memset(new_status,0,new_size);
 
   //////////////////////////////////////////////////////////////////
   //  Rehash all used cells one by one.  Notice that since all keys

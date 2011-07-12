@@ -57,20 +57,20 @@ protected:
 
   Page * pages;
 
-  size_t pageSize;             // size of a page
+  std::size_t pageSize;             // size of a page
   char * next;                 // next available location in pool
   char * limit;                // limit to current page
   long   bytes_reserved;       // bytes allocated
 
-  virtual void grow(size_t);
+  virtual void grow(std::size_t);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Constructor and destructor
   ///////////////////////////////////////////////////////////////////////////
 
 public:
-  StringPool(size_t pageSize = 4096);
-  StringPool(Mem&, size_t pageSize = 4096);
+  StringPool(std::size_t pageSize = 4096);
+  StringPool(Mem&, std::size_t pageSize = 4096);
   ~StringPool();
 
   ///////////////////////////////////////////////////////////////////////////
@@ -92,12 +92,12 @@ public:
   //  Virtual methods for the basic protocol
   ///////////////////////////////////////////////////////////////////////////
   virtual void   clear   ();
-  virtual void * m_alloc (size_t n)
+  virtual void * m_alloc (std::size_t n)
   {
     return (*this)[n];
   }
   virtual void   free    (void *);
-  virtual size_t bytes_used () const;
+  virtual std::size_t bytes_used () const;
 };
 
 #endif

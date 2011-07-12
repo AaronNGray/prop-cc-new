@@ -62,11 +62,11 @@ class DCHashTable
   //////////////////////////////////////////////////////////////////////
   // Is the link really a link?
   //////////////////////////////////////////////////////////////////////
-  inline friend Bool   is_link(const Link * l)
+  inline static Bool is_link(const Link * l)
   {
     return (((unsigned long)l) & 1) == 0;
   }
-  inline friend Link * make_anchor(Link ** l)
+  inline static Link * make_anchor(Link ** l)
   {
     return (typename DCHashTable<K,V>::Link*)(((unsigned long)l)|1);
   }

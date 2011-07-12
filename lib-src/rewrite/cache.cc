@@ -21,7 +21,7 @@
 // Allen Leung (leunga@cs.nyu.edu)
 // 1994-1997
 //////////////////////////////////////////////////////////////////////////////
-#include <string>
+#include <cstring>
 #include <AD/rewrite/cache.h>
 
 RewriteCache::RewriteCache() : the_cache(0), the_capacity(0) {}
@@ -36,7 +36,7 @@ void RewriteCache::clear()
 {
   if (the_cache)
   {  // for the benefit of the GC
-    memset(the_cache,0,sizeof(Table) * the_capacity);
+    std::memset(the_cache,0,sizeof(Table) * the_capacity);
     delete [] the_cache;
   }
 }
@@ -49,7 +49,7 @@ void RewriteCache::initialize()
       the_capacity = 1023;
     the_cache = new Table [the_capacity];
   }
-  memset(the_cache,0,sizeof(Table) * the_capacity);
+  std::memset(the_cache,0,sizeof(Table) * the_capacity);
 }
 
 void RewriteCache::initialize(int c)

@@ -22,10 +22,10 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <ctype.h>
-#include <string>
-#include <stdlib.h>
+#include <cassert>
+#include <cctype>
+#include <cstring>
+#include <cstdlib>
 #include <iostream>
 #include <AD/strings/str.h>
 #include <AD/strings/regexp.h>
@@ -35,7 +35,7 @@
 // Allocator for the string objects
 ///////////////////////////////////////////////////////////////////////////////
 
-void * StringImpl::operator new(size_t, const char * s, size_t len, size_t cap)
+void * StringImpl::operator new(std::size_t, const char * s, size_t len, size_t cap)
 {}
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -53,21 +53,21 @@ String:: String()
     : impl(empty_string ? empty_string : make_empty_string())
 {}
 
-String:: String(size_t initial_capacity)
+String:: String(std::size_t initial_capacity)
     : impl(new StringImpl(initial_capacity, 0))
 {}
 
-String:: String(char c, size_t times)
+String:: String(char c, std::size_t times)
     : impl(new StringImpl(times+1,times))
 {
-  memset(impl->string,c,times);
+  std::memset(impl->string,c,times);
   impl->string[times] = '\0';
 }
 
 String:: String(const char * s, int len)
     : impl(new StringImpl(len+1,len))
 {
-  memcpy(impl->string,s,len);
+  std::memcpy(impl->string,s,len);
   impl->string[len] = '\0';
 }
 
@@ -78,9 +78,9 @@ String:: String(const char * s, int len)
 String& String::operator = (const char * s)
 {
   impl->dec_ref();
-  int len = strlen(s);
+  int len = std::strlen(s);
   impl = new StringImpl(len+1,len);
-  strcpy(impl->string,s);
+  std::strcpy(impl->string,s);
   return *this;
 }
 
@@ -116,32 +116,32 @@ String String::right( int length) const
 
 String operator + (const String& a, const String& b)
 {
-  size_t new_len = a.impl->len + b.impl->len;
+  std::size_t new_len = a.impl->len + b.impl->len;
   StringImpl s = new StringImpl(new_len+1,new_len);
-  memcpy(s->string,a.impl->string,a.impl->len);
-  memcpy(s->string + a.impl->len, b.impl->string, b.impl->len);
+  std::memcpy(s->string,a.impl->string,a.impl->len);
+  std::memcpy(s->string + a.impl->len, b.impl->string, b.impl->len);
   s->string[new_len] = '\0';
   return s;
 }
 
 String operator + (const String& a, const char * b)
 {
-  size_t b_len   = strlen(b);
-  size_t new_len = a.impl->len + len;
+  std::size_t b_len   = strlen(b);
+  std::size_t new_len = a.impl->len + len;
   StringImpl s = new StringImpl(new_len+1,new_len);
-  memcpy(s->string,a.impl->string,a.impl->len);
-  memcpy(s->string + a.impl->len, b, b_len);
+  std::memcpy(s->string,a.impl->string,a.impl->len);
+  std::memcpy(s->string + a.impl->len, b, b_len);
   s->string[new_len] = '\0';
   return s;
 }
 
 String operator + (const char * a, const String& b)
 {
-  size_t a_len   = strlen(a);
-  size_t new_len = a_len + b.impl->len;
+  std::size_t a_len   = strlen(a);
+  std::size_t new_len = a_len + b.impl->len;
   StringImpl s = new StringImpl(new_len+1,new_len);
-  memcpy(s->string,a,a_len);
-  memcpy(s->string + a_len, b.impl->string, b.impl->len);
+  std::memcpy(s->string,a,a_len);
+  std::memcpy(s->string + a_len, b.impl->string, b.impl->len);
   s->string[new_len] = '\0';
   return s;
 }
@@ -152,8 +152,8 @@ String operator + (const char * a, const String& b)
 
 String String::operator * (int times) const
 {
-  size_t my_length  = length();
-  size_t new_length = my_length * times;
+  std::size_t my_length  = length();
+  std::size_t new_length = my_length * times;
   StringImpl * s = new StringImpl(new_length+1,new_length);
   int i;
   char * p, * q;
@@ -174,7 +174,7 @@ String String::operator * (int times) const
 String& String::operator += (const String& s)
 {
   copy_on_write (s.impl->len);
-  memcpy(impl->string + impl->len, s->impl->string, s.impl->len);
+  std::memcpy(impl->string + impl->len, s->impl->string, s.impl->len);
   impl->len += s.impl->len;
   impl->string[impl->len] = '\0';
   return *this;
@@ -190,9 +190,9 @@ String& String::operator += (char c)
 
 String& String::operator += (const char * s)
 {
-  size_t len = strlen(s);
+  std::size_t len = strlen(s);
   copy_on_write (len);
-  memcpy(impl->string + len, s->impl->string, len);
+  std::memcpy(impl->string + len, s->impl->string, len);
   impl->len += len;
   impl->string[impl->len] = '\0';
   return *this;

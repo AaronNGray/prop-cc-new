@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <string>
+#include <iostream>
+#include <cstring>
 #include <AD/automata/ll1gen.h>   // LL(1) parser generator
 #include <AD/automata/follow.h>   // Follow set computation
 #include <AD/memory/mempool.h>    // Memory pool

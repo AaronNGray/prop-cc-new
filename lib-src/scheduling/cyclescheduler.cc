@@ -43,5 +43,5 @@ void CycleScheduler::list_schedule()
   PriQueue<Ranking> ready;
   PriQueue<Ranking> waiting;
 
-  Time t = start_time();
+  Time t = start_std::time();
 }

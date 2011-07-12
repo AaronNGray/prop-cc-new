@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stddef.h>
-#include <string>
+#include <cstddef>
+#include <cstring>
 #include <AD/strings/bm.h>
 
 BoyerMoore::~BoyerMoore()
@@ -44,13 +44,13 @@ void BoyerMoore::compile( const char* pattern, int len)
   ps = NULL;
   pat = NULL;
   if (len < 0)
-    len = strlen(pattern);
+    len = std::strlen(pattern);
   if ( (patternLength = len) > 0)
   {
     register int i, w, c;
 
     pat = new char [patternLength];
-    memcpy(pat,pattern,patternLength);
+    std::memcpy(pat,pattern,patternLength);
     ps = new int [patternLength];
 
     //
@@ -94,7 +94,7 @@ void BoyerMoore::compile( const char* pattern, int len)
 int BoyerMoore::Match( register const char* text, int length) const
 {
   if (length < 0)
-    length = strlen(text);
+    length = std::strlen(text);
   register int limit = length - patternLength;
   register int pos;
   for ( pos = 0; pos <= limit; )

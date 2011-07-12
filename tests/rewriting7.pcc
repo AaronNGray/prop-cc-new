@@ -4,7 +4,7 @@
 //  formulas using rewriting.  We'll use topdown rules for this.
 //
 ///////////////////////////////////////////////////////////////////////////////
-#include <iostream.h>
+#include <iostream>
 #include <AD/strings/quark.h>
 #include <AD/generic/generic.h>
 
@@ -31,12 +31,12 @@ Bool is_free (Id id, Wff wff)
 {  match (wff)
    {  T || F:         { return true; }
    |  Var x:          { return id != x; }
-   |  And(a,b):       { return is_free(id,a) && is_free(id,b); }
-   |  Or(a,b):        { return is_free(id,a) && is_free(id,b); }
-   |  Implies(a,b):   { return is_free(id,a) && is_free(id,b); }
-   |  Not a:          { return is_free(id,a); }
-   |  Exists(a,b):    { return a == id || is_free(id,b); }
-   |  Forall(a,b):    { return a == id || is_free(id,b); }
+   |  And(a,b):       { return is_std::free(id,a) && is_free(id,b); }
+   |  Or(a,b):        { return is_std::free(id,a) && is_free(id,b); }
+   |  Implies(a,b):   { return is_std::free(id,a) && is_free(id,b); }
+   |  Not a:          { return is_std::free(id,a); }
+   |  Exists(a,b):    { return a == id || is_std::free(id,b); }
+   |  Forall(a,b):    { return a == id || is_std::free(id,b); }
    |  Predicate(_,l): { Ids ids = l;
 			match while (ids)
 			{  #():                  { return true; }
@@ -63,12 +63,12 @@ void transform(Wff wff)
    |  Exists(x,Not(P)):  Not(Forall(x,P))
    |  Forall(x,And(P,Q)): And(Forall(x,P),Forall(x,Q))
    |  Exists(x,Or(P,Q)):  Or(Exists(x,P),Exists(x,Q))
-   |  Exists(x,And(P,Q)) | is_free(x,Q): And(Exists(x,P),Q)
-   |  Exists(x,And(P,Q)) | is_free(x,P): And(P,Exists(x,Q))
-   |  Forall(x,Or(P,Q))  | is_free(x,Q): Or(Forall(x,P),Q)
-   |  Forall(x,Or(P,Q))  | is_free(x,P): Or(P,Forall(x,Q))
-   |  Forall(x,P) | is_free(x,P): P
-   |  Exists(x,P) | is_free(x,P): P
+   |  Exists(x,And(P,Q)) | is_std::free(x,Q): And(Exists(x,P),Q)
+   |  Exists(x,And(P,Q)) | is_std::free(x,P): And(P,Exists(x,Q))
+   |  Forall(x,Or(P,Q))  | is_std::free(x,Q): Or(Forall(x,P),Q)
+   |  Forall(x,Or(P,Q))  | is_std::free(x,P): Or(P,Forall(x,Q))
+   |  Forall(x,P) | is_std::free(x,P): P
+   |  Exists(x,P) | is_std::free(x,P): P
 
    |  Or(T, _):    T
    |  Or(_, T):    T

@@ -22,9 +22,9 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <stdlib.h>
-#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
 #include <unistd.h>
 #include <sys/types.h>
 #include <AD/gc/gcconfig.h>  // system configuration
@@ -74,7 +74,7 @@ GC:: GC()
   if (number_of_collectors >= GC_MAX_NUMBER_OF_COLLECTORS)
   {
     error ("Number of collectors exceeded the hard limit");
-    exit(1);
+    std::exit(1);
   }
   for (id = 1; id < GC_MAX_NUMBER_OF_COLLECTORS; id++)
   {
@@ -109,12 +109,12 @@ void GC::free(void * /* obj */)
 //  We assume all subclasses already initialize memory to zeros.
 //////////////////////////////////////////////////////////////////////////////
 
-void * GC::c_alloc(size_t n)
+void * GC::c_alloc(std::size_t n)
 {
   return m_alloc(n);
 }
 
-void * GC::m_alloc(size_t)
+void * GC::m_alloc(std::size_t)
 {
   error("m_alloc() is unimplemented");
   return 0;
@@ -171,10 +171,10 @@ void GC::set_gc_ratio( int r)
   gc_ratio = r;
 }
 
-void GC::set_initial_heap_size( size_t)
+void GC::set_initial_heap_size( std::size_t)
 {}
 
-void GC::set_min_heap_growth( size_t)
+void GC::set_min_heap_growth( std::size_t)
 {}
 
 //////////////////////////////////////////////////////////////////////////////
@@ -210,7 +210,7 @@ void GC::error( const char * message) const
     f = &get_console();
   else
     f = &std::cerr;
-  (*f) << '[' << my_name() << ": " << message << "]\n" << flush;
+  (*f) << '[' << my_name() << ": " << message << "]\n" << std::flush;
 }
 
 //////////////////////////////////////////////////////////////////////////////

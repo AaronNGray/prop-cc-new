@@ -4,8 +4,8 @@
 //  Garbage collection should preserve the shape of the list.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <assert.h>
+#include <iostream>
+#include <cassert>
 #include <AD/gc/gc.h>
 #include <AD/gc/gcobject.h>
 #include <AD/gc/gcheaps.h>

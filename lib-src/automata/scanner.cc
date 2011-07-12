@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <string>
+#include <cstdlib>
+#include <cstring>
 #include <AD/automata/scanner.h>
 
 /////////////////////////////////////////////////////////////////////////////
@@ -75,7 +75,7 @@ int LexScanner::fill_buffer( std::istream& stream, int read_size, LexScanner::Op
       new_capacity += new_capacity / 2;
     char * new_buffer = new char [new_capacity];
     if (buffer)
-      memcpy(new_buffer,buffer,chars_left);
+      std::memcpy(new_buffer,buffer,chars_left);
     delete [] buffer;
     buffer     = new_buffer;
     limit      = buffer + new_capacity;
@@ -135,5 +135,5 @@ void LexScanner::error( const char file_name[], int line_number)
     *read_limit = '\0';
     std::cerr << "\nJammed: remaining input: \"" << cursor << "\"\n";
   }
-  exit(1);
+  std::exit(1);
 }

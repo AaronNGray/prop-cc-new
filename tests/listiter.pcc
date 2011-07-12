@@ -4,7 +4,7 @@
 #include <prop/list.h>
 #include <AD/stl/algorithm.h>
 #include <AD/stl/streamiter.h>
-#include <iostream.h>
+#include <iostream>
 
 datatype LIST<T> = #[] | #[ T ... LIST<T> ];
 

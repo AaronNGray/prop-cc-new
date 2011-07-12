@@ -26,7 +26,7 @@
 #define memory_manager_base_class_h
 
 #include <new>
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/generic/generic.h>
 
 
@@ -63,8 +63,8 @@ public:
   //  STL style type definitions
   ///////////////////////////////////////////////////////////////////////////
 
-  typedef size_t    size_type;
-  typedef ptrdiff_t difference_type;
+  typedef std::size_t    size_type;
+  typedef std::ptrdiff_t difference_type;
 
   ///////////////////////////////////////////////////////////////////////////
   //  Name of the memory manager
@@ -92,25 +92,25 @@ public:
 
   ///////////////////////////////////////////////////////////////////////////
   //  Memory allocation/deallocation.
-  //    The names malloc() and calloc() have been changed to
+  //    The names std::malloc() and calloc() have been changed to
   //    m_alloc() and c_alloc() respectively to avoid name conflict with
-  //    GNU <stdlib.h> macros definitions.
+  //    GNU <cstdlib> macros definitions.
   ///////////////////////////////////////////////////////////////////////////
 
   virtual void   clear   ();                   // release all the memory within
-  virtual void * m_alloc (size_t);             // acquire a block of memory of size n
-  virtual void * c_alloc (size_t);             // acquire and initialize to 0's
+  virtual void * m_alloc (std::size_t);             // acquire a block of memory of size n
+  virtual void * c_alloc (std::size_t);             // acquire and initialize to 0's
   virtual void   free    (void *);             // release the memory
-  virtual size_t size    (const void *) const; // returns the size of a block
-  virtual size_t bytes_used () const;          // returns the amount of storage used
+  virtual std::size_t size    (const void *) const; // returns the size of a block
+  virtual std::size_t bytes_used () const;          // returns the amount of storage used
 
   ///////////////////////////////////////////////////////////////////////////
   //  Additional STL style protocol
   ///////////////////////////////////////////////////////////////////////////
   // optimal buffer(page) size for an object of size n
-  virtual size_t init_page_size(size_t n) const;
+  virtual std::size_t init_page_size(size_t n) const;
   // maximum capacity for an object of size n
-  virtual size_t max_size(size_t n)       const;
+  virtual std::size_t max_size(size_t n)       const;
 
   ///////////////////////////////////////////////////////////////////////////
   //   Miscellaneous
@@ -124,22 +124,22 @@ public:
 //  Allocate memory from mem using the operator new.
 //////////////////////////////////////////////////////////////////////////////
 
-inline void* operator new (size_t n, Mem& mem)
+inline void* operator new (std::size_t n, Mem& mem)
 {
   return mem.m_alloc(n);
 }
 
-inline void* operator new (size_t n, Mem& mem, size_t m)
+inline void* operator new (std::size_t n, Mem& mem, size_t m)
 {
   return mem.m_alloc(n * m);
 }
 
-inline void* operator new (size_t n, Mem * mem)
+inline void* operator new (std::size_t n, Mem * mem)
 {
   return mem->m_alloc(n);
 }
 
-inline void* operator new (size_t n, Mem * mem, size_t m)
+inline void* operator new (std::size_t n, Mem * mem, size_t m)
 {
   return mem->m_alloc(n * m);
 }

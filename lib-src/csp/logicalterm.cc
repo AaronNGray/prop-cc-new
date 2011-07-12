@@ -22,25 +22,25 @@
 // 1994-1996
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <stdlib.h>
+#include <iostream>
+#include <cstdlib>
 #include <AD/csp/trail.h>
 #include <AD/csp/logicalterm.h>
 
 void LogicalTerm::uninstantiate()
 {
   std::cerr << "LogicalTerm::uninstantiated() is undefined\n";
-  exit(1);
+  std::exit(1);
 }
 Bool LogicalTerm::is_instantiable() const
 {
   std::cerr << "LogicalTerm::is_instantiable() is undefined\n";
-  exit(1);
+  std::exit(1);
   return false;
 }
 Bool LogicalTerm::is_instantiated() const
 {
   std::cerr << "LogicalTerm::is_instantiated() is undefined\n";
-  exit(1);
+  std::exit(1);
   return false;
 }

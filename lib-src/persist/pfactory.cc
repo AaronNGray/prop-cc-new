@@ -22,9 +22,9 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
+#include <cassert>
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/persist/ptype.h>
 #include <AD/persist/ptypeentry.h>
 #include <AD/persist/pfactory.h>
@@ -67,7 +67,7 @@ PObject* PBaseFactory::create_object( const PObjectType& id)
   else
   {
     std::cerr << "Object factory for typeid " << id << " is undefined\n";
-    exit(1);
+    std::exit(1);
   }
   return 0;
 }

@@ -71,7 +71,7 @@ struct TreePat
   }
 
   void * operator new
-  (size_t, MemPool& p, Functor f, Arity n = 0, TreePat * s[] = 0)
+  (std::size_t, MemPool& p, Functor f, Arity n = 0, TreePat * s[] = 0)
   {
     TreePat * t =
       (TreePat*)p.m_alloc(sizeof(TreePat) + (n-1) * sizeof(TreePat*));

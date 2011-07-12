@@ -121,7 +121,7 @@ ranges Exps:	id		{ $$ = #[ID($1)]; }
 |		id "," ranges	{ $$ = #[ID($1) ... $3]; }
 ;
 
-integer int:	INTEGER	{ $$ = atol(lexbuf.text()); }
+integer int:	INTEGER	{ $$ = std::atol(lexbuf.text()); }
 ;
 
 boolean Bool:	"true"	{ $$ = true; }

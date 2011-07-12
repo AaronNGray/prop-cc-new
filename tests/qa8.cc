@@ -1,7 +1,7 @@
 //  Test some container stuff
 
-#include <stdio.h>
-#include <assert.h>
+#include <cstdio>
+#include <cassert>
 #include <AD/contain/array.h>     // Arrays
 #include <AD/contain/arraycol.h>  // Array collections
 #include <AD/contain/charset.h>   // Set of ASCII characters

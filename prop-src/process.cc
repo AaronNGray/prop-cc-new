@@ -14,10 +14,10 @@
 //
 #include <iostream>
 #include <fstream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdarg.h>
-#include <string>
+#include <cstdlib>
+#include <cstdio>
+#include <cstdarg>
+#include <cstring>
 #include "config.h"
 #include "compiler.h"
 #include "type.h"
@@ -61,7 +61,7 @@ void   MEM::use_local_pools()
     current_pool = &mem_pool;
 }
 
-void * MEM::operator new( size_t n)
+void * MEM::operator new( std::size_t n)
 {
   return (*current_pool)[n];
 }
@@ -103,10 +103,10 @@ void Loc::set_loc() const
   file = file_name;
 }
 
-const char * my_strrchr( const char * s, char c)
+const char * my_std::strrchr( const char * s, char c)
 {
   register const char * p;
-  for (p = s + strlen(s) - 1; p != s; p--)
+  for (p = s + std::strlen(s) - 1; p != s; p--)
     if (*p == c)
       return p;
   return 0;
@@ -121,23 +121,23 @@ const char * my_strrchr( const char * s, char c)
 void PropOptions::compute_output_file_name()
 {  // Locate the . in the file name and
   // Cut out the directory prefix.
-  const char * dot   = my_strrchr(input_file_name,'.');
-  const char * slash = my_strrchr(input_file_name,PATH_SEPARATOR);
+  const char * dot   = my_std::strrchr(input_file_name,'.');
+  const char * slash = my_std::strrchr(input_file_name,PATH_SEPARATOR);
   if (dot == 0 || ! (dot[1] == 'p' || dot[1] == 'P'))
   {
     std::cerr << '"' << input_file_name
     << "\" is not a valid source file name.  "
     "It must be of the form \"*.p*\".\n";
-    exit(1);
+    std::exit(1);
   }
   if (slash == 0)
     slash = input_file_name-1;
-  memcpy(file_prefix, slash+1, dot - slash);
+  std::memcpy(file_prefix, slash+1, dot - slash);
   file_prefix[dot - slash] = '\0';
   if (output_file_name[0] == '\0')
   {
-    strcpy(output_file_name,file_prefix);
-    strcat(output_file_name, dot+2);
+    std::strcpy(output_file_name,file_prefix);
+    std::strcat(output_file_name, dot+2);
   }
   encode_string(mangled_file_prefix,file_prefix);
   encode_string(mangled_file_name,output_file_name);
@@ -367,7 +367,7 @@ int process_input( PropOptions& options)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-std::ostream& pr_msg( const char * fmt, va_list arg)
+std::ostream& pr_msg( const char * fmt, std::va_list arg)
 {
   if (error_log == 0)
     error_log = new Compiler(0,0);
@@ -382,7 +382,7 @@ std::ostream& pr_msg( const char * fmt, va_list arg)
 
 std::ostream& msg( const char * fmt, ...)
 {
-  va_list arg;
+  std::va_list arg;
   va_start(arg,fmt);
   std::ostream& f = pr_msg(fmt,arg);
   va_end(arg);
@@ -397,7 +397,7 @@ std::ostream& msg( const char * fmt, ...)
 
 std::ostream& debug_msg( const char * fmt, ...)
 {
-  va_list arg;
+  std::va_list arg;
   va_start(arg,fmt);
   if (options.debug)
     pr_msg(fmt,arg);
@@ -413,7 +413,7 @@ std::ostream& debug_msg( const char * fmt, ...)
 
 std::ostream& error( const char * fmt, ...)
 {
-  va_list arg;
+  std::va_list arg;
   va_start(arg,fmt);
   std::ostream& f = pr_msg(fmt,arg);
   errors++;
@@ -429,7 +429,7 @@ std::ostream& error( const char * fmt, ...)
 
 void bug( const char * fmt, ...)
 {
-  va_list arg;
+  std::va_list arg;
   va_start(arg,fmt);
   msg("%Lbug: ");
   pr_msg(fmt,arg);
@@ -456,7 +456,7 @@ std::istream * PropOptions::open_input_file( const char file_name[])
       *q++ = *p++;
     *q++ = PATH_SEPARATOR;
     *q = '\0';
-    strcat(current_file_path,file_name);
+    std::strcat(current_file_path,file_name);
     debug_msg("[Opening file %s]\n",current_file_path);
     std::ifstream * f = new std::ifstream(current_file_path);
     if (*f)
@@ -478,7 +478,7 @@ std::ostream * open_output_file( const char file_name[])
   if (! *F)
   {
     perror(file_name);
-    exit(1);
+    std::exit(1);
   }
   return F;
 }
@@ -501,8 +501,8 @@ std::ostream& open_logfile()
   else
   {
     char log_file_name[256];
-    strcpy(log_file_name,options.file_prefix);
-    strcat(log_file_name,"report");
+    std::strcpy(log_file_name,options.file_prefix);
+    std::strcat(log_file_name,"report");
     log_stream = open_output_file(log_file_name);
     return *log_stream;
   }

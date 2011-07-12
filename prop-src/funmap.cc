@@ -142,8 +142,8 @@ int decor_rewrite( Pat pat, int rule, int kid, PatternVarEnv& E)
 #line 96 "../../prop-src/funmap.pcc"
          + _ASpat(pat)->_1;
           Ty ty = mkvar();
-          E.add( attrib_name, SYNexp( kid, rule, mkvar(), true), ty, ISpositive);
-          E.add( cost_name, COSTexp(kid),  ty, ISpositive);
+          E.add( attrib_name, SYNstd::exp( kid, rule, mkvar(), true), ty, ISpositive);
+          E.add( cost_name, COSTstd::exp(kid),  ty, ISpositive);
           kid = kid+1;
           pat = _ASpat(pat)->_2;
           
@@ -233,14 +233,14 @@ int decor_rewrite( Pat pat, int rule, PatternVarEnv& E)
 cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q3
 #line 129 "../../prop-src/funmap.pcc"
 #line 129 "../../prop-src/funmap.pcc"
-, THISSYNexp(rule,mkvar(),true), ty, ISpositive);
+, THISSYNstd::exp(rule,mkvar(),true), ty, ISpositive);
   E.add( 
 #line 130 "../../prop-src/funmap.pcc"
 #line 130 "../../prop-src/funmap.pcc"
 cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q4
 #line 130 "../../prop-src/funmap.pcc"
 #line 130 "../../prop-src/funmap.pcc"
-, THISCOSTexp(), ty, ISpositive);
+, THISCOSTstd::exp(), ty, ISpositive);
   return decor_rewrite( pat, rule, 0, E);
 }
 
@@ -535,8 +535,8 @@ Pat FunctorMap::make_guard( Pat pat, Exp& e)
           case a_Literal::tag_REALlit: {
 #line 356 "../../prop-src/funmap.pcc"
             
-            Exp guard_exp = BINOPexp( "==", pat->selector, LITERALexp(_LITERALpat(pat)->LITERALpat));
-            e = e == NOexp ? guard_exp : BINOPexp( "&&", e, guard_exp);
+            Exp guard_exp = BINOPstd::exp( "==", pat->selector, LITERALexp(_LITERALpat(pat)->LITERALpat));
+            e = e == NOexp ? guard_exp : BINOPstd::exp( "&&", e, guard_exp);
             new_pat = WILDpat();
             
 #line 360 "../../prop-src/funmap.pcc"
@@ -1239,7 +1239,7 @@ TreeTerm FunctorMap::trans( Pat pat)
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-//  Compute ceil(ln(2))
+//  Compute std::ceil(ln(2))
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -1767,11 +1767,11 @@ Exp FunctorMap::cost_expr( Id lhs, Pat pat)
 {
   if (pat) {
 #line 1044 "../../prop-src/funmap.pcc"
-   return cost_expr( lhs, pat, LITERALexp( INTlit(1))); 
+   return cost_expr( lhs, pat, LITERALstd::exp( INTlit(1))); 
 #line 1044 "../../prop-src/funmap.pcc"
   } else {
 #line 1043 "../../prop-src/funmap.pcc"
-   return LITERALexp( INTlit(0)); 
+   return LITERALstd::exp( INTlit(0)); 
 #line 1043 "../../prop-src/funmap.pcc"
   }
 }
@@ -1890,19 +1890,19 @@ nil_1_
 #line 1085 "../../prop-src/funmap.pcc"
 ));
   Exp cost_e =
-     INDEXexp(
-       ARROWexp(
-          CASTexp( state_rec_ty,
-              APPexp( ARROWexp( pat->selector, "get_state_rec"), TUPLEexp(
+     INDEXstd::exp(
+       ARROWstd::exp(
+          CASTstd::exp( state_rec_ty,
+              APPstd::exp( ARROWexp( pat->selector, "get_state_rec"), TUPLEexp(
 #line 1090 "../../prop-src/funmap.pcc"
 #line 1090 "../../prop-src/funmap.pcc"
 nil_1_
 #line 1090 "../../prop-src/funmap.pcc"
 #line 1090 "../../prop-src/funmap.pcc"
 ))),
-              "cost"), LITERALexp( INTlit( int( var_map[lhs]))));
+              "cost"), LITERALstd::exp( INTlit( int( var_map[lhs]))));
 
-  return exp == NOexp ? cost_e : BINOPexp( "+", cost_e,exp);
+  return exp == NOexp ? cost_e : BINOPstd::exp( "+", cost_e,exp);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

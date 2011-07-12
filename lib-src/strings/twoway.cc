@@ -22,12 +22,12 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/strings/twoway.h>
 
 int TwoWay::match(const char * text, int length) const
 {
   if (length < 0)
-    length = strlen( text);
+    length = std::strlen( text);
   return -1;
 }

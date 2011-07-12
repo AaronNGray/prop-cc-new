@@ -23,10 +23,10 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <assert.h>
-#include <ctype.h>
-#include <string>
-#include <stdlib.h>
+#include <cassert>
+#include <cctype>
+#include <cstring>
+#include <cstdlib>
 #include <AD/strings/string.h>
 
 
@@ -44,7 +44,7 @@ int SubString::contains( RegExp& regexp) const
 }
 
 int SubString::contains( char c) const
-{  /* const char * r = (const char *)memchr(get_string(),c,len);
+{  /* const char * r = (const char *)std::memchr(get_string(),c,len);
            return r ? r - get_string() : -1;
          */
   return -1;
@@ -73,7 +73,7 @@ void String::out_of_bounds(int i) const     // error handler
 {
   std::cerr << "[Attempting to index location " << i << " of string: "
   << string << "]\n";
-  exit(1);
+  std::exit(1);
 }
 
 ////////////////////////////////////////////////////////////////////////////
@@ -101,7 +101,7 @@ String::String( char c, int times)
   if (times > 0)
   {
     string = new char [cap = (len = times) + 1];
-    memset(string,c,len);
+    std::memset(string,c,len);
     string[len] = '\0';
   }
   else
@@ -116,8 +116,8 @@ String::String( const char * s)
 {
   if (s)
   {
-    string = new char [cap = (len = strlen(s)) + 1];
-    memcpy(string,s,len);
+    string = new char [cap = (len = std::strlen(s)) + 1];
+    std::memcpy(string,s,len);
     string[len] = '\0';
   }
   else
@@ -132,7 +132,7 @@ String::String( const char * s, int l)
   if (s && l >= 0)
   {
     string = new char [cap = (len = l) + 1];
-    memcpy(string,s,len);
+    std::memcpy(string,s,len);
     string[len] = '\0';
   }
   else
@@ -145,7 +145,7 @@ String::String( const char * s, int l)
 String::String( const String& s)
 {
   string = new char [cap = (len = s.len) + 1];
-  memcpy(string,s.string,len);
+  std::memcpy(string,s.string,len);
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -156,7 +156,7 @@ void String::grow( long new_len)
 {
   cap = new_len * 3 / 2 + 1;
   char * new_string = new char [cap];
-  memcpy(new_string,string,len);
+  std::memcpy(new_string,string,len);
   delete [] string;
   string = new_string;
 }
@@ -171,7 +171,7 @@ String& String::operator = (const String& s)
   {
     if (s.len >= cap)
       grow(s.len);
-    memcpy(string,s.string,len = s.len);
+    std::memcpy(string,s.string,len = s.len);
     string[len] = '\0';
   }
   return *this;
@@ -183,10 +183,10 @@ String& String::operator = (const char * s)
     len = 0;
   else
   {
-    int l = strlen(s);
+    int l = std::strlen(s);
     if (l >= cap)
       grow(l);
-    strcpy(string,s);
+    std::strcpy(string,s);
     len = l;
   }
   return *this;
@@ -196,7 +196,7 @@ String& String::operator = (const SubString& s)
 {
   if (s.length() >= cap)
     grow(s.length());
-  memcpy(string, s.get_string(), len = s.length());
+  std::memcpy(string, s.get_string(), len = s.length());
   string[len] = '\0';
   return *this;
 }
@@ -208,7 +208,7 @@ String& String::operator = (const SubString& s)
 String& String::splice( int location, int kill_len, const char * s, int size)
 {
   if (size < 0)
-    size = s ? strlen(s) : 0;
+    size = s ? std::strlen(s) : 0;
   if (kill_len < 0)
     kill_len = 0;
   if (location + kill_len >= len)
@@ -233,7 +233,7 @@ String& String::splice( int location, int kill_len, const char * s, int size)
   }
   len = new_len;
   string[len] = '\0';
-  memcpy(string + location, s, size); // now copy substring
+  std::memcpy(string + location, s, size); // now copy substring
   return *this;
 }
 
@@ -244,32 +244,32 @@ String& String::splice( int location, int kill_len, const char * s, int size)
 String operator + (const String& a, const String& b)
 {
   String r((int)(a.len + b.len));
-  memcpy(r.string, a.string, a.len);
-  memcpy(r.string + a.len, b.string, b.len);
+  std::memcpy(r.string, a.string, a.len);
+  std::memcpy(r.string + a.len, b.string, b.len);
   return r;
 }
 String operator + (const String& a, const char * b)
 {
-  String r((int)(a.len + strlen(b)));
-  memcpy(r.string, a.string, a.len);
-  strcpy(r.string + a.len, b);
+  String r((int)(a.len + std::strlen(b)));
+  std::memcpy(r.string, a.string, a.len);
+  std::strcpy(r.string + a.len, b);
   return r;
 }
 
 String operator + (const String& a, char c)
 {
   String r((int)(a.len + 1));
-  memcpy(r.string, a.string, a.len);
+  std::memcpy(r.string, a.string, a.len);
   r.string[a.len] = c;
   return r;
 }
 
 String operator + (const char * a, const String& b)
 {
-  int a_len = strlen(a);
+  int a_len = std::strlen(a);
   String r((int)(a_len + b.len));
-  memcpy(r.string, a, a_len);
-  memcpy(r.string + a_len, b.string, b.len);
+  std::memcpy(r.string, a, a_len);
+  std::memcpy(r.string + a_len, b.string, b.len);
   return r;
 }
 
@@ -277,7 +277,7 @@ String operator + (char c, const String& s)
 {
   String r((int)(s.len + 1));
   r.string[0] = c;
-  memcpy(r.string + 1, s.string, s.len);
+  std::memcpy(r.string + 1, s.string, s.len);
   return r;
 }
 
@@ -290,7 +290,7 @@ String operator * (const String& s, int n)
   String r(s.length() * n);
   char * p;
   for (p = r.string; n > 0; p += s.length())
-    memcpy(p, s.string, s.length());
+    std::memcpy(p, s.string, s.length());
   *p = '\0';
   return r;
 }
@@ -309,7 +309,7 @@ String& String::operator += (const String& s)
   int new_len = s.len + len;
   if (new_len >= cap)
     grow(new_len);
-  memcpy(string + len, s.string, s.len);
+  std::memcpy(string + len, s.string, s.len);
   len = new_len;
   string[len] = '\0';
   return *this;
@@ -319,11 +319,11 @@ String& String::operator += (const char * s)
 {
   if (s)
   {
-    int s_len = strlen(s);
+    int s_len = std::strlen(s);
     int new_len = s_len + len;
     if (new_len >= cap)
       grow(new_len);
-    memcpy(string + len, s, s_len);
+    std::memcpy(string + len, s, s_len);
     len = new_len;
     string[len] = '\0';
   }
@@ -356,7 +356,7 @@ int String::compare( const String& s) const
 int String::compare( const SubString& s) const
 {
   int l = len < s.len ? len : s.len;
-  int r = memcmp(string,s.S.string + s.start, l);
+  int r = std::memcmp(string,s.S.string + s.start, l);
   if (r)
     return r;
   return len - s.len;
@@ -366,7 +366,7 @@ int String::compare( const char* s, int l) const
 {
   register const char * p, * q;
   if (l < 0)
-    l = strlen(s);
+    l = std::strlen(s);
   register int n = len < l ? len : l;
   for (p = string, q = s; n > 0; n--, p++, q++)
     if (*p - *q)
@@ -389,9 +389,9 @@ int String::case_insensitive_compare( const char * s, int l) const
   register const char * p, * q;
   register int i = len < l ? len : l;
   for (p = string, q = s; i > 0; i--, p++, q++)
-    if (tolower(*p) - tolower(*q))
-      return tolower(*p) - tolower(*q);
-  return tolower(*p) - tolower(*q);
+    if (std::tolower(*p) - tolower(*q))
+      return std::tolower(*p) - tolower(*q);
+  return std::tolower(*p) - tolower(*q);
 }
 
 int String::collate( const String&) const
@@ -417,7 +417,7 @@ String& String::to_upper()
 {
   register char * p, * q;
   for (p = string, q = string + len; p < q; p++)
-    *p = toupper(*p);
+    *p = std::toupper(*p);
   return *this;
 }
 
@@ -425,7 +425,7 @@ String& String::to_lower()
 {
   register char * p, * q;
   for (p = string, q = string + len; p < q; p++)
-    *p = tolower(*p);
+    *p = std::tolower(*p);
   return *this;
 }
 
@@ -450,19 +450,19 @@ int String::contains( RegExp& regexp) const
 
 int String::contains( char c) const
 {
-  const char * r = strchr(string,c);
+  const char * r = std::strchr(string,c);
   return r ? r - string : -1;
 }
 
 int String::contains( const char * s, int) const
 {
-  const char * r = strstr(string,s);
+  const char * r = std::strstr(string,s);
   return r ? r - string : -1;
 }
 
 int String::contains( const String& s) const
 {
-  const char * r = strstr(string,s.string);
+  const char * r = std::strstr(string,s.string);
   return r ? r - string : -1;
 }
 

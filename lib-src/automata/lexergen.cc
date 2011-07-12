@@ -22,9 +22,9 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <string>
-#include <ctype.h>
+#include <cassert>
+#include <cstring>
+#include <cctype>
 #include <new>
 #include <AD/automata/lexergen.h> // Lexical scanner generator
 #include <AD/automata/nfa.h>      // NFAs
@@ -78,7 +78,7 @@ void LexerGen::create_tables( int size, int states, Symbol min, Symbol max)
 void LexerGen::grow_states( int increment)
 {
   Rule * new_rule = new Rule [ number_of_states + increment ];
-  memcpy(new_rule,rule,sizeof(Rule) * number_of_states);
+  std::memcpy(new_rule,rule,sizeof(Rule) * number_of_states);
   delete [] rule;
   rule = new_rule;
   Super::grow_states(increment);

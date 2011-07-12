@@ -52,11 +52,11 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Allocation and deallocation methods
   ///////////////////////////////////////////////////////////////////////////
-  inline void * operator new (size_t n, GC& gc = *GC::default_gc)
+  inline void * operator new (std::size_t n, GC& gc = *GC::default_gc)
   {
     return gc.m_alloc(n);
   }
-  inline void * operator new (size_t n, size_t N, GC& gc = *GC::default_gc)
+  inline void * operator new (std::size_t n, size_t N, GC& gc = *GC::default_gc)
   {
     return gc.m_alloc(n > N ? n : N);
   }

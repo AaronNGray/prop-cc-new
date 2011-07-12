@@ -8,8 +8,8 @@
 //         -lad -liostream -lg++
 //
 
-#include <string.h>
-#include <iostream.h>
+#include <cstring>
+#include <iostream>
 
 //
 // Defines a simple relation(this should be placed in an include file).
@@ -65,10 +65,10 @@ inference Dates {
      // This is the 90's, so try gays and lesbians too.
      // But make sure we don't print duplicates.
      //
-     male (m1) and male (m2) where (strcmp(m1,m2) < 0)
+     male (m1) and male (m2) where (std::strcmp(m1,m2) < 0)
  ->  { cout << "Gay couple " << m1 << " and " << m2 << '\n'; };
 
-     female (f1) and female (f2) where (strcmp(f1,f2) < 0)
+     female (f1) and female (f2) where (std::strcmp(f1,f2) < 0)
  ->  { cout << "Lesbian couple " << f1 << " and " << f2 << '\n'; };
 
 };

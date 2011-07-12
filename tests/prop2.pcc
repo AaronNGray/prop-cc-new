@@ -1,6 +1,6 @@
 //  Test datatype inheritance
 
-#include <iostream.h>
+#include <iostream>
 #include <AD/gc/gcobject.h>
 
 int created = 0;

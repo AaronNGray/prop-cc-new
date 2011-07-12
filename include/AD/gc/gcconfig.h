@@ -129,7 +129,7 @@ extern int etext;
 extern int end;
 #  define GC_DATA_START  (void*)(((unsigned long)(&etext) + 0xfff) & ~0xfff)
 #  define GC_DATA_END    (void*)(&end)
-#include <stdlib.h>
+#include <cstdlib>
 #include <unistd.h>
 //extern "C" void * sbrk(int);
 #  define GC_GET_HEAP_BOTTOM sbrk(0)
@@ -157,7 +157,7 @@ extern int _GLOBAL_OFFSET_TABLE_;
 #  define GC_DATA_START  (void*)((unsigned long)(&_GLOBAL_OFFSET_TABLE_)\
                                   & ~0xfff)
 #  define GC_DATA_END    (void*)(&end)
-#include <stdlib.h>
+#include <cstdlib>
 #include <unistd.h>
 extern "C" void * sbrk(int);
 #  define GC_GET_HEAP_BOTTOM sbrk(0)
@@ -182,7 +182,7 @@ extern int etext;
 extern int end;
 #  define GC_DATA_START  (void*)(((unsigned long)(&etext) + 0xfff) & ~0xfff)
 #  define GC_DATA_END    (void*)(&end)
-#include <stdlib.h>
+#include <cstdlib>
 //#include <unistd.h>
 extern "C" void * sbrk(int);
 #  define GC_GET_HEAP_BOTTOM sbrk(0)

@@ -34,7 +34,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <new>
-#include <string>
+#include <cstring>
 #include <AD/generic/generic.h>   // Generic definitions
 
 
@@ -58,10 +58,10 @@ public:
   {
     *this = A;
   }
-  VarPtrArray(size_t size, T * const []);
+  VarPtrArray(std::size_t size, T * const []);
   ~VarPtrArray()
-  {  // memset(array + low, 0, sizeof(T*) * (high - low + 1));
-    free(array + low);
+  {  // std::memset(array + low, 0, sizeof(T*) * (high - low + 1));
+    std::free(array + low);
   }
 
   ////////////////////////////////////////////////////////////////////
@@ -167,21 +167,21 @@ public:
 template<class T>
 VarPtrArray<T>::VarPtrArray(int lowerBound, int upperBound, int growthFactor)
 {
-  size_t size = upperBound - lowerBound + 1;
+  std::size_t size = upperBound - lowerBound + 1;
   high = upperBound;
   low = lowerBound;
-  array = (T**)calloc(size, sizeof(T *)) - low;
+  array = (T**)std::calloc(size, sizeof(T *)) - low;
   growthRate = growthFactor;
 }
 
 template<class T>
-VarPtrArray<T>::VarPtrArray(size_t size, T * const A[])
+VarPtrArray<T>::VarPtrArray(std::size_t size, T * const A[])
 {
-  array = (T**)malloc(size * sizeof(T*));
+  array = (T**)std::malloc(size * sizeof(T*));
   low = 0;
   high = size - 1;
   growthRate = 32;
-  memcpy(array, A, size * sizeof(T*));
+  std::memcpy(array, A, size * sizeof(T*));
 }
 
 template<class T>
@@ -189,12 +189,12 @@ VarPtrArray<T>& VarPtrArray<T>::operator = (const VarPtrArray<T>& A)
 {
   if (this != &A)
   {
-    // memset(array + low, 0, sizeof(T*) * (high - low + 1));
+    // std::memset(array + low, 0, sizeof(T*) * (high - low + 1));
     free (array + low);
     high = A.high;
     low = A.low;
-    array = (T**)malloc((high - low + 1) * sizeof(T*)) - A.low;
-    memcpy(array, A.array, sizeof(T*) * (high - low + 1));
+    array = (T**)std::malloc((high - low + 1) * sizeof(T*)) - A.low;
+    std::memcpy(array, A.array, sizeof(T*) * (high - low + 1));
   }
   return *this;
 }
@@ -219,10 +219,10 @@ void VarPtrArray<T>::grow(int i)
   else
     newLow = low;
   register T ** newArray =
-    (T**) calloc(newHigh - newLow + 1,sizeof(T*)) - newLow;
-  memcpy(newArray, array, sizeof(T*) * (high - low + 1));
-  // memset(array + low, 0, sizeof(T*) * (high - low + 1));
-  free(array + low);
+    (T**) std::calloc(newHigh - newLow + 1,sizeof(T*)) - newLow;
+  std::memcpy(newArray, array, sizeof(T*) * (high - low + 1));
+  // std::memset(array + low, 0, sizeof(T*) * (high - low + 1));
+  std::free(array + low);
   array = newArray;
   low = newLow;
   high = newHigh;

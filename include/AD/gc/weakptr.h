@@ -72,8 +72,8 @@ private:
   static WP_Entry *   wp_table;           // A table of weakpointers
   static WP_Entry *   wp_next_free;       // Next free entry
   static void *       wp_table_core;      // The actual table
-  static size_t       wp_table_capacity;  // Capacity of current table
-  static size_t       wp_table_size;      // Number of entries
+  static std::size_t       wp_table_capacity;  // Capacity of current table
+  static std::size_t       wp_table_size;      // Number of entries
 
   ///////////////////////////////////////////////////////////////////////////
   //  Constructor and destructor

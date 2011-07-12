@@ -12,8 +12,8 @@
 //  This is a simple (and useless) example for testing the hash cons feature
 //  in Prop.
 //
-#include <iostream.h>
-#include <new.h>
+#include <iostream>
+#include <new>
 
 int balance = 0;
 
@@ -72,11 +72,11 @@ public:
    inline friend const EXP_add * _add(EXP& _x_) { return (const EXP_add *)_x_._raw(); }
    inline friend const EXP_sub * _sub(EXP& _x_) { return (const EXP_sub *)_x_._raw(); }
    inline friend const EXP_mul * _mul(EXP& _x_) { return (const EXP_mul *)_x_._raw(); }
-   inline friend const EXP_div * _div(EXP& _x_) { return (const EXP_div *)_x_._raw(); }
+   inline friend const EXP_div * _std::div(EXP& _x_) { return (const EXP_div *)_x_._raw(); }
 public:
  
 #line 15 "hashcons2.pcc"
-  inline void * operator new    (size_t n) { balance++; cerr << '+'; return new char [n]; }
+  inline void * operator new    (std::size_t n) { balance++; cerr << '+'; return new char [n]; }
            inline void   operator delete (void * x) { balance--; cerr << '-'; delete [] ((char*)x); }
            ///////////////////////////////////////////////////////////////////////////
    //  Interface for hash consing
@@ -176,14 +176,14 @@ public:
 #line 14 "hashcons2.pcc"
    EXP _1; EXP _2; 
 public:
-   inline EXP_div(EXP& _x_1, EXP& _x_2) 
+   inline EXP_std::div(EXP& _x_1, EXP& _x_2) 
       : a_EXP(a_EXP::tag_div), _1(_x_1), _2(_x_2) {}
-   inline friend EXP div(EXP& _x_1, EXP& _x_2) 
+   inline friend EXP std::div(EXP& _x_1, EXP& _x_2) 
       { return a_EXP::make_hash_cons(new EXP_div (_x_1, _x_2)); }
    /////////////////////////////////////////////////////////////////
    //  Destructor
    /////////////////////////////////////////////////////////////////
-   virtual ~EXP_div();
+   virtual ~EXP_std::div();
 };
 
 ////////////////////////////////////////////////////////////////////////
@@ -206,7 +206,7 @@ public:
 public:
  
 #line 21 "hashcons2.pcc"
-  inline void * operator new    (size_t n) { balance++; cerr << '>'; return new char [n]; }
+  inline void * operator new    (std::size_t n) { balance++; cerr << '>'; return new char [n]; }
            inline void   operator delete (void * x) { balance--; cerr << '<'; delete [] ((char*)x); }
            ///////////////////////////////////////////////////////////////////////////
    //  Interface for hash consing
@@ -254,8 +254,8 @@ Bool equal(EXP _x_, EXP _y_)
          if (_mul(_x_)->_1 != _mul(_y_)->_1) return false;
       break;
       case 4:
-         if (_div(_x_)->_2 != _div(_y_)->_2) return false;
-         if (_div(_x_)->_1 != _div(_y_)->_1) return false;
+         if (_std::div(_x_)->_2 != _div(_y_)->_2) return false;
+         if (_std::div(_x_)->_1 != _div(_y_)->_1) return false;
       break;
    }
    return true;
@@ -285,8 +285,8 @@ unsigned int hash(EXP _x_)
          _h_ += (unsigned int)(_mul(_x_)->_2);
       break;
       case 4:
-         _h_ += (unsigned int)(_div(_x_)->_1);
-         _h_ += (unsigned int)(_div(_x_)->_2);
+         _h_ += (unsigned int)(_std::div(_x_)->_1);
+         _h_ += (unsigned int)(_std::div(_x_)->_2);
       break;
    }
    return _h_;
@@ -312,7 +312,7 @@ EXP_num::~EXP_num() {}
 EXP_add::~EXP_add() {}
 EXP_sub::~EXP_sub() {}
 EXP_mul::~EXP_mul() {}
-EXP_div::~EXP_div() {}
+EXP_div::~EXP_std::div() {}
 //////////////////////////////////////////////////////////////////////////////
 //  Equality function for LIST
 //  Shallow equality is assumed
@@ -390,7 +390,7 @@ case a_EXP::tag_mul: {
  return f << '(' << (_mul(e))->_1 << " * " << (_mul(e))->_2 << ')'; } break;
 default:; {
 #line 38 "hashcons2.pcc"
- return f << '(' << (_div(e))->_1 << " / " << (_div(e))->_2 << ')'; }
+ return f << '(' << (_std::div(e))->_1 << " / " << (_div(e))->_2 << ')'; }
 } }
 
 #line 39 "hashcons2.pcc"

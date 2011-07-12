@@ -25,7 +25,7 @@
 #ifndef lexer_buffer_h
 #define lexer_buffer_h
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/generic/generic.h>    // generic definitions
 #include <AD/automata/dfatable.h>  // automata tables
 #include <AD/automata/regexmat.h>  // regular expression string matcher
@@ -70,7 +70,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   LexerBuffer();
   LexerBuffer( char *);
-  LexerBuffer( char *, size_t);
+  LexerBuffer( char *, std::size_t);
   virtual ~LexerBuffer();
 
   ///////////////////////////////////////////////////////////////////////////
@@ -135,7 +135,7 @@ public:
   //  Mutators
   ///////////////////////////////////////////////////////////////////////////
   virtual void reset();
-  virtual void set_buffer( char *, size_t);
+  virtual void set_buffer( char *, std::size_t);
   void set_buffer( char *);
   inline  void set_anchored( Bool a = true)
   {
@@ -160,7 +160,7 @@ protected:
   //  Default method for filling the buffer.
   //  This should be redefined in derive classes
   ///////////////////////////////////////////////////////////////////////////
-  virtual size_t fill_buffer();
+  virtual std::size_t fill_buffer();
   virtual void   end_of_file();
   virtual void   error( const char * start, const char * stop);
 };
@@ -191,7 +191,7 @@ inline LexerBuffer::Rule RegexMatch::MatchText
     else if (r == -1)
     {
       // Out of buffer, invoke the fill buffer handler
-      size_t len = B.fill_buffer();
+      std::size_t len = B.fill_buffer();
       if (len == 0)
         return -1;
     }

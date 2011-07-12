@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <limits.h>
-#include <string>
+#include <climits>
+#include <cstring>
 #include <AD/automata/densedfa.h>
 
 //#define DEBUGMSG(e) e
@@ -67,7 +67,7 @@ void DenseDFA::create_tables( int size, int states, Symbol min, Symbol max)
 void DenseDFA::grow_states( int increment)
 {
   State * new_def = new State [number_of_states + increment];
-  memcpy(new_def, def, number_of_states * sizeof(State));
+  std::memcpy(new_def, def, number_of_states * sizeof(State));
   for (int i = number_of_states; i < number_of_states + increment; i++)
     new_def[i] = 0;
   delete [] def;
@@ -267,7 +267,7 @@ void DenseDFA::add_state(State s, const State delta[])
       templates[number_of_templates].state = s;
       templates[number_of_templates].age   = current_age;
       templates[number_of_templates].uses  = 0;
-      memcpy(
+      std::memcpy(
         templates[number_of_templates].delta
         = new State [ number_of_symbols ],
         delta,number_of_symbols * sizeof(State));
@@ -301,7 +301,7 @@ void DenseDFA::add_state(State s, const State delta[])
         templates[target].state = s;
         templates[target].age   = current_age;
         templates[target].uses  = 0;
-        memcpy(templates[target].delta, delta,
+        std::memcpy(templates[target].delta, delta,
                number_of_symbols * sizeof(State));
       } //else empty_slots = false;
     }

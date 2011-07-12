@@ -131,9 +131,9 @@ public:
   //  Virtual methods for the Mem protocol
   ///////////////////////////////////////////////////////////////////////////
   virtual void   clear  ();
-  virtual void * m_alloc (size_t);
+  virtual void * m_alloc (std::size_t);
   virtual void   free   (void *);
-  virtual size_t size   (const void *) const;
+  virtual std::size_t size   (const void *) const;
 };
 
 #endif

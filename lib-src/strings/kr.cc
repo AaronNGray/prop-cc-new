@@ -22,18 +22,18 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stddef.h>
-#include <string>
+#include <cstddef>
+#include <cstring>
 #include <AD/strings/kr.h>
 
 void KR::compile (const char* pat, int len)
 {
   if (len < 0)
-    len = strlen(pat);
+    len = std::strlen(pat);
   patternLength = len;
   delete [] pattern;
   pattern = new char [len];
-  memcpy(pattern,pat,len);
+  std::memcpy(pattern,pat,len);
   fingerPrint = 0;
   for (register int i = len-1; i >= 0; i--)
     fingerPrint += pat[i];
@@ -42,7 +42,7 @@ void KR::compile (const char* pat, int len)
 int KR::Match( register const char * text, register int length) const
 {
   if (length < 0)
-    length = strlen(text);
+    length = std::strlen(text);
   if (length < patternLength)
     return -1;
   register int i, j;
@@ -52,7 +52,7 @@ int KR::Match( register const char * text, register int length) const
   for (j = 0; ; i++, j++)
   {
     if (chi == fingerPrint &&
-        memcmp(pattern,text+j,patternLength) == 0)
+        std::memcmp(pattern,text+j,patternLength) == 0)
       return j;
     if (i >= length)
       break;

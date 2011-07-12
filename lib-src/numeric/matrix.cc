@@ -22,10 +22,10 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <stdlib.h>
-#include <iostream.h>
+#include <cstdio>
+#include <cstdarg>
+#include <cstdlib>
+#include <iostream>
 #include <AD/numeric/matrix.h>
 
 ////////////////////////////////////////////////////////////////////////////
@@ -34,13 +34,13 @@
 
 static void error_handler( const char format[], ...)
 {
-  va_list args;
+  std::va_list args;
   va_start(args,format);
   fprintf  (stderr, "[ Matrix error: ");
   vfprintf (stderr, format, args);
   fprintf  (stderr, "]\n");
   va_end(args);
-  exit(1);
+  std::exit(1);
 }
 
 void (*Matrix::error)( const char [], ...) = error_handler;

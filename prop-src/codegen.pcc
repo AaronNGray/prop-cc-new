@@ -5,7 +5,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <AD/strings/charesc.h>
 #include "codegen.h"
 #include "ir.ph"
@@ -103,7 +103,7 @@ void CodeGen::gen_code(const char * code)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-std::ostream& CodeGen::outv( const char * fmt, va_list arg)
+std::ostream& CodeGen::outv( const char * fmt, std::va_list arg)
 {
   unsigned char c;
   while ((c = *fmt++) != 0)
@@ -133,7 +133,7 @@ std::ostream& CodeGen::outv( const char * fmt, va_list arg)
       case 's':
         {
           const char * s = va_arg( arg, const char *);
-          int len = strlen(s);
+          int len = std::strlen(s);
           (*output) << s;
           anchored = (s[len-1] == '\n');
         }
@@ -209,7 +209,7 @@ std::ostream& CodeGen::outv( const char * fmt, va_list arg)
             if (p == TYbody)
             {
               pr ("%^const int len_;%^");
-              body_ty = mkarrayty( ty, LITERALexp( INTlit(0)));
+              body_ty = mkarrayty( ty, LITERALstd::exp( INTlit(0)));
             }
             else
             {
@@ -299,7 +299,7 @@ std::ostream& CodeGen::outv( const char * fmt, va_list arg)
             if (! anchored)
               (*output) << '\n';
 #ifdef _MSC_VER
-			char *filename = new char[ strlen( f)];
+			char *filename = new char[ std::strlen( f)];
 
 			const char *s = f;
 			char *d = filename;
@@ -456,7 +456,7 @@ std::ostream& CodeGen::outv( const char * fmt, va_list arg)
 
 std::ostream& CodeGen::pr( const char * fmt, ...)
 {
-  va_list arg;
+  std::va_list arg;
   va_start( arg, fmt);
   outv( fmt, arg);
   va_end( arg);

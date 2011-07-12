@@ -3,7 +3,7 @@
 //  objects.  This fixes a bug in releases 1.x of Prop.
 //
 
-#include <iostream.h>
+#include <iostream>
 datatype color = red | green | blue | yellow | black | white;
 
 void print_color(color c, color d)

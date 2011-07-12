@@ -4,7 +4,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
+#include <cstdlib>
 #include "basics.ph"
 #include "ast.ph"
 
@@ -14,7 +14,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp component_exp(Exps exps, int n)
+Exp component_std::exp(Exps exps, int n)
 {
   Exps es = exps;
   int  i  = n;
@@ -22,7 +22,7 @@ Exp component_exp(Exps exps, int n)
   { #[h ... _] | i == 1: { return h; }
   | #[_ ... t]:          { es = t; i--; }
   }
-  error( "%Lexpression %e does not have component %i\n", TUPLEexp(exps), n);
+  error( "%Lexpression %e does not have component %i\n", TUPLEstd::exp(exps), n);
   return NOexp;
 }
 
@@ -32,9 +32,9 @@ Exp component_exp(Exps exps, int n)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp component_exp(Exps exps, Id n)
+Exp component_std::exp(Exps exps, Id n)
 {
-  return component_exp(exps,atol(n+1));
+  return component_std::exp(exps,std::atol(n+1));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -43,7 +43,7 @@ Exp component_exp(Exps exps, Id n)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp component_exp( LabExps labeled_exps, Id n)
+Exp component_std::exp( LabExps labeled_exps, Id n)
 {
   LabExps les = labeled_exps;
   match while (les)
@@ -51,6 +51,6 @@ Exp component_exp( LabExps labeled_exps, Id n)
   |  #[ _ ... t]: { les = t; }
   }
   error( "%Lexpression %e does not have component %s\n",
-         RECORDexp(labeled_exps), n);
+         RECORDstd::exp(labeled_exps), n);
   return NOexp;
 }

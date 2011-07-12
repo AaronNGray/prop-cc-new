@@ -70,7 +70,7 @@ protected:
   struct ChoicePoint
   {
     MemPoolMark memory_marker; // memory marker
-    size_t      trail_offset;  // trail offset to bottom
+    std::size_t      trail_offset;  // trail offset to bottom
   };
   ChoicePoint * CP_pointer;     // choice point pointer
   ChoicePoint * CP_bottom;      // bottom of the choice point stack

@@ -25,7 +25,7 @@
 #ifndef n_dimensional_dense_array_h
 #define n_dimensional_dense_array_h
 
-#include <assert.h>
+#include <cassert>
 #include <AD/generic/generic.h> // generic definitions
 
 ///////////////////////////////////////////////////////////////////////

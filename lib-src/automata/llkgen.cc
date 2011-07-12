@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
+#include <iostream>
 #include <AD/automata/llkgen.h>    // LL(k) parser generator definition
 #include <AD/automata/follow_k.h>  // Follow set computation
 #include <AD/memory/mempool.h>     // Memory pool

@@ -11,8 +11,8 @@
 //  Simple example to test reference counting.
 //
 
-#include <new.h>
-#include <iostream.h>
+#include <new>
+#include <iostream>
 
 int balance = 0;
 
@@ -66,12 +66,12 @@ public:
    inline friend EXP_add * _add(EXP _x_) { return (EXP_add *)_x_; }
    inline friend EXP_sub * _sub(EXP _x_) { return (EXP_sub *)_x_; }
    inline friend EXP_mul * _mul(EXP _x_) { return (EXP_mul *)_x_; }
-   inline friend EXP_div * _div(EXP _x_) { return (EXP_div *)_x_; }
+   inline friend EXP_div * _std::div(EXP _x_) { return (EXP_div *)_x_; }
 #line 21 "refcounting.pcc"
  
    // Redefine the new/delete operators to keep track of 
    // allocation and deallocation.
-   inline void * operator new    (size_t n) 
+   inline void * operator new    (std::size_t n) 
       { balance++; return new char [n]; }
    inline void   operator delete (void * x) 
       { balance--; delete [] ((char*)x); }
@@ -199,7 +199,7 @@ ostream& operator << (ostream& f, EXP e)
             } break;
          default: {
 #line 42 "refcounting.pcc"
-           return f << '(' << _div(e)->_1 << " / " << _div(e)->_2 << ')'; 
+           return f << '(' << _std::div(e)->_1 << " / " << _div(e)->_2 << ')'; 
 #line 42 "refcounting.pcc"
             } break;
       }
@@ -251,7 +251,7 @@ void change (EXP& e, EXP t)
             } break;
          default: {
 #line 57 "refcounting.pcc"
-           change(_div(e)->_1,t); change(_div(e)->_2,t); 
+           change(_std::div(e)->_1,t); change(_div(e)->_2,t); 
 #line 57 "refcounting.pcc"
             } break;
       }
@@ -279,11 +279,11 @@ int main()
    //
    // (0 + x * 2) / (1 * 5 + 1 * 3) / (0 / y);
    //
-   EXP t1   = div(div(add(num(0), mul(var('x'),num(2))), 
+   EXP t1   = std::div(div(add(num(0), mul(var('x'),num(2))), 
                       add(mul(num(1), num(5)),mul(num(1),num(3)))),
-                  div(num(0),var('y')));
+                  std::div(num(0),var('y')));
    EXP t2   = add(t1,t1);
-   EXP term = div(mul(t2,t2),t2);
+   EXP term = std::div(mul(t2,t2),t2);
    t2       = om;
 
    cout << "[1] " << term << '\n';

@@ -30,7 +30,7 @@
 //
 // Lazy bubble sort, for those who don't care for anything better.
 //
-// e.g.:  bubbleSort2(char *, int, names, salaries, 100, strcmp(names[i], names[i+1]) < 0);
+// e.g.:  bubbleSort2(char *, int, names, salaries, 100, std::strcmp(names[i], names[i+1]) < 0);
 //
 
 /////////////////////////////////////////////////////////////////////////////

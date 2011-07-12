@@ -33,9 +33,9 @@
 //  Method to allocate a new object of a given size
 //////////////////////////////////////////////////////////////////////////////
 
-inline void * BGC::operator [] (size_t n)
+inline void * BGC::operator [] (std::size_t n)
 {  // round up the size
-  register size_t bytes = GC_ROUNDUP_SIZE(n + sizeof(GCHeader));
+  register std::size_t bytes = GC_ROUNDUP_SIZE(n + sizeof(GCHeader));
 
   // if we don't have enough space in current fragment,
   // call the default allocation routine.

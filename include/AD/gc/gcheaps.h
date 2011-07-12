@@ -53,7 +53,7 @@ class GCHeapManager
   ///////////////////////////////////////////////////////////////////////////
 
 public:
-  typedef size_t        GCPageId;  // a page id
+  typedef std::size_t        GCPageId;  // a page id
   typedef GC::GC_ID     GC_ID;     // collector id.
 
   ///////////////////////////////////////////////////////////////////////////
@@ -61,10 +61,10 @@ public:
   ///////////////////////////////////////////////////////////////////////////
 
 protected:
-  static size_t number_of_pages_allocated;
-  static size_t number_of_pages_used;
-  static size_t number_of_pages_free;
-  static size_t number_of_pages_blacklisted;
+  static std::size_t number_of_pages_allocated;
+  static std::size_t number_of_pages_used;
+  static std::size_t number_of_pages_free;
+  static std::size_t number_of_pages_blacklisted;
 
   ///////////////////////////////////////////////////////////////////////////
   //  Message verbosity
@@ -125,7 +125,7 @@ private:
   static Byte *   gc_table_mem;        // the tables memory
   static Byte *   page_table;          // mark all pages that we own
   static Byte *   page_table_mem;      // the tables memory
-  static size_t   page_table_size;     // number of pages in the table.
+  static std::size_t   page_table_size;     // number of pages in the table.
   static GCBitMap object_map;          // map of starting addresses of objects
   static GCBitMap live_map;            // map of live objects
   static GCBitMap traversed_map;       // map of cross heap objects
@@ -223,35 +223,35 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Free space
   ///////////////////////////////////////////////////////////////////////////
-  inline static size_t pages_allocated()
+  inline static std::size_t pages_allocated()
   {
     return number_of_pages_allocated;
   }
-  inline static size_t pages_used()
+  inline static std::size_t pages_used()
   {
     return number_of_pages_used;
   }
-  inline static size_t pages_free()
+  inline static std::size_t pages_free()
   {
     return number_of_pages_free;
   }
-  inline static size_t pages_blacklisted()
+  inline static std::size_t pages_blacklisted()
   {
     return number_of_pages_blacklisted;
   }
-  inline static size_t bytes_allocated()
+  inline static std::size_t bytes_allocated()
   {
     return number_of_pages_allocated * GC_PAGE_SIZE;
   }
-  inline static size_t bytes_used()
+  inline static std::size_t bytes_used()
   {
     return number_of_pages_used * GC_PAGE_SIZE;
   }
-  inline static size_t bytes_free()
+  inline static std::size_t bytes_free()
   {
     return number_of_pages_free * GC_PAGE_SIZE;
   }
-  inline static size_t bytes_blacklisted()
+  inline static std::size_t bytes_blacklisted()
   {
     return number_of_pages_blacklisted * GC_PAGE_SIZE;
   }
@@ -284,7 +284,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Method to return a table of blacklisted static data addresses.
   ///////////////////////////////////////////////////////////////////////////
-  static const AddrRange * blacklisted_data (size_t& n);
+  static const AddrRange * blacklisted_data (std::size_t& n);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Method to expand the ranges of the page tables.
@@ -305,9 +305,9 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   static void * allocate_pages
   ( GC *       gc,                 // the collector to allocate for
-    size_t     bytes_need,         // number of bytes we need
-    size_t     bytes_wanted,       // number of bytes we prefer to have
-    size_t&    bytes_gotten,       // number of bytes actually got
+    std::size_t     bytes_need,         // number of bytes we need
+    std::size_t     bytes_wanted,       // number of bytes we prefer to have
+    std::size_t&    bytes_gotten,       // number of bytes actually got
     PageStatus status = from_space // the default status of the pages
   );
 
@@ -317,7 +317,7 @@ public:
   static void deallocate_pages
   ( GC *     gc,          // the collector
     GCPageId page_id,     // starting page to deallocate
-    size_t   pages        // number of pages
+    std::size_t   pages        // number of pages
   );
 
   ///////////////////////////////////////////////////////////////////////////
@@ -326,7 +326,7 @@ public:
   //  and the total number of bytes freed are returned as the 2nd and 3rd
   //  parameter.
   ///////////////////////////////////////////////////////////////////////////
-  static void   discard_from_space(GC *, size_t& total, size_t& removed);
+  static void   discard_from_space(GC *, std::size_t& total, size_t& removed);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Mark all pages within start and stop to have certain page status.
@@ -339,16 +339,16 @@ public:
   //  and blacklist_system_heap(start,stop,false) to unblacklist
   ///////////////////////////////////////////////////////////////////////////
   static void   blacklist_system_heap(void * start, void * stop, Bool mark);
-  static void   blacklist   (const void * addr, size_t size_in_bytes);
-  static void   unblacklist (const void * addr, size_t size_in_bytes);
+  static void   blacklist   (const void * addr, std::size_t size_in_bytes);
+  static void   unblacklist (const void * addr, std::size_t size_in_bytes);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Method to allocate some initialized memory on page boundaries.
   //  The storage is outside of the collectable heap and is meant to
   //  be used as auxiliary data.
   ///////////////////////////////////////////////////////////////////////////
-  static void * allocate_pages_on_boundaries   (size_t size, void *& real);
-  static void   deallocate_pages_on_boundaries (void *, size_t);
+  static void * allocate_pages_on_boundaries   (std::size_t size, void *& real);
+  static void   deallocate_pages_on_boundaries (void *, std::size_t);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Error reporting
@@ -369,7 +369,7 @@ private:
   ///////////////////////////////////////////////////////////////////////////
   //  Method to expand the page tables.  Used only internally
   ///////////////////////////////////////////////////////////////////////////
-  static void * allocate_new_pages (GC *, size_t bytes); // allocate new pages
+  static void * allocate_new_pages (GC *, std::size_t bytes); // allocate new pages
 
   ///////////////////////////////////////////////////////////////////////////
   //  Method to blacklist a set of newly allocated pages.  This method

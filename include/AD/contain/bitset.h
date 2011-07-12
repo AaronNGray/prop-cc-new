@@ -50,7 +50,7 @@ public:
   //  thru `operator new'.
   //////////////////////////////////////////////////////////////////////////
 
-  inline void * operator new    (size_t sz, Mem& pool, int bits);
+  inline void * operator new    (std::size_t sz, Mem& pool, int bits);
   inline void   operator delete (void *);
 
   //////////////////////////////////////////////////////////////////////////
@@ -137,7 +137,7 @@ public:
 //  Memory management
 //////////////////////////////////////////////////////////////////////////////
 
-inline void * BitSet::operator new (size_t sz, Mem& pool, int bits)
+inline void * BitSet::operator new (std::size_t sz, Mem& pool, int bits)
 {
   int blobs = (bits + sizeof(Blob)*8-1)/(sizeof(Blob)*8);
   BitSet * b = (BitSet*)pool.c_alloc(sz + (blobs - 1) * sizeof(Blob));

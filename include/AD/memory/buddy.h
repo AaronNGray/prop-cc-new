@@ -58,25 +58,25 @@ protected:
   };
 
   void *  my_pool;           // the starting address of the user supplied pool
-  size_t  my_pool_size;      // size of this pool
+  std::size_t  my_pool_size;      // size of this pool
   Block * begin, * end;      // beginning and end of the arena
   Block ** free_lists;       // an array of free lists arranged in sizes
   enum { levels = 32 };      // number of free lists
 
-  virtual void init_pool(void *, size_t);
+  virtual void init_pool(void *, std::size_t);
 
   //////////////////////////////////////////////////////////////////////////
   //  Constructor and destructor
   //////////////////////////////////////////////////////////////////////////
 
 public:
-  Buddy(void * pool, size_t poolSize);
+  Buddy(void * pool, std::size_t poolSize);
   ~Buddy();
 
   //////////////////////////////////////////////////////////////////////////
   //  Methods to allocate/deallocate memory
   //////////////////////////////////////////////////////////////////////////
-  void * operator [] (size_t n)
+  void * operator [] (std::size_t n)
   {
     return m_alloc(n);
   }
@@ -85,10 +85,10 @@ public:
   //  Virtual methods for the basic protocol
   //////////////////////////////////////////////////////////////////////////
   virtual void   clear   ();
-  virtual void * m_alloc (size_t);
-  virtual void * c_alloc (size_t);
+  virtual void * m_alloc (std::size_t);
+  virtual void * c_alloc (std::size_t);
   virtual void   free    (void *);
-  virtual size_t size    (const void *) const;
+  virtual std::size_t size    (const void *) const;
 };
 
 #endif

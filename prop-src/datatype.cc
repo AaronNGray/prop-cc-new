@@ -464,7 +464,7 @@ void DatatypeClass::gen_constructor_initializers
     C.pr( "%s%slen_(x__len_)", colon, comma);
     colon = "";
     comma = ", ";
-    ty = mkarrayty( ty, IDexp( "len_"));
+    ty = mkarrayty( ty, IDstd::exp( "len_"));
   }
 
   
@@ -567,7 +567,7 @@ void DatatypeClass::gen_class_constructor_body( CodeGen& C, Tys tys, DefKind k)
 
   Ty ty = cons_arg_ty;
   if (is_array)
-    ty = mkarrayty( ty, IDexp( "len_"));
+    ty = mkarrayty( ty, IDstd::exp( "len_"));
 
   // Now generate the initializers for array arguments
 

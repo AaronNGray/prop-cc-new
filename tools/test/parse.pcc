@@ -2,7 +2,7 @@
 //  This file demonstrates the use of the syntax declaration.
 ////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
+#include <iostream>
 #include <AD/automata/lexerbuf.h>
 
 datatype Token :: lexeme

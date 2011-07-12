@@ -22,9 +22,9 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_m_a_t_c_h_c_o_mco_c_c_Q1("?lex
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <limits.h>
-#include <stdlib.h>
+#include <cstring>
+#include <climits>
+#include <cstdlib>
 #include <AD/contain/bitset.h>
 #include <AD/generic/ordering.h>
 #include <AD/strings/quark.h>
@@ -490,122 +490,122 @@ Exp subst(Exp exp, Exp s[])
       switch (exp->tag__) {
         case a_Exp::tag_RELexp: {
 #line 270 "../../prop-src/matchcom.pcc"
-         return s[_RELexp(exp)->RELexp]; 
+         return s[_RELstd::exp(exp)->RELexp]; 
 #line 270 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_DOTexp: {
 #line 268 "../../prop-src/matchcom.pcc"
-         return DOTexp( subst( _DOTexp(exp)->_1, s), _DOTexp(exp)->_2); 
+         return DOTstd::exp( subst( _DOTexp(exp)->_1, s), _DOTexp(exp)->_2); 
 #line 268 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_SELECTORexp: {
 #line 272 "../../prop-src/matchcom.pcc"
-         return SELECTORexp( subst( _SELECTORexp(exp)->_1, s), _SELECTORexp(exp)->_2, _SELECTORexp(exp)->_3); 
+         return SELECTORstd::exp( subst( _SELECTORexp(exp)->_1, s), _SELECTORexp(exp)->_2, _SELECTORexp(exp)->_3); 
 #line 272 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_DEREFexp: {
 #line 274 "../../prop-src/matchcom.pcc"
-         return DEREFexp( subst( _DEREFexp(exp)->DEREFexp, s)); 
+         return DEREFstd::exp( subst( _DEREFexp(exp)->DEREFexp, s)); 
 #line 274 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_ARROWexp: {
 #line 276 "../../prop-src/matchcom.pcc"
-         return ARROWexp( subst( _ARROWexp(exp)->_1, s), _ARROWexp(exp)->_2); 
+         return ARROWstd::exp( subst( _ARROWexp(exp)->_1, s), _ARROWexp(exp)->_2); 
 #line 276 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_INDEXexp: {
 #line 278 "../../prop-src/matchcom.pcc"
-         return INDEXexp( subst( _INDEXexp(exp)->_1, s), subst( _INDEXexp(exp)->_2, s)); 
+         return INDEXstd::exp( subst( _INDEXexp(exp)->_1, s), subst( _INDEXexp(exp)->_2, s)); 
 #line 278 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_BINOPexp: {
 #line 280 "../../prop-src/matchcom.pcc"
-         return BINOPexp( _BINOPexp(exp)->_1, subst( _BINOPexp(exp)->_2, s),subst( _BINOPexp(exp)->_3, s)); 
+         return BINOPstd::exp( _BINOPexp(exp)->_1, subst( _BINOPexp(exp)->_2, s),subst( _BINOPexp(exp)->_3, s)); 
 #line 280 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_PREFIXexp: {
 #line 282 "../../prop-src/matchcom.pcc"
-         return PREFIXexp( _PREFIXexp(exp)->_1, subst( _PREFIXexp(exp)->_2, s)); 
+         return PREFIXstd::exp( _PREFIXexp(exp)->_1, subst( _PREFIXexp(exp)->_2, s)); 
 #line 282 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_POSTFIXexp: {
 #line 284 "../../prop-src/matchcom.pcc"
-         return POSTFIXexp( _POSTFIXexp(exp)->_1, subst( _POSTFIXexp(exp)->_2, s)); 
+         return POSTFIXstd::exp( _POSTFIXexp(exp)->_1, subst( _POSTFIXexp(exp)->_2, s)); 
 #line 284 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_APPexp: {
 #line 286 "../../prop-src/matchcom.pcc"
-         return APPexp( subst( _APPexp(exp)->_1, s), subst( _APPexp(exp)->_2, s)); 
+         return APPstd::exp( subst( _APPexp(exp)->_1, s), subst( _APPexp(exp)->_2, s)); 
 #line 286 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_ASSIGNexp: {
 #line 288 "../../prop-src/matchcom.pcc"
-         return ASSIGNexp( subst( _ASSIGNexp(exp)->_1, s), subst( _ASSIGNexp(exp)->_2, s)); 
+         return ASSIGNstd::exp( subst( _ASSIGNexp(exp)->_1, s), subst( _ASSIGNexp(exp)->_2, s)); 
 #line 288 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_IFexp: {
 #line 290 "../../prop-src/matchcom.pcc"
-         return IFexp( subst( _IFexp(exp)->_1, s), subst( _IFexp(exp)->_2, s), subst( _IFexp(exp)->_3, s)); 
+         return IFstd::exp( subst( _IFexp(exp)->_1, s), subst( _IFexp(exp)->_2, s), subst( _IFexp(exp)->_3, s)); 
 #line 290 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_TUPLEexp: {
 #line 292 "../../prop-src/matchcom.pcc"
-         return TUPLEexp( subst( _TUPLEexp(exp)->TUPLEexp, s)); 
+         return TUPLEstd::exp( subst( _TUPLEexp(exp)->TUPLEexp, s)); 
 #line 292 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_RECORDexp: {
 #line 294 "../../prop-src/matchcom.pcc"
-         return RECORDexp( subst( _RECORDexp(exp)->RECORDexp, s)); 
+         return RECORDstd::exp( subst( _RECORDexp(exp)->RECORDexp, s)); 
 #line 294 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_LISTexp: {
 #line 298 "../../prop-src/matchcom.pcc"
-         return LISTexp( _LISTexp(exp)->_1, _LISTexp(exp)->_2, subst( _LISTexp(exp)->_3, s), subst( _LISTexp(exp)->_4, s)); 
+         return LISTstd::exp( _LISTexp(exp)->_1, _LISTexp(exp)->_2, subst( _LISTexp(exp)->_3, s), subst( _LISTexp(exp)->_4, s)); 
 #line 298 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_CONSexp: {
 #line 300 "../../prop-src/matchcom.pcc"
-         return CONSexp( _CONSexp(exp)->_1, subst( _CONSexp(exp)->_2, s), subst( _CONSexp(exp)->_3, s)); 
+         return CONSstd::exp( _CONSexp(exp)->_1, subst( _CONSexp(exp)->_2, s), subst( _CONSexp(exp)->_3, s)); 
 #line 300 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_CASTexp: {
 #line 302 "../../prop-src/matchcom.pcc"
-         return CASTexp( _CASTexp(exp)->_1, subst( _CASTexp(exp)->_2, s)); 
+         return CASTstd::exp( _CASTexp(exp)->_1, subst( _CASTexp(exp)->_2, s)); 
 #line 302 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_EQexp: {
 #line 304 "../../prop-src/matchcom.pcc"
-         return EQexp( _EQexp(exp)->_1, subst( _EQexp(exp)->_2, s), subst( _EQexp(exp)->_3, s)); 
+         return EQstd::exp( _EQexp(exp)->_1, subst( _EQexp(exp)->_2, s), subst( _EQexp(exp)->_3, s)); 
 #line 304 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_UNIFYexp: {
 #line 306 "../../prop-src/matchcom.pcc"
-         return UNIFYexp( _UNIFYexp(exp)->_1, subst( _UNIFYexp(exp)->_2, s), subst( _UNIFYexp(exp)->_3, s)); 
+         return UNIFYstd::exp( _UNIFYexp(exp)->_1, subst( _UNIFYexp(exp)->_2, s), subst( _UNIFYexp(exp)->_3, s)); 
 #line 306 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_LTexp: {
 #line 308 "../../prop-src/matchcom.pcc"
-         return LTexp( _LTexp(exp)->_1, subst( _LTexp(exp)->_2, s), subst( _LTexp(exp)->_3, s)); 
+         return LTstd::exp( _LTexp(exp)->_1, subst( _LTexp(exp)->_2, s), subst( _LTexp(exp)->_3, s)); 
 #line 308 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_HASHexp: {
 #line 310 "../../prop-src/matchcom.pcc"
-         return HASHexp( _HASHexp(exp)->_1, subst( _HASHexp(exp)->_2, s)); 
+         return HASHstd::exp( _HASHexp(exp)->_1, subst( _HASHexp(exp)->_2, s)); 
 #line 310 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_SENDexp: {
 #line 296 "../../prop-src/matchcom.pcc"
-         return SENDexp( _SENDexp(exp)->_1, subst( _SENDexp(exp)->_2, s)); 
+         return SENDstd::exp( _SENDexp(exp)->_1, subst( _SENDexp(exp)->_2, s)); 
 #line 296 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_SETLexp: {
 #line 312 "../../prop-src/matchcom.pcc"
-         return SETLexp( _SETLexp(exp)->_1, subst( _SETLexp(exp)->_2, s)); 
+         return SETLstd::exp( _SETLexp(exp)->_1, subst( _SETLexp(exp)->_2, s)); 
 #line 312 "../../prop-src/matchcom.pcc"
           } break;
         case a_Exp::tag_MARKEDexp: {
 #line 314 "../../prop-src/matchcom.pcc"
-         exp = _MARKEDexp(exp)->_2; 
+         exp = _MARKEDstd::exp(exp)->_2; 
 #line 314 "../../prop-src/matchcom.pcc"
           } break;
         default: {
@@ -899,7 +899,7 @@ void decor
         {
           Exp exp = E.add(_IDpat(pat)->_1,sel,_IDpat(pat)->_2,polarity);
           if (E.separate_guard() && ! E.tree_grammar() && exp != NOexp)
-            E.add_guard(EQexp(_IDpat(pat)->_2,sel,exp));
+            E.add_guard(EQstd::exp(_IDpat(pat)->_2,sel,exp));
           else
             _IDpat(pat)->_3 = exp;
         }
@@ -965,7 +965,7 @@ void decor
         {
           Exp exp = E.add(_ASpat(pat)->_1,sel,_ASpat(pat)->_3,polarity);
           if (E.separate_guard() && ! E.tree_grammar() && exp != NOexp)
-            E.add_guard(EQexp(_ASpat(pat)->_3,sel,exp));
+            E.add_guard(EQstd::exp(_ASpat(pat)->_3,sel,exp));
           else
             _ASpat(pat)->_4 = exp;
         }
@@ -991,8 +991,8 @@ void decor
           {
             Ty t = NOty;
             Exp binding =
-               CASTexp( _LEXEMEpat(pat)->_2, BINOPexp( "+", IDexp( "rule__"),
-                       LITERALexp( INTlit( _LEXEMEpat(pat)->_4[0]->tag + 256 - 1 - match_rule))));
+               CASTstd::exp( _LEXEMEpat(pat)->_2, BINOPexp( "+", IDexp( "rule__"),
+                       LITERALstd::exp( INTlit( _LEXEMEpat(pat)->_4[0]->tag + 256 - 1 - match_rule))));
             E.add( 
 #line 462 "../../prop-src/matchcom.pcc"
 #line 462 "../../prop-src/matchcom.pcc"
@@ -1018,7 +1018,7 @@ void decor
         int i = 0;
         for_each ( Pat, p, _ARRAYpat(pat)->_1)
         {
-          decor( p, INDEXexp( sel, LITERALexp( INTlit(i))), polarity, visible, E,
+          decor( p, INDEXstd::exp( sel, LITERALexp( INTlit(i))), polarity, visible, E,
                  match_rule);
            i++;
         }
@@ -1032,7 +1032,7 @@ void decor
         int i = 1;
         for_each ( Pat, p, _TUPLEpat(pat)->TUPLEpat)
         {
-          decor( p, DOTexp( sel, index_of(i)), polarity, visible, E, match_rule);
+          decor( p, DOTstd::exp( sel, index_of(i)), polarity, visible, E, match_rule);
           i++;
         }
         return;
@@ -1045,7 +1045,7 @@ void decor
         int i = 1;
         for_each ( Pat, p, _EXTUPLEpat(pat)->EXTUPLEpat)
         {
-          decor( p, DOTexp( sel, index_of(i)), polarity, visible, E, match_rule);
+          decor( p, DOTstd::exp( sel, index_of(i)), polarity, visible, E, match_rule);
           i++;
         }
         return;
@@ -1056,7 +1056,7 @@ void decor
 #line 548 "../../prop-src/matchcom.pcc"
         
         for_each ( LabPat, lab_pat, _RECORDpat(pat)->_1)
-            decor( lab_pat.pat, DOTexp( sel, lab_pat.label),
+            decor( lab_pat.pat, DOTstd::exp( sel, lab_pat.label),
                   polarity, visible, E, match_rule);
          return;
         
@@ -1067,9 +1067,9 @@ void decor
         
         for_each (Pat, apat, _LISTpat(pat)->head)
         {
-          decor( apat, DOTexp( select( sel, _LISTpat(pat)->cons), "_1"), polarity, visible,
+          decor( apat, DOTstd::exp( select( sel, _LISTpat(pat)->cons), "_1"), polarity, visible,
                  E, match_rule);
-          sel = DOTexp( select( sel, _LISTpat(pat)->cons), "_2");
+          sel = DOTstd::exp( select( sel, _LISTpat(pat)->cons), "_2");
         }
         pat = _LISTpat(pat)->tail;
         
@@ -1080,19 +1080,19 @@ void decor
         
         int i       = 0;
         Exp s       = select( sel, _VECTORpat(pat)->cons);
-        Exp len_exp = DOTexp( s, "len()");
+        Exp len_exp = DOTstd::exp( s, "len()");
         int n       = length( _VECTORpat(pat)->elements);
         for_each ( Pat, p, _VECTORpat(pat)->elements)
         {
           Exp index_exp =
-            _VECTORpat(pat)->head_flex ? BINOPexp( "-", len_exp, LITERALexp( INTlit( n-i)))
-                      : LITERALexp( INTlit(i));
-          decor( p, APPexp( DOTexp( s, "at"), index_exp), polarity, visible, E,
+            _VECTORpat(pat)->head_flex ? BINOPstd::exp( "-", len_exp, LITERALexp( INTlit( n-i)))
+                      : LITERALstd::exp( INTlit(i));
+          decor( p, APPstd::exp( DOTexp( s, "at"), index_exp), polarity, visible, E,
                 match_rule);
           i++;
         }
         decor( _VECTORpat(pat)->len, len_exp, polarity, visible, E, match_rule);
-        decor( _VECTORpat(pat)->array, DOTexp( s, "array()"), polarity, visible, E, match_rule);
+        decor( _VECTORpat(pat)->array, DOTstd::exp( s, "array()"), polarity, visible, E, match_rule);
         return;
         
 #line 546 "../../prop-src/matchcom.pcc"
@@ -1176,7 +1176,7 @@ void decor
 {
   MatchExp _V3 = exps->_1;
 #line 601 "../../prop-src/matchcom.pcc"
-decor( pat, _V3->_2 ? IDexp(_V3->_2) : _V3->_1, polarity, visible, E, match_rule); 
+decor( pat, _V3->_2 ? IDstd::exp(_V3->_2) : _V3->_1, polarity, visible, E, match_rule); 
 #line 601 "../../prop-src/matchcom.pcc"
 }
 #line 602 "../../prop-src/matchcom.pcc"
@@ -1221,7 +1221,7 @@ decor( pat, _V3->_2 ? IDexp(_V3->_2) : _V3->_1, polarity, visible, E, match_rule
             MatchExp _V4 = es->_1;
 #line 620 "../../prop-src/matchcom.pcc"
             
-            decor( ps->_1, _V4->_2 ? IDexp(_V4->_2) : _V4->_1, polarity,
+            decor( ps->_1, _V4->_2 ? IDstd::exp(_V4->_2) : _V4->_1, polarity,
                    visible, E, match_rule);
             
 #line 623 "../../prop-src/matchcom.pcc"
@@ -1381,11 +1381,11 @@ nil_1_
 ;
   else
   {
-     Exp e = j < 0 ? IDexp( index_of(i,"x")) : RELexp(j);
+     Exp e = j < 0 ? IDstd::exp( index_of(i,"x")) : RELexp(j);
      return 
 #line 689 "../../prop-src/matchcom.pcc"
 #line 689 "../../prop-src/matchcom.pcc"
-list_1_(MATCHexp(e,nil_1_),make_match_exps((i + 1),n,j))
+list_1_(MATCHstd::exp(e,nil_1_),make_match_exps((i + 1),n,j))
 #line 689 "../../prop-src/matchcom.pcc"
 #line 689 "../../prop-src/matchcom.pcc"
 ;
@@ -1470,7 +1470,7 @@ Match MatchCompiler::trans( Pat pat, Pos pos, Bool neg, Match yes, Match no)
         case a_Pat::tag_IDpat: {
           if (_IDpat(pat)->_3) {
 #line 741 "../../prop-src/matchcom.pcc"
-           return GUARDmatch( EQexp( _IDpat(pat)->_2, pat->selector, _IDpat(pat)->_3),
+           return GUARDmatch( EQstd::exp( _IDpat(pat)->_2, pat->selector, _IDpat(pat)->_3),
             neg ? no : yes, neg ? yes : no); 
 #line 742 "../../prop-src/matchcom.pcc"
           } else { goto L18; }
@@ -1558,7 +1558,7 @@ Match MatchCompiler::trans( Pat pat, Pos pos, Bool neg, Match yes, Match no)
           if (_ASpat(pat)->_4) {
 #line 749 "../../prop-src/matchcom.pcc"
             
-            Exp guard = EQexp( _ASpat(pat)->_3, pat->selector, _ASpat(pat)->_4);
+            Exp guard = EQstd::exp( _ASpat(pat)->_3, pat->selector, _ASpat(pat)->_4);
             if (neg)
               no  = GUARDmatch( guard, no, yes);
             else
@@ -1648,7 +1648,7 @@ Match MatchCompiler::trans( Pat pat, Pos pos, Bool neg, Match yes, Match no)
 #line 859 "../../prop-src/matchcom.pcc"
 #line 859 "../../prop-src/matchcom.pcc"
               ));
-              new_tail->selector = DOTexp( select( pat->selector, _LISTpat(pat)->cons), "_2");
+              new_tail->selector = DOTstd::exp( select( pat->selector, _LISTpat(pat)->cons), "_2");
               list_pat->selector = pat->selector;
               pat = list_pat;
               
@@ -1684,7 +1684,7 @@ Match MatchCompiler::trans( Pat pat, Pos pos, Bool neg, Match yes, Match no)
           Match p1 = trans( _VECTORpat(pat)->elements, start, pos, neg, yes, no);
           Match p2 = trans( _VECTORpat(pat)->array, pos, neg, (neg ? no : p1),(neg ? p1 : no));
           Match p3 = trans( _VECTORpat(pat)->len, pos, neg, (neg ? no : p2),(neg ? p3 : no));
-          return RANGEmatch( pos, ARROWexp( pat->selector,"len()"), low, high,
+          return RANGEmatch( pos, ARROWstd::exp( pat->selector,"len()"), low, high,
                             (neg ? no : p3), (neg ? p3 : no));
           
 #line 795 "../../prop-src/matchcom.pcc"
@@ -1990,7 +1990,7 @@ CompareResult compare_pos(Pos a, Pos b)
                 
                 CompareResult r = compare_pos(_POSlabel(a)->_2,_POSlabel(b)->_2);
                 if (r != SAME) return r;
-                int s = strcmp(_POSlabel(a)->_1,_POSlabel(b)->_1);
+                int s = std::strcmp(_POSlabel(a)->_1,_POSlabel(b)->_1);
                 if (s == 0) return SAME;
                 if (s < 0)  return LESS;
                 return MORE;
@@ -2142,7 +2142,7 @@ int compare_literals (Literal x_1, Literal x_2)
       switch (x_2->tag__) {
         case a_Literal::tag_STRINGlit: {
 #line 1027 "../../prop-src/matchcom.pcc"
-         return strcmp(_STRINGlit(x_1)->STRINGlit,_STRINGlit(x_2)->STRINGlit); 
+         return std::strcmp(_STRINGlit(x_1)->STRINGlit,_STRINGlit(x_2)->STRINGlit); 
 #line 1027 "../../prop-src/matchcom.pcc"
           } break;
         default: { goto L29; } break;
@@ -2152,7 +2152,7 @@ int compare_literals (Literal x_1, Literal x_2)
       switch (x_2->tag__) {
         case a_Literal::tag_REGEXPlit: {
 #line 1028 "../../prop-src/matchcom.pcc"
-         return strcmp(_REGEXPlit(x_1)->REGEXPlit,_REGEXPlit(x_2)->REGEXPlit); 
+         return std::strcmp(_REGEXPlit(x_1)->REGEXPlit,_REGEXPlit(x_2)->REGEXPlit); 
 #line 1028 "../../prop-src/matchcom.pcc"
           } break;
         default: { goto L29; } break;
@@ -2162,7 +2162,7 @@ int compare_literals (Literal x_1, Literal x_2)
       switch (x_2->tag__) {
         case a_Literal::tag_QUARKlit: {
 #line 1029 "../../prop-src/matchcom.pcc"
-         return strcmp(_QUARKlit(x_1)->QUARKlit,_QUARKlit(x_2)->QUARKlit); 
+         return std::strcmp(_QUARKlit(x_1)->QUARKlit,_QUARKlit(x_2)->QUARKlit); 
 #line 1029 "../../prop-src/matchcom.pcc"
           } break;
         default: { goto L29; } break;
@@ -2172,7 +2172,7 @@ int compare_literals (Literal x_1, Literal x_2)
       switch (x_2->tag__) {
         case a_Literal::tag_BIGINTlit: {
 #line 1030 "../../prop-src/matchcom.pcc"
-         return strcmp(_BIGINTlit(x_1)->BIGINTlit,_BIGINTlit(x_2)->BIGINTlit); 
+         return std::strcmp(_BIGINTlit(x_1)->BIGINTlit,_BIGINTlit(x_2)->BIGINTlit); 
 #line 1030 "../../prop-src/matchcom.pcc"
           } break;
         default: { goto L29; } break;
@@ -2215,13 +2215,13 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_LITERALexp: {
 #line 1045 "../../prop-src/matchcom.pcc"
-                 return compare_literals(_LITERALexp(a)->LITERALexp,_LITERALexp(b)->LITERALexp)==0; 
+                 return compare_literals(_LITERALstd::exp(a)->LITERALexp,_LITERALexp(b)->LITERALexp)==0; 
 #line 1045 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: {
                   L31:; 
 #line 1078 "../../prop-src/matchcom.pcc"
-                 b = _MARKEDexp(b)->_2; 
+                 b = _MARKEDstd::exp(b)->_2; 
 #line 1078 "../../prop-src/matchcom.pcc"
                   } break;
                 default: {
@@ -2238,7 +2238,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_IDexp: {
 #line 1046 "../../prop-src/matchcom.pcc"
-                 return _IDexp(a)->IDexp == _IDexp(b)->IDexp; 
+                 return _IDstd::exp(a)->IDexp == _IDexp(b)->IDexp; 
 #line 1046 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2251,7 +2251,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_RELexp: {
 #line 1047 "../../prop-src/matchcom.pcc"
-                 return same_selectors || _RELexp(a)->RELexp == _RELexp(b)->RELexp; 
+                 return same_selectors || _RELstd::exp(a)->RELexp == _RELexp(b)->RELexp; 
 #line 1047 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2264,7 +2264,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_DOTexp: {
 #line 1048 "../../prop-src/matchcom.pcc"
-                 return _DOTexp(a)->_2 == _DOTexp(b)->_2 && equal(_DOTexp(a)->_1,_DOTexp(b)->_1); 
+                 return _DOTstd::exp(a)->_2 == _DOTexp(b)->_2 && equal(_DOTexp(a)->_1,_DOTexp(b)->_1); 
 #line 1048 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2277,7 +2277,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_SELECTORexp: {
 #line 1050 "../../prop-src/matchcom.pcc"
-                 return _SELECTORexp(a)->_2 == _SELECTORexp(b)->_2 && equal(_SELECTORexp(a)->_1,_SELECTORexp(b)->_1); 
+                 return _SELECTORstd::exp(a)->_2 == _SELECTORexp(b)->_2 && equal(_SELECTORexp(a)->_1,_SELECTORexp(b)->_1); 
 #line 1050 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2290,7 +2290,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_DEREFexp: {
 #line 1051 "../../prop-src/matchcom.pcc"
-                 return equal(_DEREFexp(a)->DEREFexp,_DEREFexp(b)->DEREFexp); 
+                 return equal(_DEREFstd::exp(a)->DEREFexp,_DEREFexp(b)->DEREFexp); 
 #line 1051 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2303,7 +2303,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_ARROWexp: {
 #line 1052 "../../prop-src/matchcom.pcc"
-                 return _ARROWexp(a)->_2 == _ARROWexp(b)->_2 && equal(_ARROWexp(a)->_1,_ARROWexp(b)->_1); 
+                 return _ARROWstd::exp(a)->_2 == _ARROWexp(b)->_2 && equal(_ARROWexp(a)->_1,_ARROWexp(b)->_1); 
 #line 1052 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2316,7 +2316,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_INDEXexp: {
 #line 1053 "../../prop-src/matchcom.pcc"
-                 return equal(_INDEXexp(a)->_1,_INDEXexp(b)->_1) && equal(_INDEXexp(a)->_2,_INDEXexp(b)->_2); 
+                 return equal(_INDEXstd::exp(a)->_1,_INDEXexp(b)->_1) && equal(_INDEXexp(a)->_2,_INDEXexp(b)->_2); 
 #line 1053 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2329,7 +2329,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_BINOPexp: {
 #line 1055 "../../prop-src/matchcom.pcc"
-                 return strcmp(_BINOPexp(a)->_1,_BINOPexp(b)->_1) == 0 && equal(_BINOPexp(a)->_2,_BINOPexp(b)->_2) && equal(_BINOPexp(a)->_3,_BINOPexp(b)->_3); 
+                 return std::strcmp(_BINOPstd::exp(a)->_1,_BINOPexp(b)->_1) == 0 && equal(_BINOPexp(a)->_2,_BINOPexp(b)->_2) && equal(_BINOPexp(a)->_3,_BINOPexp(b)->_3); 
 #line 1055 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2342,7 +2342,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_PREFIXexp: {
 #line 1056 "../../prop-src/matchcom.pcc"
-                 return !strcmp(_PREFIXexp(a)->_1,_PREFIXexp(b)->_1) && equal(_PREFIXexp(a)->_2,_PREFIXexp(b)->_2);
+                 return !std::strcmp(_PREFIXstd::exp(a)->_1,_PREFIXexp(b)->_1) && equal(_PREFIXexp(a)->_2,_PREFIXexp(b)->_2);
 #line 1056 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2355,7 +2355,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_POSTFIXexp: {
 #line 1057 "../../prop-src/matchcom.pcc"
-                 return !strcmp(_POSTFIXexp(a)->_1,_POSTFIXexp(b)->_1) && equal(_POSTFIXexp(a)->_2,_POSTFIXexp(b)->_2);
+                 return !std::strcmp(_POSTFIXstd::exp(a)->_1,_POSTFIXexp(b)->_1) && equal(_POSTFIXexp(a)->_2,_POSTFIXexp(b)->_2);
 #line 1057 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2368,7 +2368,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_APPexp: {
 #line 1058 "../../prop-src/matchcom.pcc"
-                 return equal(_APPexp(a)->_1,_APPexp(b)->_1) && equal(_APPexp(a)->_2,_APPexp(b)->_2); 
+                 return equal(_APPstd::exp(a)->_1,_APPexp(b)->_1) && equal(_APPexp(a)->_2,_APPexp(b)->_2); 
 #line 1058 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2381,7 +2381,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_ASSIGNexp: {
 #line 1059 "../../prop-src/matchcom.pcc"
-                 return equal(_ASSIGNexp(a)->_1,_ASSIGNexp(b)->_1) && equal(_ASSIGNexp(a)->_2,_ASSIGNexp(b)->_2); 
+                 return equal(_ASSIGNstd::exp(a)->_1,_ASSIGNexp(b)->_1) && equal(_ASSIGNexp(a)->_2,_ASSIGNexp(b)->_2); 
 #line 1059 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2394,7 +2394,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_IFexp: {
 #line 1061 "../../prop-src/matchcom.pcc"
-                 return equal(_IFexp(a)->_1,_IFexp(b)->_1) && equal(_IFexp(a)->_2,_IFexp(b)->_2) && equal(_IFexp(a)->_3,_IFexp(b)->_3); 
+                 return equal(_IFstd::exp(a)->_1,_IFexp(b)->_1) && equal(_IFexp(a)->_2,_IFexp(b)->_2) && equal(_IFexp(a)->_3,_IFexp(b)->_3); 
 #line 1061 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2407,7 +2407,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_TUPLEexp: {
 #line 1062 "../../prop-src/matchcom.pcc"
-                 return equal(_TUPLEexp(a)->TUPLEexp,_TUPLEexp(b)->TUPLEexp); 
+                 return equal(_TUPLEstd::exp(a)->TUPLEexp,_TUPLEexp(b)->TUPLEexp); 
 #line 1062 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2420,7 +2420,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_RECORDexp: {
 #line 1063 "../../prop-src/matchcom.pcc"
-                 return equal(_RECORDexp(a)->RECORDexp,_RECORDexp(b)->RECORDexp); 
+                 return equal(_RECORDstd::exp(a)->RECORDexp,_RECORDexp(b)->RECORDexp); 
 #line 1063 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2433,7 +2433,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_LISTexp: {
 #line 1066 "../../prop-src/matchcom.pcc"
-                 return _LISTexp(a)->_1 == _LISTexp(b)->_1 && equal(_LISTexp(a)->_3,_LISTexp(b)->_3) && equal(_LISTexp(a)->_4,_LISTexp(b)->_4); 
+                 return _LISTstd::exp(a)->_1 == _LISTexp(b)->_1 && equal(_LISTexp(a)->_3,_LISTexp(b)->_3) && equal(_LISTexp(a)->_4,_LISTexp(b)->_4); 
 #line 1066 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2446,7 +2446,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_CONSexp: {
 #line 1067 "../../prop-src/matchcom.pcc"
-                 return _CONSexp(a)->_1 == _CONSexp(b)->_1 && equal(_CONSexp(a)->_2,_CONSexp(b)->_2) && equal(_CONSexp(a)->_3,_CONSexp(b)->_3); 
+                 return _CONSstd::exp(a)->_1 == _CONSexp(b)->_1 && equal(_CONSexp(a)->_2,_CONSexp(b)->_2) && equal(_CONSexp(a)->_3,_CONSexp(b)->_3); 
 #line 1067 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2459,7 +2459,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_EQexp: {
 #line 1068 "../../prop-src/matchcom.pcc"
-                 return equal(_EQexp(a)->_2,_EQexp(b)->_2) && equal(_EQexp(a)->_3,_EQexp(b)->_3); 
+                 return equal(_EQstd::exp(a)->_2,_EQexp(b)->_2) && equal(_EQexp(a)->_3,_EQexp(b)->_3); 
 #line 1068 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2472,7 +2472,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_UNIFYexp: {
 #line 1069 "../../prop-src/matchcom.pcc"
-                 return equal(_UNIFYexp(a)->_2,_UNIFYexp(b)->_2) && equal(_UNIFYexp(a)->_3,_UNIFYexp(b)->_3); 
+                 return equal(_UNIFYstd::exp(a)->_2,_UNIFYexp(b)->_2) && equal(_UNIFYexp(a)->_3,_UNIFYexp(b)->_3); 
 #line 1069 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2485,7 +2485,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_LTexp: {
 #line 1070 "../../prop-src/matchcom.pcc"
-                 return equal(_LTexp(a)->_2,_LTexp(b)->_2) && equal(_LTexp(a)->_3,_LTexp(b)->_3); 
+                 return equal(_LTstd::exp(a)->_2,_LTexp(b)->_2) && equal(_LTexp(a)->_3,_LTexp(b)->_3); 
 #line 1070 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2498,7 +2498,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_HASHexp: {
 #line 1071 "../../prop-src/matchcom.pcc"
-                 a = _HASHexp(a)->_2; b = _HASHexp(b)->_2; 
+                 a = _HASHstd::exp(a)->_2; b = _HASHexp(b)->_2; 
 #line 1071 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2524,7 +2524,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_COSTexp: {
 #line 1073 "../../prop-src/matchcom.pcc"
-                 return _COSTexp(a)->COSTexp == _COSTexp(b)->COSTexp; 
+                 return _COSTstd::exp(a)->COSTexp == _COSTexp(b)->COSTexp; 
 #line 1073 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2537,7 +2537,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_THISSYNexp: {
 #line 1076 "../../prop-src/matchcom.pcc"
-                 return _THISSYNexp(a)->_1 == _THISSYNexp(b)->_1; 
+                 return _THISSYNstd::exp(a)->_1 == _THISSYNexp(b)->_1; 
 #line 1076 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2550,7 +2550,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_SYNexp: {
 #line 1074 "../../prop-src/matchcom.pcc"
-                 return _SYNexp(a)->_1 == _SYNexp(b)->_1 && _SYNexp(a)->_2 == _SYNexp(b)->_2; 
+                 return _SYNstd::exp(a)->_1 == _SYNexp(b)->_1 && _SYNexp(a)->_2 == _SYNexp(b)->_2; 
 #line 1074 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2563,7 +2563,7 @@ Bool equal( Exp a, Exp b)
               switch (b->tag__) {
                 case a_Exp::tag_SENDexp: {
 #line 1064 "../../prop-src/matchcom.pcc"
-                 return _SENDexp(a)->_1 == _SENDexp(b)->_1 && equal(_SENDexp(a)->_2,_SENDexp(b)->_2); 
+                 return _SENDstd::exp(a)->_1 == _SENDexp(b)->_1 && equal(_SENDexp(a)->_2,_SENDexp(b)->_2); 
 #line 1064 "../../prop-src/matchcom.pcc"
                   } break;
                 case a_Exp::tag_MARKEDexp: { goto L31; } break;
@@ -2573,7 +2573,7 @@ Bool equal( Exp a, Exp b)
             } break;
           case a_Exp::tag_MARKEDexp: {
 #line 1077 "../../prop-src/matchcom.pcc"
-           a = _MARKEDexp(a)->_2; 
+           a = _MARKEDstd::exp(a)->_2; 
 #line 1077 "../../prop-src/matchcom.pcc"
             } break;
           default: {
@@ -2683,7 +2683,7 @@ nil_1_
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Bool has_regexp( int n, Literal l[])
+Bool has_regstd::exp( int n, Literal l[])
 {
   for (int i = n - 1; i >= 0; i--)
   { 
@@ -2716,7 +2716,7 @@ Bool has_regexp( int n, Literal l[])
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void convert_regexp( int n, Literal l[])
+void convert_regstd::exp( int n, Literal l[])
 {
   for (int i = n-1; i >= 0; i--)
   {
@@ -2728,7 +2728,7 @@ void convert_regexp( int n, Literal l[])
   switch (_V6->tag__) {
     case a_Literal::tag_STRINGlit: {
 #line 1140 "../../prop-src/matchcom.pcc"
-     l[i] = REGEXPlit( convert_regexp(_STRINGlit(_V6)->STRINGlit)); 
+     l[i] = REGEXPlit( convert_regstd::exp(_STRINGlit(_V6)->STRINGlit)); 
 #line 1140 "../../prop-src/matchcom.pcc"
       } break;
     default: {
@@ -3111,7 +3111,7 @@ Match MatchCompiler::merge( Match a, Match b)
                   Match   * br = Matches(n);
                   Literal * ls = Literals(n);
                   
-                  if (has_regexp( _LITERALmatch(a)->_4, _LITERALmatch(a)->_3) || has_regexp( _LITERALmatch(b)->_4, _LITERALmatch(b)->_3))
+                  if (has_regstd::exp( _LITERALmatch(a)->_4, _LITERALmatch(a)->_3) || has_regexp( _LITERALmatch(b)->_4, _LITERALmatch(b)->_3))
                   {
                     for (i = 0; i < _LITERALmatch(a)->_4; i++)
                     {
@@ -3123,7 +3123,7 @@ Match MatchCompiler::merge( Match a, Match b)
                       br[_LITERALmatch(a)->_4+i] = _LITERALmatch(b)->_5[i];
                       ls[_LITERALmatch(a)->_4+i] = _LITERALmatch(b)->_3[i];
                     }
-                    convert_regexp(n,ls);
+                    convert_regstd::exp(n,ls);
                   }
                   else
                   {

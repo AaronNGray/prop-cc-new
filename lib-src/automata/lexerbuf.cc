@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <AD/automata/lexerbuf.h>
 #include <AD/strings/charesc.h>
 
@@ -51,10 +51,10 @@ LexerBuffer::LexerBuffer( char * s)
   init();
   pinned = true;
   cursor = cursor_limit = buffer = s;
-  buffer_limit = s + strlen(s);
+  buffer_limit = s + std::strlen(s);
 }
 
-LexerBuffer::LexerBuffer( char * s, size_t l)
+LexerBuffer::LexerBuffer( char * s, std::size_t l)
 {
   init();
   pinned = true;
@@ -82,7 +82,7 @@ void LexerBuffer::reset()
 //  Default fill buffer method does nothing
 //////////////////////////////////////////////////////////////////////////////
 
-size_t LexerBuffer::fill_buffer()
+std::size_t LexerBuffer::fill_buffer()
 {
   return 0;
 }
@@ -91,7 +91,7 @@ size_t LexerBuffer::fill_buffer()
 //  Set the buffer size
 //////////////////////////////////////////////////////////////////////////////
 
-void LexerBuffer::set_buffer( char * s, size_t len)
+void LexerBuffer::set_buffer( char * s, std::size_t len)
 {
   pinned = true;
   cursor = cursor_limit = buffer = s;
@@ -100,7 +100,7 @@ void LexerBuffer::set_buffer( char * s, size_t len)
 
 void LexerBuffer::set_buffer( char * buf)
 {
-  set_buffer( buf, strlen(buf));
+  set_buffer( buf, std::strlen(buf));
 }
 
 //////////////////////////////////////////////////////////////////////////////

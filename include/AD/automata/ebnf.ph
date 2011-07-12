@@ -49,8 +49,8 @@ public:
    //  We redefine the memory management operators to allocate from a
    //  memory pool.
    ///////////////////////////////////////////////////////////////////////////
-   inline void * operator new    (size_t n)         { return new char [n]; }
-   inline void * operator new    (size_t n, Mem& m) { return m.m_alloc(n); }
+   inline void * operator new    (std::size_t n)         { return new char [n]; }
+   inline void * operator new    (std::size_t n, Mem& m) { return m.m_alloc(n); }
    inline void   operator delete (void * x)         { delete (char*) x; }
 };
 

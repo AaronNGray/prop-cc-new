@@ -22,10 +22,10 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <string>
+#include <cassert>
+#include <cstddef>
+#include <cstdlib>
+#include <cstring>
 #include <AD/memory/buddy.h>     // Fibonacci buddy system
 #include <AD/generic/tables.h>   // Fibonacci numbers table
 
@@ -35,7 +35,7 @@ static const long * fib = fibonacci + 2;  // 1, 2, 3, 5, 8, ...
 //  Constructor
 //////////////////////////////////////////////////////////////////////////////
 
-Buddy::Buddy( void* pool, size_t poolSize) : Mem("Buddy")
+Buddy::Buddy( void* pool, std::size_t poolSize) : Mem("Buddy")
 {
   init_pool(pool, poolSize);
 }
@@ -51,7 +51,7 @@ Buddy::~Buddy()
 // Method to initialize the pools
 //////////////////////////////////////////////////////////////////////////////
 
-void Buddy::init_pool( void* pool, size_t poolSize)
+void Buddy::init_pool( void* pool, std::size_t poolSize)
 {
   my_pool      = pool;
   my_pool_size = poolSize;
@@ -61,7 +61,7 @@ void Buddy::init_pool( void* pool, size_t poolSize)
   pool = (Byte*)pool + sizeof(Block*) * levels;
   poolSize -= sizeof(Block*) * levels;
 
-  register size_t elements = (poolSize + sizeof(Block) - 1) / sizeof(Block);
+  register std::size_t elements = (poolSize + sizeof(Block) - 1) / sizeof(Block);
   register Block * block = (Block *)pool;
   register int i;
 
@@ -74,7 +74,7 @@ void Buddy::init_pool( void* pool, size_t poolSize)
   //
   // Find the maximum |i| such that |fib[i] < elements|
   //
-  for (i = 0; (size_t)fib[i] <= elements; i++)
+  for (i = 0; (std::size_t)fib[i] <= elements; i++)
     ;
   i--;
 
@@ -85,7 +85,7 @@ void Buddy::init_pool( void* pool, size_t poolSize)
   //
   while (elements > 0)
   {
-    while (elements < (size_t)fib[i])
+    while (elements < (std::size_t)fib[i])
       i--;
     register int size = fib[i];
     block->fib_number = i;
@@ -104,10 +104,10 @@ void Buddy::init_pool( void* pool, size_t poolSize)
 // Allocate some memory and initialize it to zeros
 //////////////////////////////////////////////////////////////////////////////
 
-void * Buddy::c_alloc(size_t size)
+void * Buddy::c_alloc(std::size_t size)
 {
   void * core = m_alloc(size);
-  memset(core,0,size);
+  std::memset(core,0,size);
   return core;
 }
 
@@ -115,10 +115,10 @@ void * Buddy::c_alloc(size_t size)
 // Method to allocate memory
 //////////////////////////////////////////////////////////////////////////////
 
-void * Buddy::m_alloc(size_t size)
+void * Buddy::m_alloc(std::size_t size)
 {
   register int i, j;
-  register size_t elements =
+  register std::size_t elements =
     (size + sizeof(Block) + offsetof(Block,next) - 1) / sizeof(Block);
 
   //
@@ -129,9 +129,9 @@ void * Buddy::m_alloc(size_t size)
     for (low = 0, high = levels-1; low < high; )
     {
       i = (low + high)/2;
-      if ((size_t)fib[i] < elements)
+      if ((std::size_t)fib[i] < elements)
         low = i+1;
-      else if ((size_t)fib[i] == elements)
+      else if ((std::size_t)fib[i] == elements)
         break;
       else
         high = i-1;
@@ -141,7 +141,7 @@ void * Buddy::m_alloc(size_t size)
   //
   // Now, locate a non-empty free list with a sequential search.
   //
-  while ((size_t)fib[i] < elements)
+  while ((std::size_t)fib[i] < elements)
     i++;
   for (j = i; j < levels && ! free_lists[j]; j++)
     ;
@@ -269,7 +269,7 @@ void   Buddy::clear   ()
 // Returns the size of a block
 //////////////////////////////////////////////////////////////////////////////
 
-size_t Buddy::size(const void * core) const
+std::size_t Buddy::size(const void * core) const
 {
   register const Block * block =
     (const Block *)(((char *)core) - offsetof(Block,next));

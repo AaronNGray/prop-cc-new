@@ -86,11 +86,11 @@ public:
   {
     const char * algorithm;       // garbage collection algorithm
     const char * version;         // version of algorithm
-    size_t bytes_used;            // number of bytes used by application
-    size_t bytes_managed;         // number of bytes managed by the collector
-    size_t bytes_free;            // number of bytes free in heap
-    size_t number_of_collections;     // number of collections
-    size_t number_of_heap_expansions; // number of heap expansions
+    std::size_t bytes_used;            // number of bytes used by application
+    std::size_t bytes_managed;         // number of bytes managed by the collector
+    std::size_t bytes_free;            // number of bytes free in heap
+    std::size_t number_of_collections;     // number of collections
+    std::size_t number_of_heap_expansions; // number of heap expansions
     GCTimer gc_user_time;           // user time used in gc
     GCTimer gc_system_time;         // system time used in gc
     GCTimer total_gc_user_time;     // total user time used in gc
@@ -173,7 +173,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Returns the minimal heap growth required.
   ///////////////////////////////////////////////////////////////////////////
-  virtual size_t min_growth() = 0;
+  virtual std::size_t min_growth() = 0;
 
   ///////////////////////////////////////////////////////////////////////////
   //  Method to set the ratio (in percentage) between used and total memory
@@ -186,15 +186,15 @@ public:
   //  Methods to set the initial heap size and growth size.
   //  These may be ignored by the collectors
   ///////////////////////////////////////////////////////////////////////////
-  virtual void set_initial_heap_size (size_t n);
-  virtual void set_min_heap_growth   (size_t n);
+  virtual void set_initial_heap_size (std::size_t n);
+  virtual void set_min_heap_growth   (std::size_t n);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Methods to allocate and deallocate storage.  These are to be
   //  implemented in derived classes.
   ///////////////////////////////////////////////////////////////////////////
-  virtual void * m_alloc (size_t);
-  virtual void * c_alloc (size_t);
+  virtual void * m_alloc (std::size_t);
+  virtual void * c_alloc (std::size_t);
   virtual void   free    (void *);
 
   ///////////////////////////////////////////////////////////////////////////
@@ -218,7 +218,7 @@ public:
   //  Methods to invoke garbage collection manually.
   ///////////////////////////////////////////////////////////////////////////
   virtual       void collect         (int level = 0) = 0;
-  virtual       void grow_heap       (size_t bytes)  = 0;
+  virtual       void grow_heap       (std::size_t bytes)  = 0;
   inline static void garbage_collect (int level = 0)
   {
     GC::get_default_gc().collect(level);

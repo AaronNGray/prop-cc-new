@@ -1,7 +1,7 @@
 //  Test hash table stuff
 
-#include <assert.h>
-#include <stdio.h>
+#include <cassert>
+#include <cstdio>
 #include <AD/hash/chash.h>   // coalesced hashing hash table
 #include <AD/hash/dchash.h>  // direct chaining hash table
 #include <AD/hash/dhash.h>   // double hashing hash table

@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <new>
-#include <stdarg.h>
+#include <cstdarg>
 #include <AD/generic/generic.h>    // generic definitions from the library
 #include <AD/memory/mempool.h>     // memory pool
 #include <AD/memory/strpool.h>     // string pool
@@ -61,7 +61,7 @@ extern StringPool str_pool;           // string pool for strings
 class MEM
 {
 public:
-  void * operator new (size_t);            // allocation member
+  void * operator new (std::size_t);            // allocation member
   // void   operator delete(void *);       // disable deletion
   static void   use_global_pools();        // switch to the global pool
   static void   use_local_pools();         // switch to the local pol
@@ -88,7 +88,7 @@ extern void encode_string(char *, const char *); // Encode a string.
 ///////////////////////////////////////////////////////////////////////////////
 
 extern int  errors;                        // number of errors found
-std::ostream& pr_msg   (const char *, va_list); // generic print message routine
+std::ostream& pr_msg   (const char *, std::va_list); // generic print message routine
 std::ostream& error    (const char *, ...);     // error message
 std::ostream& msg      (const char *, ...);     // generic message
 std::ostream& debug_msg(const char *, ...);     // debugging message

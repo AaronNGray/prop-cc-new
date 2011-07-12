@@ -42,7 +42,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #  define GC_IS_A_POINTER(addr) ((unsigned long)(addr) >= 4096)
-#  define GC_PAGE_ID(addr) ((size_t)((size_t)(addr) / GC_PAGE_SIZE))
+#  define GC_PAGE_ID(addr) ((std::size_t)((size_t)(addr) / GC_PAGE_SIZE))
 #  define GC_PAGE_ADDR(id) ((void *)((id) * GC_PAGE_SIZE))
 #  define GC_ROUNDUP_SIZE(size) \
    ((((size) + GC_ALIGNMENT - 1) / GC_ALIGNMENT) * GC_ALIGNMENT)
@@ -53,11 +53,11 @@
 #  define GC_TRUNC_PAGE_SIZE(size) \
    (((size) / GC_PAGE_SIZE) * GC_PAGE_SIZE)
 #  define GC_TRUNC_ADDR(addr) \
-   ((void *)((((size_t)(addr)) / GC_ALIGNMENT) * GC_ALIGNMENT))
+   ((void *)((((std::size_t)(addr)) / GC_ALIGNMENT) * GC_ALIGNMENT))
 #  define GC_ROUNDUP_PAGE_ADDR(addr) \
-   ((void *)((((size_t)(addr)+GC_PAGE_SIZE-1)/GC_PAGE_SIZE)*GC_PAGE_SIZE))
+   ((void *)((((std::size_t)(addr)+GC_PAGE_SIZE-1)/GC_PAGE_SIZE)*GC_PAGE_SIZE))
 #  define GC_TRUNC_PAGE_ADDR(addr) \
-   ((void *)((((size_t)(addr)) / GC_PAGE_SIZE) * GC_PAGE_SIZE))
+   ((void *)((((std::size_t)(addr)) / GC_PAGE_SIZE) * GC_PAGE_SIZE))
 
 //////////////////////////////////////////////////////////////////////////////
 //  Macros for working with the heap manager

@@ -7,7 +7,7 @@
 #ifndef text_buffer_h
 #define text_buffer_h
 
-#include <stdlib.h>
+#include <cstdlib>
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -24,7 +24,7 @@ protected:
   char * limit;          // limit of buffer
   char * cursor;         // cursor to next insertion point
 
-  void grow (size_t);    // expand buffer
+  void grow (std::size_t);    // expand buffer
 
 public:
 
@@ -39,7 +39,7 @@ public:
   {
     return buffer;
   }
-  inline size_t length() const
+  inline std::size_t length() const
   {
     return cursor - buffer;
   }

@@ -25,7 +25,7 @@
 #ifndef nondeterministic_finite_automata_nodes_h
 #define nondeterministic_finite_automata_nodes_h
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/automata/dfatable.h>  // DFA tables internals
 #include <AD/contain/fbitset.h>
 
@@ -63,8 +63,8 @@ public:
   virtual FastBitSet * epsilon_closure
   (
     MemPool&    mem_pool,
-    size_t      number_of_states,
-    size_t      number_of_rules,
+    std::size_t      number_of_states,
+    std::size_t      number_of_rules,
     NFA_Delta * state_table[]
   ) = 0;
 
@@ -73,7 +73,7 @@ public:
   //  and eliminate the rest
   ///////////////////////////////////////////////////////////////////////////
 
-  inline static Rule accept_thinning( register FastBitSet * set, register size_t rules)
+  inline static Rule accept_thinning( register FastBitSet * set, register std::size_t rules)
   {
     int first_bit = set
                       ->first_bit();
@@ -95,7 +95,7 @@ protected:
   NFA_Accept();
   ~NFA_Accept();
 public:
-  virtual FastBitSet* epsilon_closure( MemPool&, size_t, size_t, NFA_Delta* []);
+  virtual FastBitSet* epsilon_closure( MemPool&, std::size_t, size_t, NFA_Delta* []);
   friend NFA_Accept* mkaccept( MemPool&, State);
 };
 
@@ -112,7 +112,7 @@ private:
   NFA_Epsilon();
   ~NFA_Epsilon();
 public:
-  virtual FastBitSet* epsilon_closure( MemPool&, size_t, size_t, NFA_Delta* []);
+  virtual FastBitSet* epsilon_closure( MemPool&, std::size_t, size_t, NFA_Delta* []);
   friend NFA_Epsilon* mkepsilon( MemPool&, NFA_Node *);
 };
 
@@ -134,7 +134,7 @@ public:
   {
     out2 = n;
   }
-  virtual FastBitSet* epsilon_closure(MemPool&, size_t, size_t, NFA_Delta* []);
+  virtual FastBitSet* epsilon_closure(MemPool&, std::size_t, size_t, NFA_Delta* []);
   friend NFA_Or* mkor( MemPool&, NFA_Node *, NFA_Node *);
 };
 
@@ -153,7 +153,7 @@ private:
   NFA_Delta();
   ~NFA_Delta();
 public:
-  virtual FastBitSet* epsilon_closure( MemPool&, size_t, size_t, NFA_Delta* []);
+  virtual FastBitSet* epsilon_closure( MemPool&, std::size_t, size_t, NFA_Delta* []);
 
   inline const FastBitSet* delta() const
   {

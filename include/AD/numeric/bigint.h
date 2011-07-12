@@ -57,15 +57,15 @@ public:
     //////////////////////////////////////////////////////////////////////
     // Internal memory manager
     //////////////////////////////////////////////////////////////////////
-    void * operator new    (size_t, int);
+    void * operator new    (std::size_t, int);
     void   operator delete (void *);
 
     //////////////////////////////////////////////////////////////////////
     // These procedures work on the internal representation and
     // are the ones actually doing the dirty work.
     //////////////////////////////////////////////////////////////////////
-    friend a_BigInt * copy(a_BigInt *, const a_BigInt *);
-    friend a_BigInt * copy(a_BigInt *, long, int = 1);
+    static a_BigInt * copy(a_BigInt *, const a_BigInt *);
+    static a_BigInt * copy(a_BigInt *, long, int = 1);
     friend a_BigInt * neg(a_BigInt *, const a_BigInt *);
     friend a_BigInt * addsub(a_BigInt *, const a_BigInt *, const a_BigInt *, Bool);
     friend a_BigInt * addsub(a_BigInt *, const a_BigInt *, long, Bool);
@@ -117,11 +117,11 @@ public:
   { }                   // i.e. BigInt n;
   inline  BigInt(const BigInt& n)
   {
-    D = copy(0,n);
+    D = a_BigInt::copy(0,n);
   }    // i.e. BigInt n = m;
   inline  BigInt(int n)
   {
-    D = copy(0,n);
+    D = a_BigInt::copy(0,n);
   }    // i.e. BigInt n = 1;
   BigInt(const char *);          // i.e. BigInt n = "12345";
   inline ~BigInt()
@@ -140,12 +140,12 @@ public:
   ////////////////////////////////////////////////////////////////////////
   inline BigInt& operator = (const BigInt& n)
   {
-    D = copy(D,n.D);
+    D = a_BigInt::copy(D,n.D);
     return *this;
   }
   inline BigInt& operator = (const int n)
   {
-    D = copy(D,n);
+    D = a_BigInt::copy(D,n);
     return *this;
   }
   BigInt& operator = (const char *);
@@ -434,7 +434,7 @@ public:
   ///////////////////////////////////////////////////////////
   // I/O and string conversion
   ///////////////////////////////////////////////////////////
-  char * makeString (char [], size_t length = 1024,
+  char * makeString (char [], std::size_t length = 1024,
                      unsigned int base = 10) const;
   int parseString (const char *, unsigned int base = 10);
   friend std::ostream& operator << (std::ostream&, const BigInt&);
@@ -449,7 +449,7 @@ public:
 ///////////////////////////////////////////////////////////////////////////
 inline BigInt abs         (const BigInt& a)
 {
-  return BigInt(a.D->sign == -1 ? neg(0,a.D) : copy(0,a.D));
+  return BigInt(a.D->sign == -1 ? neg(0,a.D) : BigInt::a_BigInt::copy(0,a.D));
 }
 inline BigInt operator -  (const BigInt& a)
 {

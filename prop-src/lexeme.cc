@@ -12,7 +12,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/strings/charesc.h>
 #include "ir.h"
 #include "ast.h"
@@ -26,7 +26,7 @@
 
 const char *make_quoted_string( const char * s)
 {
-  char *new_str = str_pool[strlen(s) * 4];
+  char *new_str = str_pool[std::strlen(s) * 4];
   *new_str = '"';
   char *end_str = quote_string(new_str+1,s);
   *end_str++ = '"';
@@ -59,7 +59,7 @@ nil_1_
 #line 64 "../../prop-src/lexeme.pcc"
             
             return add_contexts(
-                  contexts, LITERALpat( REGEXPlit( convert_regexp( _STRINGlit(_LITERALpat(pat)->LITERALpat)->STRINGlit))));
+                  contexts, LITERALpat( REGEXPlit( convert_regstd::exp( _STRINGlit(_LITERALpat(pat)->LITERALpat)->STRINGlit))));
             
 #line 67 "../../prop-src/lexeme.pcc"
             } break;
@@ -73,13 +73,13 @@ nil_1_
             for (Conses l = contexts; l; l = l->_2)
             {
               if (l->_1)
-                strcpy( p, l->_1->name);
-              p += strlen(p);
+                std::strcpy( p, l->_1->name);
+              p += std::strlen(p);
               if (l->_2)
                 *p++ = ',';
             }
             *p++ = '>';
-            strcpy(p,_REGEXPlit(_LITERALpat(pat)->LITERALpat)->REGEXPlit+1); p += strlen(p) - 1;
+            std::strcpy(p,_REGEXPlit(_LITERALpat(pat)->LITERALpat)->REGEXPlit+1); p += strlen(p) - 1;
             *p = '/';
             debug_msg( "converting %p into %s\n",
                        CONTEXTpat(contexts,pat), buffer);
@@ -168,7 +168,7 @@ Pat convert_regexp (Pat x_1)
         switch (_LITERALpat(x_1)->LITERALpat->tag__) {
           case a_Literal::tag_STRINGlit: {
 #line 100 "../../prop-src/lexeme.pcc"
-           return LITERALpat( REGEXPlit( convert_regexp(_STRINGlit(_LITERALpat(x_1)->LITERALpat)->STRINGlit))); 
+           return LITERALpat( REGEXPlit( convert_regstd::exp(_STRINGlit(_LITERALpat(x_1)->LITERALpat)->STRINGlit))); 
 #line 100 "../../prop-src/lexeme.pcc"
             } break;
           default: {
@@ -191,7 +191,7 @@ Pat convert_regexp (Pat x_1)
 //  Convert a string literal into a regular expression literal.
 ///////////////////////////////////////////////////////////////////////////////
 
-const char *convert_regexp( const char * string, Bool quotes)
+const char *convert_regstd::exp( const char * string, Bool quotes)
 {
   char buf[4096];
   register char * p = buf;
@@ -293,7 +293,7 @@ Pat mk_regexp_pat( const char * re)
   const char * p = re;
   char buf[4096];
   char * q = buf;
-  if (strchr(re,'{') != 0)
+  if (std::strchr(re,'{') != 0)
   {
     // skip context
     if (*p == '<')
@@ -339,8 +339,8 @@ Pat mk_regexp_pat( const char * re)
 #line 211 "../../prop-src/lexeme.pcc"
                     
                     *q++ = '(';
-                    strcpy( q, convert_regexp( _STRINGlit(_LITERALpat(pattern)->LITERALpat)->STRINGlit, false));
-                    q += strlen(q) - 1;
+                    std::strcpy( q, convert_regstd::exp( _STRINGlit(_LITERALpat(pattern)->LITERALpat)->STRINGlit, false));
+                    q += std::strlen(q) - 1;
                     *q++ = ')';
                     
 #line 216 "../../prop-src/lexeme.pcc"
@@ -349,8 +349,8 @@ Pat mk_regexp_pat( const char * re)
 #line 204 "../../prop-src/lexeme.pcc"
                     
                     *q++ = '(';
-                    strcpy( q, _REGEXPlit(_LITERALpat(pattern)->LITERALpat)->REGEXPlit+1);
-                    q += strlen(_REGEXPlit(_LITERALpat(pattern)->LITERALpat)->REGEXPlit)-2;
+                    std::strcpy( q, _REGEXPlit(_LITERALpat(pattern)->LITERALpat)->REGEXPlit+1);
+                    q += std::strlen(_REGEXPlit(_LITERALpat(pattern)->LITERALpat)->REGEXPlit)-2;
                     *q++ = ')';
                     
 #line 209 "../../prop-src/lexeme.pcc"
@@ -497,7 +497,7 @@ Pat expand_lexeme_pat( Pat pat, Ty ty, int n, Cons terms[])
                     if (_V3->lexeme_pattern) {
 #line 288 "../../prop-src/lexeme.pcc"
                       
-                      Pat new_pat = subst(convert_regexp(_V3->lexeme_pattern),0,true);
+                      Pat new_pat = subst(convert_regstd::exp(_V3->lexeme_pattern),0,true);
                       disj_pats = (disj_pats == NOpat) ? new_pat
                                   : LOGICALpat(ORpat,disj_pats, new_pat);
                       disj_pats->selector = pat->selector;

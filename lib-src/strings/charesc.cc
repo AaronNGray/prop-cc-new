@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <ctype.h>
+#include <cctype>
 #include <AD/strings/charesc.h>
 
 char * quote_string (char * buf, const char * s)
@@ -66,7 +66,7 @@ const char * parse_char(const char * s, char& c)
         int digit1;
         int digit2;
         s++;
-        if (isdigit(*s))
+        if (std::isdigit(*s))
           digit1 = *s - '0';
         else if (*s >= 'a' && *s <= 'f')
           digit1 = *s - 'a' + 10;
@@ -75,7 +75,7 @@ const char * parse_char(const char * s, char& c)
         else
           digit1 = 0;
         s++;
-        if (isdigit(*s))
+        if (std::isdigit(*s))
           digit2 = *s - '0';
         else if (*s >= 'a' && *s <= 'f')
           digit2 = *s - 'a' + 10;
@@ -119,7 +119,7 @@ char * print_char(char * s, char c)
     *s= '\0';
     return s;
   }
-  else if (isprint(c))
+  else if (std::isprint(c))
   {
     *s++ = c;
     *s = '\0';

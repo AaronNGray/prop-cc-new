@@ -26,6 +26,7 @@
 #define grammar_for_parsers_h
 
 #include <iostream>
+#include <cstdio>
 #include <AD/generic/generic.h>   // Generic definitions
 #include <AD/automata/dfatable.h> // DFA tables
 

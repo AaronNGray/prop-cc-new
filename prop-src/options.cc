@@ -4,7 +4,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <iostream>
 #include "basics.h"
 #include "config.h"
@@ -49,7 +49,7 @@ PropOptions::PropOptions()
   visualization       = false;
   generate_html       = false;
   optimize_rewrite    = false;
-  strcpy(search_paths,DEFAULT_SEARCH_PATH);
+  std::strcpy(search_paths,DEFAULT_SEARCH_PATH);
 }
 PropOptions::~PropOptions()
 {}
@@ -103,14 +103,14 @@ void IncludeDependency::add_dependency( const char * file)
 void IncludeDependency::print_dependences ()
 {
   std::cout << options.output_file_name << ":\t" << options.input_file_name << ' ';
-  int len = strlen(options.output_file_name) + 10 + strlen(options.input_file_name);
+  int len = std::strlen(options.output_file_name) + 10 + strlen(options.input_file_name);
   IncludeDependency * d;
   for (d = dependences; d; d = d->next)
   {
     const char * file_name = d->file_name;
     if (file_name[0] == '.' && file_name[1] == PATH_SEPARATOR)
       file_name += 2;
-    int this_len = strlen(file_name);
+    int this_len = std::strlen(file_name);
     if (this_len + len >= 79)
     {
       len = 8;

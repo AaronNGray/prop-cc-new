@@ -22,10 +22,10 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <string.h>
-#include <ctype.h>
-#include <new.h>
+#include <cassert>
+#include <cstring>
+#include <cctype>
+#include <new>
 #include <AD/automata/lexergen.h> // Lexical scanner generator
 #include <AD/automata/gentable.h> // Table emitter  
 #include <AD/strings/charesc.h>   // Escape sequence parsing
@@ -69,7 +69,7 @@ void LexerGen::create_tables(int size, int states, Symbol min, Symbol max)
 ////////////////////////////////////////////////////////////////////////////
 void LexerGen::grow_states(int increment)
 {  Rule * new_rule = new Rule [ number_of_states + increment ];
-   memcpy(new_rule,rule,sizeof(Rule) * number_of_states);
+   std::memcpy(new_rule,rule,sizeof(Rule) * number_of_states);
    delete [] rule;
    rule = new_rule; 
    Super::grow_states(increment);
@@ -133,7 +133,7 @@ static Nfa * construct_nfa
       char name[256];
       char * q;
       int i;
-      memset(in_context,0,sizeof(in_context));
+      std::memset(in_context,0,sizeof(in_context));
       if (contexts == nil) goto syntax_error;
       for (p = regexp+1, q = name;; ) {
          switch (c = *p++) {
@@ -141,7 +141,7 @@ static Nfa * construct_nfa
             case '>': case ',':
                q = '\0';
                for (i = 0; contexts[i]; i++) 
-                  if (strcmp(contexts[i], name) == 0) goto found;
+                  if (std::strcmp(contexts[i], name) == 0) goto found;
                goto syntax_error;
             found:  q = name;
                in_context[i]  = true;
@@ -244,7 +244,7 @@ static Nfa * construct_nfa
                   case '^':  if (p-1 == start) { complement = true; break; }
                   case '\\': p = parse_char(p-1,ch); c = (unsigned char)ch;
                   default:    
-                     if (foldcase) c = toupper(c);
+                     if (foldcase) c = std::toupper(c);
                      *char_class++ = c;
                      if (start_range >= 0) {
                         if (start_range >= c) goto syntax_error;
@@ -271,7 +271,7 @@ static Nfa * construct_nfa
          build_delta: default:    // process normal characters
          {  next->tag     = Nfa::Delta;
             next->n.state = number_of_nfa_states++;
-            if (foldcase && c >= 0) c = toupper(c);
+            if (foldcase && c >= 0) c = std::toupper(c);
             next->n.c     = c;
             next->n.out   = next_node;
             current = next; next = next->n.out;
@@ -429,7 +429,7 @@ void LexerGen::compile
    // Estimate the number of character classes and their combined size
    //
    for (i = 0; i < n; i++) {
-      character_class_size += strlen(regexp[i]) + 1;
+      character_class_size += std::strlen(regexp[i]) + 1;
       for (register const char * p = regexp[i]; *p; p++) 
          if (*p == '[' || *p == '.') number_of_character_classes++;
    }
@@ -448,8 +448,8 @@ void LexerGen::compile
    //
    // Set the partition map to all equivalent initially
    //
-   memset(partitions,0,sizeof(partitions));
-   memset(singletons,0,sizeof(singletons));
+   std::memset(partitions,0,sizeof(partitions));
+   std::memset(singletons,0,sizeof(singletons));
 
    //
    //

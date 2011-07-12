@@ -1096,7 +1096,7 @@ void SyntaxClass::generate_semantic_stack_growth( CodeGen& C)
         "%^%s_semantic_stack_type * S = new %s_semantic_stack_type [N];"
         "%^if (N >= LR1Parser::SEMANTIC_STACK_SIZE) "
         "%^   error_report(\"Warning: semantic stack overflow\");"
-        "%^memcpy(S, bot__, sizeof(%s_semantic_stack_type) * (stack_size__ + 1));"
+        "%^std::memcpy(S, bot__, sizeof(%s_semantic_stack_type) * (stack_size__ + 1));"
         "%^if (heap_allocated__) delete [] bot__;"
         "%^t__ = S + (t__ - bot__);"
         "%^bot__ = S;"

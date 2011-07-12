@@ -25,7 +25,7 @@
 #ifndef nondeterministic_finite_automata_nodes_h
 #define nondeterministic_finite_automata_nodes_h
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/automata/dfatable.h>  // DFA tables internals
 #include <AD/contain/bitset.h>
 
@@ -57,8 +57,8 @@ public:
    virtual int closure (BitSet *) = 0;
    virtual BitSet * epsilon_closure 
      (MemPool&    mem_pool, 
-      size_t      number_of_states, 
-      size_t      number_of_rules, 
+      std::size_t      number_of_states, 
+      std::size_t      number_of_rules, 
       NFA_Delta * state_table[]
      ) = 0;
 
@@ -67,7 +67,7 @@ public:
    //  and eliminate the rest
    ///////////////////////////////////////////////////////////////////////////
    inline static Rule accept_thinning
-      (register BitSet * set, register size_t rules)
+      (register BitSet * set, register std::size_t rules)
    {  for (register int i = 0; i < rules; i++)
       {  if ((*set)[i]) {
             //for (register int j = i+1; j < rules; j++) set->remove(j);
@@ -90,7 +90,7 @@ protected:
    NFA_Accept();
   ~NFA_Accept();
 public:
-   virtual BitSet * epsilon_closure (MemPool&, size_t, size_t, NFA_Delta * []);
+   virtual BitSet * epsilon_closure (MemPool&, std::size_t, size_t, NFA_Delta * []);
    friend NFA_Accept * mkaccept(MemPool&, State);
 };
 
@@ -105,7 +105,7 @@ private:
    NFA_Epsilon();
   ~NFA_Epsilon();
 public:
-   virtual BitSet * epsilon_closure (MemPool&, size_t, size_t, NFA_Delta * []);
+   virtual BitSet * epsilon_closure (MemPool&, std::size_t, size_t, NFA_Delta * []);
    friend NFA_Epsilon * mkepsilon(MemPool&, NFA_Node *);
 };
 
@@ -122,7 +122,7 @@ private:
   ~NFA_Or();
 public:
    inline void set_out2(NFA_Node * n) { out2 = n; }
-   virtual BitSet * epsilon_closure (MemPool&, size_t, size_t, NFA_Delta * []);
+   virtual BitSet * epsilon_closure (MemPool&, std::size_t, size_t, NFA_Delta * []);
    friend NFA_Or * mkor(MemPool&, NFA_Node *, NFA_Node *);
 };
 
@@ -141,7 +141,7 @@ private:
    NFA_Delta();
   ~NFA_Delta();
 public:
-   virtual BitSet * epsilon_closure (MemPool&, size_t, size_t, NFA_Delta * []);
+   virtual BitSet * epsilon_closure (MemPool&, std::size_t, size_t, NFA_Delta * []);
    inline BitSet * delta  () const { return delta_set; }
    inline void     add_delta (BitSet * set) const 
       { if (delta_bit >= 0) set->add(delta_bit);

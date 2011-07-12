@@ -4,9 +4,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <limits.h>
-#include <stdlib.h>
+#include <cstring>
+#include <climits>
+#include <cstdlib>
 #include <AD/strings/quark.h>
 #include "ir.ph"
 #include "ast.ph"
@@ -21,7 +21,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp select( Exp e, Cons c, Ty t) { return SELECTORexp( e, c, t); }
+Exp select( Exp e, Cons c, Ty t) { return SELECTORstd::exp( e, c, t); }
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -58,7 +58,7 @@ Exp MatchCompiler::make_select
 	    TUPLEty _:
 	      {
 	        use_projection = false;
-			comp_ty = component_ty(ty,atol(component+1));
+			comp_ty = component_ty(ty,std::atol(component+1));
 		  }
 	    | RECORDty(_,_,_):
 	      {
@@ -100,17 +100,17 @@ Exp MatchCompiler::make_select
       Id nm = mangle(name);
 
       if (this_opt & OPTunboxed)
-         result = APPexp( IDexp( #"deref_" + name), e);
+         result = APPstd::exp( IDexp( #"deref_" + name), e);
       else
       {
         if ((opt & OPTtaggedpointer) && tag != 0)
-          e = APPexp( IDexp( #"derefp"), e);
+          e = APPstd::exp( IDexp( #"derefp"), e);
         if (opt & OPTsubclassless) // No subclass hierarchy
         {
           if (simple)
-            result = ARROWexp( e, nm);
+            result = ARROWstd::exp( e, nm);
           else
-            result = DEREFexp( e);
+            result = DEREFstd::exp( e);
         }
         else // with subclass hierachy
         {
@@ -120,7 +120,7 @@ Exp MatchCompiler::make_select
           if (options.inline_casts && tyvars == #[])
           {
             downcast_exp =
-                CASTexp( mkptrty( mkidty( id + #"_" + nm, #[])), e);
+                CASTstd::exp( mkptrty( mkidty( id + #"_" + nm, #[])), e);
           }
           else if (options.inline_casts && expected_ty != NOty)
           {
@@ -129,25 +129,25 @@ Exp MatchCompiler::make_select
 		    TYCONty(_,tys):
               {
                 downcast_exp =
-                        CASTexp( mkptrty( mkidty( id + #"_" + nm, tys)), e);
+                        CASTstd::exp( mkptrty( mkidty( id + #"_" + nm, tys)), e);
               }
             | _:
               { bug( "%Lmake_select"); }
             }
           }
           else
-            downcast_exp = APPexp( IDexp( #"_" + nm), e);
+            downcast_exp = APPstd::exp( IDexp( #"_" + nm), e);
 
           if (simple)
-            result = ARROWexp( downcast_exp, nm);
+            result = ARROWstd::exp( downcast_exp, nm);
           else
-            result = DEREFexp( downcast_exp);
+            result = DEREFstd::exp( downcast_exp);
         }
       }
     }
   |  _: // skip
   }
-  return use_projection ? DOTexp(result,component) : result;
+  return use_projection ? DOTstd::exp(result,component) : result;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -173,21 +173,21 @@ Exp MatchCompiler::tag_name_of( Cons cons, Bool normalized)
   | ONEcons { name, ty = NOty, alg_ty = DATATYPEty({ arg ... },_) ... }
         | arg == 0:
     {
-      return IDexp( mangle( name));
+      return IDstd::exp( mangle( name));
     }
   | ONEcons { name, ty = NOty, alg_ty = DATATYPEty({ arg ... },_) ... }:
     {
-      return CASTexp( integer_ty, IDexp( mangle( name)));
+      return CASTstd::exp( integer_ty, IDexp( mangle( name)));
     }
   | ONEcons { name, alg_ty = DATATYPEty({ id, arg, unit, tyvars ... },_) ... }
 	    | !normalized && tyvars == #[] && arg > 1:
     {
-      return IDexp( Quark( "a_", id, "::tag_", mangle( name)));
+      return IDstd::exp( Quark( "a_", id, "::tag_", mangle( name)));
     }
   | ONEcons { alg_ty = DATATYPEty({ arg, unit ... },_) ... }:
     {
       int this_tag = tag_of(cons) + (normalized ? unit : 0);
-      return LITERALexp(INTlit(this_tag));
+      return LITERALstd::exp(INTlit(this_tag));
     }
   | _:
     { return NOexp; }
@@ -215,7 +215,7 @@ Exp MatchCompiler::untag( Exp e, Ty ty)
     }
   | DATATYPEty ({ arg ... },_) | arg > 0:
     {
-      return APPexp( IDexp( #"untag"), e);
+      return APPstd::exp( IDexp( #"untag"), e);
     }
   | _:
     { return e; }
@@ -245,15 +245,15 @@ Exp MatchCompiler::untag_one( Exp e, Cons c)
         | arg == 0:
     { return e; }
   | ONEcons { ty = NOty ... }:
-    { return CASTexp( integer_ty, e); }
+    { return CASTstd::exp( integer_ty, e); }
   | ONEcons { alg_ty = DATATYPEty({ qualifiers, opt ... }, _) ... }:
     {
       if (opt & OPTtaggedpointer)
-        e = APPexp( IDexp( #"untagp"),e);
+        e = APPstd::exp( IDexp( #"untagp"),e);
       else if (opt & OPTtagless)
-        e = LITERALexp( INTlit(0));
+        e = LITERALstd::exp( INTlit(0));
       else
-        e = ARROWexp( e, #"tag__");
+        e = ARROWstd::exp( e, #"tag__");
       return e;
     }
   | _:

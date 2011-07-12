@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <stdlib.h>
+#include <cstring>
+#include <cstdlib>
 #include <AD/automata/lrgen.h>
 #include <AD/automata/gentable.h>
 
@@ -70,7 +70,7 @@ void LRGen::create_map( const Grammar& G)
     if (equiv)
       delete [] equiv;
     equiv = new EquivMap [ equiv_classes_size = G.map_size() ];
-    memcpy(equiv, G.map(), G.map_size() * sizeof(EquivMap));
+    std::memcpy(equiv, G.map(), G.map_size() * sizeof(EquivMap));
   }
 
   ///////////////////////////////////////////////////////////////////////////
@@ -151,20 +151,20 @@ void LRGen::grow_states( int increment)
 {
   {
     State * new_defact = new State [ number_of_states + increment ];
-    memcpy(new_defact, defact, number_of_states * sizeof(State));
+    std::memcpy(new_defact, defact, number_of_states * sizeof(State));
     delete [] defact;
     defact = new_defact;
   }
 #if 0
   {  ProductionLength * new_len =
       new ProductionLength [ number_of_states + increment ];
-    memcpy(new_len, len, number_of_states * sizeof(ProductionLength));
+    std::memcpy(new_len, len, number_of_states * sizeof(ProductionLength));
     delete [] len;
     len = new_len;
   }
   {  ProductionLength * new_ncount =
       new ProductionLength [ number_of_states + increment ];
-    memcpy(new_ncount, ncount, number_of_states * sizeof(ProductionLength));
+    std::memcpy(new_ncount, ncount, number_of_states * sizeof(ProductionLength));
     delete [] ncount;
     ncount = new_ncount;
   }

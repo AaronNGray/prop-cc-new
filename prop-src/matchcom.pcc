@@ -9,9 +9,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <limits.h>
-#include <stdlib.h>
+#include <cstring>
+#include <climits>
+#include <cstdlib>
 #include <AD/contain/bitset.h>
 #include <AD/generic/ordering.h>
 #include <AD/strings/quark.h>
@@ -264,53 +264,53 @@ Exp subst(Exp exp, Exp s[])
 {
   match while (exp)
   {
-    DOTexp( e, l):
-      { return DOTexp( subst( e, s), l); }
+    DOTstd::exp( e, l):
+      { return DOTstd::exp( subst( e, s), l); }
   | RELexp i:
       { return s[i]; }
-  | SELECTORexp( e, c, t):
-      { return SELECTORexp( subst( e, s), c, t); }
-  | DEREFexp( e):
-      { return DEREFexp( subst( e, s)); }
-  | ARROWexp( e, l):
-      { return ARROWexp( subst( e, s), l); }
-  | INDEXexp( a, b):
-      { return INDEXexp( subst( a, s), subst( b, s)); }
-  | BINOPexp( a, b, c):
-      { return BINOPexp( a, subst( b, s),subst( c, s)); }
-  | PREFIXexp( a, b):
-      { return PREFIXexp( a, subst( b, s)); }
-  | POSTFIXexp( a, b):
-      { return POSTFIXexp( a, subst( b, s)); }
-  | APPexp( a, b):
-      { return APPexp( subst( a, s), subst( b, s)); }
-  | ASSIGNexp( a, b):
-      { return ASSIGNexp( subst( a, s), subst( b, s)); }
-  | IFexp( a, b, c):
-      { return IFexp( subst( a, s), subst( b, s), subst( c, s)); }
+  | SELECTORstd::exp( e, c, t):
+      { return SELECTORstd::exp( subst( e, s), c, t); }
+  | DEREFstd::exp( e):
+      { return DEREFstd::exp( subst( e, s)); }
+  | ARROWstd::exp( e, l):
+      { return ARROWstd::exp( subst( e, s), l); }
+  | INDEXstd::exp( a, b):
+      { return INDEXstd::exp( subst( a, s), subst( b, s)); }
+  | BINOPstd::exp( a, b, c):
+      { return BINOPstd::exp( a, subst( b, s),subst( c, s)); }
+  | PREFIXstd::exp( a, b):
+      { return PREFIXstd::exp( a, subst( b, s)); }
+  | POSTFIXstd::exp( a, b):
+      { return POSTFIXstd::exp( a, subst( b, s)); }
+  | APPstd::exp( a, b):
+      { return APPstd::exp( subst( a, s), subst( b, s)); }
+  | ASSIGNstd::exp( a, b):
+      { return ASSIGNstd::exp( subst( a, s), subst( b, s)); }
+  | IFstd::exp( a, b, c):
+      { return IFstd::exp( subst( a, s), subst( b, s), subst( c, s)); }
   | TUPLEexp es:
-      { return TUPLEexp( subst( es, s)); }
+      { return TUPLEstd::exp( subst( es, s)); }
   | RECORDexp es:
-      { return RECORDexp( subst( es, s)); }
-  | SENDexp( l, es):
-      { return SENDexp( l, subst( es, s)); }
-  | LISTexp( a, b, es, e):
-      { return LISTexp( a, b, subst( es, s), subst( e, s)); }
-  | CONSexp( c, es, e):
-      { return CONSexp( c, subst( es, s), subst( e, s)); }
-  | CASTexp( ty, e):
-      { return CASTexp( ty, subst( e, s)); }
-  | EQexp( ty, a, b):
-      { return EQexp( ty, subst( a, s), subst( b, s)); }
-  | UNIFYexp( ty, a, b):
-      { return UNIFYexp( ty, subst( a, s), subst( b, s)); }
-  | LTexp( ty, a, b):
-      { return LTexp( ty, subst( a, s), subst( b, s)); }
-  | HASHexp( ty, e):
-      { return HASHexp( ty, subst( e, s)); }
-  | SETLexp( op, es):
-      { return SETLexp( op, subst( es, s)); }
-  | MARKEDexp( _, e):
+      { return RECORDstd::exp( subst( es, s)); }
+  | SENDstd::exp( l, es):
+      { return SENDstd::exp( l, subst( es, s)); }
+  | LISTstd::exp( a, b, es, e):
+      { return LISTstd::exp( a, b, subst( es, s), subst( e, s)); }
+  | CONSstd::exp( c, es, e):
+      { return CONSstd::exp( c, subst( es, s), subst( e, s)); }
+  | CASTstd::exp( ty, e):
+      { return CASTstd::exp( ty, subst( e, s)); }
+  | EQstd::exp( ty, a, b):
+      { return EQstd::exp( ty, subst( a, s), subst( b, s)); }
+  | UNIFYstd::exp( ty, a, b):
+      { return UNIFYstd::exp( ty, subst( a, s), subst( b, s)); }
+  | LTstd::exp( ty, a, b):
+      { return LTstd::exp( ty, subst( a, s), subst( b, s)); }
+  | HASHstd::exp( ty, e):
+      { return HASHstd::exp( ty, subst( e, s)); }
+  | SETLstd::exp( op, es):
+      { return SETLstd::exp( op, subst( es, s)); }
+  | MARKEDstd::exp( _, e):
       { exp = e; }
   | _:
       { return exp; }
@@ -457,8 +457,8 @@ void decor
         {
           Ty t = NOty;
           Exp binding =
-             CASTexp( ty, BINOPexp( "+", IDexp( "rule__"),
-                     LITERALexp( INTlit( conses[0]->tag + 256 - 1 - match_rule))));
+             CASTstd::exp( ty, BINOPexp( "+", IDexp( "rule__"),
+                     LITERALstd::exp( INTlit( conses[0]->tag + 256 - 1 - match_rule))));
           E.add( #"?lexeme", binding, t, polarity);
           match_rule += n - 1;
         }
@@ -471,7 +471,7 @@ void decor
         {
           Exp exp = E.add(id,sel,ty,polarity);
           if (E.separate_guard() && ! E.tree_grammar() && exp != NOexp)
-            E.add_guard(EQexp(ty,sel,exp));
+            E.add_guard(EQstd::exp(ty,sel,exp));
           else
             e = exp;
         }
@@ -483,7 +483,7 @@ void decor
         {
           Exp exp = E.add(id,sel,ty,polarity);
           if (E.separate_guard() && ! E.tree_grammar() && exp != NOexp)
-            E.add_guard(EQexp(ty,sel,exp));
+            E.add_guard(EQstd::exp(ty,sel,exp));
           else
             e = exp;
         }
@@ -499,7 +499,7 @@ void decor
         int i = 1;
         for_each ( Pat, p, ps)
         {
-          decor( p, DOTexp( sel, index_of(i)), polarity, visible, E, match_rule);
+          decor( p, DOTstd::exp( sel, index_of(i)), polarity, visible, E, match_rule);
           i++;
         }
         return;
@@ -509,7 +509,7 @@ void decor
         int i = 1;
         for_each ( Pat, p, ps)
         {
-          decor( p, DOTexp( sel, index_of(i)), polarity, visible, E, match_rule);
+          decor( p, DOTstd::exp( sel, index_of(i)), polarity, visible, E, match_rule);
           i++;
         }
         return;
@@ -519,7 +519,7 @@ void decor
         int i = 0;
         for_each ( Pat, p, ps)
         {
-          decor( p, INDEXexp( sel, LITERALexp( INTlit(i))), polarity, visible, E,
+          decor( p, INDEXstd::exp( sel, LITERALexp( INTlit(i))), polarity, visible, E,
                  match_rule);
            i++;
         }
@@ -529,25 +529,25 @@ void decor
       {
         int i       = 0;
         Exp s       = select( sel, cons);
-        Exp len_exp = DOTexp( s, "len()");
+        Exp len_exp = DOTstd::exp( s, "len()");
         int n       = length( elements);
         for_each ( Pat, p, elements)
         {
           Exp index_exp =
-            head_flex ? BINOPexp( "-", len_exp, LITERALexp( INTlit( n-i)))
-                      : LITERALexp( INTlit(i));
-          decor( p, APPexp( DOTexp( s, "at"), index_exp), polarity, visible, E,
+            head_flex ? BINOPstd::exp( "-", len_exp, LITERALexp( INTlit( n-i)))
+                      : LITERALstd::exp( INTlit(i));
+          decor( p, APPstd::exp( DOTexp( s, "at"), index_exp), polarity, visible, E,
                 match_rule);
           i++;
         }
         decor( len, len_exp, polarity, visible, E, match_rule);
-        decor( array, DOTexp( s, "array()"), polarity, visible, E, match_rule);
+        decor( array, DOTstd::exp( s, "array()"), polarity, visible, E, match_rule);
         return;
       }
     | RECORDpat( ps, _):
       {
         for_each ( LabPat, lab_pat, ps)
-            decor( lab_pat.pat, DOTexp( sel, lab_pat.label),
+            decor( lab_pat.pat, DOTstd::exp( sel, lab_pat.label),
                   polarity, visible, E, match_rule);
          return;
       }
@@ -571,9 +571,9 @@ void decor
       {
         for_each (Pat, apat, ps)
         {
-          decor( apat, DOTexp( select( sel, cons), "_1"), polarity, visible,
+          decor( apat, DOTstd::exp( select( sel, cons), "_1"), polarity, visible,
                  E, match_rule);
-          sel = DOTexp( select( sel, cons), "_2");
+          sel = DOTstd::exp( select( sel, cons), "_2");
         }
         pat = p;
       }
@@ -597,8 +597,8 @@ void decor
   {
     match (exps->#1)
     {
-    MATCHexp(e,mv):
-       {  decor( pat, mv ? IDexp(mv) : e, polarity, visible, E, match_rule); }
+    MATCHstd::exp(e,mv):
+       {  decor( pat, mv ? IDstd::exp(mv) : e, polarity, visible, E, match_rule); }
     }
   }
   else
@@ -616,9 +616,9 @@ void decor
         {
           match (es->#1)
           {
-          MATCHexp(e,mv):
+          MATCHstd::exp(e,mv):
             {
-              decor( ps->#1, mv ? IDexp(mv) : e, polarity,
+              decor( ps->#1, mv ? IDstd::exp(mv) : e, polarity,
                      visible, E, match_rule);
             }
           }
@@ -685,8 +685,8 @@ MatchExps make_match_exps( int i, int n, int j)
     return #[];
   else
   {
-     Exp e = j < 0 ? IDexp( index_of(i,"x")) : RELexp(j);
-     return #[ MATCHexp( e, #[]) ... make_match_exps( i+1, n, j) ];
+     Exp e = j < 0 ? IDstd::exp( index_of(i,"x")) : RELexp(j);
+     return #[ MATCHstd::exp( e, #[]) ... make_match_exps( i+1, n, j) ];
   }
 }
 
@@ -738,7 +738,7 @@ Match MatchCompiler::trans( Pat pat, Pos pos, Bool neg, Match yes, Match no)
   | CONTEXTpat( c, p):          { pat = add_contexts(c,p); }
   | LEXEMEpat( _, ty, n, cs):   { pat = expand_lexeme_pat(pat,ty,n,cs); }
   | IDpat( _, ty, e):
-    { return GUARDmatch( EQexp( ty, pat->selector, e),
+    { return GUARDmatch( EQstd::exp( ty, pat->selector, e),
                  neg ? no : yes, neg ? yes : no); }
   | GUARDpat( p, e):
     {
@@ -747,7 +747,7 @@ Match MatchCompiler::trans( Pat pat, Pos pos, Bool neg, Match yes, Match no)
     }
   | ASpat( _, p, ty, e):
     {
-      Exp guard = EQexp( ty, pat->selector, e);
+      Exp guard = EQstd::exp( ty, pat->selector, e);
       if (neg)
         no  = GUARDmatch( guard, no, yes);
       else
@@ -790,7 +790,7 @@ Match MatchCompiler::trans( Pat pat, Pos pos, Bool neg, Match yes, Match no)
       Match p1 = trans( elements, start, pos, neg, yes, no);
       Match p2 = trans( array, pos, neg, (neg ? no : p1),(neg ? p1 : no));
       Match p3 = trans( len, pos, neg, (neg ? no : p2),(neg ? p3 : no));
-      return RANGEmatch( pos, ARROWexp( pat->selector,"len()"), low, high,
+      return RANGEmatch( pos, ARROWstd::exp( pat->selector,"len()"), low, high,
                         (neg ? no : p3), (neg ? p3 : no));
     }
   | RECORDpat (ps,flex): { return trans(ps,pos,neg,yes,no); }
@@ -857,7 +857,7 @@ Match MatchCompiler::trans( Pat pat, Pos pos, Bool neg, Match yes, Match no)
     {
       Pat new_tail   = LISTpat'{ cons = cons, nil = nil, head = t ,tail = tail};
       Pat list_pat   = APPpat( CONSpat( cons), TUPLEpat( #[h, new_tail]));
-      new_tail->selector = DOTexp( select( pat->selector, cons), "_2");
+      new_tail->selector = DOTstd::exp( select( pat->selector, cons), "_2");
       list_pat->selector = pat->selector;
       pat = list_pat;
     }
@@ -985,7 +985,7 @@ CompareResult compare_pos(Pos a, Pos b)
     {
       CompareResult r = compare_pos(x,y);
       if (r != SAME) return r;
-      int s = strcmp(i,j);
+      int s = std::strcmp(i,j);
       if (s == 0) return SAME;
       if (s < 0)  return LESS;
       return MORE;
@@ -1024,10 +1024,10 @@ fun compare_literals INTlit i,    INTlit j:int:{ return i - j; }
   | compare_literals REALlit x,   REALlit y:   { return x < y ? -1 : (x > y ? 1 : 0); }
   | compare_literals CHARlit c,   CHARlit d:   { return (int)c - (int)d; }
   | compare_literals BOOLlit b,   BOOLlit c:   { return b - c; }
-  | compare_literals STRINGlit s, STRINGlit t: { return strcmp(s,t); }
-  | compare_literals REGEXPlit s, REGEXPlit t: { return strcmp(s,t); }
-  | compare_literals QUARKlit  s, QUARKlit  t: { return strcmp(s,t); }
-  | compare_literals BIGINTlit s, BIGINTlit t: { return strcmp(s,t); }
+  | compare_literals STRINGlit s, STRINGlit t: { return std::strcmp(s,t); }
+  | compare_literals REGEXPlit s, REGEXPlit t: { return std::strcmp(s,t); }
+  | compare_literals QUARKlit  s, QUARKlit  t: { return std::strcmp(s,t); }
+  | compare_literals BIGINTlit s, BIGINTlit t: { return std::strcmp(s,t); }
   | compare_literals _,           _:           { return 1; }
   ;
 
@@ -1046,36 +1046,36 @@ Bool equal( Exp a, Exp b)
   | IDexp      x,    IDexp      y:      { return x == y; }
   | RELexp     i,    RELexp     j:      { return same_selectors || i == j; }
   | DOTexp (a,x),    DOTexp (b,y):      { return x == y && equal(a,b); }
-  | SELECTORexp(a,x,u),SELECTORexp(b,y,v):
+  | SELECTORstd::exp(a,x,u),SELECTORexp(b,y,v):
         { return x == y && equal(a,b); }
   | DEREFexp   x,    DEREFexp   y:      { return equal(x,y); }
-  | ARROWexp(a,x),   ARROWexp(b,y):     { return x == y && equal(a,b); }
-  | INDEXexp(a,i),   INDEXexp(b,j):     { return equal(a,b) && equal(i,j); }
-  | BINOPexp(a,b,c), BINOPexp(d,e,f):
-        { return strcmp(a,d) == 0 && equal(b,e) && equal(c,f); }
-  | PREFIXexp(a,b),  PREFIXexp(c,d):    { return !strcmp(a,c) && equal(b,d);}
-  | POSTFIXexp(a,b), POSTFIXexp(c,d):   { return !strcmp(a,c) && equal(b,d);}
-  | APPexp(a,b),     APPexp(c,d):       { return equal(a,c) && equal(b,d); }
-  | ASSIGNexp(a,b),  ASSIGNexp(c,d):    { return equal(a,c) && equal(b,d); }
-  | IFexp(a,b,c),    IFexp(d,e,f):
+  | ARROWstd::exp(a,x),   ARROWexp(b,y):     { return x == y && equal(a,b); }
+  | INDEXstd::exp(a,i),   INDEXexp(b,j):     { return equal(a,b) && equal(i,j); }
+  | BINOPstd::exp(a,b,c), BINOPexp(d,e,f):
+        { return std::strcmp(a,d) == 0 && equal(b,e) && equal(c,f); }
+  | PREFIXstd::exp(a,b),  PREFIXexp(c,d):    { return !std::strcmp(a,c) && equal(b,d);}
+  | POSTFIXstd::exp(a,b), POSTFIXexp(c,d):   { return !std::strcmp(a,c) && equal(b,d);}
+  | APPstd::exp(a,b),     APPexp(c,d):       { return equal(a,c) && equal(b,d); }
+  | ASSIGNstd::exp(a,b),  ASSIGNexp(c,d):    { return equal(a,c) && equal(b,d); }
+  | IFstd::exp(a,b,c),    IFexp(d,e,f):
         { return equal(a,d) && equal(b,e) && equal(c,f); }
   | TUPLEexp a,      TUPLEexp b:        { return equal(a,b); }
   | RECORDexp a,     RECORDexp b:       { return equal(a,b); }
-  | SENDexp(a,b),    SENDexp(c,d):      { return a == c && equal(b,d); }
-  | LISTexp(a,_,b,c), LISTexp(d,_,e,f):
+  | SENDstd::exp(a,b),    SENDexp(c,d):      { return a == c && equal(b,d); }
+  | LISTstd::exp(a,_,b,c), LISTexp(d,_,e,f):
         { return a == d && equal(b,e) && equal(c,f); }
-  | CONSexp(a,b,c),  CONSexp(d,e,f):    { return a == d && equal(b,e) && equal(c,f); }
-  | EQexp(_,a,b),    EQexp(_,c,d):      { return equal(a,c) && equal(b,d); }
-  | UNIFYexp(_,a,b), UNIFYexp(_,c,d):   { return equal(a,c) && equal(b,d); }
-  | LTexp(_,a,b),    LTexp(_,c,d):      { return equal(a,c) && equal(b,d); }
-  | HASHexp(_,x),    HASHexp(_,y):      { a = x; b = y; }
+  | CONSstd::exp(a,b,c),  CONSexp(d,e,f):    { return a == d && equal(b,e) && equal(c,f); }
+  | EQstd::exp(_,a,b),    EQexp(_,c,d):      { return equal(a,c) && equal(b,d); }
+  | UNIFYstd::exp(_,a,b), UNIFYexp(_,c,d):   { return equal(a,c) && equal(b,d); }
+  | LTstd::exp(_,a,b),    LTexp(_,c,d):      { return equal(a,c) && equal(b,d); }
+  | HASHstd::exp(_,x),    HASHexp(_,y):      { a = x; b = y; }
   | THISCOSTexp _,   THISCOSTexp _:     { return true; }
   | COSTexp i,       COSTexp j:         { return i == j; }
-  | SYNexp(a,b,_,_), SYNexp(c,d,_,_):   { return a == c && b == d; }
-  | THISSYNexp(i,_,_), THISSYNexp(j,_,_):
+  | SYNstd::exp(a,b,_,_), SYNexp(c,d,_,_):   { return a == c && b == d; }
+  | THISSYNstd::exp(i,_,_), THISSYNexp(j,_,_):
         { return i == j; }
-  | MARKEDexp(_,x),  _:                 { a = x; }
-  | _,               MARKEDexp(_,y):    { b = y; }
+  | MARKEDstd::exp(_,x),  _:                 { a = x; }
+  | _,               MARKEDstd::exp(_,y):    { b = y; }
   | _,               _:                 { return false; }
   }
 }
@@ -1118,7 +1118,7 @@ Bool equal( LabExps a, LabExps b)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Bool has_regexp( int n, Literal l[])
+Bool has_regstd::exp( int n, Literal l[])
 {
   for (int i = n - 1; i >= 0; i--)
   { match (l[i]) { REGEXPlit _: { return true; } | _: { /* skip */ } } }
@@ -1131,13 +1131,13 @@ Bool has_regexp( int n, Literal l[])
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void convert_regexp( int n, Literal l[])
+void convert_regstd::exp( int n, Literal l[])
 {
   for (int i = n-1; i >= 0; i--)
   {
     match (l[i])
     {
-      STRINGlit s: { l[i] = REGEXPlit( convert_regexp(s)); }
+      STRINGlit s: { l[i] = REGEXPlit( convert_regstd::exp(s)); }
     | _:           { /* skip */ }
     }
   }
@@ -1289,7 +1289,7 @@ Match MatchCompiler::merge( Match a, Match b)
       Match   * br = Matches(n);
       Literal * ls = Literals(n);
 
-      if (has_regexp( n1, l1) || has_regexp( n2, l2))
+      if (has_regstd::exp( n1, l1) || has_regexp( n2, l2))
       {
         for (i = 0; i < n1; i++)
         {
@@ -1301,7 +1301,7 @@ Match MatchCompiler::merge( Match a, Match b)
           br[n1+i] = m2[i];
           ls[n1+i] = l2[i];
         }
-        convert_regexp(n,ls);
+        convert_regstd::exp(n,ls);
       }
       else
       {

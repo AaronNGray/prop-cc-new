@@ -71,8 +71,8 @@ public:
   //  GCObject's !!!
   ///////////////////////////////////////////////////////////////////////////
 
-  virtual void * m_alloc (size_t);
-  virtual void * c_alloc (size_t);
+  virtual void * m_alloc (std::size_t);
+  virtual void * c_alloc (std::size_t);
   virtual void   free    (void *);
 };
 

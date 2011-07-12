@@ -27,8 +27,8 @@
 // hash consing.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <iomanip.h>
+#include <iostream>
+#include <iomanip>
 #include <AD/gc/gcconfig.h>
 #include <AD/gc/gctimer.h>
 

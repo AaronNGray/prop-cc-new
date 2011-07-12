@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <AD/strings/bm.h>
 
 int grep( const char * fileName, FILE * file, BoyerMoore& pattern)
@@ -64,7 +64,7 @@ int main(int argc, char * argv[])
       if (file == NULL)
       {
         perror(argv[i]);
-        exit(1);
+        std::exit(1);
       }
       failure += grep(argv[i],file,pattern);
       fclose(file);

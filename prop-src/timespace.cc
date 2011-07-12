@@ -16,7 +16,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <math.h>
+#include <cmath>
 #include <iostream>
 #include "basics.h"
 #include "timespace.h"
@@ -365,13 +365,13 @@ replacement__:
   switch (s__) {
     case 6: {
 #line 78 "../../prop-src/timespace.pcc"
-      { redex = DEBUG_cocofmcocofm_p_r_o_pcn_s_r_cfm_t_i_m_e_s_p_a_c_eco_X1(Const(log(_Const(_Log(redex)->Log)->Const)),redex,cocofmcocofm_p_r_o_pcn_s_r_cfm_t_i_m_e_s_p_a_c_eco_X1_file_name,78,"Log Const i: ...");
+      { redex = DEBUG_cocofmcocofm_p_r_o_pcn_s_r_cfm_t_i_m_e_s_p_a_c_eco_X1(Const(std::log(_Const(_Log(redex)->Log)->Const)),redex,cocofmcocofm_p_r_o_pcn_s_r_cfm_t_i_m_e_s_p_a_c_eco_X1_file_name,78,"Log Const i: ...");
         r__ = 1; goto replacement__; }
 #line 79 "../../prop-src/timespace.pcc"
 } break;
     case 5: {
 #line 77 "../../prop-src/timespace.pcc"
-      { redex = DEBUG_cocofmcocofm_p_r_o_pcn_s_r_cfm_t_i_m_e_s_p_a_c_eco_X1(Const(exp((log(_Const(_Power(redex)->_1)->Const) * _Const(_Power(redex)->_2)->Const))),redex,cocofmcocofm_p_r_o_pcn_s_r_cfm_t_i_m_e_s_p_a_c_eco_X1_file_name,77,"Power (Const i, Const j): ...");
+      { redex = DEBUG_cocofmcocofm_p_r_o_pcn_s_r_cfm_t_i_m_e_s_p_a_c_eco_X1(Const(std::exp((log(_Const(_Power(redex)->_1)->Const) * _Const(_Power(redex)->_2)->Const))),redex,cocofmcocofm_p_r_o_pcn_s_r_cfm_t_i_m_e_s_p_a_c_eco_X1_file_name,77,"Power (Const i, Const j): ...");
         r__ = 1; goto replacement__; }
 #line 78 "../../prop-src/timespace.pcc"
 } break;

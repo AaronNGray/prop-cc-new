@@ -91,7 +91,7 @@ Id          current_failure   = 0;     // jump label for failure
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Bool is_simple_exp( Exp exp)
+Bool is_simple_std::exp( Exp exp)
 {
   
 #line 89 "../../prop-src/matchgen.pcc"
@@ -102,7 +102,7 @@ Bool is_simple_exp( Exp exp)
       switch (exp->tag__) {
         case a_Exp::tag_MARKEDexp: {
 #line 92 "../../prop-src/matchgen.pcc"
-         exp = _MARKEDexp(exp)->_2; 
+         exp = _MARKEDstd::exp(exp)->_2; 
 #line 92 "../../prop-src/matchgen.pcc"
           } break;
         case a_Exp::tag_LITERALexp:
@@ -143,7 +143,7 @@ void compute_match_variables( MatchExps exps)
 {
   if (
 #line 110 "../../prop-src/matchgen.pcc"
-  ((me->_2 == 0) && (! is_simple_exp(me->_1)))
+  ((me->_2 == 0) && (! is_simple_std::exp(me->_1)))
 #line 110 "../../prop-src/matchgen.pcc"
 ) {
     
@@ -943,7 +943,7 @@ void MatchCompiler::gen_regexp_match
     case a_Literal::tag_REGEXPlit: {
 #line 673 "../../prop-src/matchgen.pcc"
       
-      int len           = strlen(_REGEXPlit(_V6)->REGEXPlit);
+      int len           = std::strlen(_REGEXPlit(_V6)->REGEXPlit);
        char * regexp     = str_pool(_REGEXPlit(_V6)->REGEXPlit+1,len-1);
        regexp[len-2]     = '\0';
        regexps[i]        = regexp;
@@ -1173,7 +1173,7 @@ void MatchCompiler::instrument_trace(MatchRules rules)
     
 #line 870 "../../prop-src/matchgen.pcc"
 #line 870 "../../prop-src/matchgen.pcc"
-  list_1_(EXPdecl(APPexp(IDexp("PROP_TRACE"),TUPLEexp(list_1_(LITERALexp(STRINGlit(make_quoted_string(buffer))),list_1_(LITERALexp(STRINGlit(make_quoted_string(r->file_name))),list_1_(LITERALexp(INTlit(r->begin_line)))))))),list_1_(OPAQUEdecl(";"),r->_5))
+  list_1_(EXPdecl(APPstd::exp(IDexp("PROP_TRACE"),TUPLEexp(list_1_(LITERALexp(STRINGlit(make_quoted_string(buffer))),list_1_(LITERALexp(STRINGlit(make_quoted_string(r->file_name))),list_1_(LITERALexp(INTlit(r->begin_line)))))))),list_1_(OPAQUEdecl(";"),r->_5))
 #line 879 "../../prop-src/matchgen.pcc"
 #line 879 "../../prop-src/matchgen.pcc"
   ;

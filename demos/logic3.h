@@ -20,7 +20,7 @@ static const Quark _l_o_g_i_c_3co_h_Q5("<->");
 #ifndef logic3_demo_h
 #define logic3_demo_h
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/strings/quark.h>
 
 #line 7 "logic3.ph"

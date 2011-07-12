@@ -33,7 +33,7 @@ datatype SETL_Token :: lexeme
    | INTEGER	/{integer}/      => "<int>"
    | REAL       /{real}/         => "<real>"
    | IDENTIFIER	/{ident}/        => "<id>"
-   | STRING     /{string}/       => "<string>"
+   | STRING     /{string}/       => "<cstring>"
    | CHARACTER  /{character}/    => "<character>"
    ;
 

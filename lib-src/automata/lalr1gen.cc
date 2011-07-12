@@ -32,7 +32,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <new.h>
+#include <new>
 #include <AD/automata/lalr1gen.h>   // LALR(1) parser generator
 #include <AD/automata/lr0.h>        // LR(0) finite state machine
 #include <AD/automata/lookahd.h>    // Lookahead set computation

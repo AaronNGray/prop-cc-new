@@ -8,8 +8,8 @@
 #include <iostream>
 #include <AD/pretty/postream.h>
 #include <strstream>
-#include <string>
-#include <stdlib.h>
+#include <cstring>
+#include <cstdlib>
 #include "ir.ph"
 #include "ast.ph"
 #include "parser.ph"
@@ -113,7 +113,7 @@ void PropParser::pop_rw_stack()
 ///////////////////////////////////////////////////////////////////////////////
 
 Pat  mark( Pat  p) { p = MARKEDpat(Loc(),p); return p; }
-Exp  mark( Exp  e) { e = MARKEDexp(Loc(),e); return e; }
+Exp  mark( Exp  e) { e = MARKEDstd::exp(Loc(),e); return e; }
 Decl mark( Decl d) { if (d != NOdecl) d = MARKEDdecl(Loc(),d); return d; }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -159,42 +159,42 @@ Pat mkvecpat
             };
 }
 
-Exp mklistexp( Id cons, Id nil, Exps es, Exp e = NOexp)
+Exp mkliststd::exp( Id cons, Id nil, Exps es, Exp e = NOexp)
 {
-  return LISTexp(lookup_cons(cons), lookup_cons(nil), es, e);
+  return LISTstd::exp(lookup_cons(cons), lookup_cons(nil), es, e);
 }
 
-Exp mkappexp( Exp a, Exp b)
+Exp mkappstd::exp( Exp a, Exp b)
 {
   Cons c = NOcons;
 /*
    match (a) and (b)
-   {  IDexp id, RECORDexp _ | c = find_cons(id): { return CONSexp(c,#[],b); }
-   |  _:                                         { return APPexp(a,b); }
+   {  IDexp id, RECORDexp _ | c = find_cons(id): { return CONSstd::exp(c,#[],b); }
+   |  _:                                         { return APPstd::exp(a,b); }
    }
 */
   match (a)
   {
-    IDexp id | c = find_cons( id):  { return CONSexp( c, #[], b); }
-  | _:                              { return APPexp( a, b); }
+    IDexp id | c = find_cons( id):  { return CONSstd::exp( c, #[], b); }
+  | _:                              { return APPstd::exp( a, b); }
   }
 }
 
-Exp mkvecexp( Id vec, Exps es)
+Exp mkvecstd::exp( Id vec, Exps es)
 {
   Used::vector = true;
-  return VECTORexp( lookup_cons( vec), es);
+  return VECTORstd::exp( lookup_cons( vec), es);
 }
 
 TermDef mklistterm( Id c, Ty a, Ty b, Decls d)
 {  //match (b)
-   //{  ! DEFVALty _: { b = DEFVALty(b,LITERALexp(INTlit(0))); }
+   //{  ! DEFVALty _: { b = DEFVALty(b,LITERALstd::exp(INTlit(0))); }
    //|  _: // skip
    //}
    return TERMdef''{ id = c, ty = mktuplety(#[ a, b ]), decls = d };
 }
 
-Exp extupleexp( Exps es) { mark_tuple_used(length(es)); return EXTUPLEexp(es); }
+Exp extuplestd::exp( Exps es) { mark_tuple_used(length(es)); return EXTUPLEexp(es); }
 Pat extuplepat( Pats ps) { mark_tuple_used(length(ps)); return EXTUPLEpat(ps); }
 Ty  extuplety( Tys ts)   { mark_tuple_used(length(ts));
                           return TYCONty( (TyCon)EXTUPLEtycon, ts); }
@@ -232,7 +232,7 @@ void PropParser::count_lines ()
 //  Method to lookup an expression from the pattern environment.
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp PropParser::lookup_exp(Id id)
+Exp PropParser::lookup_std::exp(Id id)
 {
   Bool from_current;
   Exp e = pv_env.lookup(id,&from_current);
@@ -243,7 +243,7 @@ Exp PropParser::lookup_exp(Id id)
       error ("%Lpattern variable '%s' has no binding at this point\n", id);
       return NOexp;
     }
-  | NOexp, _: { return IDexp(id); }
+  | NOexp, _: { return IDstd::exp(id); }
   | e,     _: { return e; }
   }
 }
@@ -306,10 +306,10 @@ void PropParser::add_parse_stack_binding
 {
   Ty junk_ty = NOty;
   if (item_number <= 0)
-    pv_env.add( #"$$", SYNexp( 0, -symbol_number, NOty, false), junk_ty);
+    pv_env.add( #"$$", SYNstd::exp( 0, -symbol_number, NOty, false), junk_ty);
   else
     pv_env.add( #"$" + item_number,
-            SYNexp( nonterm_number, -symbol_number, NOty, false), junk_ty);
+            SYNstd::exp( nonterm_number, -symbol_number, NOty, false), junk_ty);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

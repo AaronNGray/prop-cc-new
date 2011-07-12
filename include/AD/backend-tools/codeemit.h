@@ -25,7 +25,7 @@
 #ifndef backend_tools_code_emitter_h
 #define backend_tools_code_emitter_h
 
-#include <stdarg.h>
+#include <cstdarg>
 #include <iostream>
 #include <AD/generic/generic.h>
 
@@ -48,8 +48,8 @@ class CodeEmitter
 public:
   typedef const char *  ActionName;
   typedef unsigned char ActionAbbrev;
-  typedef va_list (*Action)(CodeEmitter&, va_list);
-  typedef va_list (*CharAction)(CodeEmitter&,unsigned char,va_list);
+  typedef std::va_list (*Action)(CodeEmitter&, va_list);
+  typedef std::va_list (*CharAction)(CodeEmitter&,unsigned char,va_list);
 
 protected:
   std::ostream *                 out;               // internal stream.
@@ -123,7 +123,7 @@ public:
   ////////////////////////////////////////////////////////////////////////////
 
 protected:
-  virtual va_list emit_driver (const char *, va_list);
+  virtual std::va_list emit_driver (const char *, va_list);
   virtual void    error       (const char *, ...);
 
   ////////////////////////////////////////////////////////////////////////////
@@ -137,20 +137,20 @@ private:
   void cleanup_emitter();
   void register_default_actions();
 
-  static va_list do_newline(CodeEmitter&,unsigned char,va_list);
-  static va_list do_meta(CodeEmitter&,unsigned char,va_list);
+  static std::va_list do_newline(CodeEmitter&,unsigned char,va_list);
+  static std::va_list do_meta(CodeEmitter&,unsigned char,va_list);
 
-  static va_list do_char   (CodeEmitter&,va_list);
-  static va_list do_uchar  (CodeEmitter&,va_list);
-  static va_list do_short  (CodeEmitter&,va_list);
-  static va_list do_ushort (CodeEmitter&,va_list);
-  static va_list do_int    (CodeEmitter&,va_list);
-  static va_list do_uint   (CodeEmitter&,va_list);
-  static va_list do_long   (CodeEmitter&,va_list);
-  static va_list do_ulong  (CodeEmitter&,va_list);
-  static va_list do_float  (CodeEmitter&,va_list);
-  static va_list do_double (CodeEmitter&,va_list);
-  static va_list do_string (CodeEmitter&,va_list);
+  static std::va_list do_char   (CodeEmitter&,va_list);
+  static std::va_list do_uchar  (CodeEmitter&,va_list);
+  static std::va_list do_short  (CodeEmitter&,va_list);
+  static std::va_list do_ushort (CodeEmitter&,va_list);
+  static std::va_list do_int    (CodeEmitter&,va_list);
+  static std::va_list do_uint   (CodeEmitter&,va_list);
+  static std::va_list do_long   (CodeEmitter&,va_list);
+  static std::va_list do_ulong  (CodeEmitter&,va_list);
+  static std::va_list do_float  (CodeEmitter&,va_list);
+  static std::va_list do_double (CodeEmitter&,va_list);
+  static std::va_list do_string (CodeEmitter&,va_list);
 };
 
 #endif

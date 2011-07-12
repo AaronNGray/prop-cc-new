@@ -66,23 +66,23 @@ protected:
   ///////////////////////////////////////////////////////////////////////////
   // Initial heap size and the amount to expand during heap expansion.
   ///////////////////////////////////////////////////////////////////////////
-  size_t initial_heap_size;
-  size_t min_heap_growth;
+  std::size_t initial_heap_size;
+  std::size_t min_heap_growth;
 
   ///////////////////////////////////////////////////////////////////////////
   // Queue for recording new pages used during tracing.
   // Promoted pages are added into this queue during scanning.
   ///////////////////////////////////////////////////////////////////////////
-  size_t   * scan_queue;
-  size_t   * scan_limit_queue;
-  size_t     scan_queue_size;
-  size_t     number_of_pages_to_scan;
+  std::size_t   * scan_queue;
+  std::size_t   * scan_limit_queue;
+  std::size_t     scan_queue_size;
+  std::size_t     number_of_pages_to_scan;
 
   ///////////////////////////////////////////////////////////////////////////
   //  Statistics during collection.
   ///////////////////////////////////////////////////////////////////////////
-  size_t pages_promoted;    // pages promoted after marking
-  size_t objects_promoted;  // objects promoted after marking
+  std::size_t pages_promoted;    // pages promoted after marking
+  std::size_t objects_promoted;  // objects promoted after marking
 
   Statistics stat;          // current statistics
 
@@ -97,13 +97,13 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Methods for manipulating the initial heap size and heap growth
   ///////////////////////////////////////////////////////////////////////////
-  virtual void set_initial_heap_size (size_t);
-  virtual void set_min_heap_growth   (size_t);
+  virtual void set_initial_heap_size (std::size_t);
+  virtual void set_min_heap_growth   (std::size_t);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Returns the size of an allocated object.
   ///////////////////////////////////////////////////////////////////////////
-  virtual size_t size(const void *) const;
+  virtual std::size_t size(const void *) const;
 
   ///////////////////////////////////////////////////////////////////////////
   //  Locate the current heap top.
@@ -131,7 +131,7 @@ protected:
     scan_limit_queue[number_of_pages_to_scan] = GC_PAGE_ID(limit);
     number_of_pages_to_scan++;
   }
-  void grow_scan_queue(size_t pages);
+  void grow_scan_queue(std::size_t pages);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Miscellaneous scanning messages methods.

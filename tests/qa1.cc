@@ -1,7 +1,7 @@
 //  Test strings
 
-#include <stdio.h>
-#include <assert.h>
+#include <cstdio>
+#include <cassert>
 #include <AD/strings/bm.h>      // Boyer Moore
 #include <AD/strings/kmp.h>     // Knuth Morris Pratt
 #include <AD/strings/kr.h>      // Karp Rabin 

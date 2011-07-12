@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <AD/strings/kr.h>
 
 int grep( const char* fileName, FILE* file, KR& pattern)
@@ -55,7 +55,7 @@ int main(int argc, char * argv[])
    } else {
       for (int i = 2; i < argc; i++) {
          FILE * file = fopen(argv[i],"r");
-         if (file == NULL) { perror(argv[i]); exit(1); }
+         if (file == NULL) { perror(argv[i]); std::exit(1); }
          failure += grep(argv[i],file,pattern);
          fclose(file);
       }

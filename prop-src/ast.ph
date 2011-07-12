@@ -109,7 +109,7 @@ datatype Exp : public MEM =
   | IDexp      (Id)             // identifier
   | RELexp     int              // nth relation during inference
   | DOTexp     (Exp, Id)        // e . l
-  | SELECTORexp(Exp, Cons, Ty)  // selector from a constructor
+  | SELECTORstd::exp(Exp, Cons, Ty)  // selector from a constructor
   | DEREFexp   (Exp)            // * e
   | ARROWexp   (Exp, Id)        // e -> l
   | INDEXexp   (Exp, Exp)       // e1 [ e2 ]
@@ -138,7 +138,7 @@ datatype Exp : public MEM =
   | UNIFYexp   (Ty, Exp, Exp)       // unification expression
   | LTexp      (Ty, Exp, Exp)       // less than expression
   | HASHexp    (Ty, Exp)            // hashing expression
-  | THISCOSTexp()                   // current cost
+  | THISCOSTstd::exp()                   // current cost
   | COSTexp    (ChildNo)            // cost attribute of child
   | THISSYNexp (RuleNo,Ty,Bool)     // current synthesized attribue
   | SYNexp     (ChildNo, RuleNo,Ty,Bool) // synthesized attribute of child
@@ -438,9 +438,9 @@ and        RewriteIndexings = List<RewriteIndexing *>
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-extern Exp component_exp(Exps, int);
-extern Exp component_exp(Exps, Id);
-extern Exp component_exp(LabExps, Id);
+extern Exp component_std::exp(Exps, int);
+extern Exp component_std::exp(Exps, Id);
+extern Exp component_std::exp(LabExps, Id);
 
 ///////////////////////////////////////////////////////////////////////////////
 //

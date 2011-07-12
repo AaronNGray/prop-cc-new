@@ -35,7 +35,7 @@
 // class String.
 /////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <iostream>
 #include <AD/generic/generic.h>   // Generic definitions
 #include <AD/strings/regexp.h>    // Regular expression search

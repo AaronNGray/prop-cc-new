@@ -50,7 +50,7 @@ public:
   void make_label  ();
   void add_type    (Id constructor_name, Id label, Ty ty, int anchor);
 private:
-  va_list printer(char,va_list);
+  std::va_list printer(char,va_list);
 };
 
 #endif

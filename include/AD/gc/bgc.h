@@ -78,14 +78,14 @@ protected:
   Byte * gc_limit;          // invoke garbage collection when this is reached.
   Bool   should_collect;    // should we garbage collect?
   Phase  phase;             // current phase of collection
-  size_t heap_size;         // current heap size that we own.
-  size_t heap_used;         // bytes currently used in heap
+  std::size_t heap_size;         // current heap size that we own.
+  std::size_t heap_used;         // bytes currently used in heap
 
   ///////////////////////////////////////////////////////////////////////////
   //  Statistics during collection.
   ///////////////////////////////////////////////////////////////////////////
-  size_t bytes_copied;     // bytes copied during a collection phase
-  size_t pages_removed;    // pages removed after a collection
+  std::size_t bytes_copied;     // bytes copied during a collection phase
+  std::size_t pages_removed;    // pages removed after a collection
 
   Statistics stat;         // current statistics
 
@@ -105,19 +105,19 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Methods to allocate and deallocate storage.
   ///////////////////////////////////////////////////////////////////////////
-  virtual void * m_alloc (size_t);
+  virtual void * m_alloc (std::size_t);
   virtual void   free    (void *);
-  inline  size_t immed_avail() const
+  inline  std::size_t immed_avail() const
   {
     return heap_limit - heap_pointer;
   }
-  void * operator [] (size_t);
+  void * operator [] (std::size_t);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Method to compute the minimal number of bytes to expand during
   //  a heap growth.
   ///////////////////////////////////////////////////////////////////////////
-  virtual size_t min_growth();
+  virtual std::size_t min_growth();
 
   ///////////////////////////////////////////////////////////////////////////
   //  Method to trace and scavenge objects.
@@ -132,7 +132,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   virtual void clear     ();
   virtual void collect   (int level = 0);
-  virtual void grow_heap (size_t);
+  virtual void grow_heap (std::size_t);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Accounting method
@@ -160,7 +160,7 @@ protected:
   //  Methods for printing messages during various phases of the collection
   //  process.
   ///////////////////////////////////////////////////////////////////////////
-  virtual void heap_growth_message      (size_t, size_t) const;
+  virtual void heap_growth_message      (std::size_t, size_t) const;
   virtual void start_collection_message () const;
   virtual void end_collection_message   () const;
 };

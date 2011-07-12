@@ -16,11 +16,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <new>
-#include <stdlib.h>
-#include <string>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <strstream>
-#include <ctype.h>
+#include <cctype>
 #include <AD/strings/quark.h>
 #include "basics.h"
 #include "keywords.h"
@@ -2305,8 +2305,8 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
           char buffer[1024];
           const char * p;
           char * q;
-          for (p = lexbuf.text(); ! isdigit(*p); p++);
-          line = atol(p);
+          for (p = lexbuf.text(); ! std::isdigit(*p); p++);
+          line = std::atol(p);
           for ( ; *p != '"'; p++);
           for (p++, q = buffer; (*q = *p) != '"'; p++, q++);
           *q = '\0';

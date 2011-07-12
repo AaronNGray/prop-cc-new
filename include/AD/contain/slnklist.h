@@ -34,7 +34,7 @@ struct SLinkList
 {
   T           head;
   SLinkList * tail;
-  void * operator new (size_t sz, Mem& mem, const T& h, SLinkList<T> * t)
+  void * operator new (std::size_t sz, Mem& mem, const T& h, SLinkList<T> * t)
   {
     SLinkList<T> * l = (SLinkList<T>*)mem.m_alloc(sz);
     l->head = h;

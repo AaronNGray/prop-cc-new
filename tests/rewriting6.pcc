@@ -7,7 +7,7 @@
 //  The test is quite elobarate and requires polymorphic datatypes to work 
 //  correctly with garbage collection, pretty printing and rewriting. 
 /////////////////////////////////////////////////////////////////////////////
-#include <iostream.h>
+#include <iostream>
 
 /////////////////////////////////////////////////////////////////////////////
 //  The following recursive type equations define the abstract syntax

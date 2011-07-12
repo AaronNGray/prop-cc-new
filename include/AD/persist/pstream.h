@@ -80,7 +80,7 @@ class Quark;
 // Currently, the persistent stream class heirarchy as structured as follows:
 //
 //          Pstream
-//         /       \
+//         /       \           .
 //    Pistream    Postream
 //         \       /
 //         Piostream
@@ -443,8 +443,8 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Constructors and destructor
   ///////////////////////////////////////////////////////////////////////////
-  Piostream(iostream&);
-  Piostream(iostream&, Mem&);
+  Piostream(std::iostream&);
+  Piostream(std::iostream&, Mem&);
   Piostream(std::istream&, std::ostream&);
   Piostream(std::istream&, std::ostream&, Mem&);
   virtual ~Piostream();

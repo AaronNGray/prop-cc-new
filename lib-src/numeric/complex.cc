@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <math.h>
+#include <cmath>
 #include <AD/numeric/complex.h>
 
 inline double sgn2(double x)
@@ -54,92 +54,92 @@ Complex operator / (double a, const Complex& b)
 
 Complex sin( const Complex& c)
 {
-  return Complex( sin(c.real) * cosh(c.imag), cos(c.real) * sinh(c.imag));
+  return Complex( sin(c.real) * std::cosh(c.imag), std::cos(c.real) * sinh(c.imag));
 }
 
-Complex cos( const Complex& c)
+Complex std::cos( const Complex& c)
 {
-  return Complex( cos(c.real) * sinh(c.imag), -sin(c.real) * cosh(c.imag));
+  return Complex( std::cos(c.real) * std::sinh(c.imag), -sin(c.real) * cosh(c.imag));
 }
 
-Complex tan( const Complex& c)
+Complex std::tan( const Complex& c)
 {
   double real2      = c.real * 2.0;
   double imag2      = c.imag * 2.0;
-  double cos_real2  = cos(real2);
-  double cosh_imag2 = cosh(imag2);
+  double cos_real2  = std::cos(real2);
+  double cosh_imag2 = std::cosh(imag2);
   return Complex(sin(real2) / (cos_real2 + cosh_imag2),
-                 tanh(imag2) / (1 + cos_real2/cosh_imag2));
+                 std::tanh(imag2) / (1 + cos_real2/cosh_imag2));
 }
 
-Complex sinh( const Complex& c)
+Complex std::sinh( const Complex& c)
 {
-  return Complex( sinh(c.real) * cos(c.imag), cosh(c.real) * sin(c.imag));
+  return Complex( std::sinh(c.real) * std::cos(c.imag), cosh(c.real) * sin(c.imag));
 }
 
-Complex cosh( const Complex& c)
+Complex std::cosh( const Complex& c)
 {
-  return Complex( cosh(c.real) * cos(c.imag), sinh(c.real) * sin(c.imag));
+  return Complex( std::cosh(c.real) * std::cos(c.imag), sinh(c.real) * sin(c.imag));
 }
 
-Complex tanh( const Complex& c)
+Complex std::tanh( const Complex& c)
 {
   double real2      = 2.0 * c.real;
   double imag2      = 2.0 * c.imag;
-  double cos_imag2  = cos(imag2);
-  double cosh_real2 = cosh(real2);
-  return Complex(tanh(real2)/(1 + cos_imag2/cosh_real2),
+  double cos_imag2  = std::cos(imag2);
+  double cosh_real2 = std::cosh(real2);
+  return Complex(std::tanh(real2)/(1 + cos_imag2/cosh_real2),
                  sin(imag2)/(cosh_real2 + cos_imag2));
 }
 
 /*
-Complex asin(const Complex& c)
+Complex std::asin(const Complex& c)
 {  double n  = norm(c);
    double n1 = n - 1.0;
-   double d  = sqrt(n1 * n1 + 4 * c.imag * c.imag) - n;
-   return Complex(sgn2(c.real) * acos(d),
-                  sgn2(c.imag) * acosh(d));
+   double d  = std::sqrt(n1 * n1 + 4 * c.imag * c.imag) - n;
+   return Complex(sgn2(c.real) * std::astd::cos(d),
+                  sgn2(c.imag) * astd::cosh(d));
 }
 
-Complex acos(const Complex& c)
+Complex std::astd::cos(const Complex& c)
 {  double n  = norm(c);
    double n1 = n - 1.0;
-   double d  = sqrt(n1 * n1 + 4 * c.imag * c.imag) - n;
-   return Complex(pi2 - sgn2(c.real) * acos(d),
-                  -sgn2(c.imag) * acosh(d));
+   double d  = std::sqrt(n1 * n1 + 4 * c.imag * c.imag) - n;
+   return Complex(pi2 - sgn2(c.real) * std::astd::cos(d),
+                  -sgn2(c.imag) * astd::cosh(d));
 }
 */
 
-Complex log( const Complex& c)
+Complex std::log( const Complex& c)
 {
   double n = norm(c);
-  return Complex(log(n)/2.0, atan2(c.imag,c.real));
+  return Complex(std::log(n)/2.0, atan2(c.imag,c.real));
 }
 
-Complex exp( const Complex& c)
+Complex std::exp( const Complex& c)
 {
-  double e_x = exp(c.real);
-  return Complex(e_x * cos(c.imag), e_x * sin(c.imag));
+  double e_x = std::exp(c.real);
+  return Complex(e_x * std::cos(c.imag), e_x * sin(c.imag));
 }
 
-Complex pow( const Complex& e, const Complex& x)
+Complex std::pow( const Complex& e, const Complex& x)
 {
-  return exp(log(e) * x);
+  return std::exp(log(e) * x);
 }
 
-Complex pow( const Complex& e, double x)
+Complex std::pow( const Complex& e, double x)
 {
-  return exp(log(e) * x);
+  return std::exp(log(e) * x);
 }
 
-Complex pow( double e, const Complex& x)
+Complex std::pow( double e, const Complex& x)
 {
-  return exp(log(e) * x);
+  return std::exp(log(e) * x);
 }
 
 Complex polar( double r, double theta)
 {
-  return Complex(r * sin(theta), r * cos(theta));
+  return Complex(r * sin(theta), r * std::cos(theta));
 }
 
 double norm( const Complex& c)

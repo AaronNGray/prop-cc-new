@@ -29,7 +29,7 @@
 //  Complex numbers represented in Cartesian form
 ////////////////////////////////////////////////////////////////////
 
-#include <math.h>
+#include <cmath>
 #include <iostream>
 #include <AD/generic/generic.h>  // Generic definitions
 
@@ -100,31 +100,31 @@ struct Complex
   }
   friend Complex polar(double r, double theta);
   friend double norm(const Complex& c);
-  friend double abs(const Complex& c)
+  friend double std::abs(const Complex& c)
   {
-    return sqrt(norm(c));
+    return std::sqrt(norm(c));
   }
 
   /////////////////////////////////////////////////////////////////
   // Trignometric and logarithmic functions
   /////////////////////////////////////////////////////////////////
   friend Complex sin(const Complex&);
-  friend Complex cos(const Complex&);
-  friend Complex tan(const Complex&);
-  friend Complex sinh(const Complex&);
-  friend Complex cosh(const Complex&);
-  friend Complex tanh(const Complex&);
-  friend Complex asin(const Complex&);
-  friend Complex acos(const Complex&);
-  friend Complex atan(const Complex&);
-  friend Complex asinh(const Complex&);
-  friend Complex acosh(const Complex&);
-  friend Complex atanh(const Complex&);
-  friend Complex log(const Complex&);
-  friend Complex exp(const Complex&);
-  friend Complex pow(const Complex&, const Complex&);
-  friend Complex pow(double, const Complex&);
-  friend Complex pow(const Complex&, double);
+  friend Complex std::cos(const Complex&);
+  friend Complex std::tan(const Complex&);
+  friend Complex std::sinh(const Complex&);
+  friend Complex std::cosh(const Complex&);
+  friend Complex std::tanh(const Complex&);
+  friend Complex std::asin(const Complex&);
+  friend Complex std::astd::cos(const Complex&);
+  friend Complex std::atan(const Complex&);
+  friend Complex astd::sinh(const Complex&);
+  friend Complex astd::cosh(const Complex&);
+  friend Complex astd::tanh(const Complex&);
+  friend Complex std::log(const Complex&);
+  friend Complex std::exp(const Complex&);
+  friend Complex std::pow(const Complex&, const Complex&);
+  friend Complex std::pow(double, const Complex&);
+  friend Complex std::pow(const Complex&, double);
 
   /////////////////////////////////////////////////////////////////
   // Input and output

@@ -905,7 +905,7 @@ inline void QueryParser::action_driver(const Rule _r_)
 } break;
       case 42: {
 #line 124 "parser.pcc"
-        syn_._208 = atol(lexbuf.text()); 
+        syn_._208 = std::atol(lexbuf.text()); 
 #line 124 "parser.pcc"
 } break;
       case 43: {
@@ -952,7 +952,7 @@ void QueryParser::grow_semantic_stack()
    QueryParser_semantic_stack_type * S = new QueryParser_semantic_stack_type [N];
    if (N >= LR1Parser::SEMANTIC_STACK_SIZE) 
       error_report("Warning: semantic stack overflow");
-   memcpy(S, bot__, sizeof(QueryParser_semantic_stack_type) * (stack_size__ + 1));
+   std::memcpy(S, bot__, sizeof(QueryParser_semantic_stack_type) * (stack_size__ + 1));
    if (heap_allocated__) delete [] bot__;
    t__ = S + (t__ - bot__);
    bot__ = S;

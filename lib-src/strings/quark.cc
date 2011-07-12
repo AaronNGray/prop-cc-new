@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <ctype.h>
+#include <cstring>
+#include <cctype>
 #include <iostream>
 #include <strstream>
 #include <AD/strings/quark.h>   //  Atomic strings
@@ -217,7 +217,7 @@ unsigned int hash_nocase( const Quark& q)
   unsigned int h = 0;
   for (const char * p = q.name; *p; p++)
   {
-    if (isupper(*p))
+    if (std::isupper(*p))
       h += h + (*p - 'A') + 'a';
     else
       h += h + *p;

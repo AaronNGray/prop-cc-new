@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/contain/bytearry.h>
 
 ByteArray::ByteArray( int length)
@@ -37,15 +37,15 @@ ByteArray::ByteArray( const Byte A[], int len)
   size  = len;
   units = (len + sizeof(LongWord) - 1) / sizeof(LongWord);
   array = new LongWord [units];
-  memcpy(array,A,len);
+  std::memcpy(array,A,len);
 }
 
 ByteArray::ByteArray( const char string[])
 {
-  size  = strlen(string) + 1;
+  size  = std::strlen(string) + 1;
   units = (size + sizeof(LongWord) - 1) / sizeof(LongWord);
   array = new LongWord [units];
-  memcpy(array,string,size);
+  std::memcpy(array,string,size);
 }
 
 ByteArray::ByteArray( const ByteArray& A) : array(0)
@@ -61,7 +61,7 @@ void ByteArray :: operator = (const ByteArray& A)
     size  = A.size;
     units = A.units;
     array = new LongWord [units];
-    memcpy(array,A.array,units);
+    std::memcpy(array,A.array,units);
   }
 }
 

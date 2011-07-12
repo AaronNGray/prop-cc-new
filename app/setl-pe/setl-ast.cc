@@ -29,10 +29,10 @@ void Exp_IDexp::trace(GC * _gc_)
 }
 
 inline Exp_IDexp::Exp_IDexp (Id _xIDexp)
-   : a_Exp(a_Exp::tag_IDexp), IDexp(_xIDexp) {}
+   : a_Exp(a_Exp::tag_IDexp), IDstd::exp(_xIDexp) {}
 a_Exp * IDexp (Id _xIDexp)
    { return new Exp_IDexp (_xIDexp); }
-Exp_IDexp::~Exp_IDexp() {}
+Exp_IDexp::~Exp_IDstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::LITexp Literal
 ///////////////////////////////////////////////////////////////////////////////
@@ -42,10 +42,10 @@ void Exp_LITexp::trace(GC * _gc_)
 }
 
 inline Exp_LITexp::Exp_LITexp (Literal _xLITexp)
-   : a_Exp(a_Exp::tag_LITexp), LITexp(_xLITexp) {}
+   : a_Exp(a_Exp::tag_LITexp), LITstd::exp(_xLITexp) {}
 a_Exp * LITexp (Literal _xLITexp)
    { return new Exp_LITexp (_xLITexp); }
-Exp_LITexp::~Exp_LITexp() {}
+Exp_LITexp::~Exp_LITstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::APPexp (Exp, Exp)
 ///////////////////////////////////////////////////////////////////////////////
@@ -59,7 +59,7 @@ inline Exp_APPexp::Exp_APPexp (Exp _x1, Exp _x2)
    : a_Exp(a_Exp::tag_APPexp), _1(_x1), _2(_x2) {}
 a_Exp * APPexp (Exp _x1, Exp _x2)
    { return new Exp_APPexp (_x1, _x2); }
-Exp_APPexp::~Exp_APPexp() {}
+Exp_APPexp::~Exp_APPstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::TUPLEexp Exps
 ///////////////////////////////////////////////////////////////////////////////
@@ -69,10 +69,10 @@ void Exp_TUPLEexp::trace(GC * _gc_)
 }
 
 inline Exp_TUPLEexp::Exp_TUPLEexp (Exps _xTUPLEexp)
-   : a_Exp(a_Exp::tag_TUPLEexp), TUPLEexp(_xTUPLEexp) {}
+   : a_Exp(a_Exp::tag_TUPLEexp), TUPLEstd::exp(_xTUPLEexp) {}
 a_Exp * TUPLEexp (Exps _xTUPLEexp)
    { return new Exp_TUPLEexp (_xTUPLEexp); }
-Exp_TUPLEexp::~Exp_TUPLEexp() {}
+Exp_TUPLEexp::~Exp_TUPLEstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::RECORDexp LabeledExps
 ///////////////////////////////////////////////////////////////////////////////
@@ -82,10 +82,10 @@ void Exp_RECORDexp::trace(GC * _gc_)
 }
 
 inline Exp_RECORDexp::Exp_RECORDexp (LabeledExps _xRECORDexp)
-   : a_Exp(a_Exp::tag_RECORDexp), RECORDexp(_xRECORDexp) {}
+   : a_Exp(a_Exp::tag_RECORDexp), RECORDstd::exp(_xRECORDexp) {}
 a_Exp * RECORDexp (LabeledExps _xRECORDexp)
    { return new Exp_RECORDexp (_xRECORDexp); }
-Exp_RECORDexp::~Exp_RECORDexp() {}
+Exp_RECORDexp::~Exp_RECORDstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::SETexp Exps
 ///////////////////////////////////////////////////////////////////////////////
@@ -95,10 +95,10 @@ void Exp_SETexp::trace(GC * _gc_)
 }
 
 inline Exp_SETexp::Exp_SETexp (Exps _xSETexp)
-   : a_Exp(a_Exp::tag_SETexp), SETexp(_xSETexp) {}
+   : a_Exp(a_Exp::tag_SETexp), SETstd::exp(_xSETexp) {}
 a_Exp * SETexp (Exps _xSETexp)
    { return new Exp_SETexp (_xSETexp); }
-Exp_SETexp::~Exp_SETexp() {}
+Exp_SETexp::~Exp_SETstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::CASEexp (Exp, Exps)
 ///////////////////////////////////////////////////////////////////////////////
@@ -112,7 +112,7 @@ inline Exp_CASEexp::Exp_CASEexp (Exp _x1, Exps _x2)
    : a_Exp(a_Exp::tag_CASEexp), _1(_x1), _2(_x2) {}
 a_Exp * CASEexp (Exp _x1, Exps _x2)
    { return new Exp_CASEexp (_x1, _x2); }
-Exp_CASEexp::~Exp_CASEexp() {}
+Exp_CASEexp::~Exp_CASEstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::IFexp (Exp, Exp, Exp)
 ///////////////////////////////////////////////////////////////////////////////
@@ -127,7 +127,7 @@ inline Exp_IFexp::Exp_IFexp (Exp _x1, Exp _x2, Exp _x3)
    : a_Exp(a_Exp::tag_IFexp), _1(_x1), _2(_x2), _3(_x3) {}
 a_Exp * IFexp (Exp _x1, Exp _x2, Exp _x3)
    { return new Exp_IFexp (_x1, _x2, _x3); }
-Exp_IFexp::~Exp_IFexp() {}
+Exp_IFexp::~Exp_IFstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::WHILEexp (Exp, Exp)
 ///////////////////////////////////////////////////////////////////////////////
@@ -141,7 +141,7 @@ inline Exp_WHILEexp::Exp_WHILEexp (Exp _x1, Exp _x2)
    : a_Exp(a_Exp::tag_WHILEexp), _1(_x1), _2(_x2) {}
 a_Exp * WHILEexp (Exp _x1, Exp _x2)
    { return new Exp_WHILEexp (_x1, _x2); }
-Exp_WHILEexp::~Exp_WHILEexp() {}
+Exp_WHILEexp::~Exp_WHILEstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::SEQexp Exps
 ///////////////////////////////////////////////////////////////////////////////
@@ -151,10 +151,10 @@ void Exp_SEQexp::trace(GC * _gc_)
 }
 
 inline Exp_SEQexp::Exp_SEQexp (Exps _xSEQexp)
-   : a_Exp(a_Exp::tag_SEQexp), SEQexp(_xSEQexp) {}
+   : a_Exp(a_Exp::tag_SEQexp), SEQstd::exp(_xSEQexp) {}
 a_Exp * SEQexp (Exps _xSEQexp)
    { return new Exp_SEQexp (_xSEQexp); }
-Exp_SEQexp::~Exp_SEQexp() {}
+Exp_SEQexp::~Exp_SEQstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::LETexp (Decls, Exp)
 ///////////////////////////////////////////////////////////////////////////////
@@ -168,7 +168,7 @@ inline Exp_LETexp::Exp_LETexp (Decls _x1, Exp _x2)
    : a_Exp(a_Exp::tag_LETexp), _1(_x1), _2(_x2) {}
 a_Exp * LETexp (Decls _x1, Exp _x2)
    { return new Exp_LETexp (_x1, _x2); }
-Exp_LETexp::~Exp_LETexp() {}
+Exp_LETexp::~Exp_LETstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for Exp::PRIMexp Prim
 ///////////////////////////////////////////////////////////////////////////////
@@ -178,10 +178,10 @@ void Exp_PRIMexp::trace(GC * _gc_)
 }
 
 inline Exp_PRIMexp::Exp_PRIMexp (Prim _xPRIMexp)
-   : a_Exp(a_Exp::tag_PRIMexp), PRIMexp(_xPRIMexp) {}
+   : a_Exp(a_Exp::tag_PRIMexp), PRIMstd::exp(_xPRIMexp) {}
 a_Exp * PRIMexp (Prim _xPRIMexp)
    { return new Exp_PRIMexp (_xPRIMexp); }
-Exp_PRIMexp::~Exp_PRIMexp() {}
+Exp_PRIMexp::~Exp_PRIMstd::exp() {}
 ///////////////////////////////////////////////////////////////////////////////
 // GC tracing method for base class of LabeledExp
 ///////////////////////////////////////////////////////////////////////////////
@@ -192,7 +192,7 @@ void a_LabeledExp::trace(GC * _gc_)
 }
 
 inline a_LabeledExp::a_LabeledExp (Id _xid, Exp _xexp)
-   : id(_xid), exp(_xexp) {}
+   : id(_xid), std::exp(_xexp) {}
 a_LabeledExp * LABELEDexp (Id _xid, Exp _xexp)
    { return new a_LabeledExp (_xid, _xexp); }
 a_LabeledExp::~a_LabeledExp() {}

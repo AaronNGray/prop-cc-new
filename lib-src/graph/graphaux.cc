@@ -1,4 +1,4 @@
-#include <string>
+#include <cstring>
 #include <AD/graph/graph.h>
 #include <AD/graph/node.h>
 #include <AD/graph/edge.h>
@@ -30,8 +30,8 @@ void NodeSet::grow( int k)
   if (N < my_capacity * 2)
     N = my_capacity * 2;
   NodeObject ** new_nodes = new NodeObject * [N];
-  memcpy(new_nodes, my_nodes, my_size * sizeof(NodeObject *));
-  memset(new_nodes + my_size * sizeof(NodeObject*), 0,
+  std::memcpy(new_nodes, my_nodes, my_size * sizeof(NodeObject *));
+  std::memset(new_nodes + my_size * sizeof(NodeObject*), 0,
          (N - my_size) * sizeof(NodeObject*));
   delete [] my_nodes;
   my_capacity = N;
@@ -46,7 +46,7 @@ void NodeSet::operator = (const NodeSet& S)
     delete [] my_nodes;
   my_capacity = my_size = S.my_size;
   my_nodes = new NodeObject * [my_capacity];
-  memcpy(my_nodes,S.my_nodes,my_capacity * sizeof(NodeObject*));
+  std::memcpy(my_nodes,S.my_nodes,my_capacity * sizeof(NodeObject*));
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -77,8 +77,8 @@ void EdgeSet::grow(int k)
   if (N < limit)
     N = limit;
   EdgeObject ** new_edges = new EdgeObject * [N];
-  memcpy(new_edges, my_edges, my_size * sizeof(EdgeObject *));
-  memset(new_edges + my_size * sizeof(EdgeObject*), 0,
+  std::memcpy(new_edges, my_edges, my_size * sizeof(EdgeObject *));
+  std::memset(new_edges + my_size * sizeof(EdgeObject*), 0,
          (N - my_size) * sizeof(EdgeObject*));
   delete [] my_edges;
   my_capacity = N;
@@ -93,7 +93,7 @@ void EdgeSet::operator = (const EdgeSet& S)
     delete [] my_edges;
   my_capacity = my_size = S.my_size;
   my_edges = new EdgeObject * [my_capacity];
-  memcpy(my_edges,S.my_edges,my_capacity * sizeof(EdgeObject*));
+  std::memcpy(my_edges,S.my_edges,my_capacity * sizeof(EdgeObject*));
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -122,8 +122,8 @@ void AdjList::grow(int k)
     N = my_capacity * 2;
   EdgeSet ** new_edge_sets;
   new_edge_sets = new EdgeSet * [N];
-  memcpy(new_edge_sets, my_edge_sets, my_size * sizeof(EdgeSet*));
-  memset(new_edge_sets + my_size * sizeof(EdgeSet*), 0,
+  std::memcpy(new_edge_sets, my_edge_sets, my_size * sizeof(EdgeSet*));
+  std::memset(new_edge_sets + my_size * sizeof(EdgeSet*), 0,
          (N - my_size) * sizeof(EdgeSet*));
   delete [] my_edge_sets;
   my_capacity  = N;

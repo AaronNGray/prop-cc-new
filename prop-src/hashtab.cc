@@ -2,7 +2,7 @@
 //  Hash Tables
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/generic/ordering.h>
 #include "hashtab.h"
 
@@ -164,7 +164,7 @@ unsigned int string_hash( Key k)
 
 Bool string_equal( Key a, Key b)
 {
-  return strcmp((const char *)a, (const char *)b) == 0;
+  return std::strcmp((const char *)a, (const char *)b) == 0;
 }
 
 unsigned int integer_hash( Key k)

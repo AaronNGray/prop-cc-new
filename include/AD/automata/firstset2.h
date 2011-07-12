@@ -26,7 +26,6 @@
 #define cached_first_set_computation_h
 
 #include <AD/automata/firstset.h>
-#include <AD/hash/lhash.h>
 
 //////////////////////////////////////////////////////////////////////////////
 //  This class computes the first(A) function for grammar analysis.
@@ -45,6 +44,8 @@ inline Bool equal( CachedFirstSetProduction * a, CachedFirstSetProduction * b)
 {
   return a == b;
 }
+
+#include <AD/hash/lhash.h>
 
 class CachedFirstSet : public FirstSet
 {

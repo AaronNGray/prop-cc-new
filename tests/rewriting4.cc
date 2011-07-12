@@ -14,7 +14,7 @@
 //  rewrite class.
 /////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
+#include <iostream>
 
 /////////////////////////////////////////////////////////////////////////////
 //  The datatype EXP represents a simple expression (with pretty printing.)
@@ -169,7 +169,7 @@ inline EXP_num * _num(const a_EXP * _x_) { return (EXP_num *)_x_; }
 inline EXP_add * _add(const a_EXP * _x_) { return (EXP_add *)_x_; }
 inline EXP_sub * _sub(const a_EXP * _x_) { return (EXP_sub *)_x_; }
 inline EXP_mul * _mul(const a_EXP * _x_) { return (EXP_mul *)_x_; }
-inline EXP_div * _div(const a_EXP * _x_) { return (EXP_div *)_x_; }
+inline EXP_div * _std::div(const a_EXP * _x_) { return (EXP_div *)_x_; }
 
 #line 17 "rewriting4.pcc"
 #line 17 "rewriting4.pcc"
@@ -253,8 +253,8 @@ void Eval::labeler (EXP redex)
             labeler(_mul(redex)->_1);
             labeler(_mul(redex)->_2);} break;
          default: {
-            labeler(_div(redex)->_1);
-            labeler(_div(redex)->_2);
+            labeler(_std::div(redex)->_1);
+            labeler(_std::div(redex)->_2);
             if (
 #line 39 "rewriting4.pcc"
             (_1__ != 0)
@@ -278,16 +278,16 @@ int  Eval::reduce(EXP redex,int lhs)
    }
    switch (r__) {
       case 5: { // div (x as _, y as _)
-         int  _0__ = reduce(_div(redex)->_1,0); // (none)
-         int  _1__ = reduce(_div(redex)->_2,0); // (none)
+         int  _0__ = reduce(_std::div(redex)->_1,0); // (none)
+         int  _1__ = reduce(_std::div(redex)->_2,0); // (none)
          
 #line 40 "rewriting4.pcc"
         cerr << "Division by zero\n"; __ = 0; 
 #line 40 "rewriting4.pcc"
 } break;
       case 4: { // div (x as _, y as _)
-         int  _0__ = reduce(_div(redex)->_1,0); // (none)
-         int  _1__ = reduce(_div(redex)->_2,0); // (none)
+         int  _0__ = reduce(_std::div(redex)->_1,0); // (none)
+         int  _1__ = reduce(_std::div(redex)->_2,0); // (none)
          
 #line 39 "rewriting4.pcc"
         __ = _0__ / _1__; 
@@ -394,9 +394,9 @@ PrettyOStream& operator << (PrettyOStream& strm__, EXP  obj__)
          break;
       case 4: 
          strm__ << '(';
-         strm__ << _div(obj__)->_1; // EXP
+         strm__ << _std::div(obj__)->_1; // EXP
          strm__ << " / ";
-         strm__ << _div(obj__)->_2; // EXP
+         strm__ << _std::div(obj__)->_2; // EXP
          strm__ << ')';
          break;
    }

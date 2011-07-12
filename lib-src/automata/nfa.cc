@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <ctype.h>
-#include <string>
+#include <cctype>
+#include <cstring>
 #include <AD/automata/nfa_node.h>
 #include <AD/automata/nfa.h>
 #include <AD/memory/mempool.h>
@@ -39,6 +39,10 @@ typedef DFATables::State  State;
 typedef DFATables::Rule   Rule;
 typedef DFATables::Symbol Symbol;
 
+NFA_Or * mkor(MemPool&, NFA_Node *, NFA_Node *);
+NFA_Epsilon * mkepsilon(MemPool&, NFA_Node *);
+NFA_Delta * mkdelta(MemPool&, State, Symbol, NFA_Node *);
+NFA_Accept * mkaccept(MemPool&, State);
 //////////////////////////////////////////////////////////////////////////////
 //  Constructor and destructor for class NFA
 //////////////////////////////////////////////////////////////////////////////
@@ -165,7 +169,7 @@ const char * NFA::parse_char_class( const char * p, Symbol& c)
         Symbol ch2;
         p = parse_char(p,ch);
         if (case_insensitive)
-          ch = toupper(ch);
+          ch = std::toupper(ch);
         *P++ = ch2 = (unsigned char)ch;
         if (Q)   // end of range???
           {  if (range_begin >= ch2)
@@ -216,7 +220,7 @@ const char * NFA::parse_context( const char * p, Bool context_used[])
           int context_number = 0;
           for (q = contexts; *q; q++, context_number++)
           {
-            if (strcmp(*q,name) == 0)
+            if (std::strcmp(*q,name) == 0)
             {
               found = context_used[context_number] = true;
               break;
@@ -465,7 +469,7 @@ NFA_Node * NFA::construct_one
       regexp = parse_char(regexp-1,ch);
       c = (unsigned char)ch;
       if (case_insensitive)
-        c = toupper(c);
+        c = std::toupper(c);
 MAKE_DELTA:
       {
         if (c >= 0)
@@ -598,7 +602,7 @@ void NFA::compile(
     int max_storage      = 0;
     for (int i = 0; i < number_of_rules; i++)
     {
-      max_storage += strlen(regexps[i]) + 1;
+      max_storage += std::strlen(regexps[i]) + 1;
       for (const char * p = regexps[i]; *p; p++)
       {
         if (*p == '.' || *p == '[')

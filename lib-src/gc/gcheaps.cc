@@ -22,10 +22,10 @@
 // 1994-1995
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
+#include <cassert>
 #include <iostream>
-#include <string>
-#include <stdlib.h>
+#include <cstring>
+#include <cstdlib>
 #include <new>
 #include <AD/generic/generic.h> // generic definitions
 #include <AD/gc/gcconfig.h>     // system dependent configuration
@@ -43,10 +43,10 @@
 //  Static data
 //////////////////////////////////////////////////////////////////////////////
 
-size_t   HM::number_of_pages_allocated   = 0;
-size_t   HM::number_of_pages_used        = 0;
-size_t   HM::number_of_pages_free        = 0;
-size_t   HM::number_of_pages_blacklisted = 0;
+std::size_t   HM::number_of_pages_allocated   = 0;
+std::size_t   HM::number_of_pages_used        = 0;
+std::size_t   HM::number_of_pages_free        = 0;
+std::size_t   HM::number_of_pages_blacklisted = 0;
 int      HM::verbosity_level             = 0;
 void *   HM::lowest_mapped_addr;  // lowest of the mapped addresses
 void *   HM::highest_mapped_addr; // highest of the mapped addresses
@@ -56,7 +56,7 @@ Byte *   HM::gc_table;            // mapping from page id to collector
 Byte *   HM::gc_table_mem;        // the tables memory
 Byte *   HM::page_table;
 Byte *   HM::page_table_mem;
-size_t   HM::page_table_size;     // number of pages in the table.
+std::size_t   HM::page_table_size;     // number of pages in the table.
 GCBitMap HM::object_map;          // map of starting addresses of objects
 GCBitMap HM::live_map;            // map of live objects
 GCBitMap HM::traversed_map;       // map of cross heap objects
@@ -103,11 +103,11 @@ GCHeapManager::~GCHeapManager()
 //  Method to allocate some storage on page boundaries
 /////////////////////////////////////////////////////////////////////////////
 
-void * HM::allocate_pages_on_boundaries(size_t size, void *& real_addr)
+void * HM::allocate_pages_on_boundaries(std::size_t size, void *& real_addr)
 {
   size = GC_ROUNDUP_PAGE_SIZE( size ) + GC_PAGE_SIZE;
   real_addr = new char [ size ];
-  memset(real_addr, 0, size);
+  std::memset(real_addr, 0, size);
   return GC_ROUNDUP_PAGE_ADDR(real_addr);
 }
 
@@ -115,9 +115,9 @@ void * HM::allocate_pages_on_boundaries(size_t size, void *& real_addr)
 //  Deallocate pages on boundaries
 /////////////////////////////////////////////////////////////////////////////
 
-void HM::deallocate_pages_on_boundaries(void * real_addr, size_t size)
+void HM::deallocate_pages_on_boundaries(void * real_addr, std::size_t size)
 {
-  memset(GC_ROUNDUP_PAGE_ADDR(real_addr), 0, size);
+  std::memset(GC_ROUNDUP_PAGE_ADDR(real_addr), 0, size);
   delete [] ((char*)real_addr);
 }
 
@@ -144,20 +144,20 @@ void HM::clear_page_table()
 
 void * HM::allocate_pages
 ( GC *       gc,              // the collector to allocate for
-  size_t     bytes_need,      // the number of bytes that we must have
-  size_t     bytes_preferred, // the number of bytes that we prefer
-  size_t&    bytes_gotten,    // actual number of bytes gotten
+  std::size_t     bytes_need,      // the number of bytes that we must have
+  std::size_t     bytes_preferred, // the number of bytes that we prefer
+  std::size_t&    bytes_gotten,    // actual number of bytes gotten
   PageStatus status           // the initial status of the allocated pages
 )
 {
   // number of pages we need
-  register size_t page_count     = (bytes_need + GC_PAGE_SIZE - 1) / GC_PAGE_SIZE;
-  register size_t max_page_count = (bytes_preferred + GC_PAGE_SIZE - 1) / GC_PAGE_SIZE;
+  register std::size_t page_count     = (bytes_need + GC_PAGE_SIZE - 1) / GC_PAGE_SIZE;
+  register std::size_t max_page_count = (bytes_preferred + GC_PAGE_SIZE - 1) / GC_PAGE_SIZE;
 
   for (;;)
   {
     // We'll just use first fit to locate a set of consecutive pages.
-    register size_t   found      = 0;
+    register std::size_t   found      = 0;
     register GCPageId first_page = 0;
 
     foreach_page (p)
@@ -198,7 +198,7 @@ void * HM::allocate_pages
       }
       number_of_pages_used += found;
       number_of_pages_free -= found;
-      memset (addr, 0, bytes_gotten); // clear the memory
+      std::memset (addr, 0, bytes_gotten); // clear the memory
 
       return addr;
     }
@@ -206,7 +206,7 @@ void * HM::allocate_pages
     {
       // We don't have the required number of pages.
       // Try to acquire more pages from the system.
-      size_t growth = gc->min_growth();
+      std::size_t growth = gc->min_growth();
       if (growth < bytes_need)
         growth = bytes_need;
       if (allocate_new_pages(gc, growth) == 0)
@@ -219,13 +219,13 @@ void * HM::allocate_pages
 //  Method to allocate a set of new pages if/when the current heap runs out
 //////////////////////////////////////////////////////////////////////////////
 
-void * HM::allocate_new_pages(GC * /*gc*/, size_t bytes)
+void * HM::allocate_new_pages(GC * /*gc*/, std::size_t bytes)
 {  // First, round it up to the size of a page
   // Then try to allocate one more page than required so that
   // if the memory acquired do fall on page boundaries.
-  size_t page_count        = (bytes + GC_PAGE_SIZE - 1) / GC_PAGE_SIZE;
-  size_t bytes_to_allocate = (page_count + 1) * GC_PAGE_SIZE;
-  Byte * memory            = (Byte *)malloc(bytes_to_allocate);
+  std::size_t page_count        = (bytes + GC_PAGE_SIZE - 1) / GC_PAGE_SIZE;
+  std::size_t bytes_to_allocate = (page_count + 1) * GC_PAGE_SIZE;
+  Byte * memory            = (Byte *)std::malloc(bytes_to_allocate);
   Byte * memory_limit      = memory + bytes_to_allocate;
 
   if (memory == 0)
@@ -236,8 +236,8 @@ void * HM::allocate_new_pages(GC * /*gc*/, size_t bytes)
   Byte * user_memory       = (Byte*)GC_ROUNDUP_PAGE_ADDR(memory);
   Byte * user_memory_limit = (Byte*)GC_TRUNC_PAGE_ADDR(memory_limit);
   assert(user_memory >= memory && user_memory_limit <= memory_limit);
-  memset(memory, 0, user_memory - memory);
-  memset(user_memory_limit, 0, memory_limit - user_memory_limit);
+  std::memset(memory, 0, user_memory - memory);
+  std::memset(user_memory_limit, 0, memory_limit - user_memory_limit);
 
   // unblacklist the bitmaps
   blacklist_system_heap(object_map.bottom(),   object_map.top(),   false);
@@ -311,7 +311,7 @@ void * HM::allocate_new_pages(GC * /*gc*/, size_t bytes)
   blacklist_system_heap(traversed_map.bottom(),traversed_map.top(),true);
 #endif
 
-  size_t pages_got = (user_memory_limit - user_memory) / GC_PAGE_SIZE;
+  std::size_t pages_got = (user_memory_limit - user_memory) / GC_PAGE_SIZE;
   number_of_pages_free      += pages_got;
   number_of_pages_allocated += pages_got;
 
@@ -362,28 +362,28 @@ void HM::grow_page_table( void * bottom, void * top)
     //GCPageId old_top_page      = GC_PAGE_ID(highest_tracked_addr);
     GCPageId new_bottom_page   = GC_PAGE_ID(new_low);
     GCPageId new_top_page      = GC_PAGE_ID(new_high);
-    size_t   old_size          = page_table_size;
-    size_t   new_size          = new_top_page - new_bottom_page;
+    std::size_t   old_size          = page_table_size;
+    std::size_t   new_size          = new_top_page - new_bottom_page;
     Byte * new_gc_table        = new Byte [new_size * 2];
     Byte * new_page_table      = new_gc_table + new_size;
-    size_t   shift             =
+    std::size_t   shift             =
       old_bottom_page == 0 ? 0 : old_bottom_page - new_bottom_page;
 
     // unblacklist the old tables
     blacklist_system_heap(gc_table_mem, gc_table_mem + 2 * old_size, false);
 
     // initialize the new gc table
-    memset (new_gc_table, 0, shift);
-    memcpy (new_gc_table + shift, gc_table_mem, old_size);
-    memset (new_gc_table + shift + old_size, 0, new_size - old_size - shift);
+    std::memset (new_gc_table, 0, shift);
+    std::memcpy (new_gc_table + shift, gc_table_mem, old_size);
+    std::memset (new_gc_table + shift + old_size, 0, new_size - old_size - shift);
 
     // initialize the new alloc table
-    memset (new_page_table, 0, shift);
-    memcpy (new_page_table + shift, page_table_mem, old_size);
-    memset (new_page_table + shift + old_size, 0, new_size - old_size - shift);
+    std::memset (new_page_table, 0, shift);
+    std::memcpy (new_page_table + shift, page_table_mem, old_size);
+    std::memset (new_page_table + shift + old_size, 0, new_size - old_size - shift);
 
     // frees the old tables.  Clean things up first
-    memset (gc_table_mem, 0, 2 * old_size);
+    std::memset (gc_table_mem, 0, 2 * old_size);
     delete [] gc_table_mem;
 
     // setup the new tables
@@ -405,7 +405,7 @@ void HM::grow_page_table( void * bottom, void * top)
 //  Method to deallocate a range of pages owned by collector
 /////////////////////////////////////////////////////////////////////////////
 
-void HM::deallocate_pages( GC * gc, GCPageId page_id, size_t number_of_pages)
+void HM::deallocate_pages( GC * gc, GCPageId page_id, std::size_t number_of_pages)
 {
   register GC_ID id = gc->gc_id();
   for ( ;number_of_pages > 0; number_of_pages--, page_id++)
@@ -462,7 +462,7 @@ void HM::mark_space( void* start, void* stop, PageStatus status)
 //
 //////////////////////////////////////////////////////////////////////////////
 
-void HM::blacklist( const void* addr, size_t size_in_bytes)
+void HM::blacklist( const void* addr, std::size_t size_in_bytes)
 {
   void * start = GC_ROUNDUP_PAGE_ADDR(addr);
   void * stop  = GC_TRUNC_PAGE_ADDR(((Byte*)addr) + size_in_bytes);
@@ -484,7 +484,7 @@ void HM::blacklist( const void* addr, size_t size_in_bytes)
 //
 //////////////////////////////////////////////////////////////////////////////
 
-void HM::unblacklist( const void* addr, size_t size_in_bytes)
+void HM::unblacklist( const void* addr, std::size_t size_in_bytes)
 {
   void * start = GC_ROUNDUP_PAGE_ADDR(addr);
   void * stop  = GC_TRUNC_PAGE_ADDR(((Byte*)addr) + size_in_bytes);
@@ -579,9 +579,9 @@ void HM::blacklist_new_pages( void* bottom, void* top)
 
   void ** data_bottom = (void**)GC_DATA_START;
   void ** data_top    = (void**)GC_DATA_END;
-  size_t n;
+  std::size_t n;
   const AddrRange * B = HM::blacklisted_data(n);
-  size_t i = 0;
+  std::size_t i = 0;
   void ** start          = data_bottom;
   void ** stop           = data_top;
 
@@ -666,7 +666,7 @@ void HM::blacklist_new_pages( void* bottom, void* top)
 //////////////////////////////////////////////////////////////////////////////
 
 void HM::discard_from_space
-(GC * gc, size_t& total, size_t& removed)
+(GC * gc, std::size_t& total, size_t& removed)
 {
   total = removed = 0;
   foreach_page_owned_by_collector (p,gc)
@@ -736,7 +736,7 @@ std::ostream& HM::print_report( std::ostream& log)
 //  that they are blacklisted and not be mistaken for roots.
 //////////////////////////////////////////////////////////////////////////////
 
-const HM::AddrRange* HM::blacklisted_data(size_t& n)
+const HM::AddrRange* HM::blacklisted_data(std::size_t& n)
 {
   static Bool initialized = false;
   static AddrRange B[] =

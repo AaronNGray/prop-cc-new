@@ -25,7 +25,7 @@
 #ifndef persistent_arrays_h
 #define persistent_arrays_h
 
-#include <new.h>
+#include <new>
 #include <AD/persist/pstream.h>
 
 //////////////////////////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 template <class T>
-Postream& write( Postream& s, const T array[], size_t n)
+Postream& write( Postream& s, const T array[], std::size_t n)
 {
   P_int32 len = n;
   s << len;
@@ -49,7 +49,7 @@ Postream& write( Postream& s, const T array[], size_t n)
 //////////////////////////////////////////////////////////////////////////////
 
 template <class T>
-int read( Pistream& s, T array[], size_t max)
+int read( Pistream& s, T array[], std::size_t max)
 {
   P_int32 len = 0;
   int i, j;

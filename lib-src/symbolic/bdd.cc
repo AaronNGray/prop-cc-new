@@ -1,5 +1,4 @@
 #include <AD/symbolic/bdd.h>
-#include <AD/hash/lhash.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 //  Import some type definitions.
@@ -25,6 +24,7 @@ inline Bool equal (const BDDNode& a, const BDDNode& b)
          && a.branches[1] == b.branches[1];
 }
 
+#include <AD/hash/lhash.h>
 ///////////////////////////////////////////////////////////////////////////////
 //  The BDD table.
 ///////////////////////////////////////////////////////////////////////////////
@@ -45,7 +45,7 @@ struct BDDMemo : public LHashTable< BDDNode, BDD>
 //  Constructors
 ///////////////////////////////////////////////////////////////////////////////
 
-BDDSet:: BDDSet(size_t default_nodes)
+BDDSet:: BDDSet(std::size_t default_nodes)
     : bdd_roots(0),
     bdd_count(0),
     bdd_capacity(0),

@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/trees/trees.h>
 
 
@@ -137,7 +137,7 @@ BinaryNode* BasicTree::prepred(Ix i) const
 void BasicTree::error( const char method[]) const
 {
   std::cerr << "Invalid operation: " << method << '\n';
-  exit(1);
+  std::exit(1);
 }
 
 ////////////////////////////////////////////////////////////////////////////

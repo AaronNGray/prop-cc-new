@@ -47,7 +47,7 @@ void Compiler::emit_header_text()
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-va_list Compiler::printer( char fmt, va_list arg)
+std::va_list Compiler::printer( char fmt, va_list arg)
 {
   match (fmt)
   {

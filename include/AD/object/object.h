@@ -25,7 +25,7 @@
 #ifndef ADLib_object_hierarchy_h
 #define ADLib_object_hierarchy_h
 
-#include <iostream.h>
+#include <iostream>
 #include <AD/object/obintern.h>
 
 /////////////////////////////////////////////////////////////////////////////

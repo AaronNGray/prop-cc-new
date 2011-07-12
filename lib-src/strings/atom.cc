@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/strings/atom.h>
 #include <AD/hash/dchash.h>
 
@@ -38,8 +38,8 @@ Atom::Atom( const char * string)
   }
   else
   {
-    matter = (Matter *)malloc(sizeof(Matter) + strlen(string));
-    strcpy(matter->name,string);
+    matter = (Matter *)std::malloc(sizeof(Matter) + std::strlen(string));
+    std::strcpy(matter->name,string);
     matter->refCount = 1;
     const char * name = matter->name;
     universe.insert(name,matter);
@@ -52,7 +52,7 @@ Atom::~Atom()
   {
     const char * name = matter->name;
     universe.remove(name);
-    free(matter);
+    std::free(matter);
   }
 }
 
@@ -64,7 +64,7 @@ Atom& Atom::operator = (const Atom& atom)
     {
       const char * name = matter->name;
       universe.remove(name);
-      free(matter);
+      std::free(matter);
     }
     if ((matter = atom.matter))
       matter->refCount++;

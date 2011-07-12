@@ -22,19 +22,19 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <setjmp.h>
-#include <iostream.h>
+#include <cstdlib>
+#include <csetjmp>
+#include <iostream>
 #include <AD/generic/except.h>
 
-jmp_buf * __current_handler__;
+std::jmp_buf * __current_handler__;
 Exception * __current_exception__;
 
 void Exception::raise()
 {  if (__current_handler__) {
       __current_exception__ = this;
-      longjmp(*__current_handler__,1);
+      std::longjmp(*__current_handler__,1);
    }
    std::cerr << "Uncaught exception " << name() << '\n';
-   exit(1);
+   std::exit(1);
 }

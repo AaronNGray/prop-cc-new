@@ -36,7 +36,7 @@ typedef DFATables::Symbol Symbol;
 //////////////////////////////////////////////////////////////////////////////
 //  Memory allocation routine 
 //////////////////////////////////////////////////////////////////////////////
-//inline void * NFA_Node::operator new(size_t n, MemPool& mem) { return mem[n]; }
+//inline void * NFA_Node::operator new(std::size_t n, MemPool& mem) { return mem[n]; }
 
 //////////////////////////////////////////////////////////////////////////////
 //  Constructors and destructors
@@ -95,7 +95,7 @@ int NFA_Or::closure(BitSet * set)
 //  Compute the epsilon closure for all states
 //////////////////////////////////////////////////////////////////////////////
 BitSet * NFA_Accept::epsilon_closure
-   (MemPool& mem, size_t N, size_t rules, NFA_Delta * A[])
+   (MemPool& mem, std::size_t N, size_t rules, NFA_Delta * A[])
 {  if (closure_set) return closure_set;
    closure_set = new(mem,N) BitSet;
    closure_set->add(state);            // add accept state 
@@ -103,13 +103,13 @@ BitSet * NFA_Accept::epsilon_closure
 }
 
 BitSet * NFA_Epsilon::epsilon_closure
-   (MemPool& mem, size_t N, size_t rules, NFA_Delta * A[])
+   (MemPool& mem, std::size_t N, size_t rules, NFA_Delta * A[])
 {  if (closure_set) return closure_set;
    return closure_set = out->epsilon_closure(mem,N,rules,A);
 }
 
 BitSet * NFA_Delta::epsilon_closure
-   (MemPool& mem, size_t N, size_t rules, NFA_Delta * A[])
+   (MemPool& mem, std::size_t N, size_t rules, NFA_Delta * A[])
 {  if (closure_set) return closure_set;
    A[state] = this;
    closure_set = new(mem,N) BitSet;
@@ -120,7 +120,7 @@ BitSet * NFA_Delta::epsilon_closure
 }
 
 BitSet * NFA_Or::epsilon_closure
-   (MemPool& mem, size_t N, size_t rules, NFA_Delta * A[])
+   (MemPool& mem, std::size_t N, size_t rules, NFA_Delta * A[])
 {  if (closure_set) return closure_set;
 
    closure_set = new(mem,N) BitSet;

@@ -268,18 +268,18 @@ replacement__:
    const TreeTables::ShortRule * o__ = Phase1_accept_vector + Phase1_accept_base[s__];
 accept__:
    switch (*o__) {
-      case 43: if (is_free(_EXISTS(redex)->_1,_OP(_EXISTS(redex)->_3)->_2->_1))
+      case 43: if (is_std::free(_EXISTS(redex)->_1,_OP(_EXISTS(redex)->_3)->_2->_1))
       {
 #line 95 "phase1.pcc"
-         { redex = DEBUG_Phase1(And(_OP(_EXISTS(redex)->_3)->_2->_1,EXISTS(_EXISTS(redex)->_1,_EXISTS(redex)->_2,_OP(_EXISTS(redex)->_3)->_2->_2->_1)),redex,Phase1_file_name,95,"EXISTS (x, S, OP (\"and\", #[f, g])) | is_free(redex!EXISTS.1,redex!EXISTS.3!OP.2!#[...].1): ...");
+         { redex = DEBUG_Phase1(And(_OP(_EXISTS(redex)->_3)->_2->_1,EXISTS(_EXISTS(redex)->_1,_EXISTS(redex)->_2,_OP(_EXISTS(redex)->_3)->_2->_2->_1)),redex,Phase1_file_name,95,"EXISTS (x, S, OP (\"and\", #[f, g])) | is_std::free(redex!EXISTS.1,redex!EXISTS.3!OP.2!#[...].1): ...");
            r__ = 1; goto replacement__; }
 #line 95 "phase1.pcc"
 }
       else { ++o__; goto accept__; } break;
-      case 42: if (is_free(_EXISTS(redex)->_1,_OP(_EXISTS(redex)->_3)->_2->_2->_1))
+      case 42: if (is_std::free(_EXISTS(redex)->_1,_OP(_EXISTS(redex)->_3)->_2->_2->_1))
       {
 #line 94 "phase1.pcc"
-         { redex = DEBUG_Phase1(And(EXISTS(_EXISTS(redex)->_1,_EXISTS(redex)->_2,_OP(_EXISTS(redex)->_3)->_2->_1),_OP(_EXISTS(redex)->_3)->_2->_2->_1),redex,Phase1_file_name,94,"EXISTS (x, S, OP (\"and\", #[f, g])) | is_free(redex!EXISTS.1,redex!EXISTS.3!OP.2!#[...].2!#[...].1): ...");
+         { redex = DEBUG_Phase1(And(EXISTS(_EXISTS(redex)->_1,_EXISTS(redex)->_2,_OP(_EXISTS(redex)->_3)->_2->_1),_OP(_EXISTS(redex)->_3)->_2->_2->_1),redex,Phase1_file_name,94,"EXISTS (x, S, OP (\"and\", #[f, g])) | is_std::free(redex!EXISTS.1,redex!EXISTS.3!OP.2!#[...].2!#[...].1): ...");
            r__ = 1; goto replacement__; }
 #line 94 "phase1.pcc"
 }

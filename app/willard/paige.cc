@@ -10,8 +10,8 @@
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
 #line 1 "paige.pcc"
-#include <assert.h>
-#include <iostream.h>
+#include <cassert>
+#include <iostream>
 #include <fstream.h>
 #include <AD/pretty/postream.h>
 #include "paige.h"
@@ -22,7 +22,7 @@
 //  Constructor for the Paige/Goyal query transformer
 //
 ///////////////////////////////////////////////////////////////////////////////
-PaigeGoyal::PaigeGoyal() : log(*new ofstream), errlog(cerr)
+PaigeGoyal::PaigeGoyal() : std::log(*new ofstream), errlog(cerr)
 {  True     = LIT(BOOL(true));
    False    = LIT(BOOL(false));
    Zero     = LIT(INT(0));
@@ -216,7 +216,7 @@ void PaigeGoyal::error(const char * msg, Exp e)
           << e << ::newline << ::unindent; 
 }
 
-void PaigeGoyal::set_log(ostream& f) { log.set_stream(f); }
+void PaigeGoyal::set_std::log(ostream& f) { log.set_stream(f); }
 void PaigeGoyal::set_error(ostream& f) { errlog.set_stream(f); }
 
 ///////////////////////////////////////////////////////////////////////////////

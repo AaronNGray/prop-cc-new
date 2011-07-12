@@ -37,7 +37,7 @@ typedef DFATables::Symbol Symbol;
 //////////////////////////////////////////////////////////////////////////////
 //  Memory allocation routine
 //////////////////////////////////////////////////////////////////////////////
-//inline void * NFA_Node::operator new(size_t n, MemPool& mem) { return mem[n]; }
+//inline void * NFA_Node::operator new(std::size_t n, MemPool& mem) { return mem[n]; }
 
 //////////////////////////////////////////////////////////////////////////////
 //  Constructors and destructors
@@ -132,7 +132,7 @@ void NFA_Or::closure( FastBitSet* set)
 //////////////////////////////////////////////////////////////////////////////
 
 FastBitSet* NFA_Accept::epsilon_closure
-(MemPool& mem, size_t N, size_t /*rules*/, NFA_Delta * /*A*/[])
+(MemPool& mem, std::size_t N, size_t /*rules*/, NFA_Delta * /*A*/[])
 {
   if (closure_set)
     return closure_set;
@@ -143,7 +143,7 @@ FastBitSet* NFA_Accept::epsilon_closure
 }
 
 FastBitSet* NFA_Epsilon::epsilon_closure
-(MemPool& mem, size_t N, size_t rules, NFA_Delta * A[])
+(MemPool& mem, std::size_t N, size_t rules, NFA_Delta * A[])
 {
   if (closure_set)
     return closure_set;
@@ -151,7 +151,7 @@ FastBitSet* NFA_Epsilon::epsilon_closure
 }
 
 FastBitSet* NFA_Delta::epsilon_closure
-(MemPool& mem, size_t N, size_t rules, NFA_Delta * A[])
+(MemPool& mem, std::size_t N, size_t rules, NFA_Delta * A[])
 {
   if (closure_set)
     return closure_set;
@@ -165,7 +165,7 @@ FastBitSet* NFA_Delta::epsilon_closure
 }
 
 FastBitSet* NFA_Or::epsilon_closure
-(MemPool& mem, size_t N, size_t rules, NFA_Delta * A[])
+(MemPool& mem, std::size_t N, size_t rules, NFA_Delta * A[])
 {
   if (closure_set)
     return closure_set;

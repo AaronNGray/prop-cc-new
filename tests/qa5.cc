@@ -1,7 +1,7 @@
 //  Test tree stuff
 
-#include <assert.h>
-#include <stdio.h>
+#include <cassert>
+#include <cstdio>
 #include <AD/trees/avl.h>
 #include <AD/trees/splay.h>
 #include <AD/trees/leftist.h>

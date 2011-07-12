@@ -91,7 +91,7 @@ rewrite Phase1
 //  Quantifier simplification
 //
 | /* 1  */ EXISTS(x,S,Or(f,g)):  Or(EXISTS(x,S,f), EXISTS(x,S,g));
-| /* 2  */ EXISTS(x,S,And(f,g)) | is_free(x,g): And(EXISTS(x,S,f),g);
-| /* 2' */ EXISTS(x,S,And(f,g)) | is_free(x,f): And(f,EXISTS(x,S,g));
+| /* 2  */ EXISTS(x,S,And(f,g)) | is_std::free(x,g): And(EXISTS(x,S,f),g);
+| /* 2' */ EXISTS(x,S,And(f,g)) | is_std::free(x,f): And(f,EXISTS(x,S,g));
 
 };

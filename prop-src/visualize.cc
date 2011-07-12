@@ -12,10 +12,10 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdarg.h>
+#include <cstdarg>
 #include <iostream>
 #include <strstream>
-#include <string>
+#include <cstring>
 #include "options.h"
 #include "compiler.h"
 #include "visualize.h"
@@ -33,7 +33,7 @@ PropVisualizer::PropVisualizer()
 
 PropVisualizer::~PropVisualizer() {}
 
-va_list PropVisualizer::printer( char fmt, va_list arg)
+std::va_list PropVisualizer::printer( char fmt, va_list arg)
 {
   bug("%LPropVisualizer::printer %%%c", (int)fmt);
   return arg;
@@ -47,7 +47,7 @@ va_list PropVisualizer::printer( char fmt, va_list arg)
 
 void PropVisualizer::add_label( const char *fmt, ...)
 {
-  va_list arg;
+  std::va_list arg;
   va_start( arg, fmt);
   outv( fmt, arg);
   va_end( arg);
@@ -129,8 +129,8 @@ void Compiler::print_definitions_as_GDL()
   ///////////////////////////////////////////////////////////////////////////
   {
     char vcg_file[256];
-    strcpy(vcg_file, options.file_prefix);
-    strcat(vcg_file, "vcg");
+    std::strcpy(vcg_file, options.file_prefix);
+    std::strcat(vcg_file, "vcg");
     std::ostream * F = open_output_file(vcg_file);
     msg("[Writing vcg output to %s]\n",vcg_file);
     v . print_GDL_on(*F);

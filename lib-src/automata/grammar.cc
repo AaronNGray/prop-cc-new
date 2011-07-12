@@ -25,8 +25,8 @@
 #include <iostream>
 #include <strstream>
 #include <iomanip>
-#include <ctype.h>
-#include <string>
+#include <cctype>
+#include <cstring>
 #include <AD/automata/grammar.h>
 #include <AD/strings/charesc.h>
 
@@ -145,7 +145,7 @@ Grammar& Grammar::operator = (const Grammar& G)
   if (G.action_map)
   {
     action_map = new Rule [ G.action_map_size ];
-    memcpy (action_map, G.action_map, G.action_map_size * sizeof(Rule));
+    std::memcpy (action_map, G.action_map, G.action_map_size * sizeof(Rule));
     action_map_size = G.action_map_size;
   }
   else
@@ -340,7 +340,7 @@ Grammar Grammar::makeCanonical() const
   // Create a new symbols mapping
   ///////////////////////////////////////////////////////////////////////////
   const char ** sym_names = new const char * [ num ];
-  memset(sym_names, 0, sizeof(const char *) * num);
+  std::memset(sym_names, 0, sizeof(const char *) * num);
   for (int c = min_terminal(); c <= max_non_terminal(); c++)
     sym_names[ map [ c ] ] = symbol_names[ c ];
   sym_names[ max_term ] = "$";

@@ -2,8 +2,8 @@
 //  Test the view mechanism
 //
 
-#include <assert.h>
-#include <iostream.h>
+#include <cassert>
+#include <iostream>
 
 enum exp_tag { Int = 1, Ident, Add, Sub, Mul, Div };
 

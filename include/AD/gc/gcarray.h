@@ -75,7 +75,7 @@ public:
   ////////////////////////////////////////////////////////////////////////
   //  Allocation and deallocation
   ////////////////////////////////////////////////////////////////////////
-  void * operator new    (size_t n, int length, GC& = *GC::default_gc);
+  void * operator new    (std::size_t n, int length, GC& = *GC::default_gc);
 
   ////////////////////////////////////////////////////////////////////////
   //  Tracing method
@@ -137,9 +137,9 @@ GCArray<T>& GCArray<T>::operator = (const GCArray<T>& A)
 //////////////////////////////////////////////////////////////////////////////
 
 template <class T>
-void * GCArray<T>::operator new(size_t n, int length, GC& gc)
+void * GCArray<T>::operator new(std::size_t n, int length, GC& gc)
 {  // Allocate a new array from the collectable heap
-  size_t len                = n + (length - 1) * sizeof(T);
+  std::size_t len                = n + (length - 1) * sizeof(T);
   register GCArray<T> * obj = (GCArray<T> *)gc.m_alloc(len);
   // Initialize the rest of array properly:
   //    (a) Create an instance of object T.

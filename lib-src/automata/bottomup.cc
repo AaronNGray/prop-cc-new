@@ -30,8 +30,8 @@
 //  partial order.  We'll use this property to devise our algorithms.
 ////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <stdlib.h>
+#include <cstring>
+#include <cstdlib>
 #include <AD/automata/bottomup.h> // bottomup tree matcher/matcher-compiler
 #include <AD/contain/dchmap.h>    // Map based on direct chaining hash tables
 #include <AD/contain/stack.h>     // generic stacks
@@ -136,7 +136,7 @@ public:
     return bits[i];
   }
 
-  inline void * operator new (size_t, MemPool& pool, int n)
+  inline void * operator new (std::size_t, MemPool& pool, int n)
   {
     UnifierSet * x =
       (UnifierSet*)pool[sizeof(UnifierSet) + (n-1) * sizeof(Byte)];
@@ -516,7 +516,7 @@ struct StateList
 {
   State s;
   StateList * tl;
-  void * operator new (size_t,MemPool& pool, State a, StateList * t = 0)
+  void * operator new (std::size_t,MemPool& pool, State a, StateList * t = 0)
   {
     StateList * l = (StateList*)pool[sizeof(StateList)];
     l->s = a;
@@ -695,7 +695,7 @@ void BottomUp::compile( TreePatterns& patterns)
   // down on the complexity of computing unifiers and match sets.  These
   // tables are implemented as |Maps| of |TreePat *|.  Furthermore, all
   // memory needs are handled by our own fast memory pool instead of
-  // C++'s new/delete to ease the demands placed on the system(note: class
+  // C++'s new/delete to ease the demands placed on the std::system(note: class
   // |MemPool| lets us free all allocated objects in one single unit when
   // this function exits.)
   //

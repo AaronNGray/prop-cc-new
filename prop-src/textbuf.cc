@@ -4,8 +4,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <string>
+#include <cstdlib>
+#include <cstring>
 #include "textbuf.h"
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -70,10 +70,10 @@ void TextBuffer::operator = ( const TextBuffer& b)
 void TextBuffer::emit( const char * text, long len)
 {
   if (len < 0)
-    len = strlen(text);
+    len = std::strlen(text);
   if (cursor + len >= limit)
     grow(len);
-  memcpy(cursor, text, len);
+  std::memcpy(cursor, text, len);
   cursor += len;
 }
 
@@ -96,14 +96,14 @@ void TextBuffer::emit( char c)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void TextBuffer::grow( size_t growth)
+void TextBuffer::grow( std::size_t growth)
 {
-  size_t old_size = cursor - buffer;
-  size_t new_size = (limit - buffer) * 2 + growth;
+  std::size_t old_size = cursor - buffer;
+  std::size_t new_size = (limit - buffer) * 2 + growth;
   if (buffer)
-    buffer = (char *)realloc(buffer, new_size);
+    buffer = (char *)std::realloc(buffer, new_size);
   else
-    buffer = (char *)malloc(new_size);
+    buffer = (char *)std::malloc(new_size);
   cursor = buffer + old_size;
   limit  = buffer + new_size;
 }

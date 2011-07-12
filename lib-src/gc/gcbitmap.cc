@@ -22,9 +22,9 @@
 // 1994-1995
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <string>
-#include <assert.h>
+#include <iostream>
+#include <cstring>
+#include <cassert>
 #include <AD/gc/gcbitmap.h>
 #include <AD/gc/gcheaps.h>
 #include <AD/gc/gcmacros.h>
@@ -56,7 +56,7 @@ GCBitMap::~GCBitMap()
 
 void GCBitMap::clear()
 {
-  memset(bitmap_bot, 0, bitmap_size);
+  std::memset(bitmap_bot, 0, bitmap_size);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -97,19 +97,19 @@ void GCBitMap::grow (void * low, void * high)
   // If so, expand the bitmap
   if (new_low != lowest_addr || new_high != highest_addr)
   {
-    size_t new_size        = ((Byte*)new_high - (Byte*)new_low) /
+    std::size_t new_size        = ((Byte*)new_high - (Byte*)new_low) /
                              (8 * GC_ALIGNMENT);
     new_size = GC_ROUNDUP_PAGE_SIZE(new_size);
     void * new_bitmap_core;
     Glob * new_bitmap_bot  =
       (Glob*)HM::allocate_pages_on_boundaries(new_size, new_bitmap_core);
-    size_t shift           =
+    std::size_t shift           =
       lowest_addr == 0 ? 0 :
       (((Byte*)lowest_addr - (Byte*)new_low) /
        (8 * GC_ALIGNMENT * sizeof(Glob)));
 
     // copy old bitmap to new
-    memcpy(new_bitmap_bot + shift, bitmap_bot, bitmap_size);
+    std::memcpy(new_bitmap_bot + shift, bitmap_bot, bitmap_size);
 
     // clean up old bitmap and delete it
     HM::deallocate_pages_on_boundaries(bitmap_core, bitmap_size);
@@ -121,7 +121,7 @@ void GCBitMap::grow (void * low, void * high)
     bitmap_core  = new_bitmap_core;
     bitmap_bot   = new_bitmap_bot;
     bitmap       = new_bitmap_bot -
-                   ((size_t)new_low / (sizeof(Glob) * 8 * GC_ALIGNMENT));
+                   ((std::size_t)new_low / (sizeof(Glob) * 8 * GC_ALIGNMENT));
     bitmap_top   = bitmap_bot + new_size / sizeof(Glob);
 
 #ifdef DEBUG_GC

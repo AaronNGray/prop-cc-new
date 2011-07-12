@@ -22,8 +22,8 @@
 //////////////////////////////////////////////////////////////////////////////
 
 //#include <iostream>
-#include <string>
-#include <stdlib.h>
+#include <cstring>
+#include <cstdlib>
 #include <AD/automata/lrparser.h>
 #include <AD/contain/stack.h>
 #include <AD/strings/charesc.h>

@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #define PSTREAM_IMPLEMENTATION
-#include <string>
+#include <cstring>
 #include <iostream>
 #include <strstream>
 #include <AD/persist/pconfig.h>
@@ -68,7 +68,7 @@ PObjectType::PObjectType( const char * name)
     entry = new PObjectType::Entry;
     entry->unique_id     = next_unique_id;
     entry->type_name     = name;
-    entry->type_name_len = strlen(name);
+    entry->type_name_len = std::strlen(name);
     entry->factory       = 0;
     persist_type_map->insert(name,entry);
     (*persist_type_table)[next_unique_id] = entry;

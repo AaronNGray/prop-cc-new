@@ -30,7 +30,7 @@
 //
 // Quick sort with middle element as pivot\cite{alg-hand-book,comp-algo}
 //
-// e.g.  quickSort(char *, names, 100, strcmp(key,A[i]) < 0);
+// e.g.  quickSort(char *, names, 100, std::strcmp(key,A[i]) < 0);
 //
 
 ///////////////////////////////////////////////////////////////////////////

@@ -1487,7 +1487,7 @@ Ty component_ty( Ty record_ty, Id label)
                 
 #line 544 "../../prop-src/type.pcc"
                 
-                int i = atol( label + 1);
+                int i = std::atol( label + 1);
                 if (i > 0)
                   return component_ty(_V13,i);
                 

@@ -22,9 +22,9 @@
 // 1994-1995
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <string>
-#include <iostream.h>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
 #include <AD/backend-tools/codeemit.h>
 #include <AD/hash/lhash.h>
 
@@ -76,9 +76,9 @@ void CodeEmitter::init_emitter()
 {
   intern = new CodeEmitterIntern;
 
-  for (size_t i = 0; i < sizeof(abbrev_table)/sizeof(abbrev_table[0]); i++)
+  for (std::size_t i = 0; i < sizeof(abbrev_table)/sizeof(abbrev_table[0]); i++)
     abbrev_table[i] = 0;
-  memset(char_table,0,sizeof(char_table));
+  std::memset(char_table,0,sizeof(char_table));
 
   line_number = 0;
   tabbing     = 0;
@@ -116,7 +116,7 @@ void CodeEmitter::register_default_actions()
                 { "double", 'r', do_double },
                 { "char*",  's', do_string }
               };
-  for (size_t i = 0; i < sizeof(actions)/sizeof(actions[0]); i++)
+  for (std::size_t i = 0; i < sizeof(actions)/sizeof(actions[0]); i++)
   {
     register_action(actions[i].name,actions[i].abbrev,actions[i].action);
   }
@@ -141,12 +141,12 @@ void CodeEmitter::cleanup_emitter()
 
 void CodeEmitter::error(const char * message, ...)
 {
-  va_list A;
+  std::va_list A;
   va_start(A,message);
   CodeEmitter msg(std::cerr);
   msg.emit_driver(message, A);
   va_end(A);
-  exit(1);
+  std::exit(1);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -260,7 +260,7 @@ CodeEmitter& CodeEmitter::operator << (float f)
 //
 //////////////////////////////////////////////////////////////////////////////
 
-va_list CodeEmitter::emit_driver( const char * format, va_list args)
+std::va_list CodeEmitter::emit_driver( const char * format, va_list args)
 {
   for (;;)
   {
@@ -288,7 +288,7 @@ va_list CodeEmitter::emit_driver( const char * format, va_list args)
 //
 //////////////////////////////////////////////////////////////////////////////
 
-va_list CodeEmitter::do_newline( CodeEmitter& C, unsigned char, va_list args)
+std::va_list CodeEmitter::do_newline( CodeEmitter& C, unsigned char, va_list args)
 {
   C.line_number++;
   C.anchored = true;
@@ -302,7 +302,7 @@ va_list CodeEmitter::do_newline( CodeEmitter& C, unsigned char, va_list args)
 //
 //////////////////////////////////////////////////////////////////////////////
 
-va_list CodeEmitter::do_meta( CodeEmitter& C, unsigned char, va_list args)
+std::va_list CodeEmitter::do_meta( CodeEmitter& C, unsigned char, va_list args)
 {
   char format_name[1024];
   unsigned char c = *C.format_ptr++;
@@ -353,9 +353,9 @@ va_list CodeEmitter::do_meta( CodeEmitter& C, unsigned char, va_list args)
 //
 //////////////////////////////////////////////////////////////////////////////
 
-va_list CodeEmitter::do_char( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_char( CodeEmitter& C, va_list args)
 {
-  char c = va_arg(args,char);
+  char c = va_arg(args,int);
   C.out->put(c);
   if (c == '\n')
   {
@@ -369,9 +369,9 @@ va_list CodeEmitter::do_char( CodeEmitter& C, va_list args)
   return args;
 }
 
-va_list CodeEmitter::do_uchar( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_uchar( CodeEmitter& C, va_list args)
 {
-  unsigned char c = va_arg(args,unsigned char);
+  unsigned char c = va_arg(args,int);
   C.out->put(c);
   if (c == '\n')
   {
@@ -385,23 +385,23 @@ va_list CodeEmitter::do_uchar( CodeEmitter& C, va_list args)
   return args;
 }
 
-va_list CodeEmitter::do_short( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_short( CodeEmitter& C, va_list args)
 {
-  short i = va_arg(args,short);
+  short i = va_arg(args,int);
   *C.out << i;
   C.anchored = false;
   return args;
 }
 
-va_list CodeEmitter::do_ushort( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_ushort( CodeEmitter& C, va_list args)
 {
-  unsigned short i = va_arg(args,unsigned short);
+  unsigned short i = va_arg(args,int);
   *C.out << i;
   C.anchored = false;
   return args;
 }
 
-va_list CodeEmitter::do_int( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_int( CodeEmitter& C, va_list args)
 {
   int i = va_arg(args,int);
   *C.out << i;
@@ -409,7 +409,7 @@ va_list CodeEmitter::do_int( CodeEmitter& C, va_list args)
   return args;
 }
 
-va_list CodeEmitter::do_uint( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_uint( CodeEmitter& C, va_list args)
 {
   unsigned int i = va_arg(args,unsigned int);
   *C.out << i;
@@ -417,7 +417,7 @@ va_list CodeEmitter::do_uint( CodeEmitter& C, va_list args)
   return args;
 }
 
-va_list CodeEmitter::do_long( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_long( CodeEmitter& C, va_list args)
 {
   long i = va_arg(args,long);
   *C.out << i;
@@ -425,7 +425,7 @@ va_list CodeEmitter::do_long( CodeEmitter& C, va_list args)
   return args;
 }
 
-va_list CodeEmitter::do_ulong( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_ulong( CodeEmitter& C, va_list args)
 {
   unsigned long i = va_arg(args,unsigned long);
   *C.out << i;
@@ -433,15 +433,15 @@ va_list CodeEmitter::do_ulong( CodeEmitter& C, va_list args)
   return args;
 }
 
-va_list CodeEmitter::do_float( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_float( CodeEmitter& C, va_list args)
 {
-  float r = va_arg(args,float);
+  float r = va_arg(args,double);
   *C.out << r;
   C.anchored = false;
   return args;
 }
 
-va_list CodeEmitter::do_double( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_double( CodeEmitter& C, va_list args)
 {
   double r = va_arg(args,double);
   *C.out << r;
@@ -449,7 +449,7 @@ va_list CodeEmitter::do_double( CodeEmitter& C, va_list args)
   return args;
 }
 
-va_list CodeEmitter::do_string( CodeEmitter& C, va_list args)
+std::va_list CodeEmitter::do_string( CodeEmitter& C, va_list args)
 {
   const char * s = va_arg(args,const char *);
   *C.out << s;

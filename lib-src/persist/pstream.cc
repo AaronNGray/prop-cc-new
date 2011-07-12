@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <iostream.h>
+#include <cstdlib>
+#include <iostream>
 #include <AD/persist/pstream.h>
 
 //////////////////////////////////////////////////////////////////////////////
@@ -40,5 +40,5 @@ Pstream::~Pstream() {}
 void Pstream::error(const char * message)
 {
   std::cerr << "[Persistent stream error: " << message << " ... aborting]\n";
-  exit(1);
+  std::exit(1);
 }

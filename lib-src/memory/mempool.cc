@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/memory/mempool.h>
 
 //////////////////////////////////////////////////////////////////////////////
@@ -50,10 +50,10 @@ MemPool::~MemPool()
 // Returns the total number of bytes used
 //////////////////////////////////////////////////////////////////////////////
 
-size_t MemPool::bytes_used() const
+std::size_t MemPool::bytes_used() const
 {
   Page * P;
-  size_t bytes;
+  std::size_t bytes;
   for (bytes = 0, P = pages; P; P = P->lastPage)
     bytes += defaultPageSize;
   return bytes;
@@ -80,10 +80,10 @@ void MemPool::grow(long size)
 // Allocate some memory
 //////////////////////////////////////////////////////////////////////////////
 
-void * MemPool::c_alloc(size_t n)
+void * MemPool::c_alloc(std::size_t n)
 {
   void * core = (*this)[n];
-  memset(core,0,n);
+  std::memset(core,0,n);
   return core;
 }
 

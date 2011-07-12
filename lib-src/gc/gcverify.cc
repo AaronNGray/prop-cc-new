@@ -22,7 +22,7 @@
 // 1994-1995
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
+#include <iostream>
 #include <AD/gc/gcverify.h>  // verifier
 #include <AD/gc/gcheaps.h>   // heap manager
 #include <AD/gc/gcbitmap.h>  // bitmap
@@ -89,7 +89,7 @@ Bool GCVerifier::is_valid_interior_pointer( GCObject* obj, GC* gc)
   GCHeader header = GC_OBJ_HEADER(obj_ptr);
   if (GC_OBJ_IS_FORWARDED(header))
     return false;
-  size_t   size  = GC_OBJ_HEADER_LEN(header);
+  std::size_t   size  = GC_OBJ_HEADER_LEN(header);
   Byte *   limit =
     (Byte*)obj_ptr + size - GC_ALIGNMENT + sizeof(GCHeader);
   if ((Byte*)obj >= limit)
@@ -137,7 +137,7 @@ GCObject* GCVerifier::trace(GCObject* obj)
     //  Check to see if object is a valid interior pointer to object.
     ////////////////////////////////////////////////////////////////////////
     GCHeader header = GC_OBJ_HEADER(obj_ptr);
-    size_t   size  = GC_OBJ_HEADER_LEN(header);
+    std::size_t   size  = GC_OBJ_HEADER_LEN(header);
     Byte *   limit =
       (Byte*)obj_ptr + size - GC_ALIGNMENT + sizeof(GCHeader);
     if ((Byte*)obj >= limit)
@@ -170,7 +170,7 @@ GCObject* GCVerifier::trace(GCObject* obj)
 //  Dummied methods
 //////////////////////////////////////////////////////////////////////////////
 
-void* GCVerifier::m_alloc( size_t)
+void* GCVerifier::m_alloc( std::size_t)
 {
   error("m_alloc is unimplemented");
   return 0;
@@ -186,7 +186,7 @@ void GCVerifier::collect( int)
   error("collect is unimplemented");
 }
 
-void GCVerifier::grow_heap( size_t)
+void GCVerifier::grow_heap( std::size_t)
 {
   error("grow_heap is unimplemented");
 }

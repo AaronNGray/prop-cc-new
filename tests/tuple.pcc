@@ -3,7 +3,7 @@
 //  Testing tuples
 //
 ///////////////////////////////////////////////////////////////////////////////
-#include <iostream.h>
+#include <iostream>
 
 const .[int,int]                  a = .(1,2);
 const .[char,Quark,double] b = .('k',#"Church Rosser",3.0);

@@ -8,8 +8,8 @@
 //  information since we'll have do some poking around with the heap.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <iostream.h>
+#include <cassert>
+#include <iostream>
 #include <AD/gc/bgc.h>
 #include <AD/gc/gcobject.h>
 #include <AD/gc/gcheaps.h>
@@ -103,12 +103,12 @@ int main()
    GC::get_default_gc().collect();
 
    stats = GC::get_default_gc().statistics();
-   size_t memory_allocated = sizeof(LIST) * LENGTH * 2;
+   std::size_t memory_allocated = sizeof(LIST) * LENGTH * 2;
 
    cout << "\n"
            "Memory allocated: " << memory_allocated << '\n'
         << "Final heap size:  " 
-            << stats.bytes_managed + GCHeapManager::bytes_free() << '\n'
+            << stats.bytes_managed + GCHeapManager::bytes_std::free() << '\n'
         << "Bytes retained:   " << stats.bytes_used << '\n'
         << "Retention rate:   " 
            << (stats.bytes_used * 100 / memory_allocated) << "%\n"

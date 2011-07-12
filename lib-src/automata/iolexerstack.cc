@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/automata/iolexerstack.h>
 
 //////////////////////////////////////////////////////////////////////////////
@@ -42,7 +42,7 @@ public:
   char *              buffer_limit;
   char *              cursor;
   char *              cursor_limit;
-  size_t              buffer_size;
+  std::size_t              buffer_size;
   int                 saved_char;
   Bool                anchored;
   Bool                pinned;
@@ -52,7 +52,7 @@ public:
 
   inline
   IOLexerStackEntry(std::istream * f, char * b, char * bl, char * c, char * cl,
-                    size_t n, int sc, Bool an, Bool pin, Bool more,
+                    std::size_t n, int sc, Bool an, Bool pin, Bool more,
                     int context,
                     IOLexerStackEntry * nxt)
       : file_stream(f), buffer(b), buffer_limit(bl), cursor(c),
@@ -120,7 +120,7 @@ std::istream& IOLexerStack::pop_stream()
   if (io_stack == 0)
   {
     std::cerr << "Bug: IOLexerStack is empty in IOLexerStack::pop_stream()\n";
-    exit(1);
+    std::exit(1);
   }
   if (! pinned)
     delete [] buffer;

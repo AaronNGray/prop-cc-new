@@ -30,7 +30,7 @@
 // scheme\cite{Algorithms}.
 ////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/generic/ordering.h>
 
 ////////////////////////////////////////////////////////////////////////////
@@ -236,7 +236,7 @@ void DHashTable2<K,V,C>::operator = (const DHashTable2<K,V,C>& t)
 template <class K, class V, class C>
 void DHashTable2<K,V,C>::clear()
 {
-  memset(status,0,table_size);
+  std::memset(status,0,table_size);
   elem_count = 0;
 }
 
@@ -378,7 +378,7 @@ void DHashTable2<K,V,C>::resize(int new_size)
   char * new_status = new char [ new_size ];
   K    * new_keys   = new K    [ new_size ];
   V    * new_values = new V    [ new_size ];
-  memset(new_status,0,new_size);
+  std::memset(new_status,0,new_size);
 
   //////////////////////////////////////////////////////////////////
   //  Rehash all used cells one by one.  Notice that since all keys

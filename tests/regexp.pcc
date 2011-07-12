@@ -2,8 +2,8 @@
 //  This program tests regular expressions string matching.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <iostream.h>
+#include <cassert>
+#include <iostream>
 
 lexeme digits    = /[0-9]+/
      | sign      = /[\+\-]/

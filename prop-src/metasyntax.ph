@@ -47,7 +47,7 @@ public:
   //
   ////////////////////////////////////////////////////////////////////////////
   void install_grammar( Id grammar_name, GramExp grammar);
-  Exp parse_exp( Id grammar_name, const char *);
+  Exp parse_std::exp( Id grammar_name, const char *);
   Pat parse_pat( Id grammar_name, const char *);
   std::ostream& print_report( std::ostream&);
 
@@ -59,7 +59,7 @@ private:
    ////////////////////////////////////////////////////////////////////////////
    MetaSyntaxCompilerImpl * impl;
    void compile_new_grammar( Id grammar_name, GramExp grammar);
-   void flush_grammar( size_t memory_needed);
+   void flush_grammar( std::size_t memory_needed);
 };
 
 #endif

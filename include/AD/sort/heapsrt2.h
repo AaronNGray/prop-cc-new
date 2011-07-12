@@ -36,7 +36,7 @@
 // the maximum and move it to the end of the array.
 //
 //
-// e.g.:   heapSort2(char *, int, names, salaries, 100, strcmp(key,names[i]) < 0);
+// e.g.:   heapSort2(char *, int, names, salaries, 100, std::strcmp(key,names[i]) < 0);
 //
 
 ///////////////////////////////////////////////////////////////////////////

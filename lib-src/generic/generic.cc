@@ -22,12 +22,12 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <iostream.h>
+#include <cstdlib>
+#include <iostream>
 #include <AD/generic/generic.h>
 
 void raise_exn(const char * message)
 {
   std::cerr << message << ": Uncaught exception ";
-  exit(1);
+  std::exit(1);
 }

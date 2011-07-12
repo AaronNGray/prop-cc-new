@@ -84,12 +84,12 @@ Id          current_failure   = 0;     // jump label for failure
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Bool is_simple_exp( Exp exp)
+Bool is_simple_std::exp( Exp exp)
 {
   match while (exp)
   {
     IDexp _ || LITERALexp _: { return true; }
-  | MARKEDexp(_,e):          { exp = e; }
+  | MARKEDstd::exp(_,e):          { exp = e; }
   | _:                       { return false; }
   }
 }
@@ -107,7 +107,7 @@ void compute_match_variables( MatchExps exps)
   {
     match (me)
     {
-    MATCHexp(e,mv) | mv == 0 && ! is_simple_exp(e):
+    MATCHstd::exp(e,mv) | mv == 0 && ! is_simple_exp(e):
       { mv = vars.new_label(); }
     | _: { /* skip */ }
     }
@@ -671,7 +671,7 @@ void MatchCompiler::gen_regexp_match
     {
     REGEXPlit re:
       {
-        int len           = strlen(re);
+        int len           = std::strlen(re);
          char * regexp     = str_pool(re+1,len-1);
          regexp[len-2]     = '\0';
          regexps[i]        = regexp;
@@ -868,11 +868,11 @@ void MatchCompiler::instrument_trace(MatchRules rules)
         s << r << std::ends;
         action =
           #[ EXPdecl(
-               APPexp( IDexp("PROP_TRACE"),
-                 TUPLEexp(#[
-                   LITERALexp( STRINGlit( make_quoted_string( buffer))),
-                   LITERALexp( STRINGlit( make_quoted_string( r->file_name))),
-                   LITERALexp( INTlit( r->begin_line))
+               APPstd::exp( IDexp("PROP_TRACE"),
+                 TUPLEstd::exp(#[
+                   LITERALstd::exp( STRINGlit( make_quoted_string( buffer))),
+                   LITERALstd::exp( STRINGlit( make_quoted_string( r->file_name))),
+                   LITERALstd::exp( INTlit( r->begin_line))
                  ]))),
              OPAQUEdecl(";") ...
              action
@@ -1229,7 +1229,7 @@ void MatchCompiler::gen_match_variables( MatchExps es, Ty ty)
    }
    for ( ; es && tys; es = es->#2, tys = tys->#2) {
       match (es->#1)
-      {  me as MATCHexp(e,mv) | mv != 0:
+      {  me as MATCHstd::exp(e,mv) | mv != 0:
          {  if (! is_ground(tys->#1))
                error ("%!missing type info in expression %e : %T\n",
                       me->loc(), e, tys->#1);

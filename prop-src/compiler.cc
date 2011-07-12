@@ -54,7 +54,7 @@ void Compiler::emit_header_text()
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-va_list Compiler::printer( char fmt, va_list arg)
+std::va_list Compiler::printer( char fmt, va_list arg)
 {
   
 #line 52 "../../prop-src/compiler.pcc"

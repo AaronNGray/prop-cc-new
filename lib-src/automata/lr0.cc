@@ -32,7 +32,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <new>
 #include <AD/automata/item.h>    // LR Items
 #include <AD/automata/lr0.h>     // LR(0) finite state machine

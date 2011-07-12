@@ -84,8 +84,8 @@ public:
          //  The memory management routines of redefined to take advantage of
          //  placement.
          //////////////////////////////////////////////////////////////////////////
-         inline void * operator new (size_t n) { return new char [n]; }
-         inline void * operator new (size_t n, Mem& mem) { return mem.m_alloc(n); }
+         inline void * operator new (std::size_t n) { return new char [n]; }
+         inline void * operator new (std::size_t n, Mem& mem) { return mem.m_alloc(n); }
          inline void   operator delete (void *) {}
    
          //////////////////////////////////////////////////////////////////////////

@@ -22,12 +22,12 @@
 // 1994-1995
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <stdlib.h>
-#include <string>
-#include <setjmp.h>
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <csetjmp>
 #include <unistd.h>
-#include <assert.h>
+#include <cassert>
 #include <AD/gc/gcconfig.h>  // system configuration
 #include <AD/gc/bgc.h>       // Bartlett's garbage collector
 #include <AD/gc/gcobject.h>  // garbage collectable objects
@@ -117,7 +117,7 @@ void BGC::clear()
 // that should be done.
 //////////////////////////////////////////////////////////////////////////////
 
-size_t BGC::min_growth()
+std::size_t BGC::min_growth()
 {
   return heap_size == 0 ? initial_heap_size : min_heap_growth;
 }
@@ -126,9 +126,9 @@ size_t BGC::min_growth()
 //  Method to allocate a new object of a given size
 //////////////////////////////////////////////////////////////////////////////
 
-void * BGC::m_alloc( size_t n)
+void * BGC::m_alloc( std::size_t n)
 {  // round up the size
-  size_t bytes = GC_ROUNDUP_SIZE(n + sizeof(GCHeader));
+  std::size_t bytes = GC_ROUNDUP_SIZE(n + sizeof(GCHeader));
 
   // if we have enough space in current fragment, then use it.
   if (heap_pointer + bytes > gc_limit)
@@ -184,7 +184,7 @@ void BGC::free( void * obj)
     // Hold on, Pedro!  The object doesn't seem to exist!
     std::cerr << "[ GC" << id
     << ": application tries to free non-existent object at "
-    << (void*)obj << " ]\n" << flush;
+    << (void*)obj << " ]\n" << std::flush;
   }
 }
 
@@ -194,11 +194,11 @@ void BGC::free( void * obj)
 //  is not immediately available.
 //////////////////////////////////////////////////////////////////////////////
 
-void BGC::grow_heap( size_t bytes)
+void BGC::grow_heap( std::size_t bytes)
 {
-  size_t old_total = heap_size + HM::bytes_free();
-  size_t wanted    = bytes + sizeof(GCHeader);
-  size_t growth;
+  std::size_t old_total = heap_size + HM::bytes_free();
+  std::size_t wanted    = bytes + sizeof(GCHeader);
+  std::size_t growth;
   Byte * storage =
     (Byte*)HM::allocate_pages
     ( this, wanted,
@@ -212,7 +212,7 @@ void BGC::grow_heap( size_t bytes)
   {
     // Growth failed!
     std::cerr << "[ GC" << id << ": Out of memory!  Can't allocate "
-    << bytes << " bytes from system. ]\n" << flush;
+    << bytes << " bytes from system. ]\n" << std::flush;
     exit (1);
   }
 
@@ -221,7 +221,7 @@ void BGC::grow_heap( size_t bytes)
   heap_start   = heap_pointer;
   heap_size   += heap_limit - heap_pointer;
   heap_used    = heap_size - (heap_limit - heap_pointer);
-  size_t new_total = heap_size + HM::bytes_free();
+  std::size_t new_total = heap_size + HM::bytes_free();
   gc_limit     = storage + new_total * gc_ratio / 100 - heap_used;
   should_collect = gc_limit <= heap_limit;
   if (gc_limit > heap_limit)
@@ -281,7 +281,7 @@ GCObject * BGC::trace( GCObject * ptr)
 
   if (ptr != obj_ptr)
     std::cerr << "[ Warning: pointer is at " << (void*)ptr << " but object is "
-    << (void*)obj_ptr << " ]\n" << flush;
+    << (void*)obj_ptr << " ]\n" << std::flush;
 #endif
 
   // Get header of object
@@ -300,7 +300,7 @@ GCObject * BGC::trace( GCObject * ptr)
     return ptr;
 
   // Okay, seems like we'll have to copy this object.
-  size_t size = GC_OBJ_HEADER_LEN(header);
+  std::size_t size = GC_OBJ_HEADER_LEN(header);
   if (heap_pointer + size > heap_limit)
   {
     bytes_copied += heap_pointer - heap_start;
@@ -349,16 +349,16 @@ void BGC::do_collect(int /* level */)
   ///////////////////////////////////////////////////////////////////////////
   // This will hold all the registers
   ///////////////////////////////////////////////////////////////////////////
-  jmp_buf reg_roots;
+  std::jmp_buf reg_roots;
 
   ///////////////////////////////////////////////////////////////////////////
-  // Flush registers into the jmp_buf, which'll become part of the
+  // Flush registers into the std::jmp_buf, which'll become part of the
   // stack to scan.
   ///////////////////////////////////////////////////////////////////////////
   flush_registers();
-  // if (_setjmp(reg_roots) == 0) _longjmp(reg_roots,1);
+  // if (_setjmp(reg_roots) == 0) longjmp(reg_roots,1);
   if (setjmp(reg_roots) == 0)
-    longjmp(reg_roots,1);
+    std::longjmp(reg_roots,1);
 
   ///////////////////////////////////////////////////////////////////////////
   // Setup various limits for scanning
@@ -411,7 +411,7 @@ void BGC::do_collect(int /* level */)
   // Setup the new scanning queue if necessary.
   // The 4 below is just some slack;
   ///////////////////////////////////////////////////////////////////////////
-  size_t max_pages = 2 * heap_used / GC_PAGE_SIZE + 4;
+  std::size_t max_pages = 2 * heap_used / GC_PAGE_SIZE + 4;
   clear_scan_queue();
   grow_scan_queue(max_pages);
 
@@ -441,7 +441,7 @@ void BGC::do_collect(int /* level */)
   // Recompute statistics and adjust gc limit.
   ///////////////////////////////////////////////////////////////////////////
   heap_used  = heap_size - (heap_limit - heap_pointer);
-  size_t new_total = heap_size + HM::bytes_free();
+  std::size_t new_total = heap_size + HM::bytes_free();
   gc_limit = heap_pointer + new_total * gc_ratio / 100L - heap_used;
   should_collect = gc_limit <= heap_limit;
   if (gc_limit > heap_limit)
@@ -471,7 +471,7 @@ void BGC::do_collect(int /* level */)
   HM::traversed_map.clear();
 #endif
 
-  memset(reg_roots, 0, sizeof(reg_roots));
+  std::memset(reg_roots, 0, sizeof(reg_roots));
 
   ///////////////////////////////////////////////////////////////////////////
   //  Print the equally annoying end of collection message.
@@ -525,13 +525,13 @@ inline void BGC::scan_for_roots( void ** start, void ** stop)
     << (void*)P << " = "
     << (void*)ptr << ", "
     << (void*)obj << " ... "
-    << (void*)limit << " ]\n" << flush;
+    << (void*)limit << " ]\n" << std::flush;
 
     if (! IS_PROMOTED_ADDR(obj) && ! IS_FROM_SPACE_ADDR(obj))
     {
       std::cerr << "[ Shit! Object is not at from space, header = "
       << (void*)header << " status = " << (int)SPACE_TYPE(obj)
-      << " ]\n" << flush;
+      << " ]\n" << std::flush;
     }
 #endif
 
@@ -563,7 +563,7 @@ inline void BGC::scan_for_roots( void ** start, void ** stop)
         << (void*)GC_PAGE_ADDR(p+1)
         << " gc = " << (int)PAGE_GC(p)
         << " space = " << (int)PAGE_SPACE_TYPE(p)
-        << " ]\n" << flush;
+        << " ]\n" << std::flush;
 #endif
 
       }
@@ -599,9 +599,9 @@ void BGC::scan_stack_area()
 void BGC::scan_static_area()
 {
   scanning_message("static data area", data_bottom, data_top);
-  size_t n;
+  std::size_t n;
   const HM::AddrRange * blacklisted = HM::blacklisted_data(n);
-  size_t i = 0;
+  std::size_t i = 0;
   void ** start = data_bottom;
   void ** stop  = data_top;
   for (start = data_bottom; start < data_top; start = stop)
@@ -762,7 +762,7 @@ void BGC::do_finalization()
 
 void BGC::copy_promoted_pages ()
 {
-  size_t i;
+  std::size_t i;
   phase = copying_phase;
 
 
@@ -771,7 +771,7 @@ void BGC::copy_promoted_pages ()
 
 #ifdef SANITY_CHECK
 
-  size_t objects_traced = 0;
+  std::size_t objects_traced = 0;
 #endif
 
   // Scan all promoted pages first.
@@ -821,7 +821,7 @@ void BGC::copy_promoted_pages ()
   {
     std::cerr << "[ Bug: number of objects promoted = " << objects_promoted
     << " while the number of objects traced = " << objects_traced
-    << " ]\n" << flush;
+    << " ]\n" << std::flush;
   }
 #endif
 
@@ -883,15 +883,15 @@ BGC::Statistics BGC::statistics()
 //  Method for printing a heap growth message
 //////////////////////////////////////////////////////////////////////////////
 
-void BGC::heap_growth_message( size_t/*heap_size_now*/, size_t /*growth*/) const
+void BGC::heap_growth_message( std::size_t/*heap_size_now*/, size_t /*growth*/) const
 {
   if ((verbosity_level & gc_notify_heap_expansion) && console)
   {
-    size_t total   = heap_size + HM::bytes_free();
-    size_t percent = heap_used * 100 / total;
+    std::size_t total   = heap_size + HM::bytes_free();
+    std::size_t percent = heap_used * 100 / total;
     (*console) << "[ GC" << id << ": increasing heap... "
     << heap_used << '/' << total
-    << " (" << percent << "%) ]\n" << flush;
+    << " (" << percent << "%) ]\n" << std::flush;
   }
 }
 
@@ -903,11 +903,11 @@ void BGC::start_collection_message() const
 {
   if (is_verbose() && console)
   {
-    size_t total   = heap_size + HM::bytes_free();
-    size_t percent = heap_used * 100 / total;
+    std::size_t total   = heap_size + HM::bytes_free();
+    std::size_t percent = heap_used * 100 / total;
     (*console) << "[ GC" << id << ": collecting... "
     << heap_used << '/' << total
-    << " (" << percent << "%) ]\n" << flush;
+    << " (" << percent << "%) ]\n" << std::flush;
   }
 }
 
@@ -919,8 +919,8 @@ void BGC::end_collection_message() const
 {
   if (is_verbose() && console)
   {
-    size_t total   = heap_size + HM::bytes_free();
-    size_t percent = heap_used * 100 / total;
+    std::size_t total   = heap_size + HM::bytes_free();
+    std::size_t percent = heap_used * 100 / total;
     (*console) << "[ GC" << id << ": done... "
     << heap_used << '/' << total << " ("
     << percent << "%)";
@@ -933,7 +933,7 @@ void BGC::end_collection_message() const
       << (long)(GC_PAGE_SIZE * pages_removed - bytes_copied)
       << " freed)";
     }
-    (*console) << " ]\n" << flush;
+    (*console) << " ]\n" << std::flush;
 #ifdef GC_USE_TIMER
 
     if (verbosity_level & gc_print_collection_time)
@@ -943,7 +943,7 @@ void BGC::end_collection_message() const
       << " system time: "
       << stat.gc_system_time
       << " ]\n"
-      << flush;
+      << std::flush;
     }
 #endif
 

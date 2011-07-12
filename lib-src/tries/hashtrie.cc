@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/tries/hashtrie.h>
 
 HashTrie::HashTrie() : slots(0), symbol(0), back(0) {}
@@ -37,7 +37,7 @@ inline int log2(register long n)
 
 void HashTrie::clear()
 {
-  memset(back,-1,slots * sizeof(Node));
+  std::memset(back,-1,slots * sizeof(Node));
   back[0] = 0;  // the root is always occupied
   count = 0;
 }
@@ -77,8 +77,8 @@ HashTrie& HashTrie :: operator = (const HashTrie& trie)
     delete [] back;
     init(trie.slots);
     count = trie.count;
-    memcpy(symbol,trie.symbol,trie.slots * sizeof(Symbol));
-    memcpy(back,trie.back,trie.slots * sizeof(Node));
+    std::memcpy(symbol,trie.symbol,trie.slots * sizeof(Symbol));
+    std::memcpy(back,trie.back,trie.slots * sizeof(Node));
   }
   return *this;
 }

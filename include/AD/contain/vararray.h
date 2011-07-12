@@ -34,7 +34,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <new>
-#include <string>
+#include <cstring>
 #include <AD/generic/generic.h>   // Generic definitions
 
 
@@ -58,7 +58,7 @@ public:
   {
     *this = A;
   }
-  VarArray(size_t size, const T []);
+  VarArray(std::size_t size, const T []);
   ~VarArray();
 
   ////////////////////////////////////////////////////////////////////
@@ -210,7 +210,7 @@ VarArray<T>::VarArray(int lowerBound, int upperBound, int growthFactor)
 }
 
 template<class T>
-VarArray<T>::VarArray(size_t size, const T A[])
+VarArray<T>::VarArray(std::size_t size, const T A[])
 {
   array = new T [size];
   low = 0;

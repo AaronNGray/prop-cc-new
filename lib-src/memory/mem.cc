@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <AD/memory/mem.h>
 #include <AD/memory/sysmem.h>
 
@@ -91,17 +91,17 @@ Mem& Mem::get_manager()
 //  Default methods for allocation/deallocation
 //////////////////////////////////////////////////////////////////////////////
 
-void * Mem::m_alloc(size_t)
+void * Mem::m_alloc(std::size_t)
 {
   error("m_alloc() is unimplemented");
   return 0;
 }
 
-void * Mem::c_alloc(size_t n)
+void * Mem::c_alloc(std::size_t n)
 {
   void * m = m_alloc(n);
   if (m)
-    memset(m,0,n);
+    std::memset(m,0,n);
   return m;
 }
 
@@ -111,27 +111,27 @@ void   Mem::clear()
 }
 void   Mem::free(void *)
 {
-  error("free() is unimplemented");
+  error("std::free() is unimplemented");
 }
-size_t Mem::size(const void *) const
+std::size_t Mem::size(const void *) const
 {
   error("size() is unimplemented");
   return 0;
 }
 
-size_t Mem::bytes_used()       const
+std::size_t Mem::bytes_used()       const
 {
   error("bytes_used() is unimplemented");
   return 0;
 }
 
-size_t Mem::init_page_size(size_t n)   const
+std::size_t Mem::init_page_size(size_t n)   const
 {
-  size_t pages = 4096/n;
+  std::size_t pages = 4096/n;
   return pages > 1 ? pages : 1;
 }
 
-size_t Mem::max_size(size_t n)         const
+std::size_t Mem::max_size(size_t n)         const
 {
-  return size_t(~0)/n;
+  return std::size_t(~0)/n;
 }

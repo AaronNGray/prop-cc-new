@@ -22,13 +22,13 @@
 // 1994-1995
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <stdlib.h>
-#include <string>
-#include <setjmp.h>
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <csetjmp>
 #include <unistd.h>
-#include <assert.h>
-#include <signal.h>
+#include <cassert>
+#include <csignal>
 #include <sys/types.h>
 #include <AD/gc/gcconfig.h>  // system configuration
 #include <AD/gc/cgc.h>       // Conservative garbage collector
@@ -67,20 +67,20 @@ typedef HM::PageStatus PageStatus;
 static void** compute_stack_bottom( void** stack_mark1, Bool& downward_stack)
 {
   void * stack_mark2[1];
-  size_t stack_alignment = 0x1000000;
+  std::size_t stack_alignment = 0x1000000;
   if (stack_mark1 < stack_mark2)
   {
     // case a: stack grows upward.
     // We'll truncate the address downward.
     downward_stack = false;
-    return (void**)((size_t)stack_mark1 & (stack_alignment-1));
+    return (void**)((std::size_t)stack_mark1 & (stack_alignment-1));
   }
   else
   {
     // case b: stack grows downward.
     // We'll round the address upward.
     downward_stack = true;
-    return (void**)(((size_t)stack_mark1 + stack_alignment - 1)
+    return (void**)(((std::size_t)stack_mark1 + stack_alignment - 1)
                     & ~(stack_alignment-1));
   }
 }
@@ -115,7 +115,7 @@ void CGC::verify_heap_top()
   {
     (*console) << "[ GC" << id
     << ": checking heap top address " << (void*)try_addr
-    << " ]\n" << flush;
+    << " ]\n" << std::flush;
   }
 
   void * dummy_unused_variable = *try_addr; // may trap here
@@ -124,13 +124,13 @@ void CGC::verify_heap_top()
   {
     (*console) << "[ GC" << id
     << ": heap top address " << (void*)try_addr
-    << " is ok ]\n" << flush;
+    << " is ok ]\n" << std::flush;
   }
 }
 
 
 //////////////////////////////////////////////////////////////////////////////
-//  Method to flush the register windows on the sparc
+//  Method to std::flush the register windows on the sparc
 //////////////////////////////////////////////////////////////////////////////
 
 #if 0
@@ -276,12 +276,12 @@ CGC::~CGC()
 //  Methods for setting the initial heap size and amount of heap growth
 //////////////////////////////////////////////////////////////////////////////
 
-void CGC::set_initial_heap_size (size_t n)
+void CGC::set_initial_heap_size (std::size_t n)
 {
   initial_heap_size = n;
 }
 
-void CGC::set_min_heap_growth   (size_t n)
+void CGC::set_min_heap_growth   (std::size_t n)
 {
   min_heap_growth = n;
 }
@@ -290,7 +290,7 @@ void CGC::set_min_heap_growth   (size_t n)
 //  Method that returns the size of an allocated block
 //////////////////////////////////////////////////////////////////////////////
 
-size_t CGC::size(const void * obj) const
+std::size_t CGC::size(const void * obj) const
 {
   if (HM::is_mapped((void*)obj) &&
       HM::get_object_map().is_marked((void*)obj))
@@ -307,12 +307,12 @@ size_t CGC::size(const void * obj) const
 //  Method for growing the scan queue
 //////////////////////////////////////////////////////////////////////////////
 
-void CGC::grow_scan_queue(size_t pages)
+void CGC::grow_scan_queue(std::size_t pages)
 {
   if (scan_queue_size < pages)
   {
     delete [] scan_queue;
-    scan_queue       = new size_t [2 * pages];
+    scan_queue       = new std::size_t [2 * pages];
     scan_limit_queue = scan_queue + pages;
     scan_queue_size  = pages;
   }
@@ -327,7 +327,7 @@ void CGC::initialization_message() const
   if (is_debugging() && console)
     (*console) << "[ GC" << id
     << ": initializing (page size = " << GC_PAGE_SIZE
-    << ", alignment = " << GC_ALIGNMENT << ") ]\n" << flush;
+    << ", alignment = " << GC_ALIGNMENT << ") ]\n" << std::flush;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -337,7 +337,7 @@ void CGC::initialization_message() const
 void CGC::cleanup_message() const
 {
   if (is_debugging() && console)
-    (*console) << "[ GC" << id << ": cleaning up. ]\n" << flush;
+    (*console) << "[ GC" << id << ": cleaning up. ]\n" << std::flush;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -350,7 +350,7 @@ void CGC::scanning_message(const char * area, void * start, void * stop) const
   {
     (*console) << "[ GC" << id << ": scanning the " << area
     << " (" << start << " ... " << stop << ") "
-    << ((Byte*)stop - (Byte*)start) << " bytes ]\n" << flush;
+    << ((Byte*)stop - (Byte*)start) << " bytes ]\n" << std::flush;
   }
 }
 
@@ -369,7 +369,7 @@ void CGC::do_weak_pointer_collection()
   if ((verbosity_level & gc_notify_weak_pointer_collection) && console)
   {
     (*console) << "[ GC" << id << ": weakpointer collection ("
-    << size << "/" << capacity << ") ..." << flush;
+    << size << "/" << capacity << ") ..." << std::flush;
   }
   WeakPointerManager::scavenge_wp_table(this);
   int new_size     = WeakPointerManager::size();
@@ -377,6 +377,6 @@ void CGC::do_weak_pointer_collection()
   if ((verbosity_level & gc_notify_weak_pointer_collection) && console)
   {
     (*console) << " done (" << new_size << "/" << new_capacity
-    << ") ]\n" << flush;
+    << ") ]\n" << std::flush;
   }
 }

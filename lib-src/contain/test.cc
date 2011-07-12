@@ -1,5 +1,5 @@
-#include <stdlib.h>
-#include <iostream.h>
+#include <cstdlib>
+#include <iostream>
 #include <AD/memory/mempool.h>
 #include <AD/contain/fbitset.h>
 

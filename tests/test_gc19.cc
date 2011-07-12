@@ -1,5 +1,5 @@
-#include <iostream.h>
-#include <assert.h>
+#include <iostream>
+#include <cassert>
 #include <AD/gc/gc.h>
 #include <AD/gc/bgc.h>
 #include <AD/gc/gcobject.h>

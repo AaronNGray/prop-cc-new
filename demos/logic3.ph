@@ -1,7 +1,7 @@
 #ifndef logic3_demo_h
 #define logic3_demo_h
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <AD/strings/quark.h>
 
 datatype Wff :: rewrite

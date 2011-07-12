@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <assert.h>
+#include <cassert>
 #include <AD/automata/treeauto.h>  // tree automaton definitions
 #include <AD/automata/gentable.h>  // table printer
 #include <AD/contain/n_array.h>    // multi-arrays
@@ -630,9 +630,9 @@ std::ostream& TreeAutomaton::print_report( std::ostream& f) const
   }
 
   // Compute the table sizes
-  size_t state_size = number_of_states() <= 256 ?
+  std::size_t state_size = number_of_states() <= 256 ?
                       sizeof(ShortState) : sizeof(State);
-  size_t rule_size  = G->size() < 128 ? sizeof(ShortRule) : sizeof(Rule);
+  std::size_t rule_size  = G->size() < 128 ? sizeof(ShortRule) : sizeof(Rule);
   unsigned long total_theta_bytes    = total_theta_size * state_size;
   unsigned long total_mu_bytes       = total_mu_size * state_size;
   unsigned long total_mu_index_bytes = total_mu_index_size * state_size;

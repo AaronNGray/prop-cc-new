@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <AD/strings/kmp.h>
 
 int grep( const char* fileName, FILE* file, KMP& pattern)
@@ -64,7 +64,7 @@ int main(int argc, char * argv[])
       if (file == NULL)
       {
         perror(argv[i]);
-        exit(1);
+        std::exit(1);
       }
       failure += grep(argv[i],file,pattern);
       fclose(file);

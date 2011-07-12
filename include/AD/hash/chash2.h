@@ -156,7 +156,7 @@ public:
   ////////////////////////////////////////////////////////////////////
   //  Resizing
   ////////////////////////////////////////////////////////////////////
-  void resize(size_t new_size = 0);
+  void resize(std::size_t new_size = 0);
 
 private:
   ////////////////////////////////////////////////////////////////////
@@ -348,7 +348,7 @@ Ix CHashTable2<K,V,C>::insert(const K& key, const V& value)
 //////////////////////////////////////////////////////////////////////////
 
 template <class K, class V, class C>
-void CHashTable2<K,V,C>::resize(size_t new_size)
+void CHashTable2<K,V,C>::resize(std::size_t new_size)
 {
   if (new_size <= elem_count)
     new_size = (int)(table_size * growth_ratio);

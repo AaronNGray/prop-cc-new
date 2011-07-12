@@ -3,7 +3,7 @@
 //  regular expression syntax errors
 //
 
-#include <iostream.h>
+#include <iostream>
 int f()
 {
    matchscan (cin) {

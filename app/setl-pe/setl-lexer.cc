@@ -9,7 +9,7 @@
 #define PROP_PARSER_USED
 #include <propdefs.h>
 #line 1 "setl-lexer.pcc"
-#include <iostream.h>
+#include <iostream>
 #include "setl-lexeme.h"
 #include "setl-syntax.h"
 
@@ -163,7 +163,7 @@ PrettyOStream& operator << (PrettyOStream& strm__, SETL_Token  obj__)
          strm__ << "<id>";
          break;
       case STRING: 
-         strm__ << "<string>";
+         strm__ << "<cstring>";
          break;
       case CHARACTER: 
          strm__ << "<character>";

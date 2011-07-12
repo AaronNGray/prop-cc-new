@@ -11,7 +11,7 @@
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
 #line 1 "willard.pcc"
-#include <iostream.h>
+#include <iostream>
 #include <AD/pretty/postream.h>
 #include "willard-ast.h"
 #include "parser.h"
@@ -29,7 +29,7 @@ int main()
 
    Willard W;
 
-   W.set_log(cout);
+   W.set_std::log(cout);
 
    S << "Input:" << newline << q << newline;
   

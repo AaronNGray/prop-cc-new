@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <assert.h>
+#include <iostream>
+#include <cassert>
 #include <AD/generic/generic.h>
 #include <AD/generic/except.h>
 #include <AD/generic/ref.h>

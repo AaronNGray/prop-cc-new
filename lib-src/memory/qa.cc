@@ -22,9 +22,9 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <string>
-#include <assert.h>
+#include <cstdio>
+#include <cstring>
+#include <cassert>
 #include <AD/memory/arena.h>      // Arenas
 #include <AD/memory/boundtag.h>   // Boundary tag memory manager
 #include <AD/memory/buddy.h>      // Fibonacci buddy system
@@ -47,7 +47,7 @@ int main(int argc, char * argv[])
   for (i = 0; i < 257; i++)
   {
     core[i] = C[i];
-    memset(core[i],255,i);
+    std::memset(core[i],255,i);
   }
   printf("\n");
 
@@ -61,7 +61,7 @@ int main(int argc, char * argv[])
   do
   {
     i = (i+8) % 257;
-    C.free(core[i]);
+    C.std::free(core[i]);
   }
   while (i != 0);
   printf("\n");
@@ -78,7 +78,7 @@ int main(int argc, char * argv[])
   // double * x = arena();
   // double * y = arena();
 
-  // arena.free(x); arena.free(y);
+  // arena.std::free(x); arena.free(y);
 
   char block[70*1024];
   Buddy buddy(block, sizeof(block));
@@ -86,7 +86,7 @@ int main(int argc, char * argv[])
   for (i = 0; i < 257; i++)
   {
     core[i] = buddy[i];
-    memset(core[i],255,i);
+    std::memset(core[i],255,i);
   }
   printf("\n");
 
@@ -94,7 +94,7 @@ int main(int argc, char * argv[])
   do
   {
     i = (i+8) % 257;
-    buddy.free(core[i]);
+    buddy.std::free(core[i]);
   }
   while (i != 0);
   printf("\n");

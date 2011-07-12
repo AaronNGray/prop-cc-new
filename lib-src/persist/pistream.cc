@@ -23,9 +23,9 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #define PSTREAM_IMPLEMENTATION
-#include <assert.h>
-#include <string>
-#include <stdlib.h>
+#include <cassert>
+#include <cstring>
+#include <cstdlib>
 #include <iostream>
 #include <strstream>
 #include <AD/persist/pstream.h>      // persistent stream base class
@@ -49,7 +49,7 @@ PMarkerLog::~PMarkerLog()
 void PMarkerLog::clean()
 {
   PObject ** array = objects;
-  memset(array + objects.lo(), 0,
+  std::memset(array + objects.lo(), 0,
          (objects.hi() - objects.lo() + 1) * sizeof(PObject*));
 }
 
@@ -262,7 +262,7 @@ int Pistream::read( char buf[], int max)
   if (max > length)
     buf[length] = '\0';
   else
-    _in.seekg(streamoff(length - max), ios::cur);
+    _in.seekg(std::streamoff(length - max), std::ios::cur);
   return length;
 }
 

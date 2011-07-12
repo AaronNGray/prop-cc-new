@@ -29,8 +29,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <assert.h>
+#include <cstring>
+#include <cassert>
 #include <AD/automata/treegram.h>
 #include <AD/contain/bitset.h>
 
@@ -109,7 +109,7 @@ void TreeGrammar::compile
    number_of_productions = n;
    functor_names         = f_names;
    variable_names        = v_names;
-   memcpy(productions,P,n * sizeof(TreeProduction));
+   std::memcpy(productions,P,n * sizeof(TreeProduction));
 
    ///////////////////////////////////////////////////////////////////////////
    //  (2) Compute the ranges of non-terminals and functors.
@@ -130,7 +130,7 @@ void TreeGrammar::compile
    //  (3) Compute the mapping from functors to their rank.
    ///////////////////////////////////////////////////////////////////////////
    arities = new Arity [number_of_functors];
-   memset(arities, 0, number_of_functors * sizeof(Arity));
+   std::memset(arities, 0, number_of_functors * sizeof(Arity));
    for (i = 0; i < n; i++) tabulate_arity(P[i].term);
 
    assert(minimum_variable >= 0);
@@ -474,7 +474,7 @@ std::ostream& TreeGrammar::print(std::ostream& S, const TreeTerm term) const
                TreeTerm t = term;
                if (f_name[0] == '#')
                {  char begin_ch = f_name[1];
-                  char end_ch   = f_name[strlen(f_name)-1];
+                  char end_ch   = f_name[std::strlen(f_name)-1];
                   S << '#' << begin_ch;
                   
 #line 259 "treegram.pcc"

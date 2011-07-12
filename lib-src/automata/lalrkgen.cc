@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <iostream.h>
+#include <cassert>
+#include <iostream>
 #include <AD/automata/lalrkgen.h>   // LALR(k) parser generator
 #include <AD/automata/lr_gla.h>     // LR(k) general lookahead automaton
 

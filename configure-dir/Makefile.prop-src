@@ -20,8 +20,8 @@ PROP_H_SRC= \
 	ir.ph ast.ph basics.ph parsegen.ph keywords.ph parser.ph \
 	collection.ph setl-ast.ph setlgen.ph matchcom.ph \
 	trs.ph timespace.ph env.ph funmap.ph metasyntax.ph \
-	pat.ph list.ph grsgen.ph graphtype.ph graphedges.ph \
-	aggen.ph datatype.ph listimpl.ph rwmix.ph
+	pat.ph grsgen.ph graphtype.ph graphedges.ph \
+	aggen.ph datatype.ph rwmix.ph
 #	dataflow.ph bitfield.ph wam.ph constraint.ph logicgen.ph 
 
 #
@@ -40,7 +40,7 @@ PROP_C_SRC= \
 	pat.pcc grsgen.pcc selector.pcc \
 	graphtype.pcc graphrep.pcc graphops.pcc graphreport.pcc \
 	classdef.pcc prop-main.pcc \
-	aggen.pcc datatype.pcc instance.pcc list.pcc \
+	aggen.pcc datatype.pcc instance.pcc \
 	visualize.pcc visual2.pcc rwmix.pcc
 #	dataflow.pcc bitfield.pcc constraint.pcc logicgen.pcc wam.pcc 
 

@@ -22,7 +22,7 @@
 // 1994-1997
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/gc/weakptr.h>    // weak pointers
 #include <AD/gc/gcheaps.h>    // heap manager
 #include <AD/gc/gcmacros.h>   // useful macros
@@ -47,8 +47,8 @@ static WP_Entry dummy_entry[1];
 WP_Entry *   WeakPointerManager::wp_table          = dummy_entry;
 WP_Entry *   WeakPointerManager::wp_next_free      = 0;
 void     *   WeakPointerManager::wp_table_core     = 0;
-size_t       WeakPointerManager::wp_table_size     = 0;
-size_t       WeakPointerManager::wp_table_capacity = 0;
+std::size_t       WeakPointerManager::wp_table_size     = 0;
+std::size_t       WeakPointerManager::wp_table_capacity = 0;
 WP_TimeStamp WeakPointerManager::wp_timestamp      = 0;
 
 //////////////////////////////////////////////////////////////////////////////
@@ -68,7 +68,7 @@ WeakPointerManager::~WeakPointerManager()
 //
 //  In the current setup the table is just an array.  Unused entries are
 //  linked together in a freelist.  Assignment of weakpointer can be
-//  accomplished in O(1) amortized time(and unfortunately O(1) space.)
+//  accomplished in O(1) amortized std::time(and unfortunately O(1) space.)
 //////////////////////////////////////////////////////////////////////////////
 
 WP_Index WeakPointerManager::add_pointer( GCObject* obj, WP_TimeStamp& ts)
@@ -122,7 +122,7 @@ void WeakPointerManager::grow_wp_table()
   {
 
     // Compute the new size, round it up to page boundaries
-    size_t new_size = GC_ROUNDUP_PAGE_SIZE(wp_table_size *3 / 2 + 1024);
+    std::size_t new_size = GC_ROUNDUP_PAGE_SIZE(wp_table_size *3 / 2 + 1024);
 
     // Allocate a new table.
     void *     new_wp_table_core;
@@ -137,7 +137,7 @@ void WeakPointerManager::grow_wp_table()
     HM::blacklist_system_heap (new_wp_table, new_limit, true);
 
     // Copy the old table into the new
-    memcpy (new_wp_table, wp_table, wp_table_capacity * sizeof(WP_Entry));
+    std::memcpy (new_wp_table, wp_table, wp_table_capacity * sizeof(WP_Entry));
 
     // Delete the old table
     HM::deallocate_pages_on_boundaries

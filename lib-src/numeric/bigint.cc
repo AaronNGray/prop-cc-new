@@ -32,10 +32,10 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <stdlib.h>
-#include <string>
+#include <cstdlib>
+#include <cstring>
 #include <new>
-#include <ctype.h>
+#include <cctype>
 #include <AD/generic/generic.h>
 #include <AD/numeric/bigint.h>
 
@@ -71,7 +71,7 @@ inline int max(int a, int b)
 {
   return a > b ? a : b;
 }
-//inline unsigned long abs(long a) { return a > 0 ? a : -a; }
+//inline unsigned long std::abs(long a) { return a > 0 ? a : -a; }
 
 //////////////////////////////////////////////////////////////////////////////
 //  Default error handler
@@ -80,7 +80,7 @@ inline int max(int a, int b)
 static void bigint_error(const char message[])
 {
   std::cerr << "BigInt error: " << message << '\n';
-  exit(1);
+  std::exit(1);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -101,12 +101,12 @@ a_BigInt * BigInt::zero  = &zero_rep;
 // Memory management
 //////////////////////////////////////////////////////////////////////////////
 
-inline void * a_BigInt::operator new( size_t size, int capacity)
+inline void * a_BigInt::operator new( std::size_t size, int capacity)
 {
   register int count = 2;
   while (count < capacity)
     count <<= 1;
-  a_BigInt * x = (a_BigInt*)malloc(size + (count - 1) * sizeof(Digit));
+  a_BigInt * x = (a_BigInt*)std::malloc(size + (count - 1) * sizeof(Digit));
   x->capacity = count;
   return x;
 }
@@ -114,7 +114,7 @@ inline void * a_BigInt::operator new( size_t size, int capacity)
 void a_BigInt::operator delete(void * x)
 {
   if (((a_BigInt*)x)->capacity > 0)
-    free(x);
+    std::free(x);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -138,7 +138,7 @@ inline void normalize( a_BigInt * r)
 inline void kill( a_BigInt * r)
 {
   if (r && r->capacity > 0)
-    free(r);
+    std::free(r);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -155,7 +155,7 @@ inline a_BigInt * make_zero( a_BigInt * r)
 //  Copy a bigint; reallocate if necessary
 //////////////////////////////////////////////////////////////////////////////
 
-a_BigInt* copy( a_BigInt* r, const a_BigInt* a)
+a_BigInt* a_BigInt::copy( a_BigInt* r, const a_BigInt* a)
 {
   if (r == a)
     return r;
@@ -173,7 +173,7 @@ a_BigInt* copy( a_BigInt* r, const a_BigInt* a)
   }
   r->len = a->len;
   r->sign = a->sign;
-  memcpy(r->digits,a->digits,a->len * sizeof(Digit));
+  std::memcpy(r->digits,a->digits,a->len * sizeof(Digit));
   return r;
 }
 
@@ -190,7 +190,7 @@ a_BigInt* neg( a_BigInt* r, const a_BigInt* a)
   }
   r->len = a->len;
   r->sign = - a->sign;
-  memcpy(r->digits,a->digits,a->len * sizeof(Digit));
+  std::memcpy(r->digits,a->digits,a->len * sizeof(Digit));
   return r;
 }
 
@@ -198,7 +198,7 @@ a_BigInt* neg( a_BigInt* r, const a_BigInt* a)
 //  Copy a long
 //////////////////////////////////////////////////////////////////////////////
 
-a_BigInt* copy( a_BigInt* r, long a, int sign)
+a_BigInt* a_BigInt::copy( a_BigInt* r, long a, int sign)
 {
   if (a == 0)
     return make_zero(r);
@@ -393,7 +393,7 @@ inline void uadd( a_BigInt* r, const a_BigInt* a, const a_BigInt* b)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//  Unsigned substraction; assume abs(a) >= abs(b)
+//  Unsigned substraction; assume std::abs(a) >= abs(b)
 //////////////////////////////////////////////////////////////////////////////
 
 inline void usub( a_BigInt* r, const a_BigInt* a, const a_BigInt* b)
@@ -435,9 +435,9 @@ a_BigInt* addsub
   if (a->sign == 0 && b->sign == 0 || a == b && sub)
     return make_zero(r);
   if (a->sign == 0)
-    return sub ? neg(r,b) : copy(r,b);
+    return sub ? neg(r,b) : a_BigInt::copy(r,b);
   if (b->sign == 0)
-    return copy(r,a);
+    return a_BigInt::copy(r,a);
 
   ////////////////////////////////////////////////////////////////
   // If the signs are different, we'll do a subtraction instead
@@ -483,7 +483,7 @@ a_BigInt* addsub( a_BigInt* r, const a_BigInt* a, long b, Bool sub)
   }
   c;
   if (b == 0)
-    return copy(r,a);
+    return a_BigInt::copy(r,a);
   if (b > 0)
   {
     c.n.sign = 1;
@@ -589,15 +589,15 @@ a_BigInt* mul( a_BigInt* r, const a_BigInt* a, const a_BigInt* b)
   int result_sign = a->sign == 1 ? b->sign : -b->sign;
   a_BigInt * result;
   if (a->len == 1 && a->digits[0] == 1)
-    result = copy(r,b);
+    result = a_BigInt::copy(r,b);
   else if (b->len == 1 && b->digits[0] == 1)
-    result = copy(r,a);
+    result = a_BigInt::copy(r,a);
   else
   {
     int result_len = a->len + b->len;
 
     //////////////////////////////////////////////////////////////
-    //  Reorder the multiplicants so that abs(a) < abs(b)
+    //  Reorder the multiplicants so that std::abs(a) < abs(b)
     //  The larger multiplicant will be used as the inner
     //  loop argument if possible to minimize looping overhead.
     //  This is probably insignificant compared to the actual
@@ -726,13 +726,13 @@ a_BigInt* mul( a_BigInt* r, const a_BigInt* a, long b)
   if (b == 0)
     return make_zero(r);
   if (b == 1)
-    return copy(r,a);
+    return a_BigInt::copy(r,a);
   if (b == -1)
     return neg(r,a);
   if (a->sign == 0)
     return make_zero(r);
   if (a->len == 1 && a->digits[0] == 1)  // a == 1 or a == -1
-    return copy(r,b,a->sign);
+    return a_BigInt::copy(r,b,a->sign);
 
   struct
   {
@@ -901,7 +901,7 @@ a_BigInt* div( a_BigInt* r, const a_BigInt* a, const a_BigInt* b)
   a_BigInt * result;
   int result_sign = a->sign ? b->sign : -b->sign;
   if (b->len == 1 && b->digits[0] == 1)
-    result = copy(r,a);
+    result = a_BigInt::copy(r,a);
   else if (b->len == 1)
   {
     //////////////////////////////////////////////////////////////
@@ -920,7 +920,7 @@ a_BigInt* div( a_BigInt* r, const a_BigInt* a, const a_BigInt* b)
     //////////////////////////////////////////////////////////////
     int mag_diff = ucmp(a,b);
     if (mag_diff == 0)
-      return copy(r,1,result_sign);
+      return a_BigInt::copy(r,1,result_sign);
     if (mag_diff < 0)
       return make_zero(r);
 
@@ -936,7 +936,7 @@ a_BigInt* div( a_BigInt* r, const a_BigInt* a, const a_BigInt* b)
     {
       result = alloc(r,divisor_len);
     }
-    a_BigInt * divisor = copy(0,a);
+    a_BigInt * divisor = a_BigInt::copy(0,a);
     //////////////////////////////////////////////////////////////
     // Now perform unsigned division.
     //////////////////////////////////////////////////////////////
@@ -968,11 +968,11 @@ a_BigInt* div( a_BigInt* r, const a_BigInt* a, long b)
   a_BigInt* result;
   int result_sign = a->sign ? b > 0 : b < 0;
   if (b == 1 || b == -1)
-    result = copy(r,a);
+    result = a_BigInt::copy(r,a);
   else
   {
     result = alloc(r,a->len);
-    Unit mag = abs(b);
+    Unit mag = std::abs(b);
     if (b >= Max_digit)
     {
       struct
@@ -984,7 +984,7 @@ a_BigInt* div( a_BigInt* r, const a_BigInt* a, long b)
       c.n.len = 2;
       c.n.digits[0] = LOW(mag);
       c.n.digits[1] = HIGH(mag);
-      a_BigInt* divisor = copy(0,a);
+      a_BigInt* divisor = a_BigInt::copy(0,a);
       udiv_mod(result,divisor,&c.n);
       delete divisor;
     }
@@ -1024,23 +1024,23 @@ a_BigInt* mod( a_BigInt* r, const a_BigInt* a, const a_BigInt* b)
     if (m == 0)
       return make_zero(r);
     else
-      return copy(r,m,result_sign);
+      return a_BigInt::copy(r,m,result_sign);
   }
   a_BigInt* result;
   int mag_diff = ucmp(a,b);
   if (mag_diff == 0)
     return make_zero(r);
   if (mag_diff < 0)
-    result = copy(r,a);
+    result = a_BigInt::copy(r,a);
   else
   {
     //////////////////////////////////////////////////////////////
     //  Allocate space for the divisor and result
     //////////////////////////////////////////////////////////////
     if (r == a && r != b)
-      result = copy(r,a);
+      result = a_BigInt::copy(r,a);
     else
-      result = copy(0,a);
+      result = a_BigInt::copy(0,a);
     udiv_mod(0,result,b);
     if (result != r)
       kill(r);
@@ -1071,7 +1071,7 @@ a_BigInt* mod( a_BigInt* r, const a_BigInt* a, long b)
     return make_zero(r);
   else
   {
-    Unit mag = abs(b);
+    Unit mag = std::abs(b);
     if (b >= Max_digit)
     {
       struct
@@ -1081,7 +1081,7 @@ a_BigInt* mod( a_BigInt* r, const a_BigInt* a, long b)
       }
       c;
       if (r != a)
-        result = copy(r,a);
+        result = a_BigInt::copy(r,a);
       c.n.len = 2;
       c.n.digits[0] = LOW(mag);
       c.n.digits[1] = HIGH(mag);
@@ -1095,7 +1095,7 @@ a_BigInt* mod( a_BigInt* r, const a_BigInt* a, long b)
       if (mod == 0)
         return make_zero(r);
       else
-        return copy(r,mod,result_sign);
+        return a_BigInt::copy(r,mod,result_sign);
     }
   }
   result->sign = result_sign;
@@ -1198,7 +1198,7 @@ a_BigInt* complement( a_BigInt* r, const a_BigInt* a)
 a_BigInt* shift( a_BigInt* r, const a_BigInt* a, const a_BigInt* b, int sign)
 {
   if (b->sign == 0)
-    return copy(r,a);   // a shift 0 == a
+    return a_BigInt::copy(r,a);   // a shift 0 == a
   int len = b->len == 1 ? b->digits[0] : b->digits[0] + b->digits[1] * Max_digit;
   if (b->sign == -1)
     len = -len;
@@ -1337,7 +1337,7 @@ unsigned int hash( const BigInt& a)
 //  String conversion
 //////////////////////////////////////////////////////////////////////////////
 
-char * BigInt::makeString(char buf[], size_t length, unsigned int base) const
+char * BigInt::makeString(char buf[], std::size_t length, unsigned int base) const
 {
   char * cursor = buf;
   char * limit  = buf + length;
@@ -1354,7 +1354,7 @@ char * BigInt::makeString(char buf[], size_t length, unsigned int base) const
       return buf;
   }
 
-  a_BigInt* a = copy(0,D);
+  a_BigInt* a = a_BigInt::copy(0,D);
   while (a->len > 0)
   {
     int digit = udiv(a,a,base);
@@ -1393,7 +1393,7 @@ std::ostream& operator << (std::ostream& out, const BigInt& n)
 {
   char buffer[256];
   char * buf;
-  size_t len = n.D->len * 5 + 3;
+  std::size_t len = n.D->len * 5 + 3;
   if (len > sizeof(buffer))
     buf = new char [len];
   else
@@ -1446,13 +1446,13 @@ int BigInt::parseString( const char * number, unsigned int base)
   for (  ; (c = *p); p++)
   {
     unsigned int digit;
-    if (isdigit(c))
+    if (std::isdigit(c))
       digit = c - '0';
-    else if (islower(c))
+    else if (std::islower(c))
       digit = (c - 'a') + 10;
-    else if (isupper(c))
+    else if (std::isupper(c))
       digit = (c - 'A') + 10;
-    else if (isspace(c))
+    else if (std::isspace(c))
       continue;
     else
       break;

@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
+#include <iostream>
 #include <AD/automata/gla.h>  // general lookahead automaton
 #include <AD/hash/dchash.h>   // direct chaining hash table
 

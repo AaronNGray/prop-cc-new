@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <iostream>
 #include "elem.h"
 
 int main()

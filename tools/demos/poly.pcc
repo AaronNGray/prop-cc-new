@@ -4,7 +4,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
+#include <cstdio>
 datatype Tree<T> = empty 
                  | leaf (T)
                  | node (Tree<T>, T, Tree<T>)

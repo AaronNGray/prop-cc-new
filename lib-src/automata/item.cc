@@ -22,9 +22,9 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <string>
-#include <new.h>
+#include <cstdlib>
+#include <cstring>
+#include <new>
 #include <AD/automata/item.h>
 
 int LRItem::ncount( const Grammar& G) const

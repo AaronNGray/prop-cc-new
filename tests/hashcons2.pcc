@@ -2,8 +2,8 @@
 //  This is a simple (and useless) example for testing the hash cons feature
 //  in Prop.
 //
-#include <iostream.h>
-#include <new.h>
+#include <iostream>
+#include <new>
 
 int balance = 0;
 
@@ -12,13 +12,13 @@ datatype EXP :: unique traced = num (int)
                               | sub (EXP, EXP)
                               | mul (EXP, EXP)
                               | div (EXP, EXP)
-public: {  inline void * operator new    (size_t n) { balance++; cerr << '+'; return new char [n]; }
+public: {  inline void * operator new    (std::size_t n) { balance++; cerr << '+'; return new char [n]; }
            inline void   operator delete (void * x) { balance--; cerr << '-'; delete [] ((char*)x); }
         }
 
 and LIST :: unique traced     = nil
                               | list (EXP, LIST)
-public: {  inline void * operator new    (size_t n) { balance++; cerr << '>'; return new char [n]; }
+public: {  inline void * operator new    (std::size_t n) { balance++; cerr << '>'; return new char [n]; }
            inline void   operator delete (void * x) { balance--; cerr << '<'; delete [] ((char*)x); }
         }
 ;
@@ -35,7 +35,7 @@ ostream& operator << (ostream& f, EXP e)
    |  add(x,y): { return f << '(' << x << " + " << y << ')'; }
    |  sub(x,y): { return f << '(' << x << " - " << y << ')'; }
    |  mul(x,y): { return f << '(' << x << " * " << y << ')'; }
-   |  div(x,y): { return f << '(' << x << " / " << y << ')'; }
+   |  std::div(x,y): { return f << '(' << x << " / " << y << ')'; }
    }
 }
 

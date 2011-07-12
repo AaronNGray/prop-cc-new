@@ -1,7 +1,7 @@
 //
 //  Testing the rewriting features
 //
-#include <iostream.h>
+#include <iostream>
 
 datatype EXP = num (int)
              | add (EXP, EXP)

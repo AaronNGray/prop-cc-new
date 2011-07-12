@@ -2,7 +2,7 @@
 #define code_generator_h
 
 #include <iostream>
-#include <stdarg.h>
+#include <cstdarg>
 #include "basics.h"
 
 
@@ -31,14 +31,14 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   void     set_stream (std::ostream&);
   std::ostream& pr   (const char *, ...);
-  std::ostream& outv (const char *, va_list);
+  std::ostream& outv (const char *, std::va_list);
 
 private:
   ///////////////////////////////////////////////////////////////////////////
   //  Auxiliary methods.
   ///////////////////////////////////////////////////////////////////////////
   void     gen_code        (const char *);
-  virtual  va_list printer (char, va_list) = 0; // extra printer
+  virtual  std::va_list printer (char, va_list) = 0; // extra printer
 };
 
 #endif

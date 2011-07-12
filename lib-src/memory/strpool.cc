@@ -22,14 +22,14 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/memory/strpool.h>
 
 //////////////////////////////////////////////////////////////////////////////
 // Constructor
 //////////////////////////////////////////////////////////////////////////////
 
-StringPool::StringPool(size_t page_size) : Mem("StringPool")
+StringPool::StringPool(std::size_t page_size) : Mem("StringPool")
 {
   next = limit = 0;
   pages = 0;
@@ -37,7 +37,7 @@ StringPool::StringPool(size_t page_size) : Mem("StringPool")
   bytes_reserved = 0;
 }
 
-StringPool::StringPool(Mem& m, size_t page_size) : Mem(m,"StringPool")
+StringPool::StringPool(Mem& m, std::size_t page_size) : Mem(m,"StringPool")
 {
   next = limit = 0;
   pages = 0;
@@ -58,9 +58,9 @@ StringPool::~StringPool()
 // Method to increase the size of the pool
 //////////////////////////////////////////////////////////////////////////////
 
-void StringPool::grow(size_t len)
+void StringPool::grow(std::size_t len)
 {
-  size_t size = len > pageSize ? len : pageSize;
+  std::size_t size = len > pageSize ? len : pageSize;
   Page * newPage = (Page*)manager_mem->m_alloc(sizeof(Page) + size - 1);
   newPage->next = pages;
   pages = newPage;
@@ -76,7 +76,7 @@ void StringPool::grow(size_t len)
 char * StringPool::operator () (const char * str, int len)
 {
   char * newStr = (*this)[len + 1];
-  memcpy(newStr,str,len);
+  std::memcpy(newStr,str,len);
   newStr[len] = '\0';
   return newStr;
 }
@@ -87,8 +87,8 @@ char * StringPool::operator () (const char * str, int len)
 
 char * StringPool::operator [] (const char * str)
 {
-  char * newStr = (*this)[strlen(str)+1];
-  strcpy(newStr,str);
+  char * newStr = (*this)[std::strlen(str)+1];
+  std::strcpy(newStr,str);
   return newStr;
 }
 
@@ -99,7 +99,7 @@ char * StringPool::operator [] (const char * str)
 void StringPool::free(void *)
 {}
 
-size_t StringPool::bytes_used() const
+std::size_t StringPool::bytes_used() const
 {
   return bytes_reserved;
 }

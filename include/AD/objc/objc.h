@@ -25,7 +25,7 @@
 #ifndef objective_c_h
 #define objective_c_h
 
-#include <stdarg.h>
+#include <cstdarg>
 #include <AD/generic/generic.h>
 #include <AD/generic/ordering.h>
 
@@ -126,7 +126,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Definition of a O_Object method.
   ///////////////////////////////////////////////////////////////////////////
-  typedef OID (O_Object::*ObjectMethod)(O_SEL, va_list);
+  typedef OID (O_Object::*ObjectMethod)(O_SEL, std::va_list);
 
 public:
 
@@ -156,7 +156,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   virtual OID send(O_SEL, ...);
   virtual OID send(const char *, ...);
-  virtual OID message_not_understood (O_SEL, va_list);
+  virtual OID message_not_understood (O_SEL, std::va_list);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Dereferencing

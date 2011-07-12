@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
-#include <iostream.h>
+#include <cstdlib>
+#include <iostream>
 #include <AD/contain/basiccol.h>
 
 //////////////////////////////////////////////////////////////////////////
@@ -50,5 +50,5 @@ void BasicCollection::should_not_implement(const char method_name[]) const
 {
   std::cerr << "\n[Class " << myName()
   << " does not understand method " << method_name << "]\n";
-  exit(1);
+  std::exit(1);
 }

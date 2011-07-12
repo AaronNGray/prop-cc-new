@@ -1,5 +1,5 @@
 //  Test -lno-implicit-template instantiation of polymorphic types
-#include <iostream.h>
+#include <iostream>
 
 datatype List<T> :: collectable printable rewrite 
    = #[] | #[ T ... List<T> ]

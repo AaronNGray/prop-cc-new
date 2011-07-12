@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/automata/compdfa.h>
 #include <AD/automata/gentable.h>
 
@@ -78,8 +78,8 @@ void CompressedDFA::grow_tables(int increment)
 {
   State * new_check = new State [ table_size + increment ];
   State * new_next  = new State [ table_size + increment ];
-  memcpy(new_check,check,table_size * sizeof(State));
-  memcpy(new_next ,next ,table_size * sizeof(State));
+  std::memcpy(new_check,check,table_size * sizeof(State));
+  std::memcpy(new_next ,next ,table_size * sizeof(State));
   delete [] check;
   delete [] next;
   check = new_check;
@@ -96,7 +96,7 @@ void CompressedDFA::grow_tables(int increment)
 void CompressedDFA::grow_states(int increment)
 {
   Offset * new_base = new Offset [ number_of_states+increment ];
-  memcpy(new_base,base,number_of_states * sizeof(Offset));
+  std::memcpy(new_base,base,number_of_states * sizeof(Offset));
   for (int i = number_of_states; i < number_of_states + increment; i++)
     new_base[i] = 0;
   delete [] base;

@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <new.h>
-#include <string>
+#include <new>
+#include <cstring>
 #include <AD/memory/sysmem.h>
 
 //////////////////////////////////////////////////////////////////////////////
@@ -44,15 +44,15 @@ void   SysMem::clear  ()
   error("clear() is unimplemented");
 }
 
-void * SysMem::m_alloc (size_t n)
+void * SysMem::m_alloc (std::size_t n)
 {
   return new char [n];
 }
 
-void * SysMem::c_alloc (size_t n)
+void * SysMem::c_alloc (std::size_t n)
 {
   void * t = new char [n];
-  memset(t,0,n);
+  std::memset(t,0,n);
   return t;
 }
 
@@ -61,13 +61,13 @@ void   SysMem::free   (void * p)
   delete [] ((char*)p);
 }
 
-size_t SysMem::size   (const void *) const
+std::size_t SysMem::size   (const void *) const
 {
   error("size() is unimplemented");
   return 0;
 }
 
-size_t SysMem::bytes_used () const
+std::size_t SysMem::bytes_used () const
 {
   error("bytes_used() is unimplemented");
   return 0;

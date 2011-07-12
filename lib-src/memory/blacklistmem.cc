@@ -48,14 +48,14 @@ void BlacklistMem::error(const char message[]) const
 //  Methods for allocation/deallocation
 //////////////////////////////////////////////////////////////////////////////
 
-void * BlacklistMem::m_alloc(size_t n)
+void * BlacklistMem::m_alloc(std::size_t n)
 {
   void * p = mem.m_alloc(n);
   HM::blacklist(p,n);
   return p;
 }
 
-void * BlacklistMem::c_alloc(size_t n)
+void * BlacklistMem::c_alloc(std::size_t n)
 {
   void * p = mem.c_alloc(n);
   HM::blacklist(p,n);
@@ -71,29 +71,29 @@ void   BlacklistMem::free(void * p)
 {
   if (p)
   {
-    size_t n = mem.size(p);
-    memset(p,0,n);
+    std::size_t n = mem.size(p);
+    std::memset(p,0,n);
     mem.free(p);
     HM::unblacklist(p,n);
   }
 }
 
-size_t BlacklistMem::size(const void * p) const
+std::size_t BlacklistMem::size(const void * p) const
 {
   return mem.size(p);
 }
 
-size_t BlacklistMem::bytes_used() const
+std::size_t BlacklistMem::bytes_used() const
 {
   return mem.bytes_used();
 }
 
-size_t BlacklistMem::init_page_size(size_t n) const
+std::size_t BlacklistMem::init_page_size(size_t n) const
 {
   return mem.init_page_size(n);
 }
 
-size_t BlacklistMem::max_size(size_t n) const
+std::size_t BlacklistMem::max_size(size_t n) const
 {
   return mem.max_size(n);
 }

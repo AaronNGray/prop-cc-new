@@ -78,7 +78,7 @@ public:
   //  We'll redefine `new' and `delete' since item sets are to be allocated
   //  using our own memory pools for efficiency.
   ///////////////////////////////////////////////////////////////////////////
-  inline void * operator new    (size_t, Mem& mem, int k);
+  inline void * operator new    (std::size_t, Mem& mem, int k);
   inline void   operator delete (void *)
   {}
 
@@ -135,7 +135,7 @@ inline void BURS_ItemSet::clear()
 //  Inlined member functions
 //////////////////////////////////////////////////////////////////////////////
 
-inline void * BURS_ItemSet::operator new(size_t, Mem& mem, int k)
+inline void * BURS_ItemSet::operator new(std::size_t, Mem& mem, int k)
 {
   BURS_ItemSet * set
     =

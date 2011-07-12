@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/contain/intsets.h>
 
 //
@@ -42,7 +42,7 @@ void IntSetArray::create(int i, int j, int a, int b)
     set_size >>= 1;
   int size = (j - i + 1) << shift;
   sets = new Byte [ size ];
-  memset(sets,0,size * sizeof(Byte));
+  std::memset(sets,0,size * sizeof(Byte));
   sets -= (min_index << shift) + byte_offset;
 }
 

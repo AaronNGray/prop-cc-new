@@ -22,10 +22,10 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <string>
-#include <ctype.h>
+#include <cstddef>
+#include <cstdlib>
+#include <cstring>
+#include <cctype>
 #include <AD/generic/generic.h>  // Generic definitions
 #include <AD/contain/charset.h>  // Character set
 #include <AD/strings/regexp.h>   // Regular expression search
@@ -40,13 +40,13 @@ static void init()
 {
   for (register int c = 0; c < 256; c++)
   {
-    if (isalpha(c))
+    if (std::isalpha(c))
       alpha += c;
-    if (isdigit(c))
+    if (std::isdigit(c))
       numeric += c;
-    if (isspace(c))
+    if (std::isspace(c))
       space += c;
-    if (isalnum(c))
+    if (std::isalnum(c))
       word += c;
   }
   word += '_';
@@ -93,7 +93,7 @@ RegExp& RegExp::operator = (const RegExp& re)
     if (re.nfa)
     {
       nfa = new Opcode [size = re.size];
-      memcpy(nfa,re.nfa,sizeof(Opcode) * size);
+      std::memcpy(nfa,re.nfa,sizeof(Opcode) * size);
       minMatchLen = re.minMatchLen;
     }
   }
@@ -174,7 +174,7 @@ const char * RegExp::grep( register const Opcode * PC,    // current opcode
       n = PC[-1] - REF;
       len = right[n] - left[n];
       if (text+len >= textEnd || len < 0 ||
-          memcmp(myText+left[n],text-1,len))
+          std::memcmp(myText+left[n],text-1,len))
         return NULL;
       text += len - 1;
       c = *text++;
@@ -182,7 +182,7 @@ const char * RegExp::grep( register const Opcode * PC,    // current opcode
 
     case MATCH_LITERAL:
       len = *PC++ - 1;
-      if (c != *PC++ || text + len > textEnd || memcmp(text,PC,len))
+      if (c != *PC++ || text + len > textEnd || std::memcmp(text,PC,len))
         return NULL;
       PC += len;
       text += len;
@@ -326,7 +326,7 @@ int RegExp::Match( register const char * text, int length)
   if (nfa == NULL)
     return -1;
   if (length < 0)
-    length = strlen(text);
+    length = std::strlen(text);
   register int c;
 
   myText = text;
@@ -350,7 +350,7 @@ int RegExp::Match( register const char * text, int length)
     {  int len = nfa[1];
       for ( c = nfa[2]; text < limit; text++)
         if (c == *text && text + len <= textEnd &&
-            memcmp(text,nfa+2,len) == 0)
+            std::memcmp(text,nfa+2,len) == 0)
           if ((matchedTextEnd = this->grep(nfa+len+2,text+len,textEnd)))
           {
             matchedText = text;
@@ -707,7 +707,7 @@ Emit_match_set:
                   ;
           last = PC;
           *PC++ = MATCH_SET;
-          memcpy(PC,(const Byte *)set
+          std::memcpy(PC,(const Byte *)set
                  ,32);
           PC += 32;
           complement = false;

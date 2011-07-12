@@ -1,7 +1,7 @@
 // Test some lexer stuff
 
-#include <stdio.h>
-#include <assert.h>
+#include <cstdio>
+#include <cassert>
 #include <AD/automata/acgen.h>        // Aho-Corasick automaton
 #include <AD/automata/lexergen.h>     // Lexical scanner
 

@@ -177,7 +177,7 @@ public:
 #line 6 "setl-ast.ph"
    Id IDexp; 
    Exp_IDexp (Id x_IDexp);
-   ~Exp_IDexp();
+   ~Exp_IDstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -198,7 +198,7 @@ public:
 #line 8 "setl-ast.ph"
    Literal LITexp; 
    Exp_LITexp (Literal x_LITexp);
-   ~Exp_LITexp();
+   ~Exp_LITstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -219,7 +219,7 @@ public:
 #line 9 "setl-ast.ph"
    Exp _1; Exp _2; 
    Exp_APPexp (Exp x_1, Exp x_2);
-   ~Exp_APPexp();
+   ~Exp_APPstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -240,7 +240,7 @@ public:
 #line 10 "setl-ast.ph"
    Exps TUPLEexp; 
    Exp_TUPLEexp (Exps x_TUPLEexp);
-   ~Exp_TUPLEexp();
+   ~Exp_TUPLEstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -261,7 +261,7 @@ public:
 #line 11 "setl-ast.ph"
    LabeledExps RECORDexp; 
    Exp_RECORDexp (LabeledExps x_RECORDexp);
-   ~Exp_RECORDexp();
+   ~Exp_RECORDstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -282,7 +282,7 @@ public:
 #line 12 "setl-ast.ph"
    Exps SETexp; 
    Exp_SETexp (Exps x_SETexp);
-   ~Exp_SETexp();
+   ~Exp_SETstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -303,7 +303,7 @@ public:
 #line 13 "setl-ast.ph"
    Exp _1; Exps _2; 
    Exp_CASEexp (Exp x_1, Exps x_2);
-   ~Exp_CASEexp();
+   ~Exp_CASEstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -324,7 +324,7 @@ public:
 #line 14 "setl-ast.ph"
    Exp _1; Exp _2; Exp _3; 
    Exp_IFexp (Exp x_1, Exp x_2, Exp x_3);
-   ~Exp_IFexp();
+   ~Exp_IFstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -345,7 +345,7 @@ public:
 #line 15 "setl-ast.ph"
    Exp _1; Exp _2; 
    Exp_WHILEexp (Exp x_1, Exp x_2);
-   ~Exp_WHILEexp();
+   ~Exp_WHILEstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -366,7 +366,7 @@ public:
 #line 16 "setl-ast.ph"
    Exps SEQexp; 
    Exp_SEQexp (Exps x_SEQexp);
-   ~Exp_SEQexp();
+   ~Exp_SEQstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -387,7 +387,7 @@ public:
 #line 17 "setl-ast.ph"
    Decls _1; Exp _2; 
    Exp_LETexp (Decls x_1, Exp x_2);
-   ~Exp_LETexp();
+   ~Exp_LETstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing
@@ -408,7 +408,7 @@ public:
 #line 18 "setl-ast.ph"
    Prim PRIMexp; 
    Exp_PRIMexp (Prim x_PRIMexp);
-   ~Exp_PRIMexp();
+   ~Exp_PRIMstd::exp();
    ////////////////////////////////////////////////////////////////////////////
    //
    // Method for garbage collection tracing

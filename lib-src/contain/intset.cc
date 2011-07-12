@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/generic/generic.h>
 #include <AD/contain/intset.h>
 
@@ -77,7 +77,7 @@ IntSet& IntSet::operator = (const IntSet& s)
     if (array)
       delete [] array;
     array = new Byte[limit = s.limit];
-    memcpy(array,s.array,limit);
+    std::memcpy(array,s.array,limit);
   }
   return *this;
 }

@@ -90,18 +90,18 @@ public:
     ////////////////////////////////////////////////////////////////////////
     //  Memory management
     ////////////////////////////////////////////////////////////////////////
-    inline void * operator new( size_t s, Mem& m)
+    inline void * operator new( std::size_t s, Mem& m)
     {
       return m.m_alloc(s);
     }
-    inline void * operator new(size_t s, Mem& m, Variable v)
+    inline void * operator new(std::size_t s, Mem& m, Variable v)
     {
       TreeTerm * t = (TreeTerm *)m.m_alloc(s);
       t->tag = Var;
       t->var = v;
       return t;
     }
-    inline void * operator new(size_t s, Mem& m, TreeTerm * x, TreeTerm * y)
+    inline void * operator new(std::size_t s, Mem& m, TreeTerm * x, TreeTerm * y)
     {
       TreeTerm * t = (TreeTerm *)m.m_alloc(s);
       t->tag = And;
@@ -109,7 +109,7 @@ public:
       t->and.y = y;
       return t;
     }
-    inline void * operator new(size_t s, Mem& m, TreeTerm * x, TreeTerm * y, int)
+    inline void * operator new(std::size_t s, Mem& m, TreeTerm * x, TreeTerm * y, int)
     {
       TreeTerm * t = (TreeTerm *)m.m_alloc(s);
       t->tag = Or;
@@ -117,14 +117,14 @@ public:
       t->or.y = y;
       return t;
     }
-    inline void * operator new(size_t s, Mem& m, TreeTerm * x)
+    inline void * operator new(std::size_t s, Mem& m, TreeTerm * x)
     {
       TreeTerm * t = (TreeTerm *)m.m_alloc(s);
       t->tag = Or;
       t->not = x;
       return t;
     }
-    inline void * operator new(size_t s, Mem& m, class BitSet * set
+    inline void * operator new(std::size_t s, Mem& m, class BitSet * set
                                 )
     {
       TreeTerm * t = (TreeTerm *)m.m_alloc(s);
@@ -134,7 +134,7 @@ public:
           ;
       return t;
     }
-    inline void * operator new(size_t s, Mem& m, Functor f, Arity n, TreeTerm * subterms[])
+    inline void * operator new(std::size_t s, Mem& m, Functor f, Arity n, TreeTerm * subterms[])
     {
       TreeTerm * t = (TreeTerm *)m.m_alloc(s + (n-1) * sizeof(TreeTerm*));
       t->tag = Term;
@@ -144,7 +144,7 @@ public:
         t->term.subterms[i] = subterms[i];
       return t;
     }
-    inline void * operator new(size_t s, Mem& m, Functor f, Arity n)
+    inline void * operator new(std::size_t s, Mem& m, Functor f, Arity n)
     {
       TreeTerm * t = (TreeTerm *)m.m_alloc(s + (n-1) * sizeof(TreeTerm*));
       t->tag = Term;

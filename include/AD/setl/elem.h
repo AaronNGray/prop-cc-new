@@ -25,7 +25,7 @@
 #ifndef SETL_element_type_h
 #define SETL_element_type_h
 
-#include <iostream.h>
+#include <iostream>
 
 //////////////////////////////////////////////////////////////////////////////
 //

@@ -22,8 +22,8 @@
 // 1994-1996
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <stdlib.h>
+#include <iostream>
+#include <cstdlib>
 #include <AD/csp/trail.h>
 #include <AD/csp/logicalterm.h>
 

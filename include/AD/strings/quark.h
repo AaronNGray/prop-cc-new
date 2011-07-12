@@ -29,7 +29,7 @@
 //
 //  Class |Quark| represents atomic strings that
 //  adhere to the following identity:
-//      Quark(s1) == Quark(s2)   iff    strcmp(s1,s2)
+//      Quark(s1) == Quark(s2)   iff    std::strcmp(s1,s2)
 //
 //  This means that we can use pointer comparison on
 //  quarks where character comparison is necessary on
@@ -38,7 +38,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <AD/generic/generic.h>   // Generic definitions
 
 
@@ -110,7 +110,7 @@ public:
   //////////////////////////////////////////////////////////////////////
   inline int length() const
   {
-    return strlen(name);
+    return std::strlen(name);
   }
   static int entries();
 
@@ -123,11 +123,11 @@ public:
   }
   inline friend Bool operator == (const Quark& x, const char * y)
   {
-    return strcmp(x.name,y) == 0;
+    return std::strcmp(x.name,y) == 0;
   }
   inline friend Bool operator == (const char * x, const Quark& y)
   {
-    return strcmp(x,y.name) == 0;
+    return std::strcmp(x,y.name) == 0;
   }
   inline friend Bool operator != (const Quark& x, const Quark& y)
   {
@@ -135,28 +135,28 @@ public:
   }
   inline friend Bool operator != (const Quark& x, const char * y)
   {
-    return strcmp(x.name,y) != 0;
+    return std::strcmp(x.name,y) != 0;
   }
   inline friend Bool operator != (const char * x, const Quark& y)
   {
-    return strcmp(x,y.name) != 0;
+    return std::strcmp(x,y.name) != 0;
   }
 
   inline friend Bool operator < (const Quark& x, const Quark& y)
   {
-    return strcmp(x.name,y.name) < 0;
+    return std::strcmp(x.name,y.name) < 0;
   }
   inline friend Bool operator > (const Quark& x, const Quark& y)
   {
-    return strcmp(x.name,y.name) > 0;
+    return std::strcmp(x.name,y.name) > 0;
   }
   inline friend Bool operator <= (const Quark& x, const Quark& y)
   {
-    return strcmp(x.name,y.name) <= 0;
+    return std::strcmp(x.name,y.name) <= 0;
   }
   inline friend Bool operator >= (const Quark& x, const Quark& y)
   {
-    return strcmp(x.name,y.name) >= 0;
+    return std::strcmp(x.name,y.name) >= 0;
   }
 
   //////////////////////////////////////////////////////////////////////

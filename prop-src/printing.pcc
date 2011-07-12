@@ -9,8 +9,8 @@
 #include <AD/contain/bitset.h>
 #include <AD/strings/charesc.h>
 #include <AD/strings/quark.h>
-#include <stdio.h>
-#include <ctype.h>
+#include <cstdio>
+#include <cctype>
 #include "ir.ph"
 #include "ast.ph"
 #include "matchcom.ph"
@@ -572,7 +572,7 @@ Id close_of2( Cons c)
 {
   match (c)
   {
-    ONEcons { name ... }: { return name + strlen( name) - 2; }
+    ONEcons { name ... }: { return name + std::strlen( name) - 2; }
   | _:                    { return "]"; }
   }
 }
@@ -672,7 +672,7 @@ void encode_string( char * buf, const char * s)
       *buf++ = 'X';
       *buf++ = 'X';
     }
-    else if (isalnum(c) || c == '_')
+    else if (std::isalnum(c) || c == '_')
     {
       *buf++ = '_';
       *buf++ = c;
@@ -770,20 +770,20 @@ std::ostream& operator << (std::ostream& f, Exp e)
   | MARKEDexp (_,e):           { f << e; }
   | LITERALexp l:              { f << l; }
   | ASSIGNexp (e1,e2):         { f << '(' << e1 << " = " << e2 << ')'; }
-  | DOTexp(SELECTORexp(e,c,t),id) | pretty_print_exp:
+  | DOTstd::exp(SELECTORexp(e,c,t),id) | pretty_print_exp:
     {
       f << e << '!' << c->name << '.';
-	  int n = atol(id+1);
+	  int n = std::atol(id+1);
 	  if (n > 0)
 	    f << n;
 	  else
 	    f << id;
     }
-  | SELECTORexp(e,c,t) | pretty_print_exp:
+  | SELECTORstd::exp(e,c,t) | pretty_print_exp:
     { f << e << '!' << c->name; }
-  | DOTexp( SELECTORexp( e, c, t), id):
+  | DOTstd::exp( SELECTORexp( e, c, t), id):
     { f << MatchCompiler::make_select( e, c, t, id); }
-  | SELECTORexp( e, cons, t):
+  | SELECTORstd::exp( e, cons, t):
     { f << MatchCompiler::make_select( e, cons, t); }
   | DOTexp (DEREFexp e,id):    { f << e << "->" << id; }
   | DOTexp    (e,id):     { f << e << '.' << id; }
@@ -793,8 +793,8 @@ std::ostream& operator << (std::ostream& f, Exp e)
   | INDEXexp  (e1,e2):    { f << e1 << '[' << e2 << ']'; }
   | BINOPexp  (x,e1,e2):  { f << '(' << e1 << ' ' << x << ' ' << e2 << ')'; }
   | PREFIXexp (x,e):      { f << '(' << x << ' ' << e << ')'; }
-  | POSTFIXexp(x,e):      { f << '(' << e << ' ' << x << ')'; }
-  | CASTexp( ty, e):
+  | POSTFIXstd::exp(x,e):      { f << '(' << e << ' ' << x << ')'; }
+  | CASTstd::exp( ty, e):
     {
       Bool save = pretty_print_ty;
       pretty_print_ty = false;
@@ -802,14 +802,14 @@ std::ostream& operator << (std::ostream& f, Exp e)
       pretty_print_ty = save;
     }
   | QUALexp (ty,e):       { f << ty << "::" << e; }
-  | EQexp(_,e1,e2):       { f << "equality_of(" << e1 << ',' << e2 << ')'; }
-  | UNIFYexp(_,e1,e2):    { f << "unify(" << e1 << ',' << e2 << ')'; }
-  | LTexp(_,e1,e2):       { f << '(' << e1 << " < " << e2 << ')'; }
-  | HASHexp(_,e):         { f << "hash(" << e << ')'; }
+  | EQstd::exp(_,e1,e2):       { f << "equality_of(" << e1 << ',' << e2 << ')'; }
+  | UNIFYstd::exp(_,e1,e2):    { f << "unify(" << e1 << ',' << e2 << ')'; }
+  | LTstd::exp(_,e1,e2):       { f << '(' << e1 << " < " << e2 << ')'; }
+  | HASHstd::exp(_,e):         { f << "hash(" << e << ')'; }
   | TUPLEexp es:          { f << es; }
   | EXTUPLEexp es:        { f << "mkTuple" << length(es) << '(' << es << ')'; }
-  | IFexp(a,b,c):         { f << '(' << a << " ? " << b << " : " << c <<')';}
-  | SYNexp( i, r, _, in_rewrite):
+  | IFstd::exp(a,b,c):         { f << '(' << a << " ? " << b << " : " << c <<')';}
+  | SYNstd::exp( i, r, _, in_rewrite):
     {
       if (in_rewrite)
         f << '_' << i << "__";
@@ -832,7 +832,7 @@ std::ostream& operator << (std::ostream& f, Exp e)
     }
   | COSTexp (i): { f << "t__->kids[" << i << "]->cost"; }
   | THISCOSTexp _: { f << "t__->cost"; }
-  | CONSexp(c as
+  | CONSstd::exp(c as
             ONEcons { name, ty = TYCONty(RECORDtycon(labels,_),tys) ... },
             placement, e as RECORDexp lab_exps):
     {  // rearrange arguments to
@@ -896,13 +896,13 @@ std::ostream& operator << (std::ostream& f, Exp e)
       }
       f << ')';
     }
-  | CONSexp(ONEcons { name ... }, placement, RECORDexp _):
+  | CONSstd::exp(ONEcons { name ... }, placement, RECORDexp _):
     {
       error("%Lconstructor '%s' doesn't take labeled arguments\n", name);
     }
-  | CONSexp(ONEcons { name, ty = NOty ... },#[], NOexp):
+  | CONSstd::exp(ONEcons { name, ty = NOty ... },#[], NOexp):
     {  f << mangle(name); }
-  | CONSexp(cons as ONEcons { name ... }, placement, e):
+  | CONSstd::exp(cons as ONEcons { name ... }, placement, e):
     {
       if (placement)
       {
@@ -1034,7 +1034,7 @@ std::ostream& operator << (std::ostream& f, QualId id)
   match (id)
   {
     NESTEDid(ty, id):             { f << ty << "::" << id; }
-  | SIMPLEid id | isalpha(id[0]): { f << id; }
+  | SIMPLEid id | std::isalpha(id[0]): { f << id; }
   | SIMPLEid id:                  { f << "operator " << id; }
   }
   return f;

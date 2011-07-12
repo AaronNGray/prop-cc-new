@@ -2,7 +2,7 @@
 //  This is the same as prop3.pcc except that it is generated with
 //  the options save_space and -O15.
 
-#include <iostream.h>
+#include <iostream>
 
 datatype List<T> :: collectable printable rewrite 
    = #[] | #[ T ... List<T> ]

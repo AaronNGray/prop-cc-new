@@ -25,7 +25,7 @@
 #ifndef Prop_pretty_printer_h
 #define Prop_pretty_printer_h
 
-#include <iostream.h>
+#include <iostream>
 
 inline std::ostream& pretty_print(std::ostream& f, char x, int = 0, int = 0)
 {

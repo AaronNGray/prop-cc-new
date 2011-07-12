@@ -87,8 +87,8 @@
 #endif
 
 #if defined(PROP_STRCMP_USED) || defined(PROP_EQUALITY_USED)
-   // strcmp() support
-#  include <string.h>                // standard string support
+   // std::strcmp() support
+#  include <cstring>                // standard string support
 #endif
 
 #ifdef PROP_PERSISTENCE_USED
@@ -105,14 +105,14 @@
 #endif
 
 #ifdef PROP_VECTOR_USED
-#  include <new.h>
+#  include <new>
    //  Template for calling the constructor
    //  (without allocating any memory)
    template <class T>
-      inline void * operator new (size_t, T * p) { return p; }
+      inline void * operator new (std::size_t, T * p) { return p; }
 
    //  Allocate extra memory
-   inline void * operator new (size_t, size_t n) { return ::operator new(n); }
+   inline void * operator new (std::size_t, size_t n) { return ::operator new(n); }
 #endif
 
 #ifdef PROP_QUARK_USED
@@ -136,12 +136,12 @@
 #define _equal_real(x,y)      ((x) == (y))
 #define _equal_character(x,y) ((x) == (y))
 #define _equal_boolean(x,y)   ((x) == (y))
-#define _equal_string(x,y)    (strcmp(x,y) == 0)
+#define _equal_string(x,y)    (std::strcmp(x,y) == 0)
 #define _less_integer(x,y)    ((x) < (y))
 #define _less_real(x,y)       ((x) < (y))
 #define _less_character(x,y)  ((x) < (y))
 #define _less_boolean(x,y)    ((x) < (y))
-#define _less_string(x,y)     (strcmp(x,y) < 0)
+#define _less_string(x,y)     (std::strcmp(x,y) < 0)
 #endif
 
 #ifdef PROP_EQUALITY_USED
@@ -157,7 +157,7 @@ inline int equality_of(long x, long y)                     { return x == y; }
 inline int equality_of(unsigned long x, unsigned long y)   { return x == y; }
 inline int equality_of(double x, double y)                 { return x == y; }
 inline int equality_of(const char * x, const char * y)  
-   { return strcmp(x,y) == 0;}
+   { return std::strcmp(x,y) == 0;}
 #endif
 #endif
 

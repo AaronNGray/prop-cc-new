@@ -66,7 +66,7 @@ public:
   //  Allocation
   ///////////////////////////////////////////////////////////////////////////
   inline void * operator new
-  (size_t size, Mem& pool, const Grammar& G, int production_num,
+  (std::size_t size, Mem& pool, const Grammar& G, int production_num,
    Production p, int n, const OpPrecedence& prec)
   {
     LRItem * item = (LRItem*) pool.m_alloc(size);

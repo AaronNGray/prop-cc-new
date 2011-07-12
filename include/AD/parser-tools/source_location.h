@@ -6,7 +6,7 @@
 
 #ifndef parser_tools_source_location_h
 #define parser_tools_source_location_h
-#include <iostream.h>
+#include <iostream>
 #include <AD/strings/quark.h>
 
 class SourceLocation

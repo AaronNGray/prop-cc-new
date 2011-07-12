@@ -569,7 +569,7 @@ const BitSet& always_matchables( Match, int);     // rules.
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  Functions to perform substitutions on expressions.
-//  All INDexp(i) nodes are substituted with the corresponding replacement.
+//  All INDstd::exp(i) nodes are substituted with the corresponding replacement.
 //
 ///////////////////////////////////////////////////////////////////////////////
 

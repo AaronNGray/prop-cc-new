@@ -37,8 +37,8 @@
 //  top-down style matching is at runtime.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <assert.h>
+#include <iostream>
+#include <cassert>
 #include <AD/automata/treegram.h>
 #include <AD/automata/topdowng.h>
 

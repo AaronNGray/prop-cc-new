@@ -30,7 +30,7 @@
 //  exception and exception handling.
 //
 
-#include <setjmp.h>
+#include <csetjmp>
 
 class Exception
 {
@@ -50,7 +50,7 @@ public:
   void raise();
 };
 
-extern jmp_buf * __current_handler__;
+extern std::jmp_buf * __current_handler__;
 extern Exception * __current_exception__;
 
 #endif

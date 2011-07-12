@@ -232,7 +232,7 @@ Exp mkvariable( Pat p)
 ) {
                 
 #line 106 "../../prop-src/lawgen.pcc"
-              return APPexp( IDexp( _DATATYPEtycon(_TYCONty(_V1)->_1)->terms[_DATATYPEtycon(_TYCONty(_V1)->_1)->unit]->name), TUPLEexp(
+              return APPstd::exp( IDexp( _DATATYPEtycon(_TYCONty(_V1)->_1)->terms[_DATATYPEtycon(_TYCONty(_V1)->_1)->unit]->name), TUPLEexp(
 #line 106 "../../prop-src/lawgen.pcc"
 #line 106 "../../prop-src/lawgen.pcc"
                 nil_1_
@@ -343,20 +343,20 @@ Exp pat2exp (Pat x_1)
 #line 145 "../../prop-src/lawgen.pcc"
 #line 145 "../../prop-src/lawgen.pcc"
           ;
-          return IDexp(_INDpat(x_1)->_1);
+          return IDstd::exp(_INDpat(x_1)->_1);
           
 #line 147 "../../prop-src/lawgen.pcc"
         }
         } break;
       case a_Pat::tag_IDpat: {
 #line 131 "../../prop-src/lawgen.pcc"
-       return write_mode ? mkvariable(x_1) : IDexp(_IDpat(x_1)->_1); 
+       return write_mode ? mkvariable(x_1) : IDstd::exp(_IDpat(x_1)->_1); 
 #line 131 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_CONSpat: {
         if (_CONSpat(x_1)->CONSpat) {
 #line 157 "../../prop-src/lawgen.pcc"
-         return IDexp(_CONSpat(x_1)->CONSpat->name); 
+         return IDstd::exp(_CONSpat(x_1)->CONSpat->name); 
 #line 157 "../../prop-src/lawgen.pcc"
         } else { goto L4; }
         } break;
@@ -365,13 +365,13 @@ Exp pat2exp (Pat x_1)
           switch (_APPpat(x_1)->_1->tag__) {
             case a_Pat::tag_CONSpat: {
 #line 158 "../../prop-src/lawgen.pcc"
-             return CONSexp(_CONSpat(_APPpat(x_1)->_1)->CONSpat,
+             return CONSstd::exp(_CONSpat(_APPpat(x_1)->_1)->CONSpat,
 #line 158 "../../prop-src/lawgen.pcc"
 #line 158 "../../prop-src/lawgen.pcc"
               nil_1_
 #line 158 "../../prop-src/lawgen.pcc"
 #line 158 "../../prop-src/lawgen.pcc"
-              ,pat2exp(_APPpat(x_1)->_2)); 
+              ,pat2std::exp(_APPpat(x_1)->_2)); 
 #line 158 "../../prop-src/lawgen.pcc"
               } break;
             default: { goto L4; } break;
@@ -380,57 +380,57 @@ Exp pat2exp (Pat x_1)
         } break;
       case a_Pat::tag_TYPEDpat: {
 #line 149 "../../prop-src/lawgen.pcc"
-       return pat2exp(_TYPEDpat(x_1)->_1); 
+       return pat2std::exp(_TYPEDpat(x_1)->_1); 
 #line 149 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_ASpat: {
 #line 150 "../../prop-src/lawgen.pcc"
-       return pat2exp(_ASpat(x_1)->_2); 
+       return pat2std::exp(_ASpat(x_1)->_2); 
 #line 150 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_LITERALpat: {
 #line 148 "../../prop-src/lawgen.pcc"
-       return LITERALexp(_LITERALpat(x_1)->LITERALpat); 
+       return LITERALstd::exp(_LITERALpat(x_1)->LITERALpat); 
 #line 148 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_CONTEXTpat: {
 #line 151 "../../prop-src/lawgen.pcc"
-       return pat2exp(_CONTEXTpat(x_1)->_2); 
+       return pat2std::exp(_CONTEXTpat(x_1)->_2); 
 #line 151 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_TUPLEpat: {
 #line 152 "../../prop-src/lawgen.pcc"
-       return TUPLEexp(pat2exp(_TUPLEpat(x_1)->TUPLEpat)); 
+       return TUPLEstd::exp(pat2exp(_TUPLEpat(x_1)->TUPLEpat)); 
 #line 152 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_EXTUPLEpat: {
 #line 153 "../../prop-src/lawgen.pcc"
-       return EXTUPLEexp(pat2exp(_EXTUPLEpat(x_1)->EXTUPLEpat)); 
+       return EXTUPLEstd::exp(pat2exp(_EXTUPLEpat(x_1)->EXTUPLEpat)); 
 #line 153 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_RECORDpat: {
 #line 154 "../../prop-src/lawgen.pcc"
-       return RECORDexp(pat2exp(_RECORDpat(x_1)->_1)); 
+       return RECORDstd::exp(pat2exp(_RECORDpat(x_1)->_1)); 
 #line 154 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_LISTpat: {
 #line 160 "../../prop-src/lawgen.pcc"
-       return LISTexp(_LISTpat(x_1)->cons,_LISTpat(x_1)->nil,pat2exp(_LISTpat(x_1)->head),pat2exp(_LISTpat(x_1)->tail)); 
+       return LISTstd::exp(_LISTpat(x_1)->cons,_LISTpat(x_1)->nil,pat2exp(_LISTpat(x_1)->head),pat2exp(_LISTpat(x_1)->tail)); 
 #line 160 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_VECTORpat: {
 #line 162 "../../prop-src/lawgen.pcc"
-       return VECTORexp(_VECTORpat(x_1)->cons,pat2exp(_VECTORpat(x_1)->elements)); 
+       return VECTORstd::exp(_VECTORpat(x_1)->cons,pat2exp(_VECTORpat(x_1)->elements)); 
 #line 162 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_GUARDpat: {
 #line 155 "../../prop-src/lawgen.pcc"
-       return pat2exp(_GUARDpat(x_1)->_1); 
+       return pat2std::exp(_GUARDpat(x_1)->_1); 
 #line 155 "../../prop-src/lawgen.pcc"
         } break;
       case a_Pat::tag_MARKEDpat: {
 #line 156 "../../prop-src/lawgen.pcc"
-       return pat2exp(_MARKEDpat(x_1)->_2); 
+       return pat2std::exp(_MARKEDpat(x_1)->_2); 
 #line 156 "../../prop-src/lawgen.pcc"
         } break;
       default: { goto L4; } break;
@@ -448,7 +448,7 @@ Exps pat2exp (a_List<Pat> *  x_1)
    return 
 #line 168 "../../prop-src/lawgen.pcc"
 #line 168 "../../prop-src/lawgen.pcc"
-    list_1_(pat2exp(x_1->_1),pat2exp(x_1->_2))
+    list_1_(pat2std::exp(x_1->_1),pat2exp(x_1->_2))
 #line 168 "../../prop-src/lawgen.pcc"
 #line 168 "../../prop-src/lawgen.pcc"
     ; 
@@ -472,11 +472,11 @@ LabExps pat2exp (a_List<LabPat> *  x_1)
     
     LabExp labexp;
     labexp.label = x_1->_1.label;
-    labexp.exp   = pat2exp(x_1->_1.pat);
+    labexp.exp   = pat2std::exp(x_1->_1.pat);
     return 
 #line 176 "../../prop-src/lawgen.pcc"
 #line 176 "../../prop-src/lawgen.pcc"
-    list_1_(labexp,pat2exp(x_1->_2))
+    list_1_(labexp,pat2std::exp(x_1->_2))
 #line 176 "../../prop-src/lawgen.pcc"
 #line 176 "../../prop-src/lawgen.pcc"
     ;
@@ -500,7 +500,7 @@ Exp pat2constructor (Pat x_1)
   
   Bool mode_save = write_mode;
   write_mode = false;
-  Exp  e = pat2exp(x_1);
+  Exp  e = pat2std::exp(x_1);
   write_mode = mode_save;
   return e;
   
@@ -512,7 +512,7 @@ Exp pat2unifier (Pat x_1)
   
   Bool mode_save = write_mode;
   write_mode = true;
-  Exp  e = pat2exp(x_1);
+  Exp  e = pat2std::exp(x_1);
   write_mode = mode_save;
   return e;
   
@@ -553,10 +553,10 @@ Exp DatatypeCompiler::lookup_law( Id id, Exps args)
             if (_POLYpat(pat)->_2 != length(args))
             {
               error( "%Larity mismatch between law %p and arguments %f\n",
-          	            _POLYpat(pat)->_4, TUPLEexp(args));
+          	            _POLYpat(pat)->_4, TUPLEstd::exp(args));
               return NOexp;
             }
-            Exp exp = pat2exp(_POLYpat(pat)->_4);
+            Exp exp = pat2std::exp(_POLYpat(pat)->_4);
             actual_args = 
 #line 222 "../../prop-src/lawgen.pcc"
 #line 222 "../../prop-src/lawgen.pcc"
@@ -566,7 +566,7 @@ Exp DatatypeCompiler::lookup_law( Id id, Exps args)
           ;
           if (application_error)
             error( "%Lcannot apply law %p with arguments %f\n",
-                  _POLYpat(pat)->_4, TUPLEexp(args));
+                  _POLYpat(pat)->_4, TUPLEstd::exp(args));
           return exp;
           }
           else

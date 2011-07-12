@@ -30,7 +30,7 @@
 //  to need.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/contain/bitset.h>
 #include <iostream>
 
@@ -429,7 +429,7 @@ DONE:
           else
           {
             *r = -1;
-            memcpy(sparse_set,buf,sizeof(short)*(count+1));
+            std::memcpy(sparse_set,buf,sizeof(short)*(count+1));
           }
         }
         break;

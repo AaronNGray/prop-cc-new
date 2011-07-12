@@ -77,7 +77,7 @@ public:
     ////////////////////////////////////////////////////////////////////////
     // Memory management routines
     ////////////////////////////////////////////////////////////////////////
-    inline void * operator new(size_t, Mem& mem, int k)
+    inline void * operator new(std::size_t, Mem& mem, int k)
     {
       return mem.c_alloc(sizeof(Reduction) + sizeof(NonTerminal) * (k-1));
     }

@@ -1,5 +1,5 @@
-#include <iostream.h>
-#include <assert.h>
+#include <iostream>
+#include <cassert>
 #include <AD/gc/gcobject.h>
 #include <AD/strings/quark.h>
 

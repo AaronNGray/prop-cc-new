@@ -22,11 +22,10 @@
 // 1994-1997
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
 #include <strstream>
 #include <AD/visualize/vcg.h>
-#include <AD/hash/lhash.h>
 #include <AD/memory/strpool.h>
 #include <AD/contain/varstack.h>
 #include <AD/strings/charesc.h>
@@ -144,6 +143,7 @@ VCG::ArrowStyle VCG::solid = VCG::ArrowStyle("solid"),
 static int hash(VCG::Node x) { return (int)x; }
 static Bool equal(VCG::Node x, VCG::Node y) { return x == y; }
 
+#include <AD/hash/lhash.h>
 //////////////////////////////////////////////////////////////////////////////
 //
 //  Internal representation of a node
@@ -401,7 +401,7 @@ Bool VCG::visited(Node a, Node b) const
 VCG& VCG::error(const char * message,...)
 {
   std::cerr << "VCG error: " << message << '\n';
-  exit(1);
+  std::exit(1);
   return *this;
 }
 
@@ -556,10 +556,10 @@ VCG& VCG::attrib(VCG::String name, VCG::String attrib)
   char buffer[4096];
   buffer[0] = '\0';
   if (impl->default_prefix)
-    strcpy(buffer,impl->default_prefix);
-  strcat(buffer,name);
-  strcat(buffer,": ");
-  strcat(buffer,attrib);
+    std::strcpy(buffer,impl->default_prefix);
+  std::strcat(buffer,name);
+  std::strcat(buffer,": ");
+  std::strcat(buffer,attrib);
   char * new_attr = impl->pool[buffer];
   obj->attribs.push(new_attr);
   return *this;

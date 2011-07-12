@@ -22,12 +22,12 @@
 // 1994-1995
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
+#include <cassert>
 #include <iostream>
 #include <strstream>
-#include <stdlib.h>
-#include <string>
-#include <setjmp.h>
+#include <cstdlib>
+#include <cstring>
+#include <csetjmp>
 #include <unistd.h>
 #include <sys/types.h>
 #include <AD/gc/gcconfig.h>    // system configuration
@@ -88,7 +88,7 @@ const char * MarkSweepGC::my_name() const
 //  Method to select the freelist to go.
 //////////////////////////////////////////////////////////////////////////////
 
-inline int LEN_TO_FREELIST_INDEX(size_t len)
+inline int LEN_TO_FREELIST_INDEX(std::size_t len)
 {
   // Bytes 0 ... 128     -> Indices 0 ...  15
   if (len <= 16 * GC_ALIGNMENT)
@@ -104,7 +104,7 @@ inline int LEN_TO_FREELIST_INDEX(size_t len)
 //  Index to length of cell.
 //////////////////////////////////////////////////////////////////////////////
 
-static size_t index_to_len[FREE_LIST_SIZE];
+static std::size_t index_to_len[FREE_LIST_SIZE];
 
 //////////////////////////////////////////////////////////////////////////////
 //  Constructor.
@@ -149,7 +149,7 @@ MarkSweepGC::MarkSweepGC()
   //  Setup the free lists for small objects
   free_list_size = FREE_LIST_SIZE;
   free_lists     = new FreeList * [ FREE_LIST_SIZE ];
-  for (size_t i = 0; i < free_list_size; i++)
+  for (std::size_t i = 0; i < free_list_size; i++)
     free_lists[i] = 0;
 }
 
@@ -188,7 +188,7 @@ void MarkSweepGC::clear()
 // that should be done.
 //////////////////////////////////////////////////////////////////////////////
 
-size_t MarkSweepGC::min_growth()
+std::size_t MarkSweepGC::min_growth()
 {
   return min_heap_growth;
 }
@@ -197,9 +197,9 @@ size_t MarkSweepGC::min_growth()
 //  Method to allocate a new object of a given size
 //////////////////////////////////////////////////////////////////////////////
 
-void * MarkSweepGC::m_alloc( size_t n)
+void * MarkSweepGC::m_alloc( std::size_t n)
 {
-  register size_t bytes = GC_ROUNDUP_SIZE(n + sizeof(GCHeader));
+  register std::size_t bytes = GC_ROUNDUP_SIZE(n + sizeof(GCHeader));
 
   if (bytes <= MAX_SMALL_OBJECT_SIZE)
   {
@@ -207,7 +207,7 @@ void * MarkSweepGC::m_alloc( size_t n)
     // Small objects are handled by the free lists.
     //
     int    index = LEN_TO_FREELIST_INDEX(bytes);
-    size_t len   = index_to_len[index];
+    std::size_t len   = index_to_len[index];
     for (;;)
     {
       register FreeList * cell;
@@ -231,7 +231,7 @@ void * MarkSweepGC::m_alloc( size_t n)
         free_lists[index] = cell->next;
         register void * new_obj = cell;
         HM::get_object_map().mark(new_obj);
-        memset(new_obj, 0, n);
+        std::memset(new_obj, 0, n);
         heap_used += len;
         return new_obj;
       }
@@ -265,13 +265,13 @@ void * MarkSweepGC::m_alloc( size_t n)
     // Large objects are allocated by calling the heap manager directly.
     // Hopefully most of the objects are small.
     //
-    size_t bytes_gotten;
+    std::size_t bytes_gotten;
     bytes += GC_ALIGNMENT;
     void * new_memory = HM::allocate_pages(this, bytes, bytes, bytes_gotten);
     if (new_memory == 0)
     {
       std::cerr << "[ GC" << id << ": unable to allocate "
-      << bytes << " bytes! ]\n" << flush;
+      << bytes << " bytes! ]\n" << std::flush;
       exit (1);
     }
     heap_size += bytes_gotten;
@@ -299,8 +299,8 @@ void MarkSweepGC::free(void* obj)
   {
     // clean up properly
     HM::get_object_map().unmark(obj);
-    size_t obj_len = GC_OBJ_HEADER_LEN(GC_OBJ_HEADER(obj));
-    memset(GC_OBJ_HEADER_ADDR(obj), 0, obj_len);
+    std::size_t obj_len = GC_OBJ_HEADER_LEN(GC_OBJ_HEADER(obj));
+    std::memset(GC_OBJ_HEADER_ADDR(obj), 0, obj_len);
 
     // return object to free list
     // ...
@@ -332,9 +332,9 @@ void MarkSweepGC::free(void* obj)
 //  is not immediately available.
 //////////////////////////////////////////////////////////////////////////////
 
-void MarkSweepGC::grow_heap( size_t bytes)
+void MarkSweepGC::grow_heap( std::size_t bytes)
 {
-  size_t bytes_gotten;
+  std::size_t bytes_gotten;
   void * new_memory =
     HM::allocate_pages
     ( this, bytes,
@@ -343,7 +343,7 @@ void MarkSweepGC::grow_heap( size_t bytes)
   if (new_memory == 0)
   {
     std::cerr << "[ GC" << id << ": unable to allocate " << bytes << " bytes! ]\n"
-    << flush;
+    << std::flush;
     exit (1);
   }
 
@@ -416,11 +416,11 @@ void MarkSweepGC::do_collect( int /*level*/)
   ///////////////////////////////////////////////////////////////////////////
   //  Flush the registers onto the stack; setup the stack and heap limits.
   ///////////////////////////////////////////////////////////////////////////
-  jmp_buf reg_roots; // flushed registers
+  std::jmp_buf reg_roots; // flushed registers
   flush_registers();
   // if (_setjmp(reg_roots)) _longjmp(reg_roots,1);
   if (setjmp(reg_roots))
-    longjmp(reg_roots,1);
+    std::longjmp(reg_roots,1);
   if (is_downward_stack)
   {
     stack_top = (void**)((Byte*)reg_roots);
@@ -600,9 +600,9 @@ void MarkSweepGC::scan_stack_area()
 void MarkSweepGC::scan_static_area()
 {
   scanning_message("static data area", data_bottom, data_top);
-  size_t n;
+  std::size_t n;
   register const HM::AddrRange * blacklisted = HM::blacklisted_data(n);
-  register size_t i = 0;
+  register std::size_t i = 0;
   register void ** start = data_bottom;
   register void ** stop  = data_top;
   for (start = data_bottom; start < data_top; start = stop)
@@ -724,13 +724,13 @@ void MarkSweepGC::sweep_pages()
             ((GCObject*)page_addr)->~GCObject();
 
           // Now reclaim the dying object.
-          size_t obj_len = GC_OBJ_HEADER_LEN(GC_OBJ_HEADER(page_addr));
+          std::size_t obj_len = GC_OBJ_HEADER_LEN(GC_OBJ_HEADER(page_addr));
           if (obj_len <= MAX_SMALL_OBJECT_SIZE)
           {
             int index = LEN_TO_FREELIST_INDEX(obj_len);
 #ifdef DEBUG_GC
             // clear freed storage to catch bugs.
-            memset(page_addr, 0, obj_len - sizeof(GCHeader));
+            std::memset(page_addr, 0, obj_len - sizeof(GCHeader));
 #endif
 
             ((FreeList*)page_addr)->next = free_lists[index];

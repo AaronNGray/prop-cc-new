@@ -26,7 +26,7 @@
 #define visualizer_h
 
 #include <AD/generic/generic.h>
-#include <stdarg.h>
+#include <cstdarg>
 
 //////////////////////////////////////////////////////////////////////////////
 //

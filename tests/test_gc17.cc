@@ -11,9 +11,9 @@
 //  Testing garbage collection with polymorphic datatypes
 //
 
-#include <iostream.h>
-#include <stdlib.h>
-#include <assert.h>
+#include <iostream>
+#include <cstdlib>
+#include <cassert>
 #include <unistd.h>
 #include <AD/gc/gcheaps.h>
 
@@ -405,10 +405,10 @@ a_TREE<int> *
 #line 80 "test_gc17.pcc"
  make_tree(int n)
 {  if (n == 0) return empty;
-   int split = rand() % n;
-   int data  = rand() % n;
+   int split = std::rand() % n;
+   int data  = std::rand() % n;
 #ifdef SHARING
-   if ((n % 2 == 1) && (rand() % 2 == 1)) {
+   if ((n % 2 == 1) && (std::rand() % 2 == 1)) {
       a_TREE<int> *  
 #line 86 "test_gc17.pcc"
  t = make_tree(n/2);
@@ -450,7 +450,7 @@ int main()
      "This test generate random dags and try to see if garbage collection\n"
      "works on preserving pointer sharing correctly.  I'll do this " 
       << TRIALS << " times.\n";
-   srand(getpid()); 
+   std::srand(getpid()); 
    testing();
    // force an explicit garbage collection
    cout << "Finished.  Now I'm forcing another garbage collection to clean\n"

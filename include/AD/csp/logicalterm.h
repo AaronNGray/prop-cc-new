@@ -25,7 +25,7 @@
 #ifndef logical_term_h
 #define logical_term_h
 
-#include <new.h>
+#include <new>
 #include <AD/generic/generic.h>
 #include <AD/csp/trail.h>
 
@@ -58,7 +58,7 @@ public:
   //
   ///////////////////////////////////////////////////////////////////////////
   static UnificationTrail& trail; // current trail
-  inline static void * operator new (size_t n)
+  inline static void * operator new (std::size_t n)
   {
     return trail.m_alloc(n);
   }

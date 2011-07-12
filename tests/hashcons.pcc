@@ -2,7 +2,7 @@
 //  This is a simple (and useless) example for testing the hash cons feature
 //  in Prop.
 //
-#include <iostream.h>
+#include <iostream>
 
 datatype EXP :: unique = num (int)
                        | add (EXP, EXP)
@@ -25,7 +25,7 @@ ostream& operator << (ostream& f, EXP e)
    |  add(x,y): { return f << '(' << x << " + " << y << ')'; }
    |  sub(x,y): { return f << '(' << x << " - " << y << ')'; }
    |  mul(x,y): { return f << '(' << x << " * " << y << ')'; }
-   |  div(x,y): { return f << '(' << x << " / " << y << ')'; }
+   |  std::div(x,y): { return f << '(' << x << " / " << y << ')'; }
    }
 }
 

@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <string>
+#include <cassert>
+#include <cstring>
 #include <AD/memory/boundtag.h>   // Boundary tag memory manager
 
 //////////////////////////////////////////////////////////////////////////////
@@ -75,8 +75,8 @@ void BoundaryTag::clear()
 
 char * BoundaryTag::operator [] (const char * string)
 {
-  char * newString = (char *) (*this)[strlen(string) + 1];
-  strcpy(newString,string);
+  char * newString = (char *) (*this)[std::strlen(string) + 1];
+  std::strcpy(newString,string);
   return newString;
 }
 
@@ -84,7 +84,7 @@ char * BoundaryTag::operator [] (const char * string)
 //  Allocate a chunk of storage from the memory manager
 //////////////////////////////////////////////////////////////////////////////
 
-void * BoundaryTag::m_alloc(size_t size)
+void * BoundaryTag::m_alloc(std::size_t size)
 {
   register unsigned long elements =
     (size + 2*sizeof(Block) - offsetof(Block,next)-1) / sizeof(Block);
@@ -273,7 +273,7 @@ BoundaryTag::Statistics BoundaryTag::statistics() const
 //  Returns the size of an allocated block
 //////////////////////////////////////////////////////////////////////////////
 
-size_t BoundaryTag::size(const void * core) const
+std::size_t BoundaryTag::size(const void * core) const
 {
   register Block * B = (Block*) (((char *)core) - offsetof(Block,next));
   assert( (B->size & Block::USED_BIT) == Block::USED_BIT);

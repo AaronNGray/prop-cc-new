@@ -62,17 +62,17 @@ Ty type_of( Exp exp, const Env& E)
     NOexp:                   { ty = NOty; }
   | LITERALexp l:            { ty = type_of(l); }
   | IDexp id:                { ty = mkvar(); }
-  | MARKEDexp(l, e):         { l.set_loc(); ty = type_of(e,E); }
-  | CONSexp(ONEcons { cons_ty ... }, _, NOexp):
+  | MARKEDstd::exp(l, e):         { l.set_loc(); ty = type_of(e,E); }
+  | CONSstd::exp(ONEcons { cons_ty ... }, _, NOexp):
     {  ty = inst(cons_ty); }
-  | CONSexp(ONEcons { cons_ty ... }, _, e):
+  | CONSstd::exp(ONEcons { cons_ty ... }, _, e):
     {  Ty fun_ty   = inst(cons_ty);
 	ty = mkvar();
 	unify(exp,fun_ty,mkfunty(type_of(e,E),ty));
     }
   | RELexp     i:            { ty = mkvar(); }
   | DOTexp     (e, id):      { ty = component_ty(type_of(e,E),id); }
-  | SELECTORexp(e, cons,t):  { ty = component_ty(type_of(e,E),cons); }
+  | SELECTORstd::exp(e, cons,t):  { ty = component_ty(type_of(e,E),cons); }
   | DEREFexp   (e):          { ty = mkvar(); }
   | ARROWexp   (e, id):      { ty = mkvar(); }
   | INDEXexp   (e, i):       { ty = mkvar(); }

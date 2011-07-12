@@ -35,7 +35,7 @@
 // class String.
 /////////////////////////////////////////////////////////////////////////////
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
 #include <AD/generic/generic.h>   // Generic definitions
 
@@ -71,10 +71,10 @@ class StringImpl
   friend class String;
   friend class SubString;
   unsigned long ref;        // reference count
-  size_t        len;        // logical length
-  size_t        capacity;   // actual capacity
+  std::size_t        len;        // logical length
+  std::size_t        capacity;   // actual capacity
   char          string[1];  // actual data
-  void * operator new (size_t, size_t, size_t);
+  void * operator new (std::size_t, size_t, size_t);
   void   operator delete (void *);
   inline void dec_ref()
   {
@@ -97,10 +97,10 @@ class SubString
 {
   friend class String;
   StringImpl * impl;   // the actual string implementation
-  size_t       start;  // starting index
-  size_t       len;    // logical length
+  std::size_t       start;  // starting index
+  std::size_t       len;    // logical length
 
-  SubString(StringImpl *, size_t, size_t);
+  SubString(StringImpl *, std::size_t, size_t);
 
 public:
   inline ~SubString()
@@ -117,15 +117,15 @@ public:
   ///////////////////////////////////////////////////////////////////////
   // Selectors
   ///////////////////////////////////////////////////////////////////////
-  inline size_t length()   const
+  inline std::size_t length()   const
   {
     return len;
   }
-  inline size_t size()     const
+  inline std::size_t size()     const
   {
     return len;
   }
-  inline size_t capacity() const
+  inline std::size_t capacity() const
   {
     return impl->capacity;
   }
@@ -156,7 +156,7 @@ class String
   StringImpl * impl; // the actual string implementation
   inline String(StringImpl * s) : impl(s)
   {}
-  void copy_on_write(size_t extra);
+  void copy_on_write(std::size_t extra);
 
   ///////////////////////////////////////////////////////////////////////
   // Constructors and destructor
@@ -164,8 +164,8 @@ class String
 
 public:
   String();                           // Make empty String
-  String(size_t initial_capacity);    // Make an uninitialized String
-  String(char c, size_t times = 1);   // Make String initialized with c's
+  String(std::size_t initial_capacity);    // Make an uninitialized String
+  String(char c, std::size_t times = 1);   // Make String initialized with c's
   String(const char * s, int l = -1); // e.g. String = "abcde";
   inline  String(const String& s)     // e.g. String s1 = s2;
       :
@@ -219,15 +219,15 @@ public:
   ///////////////////////////////////////////////////////////////////////
   // Selectors
   ///////////////////////////////////////////////////////////////////////
-  inline size_t length()   const
+  inline std::size_t length()   const
   {
     return impl->len;
   }
-  inline size_t size()     const
+  inline std::size_t size()     const
   {
     return impl->len;
   }
-  inline size_t capacity() const
+  inline std::size_t capacity() const
   {
     return impl->capacity;
   }
@@ -363,8 +363,8 @@ public:
   ///////////////////////////////////////////////////////////////////////
   // In place operations
   ///////////////////////////////////////////////////////////////////////
-  String& toupper();        // make all upper case
-  String& tolower();        // make all lower case
+  String& std::toupper();        // make all upper case
+  String& std::tolower();        // make all lower case
   String& trunc(int len);   // truncate the length to `len'
 
   ///////////////////////////////////////////////////////////////////////

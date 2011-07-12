@@ -23,8 +23,8 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_r_i_n_t_i_n_gco_c_c_Q1("x_")
 #include <AD/contain/bitset.h>
 #include <AD/strings/charesc.h>
 #include <AD/strings/quark.h>
-#include <stdio.h>
-#include <ctype.h>
+#include <cstdio>
+#include <cctype>
 #include "ir.h"
 #include "ast.h"
 #include "matchcom.h"
@@ -987,7 +987,7 @@ Id close_of2( Cons c)
 {
   if (c) {
 #line 575 "../../prop-src/printing.pcc"
-   return c->name + strlen( c->name) - 2; 
+   return c->name + std::strlen( c->name) - 2; 
 #line 575 "../../prop-src/printing.pcc"
   } else {
 #line 576 "../../prop-src/printing.pcc"
@@ -1249,7 +1249,7 @@ void encode_string( char * buf, const char * s)
       *buf++ = 'X';
       *buf++ = 'X';
     }
-    else if (isalnum(c) || c == '_')
+    else if (std::isalnum(c) || c == '_')
     {
       *buf++ = '_';
       *buf++ = c;
@@ -1482,12 +1482,12 @@ std::ostream& operator << (std::ostream& f, Exp e)
     switch (e->tag__) {
       case a_Exp::tag_LITERALexp: {
 #line 771 "../../prop-src/printing.pcc"
-       f << _LITERALexp(e)->LITERALexp; 
+       f << _LITERALstd::exp(e)->LITERALexp; 
 #line 771 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_IDexp: {
 #line 767 "../../prop-src/printing.pcc"
-       f << _IDexp(e)->IDexp; 
+       f << _IDstd::exp(e)->IDexp; 
 #line 767 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_RELexp: {
@@ -1503,13 +1503,13 @@ std::ostream& operator << (std::ostream& f, Exp e)
         } else {
           
 #line 769 "../../prop-src/printing.pcc"
-         f << '_' << _RELexp(e)->RELexp; 
+         f << '_' << _RELstd::exp(e)->RELexp; 
 #line 769 "../../prop-src/printing.pcc"
         }
         } break;
       case a_Exp::tag_DOTexp: {
-        if (_DOTexp(e)->_1) {
-          switch (_DOTexp(e)->_1->tag__) {
+        if (_DOTstd::exp(e)->_1) {
+          switch (_DOTstd::exp(e)->_1->tag__) {
             case a_Exp::tag_SELECTORexp: {
               if (
 #line 773 "../../prop-src/printing.pcc"
@@ -1519,30 +1519,30 @@ std::ostream& operator << (std::ostream& f, Exp e)
                 
 #line 774 "../../prop-src/printing.pcc"
                 
-                f << _SELECTORexp(_DOTexp(e)->_1)->_1 << '!' << _SELECTORexp(_DOTexp(e)->_1)->_2->name << '.';
-                	  int n = atol(_DOTexp(e)->_2+1);
+                f << _SELECTORstd::exp(_DOTexp(e)->_1)->_1 << '!' << _SELECTORexp(_DOTexp(e)->_1)->_2->name << '.';
+                	  int n = std::atol(_DOTstd::exp(e)->_2+1);
                 	  if (n > 0)
                 	    f << n;
                 	  else
-                	    f << _DOTexp(e)->_2;
+                	    f << _DOTstd::exp(e)->_2;
                 
 #line 781 "../../prop-src/printing.pcc"
               } else {
                 
 #line 785 "../../prop-src/printing.pcc"
-               f << MatchCompiler::make_select( _SELECTORexp(_DOTexp(e)->_1)->_1, _SELECTORexp(_DOTexp(e)->_1)->_2, _SELECTORexp(_DOTexp(e)->_1)->_3, _DOTexp(e)->_2); 
+               f << MatchCompiler::make_select( _SELECTORstd::exp(_DOTexp(e)->_1)->_1, _SELECTORexp(_DOTexp(e)->_1)->_2, _SELECTORexp(_DOTexp(e)->_1)->_3, _DOTexp(e)->_2); 
 #line 785 "../../prop-src/printing.pcc"
               }
               } break;
             case a_Exp::tag_DEREFexp: {
 #line 788 "../../prop-src/printing.pcc"
-             f << _DEREFexp(_DOTexp(e)->_1)->DEREFexp << "->" << _DOTexp(e)->_2; 
+             f << _DEREFstd::exp(_DOTexp(e)->_1)->DEREFexp << "->" << _DOTexp(e)->_2; 
 #line 788 "../../prop-src/printing.pcc"
               } break;
             default: {
               L10:; 
 #line 789 "../../prop-src/printing.pcc"
-             f << _DOTexp(e)->_1 << '.' << _DOTexp(e)->_2; 
+             f << _DOTstd::exp(e)->_1 << '.' << _DOTexp(e)->_2; 
 #line 789 "../../prop-src/printing.pcc"
               } break;
           }
@@ -1556,75 +1556,75 @@ std::ostream& operator << (std::ostream& f, Exp e)
 ) {
           
 #line 783 "../../prop-src/printing.pcc"
-         f << _SELECTORexp(e)->_1 << '!' << _SELECTORexp(e)->_2->name; 
+         f << _SELECTORstd::exp(e)->_1 << '!' << _SELECTORexp(e)->_2->name; 
 #line 783 "../../prop-src/printing.pcc"
         } else {
           
 #line 787 "../../prop-src/printing.pcc"
-         f << MatchCompiler::make_select( _SELECTORexp(e)->_1, _SELECTORexp(e)->_2, _SELECTORexp(e)->_3); 
+         f << MatchCompiler::make_select( _SELECTORstd::exp(e)->_1, _SELECTORexp(e)->_2, _SELECTORexp(e)->_3); 
 #line 787 "../../prop-src/printing.pcc"
         }
         } break;
       case a_Exp::tag_DEREFexp: {
 #line 790 "../../prop-src/printing.pcc"
-       f << "(*" << _DEREFexp(e)->DEREFexp << ')'; 
+       f << "(*" << _DEREFstd::exp(e)->DEREFexp << ')'; 
 #line 790 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_ARROWexp: {
 #line 791 "../../prop-src/printing.pcc"
-       f << _ARROWexp(e)->_1 << "->" << _ARROWexp(e)->_2; 
+       f << _ARROWstd::exp(e)->_1 << "->" << _ARROWexp(e)->_2; 
 #line 791 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_INDEXexp: {
 #line 793 "../../prop-src/printing.pcc"
-       f << _INDEXexp(e)->_1 << '[' << _INDEXexp(e)->_2 << ']'; 
+       f << _INDEXstd::exp(e)->_1 << '[' << _INDEXexp(e)->_2 << ']'; 
 #line 793 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_BINOPexp: {
 #line 794 "../../prop-src/printing.pcc"
-       f << '(' << _BINOPexp(e)->_2 << ' ' << _BINOPexp(e)->_1 << ' ' << _BINOPexp(e)->_3 << ')'; 
+       f << '(' << _BINOPstd::exp(e)->_2 << ' ' << _BINOPexp(e)->_1 << ' ' << _BINOPexp(e)->_3 << ')'; 
 #line 794 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_PREFIXexp: {
 #line 795 "../../prop-src/printing.pcc"
-       f << '(' << _PREFIXexp(e)->_1 << ' ' << _PREFIXexp(e)->_2 << ')'; 
+       f << '(' << _PREFIXstd::exp(e)->_1 << ' ' << _PREFIXexp(e)->_2 << ')'; 
 #line 795 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_POSTFIXexp: {
 #line 796 "../../prop-src/printing.pcc"
-       f << '(' << _POSTFIXexp(e)->_2 << ' ' << _POSTFIXexp(e)->_1 << ')'; 
+       f << '(' << _POSTFIXstd::exp(e)->_2 << ' ' << _POSTFIXexp(e)->_1 << ')'; 
 #line 796 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_APPexp: {
 #line 792 "../../prop-src/printing.pcc"
-       f << _APPexp(e)->_1 << '(' << _APPexp(e)->_2 << ')'; 
+       f << _APPstd::exp(e)->_1 << '(' << _APPexp(e)->_2 << ')'; 
 #line 792 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_ASSIGNexp: {
 #line 772 "../../prop-src/printing.pcc"
-       f << '(' << _ASSIGNexp(e)->_1 << " = " << _ASSIGNexp(e)->_2 << ')'; 
+       f << '(' << _ASSIGNstd::exp(e)->_1 << " = " << _ASSIGNexp(e)->_2 << ')'; 
 #line 772 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_IFexp: {
 #line 811 "../../prop-src/printing.pcc"
-       f << '(' << _IFexp(e)->_1 << " ? " << _IFexp(e)->_2 << " : " << _IFexp(e)->_3 <<')';
+       f << '(' << _IFstd::exp(e)->_1 << " ? " << _IFexp(e)->_2 << " : " << _IFexp(e)->_3 <<')';
 #line 811 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_TUPLEexp: {
 #line 809 "../../prop-src/printing.pcc"
-       f << _TUPLEexp(e)->TUPLEexp; 
+       f << _TUPLEstd::exp(e)->TUPLEexp; 
 #line 809 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_EXTUPLEexp: {
 #line 810 "../../prop-src/printing.pcc"
-       f << "mkTuple" << length(_EXTUPLEexp(e)->EXTUPLEexp) << '(' << _EXTUPLEexp(e)->EXTUPLEexp << ')'; 
+       f << "mkTuple" << length(_EXTUPLEstd::exp(e)->EXTUPLEexp) << '(' << _EXTUPLEexp(e)->EXTUPLEexp << ')'; 
 #line 810 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_RECORDexp: {
 #line 917 "../../prop-src/printing.pcc"
         
         f << "{ ";
-        for (LabExps l = _RECORDexp(e)->RECORDexp; l; l = l->_2)
+        for (LabExps l = _RECORDstd::exp(e)->RECORDexp; l; l = l->_2)
           {
           f << l->_1.label << " = " << l->_1.exp;
           if (l->_2)
@@ -1643,43 +1643,43 @@ std::ostream& operator << (std::ostream& f, Exp e)
           
 #line 928 "../../prop-src/printing.pcc"
           
-          f << open_of(_LISTexp(e)->_2);
-          	  for( Exps exp_list = _LISTexp(e)->_3; exp_list; exp_list = exp_list->_2)
+          f << open_of(_LISTstd::exp(e)->_2);
+          	  for( Exps exp_list = _LISTstd::exp(e)->_3; exp_list; exp_list = exp_list->_2)
           	  {
           	    f << exp_list->_1;
           	    if (exp_list->_2)
           	      f << ", ";
           }
-          	  if (_LISTexp(e)->_4 != NOexp)
-          	    f << " ... " << _LISTexp(e)->_4;
-          f << close_of(_LISTexp(e)->_2);
+          	  if (_LISTstd::exp(e)->_4 != NOexp)
+          	    f << " ... " << _LISTstd::exp(e)->_4;
+          f << close_of(_LISTstd::exp(e)->_2);
           
 #line 939 "../../prop-src/printing.pcc"
         } else {
           
-          if (_LISTexp(e)->_1) {
-            if (_LISTexp(e)->_2) {
+          if (_LISTstd::exp(e)->_1) {
+            if (_LISTstd::exp(e)->_2) {
 #line 941 "../../prop-src/printing.pcc"
               
               int i = 0;
-              for( Exps exp_list = _LISTexp(e)->_3; exp_list; exp_list = exp_list->_2)
+              for( Exps exp_list = _LISTstd::exp(e)->_3; exp_list; exp_list = exp_list->_2)
               	  {
               	    Exp exp = exp_list->_1;
-                f << mangle(_LISTexp(e)->_1->name) << '(' << exp;
+                f << mangle(_LISTstd::exp(e)->_1->name) << '(' << exp;
               	    if (exp_list->_2)
               	      f << ',';
               	    i++;
               }
-              if (_LISTexp(e)->_4 != NOexp)
-                f << ',' << _LISTexp(e)->_4;
-              	  else if (_LISTexp(e)->_3 == 
+              if (_LISTstd::exp(e)->_4 != NOexp)
+                f << ',' << _LISTstd::exp(e)->_4;
+              	  else if (_LISTstd::exp(e)->_3 == 
 #line 953 "../../prop-src/printing.pcc"
 #line 953 "../../prop-src/printing.pcc"
               nil_1_
 #line 953 "../../prop-src/printing.pcc"
 #line 953 "../../prop-src/printing.pcc"
               )
-              	    f << mangle(_LISTexp(e)->_2->name);
+              	    f << mangle(_LISTstd::exp(e)->_2->name);
                     while (i-- > 0)
                       f << ')';
                   
@@ -1690,12 +1690,12 @@ std::ostream& operator << (std::ostream& f, Exp e)
         }
         } break;
       case a_Exp::tag_VECTORexp: {
-        if (_VECTORexp(e)->_1) {
+        if (_VECTORstd::exp(e)->_1) {
 #line 960 "../../prop-src/printing.pcc"
           
-          f << mangle(_VECTORexp(e)->_1->name) << '(';
+          f << mangle(_VECTORstd::exp(e)->_1->name) << '(';
           {
-            for(Exps exps = _VECTORexp(e)->_2; exps; exps = exps->_2)
+            for(Exps exps = _VECTORstd::exp(e)->_2; exps; exps = exps->_2)
             {
               f << exps->_1;
               if (exps->_2 != 
@@ -1714,56 +1714,56 @@ std::ostream& operator << (std::ostream& f, Exp e)
         } else {}
         } break;
       case a_Exp::tag_CONSexp: {
-        if (_CONSexp(e)->_1) {
-          if (_CONSexp(e)->_3) {
-            switch (_CONSexp(e)->_3->tag__) {
+        if (_CONSstd::exp(e)->_1) {
+          if (_CONSstd::exp(e)->_3) {
+            switch (_CONSstd::exp(e)->_3->tag__) {
               case a_Exp::tag_RECORDexp: {
-                if (_CONSexp(e)->_1->ty) {
-                  switch (_CONSexp(e)->_1->ty->tag__) {
+                if (_CONSstd::exp(e)->_1->ty) {
+                  switch (_CONSstd::exp(e)->_1->ty->tag__) {
                     case a_Ty::tag_TYCONty: {
-                      if (boxed(_TYCONty(_CONSexp(e)->_1->ty)->_1)) {
-                        switch (_TYCONty(_CONSexp(e)->_1->ty)->_1->tag__) {
+                      if (boxed(_TYCONty(_CONSstd::exp(e)->_1->ty)->_1)) {
+                        switch (_TYCONty(_CONSstd::exp(e)->_1->ty)->_1->tag__) {
                           case a_TyCon::tag_RECORDtycon: {
-                            if (_CONSexp(e)->_3) {
-                              switch (_CONSexp(e)->_3->tag__) {
+                            if (_CONSstd::exp(e)->_3) {
+                              switch (_CONSstd::exp(e)->_3->tag__) {
                                 case a_Exp::tag_RECORDexp: {
                                   L12:; 
 #line 838 "../../prop-src/printing.pcc"
                                 // rearrange arguments to
-                                  if (_CONSexp(e)->_2)
+                                  if (_CONSstd::exp(e)->_2)
                                   {
-                                    f << "new (" << _CONSexp(e)->_2 << ") ";
-                                    print_cons( f, _CONSexp(e)->_1);
+                                    f << "new (" << _CONSstd::exp(e)->_2 << ") ";
+                                    print_cons( f, _CONSstd::exp(e)->_1);
                                   }
                                   else
-                                    f << mangle(_CONSexp(e)->_1->name);
+                                    f << mangle(_CONSstd::exp(e)->_1->name);
                                   
                                   f << '(';
                                   
                                   {
-                                    for_each ( LabExp, i, _RECORDexp(_CONSexp(e)->_3)->RECORDexp)
+                                    for_each ( LabExp, i, _RECORDstd::exp(_CONSexp(e)->_3)->RECORDexp)
                                     {
-                                      for_each ( Id, j, _RECORDtycon(_TYCONty(_CONSexp(e)->_1->ty)->_1)->_1)
+                                      for_each ( Id, j, _RECORDtycon(_TYCONty(_CONSstd::exp(e)->_1->ty)->_1)->_1)
                                         if (i.label == j)
                                           goto next;
                                       error( "%Lillegal record label '%s' in expression: %s%e\n",
-                                             i.label, _CONSexp(e)->_1->name, _CONSexp(e)->_3);
+                                             i.label, _CONSstd::exp(e)->_1->name, _CONSexp(e)->_3);
                                       next: ;
                                     }
                                   }
                                   {
                                     Bool comma = false;
                                     Ids is; Tys ts;
-                                    for(is = _RECORDtycon(_TYCONty(_CONSexp(e)->_1->ty)->_1)->_1, ts = _TYCONty(_CONSexp(e)->_1->ty)->_2; is; is = is->_2, ts = ts->_2)
+                                    for(is = _RECORDtycon(_TYCONty(_CONSstd::exp(e)->_1->ty)->_1)->_1, ts = _TYCONty(_CONSexp(e)->_1->ty)->_2; is; is = is->_2, ts = ts->_2)
                                     {
                                       Id i = is->_1;
                                       Bool found = false;
-                                      for_each (LabExp, j, _RECORDexp(_CONSexp(e)->_3)->RECORDexp)
+                                      for_each (LabExp, j, _RECORDstd::exp(_CONSexp(e)->_3)->RECORDexp)
                                       {
                                         if (i == j.label) {
                                           if (found)
                                             error( "%Lduplicated label '%s' in expression: %s%e\n",
-                                                   j.label, _CONSexp(e)->_1->name, _CONSexp(e)->_3);
+                                                   j.label, _CONSstd::exp(e)->_1->name, _CONSexp(e)->_3);
                                           found = true;
                                           if (comma)
                                             f << ", ";
@@ -1789,7 +1789,7 @@ std::ostream& operator << (std::ostream& f, Exp e)
 #line 892 "../../prop-src/printing.pcc"
                                     } else {
 #line 885 "../../prop-src/printing.pcc"
-                                     error ("%Lmissing label '%s' in expression: %s%e\n", i, _CONSexp(e)->_1->name, _CONSexp(e)->_3); 
+                                     error ("%Lmissing label '%s' in expression: %s%e\n", i, _CONSstd::exp(e)->_1->name, _CONSexp(e)->_3); 
 #line 885 "../../prop-src/printing.pcc"
                                     }
                                   }
@@ -1807,7 +1807,7 @@ std::ostream& operator << (std::ostream& f, Exp e)
                                   L13:; 
 #line 900 "../../prop-src/printing.pcc"
                                   
-                                  error("%Lconstructor '%s' doesn't take labeled arguments\n", _CONSexp(e)->_1->name);
+                                  error("%Lconstructor '%s' doesn't take labeled arguments\n", _CONSstd::exp(e)->_1->name);
                                   
 #line 902 "../../prop-src/printing.pcc"
                                   } break;
@@ -1824,29 +1824,29 @@ std::ostream& operator << (std::ostream& f, Exp e)
                 } break;
               default: {
                 L14:; 
-                if (_CONSexp(e)->_1->ty) {
-                  switch (_CONSexp(e)->_1->ty->tag__) {
+                if (_CONSstd::exp(e)->_1->ty) {
+                  switch (_CONSstd::exp(e)->_1->ty->tag__) {
                     case a_Ty::tag_TYCONty: {
                       L15:; 
-                      if (boxed(_TYCONty(_CONSexp(e)->_1->ty)->_1)) {
-                        switch (_TYCONty(_CONSexp(e)->_1->ty)->_1->tag__) {
+                      if (boxed(_TYCONty(_CONSstd::exp(e)->_1->ty)->_1)) {
+                        switch (_TYCONty(_CONSstd::exp(e)->_1->ty)->_1->tag__) {
                           case a_TyCon::tag_RECORDtycon: {
                             L16:; 
-                            if (_CONSexp(e)->_3) {
-                              switch (_CONSexp(e)->_3->tag__) {
+                            if (_CONSstd::exp(e)->_3) {
+                              switch (_CONSstd::exp(e)->_3->tag__) {
                                 case a_Exp::tag_RECORDexp: { goto L12; } break;
                                 default: {
                                   L17:; 
 #line 906 "../../prop-src/printing.pcc"
                                   
-                                  if (_CONSexp(e)->_2)
+                                  if (_CONSstd::exp(e)->_2)
                                   {
-                                    f << "new (" << _CONSexp(e)->_2 << ") ";
-                                    print_cons(f,_CONSexp(e)->_1);
+                                    f << "new (" << _CONSstd::exp(e)->_2 << ") ";
+                                    print_cons(f,_CONSstd::exp(e)->_1);
                                   }
                                   else
-                                    f << mangle(_CONSexp(e)->_1->name);
-                                  f << '(' << _CONSexp(e)->_3 << ')';
+                                    f << mangle(_CONSstd::exp(e)->_1->name);
+                                  f << '(' << _CONSstd::exp(e)->_3 << ')';
                                   
 #line 915 "../../prop-src/printing.pcc"
                                   } break;
@@ -1861,12 +1861,12 @@ std::ostream& operator << (std::ostream& f, Exp e)
                   }
                 } else {
                   L18:; 
-                  if (_CONSexp(e)->_2) { goto L17; } else {
+                  if (_CONSstd::exp(e)->_2) { goto L17; } else {
                     L19:; 
-                    if (_CONSexp(e)->_3) { goto L17; } else {
+                    if (_CONSstd::exp(e)->_3) { goto L17; } else {
                       L20:; 
 #line 904 "../../prop-src/printing.pcc"
-                    f << mangle(_CONSexp(e)->_1->name); 
+                    f << mangle(_CONSstd::exp(e)->_1->name); 
 #line 904 "../../prop-src/printing.pcc"
                     }
                   }
@@ -1886,34 +1886,34 @@ std::ostream& operator << (std::ostream& f, Exp e)
         
         Bool save = pretty_print_ty;
         pretty_print_ty = false;
-        f << "((" << _CASTexp(e)->_1 << ')' << _CASTexp(e)->_2 << ')';
+        f << "((" << _CASTstd::exp(e)->_1 << ')' << _CASTexp(e)->_2 << ')';
         pretty_print_ty = save;
         
 #line 803 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_QUALexp: {
 #line 804 "../../prop-src/printing.pcc"
-       f << _QUALexp(e)->_1 << "::" << _QUALexp(e)->_2; 
+       f << _QUALstd::exp(e)->_1 << "::" << _QUALexp(e)->_2; 
 #line 804 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_EQexp: {
 #line 805 "../../prop-src/printing.pcc"
-       f << "equality_of(" << _EQexp(e)->_2 << ',' << _EQexp(e)->_3 << ')'; 
+       f << "equality_of(" << _EQstd::exp(e)->_2 << ',' << _EQexp(e)->_3 << ')'; 
 #line 805 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_UNIFYexp: {
 #line 806 "../../prop-src/printing.pcc"
-       f << "unify(" << _UNIFYexp(e)->_2 << ',' << _UNIFYexp(e)->_3 << ')'; 
+       f << "unify(" << _UNIFYstd::exp(e)->_2 << ',' << _UNIFYexp(e)->_3 << ')'; 
 #line 806 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_LTexp: {
 #line 807 "../../prop-src/printing.pcc"
-       f << '(' << _LTexp(e)->_2 << " < " << _LTexp(e)->_3 << ')'; 
+       f << '(' << _LTstd::exp(e)->_2 << " < " << _LTexp(e)->_3 << ')'; 
 #line 807 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_HASHexp: {
 #line 808 "../../prop-src/printing.pcc"
-       f << "hash(" << _HASHexp(e)->_2 << ')'; 
+       f << "hash(" << _HASHstd::exp(e)->_2 << ')'; 
 #line 808 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_THISCOSTexp: {
@@ -1923,39 +1923,39 @@ std::ostream& operator << (std::ostream& f, Exp e)
         } break;
       case a_Exp::tag_COSTexp: {
 #line 833 "../../prop-src/printing.pcc"
-       f << "t__->kids[" << _COSTexp(e)->COSTexp << "]->cost"; 
+       f << "t__->kids[" << _COSTstd::exp(e)->COSTexp << "]->cost"; 
 #line 833 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_THISSYNexp: {
 #line 827 "../../prop-src/printing.pcc"
         
-        if (_THISSYNexp(e)->_3)
+        if (_THISSYNstd::exp(e)->_3)
           f << "__";
         else // in parser
-          f << "t__->u._" << _THISSYNexp(e)->_1;
+          f << "t__->u._" << _THISSYNstd::exp(e)->_1;
         
 #line 832 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_SYNexp: {
 #line 813 "../../prop-src/printing.pcc"
         
-        if (_SYNexp(e)->_4)
-          f << '_' << _SYNexp(e)->_1 << "__";
-        else if (_SYNexp(e)->_2 < 0) // parser semantic action
+        if (_SYNstd::exp(e)->_4)
+          f << '_' << _SYNstd::exp(e)->_1 << "__";
+        else if (_SYNstd::exp(e)->_2 < 0) // parser semantic action
         {
-          if (_SYNexp(e)->_1 == 0)
-            f << "syn_" << "._" << -_SYNexp(e)->_2;
+          if (_SYNstd::exp(e)->_1 == 0)
+            f << "syn_" << "._" << -_SYNstd::exp(e)->_2;
           else
-            f << "t__[" << _SYNexp(e)->_1 << "+to__]._" << -_SYNexp(e)->_2;
+            f << "t__[" << _SYNstd::exp(e)->_1 << "+to__]._" << -_SYNexp(e)->_2;
         }
         else
-          f << "t__->kids[" << _SYNexp(e)->_1 << "]->u._" << _SYNexp(e)->_2;
+          f << "t__->kids[" << _SYNstd::exp(e)->_1 << "]->u._" << _SYNexp(e)->_2;
         
 #line 825 "../../prop-src/printing.pcc"
         } break;
       case a_Exp::tag_MARKEDexp: {
 #line 770 "../../prop-src/printing.pcc"
-       f << _MARKEDexp(e)->_2; 
+       f << _MARKEDstd::exp(e)->_2; 
 #line 770 "../../prop-src/printing.pcc"
         } break;
       default: { goto L21; } break;
@@ -2050,7 +2050,7 @@ std::ostream& operator << (std::ostream& f, QualId id)
     
     if (
 #line 1037 "../../prop-src/printing.pcc"
-    isalpha(_SIMPLEid(id)->SIMPLEid[0])
+    std::isalpha(_SIMPLEid(id)->SIMPLEid[0])
 #line 1037 "../../prop-src/printing.pcc"
 ) {
       

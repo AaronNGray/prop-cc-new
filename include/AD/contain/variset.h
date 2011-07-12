@@ -30,8 +30,8 @@
 //  from 0 to some ``small'' n.  The integer set can grow if necessary
 ////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <stdlib.h>
+#include <cstring>
+#include <cstdlib>
 #include <AD/generic/generic.h>  // Generic definitions
 
 class VarIntSet
@@ -39,13 +39,13 @@ class VarIntSet
   typedef unsigned long Glob;
 
   Glob * array;    // A bit array representing the integer set
-  size_t limit;    // The size of this array in 4-bytes glob
-  size_t growth;   // Amount to grow when necessary
+  std::size_t limit;    // The size of this array in 4-bytes glob
+  std::size_t growth;   // Amount to grow when necessary
 
-  void grow(size_t new_limit);
+  void grow(std::size_t new_limit);
 
 public:
-  VarIntSet(size_t init_size = 0, size_t g = 8);
+  VarIntSet(std::size_t init_size = 0, size_t g = 8);
   ~VarIntSet();
 
   ///////////////////////////////////////////////////////////////////////
@@ -54,20 +54,20 @@ public:
 
   void clear ()
   {
-    memset(array,0,limit * sizeof(Glob));
+    std::memset(array,0,limit * sizeof(Glob));
   }
 
-  void setUnion( size_t i)
+  void setUnion( std::size_t i)
   {
-    register size_t index = i / (8 * sizeof(Glob));
+    register std::size_t index = i / (8 * sizeof(Glob));
     if (index >= limit)
       grow(index > limit + growth ? index : limit + growth);
     array[index] |= (1 << (i & (8 * sizeof(Glob) - 1)));
   }
 
-  void setRemove( size_t i)
+  void setRemove( std::size_t i)
   {
-    register size_t index = i / (8 * sizeof(Glob));
+    register std::size_t index = i / (8 * sizeof(Glob));
     if (index >= limit)
       grow(index > limit + growth ? index : limit + growth);
     array[index] &= ~(1 << (i & (8 * sizeof(Glob) - 1)));
@@ -119,14 +119,14 @@ public:
   // Set membership and cardinality
   ///////////////////////////////////////////////////////////////////////
 
-  Bool operator [] (size_t i) const
+  Bool operator [] (std::size_t i) const
   {
-    register size_t index = i/(8*sizeof(Glob));
+    register std::size_t index = i/(8*sizeof(Glob));
     return index < limit ?
            (array[index] & (1 << (i & (8 * sizeof(Glob)-1)))) : false;
   }
 
-  size_t capacity() const
+  std::size_t capacity() const
   {
     return limit * (8*sizeof(Glob));
   }

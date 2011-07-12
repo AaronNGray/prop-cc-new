@@ -90,7 +90,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Fast method to allocate a block of memory
   ///////////////////////////////////////////////////////////////////////////
-  inline void * operator [] (size_t n)
+  inline void * operator [] (std::size_t n)
   {
     register long elements = (n + sizeof(Align) - 1) / sizeof(Align);
     if (next + elements >= limit)
@@ -115,13 +115,13 @@ public:
   //  Virtual methods for the basic Mem protocol
   ///////////////////////////////////////////////////////////////////////////
   virtual void   clear      ();
-  virtual void * m_alloc    (size_t n)
+  virtual void * m_alloc    (std::size_t n)
   {
     return (*this)[n];
   }
-  virtual void * c_alloc    (size_t);
+  virtual void * c_alloc    (std::size_t);
   virtual void   free       (void *);
-  virtual size_t bytes_used () const;
+  virtual std::size_t bytes_used () const;
 };
 
 //////////////////////////////////////////////////////////////////////////////
@@ -140,12 +140,12 @@ class MemPoolMark
 //  Overloaded new
 //////////////////////////////////////////////////////////////////////////////
 
-inline void* operator new (size_t n, MemPool& m)
+inline void* operator new (std::size_t n, MemPool& m)
 {
   return m[n];
 }
 
-inline void* operator new (size_t, MemPool& m, size_t n)
+inline void* operator new (std::size_t, MemPool& m, size_t n)
 {
   return m[n];
 }

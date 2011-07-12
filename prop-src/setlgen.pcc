@@ -117,7 +117,7 @@ void SETLCompiler::gen_stmts( Stmts stmts)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void SETLCompiler::gen_exp( Exp exp)
+void SETLCompiler::gen_std::exp( Exp exp)
 {
 }
 
@@ -131,7 +131,7 @@ void SETLCompiler::gen_exps( Exps exps)
 {
   match while (exps)
   {
-    #[one]:           { gen_exp(one); exps = #[]; }
-  | #[one ... rest]:  { gen_exp(one); exps = rest; }
+    #[one]:           { gen_std::exp(one); exps = #[]; }
+  | #[one ... rest]:  { gen_std::exp(one); exps = rest; }
   }
 }

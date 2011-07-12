@@ -25,7 +25,7 @@
 #ifndef Gaussian_integers_h
 #define Gaussian_integers_h
 
-#include <math.h>
+#include <cmath>
 #include <iostream>
 #include <AD/generic/generic.h>  // Generic definitions
 
@@ -179,9 +179,9 @@ struct GaussInt
   {
     return c.real * c.real + c.imag * c.imag;
   }
-  friend double abs(const GaussInt& c)
+  friend double std::abs(const GaussInt& c)
   {
-    return sqrt(norm(c));
+    return std::sqrt(norm(c));
   }
 
   ////////////////////////////////////////////////////////////////

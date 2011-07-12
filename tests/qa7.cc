@@ -1,8 +1,8 @@
 //  Test some numeric stuff
 
-#include <stdio.h>
-#include <iostream.h>
-#include <assert.h>
+#include <cstdio>
+#include <iostream>
+#include <cassert>
 #include <AD/numeric/bigint.h>
 #include <AD/numeric/complex.h>
 #include <AD/numeric/matrix.h>

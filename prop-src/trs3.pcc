@@ -89,13 +89,13 @@ void TRS::generate_residue( Rule rule, int arity, State state, Term rhs)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp TRS::make_exp(Term term) const
+Exp TRS::make_std::exp(Term term) const
 {
   match (term)
   {
-    CONSterm(f,NOcons,_,_):  { return LITERALexp(literal_map[f]); }
-  | CONSterm(_,cons,0,args): { return CONSexp(cons,#[],NOexp); }
-  | CONSterm(_,cons,1,args): { return CONSexp(cons,#[],make_exp(args[0])); }
+    CONSterm(f,NOcons,_,_):  { return LITERALstd::exp(literal_map[f]); }
+  | CONSterm(_,cons,0,args): { return CONSstd::exp(cons,#[],NOexp); }
+  | CONSterm(_,cons,1,args): { return CONSstd::exp(cons,#[],make_exp(args[0])); }
   | CONSterm(f,cons,2,args) | is_list_constructor(cons):
     {
       Exps heads = #[];
@@ -103,15 +103,15 @@ Exp TRS::make_exp(Term term) const
 	  match while (t)
       {
       CONSterm(g,_,2,args) | f == g:
-	    { heads = #[ make_exp(args[0]) ... heads ]; t = args[1]; }
+	    { heads = #[ make_std::exp(args[0]) ... heads ]; t = args[1]; }
       | CONSterm(_,nil,0,_) | is_list_constructor(nil):
-	    { return LISTexp(cons,nil,rev(heads),NOexp); }
+	    { return LISTstd::exp(cons,nil,rev(heads),NOexp); }
       |  _:
-	    {  return LISTexp(cons,NOcons,rev(heads),make_exp(term)); }
+	    {  return LISTstd::exp(cons,NOcons,rev(heads),make_exp(term)); }
 	  }
     }
   | CONSterm(_,cons,n,args):
-    { return CONSexp( cons, #[], TUPLEexp( make_exp( n, args))); }
+    { return CONSstd::exp( cons, #[], TUPLEexp( make_exp( n, args))); }
   | VARterm(_,_,e):          { return e; }
   | CODEterm e:              { return e; }
   | _:                       { bug("TRS::make_exp"); return NOexp; }
@@ -124,11 +124,11 @@ Exp TRS::make_exp(Term term) const
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exps TRS::make_exp(int n, Term terms[]) const
+Exps TRS::make_std::exp(int n, Term terms[]) const
 {
   Exps exps = #[];
   for (int i = n - 1; i >= 0; i--)
-     exps = #[make_exp(terms[i]) ... exps];
+     exps = #[make_std::exp(terms[i]) ... exps];
   return exps;
 }
 
@@ -163,7 +163,7 @@ Bool TRS::gen_replacement(CodeGen& C, Rule r, Exp default_rhs)
     C.pr("%^switch (%s) {%+", state_var);
     for_each(Residue, res, residues)
     {
-      C.pr("%^case %i: repl__ = %e; break;", res.#1, make_exp(res.#2));
+      C.pr("%^case %i: repl__ = %e; break;", res.#1, make_std::exp(res.#2));
     }
     C.pr("%^default: ");
     }

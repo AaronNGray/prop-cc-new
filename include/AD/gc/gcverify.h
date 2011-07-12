@@ -63,7 +63,7 @@ protected:
   GCBitMap * traversed;  // marks all objects that have been traversed
   // so that circular structures can be correctly
   // traced.
-  size_t     nodes;      // number of cons cells traced.
+  std::size_t     nodes;      // number of cons cells traced.
 
   ///////////////////////////////////////////////////////////////////////////
   //  Constructor and destructor
@@ -76,7 +76,7 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Statistics
   ///////////////////////////////////////////////////////////////////////////
-  inline size_t number_of_nodes() const
+  inline std::size_t number_of_nodes() const
   {
     return nodes;
   }
@@ -132,11 +132,11 @@ public:
   //  Furthurmore, mark them private.
   ///////////////////////////////////////////////////////////////////////////
 private:
-  virtual void * m_alloc    (size_t);
+  virtual void * m_alloc    (std::size_t);
   virtual void   free       (void *);
-  virtual void   grow_heap  (size_t);
+  virtual void   grow_heap  (std::size_t);
   virtual void   collect    (int);
-  virtual size_t min_growth ();
+  virtual std::size_t min_growth ();
   virtual Statistics statistics ();
 };
 

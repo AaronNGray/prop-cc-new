@@ -9,8 +9,8 @@
 //     (3) The counts add up.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
-#include <iostream.h>
+#include <cassert>
+#include <iostream>
 #include <AD/gc/gcobject.h>
 #include <AD/gc/weakptr.h>
 #include <AD/gc/gcheaps.h>

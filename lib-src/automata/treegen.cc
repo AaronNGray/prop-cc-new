@@ -29,7 +29,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <assert.h>
+#include <cassert>
 #include <iostream>
 #include <AD/automata/treegram.h>  // tree grammar
 #include <AD/automata/treegen.h>    // tree automata compiler
@@ -51,6 +51,7 @@ typedef TreeGrammar::Rule           Rule;
 typedef TreeAutomaton::Equiv        Equiv;
 typedef SLinkList<State>            StateList;
 
+TreeTerm new_term(Mem& mem, short int f, unsigned char n, TreeTerm * subterms);
 //////////////////////////////////////////////////////////////////////////////
 //  Class TreeGenerator represents the internals of the automata compiler.
 //  This stuff is completely hidden from the interface.

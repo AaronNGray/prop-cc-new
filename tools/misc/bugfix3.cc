@@ -11,7 +11,7 @@
 //
 //  Testing the rewriting features
 //
-#include <iostream.h>
+#include <iostream>
 
 #line 6 "bugfix3.pcc"
 #line 11 "bugfix3.pcc"
@@ -57,7 +57,7 @@ public:
    inline friend EXP_add * _add(EXP _x_) { return (EXP_add *)_x_; }
    inline friend EXP_sub * _sub(EXP _x_) { return (EXP_sub *)_x_; }
    inline friend EXP_mul * _mul(EXP _x_) { return (EXP_mul *)_x_; }
-   inline friend EXP_div * _div(EXP _x_) { return (EXP_div *)_x_; }
+   inline friend EXP_div * _std::div(EXP _x_) { return (EXP_div *)_x_; }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -266,8 +266,8 @@ replacement__:
       default: { 
          int s0__;
          int s1__;
-         labeler(_div(redex)->_1, s0__, r__);
-         labeler(_div(redex)->_2, s1__, r__);
+         labeler(_std::div(redex)->_1, s0__, r__);
+         labeler(_std::div(redex)->_2, s1__, r__);
          s__ = Simplify_theta_4[Simplify_mu_4_0[s0__]][Simplify_mu_4_1[s1__]]; } break;
    }
    const TreeTables::Rule * o__ = Simplify_accept_vector + Simplify_accept_base[s__];
@@ -275,7 +275,7 @@ accept__:
    switch (*o__) {
       case 13: {
 #line 30 "bugfix3.pcc"
-        num(_num(_div(redex)->_1)->num / _num(_div(redex)->_2)->num);
+        num(_num(_std::div(redex)->_1)->num / _num(_div(redex)->_2)->num);
 #line 31 "bugfix3.pcc"
 } break;
       case 12: {
@@ -296,10 +296,10 @@ accept__:
          
 #line 28 "bugfix3.pcc"
 } break;
-      case 9: if ((_num(_div(redex)->_2)->num == 1))
+      case 9: if ((_num(_std::div(redex)->_2)->num == 1))
       {
 #line 26 "bugfix3.pcc"
-    _div(redex)->_1; 
+    _std::div(redex)->_1; 
          
 #line 27 "bugfix3.pcc"
 }
@@ -562,14 +562,14 @@ replacement__:
       default: { 
          int s0__;
          int s1__;
-         labeler(_div(redex)->_1, s0__, r__);
-         labeler(_div(redex)->_2, s1__, r__);
+         labeler(_std::div(redex)->_1, s0__, r__);
+         labeler(_std::div(redex)->_2, s1__, r__);
          s__ = Number_theta_6[Number_mu_6_0[s0__]][Number_mu_6_1[s1__]]; } break;
    }
    switch (s__) {
       case 9: {
 #line 50 "bugfix3.pcc"
-        num(_num(_div(redex)->_1)->num / _num(_div(redex)->_2)->num);
+        num(_num(_std::div(redex)->_1)->num / _num(_div(redex)->_2)->num);
 #line 51 "bugfix3.pcc"
 } break;
       case 8: {

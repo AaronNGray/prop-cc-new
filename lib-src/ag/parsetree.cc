@@ -22,7 +22,7 @@
 // 1994-1997
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
+#include <iostream>
 #include <AD/ag/parsetree.h>
 #include <AD/memory/mem.h>
 

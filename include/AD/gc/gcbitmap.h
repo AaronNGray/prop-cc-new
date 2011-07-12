@@ -26,7 +26,7 @@
 #define gc_bitmaps_h
 
 #include <new>
-#include <string>
+#include <cstring>
 #include <AD/generic/generic.h>
 #include <AD/gc/gcconfig.h>
 #include <AD/gc/gcintern.h>
@@ -74,8 +74,8 @@ public:
 
   inline Bool is_marked(void * addr) const
   {
-    return bitmap[(size_t)addr / (GC_ALIGNMENT * 8 * sizeof(Glob))] &
-           (1 << (((size_t)addr / GC_ALIGNMENT) % (8 * sizeof(Glob))));
+    return bitmap[(std::size_t)addr / (GC_ALIGNMENT * 8 * sizeof(Glob))] &
+           (1 << (((std::size_t)addr / GC_ALIGNMENT) % (8 * sizeof(Glob))));
   }
 
   ///////////////////////////////////////////////////////////////////////////
@@ -95,13 +95,13 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   inline void * starting_addr(void * addr) const
   {
-    size_t index       =
-      ((size_t)addr / GC_ALIGNMENT) / (8 * sizeof(Glob));
+    std::size_t index       =
+      ((std::size_t)addr / GC_ALIGNMENT) / (8 * sizeof(Glob));
     register int    bit         =
-      ((size_t)addr / GC_ALIGNMENT) % (8 * sizeof(Glob));
+      ((std::size_t)addr / GC_ALIGNMENT) % (8 * sizeof(Glob));
     register const Glob * map   = bitmap + index;
     if (*map & (1 << bit))
-      return (void*)(((size_t)addr / GC_ALIGNMENT) * GC_ALIGNMENT);
+      return (void*)(((std::size_t)addr / GC_ALIGNMENT) * GC_ALIGNMENT);
     for ( ;map >= bitmap_bot; map--)
     {
       const Glob mask = *map;
@@ -126,13 +126,13 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   inline void mark(void * addr)
   {
-    bitmap[(size_t)addr/(GC_ALIGNMENT * 8 * sizeof(Glob))] |=
-      (1 << (((size_t)addr/GC_ALIGNMENT) % (8 * sizeof(Glob))));
+    bitmap[(std::size_t)addr/(GC_ALIGNMENT * 8 * sizeof(Glob))] |=
+      (1 << (((std::size_t)addr/GC_ALIGNMENT) % (8 * sizeof(Glob))));
   }
   inline void unmark(void * addr)
   {
-    bitmap[(size_t)addr/(GC_ALIGNMENT * 8 * sizeof(Glob))] &=
-      ~(1 << (((size_t)addr/GC_ALIGNMENT) % (8 * sizeof(Glob))));
+    bitmap[(std::size_t)addr/(GC_ALIGNMENT * 8 * sizeof(Glob))] &=
+      ~(1 << (((std::size_t)addr/GC_ALIGNMENT) % (8 * sizeof(Glob))));
   }
 
   ///////////////////////////////////////////////////////////////////////////
@@ -151,8 +151,8 @@ public:
     if (stop  > highest_addr)
       stop = highest_addr;
     register Glob * block =
-      bitmap + ((size_t)start/ (GC_ALIGNMENT * 8 * sizeof(Glob)));
-    register size_t len   =
+      bitmap + ((std::size_t)start/ (GC_ALIGNMENT * 8 * sizeof(Glob)));
+    register std::size_t len   =
       ((Byte*)stop - (Byte*)start) / (GC_ALIGNMENT * 8 * sizeof(Glob));
     while (len > 0)
     {
@@ -171,10 +171,10 @@ public:
     if (stop  > highest_addr)
       stop = highest_addr;
     register Glob * dest =
-      bitmap + ((size_t)start/ (GC_ALIGNMENT * 8 * sizeof(Glob)));
+      bitmap + ((std::size_t)start/ (GC_ALIGNMENT * 8 * sizeof(Glob)));
     register const Glob * src  =
-      map.bitmap + ((size_t)start/ (GC_ALIGNMENT * 8 * sizeof(Glob)));
-    register size_t len  =
+      map.bitmap + ((std::size_t)start/ (GC_ALIGNMENT * 8 * sizeof(Glob)));
+    register std::size_t len  =
       ((Byte*)stop - (Byte*)start) / (GC_ALIGNMENT * 8 * sizeof(Glob));
     while (len > 0)
     {

@@ -31,9 +31,9 @@
 
 #define TreeGrammar_Iterators
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <AD/automata/treegram.h>
-#include <assert.h>
+#include <cassert>
 #include <AD/rewrite/b_rules.h>
 #include <AD/hash/dchash.h>
 
@@ -509,7 +509,7 @@ std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::Reductio
   if (f_name[0] == '#')
   {
     char begin_s = f_name[1];
-    char end_s   = f_name[strlen(f_name)-1];
+    char end_s   = f_name[std::strlen(f_name)-1];
     f << '#' << begin_s;
     for (int i = 0; i < r.n; i++)
     {

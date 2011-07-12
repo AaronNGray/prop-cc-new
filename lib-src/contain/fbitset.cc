@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <AD/contain/fbitset.h>
 
 //////////////////////////////////////////////////////////////////////////////
@@ -77,7 +77,7 @@ void FastBitSet::init_sparse( const FastBitSet& s)
   if (sparse_set == 0)
     sparse_set = (short *)mem.m_alloc(MAX_SPARSE * sizeof(short));
   count = s.count;
-  memcpy(sparse_set, s.sparse_set, (count + 1) * sizeof(short));
+  std::memcpy(sparse_set, s.sparse_set, (count + 1) * sizeof(short));
 }
 
 void FastBitSet::init_dense( const FastBitSet& s)
@@ -105,7 +105,7 @@ void FastBitSet::init_dense( const BitSet& s)
 void FastBitSet::copy_sparse( const FastBitSet& s)
 {
   count = s.count;
-  memcpy(sparse_set, s.sparse_set, (count + 1) * sizeof(short));
+  std::memcpy(sparse_set, s.sparse_set, (count + 1) * sizeof(short));
 }
 
 void FastBitSet::copy_dense( const FastBitSet& s)
@@ -349,7 +349,7 @@ DONE:
           else
           {
             *r = -1;
-            memcpy(sparse_set,buf,sizeof(short)*(count+1));
+            std::memcpy(sparse_set,buf,sizeof(short)*(count+1));
           }
         }
         break;

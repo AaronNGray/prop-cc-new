@@ -99,17 +99,17 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
 {
   match while (exp)
   {
-    MARKEDexp(_,e):             { exp = e; }
-  | PREFIXexp("!",e):           { exp = e; neg = !neg; }
-  | BINOPexp("&&",e1,e2) | !neg:{ cnf = flatten(e1,cnf,neg); exp = e2; }
-  | BINOPexp("||",e1,e2) | neg: { cnf = flatten(e1,cnf,neg); exp = e2; }
-  | BINOPexp(">",e1,e2)  | neg: { *cnf = BINOPexp("<=",e1,e2); return cnf+1;}
-  | BINOPexp(">=",e1,e2) | neg: { *cnf = BINOPexp("<",e1,e2);  return cnf+1;}
-  | BINOPexp("<",e1,e2)  | neg: { *cnf = BINOPexp(">=",e1,e2); return cnf+1;}
-  | BINOPexp("<=",e1,e2) | neg: { *cnf = BINOPexp(">",e1,e2);  return cnf+1;}
-  | BINOPexp("==",e1,e2) | neg: { *cnf = BINOPexp("!=",e1,e2); return cnf+1;}
-  | BINOPexp("!=",e1,e2) | neg: { *cnf = BINOPexp("==",e1,e2); return cnf+1;}
-  | e | neg:                    { *cnf = PREFIXexp("!",e); return cnf+1;}
+    MARKEDstd::exp(_,e):             { exp = e; }
+  | PREFIXstd::exp("!",e):           { exp = e; neg = !neg; }
+  | BINOPstd::exp("&&",e1,e2) | !neg:{ cnf = flatten(e1,cnf,neg); exp = e2; }
+  | BINOPstd::exp("||",e1,e2) | neg: { cnf = flatten(e1,cnf,neg); exp = e2; }
+  | BINOPstd::exp(">",e1,e2)  | neg: { *cnf = BINOPexp("<=",e1,e2); return cnf+1;}
+  | BINOPstd::exp(">=",e1,e2) | neg: { *cnf = BINOPexp("<",e1,e2);  return cnf+1;}
+  | BINOPstd::exp("<",e1,e2)  | neg: { *cnf = BINOPexp(">=",e1,e2); return cnf+1;}
+  | BINOPstd::exp("<=",e1,e2) | neg: { *cnf = BINOPexp(">",e1,e2);  return cnf+1;}
+  | BINOPstd::exp("==",e1,e2) | neg: { *cnf = BINOPexp("!=",e1,e2); return cnf+1;}
+  | BINOPstd::exp("!=",e1,e2) | neg: { *cnf = BINOPexp("==",e1,e2); return cnf+1;}
+  | e | neg:                    { *cnf = PREFIXstd::exp("!",e); return cnf+1;}
   | e:                          { *cnf = e; return cnf+1; }
   }
 }
@@ -126,30 +126,30 @@ Bool partition( Exp exp, int &obj)
 {
   match (exp)
   {
-    MARKEDexp(_,e):        { return partition(e,obj); }
-  | PREFIXexp(_,e):        { return partition(e,obj); }
-  | POSTFIXexp(_,e):       { return partition(e,obj); }
+    MARKEDstd::exp(_,e):        { return partition(e,obj); }
+  | PREFIXstd::exp(_,e):        { return partition(e,obj); }
+  | POSTFIXstd::exp(_,e):       { return partition(e,obj); }
   | DEREFexp e:            { return partition(e,obj); }
-  | SELECTORexp(e,_,_):    { return partition(e,obj); }
+  | SELECTORstd::exp(e,_,_):    { return partition(e,obj); }
   | DOTexp (e,_):          { return partition(e,obj); }
-  | ARROWexp(e,_):         { return partition(e,obj); }
-  | CONSexp(_,_,e):        { return partition(e,obj); }
-  | HASHexp(_,e):          { return partition(e,obj); }
-  | CASTexp(_,e):          { return partition(e,obj); }
+  | ARROWstd::exp(e,_):         { return partition(e,obj); }
+  | CONSstd::exp(_,_,e):        { return partition(e,obj); }
+  | HASHstd::exp(_,e):          { return partition(e,obj); }
+  | CASTstd::exp(_,e):          { return partition(e,obj); }
   | RELexp i:              { obj = i; return true; }
-  | APPexp(e1,e2):         { return partition(e1,e2,obj); }
-  | INDEXexp(e1,e2):       { return partition(e1,e2,obj); }
-  | ASSIGNexp(e1,e2):      { return partition(e1,e2,obj); }
-  | BINOPexp(_,e1,e2):     { return partition(e1,e2,obj); }
-  | EQexp(_,e1,e2):        { return partition(e1,e2,obj); }
-  | UNIFYexp(_,e1,e2):     { return partition(e1,e2,obj); }
-  | LTexp(_,e1,e2):        { return partition(e1,e2,obj); }
+  | APPstd::exp(e1,e2):         { return partition(e1,e2,obj); }
+  | INDEXstd::exp(e1,e2):       { return partition(e1,e2,obj); }
+  | ASSIGNstd::exp(e1,e2):      { return partition(e1,e2,obj); }
+  | BINOPstd::exp(_,e1,e2):     { return partition(e1,e2,obj); }
+  | EQstd::exp(_,e1,e2):        { return partition(e1,e2,obj); }
+  | UNIFYstd::exp(_,e1,e2):     { return partition(e1,e2,obj); }
+  | LTstd::exp(_,e1,e2):        { return partition(e1,e2,obj); }
   | TUPLEexp es:           { return partition(es,obj); }
   | RECORDexp es:          { return partition(es,obj); }
-  | SENDexp(_, es):        { return partition(es,obj); }
-  | VECTORexp(_,es):       { return partition(es,obj); }
-  | LISTexp(_,_,es,e):     { return partition(#[e ... es], obj); }
-  | SETLexp(_,es):         { return partition(es,obj); }
+  | SENDstd::exp(_, es):        { return partition(es,obj); }
+  | VECTORstd::exp(_,es):       { return partition(es,obj); }
+  | LISTstd::exp(_,_,es,e):     { return partition(#[e ... es], obj); }
+  | SETLstd::exp(_,es):         { return partition(es,obj); }
   | IFexp (e1,e2,e3):      { return partition(#[e1,e2,e3],obj); }
   | IDexp _ || LITERALexp _ || NOexp: { obj = -1; return true; }
   | _: { bug("partition: %e", exp); return false; }
@@ -209,13 +209,13 @@ Bool partition( LabExps es, int &obj)
 //  Create an and expression.
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp mkandexp( Exp a, Exp b)
+Exp mkandstd::exp( Exp a, Exp b)
 {
   if (a == NOexp)
     return b;
   if (b == NOexp)
     return a;
-  return BINOPexp("&&",a, b);
+  return BINOPstd::exp("&&",a, b);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -262,7 +262,7 @@ int decompose( int n, Exp exps[], Exp selects[], Exp joins[])
         if (selects[obj] == NOexp)
           selects[obj] = cnf[j];
         else
-          selects[obj] = mkandexp( selects[obj], cnf[j]);
+          selects[obj] = mkandstd::exp( selects[obj], cnf[j]);
         debug_msg ("select: %e\n", cnf[j]);
       }
       else
@@ -270,7 +270,7 @@ int decompose( int n, Exp exps[], Exp selects[], Exp joins[])
         if (joins[obj] == NOexp)
           joins[obj] = cnf[j];
         else
-          joins[obj] = mkandexp( joins[obj], cnf[j]);
+          joins[obj] = mkandstd::exp( joins[obj], cnf[j]);
         debug_msg ("join: %e\n", cnf[j]);
       }
       if (obj > max_object)
@@ -420,7 +420,7 @@ int partition_inference_rules
                     if (e)
                     {
                       join_map.insert( (HashTable::Key) node_number,
-                         BINOPexp( "&&", (Exp) join_map.value(e), joins[i]));
+                         BINOPstd::exp( "&&", (Exp) join_map.value(e), joins[i]));
                     }
                     else
                       join_map.insert( (HashTable::Key) node_number, joins[i]);

@@ -110,7 +110,7 @@ list_1_(mkTuple2(state,rhs),residue_map[rule][arity])
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp TRS::make_exp(Term term) const
+Exp TRS::make_std::exp(Term term) const
 {
   
 #line 94 "../../prop-src/trs3.pcc"
@@ -122,7 +122,7 @@ Exp TRS::make_exp(Term term) const
         switch (_CONSterm(term)->_3) {
           case 0: {
 #line 97 "../../prop-src/trs3.pcc"
-           return CONSexp(_CONSterm(term)->_2,
+           return CONSstd::exp(_CONSterm(term)->_2,
 #line 97 "../../prop-src/trs3.pcc"
 #line 97 "../../prop-src/trs3.pcc"
             nil_1_
@@ -133,13 +133,13 @@ Exp TRS::make_exp(Term term) const
           } break;
           case 1: {
 #line 98 "../../prop-src/trs3.pcc"
-           return CONSexp(_CONSterm(term)->_2,
+           return CONSstd::exp(_CONSterm(term)->_2,
 #line 98 "../../prop-src/trs3.pcc"
 #line 98 "../../prop-src/trs3.pcc"
             nil_1_
 #line 98 "../../prop-src/trs3.pcc"
 #line 98 "../../prop-src/trs3.pcc"
-            ,make_exp(_CONSterm(term)->_4[0])); 
+            ,make_std::exp(_CONSterm(term)->_4[0])); 
 #line 98 "../../prop-src/trs3.pcc"
           } break;
           case 2: {
@@ -175,13 +175,13 @@ Exp TRS::make_exp(Term term) const
 ) {
                             
 #line 108 "../../prop-src/trs3.pcc"
-                           return LISTexp(_CONSterm(term)->_2,_CONSterm(t)->_2,rev(heads),NOexp); 
+                           return LISTstd::exp(_CONSterm(term)->_2,_CONSterm(t)->_2,rev(heads),NOexp); 
 #line 108 "../../prop-src/trs3.pcc"
                           } else {
                             
                             L2:; 
 #line 110 "../../prop-src/trs3.pcc"
-                          return LISTexp(_CONSterm(term)->_2,NOcons,rev(heads),make_exp(term)); 
+                          return LISTstd::exp(_CONSterm(term)->_2,NOcons,rev(heads),make_exp(term)); 
 #line 110 "../../prop-src/trs3.pcc"
                           }
                         } break;
@@ -196,7 +196,7 @@ Exp TRS::make_exp(Term term) const
                            heads = 
 #line 106 "../../prop-src/trs3.pcc"
 #line 106 "../../prop-src/trs3.pcc"
-                            list_1_(make_exp(_CONSterm(t)->_4[0]),heads)
+                            list_1_(make_std::exp(_CONSterm(t)->_4[0]),heads)
 #line 106 "../../prop-src/trs3.pcc"
 #line 106 "../../prop-src/trs3.pcc"
                             ; t = _CONSterm(t)->_4[1]; 
@@ -220,13 +220,13 @@ Exp TRS::make_exp(Term term) const
               
               L3:; 
 #line 114 "../../prop-src/trs3.pcc"
-             return CONSexp( _CONSterm(term)->_2, 
+             return CONSstd::exp( _CONSterm(term)->_2, 
 #line 114 "../../prop-src/trs3.pcc"
 #line 114 "../../prop-src/trs3.pcc"
               nil_1_
 #line 114 "../../prop-src/trs3.pcc"
 #line 114 "../../prop-src/trs3.pcc"
-              , TUPLEexp( make_exp( _CONSterm(term)->_3, _CONSterm(term)->_4))); 
+              , TUPLEstd::exp( make_exp( _CONSterm(term)->_3, _CONSterm(term)->_4))); 
 #line 114 "../../prop-src/trs3.pcc"
             }
           } break;
@@ -234,7 +234,7 @@ Exp TRS::make_exp(Term term) const
         }
       } else {
 #line 96 "../../prop-src/trs3.pcc"
-       return LITERALexp(literal_map[_CONSterm(term)->_1]); 
+       return LITERALstd::exp(literal_map[_CONSterm(term)->_1]); 
 #line 96 "../../prop-src/trs3.pcc"
       }
       } break;
@@ -266,7 +266,7 @@ Exp TRS::make_exp(Term term) const
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exps TRS::make_exp(int n, Term terms[]) const
+Exps TRS::make_std::exp(int n, Term terms[]) const
 {
   Exps exps = 
 #line 129 "../../prop-src/trs3.pcc"
@@ -279,7 +279,7 @@ nil_1_
      exps = 
 #line 131 "../../prop-src/trs3.pcc"
 #line 131 "../../prop-src/trs3.pcc"
-list_1_(make_exp(terms[i]),exps)
+list_1_(make_std::exp(terms[i]),exps)
 #line 131 "../../prop-src/trs3.pcc"
 #line 131 "../../prop-src/trs3.pcc"
 ;
@@ -323,7 +323,7 @@ nil_1_
     C.pr("%^switch (%s) {%+", state_var);
     for_each(Residue, res, residues)
     {
-      C.pr("%^case %i: repl__ = %e; break;", res._1, make_exp(res._2));
+      C.pr("%^case %i: repl__ = %e; break;", res._1, make_std::exp(res._2));
     }
     C.pr("%^default: ");
     }

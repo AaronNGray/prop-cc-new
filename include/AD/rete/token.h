@@ -55,7 +55,7 @@ protected:
 
 public:
   inline void * operator new
-  (size_t, Arena& arena, int n, RuleId id, Fact * f[], Age a)
+  (std::size_t, Arena& arena, int n, RuleId id, Fact * f[], Age a)
   {
     ReteToken * t = (ReteToken*) arena();
     t->arity = n;

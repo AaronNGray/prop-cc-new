@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <string>
-#include <assert.h>
+#include <cstdio>
+#include <cstring>
+#include <cassert>
 #include <AD/sort/bubble.h>     // bubble sort
 #include <AD/sort/insort.h>     // Insertion sort
 #include <AD/sort/heapsort.h>   // Heap sort
@@ -16,7 +16,7 @@
 int sorted(const char * names[], int size)
 {
   for (int i = 0; i < size - 1; i++)
-    if (strcmp(names[i],names[i+1]) >= 0)
+    if (std::strcmp(names[i],names[i+1]) >= 0)
       return 0;
   return 1;
 }
@@ -24,7 +24,7 @@ int sorted(const char * names[], int size)
 int rev_sorted(const char * names[], int size)
 {
   for (int i = 0; i < size - 1; i++)
-    if (strcmp(names[i],names[i+1]) <= 0)
+    if (std::strcmp(names[i],names[i+1]) <= 0)
       return 0;
   return 1;
 }
@@ -54,63 +54,63 @@ int main(int argc, char * argv[])
 
   const char * names[sizeof(people)/sizeof(people[0])];
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   heapSort(const char *, names, sizeof(names)/sizeof(names[0]),
-           strcmp(key,names[i]) < 0);
+           std::strcmp(key,names[i]) < 0);
   pr ("Heap sort",names, sizeof(names)/sizeof(names[0]));
   assert ( sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   heapSort(const char *, names, sizeof(names)/sizeof(names[0]),
-           strcmp(key,names[i]) > 0);
+           std::strcmp(key,names[i]) > 0);
   pr ("Heap sort",names, sizeof(names)/sizeof(names[0]));
   assert ( rev_sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   bubbleSort(const char *, names, sizeof(names)/sizeof(names[0]),
-             strcmp(names[i],names[i+1]) < 0);
+             std::strcmp(names[i],names[i+1]) < 0);
   pr ("Bubble sort",names, sizeof(names)/sizeof(names[0]));
   assert ( sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   bubbleSort(const char *, names, sizeof(names)/sizeof(names[0]),
-             strcmp(names[i],names[i+1]) > 0);
+             std::strcmp(names[i],names[i+1]) > 0);
   pr ("Bubble sort",names, sizeof(names)/sizeof(names[0]));
   assert ( rev_sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   shellSort(const char *, names, sizeof(names)/sizeof(names[0]),
-            strcmp(key,names[i]) < 0);
+            std::strcmp(key,names[i]) < 0);
   pr ("Shell sort",names, sizeof(names)/sizeof(names[0]));
   assert ( sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   shellSort(const char *, names, sizeof(names)/sizeof(names[0]),
-            strcmp(key,names[i]) > 0);
+            std::strcmp(key,names[i]) > 0);
   pr ("Shell sort",names, sizeof(names)/sizeof(names[0]));
   assert ( rev_sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   insertionSort(const char *, names, sizeof(names)/sizeof(names[0]),
-                strcmp(key,names[i]) < 0);
+                std::strcmp(key,names[i]) < 0);
   pr ("Insertion sort",names, sizeof(names)/sizeof(names[0]));
   assert ( sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   insertionSort(const char *, names, sizeof(names)/sizeof(names[0]),
-                strcmp(key,names[i]) > 0);
+                std::strcmp(key,names[i]) > 0);
   pr ("Insertion sort",names, sizeof(names)/sizeof(names[0]));
   assert ( rev_sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   quickSort(const char *, names, sizeof(names)/sizeof(names[0]),
-            strcmp(key,A[i]) < 0);
+            std::strcmp(key,A[i]) < 0);
   pr ("Quick sort",names, sizeof(names)/sizeof(names[0]));
   assert ( sorted(names, sizeof(names)/sizeof(names[0]) ) );
 
-  memcpy(names,people,sizeof(people));
+  std::memcpy(names,people,sizeof(people));
   quickSort(const char *, names, sizeof(names)/sizeof(names[0]),
-            strcmp(key,A[i]) > 0);
+            std::strcmp(key,A[i]) > 0);
   pr ("Quick sort",names, sizeof(names)/sizeof(names[0]));
   assert ( rev_sorted(names, sizeof(names)/sizeof(names[0]) ) );
 

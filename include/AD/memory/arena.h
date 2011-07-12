@@ -99,7 +99,7 @@ public:
   //  Virtual methods for the Mem protocol
   ///////////////////////////////////////////////////////////////////////////
   virtual void   clear  ();
-  inline virtual void * m_alloc (size_t)
+  inline virtual void * m_alloc (std::size_t)
   {
     return (*this)();
   }
@@ -107,7 +107,7 @@ public:
   {
     basic_free(cell);
   }
-  inline virtual size_t size  (const void *) const
+  inline virtual std::size_t size  (const void *) const
   {
     return element_size * sizeof(FreeList);
   }

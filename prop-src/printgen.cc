@@ -17,8 +17,8 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_r_i_n_t_g_e_nco_c_c_Q1("obj_
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <ctype.h>
-#include <string>
+#include <cctype>
+#include <cstring>
 #include <AD/strings/quark.h>
 #include <AD/strings/charesc.h>
 #include "ir.h"
@@ -134,7 +134,7 @@ void DatatypeHierarchy::generate_print_implementation
   if (k != EXTERNAL_INSTANTIATION) return;
 
   if (arity > 1)
-    C.pr( "%^switch (%U)%^{%+", IDexp(
+    C.pr( "%^switch (%U)%^{%+", IDstd::exp(
 #line 104 "../../prop-src/printgen.pcc"
 #line 104 "../../prop-src/printgen.pcc"
 cocofmcocofm_p_r_o_pcn_s_r_cfm_p_r_i_n_t_g_e_nco_c_c_Q1
@@ -522,7 +522,7 @@ nil_1_
   int N = length(tyl);
   int index = 1;
 
-  Exp exp = select(IDexp("obj__"),cons,mono_ty);
+  Exp exp = select(IDstd::exp("obj__"),cons,mono_ty);
 
   for_each (ProductionSymbol, f, fmt)
   {
@@ -539,12 +539,12 @@ nil_1_
     case a_ProductionSymbol::tag_TERMSTRINGsym: {
 #line 258 "../../prop-src/printgen.pcc"
       
-      int len = strlen(_TERMSTRINGsym(f)->TERMSTRINGsym);
+      int len = std::strlen(_TERMSTRINGsym(f)->TERMSTRINGsym);
       if (len == 1)
       {
         C.pr( "%^strm__ << '%s';",_TERMSTRINGsym(f)->TERMSTRINGsym);
       }
-      else if (len == 3 && _TERMSTRINGsym(f)->TERMSTRINGsym[0] == '"' && _TERMSTRINGsym(f)->TERMSTRINGsym[2] == '"' && !isalnum(_TERMSTRINGsym(f)->TERMSTRINGsym[1]))
+      else if (len == 3 && _TERMSTRINGsym(f)->TERMSTRINGsym[0] == '"' && _TERMSTRINGsym(f)->TERMSTRINGsym[2] == '"' && !std::isalnum(_TERMSTRINGsym(f)->TERMSTRINGsym[1]))
       {
         C.pr( "%^strm__ << '%s';",print_char(_TERMSTRINGsym(f)->TERMSTRINGsym[1]));
       }
@@ -558,12 +558,12 @@ nil_1_
       } break;
     case a_ProductionSymbol::tag_NONTERMsym: {
 #line 252 "../../prop-src/printgen.pcc"
-     gen_print_field(C,DOTexp(exp,_NONTERMsym(f)->NONTERMsym),component_ty(ty,_NONTERMsym(f)->NONTERMsym)); 
+     gen_print_field(C,DOTstd::exp(exp,_NONTERMsym(f)->NONTERMsym),component_ty(ty,_NONTERMsym(f)->NONTERMsym)); 
 #line 252 "../../prop-src/printgen.pcc"
       } break;
     case a_ProductionSymbol::tag_POSNONTERMsym: {
 #line 254 "../../prop-src/printgen.pcc"
-     gen_print_field(C,DOTexp(exp,index_of(_POSNONTERMsym(f)->POSNONTERMsym)),component_ty(ty,_POSNONTERMsym(f)->POSNONTERMsym)); 
+     gen_print_field(C,DOTstd::exp(exp,index_of(_POSNONTERMsym(f)->POSNONTERMsym)),component_ty(ty,_POSNONTERMsym(f)->POSNONTERMsym)); 
 #line 254 "../../prop-src/printgen.pcc"
       } break;
     case a_ProductionSymbol::tag_SPECIALsym: {
@@ -591,8 +591,8 @@ nil_1_
                 "%-%^}"
                 "%-%^}",
                 class_name, tys, nil->name,
-                DOTexp(select(IDexp("l__"),cons,mono_ty),"_2"),
-                DOTexp(select(IDexp("l__"),cons,mono_ty),"_1")
+                DOTstd::exp(select(IDexp("l__"),cons,mono_ty),"_2"),
+                DOTstd::exp(select(IDexp("l__"),cons,mono_ty),"_1")
               );
           
 #line 301 "../../prop-src/printgen.pcc"
@@ -605,7 +605,7 @@ nil_1_
         case ']': {
 #line 277 "../../prop-src/printgen.pcc"
           
-          char c = cons->name[strlen(cons->name)-1];
+          char c = cons->name[std::strlen(cons->name)-1];
           C.pr("%^strm__ << '%c';", (int)c);
           
 #line 280 "../../prop-src/printgen.pcc"
@@ -628,9 +628,9 @@ nil_1_
 #line 309 "../../prop-src/printgen.pcc"
 #line 309 "../../prop-src/printgen.pcc"
             )
-            gen_print_field( C, DOTexp( exp, index_of( index)),tyl->_1);
+            gen_print_field( C, DOTstd::exp( exp, index_of( index)),tyl->_1);
             else
-            gen_print_field( C, DOTexp( exp, label_list->_1),tyl->_1);
+            gen_print_field( C, DOTstd::exp( exp, label_list->_1),tyl->_1);
             
             C.pr(" // %T", tyl->_1);
             if (tyl != 

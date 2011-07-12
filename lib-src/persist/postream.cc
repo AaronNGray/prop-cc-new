@@ -23,8 +23,8 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #define PSTREAM_IMPLEMENTATION
-#include <stdlib.h>
-#include <string>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
 #include <AD/persist/ptype.h>     // persistent type id
 #include <AD/persist/pstream.h>   // persistent stream base class
@@ -210,7 +210,7 @@ Postream& operator << (Postream& s, const P_char * str)
   }
   else
   {
-    P_int32 length = strlen(str);
+    P_int32 length = std::strlen(str);
     s << length;
     s._out.write (str, length);
   }
@@ -236,7 +236,7 @@ Postream& Postream::write( const char buf [], int len)
   }
   else
   {
-    P_int32 length = len >= 0 ? len : strlen(buf);
+    P_int32 length = len >= 0 ? len : std::strlen(buf);
     *this << length;
     _out.write (buf, length);
   }

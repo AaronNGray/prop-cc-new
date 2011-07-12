@@ -27,10 +27,10 @@
 //  is a parser table generator for LR(1) grammars.
 //////////////////////////////////////////////////////////////////////////////
 
-#include <iostream.h>
-#include <stdlib.h>
-#include <string>
-#include <new.h>
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <new>
 #include <AD/automata/lr1gen.h>     // LR(1) parser generator
 #include <AD/automata/item.h>       // LR items
 #include <AD/automata/lr0.h>        // LR(0) finite state machine

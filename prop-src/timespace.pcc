@@ -6,7 +6,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <math.h>
+#include <cmath>
 #include <iostream>
 #include "basics.ph"
 #include "timespace.ph"
@@ -74,8 +74,8 @@ Complexity simplify (Complexity c)
     Add   (Const i, Const j): Const(i+j)
   | Mul   (Const i, Const j): Const(i*j)
   | Div   (Const i, Const j): Const(i/j)
-  | Power (Const i, Const j): Const(exp(log(i)*j))
-  | Log   (Const i):          Const(log(i))
+  | Power (Const i, Const j): Const(std::exp(log(i)*j))
+  | Log   (Const i):          Const(std::log(i))
   end rewrite;
   return c;
 }

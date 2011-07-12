@@ -22,7 +22,7 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <string>
+#include <cstring>
 #include <AD/automata/graminfo.h>
 #include <AD/sort/shellsrt.h>  // Shell sort
 
@@ -86,7 +86,7 @@ void GrammarInfo::compute_info( const Grammar& G)
   //
   number_of_non_terminals = max_non_terminal - min_non_terminal + 1;
   nullable = new Bool [ number_of_non_terminals ];
-  memset(nullable,0,number_of_non_terminals * sizeof(Bool));
+  std::memset(nullable,0,number_of_non_terminals * sizeof(Bool));
   nullable -= min_non_terminal;
 
   first.create(min_non_terminal,max_non_terminal,G.min_terminal(),G.max_terminal());

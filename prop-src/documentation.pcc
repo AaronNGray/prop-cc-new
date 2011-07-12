@@ -4,8 +4,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <string>
-#include <stdlib.h>
+#include <cstring>
+#include <cstdlib>
 #include "parser.ph"
 
 void PropParser::emit_doc()

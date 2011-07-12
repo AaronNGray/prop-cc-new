@@ -22,8 +22,8 @@
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
-#include <stddef.h>
-#include <string>
+#include <cstddef>
+#include <cstring>
 #include <AD/strings/kmp.h>
 
 void KMP::compile( register const char* pattern, int len)
@@ -31,7 +31,7 @@ void KMP::compile( register const char* pattern, int len)
   delete [] skip;
   skip = NULL;
   if (len < 0)
-    len = strlen(pattern);
+    len = std::strlen(pattern);
   if ( (patternLength = len) > 0)
   {
     register int i, w, c;
@@ -91,7 +91,7 @@ void KMP::compile( register const char* pattern, int len)
 int KMP::Match(register const char * text, int textLength) const
 {
   if (textLength < 0)
-    textLength = strlen(text);
+    textLength = std::strlen(text);
   register int m, p;  // characters matched and text position
   register int patLen = patternLength;
   register int limit = textLength - patLen;

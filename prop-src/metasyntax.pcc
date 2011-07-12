@@ -24,7 +24,7 @@ class MetaSyntaxCompilerImpl
   void operator = (const MetaSyntaxCompilerImpl&);
 public:
 
-  size_t    memory_used;   // total memory used for the parsers and lexers
+  std::size_t    memory_used;   // total memory used for the parsers and lexers
   HashTable grammar_map;   // mapping from name to grammar
   int       timer;         // use count timer
 
@@ -44,7 +44,7 @@ struct GrammarRecord
 {
   Id      grammar_name;   // grammar name
   GramExp grammar_exp;    // grammar expression
-  size_t  memory_used;    // memory used for this grammar
+  std::size_t  memory_used;    // memory used for this grammar
   int     last_used;      // time of last use
   int     use_count;      // number of uses
 };
@@ -81,7 +81,7 @@ void MetaSyntaxCompiler::install_grammar( Id grammar_name, GramExp grammar)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp MetaSyntaxCompiler::parse_exp( Id grammar_name, const char *text)
+Exp MetaSyntaxCompiler::parse_std::exp( Id grammar_name, const char *text)
 {
   error( "%Lunrecognized quoted expression `%s`\n", text);
   return NOexp;
@@ -108,7 +108,7 @@ Pat MetaSyntaxCompiler::parse_pat( Id grammar_name, const char *text)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void MetaSyntaxCompiler::flush_grammar( size_t memory_needed)
+void MetaSyntaxCompiler::flush_grammar( std::size_t memory_needed)
 {
   long memory_to_free = memory_needed;
   while (memory_to_free > 0 && impl->grammar_map.size() > 0)

@@ -1,5 +1,5 @@
 #include <AD/graph/graph.h>
-#include <stdlib.h>
+#include <cstdlib>
 
 int main()
 {
@@ -9,7 +9,7 @@ int main()
   {
     const NodeObject * n = *i;
     if (n)
-      exit(1);
+      std::exit(1);
   }
   return 0;
 }
