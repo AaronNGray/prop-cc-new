@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\parser.pcc".
+//  The original source file is "parser.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_PRINTER_USED
@@ -13,8 +13,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rco_c_c_Q1("this");
-#line 1 "../../prop-src/parser.pcc"
+static const Quark _p_a_r_s_e_rco_c_c_Q1("this");
+#line 1 "parser.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //      ////////
@@ -61,8 +61,8 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rco_c_c_Q1("this");
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 47 "../../prop-src/parser.pcc"
-#line 53 "../../prop-src/parser.pcc"
+#line 47 "parser.pcc"
+#line 53 "parser.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Forward class definition for RefineTyDecl
@@ -88,25 +88,25 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rco_c_c_Q1("this");
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type RefineTyDecls
 ///////////////////////////////////////////////////////////////////////////////
-#line 49 "../../prop-src/parser.pcc"
+#line 49 "parser.pcc"
 typedef a_List<RefineTyDecl> *  RefineTyDecls;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type RefineConsDecls
 ///////////////////////////////////////////////////////////////////////////////
-#line 50 "../../prop-src/parser.pcc"
+#line 50 "parser.pcc"
 typedef a_List<RefineConsDecl> *  RefineConsDecls;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type LabTyList
 ///////////////////////////////////////////////////////////////////////////////
-#line 51 "../../prop-src/parser.pcc"
+#line 51 "parser.pcc"
 typedef struct { Ids lab_list; Tys ty_list;  } LabTyList;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type QualIdPat
 ///////////////////////////////////////////////////////////////////////////////
-#line 52 "../../prop-src/parser.pcc"
+#line 52 "parser.pcc"
 typedef struct { QualId label; Pat pat;  } QualIdPat;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -116,12 +116,9 @@ typedef struct { QualId label; Pat pat;  } QualIdPat;
 ///////////////////////////////////////////////////////////////////////////////
 class a_RefineTyDecl : public MEM {
 public:
-#line 47 "../../prop-src/parser.pcc"
+#line 47 "parser.pcc"
   Id _1; Ids _2; 
-  inline a_RefineTyDecl (Id x_1, Ids x_2)
-   : _1(x_1), _2(x_2)
-  {
-  }
+  a_RefineTyDecl (Id x_1, Ids x_2);
 };
 inline int boxed(const a_RefineTyDecl *) { return 1; }
 inline int untag(const a_RefineTyDecl *) { return 0; }
@@ -130,16 +127,7 @@ inline int untag(const a_RefineTyDecl *) { return 0; }
 // Datatype constructor functions for RefineTyDecl
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_RefineTyDecl * REFINEtype (Id x_1, Ids x_2)
-{
-  return new a_RefineTyDecl (x_1, x_2);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for RefineTyDecl
-//
-///////////////////////////////////////////////////////////////////////////////
-
+extern a_RefineTyDecl * REFINEtype (Id x_1, Ids x_2);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -148,12 +136,9 @@ inline a_RefineTyDecl * REFINEtype (Id x_1, Ids x_2)
 ///////////////////////////////////////////////////////////////////////////////
 class a_RefineConsDecl : public MEM {
 public:
-#line 48 "../../prop-src/parser.pcc"
+#line 48 "parser.pcc"
   Cons _1; Tys _2; 
-  inline a_RefineConsDecl (Cons x_1, Tys x_2)
-   : _1(x_1), _2(x_2)
-  {
-  }
+  a_RefineConsDecl (Cons x_1, Tys x_2);
 };
 inline int boxed(const a_RefineConsDecl *) { return 1; }
 inline int untag(const a_RefineConsDecl *) { return 0; }
@@ -162,29 +147,20 @@ inline int untag(const a_RefineConsDecl *) { return 0; }
 // Datatype constructor functions for RefineConsDecl
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_RefineConsDecl * REFINEconstructor (Cons x_1, Tys x_2)
-{
-  return new a_RefineConsDecl (x_1, x_2);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for RefineConsDecl
-//
-///////////////////////////////////////////////////////////////////////////////
+extern a_RefineConsDecl * REFINEconstructor (Cons x_1, Tys x_2);
+
+#line 53 "parser.pcc"
+#line 53 "parser.pcc"
 
 
-#line 53 "../../prop-src/parser.pcc"
-#line 53 "../../prop-src/parser.pcc"
-
-
-#line 55 "../../prop-src/parser.pcc"
-#line 55 "../../prop-src/parser.pcc"
+#line 55 "parser.pcc"
+#line 55 "parser.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Interface specification of datatype RefineTyDecl
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 55 "../../prop-src/parser.pcc"
+#line 55 "parser.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -192,7 +168,7 @@ inline a_RefineConsDecl * REFINEconstructor (Cons x_1, Tys x_2)
 // Interface specification of datatype RefineConsDecl
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 55 "../../prop-src/parser.pcc"
+#line 55 "parser.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -200,7 +176,15 @@ inline a_RefineConsDecl * REFINEconstructor (Cons x_1, Tys x_2)
 // Instantiation of datatype RefineTyDecl
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 55 "../../prop-src/parser.pcc"
+#line 55 "parser.pcc"
+a_RefineTyDecl::a_RefineTyDecl (Id x_1, Ids x_2)
+ : _1(x_1), _2(x_2)
+{
+}
+a_RefineTyDecl * REFINEtype (Id x_1, Ids x_2)
+{
+  return new a_RefineTyDecl (x_1, x_2);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -208,11 +192,19 @@ inline a_RefineConsDecl * REFINEconstructor (Cons x_1, Tys x_2)
 // Instantiation of datatype RefineConsDecl
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 55 "../../prop-src/parser.pcc"
+#line 55 "parser.pcc"
+a_RefineConsDecl::a_RefineConsDecl (Cons x_1, Tys x_2)
+ : _1(x_1), _2(x_2)
+{
+}
+a_RefineConsDecl * REFINEconstructor (Cons x_1, Tys x_2)
+{
+  return new a_RefineConsDecl (x_1, x_2);
+}
 
 
-#line 55 "../../prop-src/parser.pcc"
-#line 55 "../../prop-src/parser.pcc"
+#line 55 "parser.pcc"
+#line 55 "parser.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -245,8 +237,8 @@ extern TermDef mklistterm(Id, Ty, Ty, Decls);
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 87 "../../prop-src/parser.pcc"
-#line 2636 "../../prop-src/parser.pcc"
+#line 87 "parser.pcc"
+#line 2636 "parser.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 // Encoded parser tables for syntax class PropParser
 ///////////////////////////////////////////////////////////////////////////////
@@ -3132,760 +3124,760 @@ static const DFATables::ShortSymbol * PropParser_rhs[] =
 ///////////////////////////////////////////////////////////////////////////////
 union PropParser_semantic_stack_type {
   int dummy;
-#line 138 "../../prop-src/parser.pcc"
+#line 138 "parser.pcc"
   typedef int ATTRIBUTE_0;
   ATTRIBUTE_0 _2441, _2392, _2377, _2367, _2319, _2012, _4;
-#line 139 "../../prop-src/parser.pcc"
+#line 139 "parser.pcc"
   typedef int ATTRIBUTE_1;
   ATTRIBUTE_1 _2153, _2144, _7;
-#line 140 "../../prop-src/parser.pcc"
+#line 140 "parser.pcc"
   typedef int ATTRIBUTE_2;
   ATTRIBUTE_2 _1234, _10;
-#line 141 "../../prop-src/parser.pcc"
+#line 141 "parser.pcc"
   typedef int ATTRIBUTE_3;
   ATTRIBUTE_3 _2235, _2230, _2006, _1575, _324, _13;
-#line 142 "../../prop-src/parser.pcc"
+#line 142 "parser.pcc"
   typedef int ATTRIBUTE_4;
   ATTRIBUTE_4 _2072, _2063, _16;
-#line 143 "../../prop-src/parser.pcc"
+#line 143 "parser.pcc"
   typedef int ATTRIBUTE_5;
   ATTRIBUTE_5 _2015, _1891, _19;
-#line 144 "../../prop-src/parser.pcc"
+#line 144 "parser.pcc"
   typedef int ATTRIBUTE_6;
   ATTRIBUTE_6 _2018, _22;
-#line 145 "../../prop-src/parser.pcc"
+#line 145 "parser.pcc"
   typedef int ATTRIBUTE_7;
   ATTRIBUTE_7 _2003, _25;
-#line 146 "../../prop-src/parser.pcc"
+#line 146 "parser.pcc"
   typedef int ATTRIBUTE_8;
   ATTRIBUTE_8 _2009, _28;
-#line 147 "../../prop-src/parser.pcc"
+#line 147 "parser.pcc"
   typedef int ATTRIBUTE_9;
   ATTRIBUTE_9 _2000, _1887, _31;
-#line 148 "../../prop-src/parser.pcc"
+#line 148 "parser.pcc"
   typedef int ATTRIBUTE_10;
   ATTRIBUTE_10 _2021, _34;
-#line 150 "../../prop-src/parser.pcc"
+#line 150 "parser.pcc"
   typedef MatchOptions ATTRIBUTE_11;
   ATTRIBUTE_11 _1169, _1159, _54, _51, _47, _44, _40, _37;
-#line 171 "../../prop-src/parser.pcc"
+#line 171 "parser.pcc"
   typedef Id ATTRIBUTE_12;
   ATTRIBUTE_12 _3152, _3105, _3095, _3047, _3038, _3030, _3022, _3014, _2992, _2986, _2976, _2973, _2941, _2668, _2657, _2638, _2607, _2540, _2534, _2368, _2321, _2291, _2262, _2249, _2219, _2211, _2202, _2154, _2146, _2073, _2065, _1956, _1914, _1836, _1812, _1779, _1764, _1704, _1577, _1527, _1501, _1489, _1113, _1014, _1012, _1003, _986, _943, _684, _678, _675, _667, _595, _477, _472, _326, _314, _252, _249, _82, _72;
-#line 173 "../../prop-src/parser.pcc"
+#line 173 "parser.pcc"
   typedef Id ATTRIBUTE_13;
   ATTRIBUTE_13 _1457, _75;
-#line 175 "../../prop-src/parser.pcc"
+#line 175 "parser.pcc"
   typedef Cons ATTRIBUTE_14;
   ATTRIBUTE_14 _2316, _2294, _949, _332, _329, _304, _301, _127, _85, _78;
-#line 176 "../../prop-src/parser.pcc"
+#line 176 "parser.pcc"
   typedef Id ATTRIBUTE_15;
   ATTRIBUTE_15 _3210, _3203, _3184, _3177, _2936, _2902, _2432, _2426, _1908, _1905, _1898, _1896, _1620, _1616, _1612, _1609, _1358, _1251, _88, _84, _81;
-#line 179 "../../prop-src/parser.pcc"
+#line 179 "parser.pcc"
   typedef Id ATTRIBUTE_16;
   ATTRIBUTE_16 _2650, _2613, _2582, _2567, _1633, _1628, _90, _87;
-#line 182 "../../prop-src/parser.pcc"
+#line 182 "parser.pcc"
   typedef Cons ATTRIBUTE_17;
   ATTRIBUTE_17 _1100, _1090, _1083, _93;
-#line 184 "../../prop-src/parser.pcc"
+#line 184 "parser.pcc"
   typedef char const * ATTRIBUTE_18;
   ATTRIBUTE_18 _2300, _1962, _1707, _1625, _1622, _1613, _321, _199, _96, _91;
-#line 185 "../../prop-src/parser.pcc"
+#line 185 "parser.pcc"
   typedef char const * ATTRIBUTE_19;
   ATTRIBUTE_19 _2303, _1617, _318, _99;
-#line 186 "../../prop-src/parser.pcc"
+#line 186 "parser.pcc"
   typedef Id ATTRIBUTE_20;
   ATTRIBUTE_20 _1448, _190, _102;
-#line 193 "../../prop-src/parser.pcc"
+#line 193 "parser.pcc"
   typedef Id ATTRIBUTE_21;
   ATTRIBUTE_21 _1451, _193, _105;
-#line 199 "../../prop-src/parser.pcc"
+#line 199 "parser.pcc"
   typedef char const * ATTRIBUTE_22;
   ATTRIBUTE_22 _1110, _263, _108;
-#line 205 "../../prop-src/parser.pcc"
+#line 205 "parser.pcc"
   typedef int ATTRIBUTE_23;
   ATTRIBUTE_23 _2930, _2186, _2178, _2172, _1701, _1009, _992, _178, _111;
-#line 206 "../../prop-src/parser.pcc"
+#line 206 "parser.pcc"
   typedef double ATTRIBUTE_24;
   ATTRIBUTE_24 _2933, _187, _114;
-#line 207 "../../prop-src/parser.pcc"
+#line 207 "parser.pcc"
   typedef char ATTRIBUTE_25;
   ATTRIBUTE_25 _2297, _1710, _184, _117;
-#line 208 "../../prop-src/parser.pcc"
+#line 208 "parser.pcc"
   typedef Bool ATTRIBUTE_26;
   ATTRIBUTE_26 _181, _123, _120;
-#line 213 "../../prop-src/parser.pcc"
+#line 213 "parser.pcc"
   typedef Cons ATTRIBUTE_27;
   ATTRIBUTE_27 _1944, _1926, _172, _167, _162, _156, _150, _144, _139, _134, _129, _126;
-#line 226 "../../prop-src/parser.pcc"
+#line 226 "parser.pcc"
   typedef Literal ATTRIBUTE_28;
   ATTRIBUTE_28 _257, _196, _192, _189, _186, _183, _180, _177;
-#line 235 "../../prop-src/parser.pcc"
+#line 235 "parser.pcc"
   typedef Literal ATTRIBUTE_29;
   ATTRIBUTE_29 _946, _198, _195;
-#line 246 "../../prop-src/parser.pcc"
+#line 246 "parser.pcc"
   typedef Pat ATTRIBUTE_30;
   ATTRIBUTE_30 _2497, _1262, _1253, _1235, _204, _201;
-#line 251 "../../prop-src/parser.pcc"
+#line 251 "parser.pcc"
   typedef Pat ATTRIBUTE_31;
   ATTRIBUTE_31 _2786, _2120, _2117, _1841, _514, _511, _509, _504, _501, _474, _469, _447, _436, _425, _386, _372, _358, _311, _295, _274, _254, _240, _238, _235, _233, _230, _228, _225, _223, _220, _218, _215, _210, _207, _202;
-#line 256 "../../prop-src/parser.pcc"
+#line 256 "parser.pcc"
   typedef Pat ATTRIBUTE_32;
   ATTRIBUTE_32 _237, _232, _227, _222, _217, _213, _211;
-#line 265 "../../prop-src/parser.pcc"
+#line 265 "parser.pcc"
   typedef Pat ATTRIBUTE_33;
   ATTRIBUTE_33 _1792, _315, _305, _245, _242, _208;
-#line 270 "../../prop-src/parser.pcc"
+#line 270 "parser.pcc"
   typedef Pat ATTRIBUTE_34;
   ATTRIBUTE_34 _313, _307, _303, _300, _293, _287, _282, _277, _272, _268, _265, _262, _259, _256, _251, _248, _243;
-#line 296 "../../prop-src/parser.pcc"
+#line 296 "parser.pcc"
   typedef Pat ATTRIBUTE_35;
   ATTRIBUTE_35 _2251, _323, _320, _317, _260;
-#line 321 "../../prop-src/parser.pcc"
+#line 321 "parser.pcc"
   typedef Conses ATTRIBUTE_36;
   ATTRIBUTE_36 _334, _331, _328, _309;
-#line 326 "../../prop-src/parser.pcc"
+#line 326 "parser.pcc"
   typedef Pat ATTRIBUTE_37;
   ATTRIBUTE_37 _455, _444, _433, _422, _415, _408, _401, _397, _393, _389, _381, _375, _367, _361, _353, _347, _341, _336, _246;
-#line 353 "../../prop-src/parser.pcc"
+#line 353 "parser.pcc"
   typedef Bool ATTRIBUTE_38;
   ATTRIBUTE_38 _462, _460, _452, _450, _441, _439, _430, _428, _419, _417, _412, _410, _405, _403;
-#line 357 "../../prop-src/parser.pcc"
+#line 357 "parser.pcc"
   typedef Pat ATTRIBUTE_39;
   ATTRIBUTE_39 _467, _465, _448, _437, _426;
-#line 361 "../../prop-src/parser.pcc"
+#line 361 "parser.pcc"
   typedef LabPat ATTRIBUTE_40;
   ATTRIBUTE_40 _527, _524, _476, _471;
-#line 372 "../../prop-src/parser.pcc"
+#line 372 "parser.pcc"
   typedef Pats ATTRIBUTE_41;
   ATTRIBUTE_41 _498, _487, _484, _479, _457, _279;
-#line 377 "../../prop-src/parser.pcc"
+#line 377 "parser.pcc"
   typedef Pats ATTRIBUTE_42;
   ATTRIBUTE_42 _491, _489, _378, _364, _350, _343, _338;
-#line 381 "../../prop-src/parser.pcc"
+#line 381 "parser.pcc"
   typedef Pats ATTRIBUTE_43;
   ATTRIBUTE_43 _3186, _3179, _497, _494, _492, _451, _440, _429, _418, _411, _404, _384, _370, _356;
-#line 386 "../../prop-src/parser.pcc"
+#line 386 "parser.pcc"
   typedef Pat ATTRIBUTE_44;
   ATTRIBUTE_44 _503, _500, _495, _485, _482, _480;
-#line 391 "../../prop-src/parser.pcc"
+#line 391 "parser.pcc"
   typedef Pats ATTRIBUTE_45;
   ATTRIBUTE_45 _516, _513, _508, _205;
-#line 396 "../../prop-src/parser.pcc"
+#line 396 "parser.pcc"
   typedef LabPats ATTRIBUTE_46;
   ATTRIBUTE_46 _520, _518, _289, _284;
-#line 400 "../../prop-src/parser.pcc"
+#line 400 "parser.pcc"
   typedef LabPats ATTRIBUTE_47;
   ATTRIBUTE_47 _529, _526, _523, _521;
-#line 411 "../../prop-src/parser.pcc"
+#line 411 "parser.pcc"
   typedef Ty ATTRIBUTE_48;
   ATTRIBUTE_48 _535, _534, _531;
-#line 416 "../../prop-src/parser.pcc"
+#line 416 "parser.pcc"
   typedef Ty ATTRIBUTE_49;
   ATTRIBUTE_49 _542, _539, _537, _532;
-#line 421 "../../prop-src/parser.pcc"
+#line 421 "parser.pcc"
   typedef Ty ATTRIBUTE_50;
   ATTRIBUTE_50 _2978, _2846, _2840, _2834, _2828, _2826, _2820, _2818, _2812, _2806, _2794, _2609, _2572, _2542, _2536, _2364, _2360, _2354, _2346, _2269, _1767, _1688, _1683, _1678, _1673, _1671, _1665, _1663, _1657, _1655, _1630, _1189, _707, _704, _702, _696, _686, _631, _620, _616, _612, _608, _604, _600, _567, _566, _562, _561, _558, _557, _554, _553, _550, _546, _545, _543, _506, _297;
-#line 430 "../../prop-src/parser.pcc"
+#line 430 "parser.pcc"
   typedef Ty ATTRIBUTE_51;
   ATTRIBUTE_51 _2518, _2502, _589, _588, _584, _583, _580, _579, _576, _575, _572;
-#line 438 "../../prop-src/parser.pcc"
+#line 438 "parser.pcc"
   typedef Ty ATTRIBUTE_52;
   ATTRIBUTE_52 _1981, _594;
-#line 441 "../../prop-src/parser.pcc"
+#line 441 "parser.pcc"
   typedef Ty ATTRIBUTE_53;
   ATTRIBUTE_53 _648, _644, _639, _634, _629, _625, _622, _618, _614, _610, _606, _602, _598, _573;
-#line 456 "../../prop-src/parser.pcc"
+#line 456 "parser.pcc"
   typedef Ty ATTRIBUTE_54;
   ATTRIBUTE_54 _2429, _2424, _650, _647, _551;
-#line 461 "../../prop-src/parser.pcc"
+#line 461 "parser.pcc"
   typedef Ty ATTRIBUTE_55;
   ATTRIBUTE_55 _653, _651;
-#line 465 "../../prop-src/parser.pcc"
+#line 465 "parser.pcc"
   typedef Ty ATTRIBUTE_56;
   ATTRIBUTE_56 _662, _661, _658, _623;
-#line 470 "../../prop-src/parser.pcc"
+#line 470 "parser.pcc"
   typedef QualId ATTRIBUTE_57;
   ATTRIBUTE_57 _2496, _672, _669, _666;
-#line 475 "../../prop-src/parser.pcc"
+#line 475 "parser.pcc"
   typedef Ty ATTRIBUTE_58;
   ATTRIBUTE_58 _677, _674, _670, _664, _659;
-#line 480 "../../prop-src/parser.pcc"
+#line 480 "parser.pcc"
   typedef LabTy ATTRIBUTE_59;
   ATTRIBUTE_59 _725, _722, _720, _714, _683;
-#line 483 "../../prop-src/parser.pcc"
+#line 483 "parser.pcc"
   typedef Tys ATTRIBUTE_60;
   ATTRIBUTE_60 _1957, _1945, _1927, _690, _688, _596;
-#line 487 "../../prop-src/parser.pcc"
+#line 487 "parser.pcc"
   typedef Tys ATTRIBUTE_61;
   ATTRIBUTE_61 _2054, _1459, _698, _695, _692, _680;
-#line 492 "../../prop-src/parser.pcc"
+#line 492 "parser.pcc"
   typedef Tys ATTRIBUTE_62;
   ATTRIBUTE_62 _2800, _1635, _1464, _709, _706, _701, _699, _641, _636;
-#line 497 "../../prop-src/parser.pcc"
+#line 497 "parser.pcc"
   typedef LabTyList ATTRIBUTE_63;
   ATTRIBUTE_63 _716, _713, _711, _655;
-#line 505 "../../prop-src/parser.pcc"
+#line 505 "parser.pcc"
   typedef LabTyList ATTRIBUTE_64;
   ATTRIBUTE_64 _727, _724, _719, _717;
-#line 524 "../../prop-src/parser.pcc"
+#line 524 "parser.pcc"
   typedef Exp ATTRIBUTE_65;
   ATTRIBUTE_65 _3221, _3217, _3147, _2899, _2889, _2881, _2878, _2875, _2872, _2869, _2867, _2864, _2862, _2859, _2855, _2851, _2789, _2751, _2723, _2706, _2697, _2692, _2690, _2544, _2511, _2504, _2438, _2123, _1600, _1316, _1309, _1247, _1136, _1133, _1131, _1125, _1119, _1115, _1059, _1051, _1043, _997, _960, _925, _923, _921, _919, _918, _916, _914, _912, _910, _908, _906, _904, _902, _900, _898, _896, _894, _892, _890, _887, _886, _883, _882, _880, _878, _877, _875, _873, _872, _870, _868, _867, _865, _863, _862, _860, _858, _857, _855, _853, _852, _850, _848, _847, _845, _843, _842, _840, _838, _837, _835, _833, _832, _830, _828, _827, _825, _823, _822, _820, _818, _817, _815, _813, _812, _810, _808, _807, _805, _803, _802, _800, _798, _797, _795, _793, _792, _790, _788, _787, _785, _783, _782, _780, _778, _777, _775, _773, _772, _770, _768, _767, _765, _763, _762, _760, _758, _757, _755, _753, _752, _750, _748, _747, _745, _743, _742, _740, _738, _737, _735, _733, _732, _729, _591, _569, _548;
-#line 569 "../../prop-src/parser.pcc"
+#line 569 "parser.pcc"
   typedef Exp ATTRIBUTE_66;
   ATTRIBUTE_66 _1814, _1794, _1583, _932, _931, _928, _730;
-#line 574 "../../prop-src/parser.pcc"
+#line 574 "parser.pcc"
   typedef Exp ATTRIBUTE_67;
   ATTRIBUTE_67 _2138, _2134, _1302, _939, _938, _935;
-#line 579 "../../prop-src/parser.pcc"
+#line 579 "parser.pcc"
   typedef Exp ATTRIBUTE_68;
   ATTRIBUTE_68 _952, _948, _945, _942, _936;
-#line 588 "../../prop-src/parser.pcc"
+#line 588 "parser.pcc"
   typedef Exp ATTRIBUTE_69;
   ATTRIBUTE_69 _1011, _1006, _1005, _1001, _1000, _995, _994, _989, _988, _984, _983, _980, _977, _974, _968, _963, _958, _954, _951, _940, _933, _929;
-#line 609 "../../prop-src/parser.pcc"
+#line 609 "parser.pcc"
   typedef Exp ATTRIBUTE_70;
   ATTRIBUTE_70 _1445, _1305, _1077, _1072, _1067, _1062, _1054, _1046, _1038, _1032, _1026, _1020, _975;
-#line 622 "../../prop-src/parser.pcc"
+#line 622 "parser.pcc"
   typedef Exp ATTRIBUTE_71;
   ATTRIBUTE_71 _1442, _1099, _1089, _1082, _978;
-#line 631 "../../prop-src/parser.pcc"
+#line 631 "parser.pcc"
   typedef Exp ATTRIBUTE_72;
   ATTRIBUTE_72 _1454, _1109, _981;
-#line 634 "../../prop-src/parser.pcc"
+#line 634 "parser.pcc"
   typedef LabExp ATTRIBUTE_73;
   ATTRIBUTE_73 _1154, _1151, _1149, _1143, _1112;
-#line 637 "../../prop-src/parser.pcc"
+#line 637 "parser.pcc"
   typedef Exp ATTRIBUTE_74;
   ATTRIBUTE_74 _2446, _2442, _2393, _2378, _2306, _1852, _1510, _1201, _1117;
-#line 646 "../../prop-src/parser.pcc"
+#line 646 "parser.pcc"
   typedef Exps ATTRIBUTE_75;
   ATTRIBUTE_75 _3212, _3205, _1127, _1124, _1122, _1106, _1103, _1093, _1074, _1069, _1064, _1057, _1049, _1041, _1035, _1029, _1023;
-#line 651 "../../prop-src/parser.pcc"
+#line 651 "parser.pcc"
   typedef Exps ATTRIBUTE_76;
   ATTRIBUTE_76 _1138, _1135, _1130, _1128, _1079, _965;
-#line 656 "../../prop-src/parser.pcc"
+#line 656 "parser.pcc"
   typedef LabExps ATTRIBUTE_77;
   ATTRIBUTE_77 _1145, _1142, _1140, _1096, _1086, _971;
-#line 661 "../../prop-src/parser.pcc"
+#line 661 "parser.pcc"
   typedef LabExps ATTRIBUTE_78;
   ATTRIBUTE_78 _1156, _1153, _1148, _1146;
-#line 672 "../../prop-src/parser.pcc"
+#line 672 "parser.pcc"
   typedef Decl ATTRIBUTE_79;
   ATTRIBUTE_79 _2727, _1406, _1168, _1158;
-#line 697 "../../prop-src/parser.pcc"
+#line 697 "parser.pcc"
   typedef MatchOptions ATTRIBUTE_80;
   ATTRIBUTE_80 _1182, _1180, _1171, _1161;
-#line 701 "../../prop-src/parser.pcc"
+#line 701 "parser.pcc"
   typedef Ty ATTRIBUTE_81;
   ATTRIBUTE_81 _1187, _1185, _1170, _1160;
-#line 705 "../../prop-src/parser.pcc"
+#line 705 "parser.pcc"
   typedef MatchExps ATTRIBUTE_82;
   ATTRIBUTE_82 _1198, _1195, _1192, _1172, _1162;
-#line 710 "../../prop-src/parser.pcc"
+#line 710 "parser.pcc"
   typedef MatchExp ATTRIBUTE_83;
   ATTRIBUTE_83 _1200, _1196, _1193;
-#line 713 "../../prop-src/parser.pcc"
+#line 713 "parser.pcc"
   typedef MatchRules ATTRIBUTE_84;
   ATTRIBUTE_84 _2403, _2388, _2372, _1206, _1203, _1175, _1165;
-#line 718 "../../prop-src/parser.pcc"
+#line 718 "parser.pcc"
   typedef MatchRules ATTRIBUTE_85;
   ATTRIBUTE_85 _1214, _1212, _1209, _1204;
-#line 723 "../../prop-src/parser.pcc"
+#line 723 "parser.pcc"
   typedef MatchRules ATTRIBUTE_86;
   ATTRIBUTE_86 _1222, _1219, _1216, _1207;
-#line 728 "../../prop-src/parser.pcc"
+#line 728 "parser.pcc"
   typedef MatchRule ATTRIBUTE_87;
   ATTRIBUTE_87 _1224, _1213, _1210;
-#line 732 "../../prop-src/parser.pcc"
+#line 732 "parser.pcc"
   typedef MatchRule ATTRIBUTE_88;
   ATTRIBUTE_88 _1228, _1220, _1217;
-#line 736 "../../prop-src/parser.pcc"
+#line 736 "parser.pcc"
   typedef MatchRule ATTRIBUTE_89;
   ATTRIBUTE_89 _1233, _1226;
-#line 760 "../../prop-src/parser.pcc"
+#line 760 "parser.pcc"
   typedef Exp ATTRIBUTE_90;
   ATTRIBUTE_90 _2787, _1264, _1255, _1245, _1243, _1237;
-#line 764 "../../prop-src/parser.pcc"
+#line 764 "parser.pcc"
   typedef MatchRule ATTRIBUTE_91;
   ATTRIBUTE_91 _1260, _1249, _1230;
-#line 807 "../../prop-src/parser.pcc"
+#line 807 "parser.pcc"
   typedef int ATTRIBUTE_92;
   ATTRIBUTE_92 _2201, _1269, _1261, _1250;
-#line 810 "../../prop-src/parser.pcc"
+#line 810 "parser.pcc"
   typedef Decls ATTRIBUTE_93;
   ATTRIBUTE_93 _1289, _1286, _1282, _1278, _1274, _1271, _1267, _1258;
-#line 819 "../../prop-src/parser.pcc"
+#line 819 "parser.pcc"
   typedef Decls ATTRIBUTE_94;
   ATTRIBUTE_94 _1291, _1279;
-#line 834 "../../prop-src/parser.pcc"
+#line 834 "parser.pcc"
   typedef Decls ATTRIBUTE_95;
   ATTRIBUTE_95 _2531, _1294, _1283;
-#line 844 "../../prop-src/parser.pcc"
+#line 844 "parser.pcc"
   typedef Exp ATTRIBUTE_96;
   ATTRIBUTE_96 _1307, _1304, _1301, _1296, _1292;
-#line 850 "../../prop-src/parser.pcc"
+#line 850 "parser.pcc"
   typedef Cost ATTRIBUTE_97;
   ATTRIBUTE_97 _1314, _1312, _1265, _1256, _1238;
-#line 868 "../../prop-src/parser.pcc"
+#line 868 "parser.pcc"
   typedef Decls ATTRIBUTE_98;
   ATTRIBUTE_98 _3224, _2950, _2528, _2327, _2309, _2214, _2149, _2141, _2068, _1911, _1901, _1589, _1517, _1334, _1318, _1272;
-#line 877 "../../prop-src/parser.pcc"
+#line 877 "parser.pcc"
   typedef Decls ATTRIBUTE_99;
   ATTRIBUTE_99 _1325;
-#line 885 "../../prop-src/parser.pcc"
+#line 885 "parser.pcc"
   typedef Decls ATTRIBUTE_100;
   ATTRIBUTE_100 _1884, _1879, _1333, _1331;
-#line 895 "../../prop-src/parser.pcc"
+#line 895 "parser.pcc"
   typedef Scope ATTRIBUTE_101;
   ATTRIBUTE_101 _1515, _1348, _1342, _1339, _1336;
-#line 901 "../../prop-src/parser.pcc"
+#line 901 "parser.pcc"
   typedef Scope ATTRIBUTE_102;
   ATTRIBUTE_102 _1980, _1347, _1345;
-#line 910 "../../prop-src/parser.pcc"
+#line 910 "parser.pcc"
   typedef Decl ATTRIBUTE_103;
   ATTRIBUTE_103 _1438, _1360, _1356, _1353, _1350;
-#line 921 "../../prop-src/parser.pcc"
+#line 921 "parser.pcc"
   typedef Decl ATTRIBUTE_104;
   ATTRIBUTE_104 _1430, _1427, _1424, _1421, _1418, _1415, _1411, _1408, _1405, _1402, _1399, _1396, _1393, _1390, _1387, _1384, _1381, _1378, _1375, _1372, _1369, _1366, _1363, _1351;
-#line 956 "../../prop-src/parser.pcc"
+#line 956 "parser.pcc"
   typedef Decls ATTRIBUTE_105;
   ATTRIBUTE_105 _1439, _1436, _1434, _1328, _1321, _1241, _2;
-#line 1052 "../../prop-src/parser.pcc"
+#line 1052 "parser.pcc"
   typedef Decl ATTRIBUTE_106;
   ATTRIBUTE_106 _1453, _1450, _1447, _1444, _1441, _1409;
-#line 1060 "../../prop-src/parser.pcc"
+#line 1060 "parser.pcc"
   typedef Decl ATTRIBUTE_107;
   ATTRIBUTE_107 _1462, _1456, _1361;
-#line 1073 "../../prop-src/parser.pcc"
+#line 1073 "parser.pcc"
   typedef Decl ATTRIBUTE_108;
   ATTRIBUTE_108 _2548, _1467, _1364;
-#line 1078 "../../prop-src/parser.pcc"
+#line 1078 "parser.pcc"
   typedef DatatypeDefs ATTRIBUTE_109;
   ATTRIBUTE_109 _1477, _1475, _1469;
-#line 1082 "../../prop-src/parser.pcc"
+#line 1082 "parser.pcc"
   typedef DatatypeDefs ATTRIBUTE_110;
   ATTRIBUTE_110 _1486, _1483, _1480, _1478;
-#line 1087 "../../prop-src/parser.pcc"
+#line 1087 "parser.pcc"
   typedef DatatypeDef ATTRIBUTE_111;
   ATTRIBUTE_111 _1500, _1488, _1484, _1481;
-#line 1123 "../../prop-src/parser.pcc"
+#line 1123 "parser.pcc"
   typedef Exp ATTRIBUTE_112;
   ATTRIBUTE_112 _1508, _1506, _1495;
-#line 1127 "../../prop-src/parser.pcc"
+#line 1127 "parser.pcc"
   typedef Decls ATTRIBUTE_113;
   ATTRIBUTE_113 _1514, _1512, _1498;
-#line 1131 "../../prop-src/parser.pcc"
+#line 1131 "parser.pcc"
   typedef TyVars ATTRIBUTE_114;
   ATTRIBUTE_114 _1915, _1765, _1521, _1519, _1502, _1490;
-#line 1135 "../../prop-src/parser.pcc"
+#line 1135 "parser.pcc"
   typedef TyVar ATTRIBUTE_115;
   ATTRIBUTE_115 _1538, _1535, _1526;
-#line 1143 "../../prop-src/parser.pcc"
+#line 1143 "parser.pcc"
   typedef TyVars ATTRIBUTE_116;
   ATTRIBUTE_116 _1861, _1531, _1529;
-#line 1147 "../../prop-src/parser.pcc"
+#line 1147 "parser.pcc"
   typedef TyVars ATTRIBUTE_117;
   ATTRIBUTE_117 _1857, _1540, _1537, _1534, _1532, _1523;
-#line 1152 "../../prop-src/parser.pcc"
+#line 1152 "parser.pcc"
   typedef TermDefs ATTRIBUTE_118;
   ATTRIBUTE_118 _2264, _1544, _1542, _1496;
-#line 1156 "../../prop-src/parser.pcc"
+#line 1156 "parser.pcc"
   typedef TermDefs ATTRIBUTE_119;
   ATTRIBUTE_119 _1553, _1550, _1547, _1545;
-#line 1161 "../../prop-src/parser.pcc"
+#line 1161 "parser.pcc"
   typedef TermDefs ATTRIBUTE_120;
   ATTRIBUTE_120 _1574, _1566, _1560, _1555, _1551, _1548;
-#line 1186 "../../prop-src/parser.pcc"
+#line 1186 "parser.pcc"
   typedef Exp ATTRIBUTE_121;
   ATTRIBUTE_121 _1581, _1579, _1572, _1564;
-#line 1190 "../../prop-src/parser.pcc"
+#line 1190 "parser.pcc"
   typedef Decls ATTRIBUTE_122;
   ATTRIBUTE_122 _1587, _1585, _1571, _1563, _1558;
-#line 1199 "../../prop-src/parser.pcc"
+#line 1199 "parser.pcc"
   typedef TermDef ATTRIBUTE_123;
   ATTRIBUTE_123 _1606, _1604, _1602, _1598, _1594, _1591, _1567, _1561;
-#line 1206 "../../prop-src/parser.pcc"
+#line 1206 "parser.pcc"
   typedef TermDef ATTRIBUTE_124;
   ATTRIBUTE_124 _1686, _1681, _1676, _1668, _1660, _1652, _1647, _1642, _1637, _1632, _1627, _1624, _1619, _1615, _1611, _1608, _1595, _1592;
-#line 1270 "../../prop-src/parser.pcc"
+#line 1270 "parser.pcc"
   typedef PrintFormats ATTRIBUTE_125;
   ATTRIBUTE_125 _1947, _1698, _1696, _1694, _1570;
-#line 1274 "../../prop-src/parser.pcc"
+#line 1274 "parser.pcc"
   typedef ProductionSymbol ATTRIBUTE_126;
   ATTRIBUTE_126 _1712, _1709, _1706, _1703, _1700, _1697;
-#line 1282 "../../prop-src/parser.pcc"
+#line 1282 "parser.pcc"
   typedef char ATTRIBUTE_127;
   ATTRIBUTE_127 _1739, _1736, _1733, _1730, _1727, _1724, _1721, _1718, _1715, _1713;
-#line 1294 "../../prop-src/parser.pcc"
+#line 1294 "parser.pcc"
   typedef TyDefs ATTRIBUTE_128;
   ATTRIBUTE_128 _1744, _1742, _1472;
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
   typedef Decl ATTRIBUTE_129;
   ATTRIBUTE_129 _2551, _1749, _1367;
-#line 1301 "../../prop-src/parser.pcc"
+#line 1301 "parser.pcc"
   typedef TyDefs ATTRIBUTE_130;
   ATTRIBUTE_130 _1760, _1757, _1754, _1751, _1747;
-#line 1306 "../../prop-src/parser.pcc"
+#line 1306 "parser.pcc"
   typedef TyDef ATTRIBUTE_131;
   ATTRIBUTE_131 _1762, _1758, _1755;
-#line 1315 "../../prop-src/parser.pcc"
+#line 1315 "parser.pcc"
   typedef Bool ATTRIBUTE_132;
   ATTRIBUTE_132 _1771, _1769, _1763;
-#line 1319 "../../prop-src/parser.pcc"
+#line 1319 "parser.pcc"
   typedef ViewDefs ATTRIBUTE_133;
   ATTRIBUTE_133 _1776, _1774, _1470;
-#line 1323 "../../prop-src/parser.pcc"
+#line 1323 "parser.pcc"
   typedef ViewDefs ATTRIBUTE_134;
   ATTRIBUTE_134 _1788, _1785, _1782, _1780;
-#line 1328 "../../prop-src/parser.pcc"
+#line 1328 "parser.pcc"
   typedef ViewDef ATTRIBUTE_135;
   ATTRIBUTE_135 _1790, _1786, _1783;
-#line 1337 "../../prop-src/parser.pcc"
+#line 1337 "parser.pcc"
   typedef LabExps ATTRIBUTE_136;
   ATTRIBUTE_136 _1799, _1797, _1795;
-#line 1341 "../../prop-src/parser.pcc"
+#line 1341 "parser.pcc"
   typedef LabExps ATTRIBUTE_137;
   ATTRIBUTE_137 _1809, _1806, _1803, _1801;
-#line 1346 "../../prop-src/parser.pcc"
+#line 1346 "parser.pcc"
   typedef LabExp ATTRIBUTE_138;
   ATTRIBUTE_138 _1811, _1807, _1804;
-#line 1356 "../../prop-src/parser.pcc"
+#line 1356 "parser.pcc"
   typedef LawDefs ATTRIBUTE_139;
   ATTRIBUTE_139 _1818, _1816, _1471;
-#line 1360 "../../prop-src/parser.pcc"
+#line 1360 "parser.pcc"
   typedef LawDefs ATTRIBUTE_140;
   ATTRIBUTE_140 _1828, _1825, _1822, _1820;
-#line 1368 "../../prop-src/parser.pcc"
+#line 1368 "parser.pcc"
   typedef LawDef ATTRIBUTE_141;
   ATTRIBUTE_141 _1834, _1826, _1823;
-#line 1387 "../../prop-src/parser.pcc"
+#line 1387 "parser.pcc"
   typedef Bool ATTRIBUTE_142;
   ATTRIBUTE_142 _1846, _1843, _1835;
-#line 1392 "../../prop-src/parser.pcc"
+#line 1392 "parser.pcc"
   typedef Exp ATTRIBUTE_143;
   ATTRIBUTE_143 _1850, _1848, _1839;
-#line 1396 "../../prop-src/parser.pcc"
+#line 1396 "parser.pcc"
   typedef TyVars ATTRIBUTE_144;
   ATTRIBUTE_144 _1859, _1856, _1854, _1838;
-#line 1407 "../../prop-src/parser.pcc"
+#line 1407 "parser.pcc"
   typedef Decl ATTRIBUTE_145;
   ATTRIBUTE_145 _1864, _1370;
-#line 1451 "../../prop-src/parser.pcc"
+#line 1451 "parser.pcc"
   typedef RefineTyDecl ATTRIBUTE_146;
   ATTRIBUTE_146 _1921, _1918, _1913;
-#line 1455 "../../prop-src/parser.pcc"
+#line 1455 "parser.pcc"
   typedef RefineTyDecls ATTRIBUTE_147;
   ATTRIBUTE_147 _1923, _1920, _1917, _1876;
-#line 1460 "../../prop-src/parser.pcc"
+#line 1460 "parser.pcc"
   typedef RefineConsDecl ATTRIBUTE_148;
   ATTRIBUTE_148 _1933, _1930, _1925;
-#line 1464 "../../prop-src/parser.pcc"
+#line 1464 "parser.pcc"
   typedef RefineConsDecls ATTRIBUTE_149;
   ATTRIBUTE_149 _1935, _1932, _1929, _1882;
-#line 1497 "../../prop-src/parser.pcc"
+#line 1497 "parser.pcc"
   typedef Pid ATTRIBUTE_150;
   ATTRIBUTE_150 _1961, _1959;
-#line 1501 "../../prop-src/parser.pcc"
+#line 1501 "parser.pcc"
   typedef Inherits ATTRIBUTE_151;
   ATTRIBUTE_151 _2942, _2325, _2212, _2147, _2066, _1966, _1964, _1883, _1877, _1568, _1562, _1557, _1503, _1491;
-#line 1505 "../../prop-src/parser.pcc"
+#line 1505 "parser.pcc"
   typedef Inherits ATTRIBUTE_152;
   ATTRIBUTE_152 _1976, _1973, _1970, _1968;
-#line 1510 "../../prop-src/parser.pcc"
+#line 1510 "parser.pcc"
   typedef Inherit ATTRIBUTE_153;
   ATTRIBUTE_153 _1978, _1974, _1971;
-#line 1522 "../../prop-src/parser.pcc"
+#line 1522 "parser.pcc"
   typedef TyQual ATTRIBUTE_154;
   ATTRIBUTE_154 _2943, _2399, _2384, _2326, _2213, _2148, _2067, _1989, _1987, _1985, _1983, _1878, _1504, _1492;
-#line 1527 "../../prop-src/parser.pcc"
+#line 1527 "parser.pcc"
   typedef TyQual ATTRIBUTE_155;
   ATTRIBUTE_155 _1997, _1995, _1993, _1991, _1979;
-#line 1531 "../../prop-src/parser.pcc"
+#line 1531 "parser.pcc"
   typedef TyQual ATTRIBUTE_156;
   ATTRIBUTE_156 _2047, _2044, _2041, _2038, _2035, _2032, _2029, _2026, _2023, _2020, _2017, _2014, _2011, _2008, _2005, _2002, _1999, _1996;
-#line 1557 "../../prop-src/parser.pcc"
+#line 1557 "parser.pcc"
   typedef Decl ATTRIBUTE_157;
   ATTRIBUTE_157 _2050, _1373;
-#line 1562 "../../prop-src/parser.pcc"
+#line 1562 "parser.pcc"
   typedef Bool ATTRIBUTE_158;
   ATTRIBUTE_158 _2059, _2057, _2052;
-#line 1572 "../../prop-src/parser.pcc"
+#line 1572 "parser.pcc"
   typedef Decl ATTRIBUTE_159;
   ATTRIBUTE_159 _2062, _1376;
-#line 1584 "../../prop-src/parser.pcc"
+#line 1584 "parser.pcc"
   typedef Decl ATTRIBUTE_160;
   ATTRIBUTE_160 _2071, _1379;
-#line 1589 "../../prop-src/parser.pcc"
+#line 1589 "parser.pcc"
   typedef InferenceRules ATTRIBUTE_161;
   ATTRIBUTE_161 _2083, _2081, _2079, _2075;
-#line 1593 "../../prop-src/parser.pcc"
+#line 1593 "parser.pcc"
   typedef InferenceRule ATTRIBUTE_162;
   ATTRIBUTE_162 _2085, _2082;
-#line 1607 "../../prop-src/parser.pcc"
+#line 1607 "parser.pcc"
   typedef MatchRules ATTRIBUTE_163;
   ATTRIBUTE_163 _2094, _2092, _2087;
-#line 1611 "../../prop-src/parser.pcc"
+#line 1611 "parser.pcc"
   typedef MatchRules ATTRIBUTE_164;
   ATTRIBUTE_164 _2103, _2100, _2097, _2095;
-#line 1616 "../../prop-src/parser.pcc"
+#line 1616 "parser.pcc"
   typedef MatchRule ATTRIBUTE_165;
   ATTRIBUTE_165 _2112, _2108, _2105, _2101, _2098;
-#line 1625 "../../prop-src/parser.pcc"
+#line 1625 "parser.pcc"
   typedef MatchRule ATTRIBUTE_166;
   ATTRIBUTE_166 _2119, _2116, _2114, _2110, _2106;
-#line 1647 "../../prop-src/parser.pcc"
+#line 1647 "parser.pcc"
   typedef Conclusions ATTRIBUTE_167;
   ATTRIBUTE_167 _2131, _2128, _2125, _2089;
-#line 1652 "../../prop-src/parser.pcc"
+#line 1652 "parser.pcc"
   typedef Conclusion ATTRIBUTE_168;
   ATTRIBUTE_168 _2140, _2136, _2133, _2129, _2126;
-#line 1664 "../../prop-src/parser.pcc"
+#line 1664 "parser.pcc"
   typedef Decl ATTRIBUTE_169;
   ATTRIBUTE_169 _2143, _1391;
-#line 1678 "../../prop-src/parser.pcc"
+#line 1678 "parser.pcc"
   typedef Decl ATTRIBUTE_170;
   ATTRIBUTE_170 _2152, _1394;
-#line 1689 "../../prop-src/parser.pcc"
+#line 1689 "parser.pcc"
   typedef PrecRules ATTRIBUTE_171;
   ATTRIBUTE_171 _2222, _2168, _2166, _2164, _2157;
-#line 1693 "../../prop-src/parser.pcc"
+#line 1693 "parser.pcc"
   typedef PrecRule ATTRIBUTE_172;
   ATTRIBUTE_172 _2176, _2170, _2167;
-#line 1700 "../../prop-src/parser.pcc"
+#line 1700 "parser.pcc"
   typedef int ATTRIBUTE_173;
   ATTRIBUTE_173 _2223, _2189, _2184, _2182, _2158;
-#line 1705 "../../prop-src/parser.pcc"
+#line 1705 "parser.pcc"
   typedef BNFs ATTRIBUTE_174;
   ATTRIBUTE_174 _2225, _2198, _2196, _2194, _2160;
-#line 1710 "../../prop-src/parser.pcc"
+#line 1710 "parser.pcc"
   typedef BNF ATTRIBUTE_175;
   ATTRIBUTE_175 _2200, _2197;
-#line 1721 "../../prop-src/parser.pcc"
+#line 1721 "parser.pcc"
   typedef Decl ATTRIBUTE_176;
   ATTRIBUTE_176 _2208, _1397;
-#line 1735 "../../prop-src/parser.pcc"
+#line 1735 "parser.pcc"
   typedef Decl ATTRIBUTE_177;
   ATTRIBUTE_177 _2217, _1400;
-#line 1775 "../../prop-src/parser.pcc"
+#line 1775 "parser.pcc"
   typedef Ty ATTRIBUTE_178;
   ATTRIBUTE_178 _2268, _2266, _2203;
-#line 1779 "../../prop-src/parser.pcc"
+#line 1779 "parser.pcc"
   typedef a_List<ProductionSymbols> *  ATTRIBUTE_179;
   ATTRIBUTE_179 _2277, _2274, _2271, _2205;
-#line 1784 "../../prop-src/parser.pcc"
+#line 1784 "parser.pcc"
   typedef ProductionSymbols ATTRIBUTE_180;
   ATTRIBUTE_180 _2279, _2275, _2272, _2179, _2173;
-#line 1799 "../../prop-src/parser.pcc"
+#line 1799 "parser.pcc"
   typedef ProductionSymbols ATTRIBUTE_181;
   ATTRIBUTE_181 _2288, _2285, _2283, _2281;
-#line 1805 "../../prop-src/parser.pcc"
+#line 1805 "parser.pcc"
   typedef ProductionSymbol ATTRIBUTE_182;
   ATTRIBUTE_182 _2314, _2311, _2308, _2305, _2302, _2299, _2296, _2293, _2290, _2287;
-#line 1828 "../../prop-src/parser.pcc"
+#line 1828 "parser.pcc"
   typedef Decl ATTRIBUTE_183;
   ATTRIBUTE_183 _2318, _1382;
-#line 1836 "../../prop-src/parser.pcc"
+#line 1836 "parser.pcc"
   typedef Protocols ATTRIBUTE_184;
   ATTRIBUTE_184 _2332, _2330;
-#line 1840 "../../prop-src/parser.pcc"
+#line 1840 "parser.pcc"
   typedef Protocols ATTRIBUTE_185;
   ATTRIBUTE_185 _2397, _2382, _2343, _2340, _2337, _2334, _2323;
-#line 1845 "../../prop-src/parser.pcc"
+#line 1845 "parser.pcc"
   typedef Protocol ATTRIBUTE_186;
   ATTRIBUTE_186 _2345, _2341, _2338;
-#line 1850 "../../prop-src/parser.pcc"
+#line 1850 "parser.pcc"
   typedef Ty ATTRIBUTE_187;
   ATTRIBUTE_187 _2352, _2350, _2347;
-#line 1855 "../../prop-src/parser.pcc"
+#line 1855 "parser.pcc"
   typedef Ty ATTRIBUTE_188;
   ATTRIBUTE_188 _2362, _2358, _2356, _2348;
-#line 1867 "../../prop-src/parser.pcc"
+#line 1867 "parser.pcc"
   typedef Decl ATTRIBUTE_189;
   ATTRIBUTE_189 _2366, _1385;
-#line 1888 "../../prop-src/parser.pcc"
+#line 1888 "parser.pcc"
   typedef Decl ATTRIBUTE_190;
   ATTRIBUTE_190 _2730, _2391, _2376, _1388;
-#line 1919 "../../prop-src/parser.pcc"
+#line 1919 "parser.pcc"
   typedef RewriteIndexings ATTRIBUTE_191;
   ATTRIBUTE_191 _2413, _2408, _2402, _2387, _2371;
-#line 1924 "../../prop-src/parser.pcc"
+#line 1924 "parser.pcc"
   typedef RewriteIndexings ATTRIBUTE_192;
   ATTRIBUTE_192 _2421, _2418, _2415, _2410;
-#line 1929 "../../prop-src/parser.pcc"
+#line 1929 "parser.pcc"
   typedef RewriteIndexing * ATTRIBUTE_193;
   ATTRIBUTE_193 _2428, _2423, _2419, _2416;
-#line 1936 "../../prop-src/parser.pcc"
+#line 1936 "parser.pcc"
   typedef Exp ATTRIBUTE_194;
   ATTRIBUTE_194 _2436, _2434, _2394, _2379;
-#line 1940 "../../prop-src/parser.pcc"
+#line 1940 "parser.pcc"
   typedef Decl ATTRIBUTE_195;
   ATTRIBUTE_195 _2733, _2451, _2448, _2444, _2440, _1412, _1275;
-#line 1985 "../../prop-src/parser.pcc"
+#line 1985 "parser.pcc"
   typedef Decl ATTRIBUTE_196;
   ATTRIBUTE_196 _2470, _1403;
-#line 1989 "../../prop-src/parser.pcc"
+#line 1989 "parser.pcc"
   typedef FunDefs ATTRIBUTE_197;
   ATTRIBUTE_197 _2481, _2478, _2475, _2472;
-#line 1996 "../../prop-src/parser.pcc"
+#line 1996 "parser.pcc"
   typedef LabMatchRules ATTRIBUTE_198;
   ATTRIBUTE_198 _2483, _2479, _2476;
-#line 2002 "../../prop-src/parser.pcc"
+#line 2002 "parser.pcc"
   typedef LabMatchRules ATTRIBUTE_199;
   ATTRIBUTE_199 _2493, _2490, _2487, _2485;
-#line 2031 "../../prop-src/parser.pcc"
+#line 2031 "parser.pcc"
   typedef QualIdPat ATTRIBUTE_200;
   ATTRIBUTE_200 _2523, _2516, _2509, _2500, _2495;
-#line 2040 "../../prop-src/parser.pcc"
+#line 2040 "parser.pcc"
   typedef LabMatchRule ATTRIBUTE_201;
   ATTRIBUTE_201 _2522, _2515, _2508, _2499, _2491, _2488;
-#line 2071 "../../prop-src/parser.pcc"
+#line 2071 "parser.pcc"
   typedef Decls ATTRIBUTE_202;
   ATTRIBUTE_202 _2530, _2527, _2525, _2520, _2513, _2506;
-#line 2083 "../../prop-src/parser.pcc"
+#line 2083 "parser.pcc"
   typedef Def ATTRIBUTE_203;
   ATTRIBUTE_203 _2686, _2553, _2550, _2547, _2539, _2533;
-#line 2096 "../../prop-src/parser.pcc"
+#line 2096 "parser.pcc"
   typedef Def ATTRIBUTE_204;
   ATTRIBUTE_204 _2562, _2559, _2556, _2554, _1422;
-#line 2108 "../../prop-src/parser.pcc"
+#line 2108 "parser.pcc"
   typedef Def ATTRIBUTE_205;
   ATTRIBUTE_205 _2580, _2565, _2557;
-#line 2136 "../../prop-src/parser.pcc"
+#line 2136 "parser.pcc"
   typedef LabTys ATTRIBUTE_206;
   ATTRIBUTE_206 _3107, _3097, _2604, _2595, _2593, _2584, _2569;
-#line 2140 "../../prop-src/parser.pcc"
+#line 2140 "parser.pcc"
   typedef LabTys ATTRIBUTE_207;
   ATTRIBUTE_207 _2601, _2598, _2596;
-#line 2145 "../../prop-src/parser.pcc"
+#line 2145 "parser.pcc"
   typedef LabTy ATTRIBUTE_208;
   ATTRIBUTE_208 _2606, _2602, _2599;
-#line 2155 "../../prop-src/parser.pcc"
+#line 2155 "parser.pcc"
   typedef Def ATTRIBUTE_209;
   ATTRIBUTE_209 _2611, _2560;
-#line 2169 "../../prop-src/parser.pcc"
+#line 2169 "parser.pcc"
   typedef LabSigs ATTRIBUTE_210;
   ATTRIBUTE_210 _2651, _2624, _2622, _2614;
-#line 2173 "../../prop-src/parser.pcc"
+#line 2173 "parser.pcc"
   typedef LabSigs ATTRIBUTE_211;
   ATTRIBUTE_211 _2635, _2632, _2629, _2626;
-#line 2178 "../../prop-src/parser.pcc"
+#line 2178 "parser.pcc"
   typedef LabSig ATTRIBUTE_212;
   ATTRIBUTE_212 _2637, _2633, _2630;
-#line 2182 "../../prop-src/parser.pcc"
+#line 2182 "parser.pcc"
   typedef Sig ATTRIBUTE_213;
   ATTRIBUTE_213 _2644, _2642, _2615;
-#line 2192 "../../prop-src/parser.pcc"
+#line 2192 "parser.pcc"
   typedef Def ATTRIBUTE_214;
   ATTRIBUTE_214 _2648, _2563;
-#line 2203 "../../prop-src/parser.pcc"
+#line 2203 "parser.pcc"
   typedef Sig ATTRIBUTE_215;
   ATTRIBUTE_215 _2679, _2676, _2670, _2666, _2665, _2660, _2659, _2656, _2653, _2646, _2640;
-#line 2210 "../../prop-src/parser.pcc"
+#line 2210 "parser.pcc"
   typedef Sigs ATTRIBUTE_216;
   ATTRIBUTE_216 _2681, _2678, _2675, _2662;
-#line 2220 "../../prop-src/parser.pcc"
+#line 2220 "parser.pcc"
   typedef Defs ATTRIBUTE_217;
   ATTRIBUTE_217 _2771, _2687, _2685, _2683, _2672, _2618, _2587, _2574;
-#line 2230 "../../prop-src/parser.pcc"
+#line 2230 "parser.pcc"
   typedef Stmt ATTRIBUTE_218;
   ATTRIBUTE_218 _2760, _2757, _2736, _2732, _2729, _2726, _2721, _2712, _2704, _2695, _2689;
-#line 2251 "../../prop-src/parser.pcc"
+#line 2251 "parser.pcc"
   typedef Stmt ATTRIBUTE_219;
   ATTRIBUTE_219 _2754, _2749, _2743, _2739, _2709;
-#line 2260 "../../prop-src/parser.pcc"
+#line 2260 "parser.pcc"
   typedef Stmts ATTRIBUTE_220;
   ATTRIBUTE_220 _2773, _2765, _2761, _2759, _2756, _2753, _2745, _2716, _2708, _2699, _2589, _2576;
-#line 2265 "../../prop-src/parser.pcc"
+#line 2265 "parser.pcc"
   typedef Stmt ATTRIBUTE_221;
   ATTRIBUTE_221 _2769, _2763, _2737, _1419, _1287;
-#line 2278 "../../prop-src/parser.pcc"
+#line 2278 "parser.pcc"
   typedef Generators ATTRIBUTE_222;
   ATTRIBUTE_222 _2891, _2783, _2780, _2777, _2714;
-#line 2283 "../../prop-src/parser.pcc"
+#line 2283 "parser.pcc"
   typedef Generator ATTRIBUTE_223;
   ATTRIBUTE_223 _2785, _2781, _2778;
-#line 2294 "../../prop-src/parser.pcc"
+#line 2294 "parser.pcc"
   typedef Ty ATTRIBUTE_224;
   ATTRIBUTE_224 _2843, _2837, _2831, _2823, _2815, _2809, _2803, _2797, _2791, _645;
-#line 2312 "../../prop-src/parser.pcc"
+#line 2312 "parser.pcc"
   typedef Exp ATTRIBUTE_225;
   ATTRIBUTE_225 _2883, _2877, _2871, _2866, _2861, _2857, _2853, _2849, _926;
-#line 2329 "../../prop-src/parser.pcc"
+#line 2329 "parser.pcc"
   typedef Exp ATTRIBUTE_226;
   ATTRIBUTE_226 _2886, _2884;
-#line 2334 "../../prop-src/parser.pcc"
+#line 2334 "parser.pcc"
   typedef Exp ATTRIBUTE_227;
   ATTRIBUTE_227 _2897, _2895, _2892;
-#line 2344 "../../prop-src/parser.pcc"
+#line 2344 "parser.pcc"
   typedef Complexity ATTRIBUTE_228;
   ATTRIBUTE_228 _2937, _2935, _2932, _2929, _2927, _2925, _2924, _2922, _2920, _2919, _2917, _2915, _2914, _2912, _2910, _2909, _2906, _2904, _2901;
-#line 2458 "../../prop-src/parser.pcc"
+#line 2458 "parser.pcc"
   typedef Decl ATTRIBUTE_229;
   ATTRIBUTE_229 _2939, _1425;
-#line 2476 "../../prop-src/parser.pcc"
+#line 2476 "parser.pcc"
   typedef NodeDefs ATTRIBUTE_230;
   ATTRIBUTE_230 _2955, _2953, _2946;
-#line 2480 "../../prop-src/parser.pcc"
+#line 2480 "parser.pcc"
   typedef NodeDefs ATTRIBUTE_231;
   ATTRIBUTE_231 _2970, _2967, _2965, _2962, _2959, _2957;
-#line 2486 "../../prop-src/parser.pcc"
+#line 2486 "parser.pcc"
   typedef NodeDef * ATTRIBUTE_232;
   ATTRIBUTE_232 _2975, _2972, _2968, _2963, _2960;
-#line 2494 "../../prop-src/parser.pcc"
+#line 2494 "parser.pcc"
   typedef Id ATTRIBUTE_233;
   ATTRIBUTE_233 _2984, _2982, _2979;
-#line 2498 "../../prop-src/parser.pcc"
+#line 2498 "parser.pcc"
   typedef Id ATTRIBUTE_234;
   ATTRIBUTE_234 _2990, _2988, _2980;
-#line 2502 "../../prop-src/parser.pcc"
+#line 2502 "parser.pcc"
   typedef EdgeDefs ATTRIBUTE_235;
   ATTRIBUTE_235 _2996, _2994, _2948;
-#line 2506 "../../prop-src/parser.pcc"
+#line 2506 "parser.pcc"
   typedef EdgeDefs ATTRIBUTE_236;
   ATTRIBUTE_236 _3011, _3008, _3006, _3003, _3000, _2998;
-#line 2512 "../../prop-src/parser.pcc"
+#line 2512 "parser.pcc"
   typedef EdgeDef * ATTRIBUTE_237;
   ATTRIBUTE_237 _3037, _3029, _3021, _3013, _3009, _3004, _3001;
-#line 2523 "../../prop-src/parser.pcc"
+#line 2523 "parser.pcc"
   typedef NodeDef * ATTRIBUTE_238;
   ATTRIBUTE_238 _3046, _3043, _3040, _3034, _3032, _3026, _3024, _3018, _3016;
-#line 2526 "../../prop-src/parser.pcc"
+#line 2526 "parser.pcc"
   typedef GraphIndexing ATTRIBUTE_239;
   ATTRIBUTE_239 _3051, _3049, _3044, _3035, _3027, _3019;
-#line 2530 "../../prop-src/parser.pcc"
+#line 2530 "parser.pcc"
   typedef GraphIndexing ATTRIBUTE_240;
   ATTRIBUTE_240 _3065, _3062, _3060, _3058, _3055, _3053;
-#line 2536 "../../prop-src/parser.pcc"
+#line 2536 "parser.pcc"
   typedef GraphIndexing ATTRIBUTE_241;
   ATTRIBUTE_241 _3088, _3083, _3078, _3073, _3070, _3067, _3063, _3059, _3056;
-#line 2551 "../../prop-src/parser.pcc"
+#line 2551 "parser.pcc"
   typedef Decl ATTRIBUTE_242;
   ATTRIBUTE_242 _3103, _3093, _1428;
-#line 2559 "../../prop-src/parser.pcc"
+#line 2559 "parser.pcc"
   typedef GraphRewritingRules ATTRIBUTE_243;
   ATTRIBUTE_243 _3116, _3111, _3100;
-#line 2572 "../../prop-src/parser.pcc"
+#line 2572 "parser.pcc"
   typedef GraphRewritingRules ATTRIBUTE_244;
   ATTRIBUTE_244 _3123, _3119;
-#line 2576 "../../prop-src/parser.pcc"
+#line 2576 "parser.pcc"
   typedef GraphRewritingRules ATTRIBUTE_245;
   ATTRIBUTE_245 _3126, _3124;
-#line 2581 "../../prop-src/parser.pcc"
+#line 2581 "parser.pcc"
   typedef GraphRewritingRules ATTRIBUTE_246;
   ATTRIBUTE_246 _3133, _3131, _3129, _3127;
-#line 2585 "../../prop-src/parser.pcc"
+#line 2585 "parser.pcc"
   typedef GraphRewritingRule ATTRIBUTE_247;
   ATTRIBUTE_247 _3135, _3132;
-#line 2590 "../../prop-src/parser.pcc"
+#line 2590 "parser.pcc"
   typedef GRSPat ATTRIBUTE_248;
   ATTRIBUTE_248 _3173, _3171, _3169, _3167, _3166, _3164, _3162, _3161, _3159, _3157, _3156, _3150, _3144, _3141, _3136;
-#line 2600 "../../prop-src/parser.pcc"
+#line 2600 "parser.pcc"
   typedef GRSPat ATTRIBUTE_249;
   ATTRIBUTE_249 _3182, _3176, _3154, _3142;
-#line 2605 "../../prop-src/parser.pcc"
+#line 2605 "parser.pcc"
   typedef GRSConclusions ATTRIBUTE_250;
   ATTRIBUTE_250 _3200, _3197, _3195, _3192, _3189, _3138;
-#line 2611 "../../prop-src/parser.pcc"
+#line 2611 "parser.pcc"
   typedef GRSConclusion ATTRIBUTE_251;
   ATTRIBUTE_251 _3223, _3219, _3215, _3208, _3202, _3198, _3193, _3190;
 };
@@ -3919,428 +3911,428 @@ inline void PropParser::action_driver(const Rule _r_)
 #undef to__
 #define to__ 0
     case 0: {
-#line 130 "../../prop-src/parser.pcc"
+#line 130 "parser.pcc"
      program = t__[1+to__]._2; 
-#line 130 "../../prop-src/parser.pcc"
+#line 130 "parser.pcc"
 } break;
     case 1: {
-#line 138 "../../prop-src/parser.pcc"
+#line 138 "parser.pcc"
      Used::rewriting = Used::quark = true; syn_._4 = line; 
-#line 138 "../../prop-src/parser.pcc"
+#line 138 "parser.pcc"
 } break;
     case 2: {
-#line 139 "../../prop-src/parser.pcc"
+#line 139 "parser.pcc"
      Used::parser = true; syn_._7 = line; 
-#line 139 "../../prop-src/parser.pcc"
+#line 139 "parser.pcc"
 } break;
     case 3: {
-#line 140 "../../prop-src/parser.pcc"
+#line 140 "parser.pcc"
      syn_._10 = line; 
-#line 140 "../../prop-src/parser.pcc"
+#line 140 "parser.pcc"
 } break;
     case 4: {
-#line 141 "../../prop-src/parser.pcc"
+#line 141 "parser.pcc"
      syn_._13 = line; 
-#line 141 "../../prop-src/parser.pcc"
+#line 141 "parser.pcc"
 } break;
     case 5: {
-#line 142 "../../prop-src/parser.pcc"
+#line 142 "parser.pcc"
      Used::infer = true; syn_._16 = line; 
-#line 142 "../../prop-src/parser.pcc"
+#line 142 "parser.pcc"
 } break;
     case 6: {
-#line 143 "../../prop-src/parser.pcc"
+#line 143 "parser.pcc"
      Used::persistence = true; syn_._19 = line; 
-#line 143 "../../prop-src/parser.pcc"
+#line 143 "parser.pcc"
 } break;
     case 7: {
-#line 144 "../../prop-src/parser.pcc"
+#line 144 "parser.pcc"
      Used::refcount = true; syn_._22 = line; 
-#line 144 "../../prop-src/parser.pcc"
+#line 144 "parser.pcc"
 } break;
     case 8: {
-#line 145 "../../prop-src/parser.pcc"
+#line 145 "parser.pcc"
      Used::gc = true; syn_._25 = line; 
-#line 145 "../../prop-src/parser.pcc"
+#line 145 "parser.pcc"
 } break;
     case 9: {
-#line 146 "../../prop-src/parser.pcc"
+#line 146 "parser.pcc"
      Used::gc = true; syn_._28 = line; 
-#line 146 "../../prop-src/parser.pcc"
+#line 146 "parser.pcc"
 } break;
     case 10: {
-#line 147 "../../prop-src/parser.pcc"
+#line 147 "parser.pcc"
      Used::printer = true; syn_._31 = line; 
-#line 147 "../../prop-src/parser.pcc"
+#line 147 "parser.pcc"
 } break;
     case 11: {
-#line 148 "../../prop-src/parser.pcc"
+#line 148 "parser.pcc"
      Used::unification = true; syn_._34 = line; 
-#line 148 "../../prop-src/parser.pcc"
+#line 148 "parser.pcc"
 } break;
     case 12: {
-#line 151 "../../prop-src/parser.pcc"
+#line 151 "parser.pcc"
      syn_._37 = MATCHnone; 
-#line 151 "../../prop-src/parser.pcc"
+#line 151 "parser.pcc"
 } break;
     case 13: {
-#line 152 "../../prop-src/parser.pcc"
+#line 152 "parser.pcc"
      syn_._40 = MATCHnone | MATCHcaseinsensitive; 
-#line 152 "../../prop-src/parser.pcc"
+#line 152 "parser.pcc"
 } break;
     case 14: {
-#line 153 "../../prop-src/parser.pcc"
+#line 153 "parser.pcc"
      syn_._44 = MATCHall; 
-#line 153 "../../prop-src/parser.pcc"
+#line 153 "parser.pcc"
 } break;
     case 15: {
-#line 154 "../../prop-src/parser.pcc"
+#line 154 "parser.pcc"
      syn_._47 = MATCHall | MATCHcaseinsensitive; 
-#line 154 "../../prop-src/parser.pcc"
+#line 154 "parser.pcc"
 } break;
     case 16: {
-#line 155 "../../prop-src/parser.pcc"
+#line 155 "parser.pcc"
      syn_._51 = MATCHscanner; 
-#line 155 "../../prop-src/parser.pcc"
+#line 155 "parser.pcc"
 } break;
     case 17: {
-#line 156 "../../prop-src/parser.pcc"
+#line 156 "parser.pcc"
      syn_._54 = MATCHscanner | MATCHcaseinsensitive; 
-#line 156 "../../prop-src/parser.pcc"
+#line 156 "parser.pcc"
 } break;
     case 25: {
-#line 171 "../../prop-src/parser.pcc"
+#line 171 "parser.pcc"
      syn_._72 = Quark(lexbuf.text()); 
-#line 171 "../../prop-src/parser.pcc"
+#line 171 "parser.pcc"
 } break;
     case 26: {
-#line 173 "../../prop-src/parser.pcc"
+#line 173 "parser.pcc"
      syn_._75 = Quark(lexbuf.text()); 
-#line 173 "../../prop-src/parser.pcc"
+#line 173 "parser.pcc"
 } break;
     case 27: {
-#line 175 "../../prop-src/parser.pcc"
+#line 175 "parser.pcc"
      syn_._78 = my_cons; 
-#line 175 "../../prop-src/parser.pcc"
+#line 175 "parser.pcc"
 } break;
     case 28: {
-#line 176 "../../prop-src/parser.pcc"
+#line 176 "parser.pcc"
      syn_._81 = t__[1+to__]._82; 
-#line 176 "../../prop-src/parser.pcc"
+#line 176 "parser.pcc"
 } break;
     case 29: {
-#line 177 "../../prop-src/parser.pcc"
+#line 177 "parser.pcc"
      syn_._84 = t__[1+to__]._85->name; 
-#line 177 "../../prop-src/parser.pcc"
+#line 177 "parser.pcc"
 } break;
     case 30: {
-#line 179 "../../prop-src/parser.pcc"
+#line 179 "parser.pcc"
      syn_._87 = t__[1+to__]._88; 
-#line 179 "../../prop-src/parser.pcc"
+#line 179 "parser.pcc"
 } break;
     case 31: {
-#line 180 "../../prop-src/parser.pcc"
+#line 180 "parser.pcc"
      syn_._90 = Quark(t__[1+to__]._91); 
-#line 180 "../../prop-src/parser.pcc"
+#line 180 "parser.pcc"
 } break;
     case 32: {
-#line 182 "../../prop-src/parser.pcc"
+#line 182 "parser.pcc"
      syn_._93 = my_cons; 
-#line 182 "../../prop-src/parser.pcc"
+#line 182 "parser.pcc"
 } break;
     case 33: {
-#line 184 "../../prop-src/parser.pcc"
+#line 184 "parser.pcc"
      syn_._96 = str_pool(lexbuf.text(),lexbuf.length()); 
-#line 184 "../../prop-src/parser.pcc"
+#line 184 "parser.pcc"
 } break;
     case 34: {
-#line 185 "../../prop-src/parser.pcc"
+#line 185 "parser.pcc"
      syn_._99 = str_pool(lexbuf.text(),lexbuf.length()); 
-#line 185 "../../prop-src/parser.pcc"
+#line 185 "parser.pcc"
 } break;
     case 35: {
-#line 188 "../../prop-src/parser.pcc"
+#line 188 "parser.pcc"
       
       syn_._102 = str_pool(lexbuf.text()+1,lexbuf.length()-1);
       compiler->quark_name(syn_._102);
       Used::quark = true;
       
-#line 192 "../../prop-src/parser.pcc"
+#line 192 "parser.pcc"
 } break;
     case 36: {
-#line 195 "../../prop-src/parser.pcc"
+#line 195 "parser.pcc"
       
       syn_._105 = str_pool(lexbuf.text()+1,lexbuf.length()-1);
       Used::bigint = true;
       
-#line 198 "../../prop-src/parser.pcc"
+#line 198 "parser.pcc"
 } break;
     case 37: {
-#line 201 "../../prop-src/parser.pcc"
+#line 201 "parser.pcc"
       
       syn_._108 = str_pool(meta.text(),meta.length());
       meta.reset();
       
-#line 204 "../../prop-src/parser.pcc"
+#line 204 "parser.pcc"
 } break;
     case 38: {
-#line 205 "../../prop-src/parser.pcc"
+#line 205 "parser.pcc"
      syn_._111 = std::atol(lexbuf.text()); 
-#line 205 "../../prop-src/parser.pcc"
+#line 205 "parser.pcc"
 } break;
     case 39: {
-#line 206 "../../prop-src/parser.pcc"
+#line 206 "parser.pcc"
      syn_._114 = std::atof(lexbuf.text()); 
-#line 206 "../../prop-src/parser.pcc"
+#line 206 "parser.pcc"
 } break;
     case 40: {
-#line 207 "../../prop-src/parser.pcc"
+#line 207 "parser.pcc"
      parse_char(lexbuf.text()+1,syn_._117); 
-#line 207 "../../prop-src/parser.pcc"
+#line 207 "parser.pcc"
 } break;
     case 41: {
-#line 209 "../../prop-src/parser.pcc"
+#line 209 "parser.pcc"
      syn_._120 = false; 
-#line 209 "../../prop-src/parser.pcc"
+#line 209 "parser.pcc"
 } break;
     case 42: {
-#line 210 "../../prop-src/parser.pcc"
+#line 210 "parser.pcc"
      syn_._123 = true; 
-#line 210 "../../prop-src/parser.pcc"
+#line 210 "parser.pcc"
 } break;
     case 43: {
-#line 214 "../../prop-src/parser.pcc"
+#line 214 "parser.pcc"
      syn_._126 = t__[1+to__]._127; 
-#line 214 "../../prop-src/parser.pcc"
+#line 214 "parser.pcc"
 } break;
     case 44: {
-#line 215 "../../prop-src/parser.pcc"
+#line 215 "parser.pcc"
      syn_._129 = lookup_cons("#[]"); 
-#line 215 "../../prop-src/parser.pcc"
+#line 215 "parser.pcc"
 } break;
     case 45: {
-#line 216 "../../prop-src/parser.pcc"
+#line 216 "parser.pcc"
      syn_._134 = lookup_cons("#()"); 
-#line 216 "../../prop-src/parser.pcc"
+#line 216 "parser.pcc"
 } break;
     case 46: {
-#line 217 "../../prop-src/parser.pcc"
+#line 217 "parser.pcc"
      syn_._139 = lookup_cons("#{}"); 
-#line 217 "../../prop-src/parser.pcc"
+#line 217 "parser.pcc"
 } break;
     case 47: {
-#line 218 "../../prop-src/parser.pcc"
+#line 218 "parser.pcc"
      syn_._144 = lookup_cons("#[...]"); 
-#line 218 "../../prop-src/parser.pcc"
+#line 218 "parser.pcc"
 } break;
     case 48: {
-#line 219 "../../prop-src/parser.pcc"
+#line 219 "parser.pcc"
      syn_._150 = lookup_cons("#(...)"); 
-#line 219 "../../prop-src/parser.pcc"
+#line 219 "parser.pcc"
 } break;
     case 49: {
-#line 220 "../../prop-src/parser.pcc"
+#line 220 "parser.pcc"
      syn_._156 = lookup_cons("#{...}"); 
-#line 220 "../../prop-src/parser.pcc"
+#line 220 "parser.pcc"
 } break;
     case 50: {
-#line 221 "../../prop-src/parser.pcc"
+#line 221 "parser.pcc"
      syn_._162 = lookup_cons("[|...|]"); 
-#line 221 "../../prop-src/parser.pcc"
+#line 221 "parser.pcc"
 } break;
     case 51: {
-#line 222 "../../prop-src/parser.pcc"
+#line 222 "parser.pcc"
      syn_._167 = lookup_cons("(|...|)"); 
-#line 222 "../../prop-src/parser.pcc"
+#line 222 "parser.pcc"
 } break;
     case 52: {
-#line 223 "../../prop-src/parser.pcc"
+#line 223 "parser.pcc"
      syn_._172 = lookup_cons("{|...|}"); 
-#line 223 "../../prop-src/parser.pcc"
+#line 223 "parser.pcc"
 } break;
     case 53: {
-#line 227 "../../prop-src/parser.pcc"
+#line 227 "parser.pcc"
      syn_._177 = INTlit(t__[1+to__]._178); 
-#line 227 "../../prop-src/parser.pcc"
+#line 227 "parser.pcc"
 } break;
     case 54: {
-#line 228 "../../prop-src/parser.pcc"
+#line 228 "parser.pcc"
      syn_._180 = BOOLlit(t__[1+to__]._181); 
-#line 228 "../../prop-src/parser.pcc"
+#line 228 "parser.pcc"
 } break;
     case 55: {
-#line 229 "../../prop-src/parser.pcc"
+#line 229 "parser.pcc"
      syn_._183 = CHARlit(t__[1+to__]._184); 
-#line 229 "../../prop-src/parser.pcc"
+#line 229 "parser.pcc"
 } break;
     case 56: {
-#line 230 "../../prop-src/parser.pcc"
+#line 230 "parser.pcc"
      syn_._186 = REALlit(t__[1+to__]._187); 
-#line 230 "../../prop-src/parser.pcc"
+#line 230 "parser.pcc"
 } break;
     case 57: {
-#line 231 "../../prop-src/parser.pcc"
+#line 231 "parser.pcc"
      syn_._189 = QUARKlit(t__[1+to__]._190); 
-#line 231 "../../prop-src/parser.pcc"
+#line 231 "parser.pcc"
 } break;
     case 58: {
-#line 232 "../../prop-src/parser.pcc"
+#line 232 "parser.pcc"
      syn_._192 = BIGINTlit(t__[1+to__]._193); 
-#line 232 "../../prop-src/parser.pcc"
+#line 232 "parser.pcc"
 } break;
     case 59: {
-#line 236 "../../prop-src/parser.pcc"
+#line 236 "parser.pcc"
      syn_._195 = t__[1+to__]._196; 
-#line 236 "../../prop-src/parser.pcc"
+#line 236 "parser.pcc"
 } break;
     case 60: {
-#line 237 "../../prop-src/parser.pcc"
+#line 237 "parser.pcc"
      syn_._198 = STRINGlit(t__[1+to__]._199); 
-#line 237 "../../prop-src/parser.pcc"
+#line 237 "parser.pcc"
 } break;
     case 61: {
-#line 247 "../../prop-src/parser.pcc"
+#line 247 "parser.pcc"
      syn_._201 = mark(t__[1+to__]._202); 
-#line 247 "../../prop-src/parser.pcc"
+#line 247 "parser.pcc"
 } break;
     case 62: {
-#line 248 "../../prop-src/parser.pcc"
+#line 248 "parser.pcc"
      syn_._204 = mark(TUPLEpat(t__[1+to__]._205)); 
-#line 248 "../../prop-src/parser.pcc"
+#line 248 "parser.pcc"
 } break;
     case 63: {
-#line 252 "../../prop-src/parser.pcc"
+#line 252 "parser.pcc"
      syn_._207 = t__[1+to__]._208; 
-#line 252 "../../prop-src/parser.pcc"
+#line 252 "parser.pcc"
 } break;
     case 64: {
-#line 253 "../../prop-src/parser.pcc"
+#line 253 "parser.pcc"
      syn_._210 = t__[1+to__]._211; 
-#line 253 "../../prop-src/parser.pcc"
+#line 253 "parser.pcc"
 } break;
     case 65: {
-#line 257 "../../prop-src/parser.pcc"
+#line 257 "parser.pcc"
      syn_._213 = LOGICALpat(NOTpat,t__[1+to__]._215,NOpat); 
-#line 257 "../../prop-src/parser.pcc"
+#line 257 "parser.pcc"
 } break;
     case 66: {
-#line 258 "../../prop-src/parser.pcc"
+#line 258 "parser.pcc"
      syn_._217 = LOGICALpat(ANDpat,t__[1+to__]._218,t__[2+to__]._220); 
-#line 258 "../../prop-src/parser.pcc"
+#line 258 "parser.pcc"
 } break;
     case 67: {
-#line 259 "../../prop-src/parser.pcc"
+#line 259 "parser.pcc"
      syn_._222 = LOGICALpat(ORpat,t__[1+to__]._223,t__[2+to__]._225); 
-#line 259 "../../prop-src/parser.pcc"
+#line 259 "parser.pcc"
 } break;
     case 68: {
-#line 260 "../../prop-src/parser.pcc"
+#line 260 "parser.pcc"
      syn_._227 = LOGICALpat(IMPLIESpat,t__[1+to__]._228,t__[2+to__]._230); 
-#line 260 "../../prop-src/parser.pcc"
+#line 260 "parser.pcc"
 } break;
     case 69: {
-#line 261 "../../prop-src/parser.pcc"
+#line 261 "parser.pcc"
      syn_._232 = LOGICALpat(XORpat,t__[1+to__]._233,t__[2+to__]._235); 
-#line 261 "../../prop-src/parser.pcc"
+#line 261 "parser.pcc"
 } break;
     case 70: {
-#line 262 "../../prop-src/parser.pcc"
+#line 262 "parser.pcc"
      syn_._237 = LOGICALpat(EQUIVpat,t__[1+to__]._238,t__[2+to__]._240); 
-#line 262 "../../prop-src/parser.pcc"
+#line 262 "parser.pcc"
 } break;
     case 71: {
-#line 266 "../../prop-src/parser.pcc"
+#line 266 "parser.pcc"
      syn_._242 = t__[1+to__]._243; 
-#line 266 "../../prop-src/parser.pcc"
+#line 266 "parser.pcc"
 } break;
     case 72: {
-#line 267 "../../prop-src/parser.pcc"
+#line 267 "parser.pcc"
      syn_._245 = t__[1+to__]._246; 
-#line 267 "../../prop-src/parser.pcc"
+#line 267 "parser.pcc"
 } break;
     case 73: {
-#line 271 "../../prop-src/parser.pcc"
+#line 271 "parser.pcc"
      syn_._248 = lookup_patvar(t__[1+to__]._249); 
-#line 271 "../../prop-src/parser.pcc"
+#line 271 "parser.pcc"
 } break;
     case 74: {
-#line 272 "../../prop-src/parser.pcc"
+#line 272 "parser.pcc"
      syn_._251 = ASpat(t__[1+to__]._252,t__[2+to__]._254,mkvar(),NOexp); 
-#line 272 "../../prop-src/parser.pcc"
+#line 272 "parser.pcc"
 } break;
     case 75: {
-#line 273 "../../prop-src/parser.pcc"
+#line 273 "parser.pcc"
      syn_._256 = LITERALpat(t__[1+to__]._257); 
-#line 273 "../../prop-src/parser.pcc"
+#line 273 "parser.pcc"
 } break;
     case 76: {
-#line 274 "../../prop-src/parser.pcc"
+#line 274 "parser.pcc"
      syn_._259 = t__[1+to__]._260; 
-#line 274 "../../prop-src/parser.pcc"
+#line 274 "parser.pcc"
 } break;
     case 77: {
-#line 275 "../../prop-src/parser.pcc"
+#line 275 "parser.pcc"
      syn_._262 = compiler->parse_pat("",t__[1+to__]._263); 
-#line 275 "../../prop-src/parser.pcc"
+#line 275 "parser.pcc"
 } break;
     case 78: {
-#line 276 "../../prop-src/parser.pcc"
+#line 276 "parser.pcc"
      syn_._265 = WILDpat(); 
-#line 276 "../../prop-src/parser.pcc"
+#line 276 "parser.pcc"
 } break;
     case 79: {
-#line 277 "../../prop-src/parser.pcc"
+#line 277 "parser.pcc"
      syn_._268 = TUPLEpat(
-#line 277 "../../prop-src/parser.pcc"
-#line 277 "../../prop-src/parser.pcc"
+#line 277 "parser.pcc"
+#line 277 "parser.pcc"
       nil_1_
-#line 277 "../../prop-src/parser.pcc"
-#line 277 "../../prop-src/parser.pcc"
+#line 277 "parser.pcc"
+#line 277 "parser.pcc"
       ); 
-#line 277 "../../prop-src/parser.pcc"
+#line 277 "parser.pcc"
 } break;
     case 80: {
-#line 278 "../../prop-src/parser.pcc"
+#line 278 "parser.pcc"
      syn_._272 = t__[1+to__]._274; 
-#line 278 "../../prop-src/parser.pcc"
+#line 278 "parser.pcc"
 } break;
     case 81: {
-#line 279 "../../prop-src/parser.pcc"
+#line 279 "parser.pcc"
      syn_._277 = TUPLEpat(t__[1+to__]._279); 
-#line 279 "../../prop-src/parser.pcc"
+#line 279 "parser.pcc"
 } break;
     case 82: {
-#line 280 "../../prop-src/parser.pcc"
+#line 280 "parser.pcc"
      syn_._282 = RECORDpat(t__[1+to__]._284,false); 
-#line 280 "../../prop-src/parser.pcc"
+#line 280 "parser.pcc"
 } break;
     case 83: {
-#line 281 "../../prop-src/parser.pcc"
+#line 281 "parser.pcc"
      syn_._287 = RECORDpat(t__[1+to__]._289,true); 
-#line 281 "../../prop-src/parser.pcc"
+#line 281 "parser.pcc"
 } break;
     case 84: {
-#line 282 "../../prop-src/parser.pcc"
+#line 282 "parser.pcc"
      syn_._293 = TYPEDpat(t__[1+to__]._295,t__[2+to__]._297); 
-#line 282 "../../prop-src/parser.pcc"
+#line 282 "parser.pcc"
 } break;
     case 85: {
-#line 283 "../../prop-src/parser.pcc"
+#line 283 "parser.pcc"
      syn_._300 = mkconspat(t__[1+to__]._301); 
-#line 283 "../../prop-src/parser.pcc"
+#line 283 "parser.pcc"
 } break;
     case 86: {
-#line 284 "../../prop-src/parser.pcc"
+#line 284 "parser.pcc"
      syn_._303 = APPpat(CONSpat(t__[1+to__]._304),t__[2+to__]._305); 
-#line 284 "../../prop-src/parser.pcc"
+#line 284 "parser.pcc"
 } break;
     case 87: {
-#line 285 "../../prop-src/parser.pcc"
+#line 285 "parser.pcc"
      syn_._307 = CONTEXTpat(t__[1+to__]._309,t__[2+to__]._311); 
-#line 285 "../../prop-src/parser.pcc"
+#line 285 "parser.pcc"
 } break;
     case 88: {
-#line 287 "../../prop-src/parser.pcc"
+#line 287 "parser.pcc"
       
       Pat scheme = DatatypeCompiler::lookup_pat(t__[1+to__]._314);
       if (scheme != NOpat)
@@ -4348,59 +4340,59 @@ inline void PropParser::action_driver(const Rule _r_)
       else
         { lookup_cons(t__[1+to__]._314); syn_._313 = WILDpat(); }
       	
-#line 293 "../../prop-src/parser.pcc"
+#line 293 "parser.pcc"
 } break;
     case 89: {
-#line 297 "../../prop-src/parser.pcc"
+#line 297 "parser.pcc"
      syn_._317 = mk_regexp_pat(t__[1+to__]._318); Used::regexp = true; 
-#line 297 "../../prop-src/parser.pcc"
+#line 297 "parser.pcc"
 } break;
     case 90: {
-#line 299 "../../prop-src/parser.pcc"
+#line 299 "parser.pcc"
     if (options.fast_string_match && ! in_rewrite) {
       	      syn_._320 = ARRAYpat(make_string_pattern(t__[1+to__]._321+1),false);
       	   } else {
       	      syn_._320 = LITERALpat(STRINGlit(t__[1+to__]._321)); Used::string_match = true;
       	   }
       	
-#line 304 "../../prop-src/parser.pcc"
+#line 304 "parser.pcc"
 } break;
     case 91: {
-#line 306 "../../prop-src/parser.pcc"
+#line 306 "parser.pcc"
     
-#line 306 "../../prop-src/parser.pcc"
-#line 315 "../../prop-src/parser.pcc"
+#line 306 "parser.pcc"
+#line 315 "parser.pcc"
       {
         a_List<TermDef> *  _V1 = lookup_lexeme_class(t__[2+to__]._326);
         if (_V1) {
-#line 308 "../../prop-src/parser.pcc"
+#line 308 "parser.pcc"
         
-#line 308 "../../prop-src/parser.pcc"
-#line 312 "../../prop-src/parser.pcc"
+#line 308 "parser.pcc"
+#line 312 "parser.pcc"
           {
             Cons _V2 = lookup_cons(_V1->_1->id);
             if (_V2) {
               if (_V2->alg_ty) {
                 switch (_V2->alg_ty->tag__) {
                   case a_Ty::tag_TYCONty: {
-                    if (boxed(_TYCONty(_V2->alg_ty)->_1)) {
-                      switch (_TYCONty(_V2->alg_ty)->_1->tag__) {
+                    if (boxed(((Ty_TYCONty *)_V2->alg_ty)->_1)) {
+                      switch (((Ty_TYCONty *)_V2->alg_ty)->_1->tag__) {
                         case a_TyCon::tag_DATATYPEtycon: {
-#line 311 "../../prop-src/parser.pcc"
-                         syn_._323 = LEXEMEpat(t__[2+to__]._326, _V2->alg_ty, length(_V1), _DATATYPEtycon(_TYCONty(_V2->alg_ty)->_1)->terms + _V2->tag); 
-#line 311 "../../prop-src/parser.pcc"
+#line 311 "parser.pcc"
+                         syn_._323 = LEXEMEpat(t__[2+to__]._326, _V2->alg_ty, length(_V1), ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2->alg_ty)->_1)->terms + _V2->tag); 
+#line 311 "parser.pcc"
                           } break;
                         default: {
                           L1:; 
-#line 312 "../../prop-src/parser.pcc"
+#line 312 "parser.pcc"
                          syn_._323 = LEXEMEpat(t__[2+to__]._326, mkidty(t__[2+to__]._326,
-#line 312 "../../prop-src/parser.pcc"
-#line 312 "../../prop-src/parser.pcc"
+#line 312 "parser.pcc"
+#line 312 "parser.pcc"
                           nil_1_
-#line 312 "../../prop-src/parser.pcc"
-#line 312 "../../prop-src/parser.pcc"
+#line 312 "parser.pcc"
+#line 312 "parser.pcc"
                           ), 0, 0); 
-#line 312 "../../prop-src/parser.pcc"
+#line 312 "parser.pcc"
                           } break;
                       }
                     } else { goto L1; }
@@ -4410,1317 +4402,1317 @@ inline void PropParser::action_driver(const Rule _r_)
               } else { goto L1; }
             } else { goto L1; }
           }
-#line 313 "../../prop-src/parser.pcc"
-#line 313 "../../prop-src/parser.pcc"
+#line 313 "parser.pcc"
+#line 313 "parser.pcc"
           
           
-#line 314 "../../prop-src/parser.pcc"
+#line 314 "parser.pcc"
         } else {
-#line 315 "../../prop-src/parser.pcc"
+#line 315 "parser.pcc"
          syn_._323 = LEXEMEpat(t__[2+to__]._326, mkidty(t__[2+to__]._326,
-#line 315 "../../prop-src/parser.pcc"
-#line 315 "../../prop-src/parser.pcc"
+#line 315 "parser.pcc"
+#line 315 "parser.pcc"
           nil_1_
-#line 315 "../../prop-src/parser.pcc"
-#line 315 "../../prop-src/parser.pcc"
+#line 315 "parser.pcc"
+#line 315 "parser.pcc"
           ), 0, 0); 
-#line 315 "../../prop-src/parser.pcc"
+#line 315 "parser.pcc"
         }
       }
-#line 316 "../../prop-src/parser.pcc"
-#line 316 "../../prop-src/parser.pcc"
+#line 316 "parser.pcc"
+#line 316 "parser.pcc"
       
       	   if (me_top >= 0) match_kind[me_top] |= MATCHlexemepat;
       	
-#line 318 "../../prop-src/parser.pcc"
+#line 318 "parser.pcc"
 } break;
     case 92: {
-#line 322 "../../prop-src/parser.pcc"
+#line 322 "parser.pcc"
      syn_._328 = 
-#line 322 "../../prop-src/parser.pcc"
-#line 322 "../../prop-src/parser.pcc"
+#line 322 "parser.pcc"
+#line 322 "parser.pcc"
       list_1_(t__[1+to__]._329)
-#line 322 "../../prop-src/parser.pcc"
-#line 322 "../../prop-src/parser.pcc"
+#line 322 "parser.pcc"
+#line 322 "parser.pcc"
       ; 
-#line 322 "../../prop-src/parser.pcc"
+#line 322 "parser.pcc"
 } break;
     case 93: {
-#line 323 "../../prop-src/parser.pcc"
+#line 323 "parser.pcc"
      syn_._331 = 
-#line 323 "../../prop-src/parser.pcc"
-#line 323 "../../prop-src/parser.pcc"
+#line 323 "parser.pcc"
+#line 323 "parser.pcc"
       list_1_(t__[1+to__]._332,t__[2+to__]._334)
-#line 323 "../../prop-src/parser.pcc"
-#line 323 "../../prop-src/parser.pcc"
+#line 323 "parser.pcc"
+#line 323 "parser.pcc"
       ; 
-#line 323 "../../prop-src/parser.pcc"
+#line 323 "parser.pcc"
 } break;
     case 94: {
-#line 327 "../../prop-src/parser.pcc"
+#line 327 "parser.pcc"
      syn_._336 = ARRAYpat(t__[1+to__]._338,false); 
-#line 327 "../../prop-src/parser.pcc"
+#line 327 "parser.pcc"
 } break;
     case 95: {
-#line 328 "../../prop-src/parser.pcc"
+#line 328 "parser.pcc"
      syn_._341 = ARRAYpat(t__[1+to__]._343,true); 
-#line 328 "../../prop-src/parser.pcc"
+#line 328 "parser.pcc"
 } break;
     case 96: {
-#line 329 "../../prop-src/parser.pcc"
+#line 329 "parser.pcc"
      syn_._347 = mklistpat("#[...]","#[]",t__[1+to__]._350); 
-#line 329 "../../prop-src/parser.pcc"
+#line 329 "parser.pcc"
 } break;
     case 97: {
-#line 330 "../../prop-src/parser.pcc"
+#line 330 "parser.pcc"
      syn_._353 = mklistpat("#[...]","#[]",t__[1+to__]._356,t__[2+to__]._358);
-#line 330 "../../prop-src/parser.pcc"
+#line 330 "parser.pcc"
 } break;
     case 98: {
-#line 331 "../../prop-src/parser.pcc"
+#line 331 "parser.pcc"
      syn_._361 = mklistpat("#{...}","#{}",t__[1+to__]._364); 
-#line 331 "../../prop-src/parser.pcc"
+#line 331 "parser.pcc"
 } break;
     case 99: {
-#line 332 "../../prop-src/parser.pcc"
+#line 332 "parser.pcc"
      syn_._367 = mklistpat("#{...}","#{}",t__[1+to__]._370,t__[2+to__]._372); 
-#line 332 "../../prop-src/parser.pcc"
+#line 332 "parser.pcc"
 } break;
     case 100: {
-#line 333 "../../prop-src/parser.pcc"
+#line 333 "parser.pcc"
      syn_._375 = mklistpat("#(...)","#()",t__[1+to__]._378); 
-#line 333 "../../prop-src/parser.pcc"
+#line 333 "parser.pcc"
 } break;
     case 101: {
-#line 334 "../../prop-src/parser.pcc"
+#line 334 "parser.pcc"
      syn_._381 = mklistpat("#(...)","#()",t__[1+to__]._384,t__[2+to__]._386); 
-#line 334 "../../prop-src/parser.pcc"
+#line 334 "parser.pcc"
 } break;
     case 102: {
-#line 335 "../../prop-src/parser.pcc"
+#line 335 "parser.pcc"
      syn_._389 = mkvecpat("[|...|]",NOpat,NOpat,
-#line 335 "../../prop-src/parser.pcc"
-#line 335 "../../prop-src/parser.pcc"
+#line 335 "parser.pcc"
+#line 335 "parser.pcc"
       nil_1_
-#line 335 "../../prop-src/parser.pcc"
-#line 335 "../../prop-src/parser.pcc"
+#line 335 "parser.pcc"
+#line 335 "parser.pcc"
       ); 
-#line 335 "../../prop-src/parser.pcc"
+#line 335 "parser.pcc"
 } break;
     case 103: {
-#line 336 "../../prop-src/parser.pcc"
+#line 336 "parser.pcc"
      syn_._393 = mkvecpat("(|...|)",NOpat,NOpat,
-#line 336 "../../prop-src/parser.pcc"
-#line 336 "../../prop-src/parser.pcc"
+#line 336 "parser.pcc"
+#line 336 "parser.pcc"
       nil_1_
-#line 336 "../../prop-src/parser.pcc"
-#line 336 "../../prop-src/parser.pcc"
+#line 336 "parser.pcc"
+#line 336 "parser.pcc"
       ); 
-#line 336 "../../prop-src/parser.pcc"
+#line 336 "parser.pcc"
 } break;
     case 104: {
-#line 337 "../../prop-src/parser.pcc"
+#line 337 "parser.pcc"
      syn_._397 = mkvecpat("{|...|}",NOpat,NOpat,
-#line 337 "../../prop-src/parser.pcc"
-#line 337 "../../prop-src/parser.pcc"
+#line 337 "parser.pcc"
+#line 337 "parser.pcc"
       nil_1_
-#line 337 "../../prop-src/parser.pcc"
-#line 337 "../../prop-src/parser.pcc"
+#line 337 "parser.pcc"
+#line 337 "parser.pcc"
       ); 
-#line 337 "../../prop-src/parser.pcc"
+#line 337 "parser.pcc"
 } break;
     case 105: {
-#line 339 "../../prop-src/parser.pcc"
+#line 339 "parser.pcc"
      syn_._401 = mkvecpat("[|...|]",NOpat,NOpat,t__[2+to__]._404,t__[1+to__]._403,t__[3+to__]._405); 
-#line 339 "../../prop-src/parser.pcc"
+#line 339 "parser.pcc"
 } break;
     case 106: {
-#line 341 "../../prop-src/parser.pcc"
+#line 341 "parser.pcc"
      syn_._408 = mkvecpat("(|...|)",NOpat,NOpat,t__[2+to__]._411,t__[1+to__]._410,t__[3+to__]._412); 
-#line 341 "../../prop-src/parser.pcc"
+#line 341 "parser.pcc"
 } break;
     case 107: {
-#line 343 "../../prop-src/parser.pcc"
+#line 343 "parser.pcc"
      syn_._415 = mkvecpat("{|...|}",NOpat,NOpat,t__[2+to__]._418,t__[1+to__]._417,t__[3+to__]._419); 
-#line 343 "../../prop-src/parser.pcc"
+#line 343 "parser.pcc"
 } break;
     case 108: {
-#line 345 "../../prop-src/parser.pcc"
+#line 345 "parser.pcc"
      syn_._422 = mkvecpat("[|...|]",t__[1+to__]._425,t__[2+to__]._426,t__[4+to__]._429,t__[3+to__]._428,t__[5+to__]._430); 
-#line 345 "../../prop-src/parser.pcc"
+#line 345 "parser.pcc"
 } break;
     case 109: {
-#line 347 "../../prop-src/parser.pcc"
+#line 347 "parser.pcc"
      syn_._433 = mkvecpat("(|...|)",t__[1+to__]._436,t__[2+to__]._437,t__[4+to__]._440,t__[3+to__]._439,t__[5+to__]._441); 
-#line 347 "../../prop-src/parser.pcc"
+#line 347 "parser.pcc"
 } break;
     case 110: {
-#line 349 "../../prop-src/parser.pcc"
+#line 349 "parser.pcc"
      syn_._444 = mkvecpat("{|...|}",t__[1+to__]._447,t__[2+to__]._448,t__[4+to__]._451,t__[3+to__]._450,t__[5+to__]._452); 
-#line 349 "../../prop-src/parser.pcc"
+#line 349 "parser.pcc"
 } break;
     case 111: {
-#line 350 "../../prop-src/parser.pcc"
+#line 350 "parser.pcc"
      syn_._455 = EXTUPLEpat(t__[1+to__]._457); 
-#line 350 "../../prop-src/parser.pcc"
+#line 350 "parser.pcc"
 } break;
     case 112: {
-#line 353 "../../prop-src/parser.pcc"
+#line 353 "parser.pcc"
      syn_._460 = false; 
-#line 353 "../../prop-src/parser.pcc"
+#line 353 "parser.pcc"
 } break;
     case 113: {
-#line 354 "../../prop-src/parser.pcc"
+#line 354 "parser.pcc"
      syn_._462 = true; 
-#line 354 "../../prop-src/parser.pcc"
+#line 354 "parser.pcc"
 } break;
     case 114: {
-#line 357 "../../prop-src/parser.pcc"
+#line 357 "parser.pcc"
      syn_._465 = NOpat; 
-#line 357 "../../prop-src/parser.pcc"
+#line 357 "parser.pcc"
 } break;
     case 115: {
-#line 358 "../../prop-src/parser.pcc"
+#line 358 "parser.pcc"
      syn_._467 = t__[1+to__]._469; 
-#line 358 "../../prop-src/parser.pcc"
+#line 358 "parser.pcc"
 } break;
     case 116: {
-#line 362 "../../prop-src/parser.pcc"
+#line 362 "parser.pcc"
      syn_._471.label = t__[1+to__]._472; syn_._471.pat = t__[2+to__]._474; 
-#line 362 "../../prop-src/parser.pcc"
+#line 362 "parser.pcc"
 } break;
     case 117: {
-#line 363 "../../prop-src/parser.pcc"
+#line 363 "parser.pcc"
      syn_._476.label = t__[1+to__]._477; syn_._476.pat = IDpat(t__[1+to__]._477,mkvar(),NOexp); 
-#line 363 "../../prop-src/parser.pcc"
+#line 363 "parser.pcc"
 } break;
     case 118: {
-#line 373 "../../prop-src/parser.pcc"
+#line 373 "parser.pcc"
      syn_._479 = 
-#line 373 "../../prop-src/parser.pcc"
-#line 373 "../../prop-src/parser.pcc"
+#line 373 "parser.pcc"
+#line 373 "parser.pcc"
       list_1_(t__[1+to__]._480,list_1_(t__[2+to__]._482))
-#line 373 "../../prop-src/parser.pcc"
-#line 373 "../../prop-src/parser.pcc"
+#line 373 "parser.pcc"
+#line 373 "parser.pcc"
       ; 
-#line 373 "../../prop-src/parser.pcc"
+#line 373 "parser.pcc"
 } break;
     case 119: {
-#line 374 "../../prop-src/parser.pcc"
+#line 374 "parser.pcc"
      syn_._484 = 
-#line 374 "../../prop-src/parser.pcc"
-#line 374 "../../prop-src/parser.pcc"
+#line 374 "parser.pcc"
+#line 374 "parser.pcc"
       list_1_(t__[1+to__]._485,t__[2+to__]._487)
-#line 374 "../../prop-src/parser.pcc"
-#line 374 "../../prop-src/parser.pcc"
+#line 374 "parser.pcc"
+#line 374 "parser.pcc"
       ; 
-#line 374 "../../prop-src/parser.pcc"
+#line 374 "parser.pcc"
 } break;
     case 120: {
-#line 377 "../../prop-src/parser.pcc"
+#line 377 "parser.pcc"
      syn_._489 = 
-#line 377 "../../prop-src/parser.pcc"
-#line 377 "../../prop-src/parser.pcc"
+#line 377 "parser.pcc"
+#line 377 "parser.pcc"
       nil_1_
-#line 377 "../../prop-src/parser.pcc"
-#line 377 "../../prop-src/parser.pcc"
+#line 377 "parser.pcc"
+#line 377 "parser.pcc"
       ; 
-#line 377 "../../prop-src/parser.pcc"
+#line 377 "parser.pcc"
 } break;
     case 121: {
-#line 378 "../../prop-src/parser.pcc"
+#line 378 "parser.pcc"
      syn_._491 = t__[1+to__]._492; 
-#line 378 "../../prop-src/parser.pcc"
+#line 378 "parser.pcc"
 } break;
     case 122: {
-#line 382 "../../prop-src/parser.pcc"
+#line 382 "parser.pcc"
      syn_._494 = 
-#line 382 "../../prop-src/parser.pcc"
-#line 382 "../../prop-src/parser.pcc"
+#line 382 "parser.pcc"
+#line 382 "parser.pcc"
       list_1_(t__[1+to__]._495)
-#line 382 "../../prop-src/parser.pcc"
-#line 382 "../../prop-src/parser.pcc"
+#line 382 "parser.pcc"
+#line 382 "parser.pcc"
       ; 
-#line 382 "../../prop-src/parser.pcc"
+#line 382 "parser.pcc"
 } break;
     case 123: {
-#line 383 "../../prop-src/parser.pcc"
+#line 383 "parser.pcc"
      syn_._497 = t__[1+to__]._498; 
-#line 383 "../../prop-src/parser.pcc"
+#line 383 "parser.pcc"
 } break;
     case 124: {
-#line 387 "../../prop-src/parser.pcc"
+#line 387 "parser.pcc"
      syn_._500 = t__[1+to__]._501; 
-#line 387 "../../prop-src/parser.pcc"
+#line 387 "parser.pcc"
 } break;
     case 125: {
-#line 388 "../../prop-src/parser.pcc"
+#line 388 "parser.pcc"
      syn_._503 = TYPEDpat(t__[1+to__]._504,t__[2+to__]._506); 
-#line 388 "../../prop-src/parser.pcc"
+#line 388 "parser.pcc"
 } break;
     case 126: {
-#line 392 "../../prop-src/parser.pcc"
+#line 392 "parser.pcc"
      syn_._508 = 
-#line 392 "../../prop-src/parser.pcc"
-#line 392 "../../prop-src/parser.pcc"
+#line 392 "parser.pcc"
+#line 392 "parser.pcc"
       list_1_(t__[1+to__]._509,list_1_(t__[2+to__]._511))
-#line 392 "../../prop-src/parser.pcc"
-#line 392 "../../prop-src/parser.pcc"
+#line 392 "parser.pcc"
+#line 392 "parser.pcc"
       ; 
-#line 392 "../../prop-src/parser.pcc"
+#line 392 "parser.pcc"
 } break;
     case 127: {
-#line 393 "../../prop-src/parser.pcc"
+#line 393 "parser.pcc"
      syn_._513 = 
-#line 393 "../../prop-src/parser.pcc"
-#line 393 "../../prop-src/parser.pcc"
+#line 393 "parser.pcc"
+#line 393 "parser.pcc"
       list_1_(t__[1+to__]._514,t__[2+to__]._516)
-#line 393 "../../prop-src/parser.pcc"
-#line 393 "../../prop-src/parser.pcc"
+#line 393 "parser.pcc"
+#line 393 "parser.pcc"
       ; 
-#line 393 "../../prop-src/parser.pcc"
+#line 393 "parser.pcc"
 } break;
     case 128: {
-#line 396 "../../prop-src/parser.pcc"
+#line 396 "parser.pcc"
      syn_._518 = 
-#line 396 "../../prop-src/parser.pcc"
-#line 396 "../../prop-src/parser.pcc"
+#line 396 "parser.pcc"
+#line 396 "parser.pcc"
       nil_1_
-#line 396 "../../prop-src/parser.pcc"
-#line 396 "../../prop-src/parser.pcc"
+#line 396 "parser.pcc"
+#line 396 "parser.pcc"
       ; 
-#line 396 "../../prop-src/parser.pcc"
+#line 396 "parser.pcc"
 } break;
     case 129: {
-#line 397 "../../prop-src/parser.pcc"
+#line 397 "parser.pcc"
      syn_._520 = t__[1+to__]._521; 
-#line 397 "../../prop-src/parser.pcc"
+#line 397 "parser.pcc"
 } break;
     case 130: {
-#line 401 "../../prop-src/parser.pcc"
+#line 401 "parser.pcc"
      syn_._523 = 
-#line 401 "../../prop-src/parser.pcc"
-#line 401 "../../prop-src/parser.pcc"
+#line 401 "parser.pcc"
+#line 401 "parser.pcc"
       list_1_(t__[1+to__]._524)
-#line 401 "../../prop-src/parser.pcc"
-#line 401 "../../prop-src/parser.pcc"
+#line 401 "parser.pcc"
+#line 401 "parser.pcc"
       ; 
-#line 401 "../../prop-src/parser.pcc"
+#line 401 "parser.pcc"
 } break;
     case 131: {
-#line 402 "../../prop-src/parser.pcc"
+#line 402 "parser.pcc"
      syn_._526 = 
-#line 402 "../../prop-src/parser.pcc"
-#line 402 "../../prop-src/parser.pcc"
+#line 402 "parser.pcc"
+#line 402 "parser.pcc"
       list_1_(t__[1+to__]._527,t__[2+to__]._529)
-#line 402 "../../prop-src/parser.pcc"
-#line 402 "../../prop-src/parser.pcc"
+#line 402 "parser.pcc"
+#line 402 "parser.pcc"
       ; 
-#line 402 "../../prop-src/parser.pcc"
+#line 402 "parser.pcc"
 } break;
     case 132: {
-#line 412 "../../prop-src/parser.pcc"
+#line 412 "parser.pcc"
      syn_._531 = t__[1+to__]._532; 
-#line 412 "../../prop-src/parser.pcc"
+#line 412 "parser.pcc"
 } break;
     case 133: {
-#line 413 "../../prop-src/parser.pcc"
+#line 413 "parser.pcc"
      syn_._534 = mkfunty(t__[1+to__]._535,t__[2+to__]._537); 
-#line 413 "../../prop-src/parser.pcc"
+#line 413 "parser.pcc"
 } break;
     case 134: {
-#line 417 "../../prop-src/parser.pcc"
+#line 417 "parser.pcc"
      syn_._539 = mktypety(); 
-#line 417 "../../prop-src/parser.pcc"
+#line 417 "parser.pcc"
 } break;
     case 135: {
-#line 418 "../../prop-src/parser.pcc"
+#line 418 "parser.pcc"
      syn_._542 = t__[1+to__]._543; 
-#line 418 "../../prop-src/parser.pcc"
+#line 418 "parser.pcc"
 } break;
     case 136: {
-#line 422 "../../prop-src/parser.pcc"
+#line 422 "parser.pcc"
      syn_._545 = DEFVALty(t__[1+to__]._546,t__[2+to__]._548); 
-#line 422 "../../prop-src/parser.pcc"
+#line 422 "parser.pcc"
 } break;
     case 137: {
-#line 423 "../../prop-src/parser.pcc"
+#line 423 "parser.pcc"
      syn_._550 = t__[1+to__]._551; 
-#line 423 "../../prop-src/parser.pcc"
+#line 423 "parser.pcc"
 } break;
     case 138: {
-#line 424 "../../prop-src/parser.pcc"
+#line 424 "parser.pcc"
      syn_._553 = mkptrty(t__[1+to__]._554); 
-#line 424 "../../prop-src/parser.pcc"
+#line 424 "parser.pcc"
 } break;
     case 139: {
-#line 425 "../../prop-src/parser.pcc"
+#line 425 "parser.pcc"
      syn_._557 = mkrefty(t__[1+to__]._558); 
-#line 425 "../../prop-src/parser.pcc"
+#line 425 "parser.pcc"
 } break;
     case 140: {
-#line 426 "../../prop-src/parser.pcc"
+#line 426 "parser.pcc"
      syn_._561 = mkptrty(t__[1+to__]._562); 
-#line 426 "../../prop-src/parser.pcc"
+#line 426 "parser.pcc"
 } break;
     case 141: {
-#line 427 "../../prop-src/parser.pcc"
+#line 427 "parser.pcc"
      syn_._566 = mkarrayty(t__[1+to__]._567,t__[2+to__]._569); 
-#line 427 "../../prop-src/parser.pcc"
+#line 427 "parser.pcc"
 } break;
     case 142: {
-#line 431 "../../prop-src/parser.pcc"
+#line 431 "parser.pcc"
      syn_._572 = t__[1+to__]._573; 
-#line 431 "../../prop-src/parser.pcc"
+#line 431 "parser.pcc"
 } break;
     case 143: {
-#line 432 "../../prop-src/parser.pcc"
+#line 432 "parser.pcc"
      syn_._575 = mkptrty(t__[1+to__]._576); 
-#line 432 "../../prop-src/parser.pcc"
+#line 432 "parser.pcc"
 } break;
     case 144: {
-#line 433 "../../prop-src/parser.pcc"
+#line 433 "parser.pcc"
      syn_._579 = mkrefty(t__[1+to__]._580); 
-#line 433 "../../prop-src/parser.pcc"
+#line 433 "parser.pcc"
 } break;
     case 145: {
-#line 434 "../../prop-src/parser.pcc"
+#line 434 "parser.pcc"
      syn_._583 = mkptrty(t__[1+to__]._584); 
-#line 434 "../../prop-src/parser.pcc"
+#line 434 "parser.pcc"
 } break;
     case 146: {
-#line 435 "../../prop-src/parser.pcc"
+#line 435 "parser.pcc"
      syn_._588 = mkarrayty(t__[1+to__]._589,t__[2+to__]._591); 
-#line 435 "../../prop-src/parser.pcc"
+#line 435 "parser.pcc"
 } break;
     case 147: {
-#line 438 "../../prop-src/parser.pcc"
+#line 438 "parser.pcc"
      syn_._594 = mkidty(t__[1+to__]._595,t__[2+to__]._596); 
-#line 438 "../../prop-src/parser.pcc"
+#line 438 "parser.pcc"
 } break;
     case 148: {
-#line 442 "../../prop-src/parser.pcc"
+#line 442 "parser.pcc"
      syn_._598 = QUALty(QUALclass,t__[1+to__]._600); 
-#line 442 "../../prop-src/parser.pcc"
+#line 442 "parser.pcc"
 } break;
     case 149: {
-#line 443 "../../prop-src/parser.pcc"
+#line 443 "parser.pcc"
      syn_._602 = QUALty(QUALconst,t__[1+to__]._604); 
-#line 443 "../../prop-src/parser.pcc"
+#line 443 "parser.pcc"
 } break;
     case 150: {
-#line 444 "../../prop-src/parser.pcc"
+#line 444 "parser.pcc"
      syn_._606 = QUALty(QUALcollectable,t__[1+to__]._608); 
-#line 444 "../../prop-src/parser.pcc"
+#line 444 "parser.pcc"
 } break;
     case 151: {
-#line 445 "../../prop-src/parser.pcc"
+#line 445 "parser.pcc"
      syn_._610 = QUALty(QUALfinalizable | QUALcollectable,t__[1+to__]._612); 
-#line 445 "../../prop-src/parser.pcc"
+#line 445 "parser.pcc"
 } break;
     case 152: {
-#line 446 "../../prop-src/parser.pcc"
+#line 446 "parser.pcc"
      syn_._614 = QUALty(QUALunsigned,t__[1+to__]._616); 
-#line 446 "../../prop-src/parser.pcc"
+#line 446 "parser.pcc"
 } break;
     case 153: {
-#line 447 "../../prop-src/parser.pcc"
+#line 447 "parser.pcc"
      syn_._618 = QUALty(QUALsigned,t__[1+to__]._620); 
-#line 447 "../../prop-src/parser.pcc"
+#line 447 "parser.pcc"
 } break;
     case 154: {
-#line 448 "../../prop-src/parser.pcc"
+#line 448 "parser.pcc"
      syn_._622 = t__[1+to__]._623; 
-#line 448 "../../prop-src/parser.pcc"
+#line 448 "parser.pcc"
 } break;
     case 155: {
-#line 449 "../../prop-src/parser.pcc"
+#line 449 "parser.pcc"
      syn_._625 = mktuplety(
-#line 449 "../../prop-src/parser.pcc"
-#line 449 "../../prop-src/parser.pcc"
+#line 449 "parser.pcc"
+#line 449 "parser.pcc"
       nil_1_
-#line 449 "../../prop-src/parser.pcc"
-#line 449 "../../prop-src/parser.pcc"
+#line 449 "parser.pcc"
+#line 449 "parser.pcc"
       ); 
-#line 449 "../../prop-src/parser.pcc"
+#line 449 "parser.pcc"
 } break;
     case 156: {
-#line 450 "../../prop-src/parser.pcc"
+#line 450 "parser.pcc"
      syn_._629 = t__[1+to__]._631; 
-#line 450 "../../prop-src/parser.pcc"
+#line 450 "parser.pcc"
 } break;
     case 157: {
-#line 451 "../../prop-src/parser.pcc"
+#line 451 "parser.pcc"
      syn_._634 = mktuplety(t__[1+to__]._636); 
-#line 451 "../../prop-src/parser.pcc"
+#line 451 "parser.pcc"
 } break;
     case 158: {
-#line 452 "../../prop-src/parser.pcc"
+#line 452 "parser.pcc"
      syn_._639 = extuplety(t__[1+to__]._641); 
-#line 452 "../../prop-src/parser.pcc"
+#line 452 "parser.pcc"
 } break;
     case 159: {
-#line 453 "../../prop-src/parser.pcc"
+#line 453 "parser.pcc"
      syn_._644 = t__[1+to__]._645; 
-#line 453 "../../prop-src/parser.pcc"
+#line 453 "parser.pcc"
 } break;
     case 160: {
-#line 457 "../../prop-src/parser.pcc"
+#line 457 "parser.pcc"
      syn_._647 = t__[1+to__]._648; 
-#line 457 "../../prop-src/parser.pcc"
+#line 457 "parser.pcc"
 } break;
     case 161: {
-#line 458 "../../prop-src/parser.pcc"
+#line 458 "parser.pcc"
      syn_._650 = t__[1+to__]._651; 
-#line 458 "../../prop-src/parser.pcc"
+#line 458 "parser.pcc"
 } break;
     case 162: {
-#line 462 "../../prop-src/parser.pcc"
+#line 462 "parser.pcc"
      syn_._653 = mkrecordty(t__[1+to__]._655.lab_list,t__[1+to__]._655.ty_list,false); 
-#line 462 "../../prop-src/parser.pcc"
+#line 462 "parser.pcc"
 } break;
     case 163: {
-#line 466 "../../prop-src/parser.pcc"
+#line 466 "parser.pcc"
      syn_._658 = t__[1+to__]._659; 
-#line 466 "../../prop-src/parser.pcc"
+#line 466 "parser.pcc"
 } break;
     case 164: {
-#line 467 "../../prop-src/parser.pcc"
+#line 467 "parser.pcc"
      syn_._661 = NESTEDty(t__[1+to__]._662,t__[2+to__]._664); 
-#line 467 "../../prop-src/parser.pcc"
+#line 467 "parser.pcc"
 } break;
     case 165: {
-#line 471 "../../prop-src/parser.pcc"
+#line 471 "parser.pcc"
      syn_._666 = SIMPLEid(t__[1+to__]._667); 
-#line 471 "../../prop-src/parser.pcc"
+#line 471 "parser.pcc"
 } break;
     case 166: {
-#line 472 "../../prop-src/parser.pcc"
+#line 472 "parser.pcc"
      syn_._669 = NESTEDid(t__[1+to__]._670,t__[2+to__]._672); 
-#line 472 "../../prop-src/parser.pcc"
+#line 472 "parser.pcc"
 } break;
     case 167: {
-#line 476 "../../prop-src/parser.pcc"
+#line 476 "parser.pcc"
      syn_._674 = lookup_tyvar(t__[1+to__]._675); 
-#line 476 "../../prop-src/parser.pcc"
+#line 476 "parser.pcc"
 } break;
     case 168: {
-#line 477 "../../prop-src/parser.pcc"
+#line 477 "parser.pcc"
      syn_._677 = mkidty(t__[1+to__]._678, t__[2+to__]._680); 
-#line 477 "../../prop-src/parser.pcc"
+#line 477 "parser.pcc"
 } break;
     case 169: {
-#line 480 "../../prop-src/parser.pcc"
+#line 480 "parser.pcc"
      syn_._683.label = t__[1+to__]._684; syn_._683.ty = t__[2+to__]._686; 
-#line 480 "../../prop-src/parser.pcc"
+#line 480 "parser.pcc"
 } break;
     case 170: {
-#line 483 "../../prop-src/parser.pcc"
+#line 483 "parser.pcc"
      syn_._688 = 
-#line 483 "../../prop-src/parser.pcc"
-#line 483 "../../prop-src/parser.pcc"
+#line 483 "parser.pcc"
+#line 483 "parser.pcc"
       nil_1_
-#line 483 "../../prop-src/parser.pcc"
-#line 483 "../../prop-src/parser.pcc"
+#line 483 "parser.pcc"
+#line 483 "parser.pcc"
       ; 
-#line 483 "../../prop-src/parser.pcc"
+#line 483 "parser.pcc"
 } break;
     case 171: {
-#line 484 "../../prop-src/parser.pcc"
+#line 484 "parser.pcc"
      syn_._690 = t__[1+to__]._692; 
-#line 484 "../../prop-src/parser.pcc"
+#line 484 "parser.pcc"
 } break;
     case 172: {
-#line 488 "../../prop-src/parser.pcc"
+#line 488 "parser.pcc"
      syn_._695 = 
-#line 488 "../../prop-src/parser.pcc"
-#line 488 "../../prop-src/parser.pcc"
+#line 488 "parser.pcc"
+#line 488 "parser.pcc"
       list_1_(t__[1+to__]._696)
-#line 488 "../../prop-src/parser.pcc"
-#line 488 "../../prop-src/parser.pcc"
+#line 488 "parser.pcc"
+#line 488 "parser.pcc"
       ; 
-#line 488 "../../prop-src/parser.pcc"
+#line 488 "parser.pcc"
 } break;
     case 173: {
-#line 489 "../../prop-src/parser.pcc"
+#line 489 "parser.pcc"
      syn_._698 = t__[1+to__]._699; 
-#line 489 "../../prop-src/parser.pcc"
+#line 489 "parser.pcc"
 } break;
     case 174: {
-#line 493 "../../prop-src/parser.pcc"
+#line 493 "parser.pcc"
      syn_._701 = 
-#line 493 "../../prop-src/parser.pcc"
-#line 493 "../../prop-src/parser.pcc"
+#line 493 "parser.pcc"
+#line 493 "parser.pcc"
       list_1_(t__[1+to__]._702,list_1_(t__[2+to__]._704))
-#line 493 "../../prop-src/parser.pcc"
-#line 493 "../../prop-src/parser.pcc"
+#line 493 "parser.pcc"
+#line 493 "parser.pcc"
       ; 
-#line 493 "../../prop-src/parser.pcc"
+#line 493 "parser.pcc"
 } break;
     case 175: {
-#line 494 "../../prop-src/parser.pcc"
+#line 494 "parser.pcc"
      syn_._706 = 
-#line 494 "../../prop-src/parser.pcc"
-#line 494 "../../prop-src/parser.pcc"
+#line 494 "parser.pcc"
+#line 494 "parser.pcc"
       list_1_(t__[1+to__]._707,t__[2+to__]._709)
-#line 494 "../../prop-src/parser.pcc"
-#line 494 "../../prop-src/parser.pcc"
+#line 494 "parser.pcc"
+#line 494 "parser.pcc"
       ; 
-#line 494 "../../prop-src/parser.pcc"
+#line 494 "parser.pcc"
 } break;
     case 176: {
-#line 497 "../../prop-src/parser.pcc"
+#line 497 "parser.pcc"
      syn_._711.lab_list = 
-#line 497 "../../prop-src/parser.pcc"
-#line 497 "../../prop-src/parser.pcc"
+#line 497 "parser.pcc"
+#line 497 "parser.pcc"
       nil_1_
-#line 497 "../../prop-src/parser.pcc"
-#line 497 "../../prop-src/parser.pcc"
+#line 497 "parser.pcc"
+#line 497 "parser.pcc"
       ; syn_._711.ty_list = 
-#line 497 "../../prop-src/parser.pcc"
-#line 497 "../../prop-src/parser.pcc"
+#line 497 "parser.pcc"
+#line 497 "parser.pcc"
       nil_1_
-#line 497 "../../prop-src/parser.pcc"
-#line 497 "../../prop-src/parser.pcc"
+#line 497 "parser.pcc"
+#line 497 "parser.pcc"
       ; 
-#line 497 "../../prop-src/parser.pcc"
+#line 497 "parser.pcc"
 } break;
     case 177: {
-#line 498 "../../prop-src/parser.pcc"
+#line 498 "parser.pcc"
       
       syn_._713.lab_list = 
-#line 499 "../../prop-src/parser.pcc"
-#line 499 "../../prop-src/parser.pcc"
+#line 499 "parser.pcc"
+#line 499 "parser.pcc"
       list_1_(t__[1+to__]._714.label)
-#line 499 "../../prop-src/parser.pcc"
-#line 499 "../../prop-src/parser.pcc"
+#line 499 "parser.pcc"
+#line 499 "parser.pcc"
       ;
       syn_._713.ty_list  = 
-#line 500 "../../prop-src/parser.pcc"
-#line 500 "../../prop-src/parser.pcc"
+#line 500 "parser.pcc"
+#line 500 "parser.pcc"
       list_1_(t__[1+to__]._714.ty)
-#line 500 "../../prop-src/parser.pcc"
-#line 500 "../../prop-src/parser.pcc"
+#line 500 "parser.pcc"
+#line 500 "parser.pcc"
       ;
       
-#line 501 "../../prop-src/parser.pcc"
+#line 501 "parser.pcc"
 } break;
     case 178: {
-#line 502 "../../prop-src/parser.pcc"
+#line 502 "parser.pcc"
      syn_._716 = t__[1+to__]._717; 
-#line 502 "../../prop-src/parser.pcc"
+#line 502 "parser.pcc"
 } break;
     case 179: {
-#line 507 "../../prop-src/parser.pcc"
+#line 507 "parser.pcc"
       
       syn_._719.lab_list = 
-#line 508 "../../prop-src/parser.pcc"
-#line 508 "../../prop-src/parser.pcc"
+#line 508 "parser.pcc"
+#line 508 "parser.pcc"
       list_1_(t__[1+to__]._720.label,list_1_(t__[2+to__]._722.label))
-#line 508 "../../prop-src/parser.pcc"
-#line 508 "../../prop-src/parser.pcc"
+#line 508 "parser.pcc"
+#line 508 "parser.pcc"
       ;
       syn_._719.ty_list  = 
-#line 509 "../../prop-src/parser.pcc"
-#line 509 "../../prop-src/parser.pcc"
+#line 509 "parser.pcc"
+#line 509 "parser.pcc"
       list_1_(t__[1+to__]._720.ty,list_1_(t__[2+to__]._722.ty))
-#line 509 "../../prop-src/parser.pcc"
-#line 509 "../../prop-src/parser.pcc"
+#line 509 "parser.pcc"
+#line 509 "parser.pcc"
       ;
       
-#line 510 "../../prop-src/parser.pcc"
+#line 510 "parser.pcc"
 } break;
     case 180: {
-#line 512 "../../prop-src/parser.pcc"
+#line 512 "parser.pcc"
       
       syn_._724.lab_list = 
-#line 513 "../../prop-src/parser.pcc"
-#line 513 "../../prop-src/parser.pcc"
+#line 513 "parser.pcc"
+#line 513 "parser.pcc"
       list_1_(t__[1+to__]._725.label,t__[2+to__]._727.lab_list)
-#line 513 "../../prop-src/parser.pcc"
-#line 513 "../../prop-src/parser.pcc"
+#line 513 "parser.pcc"
+#line 513 "parser.pcc"
       ;
       syn_._724.ty_list  = 
-#line 514 "../../prop-src/parser.pcc"
-#line 514 "../../prop-src/parser.pcc"
+#line 514 "parser.pcc"
+#line 514 "parser.pcc"
       list_1_(t__[1+to__]._725.ty,t__[2+to__]._727.ty_list)
-#line 514 "../../prop-src/parser.pcc"
-#line 514 "../../prop-src/parser.pcc"
+#line 514 "parser.pcc"
+#line 514 "parser.pcc"
       ;
       
-#line 515 "../../prop-src/parser.pcc"
+#line 515 "parser.pcc"
 } break;
     case 181: {
-#line 525 "../../prop-src/parser.pcc"
+#line 525 "parser.pcc"
      syn_._729 = t__[1+to__]._730; 
-#line 525 "../../prop-src/parser.pcc"
+#line 525 "parser.pcc"
 } break;
     case 182: {
-#line 526 "../../prop-src/parser.pcc"
+#line 526 "parser.pcc"
      syn_._732 = BINOPexp("+",t__[1+to__]._733,t__[2+to__]._735); 
-#line 526 "../../prop-src/parser.pcc"
+#line 526 "parser.pcc"
 } break;
     case 183: {
-#line 527 "../../prop-src/parser.pcc"
+#line 527 "parser.pcc"
      syn_._737 = BINOPexp("-",t__[1+to__]._738,t__[2+to__]._740); 
-#line 527 "../../prop-src/parser.pcc"
+#line 527 "parser.pcc"
 } break;
     case 184: {
-#line 528 "../../prop-src/parser.pcc"
+#line 528 "parser.pcc"
      syn_._742 = BINOPexp("*",t__[1+to__]._743,t__[2+to__]._745); 
-#line 528 "../../prop-src/parser.pcc"
+#line 528 "parser.pcc"
 } break;
     case 185: {
-#line 529 "../../prop-src/parser.pcc"
+#line 529 "parser.pcc"
      syn_._747 = BINOPexp("/",t__[1+to__]._748,t__[2+to__]._750); 
-#line 529 "../../prop-src/parser.pcc"
+#line 529 "parser.pcc"
 } break;
     case 186: {
-#line 530 "../../prop-src/parser.pcc"
+#line 530 "parser.pcc"
      syn_._752 = BINOPexp("%",t__[1+to__]._753,t__[2+to__]._755); 
-#line 530 "../../prop-src/parser.pcc"
+#line 530 "parser.pcc"
 } break;
     case 187: {
-#line 531 "../../prop-src/parser.pcc"
+#line 531 "parser.pcc"
      syn_._757 = ASSIGNexp(t__[1+to__]._758,t__[2+to__]._760); 
-#line 531 "../../prop-src/parser.pcc"
+#line 531 "parser.pcc"
 } break;
     case 188: {
-#line 532 "../../prop-src/parser.pcc"
+#line 532 "parser.pcc"
      syn_._762 = ASSIGNexp(t__[1+to__]._763,t__[2+to__]._765); 
-#line 532 "../../prop-src/parser.pcc"
+#line 532 "parser.pcc"
 } break;
     case 189: {
-#line 533 "../../prop-src/parser.pcc"
+#line 533 "parser.pcc"
      syn_._767 = BINOPexp("<",t__[1+to__]._768,t__[2+to__]._770); 
-#line 533 "../../prop-src/parser.pcc"
+#line 533 "parser.pcc"
 } break;
     case 190: {
-#line 534 "../../prop-src/parser.pcc"
+#line 534 "parser.pcc"
      syn_._772 = BINOPexp(">",t__[1+to__]._773,t__[2+to__]._775); 
-#line 534 "../../prop-src/parser.pcc"
+#line 534 "parser.pcc"
 } break;
     case 191: {
-#line 535 "../../prop-src/parser.pcc"
+#line 535 "parser.pcc"
      syn_._777 = BINOPexp("|",t__[1+to__]._778,t__[2+to__]._780); 
-#line 535 "../../prop-src/parser.pcc"
+#line 535 "parser.pcc"
 } break;
     case 192: {
-#line 536 "../../prop-src/parser.pcc"
+#line 536 "parser.pcc"
      syn_._782 = BINOPexp("&",t__[1+to__]._783,t__[2+to__]._785); 
-#line 536 "../../prop-src/parser.pcc"
+#line 536 "parser.pcc"
 } break;
     case 193: {
-#line 537 "../../prop-src/parser.pcc"
+#line 537 "parser.pcc"
      syn_._787 = BINOPexp("^",t__[1+to__]._788,t__[2+to__]._790); 
-#line 537 "../../prop-src/parser.pcc"
+#line 537 "parser.pcc"
 } break;
     case 194: {
-#line 538 "../../prop-src/parser.pcc"
+#line 538 "parser.pcc"
      syn_._792 = BINOPexp("+=",t__[1+to__]._793,t__[2+to__]._795); 
-#line 538 "../../prop-src/parser.pcc"
+#line 538 "parser.pcc"
 } break;
     case 195: {
-#line 539 "../../prop-src/parser.pcc"
+#line 539 "parser.pcc"
      syn_._797 = BINOPexp("-=",t__[1+to__]._798,t__[2+to__]._800); 
-#line 539 "../../prop-src/parser.pcc"
+#line 539 "parser.pcc"
 } break;
     case 196: {
-#line 540 "../../prop-src/parser.pcc"
+#line 540 "parser.pcc"
      syn_._802 = BINOPexp("*=",t__[1+to__]._803,t__[2+to__]._805); 
-#line 540 "../../prop-src/parser.pcc"
+#line 540 "parser.pcc"
 } break;
     case 197: {
-#line 541 "../../prop-src/parser.pcc"
+#line 541 "parser.pcc"
      syn_._807 = BINOPexp("/=",t__[1+to__]._808,t__[2+to__]._810); 
-#line 541 "../../prop-src/parser.pcc"
+#line 541 "parser.pcc"
 } break;
     case 198: {
-#line 542 "../../prop-src/parser.pcc"
+#line 542 "parser.pcc"
      syn_._812 = BINOPexp("%=",t__[1+to__]._813,t__[2+to__]._815); 
-#line 542 "../../prop-src/parser.pcc"
+#line 542 "parser.pcc"
 } break;
     case 199: {
-#line 543 "../../prop-src/parser.pcc"
+#line 543 "parser.pcc"
      syn_._817 = BINOPexp("&=",t__[1+to__]._818,t__[2+to__]._820); 
-#line 543 "../../prop-src/parser.pcc"
+#line 543 "parser.pcc"
 } break;
     case 200: {
-#line 544 "../../prop-src/parser.pcc"
+#line 544 "parser.pcc"
      syn_._822 = BINOPexp("|=",t__[1+to__]._823,t__[2+to__]._825); 
-#line 544 "../../prop-src/parser.pcc"
+#line 544 "parser.pcc"
 } break;
     case 201: {
-#line 545 "../../prop-src/parser.pcc"
+#line 545 "parser.pcc"
      syn_._827 = BINOPexp("^=",t__[1+to__]._828,t__[2+to__]._830); 
-#line 545 "../../prop-src/parser.pcc"
+#line 545 "parser.pcc"
 } break;
     case 202: {
-#line 546 "../../prop-src/parser.pcc"
+#line 546 "parser.pcc"
      syn_._832 = BINOPexp(">=",t__[1+to__]._833,t__[2+to__]._835); 
-#line 546 "../../prop-src/parser.pcc"
+#line 546 "parser.pcc"
 } break;
     case 203: {
-#line 547 "../../prop-src/parser.pcc"
+#line 547 "parser.pcc"
      syn_._837 = BINOPexp("<=",t__[1+to__]._838,t__[2+to__]._840); 
-#line 547 "../../prop-src/parser.pcc"
+#line 547 "parser.pcc"
 } break;
     case 204: {
-#line 548 "../../prop-src/parser.pcc"
+#line 548 "parser.pcc"
      syn_._842 = BINOPexp("==",t__[1+to__]._843,t__[2+to__]._845); 
-#line 548 "../../prop-src/parser.pcc"
+#line 548 "parser.pcc"
 } break;
     case 205: {
-#line 549 "../../prop-src/parser.pcc"
+#line 549 "parser.pcc"
      syn_._847 = BINOPexp("!=",t__[1+to__]._848,t__[2+to__]._850); 
-#line 549 "../../prop-src/parser.pcc"
+#line 549 "parser.pcc"
 } break;
     case 206: {
-#line 550 "../../prop-src/parser.pcc"
+#line 550 "parser.pcc"
      syn_._852 = BINOPexp("||",t__[1+to__]._853,t__[2+to__]._855); 
-#line 550 "../../prop-src/parser.pcc"
+#line 550 "parser.pcc"
 } break;
     case 207: {
-#line 551 "../../prop-src/parser.pcc"
+#line 551 "parser.pcc"
      syn_._857 = BINOPexp("&&",t__[1+to__]._858,t__[2+to__]._860); 
-#line 551 "../../prop-src/parser.pcc"
+#line 551 "parser.pcc"
 } break;
     case 208: {
-#line 552 "../../prop-src/parser.pcc"
+#line 552 "parser.pcc"
      syn_._862 = BINOPexp("<<",t__[1+to__]._863,t__[2+to__]._865); 
-#line 552 "../../prop-src/parser.pcc"
+#line 552 "parser.pcc"
 } break;
     case 209: {
-#line 553 "../../prop-src/parser.pcc"
+#line 553 "parser.pcc"
      syn_._867 = BINOPexp(">>",t__[1+to__]._868,t__[2+to__]._870); 
-#line 553 "../../prop-src/parser.pcc"
+#line 553 "parser.pcc"
 } break;
     case 210: {
-#line 554 "../../prop-src/parser.pcc"
+#line 554 "parser.pcc"
      syn_._872 = BINOPexp("<<=",t__[1+to__]._873,t__[2+to__]._875); 
-#line 554 "../../prop-src/parser.pcc"
+#line 554 "parser.pcc"
 } break;
     case 211: {
-#line 555 "../../prop-src/parser.pcc"
+#line 555 "parser.pcc"
      syn_._877 = BINOPexp(">>=",t__[1+to__]._878,t__[2+to__]._880); 
-#line 555 "../../prop-src/parser.pcc"
+#line 555 "parser.pcc"
 } break;
     case 212: {
-#line 556 "../../prop-src/parser.pcc"
+#line 556 "parser.pcc"
      syn_._882 = POSTFIXexp("++",t__[1+to__]._883); 
-#line 556 "../../prop-src/parser.pcc"
+#line 556 "parser.pcc"
 } break;
     case 213: {
-#line 557 "../../prop-src/parser.pcc"
+#line 557 "parser.pcc"
      syn_._886 = POSTFIXexp("--",t__[1+to__]._887); 
-#line 557 "../../prop-src/parser.pcc"
+#line 557 "parser.pcc"
 } break;
     case 214: {
-#line 558 "../../prop-src/parser.pcc"
+#line 558 "parser.pcc"
      syn_._890 = PREFIXexp("-",t__[1+to__]._892); 
-#line 558 "../../prop-src/parser.pcc"
+#line 558 "parser.pcc"
 } break;
     case 215: {
-#line 559 "../../prop-src/parser.pcc"
+#line 559 "parser.pcc"
      syn_._894 = PREFIXexp("!",t__[1+to__]._896); 
-#line 559 "../../prop-src/parser.pcc"
+#line 559 "parser.pcc"
 } break;
     case 216: {
-#line 560 "../../prop-src/parser.pcc"
+#line 560 "parser.pcc"
      syn_._898 = PREFIXexp("++",t__[1+to__]._900); 
-#line 560 "../../prop-src/parser.pcc"
+#line 560 "parser.pcc"
 } break;
     case 217: {
-#line 561 "../../prop-src/parser.pcc"
+#line 561 "parser.pcc"
      syn_._902 = PREFIXexp("--",t__[1+to__]._904); 
-#line 561 "../../prop-src/parser.pcc"
+#line 561 "parser.pcc"
 } break;
     case 218: {
-#line 562 "../../prop-src/parser.pcc"
+#line 562 "parser.pcc"
      syn_._906 = PREFIXexp("&",t__[1+to__]._908); 
-#line 562 "../../prop-src/parser.pcc"
+#line 562 "parser.pcc"
 } break;
     case 219: {
-#line 563 "../../prop-src/parser.pcc"
+#line 563 "parser.pcc"
      syn_._910 = PREFIXexp("~",t__[1+to__]._912); 
-#line 563 "../../prop-src/parser.pcc"
+#line 563 "parser.pcc"
 } break;
     case 220: {
-#line 564 "../../prop-src/parser.pcc"
+#line 564 "parser.pcc"
      syn_._914 = DEREFexp(t__[1+to__]._916); 
-#line 564 "../../prop-src/parser.pcc"
+#line 564 "parser.pcc"
 } break;
     case 221: {
-#line 565 "../../prop-src/parser.pcc"
+#line 565 "parser.pcc"
      syn_._918 = IFexp(t__[1+to__]._919,t__[2+to__]._921,t__[3+to__]._923); 
-#line 565 "../../prop-src/parser.pcc"
+#line 565 "parser.pcc"
 } break;
     case 222: {
-#line 566 "../../prop-src/parser.pcc"
+#line 566 "parser.pcc"
      syn_._925 = t__[1+to__]._926; 
-#line 566 "../../prop-src/parser.pcc"
+#line 566 "parser.pcc"
 } break;
     case 223: {
-#line 570 "../../prop-src/parser.pcc"
+#line 570 "parser.pcc"
      syn_._928 = t__[1+to__]._929; 
-#line 570 "../../prop-src/parser.pcc"
+#line 570 "parser.pcc"
 } break;
     case 224: {
-#line 571 "../../prop-src/parser.pcc"
+#line 571 "parser.pcc"
      syn_._931 = mkappexp(t__[1+to__]._932,t__[2+to__]._933); 
-#line 571 "../../prop-src/parser.pcc"
+#line 571 "parser.pcc"
 } break;
     case 225: {
-#line 575 "../../prop-src/parser.pcc"
+#line 575 "parser.pcc"
      syn_._935 = t__[1+to__]._936; 
-#line 575 "../../prop-src/parser.pcc"
+#line 575 "parser.pcc"
 } break;
     case 226: {
-#line 576 "../../prop-src/parser.pcc"
+#line 576 "parser.pcc"
      syn_._938 = mkappexp(t__[1+to__]._939,t__[2+to__]._940); 
-#line 576 "../../prop-src/parser.pcc"
+#line 576 "parser.pcc"
 } break;
     case 227: {
-#line 580 "../../prop-src/parser.pcc"
+#line 580 "parser.pcc"
      syn_._942 = lookup_exp(t__[1+to__]._943); 
-#line 580 "../../prop-src/parser.pcc"
+#line 580 "parser.pcc"
 } break;
     case 228: {
-#line 581 "../../prop-src/parser.pcc"
+#line 581 "parser.pcc"
      syn_._945 = LITERALexp(t__[1+to__]._946); 
-#line 581 "../../prop-src/parser.pcc"
+#line 581 "parser.pcc"
 } break;
     case 229: {
-#line 582 "../../prop-src/parser.pcc"
+#line 582 "parser.pcc"
       
       syn_._948 = my_cons->ty == NOty
       ? CONSexp(my_cons,
-#line 584 "../../prop-src/parser.pcc"
-#line 584 "../../prop-src/parser.pcc"
+#line 584 "parser.pcc"
+#line 584 "parser.pcc"
       nil_1_
-#line 584 "../../prop-src/parser.pcc"
-#line 584 "../../prop-src/parser.pcc"
+#line 584 "parser.pcc"
+#line 584 "parser.pcc"
       ,NOexp) : IDexp(t__[1+to__]._949->name);
       
-#line 585 "../../prop-src/parser.pcc"
+#line 585 "parser.pcc"
 } break;
     case 230: {
-#line 589 "../../prop-src/parser.pcc"
+#line 589 "parser.pcc"
      syn_._951 = t__[1+to__]._952; 
-#line 589 "../../prop-src/parser.pcc"
+#line 589 "parser.pcc"
 } break;
     case 231: {
-#line 590 "../../prop-src/parser.pcc"
+#line 590 "parser.pcc"
      syn_._954 = TUPLEexp(
-#line 590 "../../prop-src/parser.pcc"
-#line 590 "../../prop-src/parser.pcc"
+#line 590 "parser.pcc"
+#line 590 "parser.pcc"
       nil_1_
-#line 590 "../../prop-src/parser.pcc"
-#line 590 "../../prop-src/parser.pcc"
+#line 590 "parser.pcc"
+#line 590 "parser.pcc"
       ); 
-#line 590 "../../prop-src/parser.pcc"
+#line 590 "parser.pcc"
 } break;
     case 232: {
-#line 591 "../../prop-src/parser.pcc"
+#line 591 "parser.pcc"
      syn_._958 = t__[1+to__]._960; 
-#line 591 "../../prop-src/parser.pcc"
+#line 591 "parser.pcc"
 } break;
     case 233: {
-#line 592 "../../prop-src/parser.pcc"
+#line 592 "parser.pcc"
      syn_._963 = TUPLEexp(t__[1+to__]._965); 
-#line 592 "../../prop-src/parser.pcc"
+#line 592 "parser.pcc"
 } break;
     case 234: {
-#line 593 "../../prop-src/parser.pcc"
+#line 593 "parser.pcc"
      syn_._968 = RECORDexp(t__[2+to__]._971); 
-#line 593 "../../prop-src/parser.pcc"
+#line 593 "parser.pcc"
 } break;
     case 235: {
-#line 594 "../../prop-src/parser.pcc"
+#line 594 "parser.pcc"
      syn_._974 = t__[1+to__]._975; 
-#line 594 "../../prop-src/parser.pcc"
+#line 594 "parser.pcc"
 } break;
     case 236: {
-#line 595 "../../prop-src/parser.pcc"
+#line 595 "parser.pcc"
      syn_._977 = t__[1+to__]._978; 
-#line 595 "../../prop-src/parser.pcc"
+#line 595 "parser.pcc"
 } break;
     case 237: {
-#line 596 "../../prop-src/parser.pcc"
+#line 596 "parser.pcc"
      syn_._980 = t__[1+to__]._981; 
-#line 596 "../../prop-src/parser.pcc"
+#line 596 "parser.pcc"
 } break;
     case 238: {
-#line 597 "../../prop-src/parser.pcc"
+#line 597 "parser.pcc"
      syn_._983 = DOTexp(t__[1+to__]._984,t__[2+to__]._986); 
-#line 597 "../../prop-src/parser.pcc"
+#line 597 "parser.pcc"
 } break;
     case 239: {
-#line 598 "../../prop-src/parser.pcc"
+#line 598 "parser.pcc"
      syn_._988 = DOTexp(t__[1+to__]._989,Quark("_",t__[2+to__]._992)); 
-#line 598 "../../prop-src/parser.pcc"
+#line 598 "parser.pcc"
 } break;
     case 240: {
-#line 599 "../../prop-src/parser.pcc"
+#line 599 "parser.pcc"
      syn_._994 = INDEXexp(t__[1+to__]._995,t__[2+to__]._997); 
-#line 599 "../../prop-src/parser.pcc"
+#line 599 "parser.pcc"
 } break;
     case 241: {
-#line 600 "../../prop-src/parser.pcc"
+#line 600 "parser.pcc"
      syn_._1000 = ARROWexp(t__[1+to__]._1001,t__[2+to__]._1003); 
-#line 600 "../../prop-src/parser.pcc"
+#line 600 "parser.pcc"
 } break;
     case 242: {
-#line 601 "../../prop-src/parser.pcc"
+#line 601 "parser.pcc"
      syn_._1005 = ARROWexp(t__[1+to__]._1006,Quark("_",t__[2+to__]._1009)); 
-#line 601 "../../prop-src/parser.pcc"
+#line 601 "parser.pcc"
 } break;
     case 243: {
-#line 602 "../../prop-src/parser.pcc"
+#line 602 "parser.pcc"
      syn_._1011 = QUALexp(lookup_tyvar(t__[1+to__]._1012),t__[2+to__]._1014); 
-#line 602 "../../prop-src/parser.pcc"
+#line 602 "parser.pcc"
 } break;
     case 246: {
-#line 610 "../../prop-src/parser.pcc"
+#line 610 "parser.pcc"
      syn_._1020 = mklistexp("#[...]","#[]",t__[1+to__]._1023); 
-#line 610 "../../prop-src/parser.pcc"
+#line 610 "parser.pcc"
 } break;
     case 247: {
-#line 611 "../../prop-src/parser.pcc"
+#line 611 "parser.pcc"
      syn_._1026 = mklistexp("#(...)","#()",t__[1+to__]._1029); 
-#line 611 "../../prop-src/parser.pcc"
+#line 611 "parser.pcc"
 } break;
     case 248: {
-#line 612 "../../prop-src/parser.pcc"
+#line 612 "parser.pcc"
      syn_._1032 = mklistexp("#{...}","#{}",t__[1+to__]._1035); 
-#line 612 "../../prop-src/parser.pcc"
+#line 612 "parser.pcc"
 } break;
     case 249: {
-#line 613 "../../prop-src/parser.pcc"
+#line 613 "parser.pcc"
      syn_._1038 = mklistexp("#[...]","#[]",t__[1+to__]._1041,t__[2+to__]._1043); 
-#line 613 "../../prop-src/parser.pcc"
+#line 613 "parser.pcc"
 } break;
     case 250: {
-#line 614 "../../prop-src/parser.pcc"
+#line 614 "parser.pcc"
      syn_._1046 = mklistexp("#(...)","#()",t__[1+to__]._1049,t__[2+to__]._1051); 
-#line 614 "../../prop-src/parser.pcc"
+#line 614 "parser.pcc"
 } break;
     case 251: {
-#line 615 "../../prop-src/parser.pcc"
+#line 615 "parser.pcc"
      syn_._1054 = mklistexp("#{...}","#{}",t__[1+to__]._1057,t__[2+to__]._1059); 
-#line 615 "../../prop-src/parser.pcc"
+#line 615 "parser.pcc"
 } break;
     case 252: {
-#line 616 "../../prop-src/parser.pcc"
+#line 616 "parser.pcc"
      syn_._1062 = mkvecexp("[|...|]",t__[1+to__]._1064); 
-#line 616 "../../prop-src/parser.pcc"
+#line 616 "parser.pcc"
 } break;
     case 253: {
-#line 617 "../../prop-src/parser.pcc"
+#line 617 "parser.pcc"
      syn_._1067 = mkvecexp("(|...|)",t__[1+to__]._1069); 
-#line 617 "../../prop-src/parser.pcc"
+#line 617 "parser.pcc"
 } break;
     case 254: {
-#line 618 "../../prop-src/parser.pcc"
+#line 618 "parser.pcc"
      syn_._1072 = mkvecexp("{|...|}",t__[1+to__]._1074); 
-#line 618 "../../prop-src/parser.pcc"
+#line 618 "parser.pcc"
 } break;
     case 255: {
-#line 619 "../../prop-src/parser.pcc"
+#line 619 "parser.pcc"
      syn_._1077 = extupleexp(t__[1+to__]._1079); 
-#line 619 "../../prop-src/parser.pcc"
+#line 619 "parser.pcc"
 } break;
     case 256: {
-#line 624 "../../prop-src/parser.pcc"
+#line 624 "parser.pcc"
      syn_._1082 = CONSexp(t__[1+to__]._1083,
-#line 624 "../../prop-src/parser.pcc"
-#line 624 "../../prop-src/parser.pcc"
+#line 624 "parser.pcc"
+#line 624 "parser.pcc"
       nil_1_
-#line 624 "../../prop-src/parser.pcc"
-#line 624 "../../prop-src/parser.pcc"
+#line 624 "parser.pcc"
+#line 624 "parser.pcc"
       ,RECORDexp(t__[3+to__]._1086)); 
-#line 624 "../../prop-src/parser.pcc"
+#line 624 "parser.pcc"
 } break;
     case 257: {
-#line 626 "../../prop-src/parser.pcc"
+#line 626 "parser.pcc"
      syn_._1089 = CONSexp(t__[1+to__]._1090,t__[3+to__]._1093,RECORDexp(t__[4+to__]._1096)); 
-#line 626 "../../prop-src/parser.pcc"
+#line 626 "parser.pcc"
 } break;
     case 258: {
-#line 628 "../../prop-src/parser.pcc"
+#line 628 "parser.pcc"
      syn_._1099 = CONSexp(t__[1+to__]._1100,t__[3+to__]._1103,TUPLEexp(t__[4+to__]._1106)); 
-#line 628 "../../prop-src/parser.pcc"
+#line 628 "parser.pcc"
 } break;
     case 259: {
-#line 631 "../../prop-src/parser.pcc"
+#line 631 "parser.pcc"
      syn_._1109 = compiler->parse_exp("",t__[1+to__]._1110); 
-#line 631 "../../prop-src/parser.pcc"
+#line 631 "parser.pcc"
 } break;
     case 260: {
-#line 634 "../../prop-src/parser.pcc"
+#line 634 "parser.pcc"
      syn_._1112.label = t__[1+to__]._1113; syn_._1112.exp = t__[2+to__]._1115; 
-#line 634 "../../prop-src/parser.pcc"
+#line 634 "parser.pcc"
 } break;
     case 261: {
-#line 637 "../../prop-src/parser.pcc"
+#line 637 "parser.pcc"
      syn_._1117 = t__[1+to__]._1119; 
-#line 637 "../../prop-src/parser.pcc"
+#line 637 "parser.pcc"
 } break;
     case 262: {
-#line 646 "../../prop-src/parser.pcc"
+#line 646 "parser.pcc"
      syn_._1122 = 
-#line 646 "../../prop-src/parser.pcc"
-#line 646 "../../prop-src/parser.pcc"
+#line 646 "parser.pcc"
+#line 646 "parser.pcc"
       nil_1_
-#line 646 "../../prop-src/parser.pcc"
-#line 646 "../../prop-src/parser.pcc"
+#line 646 "parser.pcc"
+#line 646 "parser.pcc"
       ; 
-#line 646 "../../prop-src/parser.pcc"
+#line 646 "parser.pcc"
 } break;
     case 263: {
-#line 647 "../../prop-src/parser.pcc"
+#line 647 "parser.pcc"
      syn_._1124 = 
-#line 647 "../../prop-src/parser.pcc"
-#line 647 "../../prop-src/parser.pcc"
+#line 647 "parser.pcc"
+#line 647 "parser.pcc"
       list_1_(t__[1+to__]._1125)
-#line 647 "../../prop-src/parser.pcc"
-#line 647 "../../prop-src/parser.pcc"
+#line 647 "parser.pcc"
+#line 647 "parser.pcc"
       ; 
-#line 647 "../../prop-src/parser.pcc"
+#line 647 "parser.pcc"
 } break;
     case 264: {
-#line 648 "../../prop-src/parser.pcc"
+#line 648 "parser.pcc"
      syn_._1127 = t__[1+to__]._1128; 
-#line 648 "../../prop-src/parser.pcc"
+#line 648 "parser.pcc"
 } break;
     case 265: {
-#line 652 "../../prop-src/parser.pcc"
+#line 652 "parser.pcc"
      syn_._1130 = 
-#line 652 "../../prop-src/parser.pcc"
-#line 652 "../../prop-src/parser.pcc"
+#line 652 "parser.pcc"
+#line 652 "parser.pcc"
       list_1_(t__[1+to__]._1131,list_1_(t__[2+to__]._1133))
-#line 652 "../../prop-src/parser.pcc"
-#line 652 "../../prop-src/parser.pcc"
+#line 652 "parser.pcc"
+#line 652 "parser.pcc"
       ; 
-#line 652 "../../prop-src/parser.pcc"
+#line 652 "parser.pcc"
 } break;
     case 266: {
-#line 653 "../../prop-src/parser.pcc"
+#line 653 "parser.pcc"
      syn_._1135 = 
-#line 653 "../../prop-src/parser.pcc"
-#line 653 "../../prop-src/parser.pcc"
+#line 653 "parser.pcc"
+#line 653 "parser.pcc"
       list_1_(t__[1+to__]._1136,t__[2+to__]._1138)
-#line 653 "../../prop-src/parser.pcc"
-#line 653 "../../prop-src/parser.pcc"
+#line 653 "parser.pcc"
+#line 653 "parser.pcc"
       ; 
-#line 653 "../../prop-src/parser.pcc"
+#line 653 "parser.pcc"
 } break;
     case 267: {
-#line 656 "../../prop-src/parser.pcc"
+#line 656 "parser.pcc"
      syn_._1140 = 
-#line 656 "../../prop-src/parser.pcc"
-#line 656 "../../prop-src/parser.pcc"
+#line 656 "parser.pcc"
+#line 656 "parser.pcc"
       nil_1_
-#line 656 "../../prop-src/parser.pcc"
-#line 656 "../../prop-src/parser.pcc"
+#line 656 "parser.pcc"
+#line 656 "parser.pcc"
       ; 
-#line 656 "../../prop-src/parser.pcc"
+#line 656 "parser.pcc"
 } break;
     case 268: {
-#line 657 "../../prop-src/parser.pcc"
+#line 657 "parser.pcc"
      syn_._1142 = 
-#line 657 "../../prop-src/parser.pcc"
-#line 657 "../../prop-src/parser.pcc"
+#line 657 "parser.pcc"
+#line 657 "parser.pcc"
       list_1_(t__[1+to__]._1143)
-#line 657 "../../prop-src/parser.pcc"
-#line 657 "../../prop-src/parser.pcc"
+#line 657 "parser.pcc"
+#line 657 "parser.pcc"
       ; 
-#line 657 "../../prop-src/parser.pcc"
+#line 657 "parser.pcc"
 } break;
     case 269: {
-#line 658 "../../prop-src/parser.pcc"
+#line 658 "parser.pcc"
      syn_._1145 = t__[1+to__]._1146; 
-#line 658 "../../prop-src/parser.pcc"
+#line 658 "parser.pcc"
 } break;
     case 270: {
-#line 662 "../../prop-src/parser.pcc"
+#line 662 "parser.pcc"
      syn_._1148 = 
-#line 662 "../../prop-src/parser.pcc"
-#line 662 "../../prop-src/parser.pcc"
+#line 662 "parser.pcc"
+#line 662 "parser.pcc"
       list_1_(t__[1+to__]._1149,list_1_(t__[2+to__]._1151))
-#line 662 "../../prop-src/parser.pcc"
-#line 662 "../../prop-src/parser.pcc"
+#line 662 "parser.pcc"
+#line 662 "parser.pcc"
       ; 
-#line 662 "../../prop-src/parser.pcc"
+#line 662 "parser.pcc"
 } break;
     case 271: {
-#line 663 "../../prop-src/parser.pcc"
+#line 663 "parser.pcc"
      syn_._1153 = 
-#line 663 "../../prop-src/parser.pcc"
-#line 663 "../../prop-src/parser.pcc"
+#line 663 "parser.pcc"
+#line 663 "parser.pcc"
       list_1_(t__[1+to__]._1154,t__[2+to__]._1156)
-#line 663 "../../prop-src/parser.pcc"
-#line 663 "../../prop-src/parser.pcc"
+#line 663 "parser.pcc"
+#line 663 "parser.pcc"
       ; 
-#line 663 "../../prop-src/parser.pcc"
+#line 663 "parser.pcc"
 } break;
 #undef to__
 #define to__ -4
     case 749: {
-#line 674 "../../prop-src/parser.pcc"
+#line 674 "parser.pcc"
       
       compute_match_variables(me_stack[++me_top] = t__[4+to__]._1162);
       match_kind[me_top] = t__[1+to__]._1159;
       match_rule = 0;
       
-#line 678 "../../prop-src/parser.pcc"
+#line 678 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 272: {
-#line 680 "../../prop-src/parser.pcc"
+#line 680 "parser.pcc"
       
       syn_._1158 = MATCHdecl(t__[4+to__]._1162,t__[6+to__]._1165,t__[1+to__]._1159 | t__[3+to__]._1161 | match_kind[me_top],t__[2+to__]._1160);
       me_top--;
       
-#line 683 "../../prop-src/parser.pcc"
+#line 683 "parser.pcc"
 } break;
 #undef to__
 #define to__ -4
     case 750: {
-#line 685 "../../prop-src/parser.pcc"
+#line 685 "parser.pcc"
       
       compute_match_variables(me_stack[++me_top] = t__[4+to__]._1172);
       match_kind[me_top] = t__[1+to__]._1169;
       match_rule = 0;
       
-#line 689 "../../prop-src/parser.pcc"
+#line 689 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 273: {
-#line 691 "../../prop-src/parser.pcc"
+#line 691 "parser.pcc"
       
       syn_._1168 = MATCHdecl(t__[4+to__]._1172,t__[6+to__]._1175,t__[1+to__]._1169 | t__[3+to__]._1171 | match_kind[me_top],t__[2+to__]._1170);
       me_top--;
       
-#line 694 "../../prop-src/parser.pcc"
+#line 694 "parser.pcc"
 } break;
     case 274: {
-#line 697 "../../prop-src/parser.pcc"
+#line 697 "parser.pcc"
      syn_._1180 = MATCHnone; 
-#line 697 "../../prop-src/parser.pcc"
+#line 697 "parser.pcc"
 } break;
     case 275: {
-#line 698 "../../prop-src/parser.pcc"
+#line 698 "parser.pcc"
      syn_._1182 = MATCHwhile; 
-#line 698 "../../prop-src/parser.pcc"
+#line 698 "parser.pcc"
 } break;
     case 276: {
-#line 701 "../../prop-src/parser.pcc"
+#line 701 "parser.pcc"
      syn_._1185 = NOty; 
-#line 701 "../../prop-src/parser.pcc"
+#line 701 "parser.pcc"
 } break;
     case 277: {
-#line 702 "../../prop-src/parser.pcc"
+#line 702 "parser.pcc"
      syn_._1187 = t__[1+to__]._1189; 
-#line 702 "../../prop-src/parser.pcc"
+#line 702 "parser.pcc"
 } break;
     case 278: {
-#line 706 "../../prop-src/parser.pcc"
+#line 706 "parser.pcc"
      syn_._1192 = 
-#line 706 "../../prop-src/parser.pcc"
-#line 706 "../../prop-src/parser.pcc"
+#line 706 "parser.pcc"
+#line 706 "parser.pcc"
       list_1_(t__[1+to__]._1193)
-#line 706 "../../prop-src/parser.pcc"
-#line 706 "../../prop-src/parser.pcc"
+#line 706 "parser.pcc"
+#line 706 "parser.pcc"
       ; 
-#line 706 "../../prop-src/parser.pcc"
+#line 706 "parser.pcc"
 } break;
     case 279: {
-#line 707 "../../prop-src/parser.pcc"
+#line 707 "parser.pcc"
      syn_._1195 = 
-#line 707 "../../prop-src/parser.pcc"
-#line 707 "../../prop-src/parser.pcc"
+#line 707 "parser.pcc"
+#line 707 "parser.pcc"
       list_1_(t__[1+to__]._1196,t__[2+to__]._1198)
-#line 707 "../../prop-src/parser.pcc"
-#line 707 "../../prop-src/parser.pcc"
+#line 707 "parser.pcc"
+#line 707 "parser.pcc"
       ; 
-#line 707 "../../prop-src/parser.pcc"
+#line 707 "parser.pcc"
 } break;
     case 280: {
-#line 710 "../../prop-src/parser.pcc"
+#line 710 "parser.pcc"
      syn_._1200 = MATCHexp(mark(t__[1+to__]._1201),0); 
-#line 710 "../../prop-src/parser.pcc"
+#line 710 "parser.pcc"
 } break;
     case 281: {
-#line 714 "../../prop-src/parser.pcc"
+#line 714 "parser.pcc"
      syn_._1203 = t__[1+to__]._1204; 
-#line 714 "../../prop-src/parser.pcc"
+#line 714 "parser.pcc"
 } break;
     case 282: {
-#line 715 "../../prop-src/parser.pcc"
+#line 715 "parser.pcc"
      syn_._1206 = t__[1+to__]._1207; 
-#line 715 "../../prop-src/parser.pcc"
+#line 715 "parser.pcc"
 } break;
     case 283: {
-#line 719 "../../prop-src/parser.pcc"
+#line 719 "parser.pcc"
      syn_._1209 = 
-#line 719 "../../prop-src/parser.pcc"
-#line 719 "../../prop-src/parser.pcc"
+#line 719 "parser.pcc"
+#line 719 "parser.pcc"
       list_1_(t__[1+to__]._1210)
-#line 719 "../../prop-src/parser.pcc"
-#line 719 "../../prop-src/parser.pcc"
+#line 719 "parser.pcc"
+#line 719 "parser.pcc"
       ; 
-#line 719 "../../prop-src/parser.pcc"
+#line 719 "parser.pcc"
 } break;
     case 284: {
-#line 720 "../../prop-src/parser.pcc"
+#line 720 "parser.pcc"
      syn_._1212 = 
-#line 720 "../../prop-src/parser.pcc"
-#line 720 "../../prop-src/parser.pcc"
+#line 720 "parser.pcc"
+#line 720 "parser.pcc"
       list_1_(t__[1+to__]._1213,t__[2+to__]._1214)
-#line 720 "../../prop-src/parser.pcc"
-#line 720 "../../prop-src/parser.pcc"
+#line 720 "parser.pcc"
+#line 720 "parser.pcc"
       ; 
-#line 720 "../../prop-src/parser.pcc"
+#line 720 "parser.pcc"
 } break;
     case 285: {
-#line 724 "../../prop-src/parser.pcc"
+#line 724 "parser.pcc"
      syn_._1216 = 
-#line 724 "../../prop-src/parser.pcc"
-#line 724 "../../prop-src/parser.pcc"
+#line 724 "parser.pcc"
+#line 724 "parser.pcc"
       list_1_(t__[1+to__]._1217)
-#line 724 "../../prop-src/parser.pcc"
-#line 724 "../../prop-src/parser.pcc"
+#line 724 "parser.pcc"
+#line 724 "parser.pcc"
       ; 
-#line 724 "../../prop-src/parser.pcc"
+#line 724 "parser.pcc"
 } break;
     case 286: {
-#line 725 "../../prop-src/parser.pcc"
+#line 725 "parser.pcc"
      syn_._1219 = 
-#line 725 "../../prop-src/parser.pcc"
-#line 725 "../../prop-src/parser.pcc"
+#line 725 "parser.pcc"
+#line 725 "parser.pcc"
       list_1_(t__[1+to__]._1220,t__[2+to__]._1222)
-#line 725 "../../prop-src/parser.pcc"
-#line 725 "../../prop-src/parser.pcc"
+#line 725 "parser.pcc"
+#line 725 "parser.pcc"
       ; 
-#line 725 "../../prop-src/parser.pcc"
+#line 725 "parser.pcc"
 } break;
     case 287: {
-#line 729 "../../prop-src/parser.pcc"
+#line 729 "parser.pcc"
      syn_._1224 = t__[2+to__]._1226; 
-#line 729 "../../prop-src/parser.pcc"
+#line 729 "parser.pcc"
 } break;
     case 288: {
-#line 733 "../../prop-src/parser.pcc"
+#line 733 "parser.pcc"
      syn_._1228 = t__[2+to__]._1230; 
-#line 733 "../../prop-src/parser.pcc"
+#line 733 "parser.pcc"
 } break;
 #undef to__
 #define to__ -2
     case 751: {
-#line 738 "../../prop-src/parser.pcc"
+#line 738 "parser.pcc"
       
       pv_env.new_scope(! options.nonlinear_patterns);
       decor(me_stack[me_top],t__[2+to__]._1235,pv_env,match_rule);
@@ -5729,7 +5721,7 @@ inline void PropParser::action_driver(const Rule _r_)
         decor_rewrite(t__[2+to__]._1235,rule_count,pv_env); rule_count++;
       }
       
-#line 745 "../../prop-src/parser.pcc"
+#line 745 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
@@ -5737,14 +5729,14 @@ inline void PropParser::action_driver(const Rule _r_)
 #undef to__
 #define to__ -5
     case 752: {
-#line 747 "../../prop-src/parser.pcc"
+#line 747 "parser.pcc"
      start_statement(); 
-#line 747 "../../prop-src/parser.pcc"
+#line 747 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 289: {
-#line 749 "../../prop-src/parser.pcc"
+#line 749 "parser.pcc"
       
       end_statement();
       syn_._1233 = MATCHrule(0,t__[2+to__]._1235,pv_env.guard(t__[4+to__]._1237),t__[5+to__]._1238,t__[7+to__]._1241);
@@ -5754,22 +5746,22 @@ inline void PropParser::action_driver(const Rule _r_)
       pv_env.old_scope();
       match_rule++;
       
-#line 757 "../../prop-src/parser.pcc"
+#line 757 "parser.pcc"
 } break;
     case 290: {
-#line 760 "../../prop-src/parser.pcc"
+#line 760 "parser.pcc"
      syn_._1243 = NOexp; 
-#line 760 "../../prop-src/parser.pcc"
+#line 760 "parser.pcc"
 } break;
     case 291: {
-#line 761 "../../prop-src/parser.pcc"
+#line 761 "parser.pcc"
      syn_._1245 = mark(t__[2+to__]._1247); 
-#line 761 "../../prop-src/parser.pcc"
+#line 761 "parser.pcc"
 } break;
 #undef to__
 #define to__ -3
     case 753: {
-#line 766 "../../prop-src/parser.pcc"
+#line 766 "parser.pcc"
       
       pv_env.new_scope( !in_rewrite && !options.nonlinear_patterns,
                in_rewrite,
@@ -5781,24 +5773,24 @@ inline void PropParser::action_driver(const Rule _r_)
         rule_count++;
       }
       
-#line 776 "../../prop-src/parser.pcc"
+#line 776 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 292: {
-#line 778 "../../prop-src/parser.pcc"
+#line 778 "parser.pcc"
       
       syn_._1249 = MATCHrule(t__[2+to__]._1251,t__[3+to__]._1253,pv_env.guard(t__[5+to__]._1255),t__[6+to__]._1256,t__[7+to__]._1258);
       syn_._1249->begin_line = t__[1+to__]._1250;
       pv_env.old_scope();
       match_rule++;
       
-#line 783 "../../prop-src/parser.pcc"
+#line 783 "parser.pcc"
 } break;
 #undef to__
 #define to__ -2
     case 754: {
-#line 785 "../../prop-src/parser.pcc"
+#line 785 "parser.pcc"
       
       pv_env.new_scope( !options.nonlinear_patterns,
                 in_rewrite,
@@ -5810,12 +5802,12 @@ inline void PropParser::action_driver(const Rule _r_)
         rule_count++;
       }
       
-#line 795 "../../prop-src/parser.pcc"
+#line 795 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 293: {
-#line 797 "../../prop-src/parser.pcc"
+#line 797 "parser.pcc"
       
       syn_._1260 = MATCHrule( 0, t__[2+to__]._1262, pv_env.guard(t__[4+to__]._1264), t__[5+to__]._1265, t__[6+to__]._1267);
       syn_._1260->begin_line = t__[1+to__]._1261;
@@ -5824,149 +5816,149 @@ inline void PropParser::action_driver(const Rule _r_)
       pv_env.old_scope();
       match_rule++;
       
-#line 804 "../../prop-src/parser.pcc"
+#line 804 "parser.pcc"
 } break;
     case 294: {
-#line 807 "../../prop-src/parser.pcc"
+#line 807 "parser.pcc"
      syn_._1269 = line; 
-#line 807 "../../prop-src/parser.pcc"
+#line 807 "parser.pcc"
 } break;
     case 295: {
-#line 811 "../../prop-src/parser.pcc"
+#line 811 "parser.pcc"
      syn_._1271 = t__[1+to__]._1272; 
-#line 811 "../../prop-src/parser.pcc"
+#line 811 "parser.pcc"
 } break;
     case 296: {
-#line 812 "../../prop-src/parser.pcc"
+#line 812 "parser.pcc"
      syn_._1274 = 
-#line 812 "../../prop-src/parser.pcc"
-#line 812 "../../prop-src/parser.pcc"
+#line 812 "parser.pcc"
+#line 812 "parser.pcc"
       list_1_(mark(t__[1+to__]._1275))
-#line 812 "../../prop-src/parser.pcc"
-#line 812 "../../prop-src/parser.pcc"
+#line 812 "parser.pcc"
+#line 812 "parser.pcc"
       ; 
-#line 812 "../../prop-src/parser.pcc"
+#line 812 "parser.pcc"
 } break;
     case 297: {
-#line 813 "../../prop-src/parser.pcc"
+#line 813 "parser.pcc"
      syn_._1278 = t__[1+to__]._1279; 
-#line 813 "../../prop-src/parser.pcc"
+#line 813 "parser.pcc"
 } break;
     case 298: {
-#line 814 "../../prop-src/parser.pcc"
+#line 814 "parser.pcc"
      syn_._1282 = t__[1+to__]._1283; 
-#line 814 "../../prop-src/parser.pcc"
+#line 814 "parser.pcc"
 } break;
     case 299: {
-#line 815 "../../prop-src/parser.pcc"
+#line 815 "parser.pcc"
      syn_._1286 = 
-#line 815 "../../prop-src/parser.pcc"
-#line 815 "../../prop-src/parser.pcc"
+#line 815 "parser.pcc"
+#line 815 "parser.pcc"
       list_1_(mark(SETLSTMTdecl(t__[1+to__]._1287)))
-#line 815 "../../prop-src/parser.pcc"
-#line 815 "../../prop-src/parser.pcc"
+#line 815 "parser.pcc"
+#line 815 "parser.pcc"
       ; 
-#line 815 "../../prop-src/parser.pcc"
+#line 815 "parser.pcc"
 } break;
     case 300: {
-#line 816 "../../prop-src/parser.pcc"
+#line 816 "parser.pcc"
      syn_._1289 = 
-#line 816 "../../prop-src/parser.pcc"
-#line 816 "../../prop-src/parser.pcc"
+#line 816 "parser.pcc"
+#line 816 "parser.pcc"
       nil_1_
-#line 816 "../../prop-src/parser.pcc"
-#line 816 "../../prop-src/parser.pcc"
+#line 816 "parser.pcc"
+#line 816 "parser.pcc"
       ; 
-#line 816 "../../prop-src/parser.pcc"
+#line 816 "parser.pcc"
 } break;
     case 301: {
-#line 821 "../../prop-src/parser.pcc"
+#line 821 "parser.pcc"
       
       if (in_rewrite)
       {
         syn_._1291 = 
-#line 824 "../../prop-src/parser.pcc"
-#line 824 "../../prop-src/parser.pcc"
+#line 824 "parser.pcc"
+#line 824 "parser.pcc"
       list_1_(mark(REPLACEMENTdecl(t__[1+to__]._1292,rw_stack[rw_top].mode)))
-#line 824 "../../prop-src/parser.pcc"
-#line 824 "../../prop-src/parser.pcc"
+#line 824 "parser.pcc"
+#line 824 "parser.pcc"
       ;
       rw_stack[rw_top].option |= MatchRuleInfo::REPLACEMENT;
       }
       else
       {
       syn_._1291 = 
-#line 829 "../../prop-src/parser.pcc"
-#line 829 "../../prop-src/parser.pcc"
+#line 829 "parser.pcc"
+#line 829 "parser.pcc"
       list_1_(mark(EXPdecl(t__[1+to__]._1292, "", ";")))
-#line 829 "../../prop-src/parser.pcc"
-#line 829 "../../prop-src/parser.pcc"
+#line 829 "parser.pcc"
+#line 829 "parser.pcc"
       ;
       }
       
-#line 831 "../../prop-src/parser.pcc"
+#line 831 "parser.pcc"
 } break;
     case 302: {
-#line 836 "../../prop-src/parser.pcc"
+#line 836 "parser.pcc"
       
       syn_._1294 = 
-#line 837 "../../prop-src/parser.pcc"
-#line 837 "../../prop-src/parser.pcc"
+#line 837 "parser.pcc"
+#line 837 "parser.pcc"
       list_1_(mark(EXPdecl(t__[1+to__]._1296, "return ", ";")))
-#line 837 "../../prop-src/parser.pcc"
-#line 837 "../../prop-src/parser.pcc"
+#line 837 "parser.pcc"
+#line 837 "parser.pcc"
       ;
       
-#line 838 "../../prop-src/parser.pcc"
+#line 838 "parser.pcc"
 } break;
     case 305: {
-#line 845 "../../prop-src/parser.pcc"
+#line 845 "parser.pcc"
      syn_._1301 = t__[1+to__]._1302; 
-#line 845 "../../prop-src/parser.pcc"
+#line 845 "parser.pcc"
 } break;
     case 306: {
-#line 846 "../../prop-src/parser.pcc"
+#line 846 "parser.pcc"
      syn_._1304 = t__[1+to__]._1305; 
-#line 846 "../../prop-src/parser.pcc"
+#line 846 "parser.pcc"
 } break;
     case 307: {
-#line 847 "../../prop-src/parser.pcc"
+#line 847 "parser.pcc"
      syn_._1307 = t__[1+to__]._1309; 
-#line 847 "../../prop-src/parser.pcc"
+#line 847 "parser.pcc"
 } break;
     case 308: {
-#line 850 "../../prop-src/parser.pcc"
+#line 850 "parser.pcc"
      syn_._1312 = NOcost; 
-#line 850 "../../prop-src/parser.pcc"
+#line 850 "parser.pcc"
 } break;
     case 309: {
-#line 852 "../../prop-src/parser.pcc"
+#line 852 "parser.pcc"
       
       
-#line 853 "../../prop-src/parser.pcc"
-#line 863 "../../prop-src/parser.pcc"
+#line 853 "parser.pcc"
+#line 863 "parser.pcc"
       {
         Exp _V3 = t__[1+to__]._1316;
         if (_V3) {
           switch (_V3->tag__) {
             case a_Exp::tag_LITERALexp: {
-              switch (_LITERALexp(_V3)->LITERALexp->tag__) {
+              switch (((Exp_LITERALexp *)_V3)->LITERALexp->tag__) {
                 case a_Literal::tag_INTlit: {
-#line 856 "../../prop-src/parser.pcc"
+#line 856 "parser.pcc"
                   
-                  if (_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit < 0) error ("%Lnegative cost %i is illegal\n",_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit);
-                  if (_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit <= 0)
+                  if (((Literal_INTlit *)((Exp_LITERALexp *)_V3)->LITERALexp)->INTlit < 0) error ("%Lnegative cost %i is illegal\n",((Literal_INTlit *)((Exp_LITERALexp *)_V3)->LITERALexp)->INTlit);
+                  if (((Literal_INTlit *)((Exp_LITERALexp *)_V3)->LITERALexp)->INTlit <= 0)
                     syn_._1314 = NOcost;
                   else
-                    syn_._1314 = INTcost(_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit);
+                    syn_._1314 = INTcost(((Literal_INTlit *)((Exp_LITERALexp *)_V3)->LITERALexp)->INTlit);
                   
-#line 862 "../../prop-src/parser.pcc"
+#line 862 "parser.pcc"
                   } break;
                 default: {
                   L2:; 
-#line 863 "../../prop-src/parser.pcc"
+#line 863 "parser.pcc"
                  syn_._1314 = EXPcost(_V3,NOty); 
-#line 863 "../../prop-src/parser.pcc"
+#line 863 "parser.pcc"
                   } break;
               }
               } break;
@@ -5974,18 +5966,18 @@ inline void PropParser::action_driver(const Rule _r_)
           }
         } else { goto L2; }
       }
-#line 864 "../../prop-src/parser.pcc"
-#line 864 "../../prop-src/parser.pcc"
+#line 864 "parser.pcc"
+#line 864 "parser.pcc"
       
       
-#line 865 "../../prop-src/parser.pcc"
+#line 865 "parser.pcc"
 } break;
 #undef to__
 #define to__ -0
     case 755: {
-#line 870 "../../prop-src/parser.pcc"
+#line 870 "parser.pcc"
      start_statement(); first_line = line; 
-#line 870 "../../prop-src/parser.pcc"
+#line 870 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
@@ -5993,23 +5985,23 @@ inline void PropParser::action_driver(const Rule _r_)
 #undef to__
 #define to__ -2
     case 756: {
-#line 872 "../../prop-src/parser.pcc"
+#line 872 "parser.pcc"
      this->end_statement(); 
-#line 872 "../../prop-src/parser.pcc"
+#line 872 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 310: {
-#line 874 "../../prop-src/parser.pcc"
+#line 874 "parser.pcc"
      syn_._1318 = t__[2+to__]._1321; first_line = line; 
-#line 874 "../../prop-src/parser.pcc"
+#line 874 "parser.pcc"
 } break;
 #undef to__
 #define to__ -0
     case 757: {
-#line 879 "../../prop-src/parser.pcc"
+#line 879 "parser.pcc"
      start_statement(); first_line = line; 
-#line 879 "../../prop-src/parser.pcc"
+#line 879 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
@@ -6017,256 +6009,256 @@ inline void PropParser::action_driver(const Rule _r_)
 #undef to__
 #define to__ -2
     case 758: {
-#line 881 "../../prop-src/parser.pcc"
+#line 881 "parser.pcc"
      this->end_statement(); 
-#line 881 "../../prop-src/parser.pcc"
+#line 881 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 312: {
-#line 885 "../../prop-src/parser.pcc"
+#line 885 "parser.pcc"
      syn_._1331 = 
-#line 885 "../../prop-src/parser.pcc"
-#line 885 "../../prop-src/parser.pcc"
+#line 885 "parser.pcc"
+#line 885 "parser.pcc"
       nil_1_
-#line 885 "../../prop-src/parser.pcc"
-#line 885 "../../prop-src/parser.pcc"
+#line 885 "parser.pcc"
+#line 885 "parser.pcc"
       ; 
-#line 885 "../../prop-src/parser.pcc"
+#line 885 "parser.pcc"
 } break;
     case 313: {
-#line 886 "../../prop-src/parser.pcc"
+#line 886 "parser.pcc"
      syn_._1333 = t__[1+to__]._1334; 
-#line 886 "../../prop-src/parser.pcc"
+#line 886 "parser.pcc"
 } break;
     case 314: {
-#line 896 "../../prop-src/parser.pcc"
+#line 896 "parser.pcc"
      syn_._1336 = PUBLICscope; 
-#line 896 "../../prop-src/parser.pcc"
+#line 896 "parser.pcc"
 } break;
     case 315: {
-#line 897 "../../prop-src/parser.pcc"
+#line 897 "parser.pcc"
      syn_._1339 = PROTECTEDscope; 
-#line 897 "../../prop-src/parser.pcc"
+#line 897 "parser.pcc"
 } break;
     case 316: {
-#line 898 "../../prop-src/parser.pcc"
+#line 898 "parser.pcc"
      syn_._1342 = PRIVATEscope; 
-#line 898 "../../prop-src/parser.pcc"
+#line 898 "parser.pcc"
 } break;
     case 317: {
-#line 901 "../../prop-src/parser.pcc"
+#line 901 "parser.pcc"
      syn_._1345 = PUBLICscope; 
-#line 901 "../../prop-src/parser.pcc"
+#line 901 "parser.pcc"
 } break;
     case 318: {
-#line 902 "../../prop-src/parser.pcc"
+#line 902 "parser.pcc"
      syn_._1347 = t__[1+to__]._1348; 
-#line 902 "../../prop-src/parser.pcc"
+#line 902 "parser.pcc"
 } break;
     case 319: {
-#line 912 "../../prop-src/parser.pcc"
+#line 912 "parser.pcc"
      syn_._1350 = options.emit_code ? mark(t__[1+to__]._1351) : NOdecl; end_sc(); 
-#line 912 "../../prop-src/parser.pcc"
+#line 912 "parser.pcc"
 } break;
     case 320: {
-#line 914 "../../prop-src/parser.pcc"
+#line 914 "parser.pcc"
      syn_._1353 = options.emit_code ? EXPdecl(my_exp) : NOdecl; end_sc(); 
-#line 914 "../../prop-src/parser.pcc"
+#line 914 "parser.pcc"
 } break;
     case 321: {
-#line 916 "../../prop-src/parser.pcc"
+#line 916 "parser.pcc"
      syn_._1356 = options.emit_code ? CLASSOFdecl(t__[1+to__]._1358) : NOdecl; end_sc(); 
-#line 916 "../../prop-src/parser.pcc"
+#line 916 "parser.pcc"
 } break;
     case 322: {
-#line 918 "../../prop-src/parser.pcc"
+#line 918 "parser.pcc"
      syn_._1360 = options.emit_code ? t__[1+to__]._1361 : NOdecl; end_sc(); 
-#line 918 "../../prop-src/parser.pcc"
+#line 918 "parser.pcc"
 } break;
     case 323: {
-#line 922 "../../prop-src/parser.pcc"
+#line 922 "parser.pcc"
      syn_._1363 = t__[1+to__]._1364; 
-#line 922 "../../prop-src/parser.pcc"
+#line 922 "parser.pcc"
 } break;
     case 324: {
-#line 923 "../../prop-src/parser.pcc"
+#line 923 "parser.pcc"
      syn_._1366 = t__[1+to__]._1367; 
-#line 923 "../../prop-src/parser.pcc"
+#line 923 "parser.pcc"
 } break;
     case 325: {
-#line 924 "../../prop-src/parser.pcc"
+#line 924 "parser.pcc"
      syn_._1369 = t__[1+to__]._1370; 
-#line 924 "../../prop-src/parser.pcc"
+#line 924 "parser.pcc"
 } break;
     case 326: {
-#line 925 "../../prop-src/parser.pcc"
+#line 925 "parser.pcc"
      syn_._1372 = t__[1+to__]._1373; 
-#line 925 "../../prop-src/parser.pcc"
+#line 925 "parser.pcc"
 } break;
     case 327: {
-#line 926 "../../prop-src/parser.pcc"
+#line 926 "parser.pcc"
      syn_._1375 = t__[1+to__]._1376; 
-#line 926 "../../prop-src/parser.pcc"
+#line 926 "parser.pcc"
 } break;
     case 328: {
-#line 927 "../../prop-src/parser.pcc"
+#line 927 "parser.pcc"
      syn_._1378 = t__[1+to__]._1379; 
-#line 927 "../../prop-src/parser.pcc"
+#line 927 "parser.pcc"
 } break;
     case 329: {
-#line 929 "../../prop-src/parser.pcc"
+#line 929 "parser.pcc"
      syn_._1381 = t__[1+to__]._1382; 
-#line 929 "../../prop-src/parser.pcc"
+#line 929 "parser.pcc"
 } break;
     case 330: {
-#line 930 "../../prop-src/parser.pcc"
+#line 930 "parser.pcc"
      syn_._1384 = t__[1+to__]._1385; 
-#line 930 "../../prop-src/parser.pcc"
+#line 930 "parser.pcc"
 } break;
     case 331: {
-#line 931 "../../prop-src/parser.pcc"
+#line 931 "parser.pcc"
      syn_._1387 = t__[1+to__]._1388; 
-#line 931 "../../prop-src/parser.pcc"
+#line 931 "parser.pcc"
 } break;
     case 332: {
-#line 932 "../../prop-src/parser.pcc"
+#line 932 "parser.pcc"
      syn_._1390 = t__[1+to__]._1391; 
-#line 932 "../../prop-src/parser.pcc"
+#line 932 "parser.pcc"
 } break;
     case 333: {
-#line 933 "../../prop-src/parser.pcc"
+#line 933 "parser.pcc"
      syn_._1393 = t__[1+to__]._1394; 
-#line 933 "../../prop-src/parser.pcc"
+#line 933 "parser.pcc"
 } break;
     case 334: {
-#line 934 "../../prop-src/parser.pcc"
+#line 934 "parser.pcc"
      syn_._1396 = t__[1+to__]._1397; 
-#line 934 "../../prop-src/parser.pcc"
+#line 934 "parser.pcc"
 } break;
     case 335: {
-#line 935 "../../prop-src/parser.pcc"
+#line 935 "parser.pcc"
      syn_._1399 = t__[1+to__]._1400; 
-#line 935 "../../prop-src/parser.pcc"
+#line 935 "parser.pcc"
 } break;
     case 336: {
-#line 936 "../../prop-src/parser.pcc"
+#line 936 "parser.pcc"
      syn_._1402 = t__[1+to__]._1403; 
-#line 936 "../../prop-src/parser.pcc"
+#line 936 "parser.pcc"
 } break;
     case 337: {
-#line 937 "../../prop-src/parser.pcc"
+#line 937 "parser.pcc"
      syn_._1405 = t__[1+to__]._1406; 
-#line 937 "../../prop-src/parser.pcc"
+#line 937 "parser.pcc"
 } break;
     case 338: {
-#line 938 "../../prop-src/parser.pcc"
+#line 938 "parser.pcc"
      syn_._1408 = t__[1+to__]._1409; 
-#line 938 "../../prop-src/parser.pcc"
+#line 938 "parser.pcc"
 } break;
     case 339: {
-#line 939 "../../prop-src/parser.pcc"
+#line 939 "parser.pcc"
      syn_._1411 = t__[1+to__]._1412; 
-#line 939 "../../prop-src/parser.pcc"
+#line 939 "parser.pcc"
 } break;
     case 340: {
-#line 940 "../../prop-src/parser.pcc"
+#line 940 "parser.pcc"
      syn_._1415 = NOdecl; 
-#line 940 "../../prop-src/parser.pcc"
+#line 940 "parser.pcc"
 } break;
     case 341: {
-#line 942 "../../prop-src/parser.pcc"
+#line 942 "parser.pcc"
      syn_._1418 = SETLSTMTdecl(t__[1+to__]._1419); 
-#line 942 "../../prop-src/parser.pcc"
+#line 942 "parser.pcc"
 } break;
     case 342: {
-#line 943 "../../prop-src/parser.pcc"
+#line 943 "parser.pcc"
      syn_._1421 = SETLDEFdecl(t__[1+to__]._1422); 
-#line 943 "../../prop-src/parser.pcc"
+#line 943 "parser.pcc"
 } break;
     case 343: {
-#line 944 "../../prop-src/parser.pcc"
+#line 944 "parser.pcc"
      syn_._1424 = t__[1+to__]._1425; 
-#line 944 "../../prop-src/parser.pcc"
+#line 944 "parser.pcc"
 } break;
     case 344: {
-#line 945 "../../prop-src/parser.pcc"
+#line 945 "parser.pcc"
      syn_._1427 = t__[1+to__]._1428; 
-#line 945 "../../prop-src/parser.pcc"
+#line 945 "parser.pcc"
 } break;
     case 345: {
-#line 948 "../../prop-src/parser.pcc"
+#line 948 "parser.pcc"
      syn_._1430 = NOdecl; 
-#line 948 "../../prop-src/parser.pcc"
+#line 948 "parser.pcc"
 } break;
     case 346: {
-#line 957 "../../prop-src/parser.pcc"
+#line 957 "parser.pcc"
      syn_._1434 = mkcode(
-#line 957 "../../prop-src/parser.pcc"
-#line 957 "../../prop-src/parser.pcc"
+#line 957 "parser.pcc"
+#line 957 "parser.pcc"
       nil_1_
-#line 957 "../../prop-src/parser.pcc"
-#line 957 "../../prop-src/parser.pcc"
+#line 957 "parser.pcc"
+#line 957 "parser.pcc"
       ); 
-#line 957 "../../prop-src/parser.pcc"
+#line 957 "parser.pcc"
 } break;
 #undef to__
 #define to__ -0
     case 759: {
-#line 958 "../../prop-src/parser.pcc"
+#line 958 "parser.pcc"
       
       if (code_top >= MAX_LEXICAL_DEPTH)
         bug("code stack overflow");
       code_stack[code_top++] = mkcode(
-#line 961 "../../prop-src/parser.pcc"
-#line 961 "../../prop-src/parser.pcc"
+#line 961 "parser.pcc"
+#line 961 "parser.pcc"
       nil_1_
-#line 961 "../../prop-src/parser.pcc"
-#line 961 "../../prop-src/parser.pcc"
+#line 961 "parser.pcc"
+#line 961 "parser.pcc"
       );
       
-#line 962 "../../prop-src/parser.pcc"
+#line 962 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 347: {
-#line 964 "../../prop-src/parser.pcc"
+#line 964 "parser.pcc"
       
       if (code_top <= 0) bug ("code stack underflow");
         syn_._1436 = code_stack[--code_top];
       if (syn_._1436 == 
-#line 967 "../../prop-src/parser.pcc"
-#line 967 "../../prop-src/parser.pcc"
+#line 967 "parser.pcc"
+#line 967 "parser.pcc"
       nil_1_
-#line 967 "../../prop-src/parser.pcc"
-#line 967 "../../prop-src/parser.pcc"
+#line 967 "parser.pcc"
+#line 967 "parser.pcc"
       )
       if (t__[2+to__]._1438 == NOdecl)
         syn_._1436 = t__[3+to__]._1439;
       else
         syn_._1436 = 
-#line 971 "../../prop-src/parser.pcc"
-#line 971 "../../prop-src/parser.pcc"
+#line 971 "parser.pcc"
+#line 971 "parser.pcc"
       list_1_(t__[2+to__]._1438,t__[3+to__]._1439)
-#line 971 "../../prop-src/parser.pcc"
-#line 971 "../../prop-src/parser.pcc"
+#line 971 "parser.pcc"
+#line 971 "parser.pcc"
       ;
       else
         if (t__[2+to__]._1438 == NOdecl)
           syn_._1436->_2 = t__[3+to__]._1439;
         else
           syn_._1436->_2 = 
-#line 976 "../../prop-src/parser.pcc"
-#line 976 "../../prop-src/parser.pcc"
+#line 976 "parser.pcc"
+#line 976 "parser.pcc"
       list_1_(t__[2+to__]._1438,t__[3+to__]._1439)
-#line 976 "../../prop-src/parser.pcc"
-#line 976 "../../prop-src/parser.pcc"
+#line 976 "parser.pcc"
+#line 976 "parser.pcc"
       ;
       
-#line 977 "../../prop-src/parser.pcc"
+#line 977 "parser.pcc"
 } break;
     case 348: {
-#line 1053 "../../prop-src/parser.pcc"
+#line 1053 "parser.pcc"
       /*
       *  Ignore for now
       bitfield_decl(Decl):
@@ -6327,100 +6319,100 @@ inline void PropParser::action_driver(const Rule _r_)
              }
       ;
       */ syn_._1441 = EXPdecl(t__[1+to__]._1442); 
-#line 1053 "../../prop-src/parser.pcc"
+#line 1053 "parser.pcc"
 } break;
     case 349: {
-#line 1054 "../../prop-src/parser.pcc"
+#line 1054 "parser.pcc"
      syn_._1444 = EXPdecl(t__[1+to__]._1445); 
-#line 1054 "../../prop-src/parser.pcc"
+#line 1054 "parser.pcc"
 } break;
     case 350: {
-#line 1055 "../../prop-src/parser.pcc"
+#line 1055 "parser.pcc"
      syn_._1447 = EXPdecl( LITERALexp( QUARKlit(t__[1+to__]._1448))); 
-#line 1055 "../../prop-src/parser.pcc"
+#line 1055 "parser.pcc"
 } break;
     case 351: {
-#line 1056 "../../prop-src/parser.pcc"
+#line 1056 "parser.pcc"
      syn_._1450 = EXPdecl( LITERALexp( BIGINTlit(t__[1+to__]._1451))); 
-#line 1056 "../../prop-src/parser.pcc"
+#line 1056 "parser.pcc"
 } break;
     case 352: {
-#line 1057 "../../prop-src/parser.pcc"
+#line 1057 "parser.pcc"
      syn_._1453 = EXPdecl(t__[1+to__]._1454); 
-#line 1057 "../../prop-src/parser.pcc"
+#line 1057 "parser.pcc"
 } break;
     case 353: {
-#line 1062 "../../prop-src/parser.pcc"
+#line 1062 "parser.pcc"
      syn_._1456 = TYPEEXPdecl( TYCONty( IDtycon(t__[1+to__]._1457), t__[2+to__]._1459)); 
-#line 1062 "../../prop-src/parser.pcc"
+#line 1062 "parser.pcc"
 } break;
     case 354: {
-#line 1064 "../../prop-src/parser.pcc"
+#line 1064 "parser.pcc"
      syn_._1462 = TYPEEXPdecl( extuplety(t__[1+to__]._1464)); 
-#line 1064 "../../prop-src/parser.pcc"
+#line 1064 "parser.pcc"
 } break;
     case 355: {
-#line 1075 "../../prop-src/parser.pcc"
+#line 1075 "parser.pcc"
      syn_._1467 = DATATYPEdecl( t__[1+to__]._1469, t__[2+to__]._1470, t__[3+to__]._1471, t__[4+to__]._1472); 
-#line 1075 "../../prop-src/parser.pcc"
+#line 1075 "parser.pcc"
 } break;
     case 356: {
-#line 1078 "../../prop-src/parser.pcc"
+#line 1078 "parser.pcc"
      syn_._1475 = 
-#line 1078 "../../prop-src/parser.pcc"
-#line 1078 "../../prop-src/parser.pcc"
+#line 1078 "parser.pcc"
+#line 1078 "parser.pcc"
       nil_1_
-#line 1078 "../../prop-src/parser.pcc"
-#line 1078 "../../prop-src/parser.pcc"
+#line 1078 "parser.pcc"
+#line 1078 "parser.pcc"
       ; 
-#line 1078 "../../prop-src/parser.pcc"
+#line 1078 "parser.pcc"
 } break;
     case 357: {
-#line 1079 "../../prop-src/parser.pcc"
+#line 1079 "parser.pcc"
      syn_._1477 = t__[1+to__]._1478; 
-#line 1079 "../../prop-src/parser.pcc"
+#line 1079 "parser.pcc"
 } break;
     case 358: {
-#line 1083 "../../prop-src/parser.pcc"
+#line 1083 "parser.pcc"
      syn_._1480 = 
-#line 1083 "../../prop-src/parser.pcc"
-#line 1083 "../../prop-src/parser.pcc"
+#line 1083 "parser.pcc"
+#line 1083 "parser.pcc"
       list_1_(t__[1+to__]._1481)
-#line 1083 "../../prop-src/parser.pcc"
-#line 1083 "../../prop-src/parser.pcc"
+#line 1083 "parser.pcc"
+#line 1083 "parser.pcc"
       ; 
-#line 1083 "../../prop-src/parser.pcc"
+#line 1083 "parser.pcc"
 } break;
     case 359: {
-#line 1084 "../../prop-src/parser.pcc"
+#line 1084 "parser.pcc"
      syn_._1483 = 
-#line 1084 "../../prop-src/parser.pcc"
-#line 1084 "../../prop-src/parser.pcc"
+#line 1084 "parser.pcc"
+#line 1084 "parser.pcc"
       list_1_(t__[1+to__]._1484,t__[2+to__]._1486)
-#line 1084 "../../prop-src/parser.pcc"
-#line 1084 "../../prop-src/parser.pcc"
+#line 1084 "parser.pcc"
+#line 1084 "parser.pcc"
       ; 
-#line 1084 "../../prop-src/parser.pcc"
+#line 1084 "parser.pcc"
 } break;
 #undef to__
 #define to__ -4
     case 760: {
-#line 1089 "../../prop-src/parser.pcc"
+#line 1089 "parser.pcc"
     // add hook for view accessors expressions
       if (is_view_def = (t__[4+to__]._1492 & QUALview))
       {
         Ty junk_ty = NOty;
         pv_env.new_scope();
         pv_env.add( 
-#line 1094 "../../prop-src/parser.pcc"
-#line 1094 "../../prop-src/parser.pcc"
-      cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rco_c_c_Q1
-#line 1094 "../../prop-src/parser.pcc"
-#line 1094 "../../prop-src/parser.pcc"
+#line 1094 "parser.pcc"
+#line 1094 "parser.pcc"
+      _p_a_r_s_e_rco_c_c_Q1
+#line 1094 "parser.pcc"
+#line 1094 "parser.pcc"
       , RELexp(0), junk_ty);
       }
       
-#line 1096 "../../prop-src/parser.pcc"
+#line 1096 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
@@ -6428,7 +6420,7 @@ inline void PropParser::action_driver(const Rule _r_)
 #undef to__
 #define to__ -7
     case 761: {
-#line 1099 "../../prop-src/parser.pcc"
+#line 1099 "parser.pcc"
       
       var_top = 0;
       if (is_view_def) // view accessors
@@ -6437,194 +6429,194 @@ inline void PropParser::action_driver(const Rule _r_)
         is_view_def = false;
       }
       
-#line 1106 "../../prop-src/parser.pcc"
+#line 1106 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 360: {
-#line 1108 "../../prop-src/parser.pcc"
+#line 1108 "parser.pcc"
       
       syn_._1488 = DATATYPEdef( t__[1+to__]._1489, t__[2+to__]._1490, t__[3+to__]._1491, t__[4+to__]._1492, t__[7+to__]._1496, t__[9+to__]._1498);
       compiler->preprocess_def(syn_._1488);
       
-#line 1111 "../../prop-src/parser.pcc"
-#line 1116 "../../prop-src/parser.pcc"
+#line 1111 "parser.pcc"
+#line 1116 "parser.pcc"
       {
         DatatypeDef _V4 = syn_._1488;
-#line 1114 "../../prop-src/parser.pcc"
+#line 1114 "parser.pcc"
         
         		  add_datatype( syn_._1488->loc(), t__[1+to__]._1489, t__[2+to__]._1490, t__[3+to__]._1491, t__[4+to__]._1492, t__[6+to__]._1495, _V4->_5, t__[9+to__]._1498);
         		
-#line 1116 "../../prop-src/parser.pcc"
+#line 1116 "parser.pcc"
       }
-#line 1117 "../../prop-src/parser.pcc"
-#line 1117 "../../prop-src/parser.pcc"
+#line 1117 "parser.pcc"
+#line 1117 "parser.pcc"
       
       
-#line 1118 "../../prop-src/parser.pcc"
+#line 1118 "parser.pcc"
 } break;
     case 361: {
-#line 1120 "../../prop-src/parser.pcc"
+#line 1120 "parser.pcc"
      syn_._1500 = DATATYPEdef( t__[1+to__]._1501, t__[2+to__]._1502, t__[3+to__]._1503, t__[4+to__]._1504, 
-#line 1120 "../../prop-src/parser.pcc"
-#line 1120 "../../prop-src/parser.pcc"
+#line 1120 "parser.pcc"
+#line 1120 "parser.pcc"
       nil_1_
-#line 1120 "../../prop-src/parser.pcc"
-#line 1120 "../../prop-src/parser.pcc"
+#line 1120 "parser.pcc"
+#line 1120 "parser.pcc"
       , 
-#line 1120 "../../prop-src/parser.pcc"
-#line 1120 "../../prop-src/parser.pcc"
+#line 1120 "parser.pcc"
+#line 1120 "parser.pcc"
       nil_1_
-#line 1120 "../../prop-src/parser.pcc"
-#line 1120 "../../prop-src/parser.pcc"
+#line 1120 "parser.pcc"
+#line 1120 "parser.pcc"
       ); var_top = 0; 
-#line 1120 "../../prop-src/parser.pcc"
+#line 1120 "parser.pcc"
 } break;
     case 362: {
-#line 1123 "../../prop-src/parser.pcc"
+#line 1123 "parser.pcc"
      syn_._1506 = NOexp; 
-#line 1123 "../../prop-src/parser.pcc"
+#line 1123 "parser.pcc"
 } break;
     case 363: {
-#line 1124 "../../prop-src/parser.pcc"
+#line 1124 "parser.pcc"
      syn_._1508 = t__[1+to__]._1510; 
-#line 1124 "../../prop-src/parser.pcc"
+#line 1124 "parser.pcc"
 } break;
     case 364: {
-#line 1127 "../../prop-src/parser.pcc"
+#line 1127 "parser.pcc"
      syn_._1512 = 
-#line 1127 "../../prop-src/parser.pcc"
-#line 1127 "../../prop-src/parser.pcc"
+#line 1127 "parser.pcc"
+#line 1127 "parser.pcc"
       nil_1_
-#line 1127 "../../prop-src/parser.pcc"
-#line 1127 "../../prop-src/parser.pcc"
+#line 1127 "parser.pcc"
+#line 1127 "parser.pcc"
       ; 
-#line 1127 "../../prop-src/parser.pcc"
+#line 1127 "parser.pcc"
 } break;
     case 365: {
-#line 1128 "../../prop-src/parser.pcc"
+#line 1128 "parser.pcc"
      syn_._1514 = t__[2+to__]._1517; 
-#line 1128 "../../prop-src/parser.pcc"
+#line 1128 "parser.pcc"
 } break;
     case 366: {
-#line 1131 "../../prop-src/parser.pcc"
+#line 1131 "parser.pcc"
      syn_._1519 = 
-#line 1131 "../../prop-src/parser.pcc"
-#line 1131 "../../prop-src/parser.pcc"
+#line 1131 "parser.pcc"
+#line 1131 "parser.pcc"
       nil_1_
-#line 1131 "../../prop-src/parser.pcc"
-#line 1131 "../../prop-src/parser.pcc"
+#line 1131 "parser.pcc"
+#line 1131 "parser.pcc"
       ; 
-#line 1131 "../../prop-src/parser.pcc"
+#line 1131 "parser.pcc"
 } break;
     case 367: {
-#line 1132 "../../prop-src/parser.pcc"
+#line 1132 "parser.pcc"
      syn_._1521 = t__[1+to__]._1523; 
-#line 1132 "../../prop-src/parser.pcc"
+#line 1132 "parser.pcc"
 } break;
     case 368: {
-#line 1136 "../../prop-src/parser.pcc"
+#line 1136 "parser.pcc"
       
       syn_._1526 = var_stack[var_top] = t__[1+to__]._1527;
       pat_stack[var_top] = NOpat;
       var_top++;
       
-#line 1140 "../../prop-src/parser.pcc"
+#line 1140 "parser.pcc"
 } break;
     case 369: {
-#line 1143 "../../prop-src/parser.pcc"
+#line 1143 "parser.pcc"
      syn_._1529 = 
-#line 1143 "../../prop-src/parser.pcc"
-#line 1143 "../../prop-src/parser.pcc"
+#line 1143 "parser.pcc"
+#line 1143 "parser.pcc"
       nil_1_
-#line 1143 "../../prop-src/parser.pcc"
-#line 1143 "../../prop-src/parser.pcc"
+#line 1143 "parser.pcc"
+#line 1143 "parser.pcc"
       ; 
-#line 1143 "../../prop-src/parser.pcc"
+#line 1143 "parser.pcc"
 } break;
     case 370: {
-#line 1144 "../../prop-src/parser.pcc"
+#line 1144 "parser.pcc"
      syn_._1531 = t__[1+to__]._1532; 
-#line 1144 "../../prop-src/parser.pcc"
+#line 1144 "parser.pcc"
 } break;
     case 371: {
-#line 1148 "../../prop-src/parser.pcc"
+#line 1148 "parser.pcc"
      syn_._1534 = 
-#line 1148 "../../prop-src/parser.pcc"
-#line 1148 "../../prop-src/parser.pcc"
+#line 1148 "parser.pcc"
+#line 1148 "parser.pcc"
       list_1_(t__[1+to__]._1535)
-#line 1148 "../../prop-src/parser.pcc"
-#line 1148 "../../prop-src/parser.pcc"
+#line 1148 "parser.pcc"
+#line 1148 "parser.pcc"
       ; 
-#line 1148 "../../prop-src/parser.pcc"
+#line 1148 "parser.pcc"
 } break;
     case 372: {
-#line 1149 "../../prop-src/parser.pcc"
+#line 1149 "parser.pcc"
      syn_._1537 = 
-#line 1149 "../../prop-src/parser.pcc"
-#line 1149 "../../prop-src/parser.pcc"
+#line 1149 "parser.pcc"
+#line 1149 "parser.pcc"
       list_1_(t__[1+to__]._1538,t__[2+to__]._1540)
-#line 1149 "../../prop-src/parser.pcc"
-#line 1149 "../../prop-src/parser.pcc"
+#line 1149 "parser.pcc"
+#line 1149 "parser.pcc"
       ; 
-#line 1149 "../../prop-src/parser.pcc"
+#line 1149 "parser.pcc"
 } break;
     case 373: {
-#line 1152 "../../prop-src/parser.pcc"
+#line 1152 "parser.pcc"
      syn_._1542 = 
-#line 1152 "../../prop-src/parser.pcc"
-#line 1152 "../../prop-src/parser.pcc"
+#line 1152 "parser.pcc"
+#line 1152 "parser.pcc"
       nil_1_
-#line 1152 "../../prop-src/parser.pcc"
-#line 1152 "../../prop-src/parser.pcc"
+#line 1152 "parser.pcc"
+#line 1152 "parser.pcc"
       ; 
-#line 1152 "../../prop-src/parser.pcc"
+#line 1152 "parser.pcc"
 } break;
     case 374: {
-#line 1153 "../../prop-src/parser.pcc"
+#line 1153 "parser.pcc"
      syn_._1544 = t__[1+to__]._1545; 
-#line 1153 "../../prop-src/parser.pcc"
+#line 1153 "parser.pcc"
 } break;
     case 375: {
-#line 1157 "../../prop-src/parser.pcc"
+#line 1157 "parser.pcc"
      syn_._1547 = t__[1+to__]._1548; 
-#line 1157 "../../prop-src/parser.pcc"
+#line 1157 "parser.pcc"
 } break;
     case 376: {
-#line 1158 "../../prop-src/parser.pcc"
+#line 1158 "parser.pcc"
      syn_._1550 = append(t__[1+to__]._1551,t__[2+to__]._1553); 
-#line 1158 "../../prop-src/parser.pcc"
+#line 1158 "parser.pcc"
 } break;
     case 377: {
-#line 1163 "../../prop-src/parser.pcc"
+#line 1163 "parser.pcc"
      syn_._1555 = 
-#line 1163 "../../prop-src/parser.pcc"
-#line 1163 "../../prop-src/parser.pcc"
+#line 1163 "parser.pcc"
+#line 1163 "parser.pcc"
       list_1_(TERMdef(0, NOty, t__[2+to__]._1558, t__[1+to__]._1557, NOpat, nil_1_, OPTnone, QUALnone, NOexp))
-#line 1163 "../../prop-src/parser.pcc"
-#line 1163 "../../prop-src/parser.pcc"
+#line 1163 "parser.pcc"
+#line 1163 "parser.pcc"
       ; 
-#line 1163 "../../prop-src/parser.pcc"
+#line 1163 "parser.pcc"
 } break;
     case 378: {
-#line 1165 "../../prop-src/parser.pcc"
+#line 1165 "parser.pcc"
       
       t__[1+to__]._1561->inherits = t__[2+to__]._1562;
       t__[1+to__]._1561->decls = t__[3+to__]._1563;
       if (t__[1+to__]._1561->view_predicate == NOexp)
         t__[1+to__]._1561->view_predicate = t__[4+to__]._1564;
       syn_._1560 = 
-#line 1170 "../../prop-src/parser.pcc"
-#line 1170 "../../prop-src/parser.pcc"
+#line 1170 "parser.pcc"
+#line 1170 "parser.pcc"
       list_1_(t__[1+to__]._1561)
-#line 1170 "../../prop-src/parser.pcc"
-#line 1170 "../../prop-src/parser.pcc"
+#line 1170 "parser.pcc"
+#line 1170 "parser.pcc"
       ;
       
-#line 1171 "../../prop-src/parser.pcc"
+#line 1171 "parser.pcc"
 } break;
     case 379: {
-#line 1173 "../../prop-src/parser.pcc"
+#line 1173 "parser.pcc"
       
       t__[1+to__]._1567->inherits = t__[2+to__]._1568;
       t__[1+to__]._1567->decls = t__[4+to__]._1571;
@@ -6633,1177 +6625,1177 @@ inline void PropParser::action_driver(const Rule _r_)
       if (t__[1+to__]._1567->view_predicate == NOexp)
         t__[1+to__]._1567->view_predicate = t__[5+to__]._1572;
       syn_._1566 = 
-#line 1180 "../../prop-src/parser.pcc"
-#line 1180 "../../prop-src/parser.pcc"
+#line 1180 "parser.pcc"
+#line 1180 "parser.pcc"
       list_1_(t__[1+to__]._1567)
-#line 1180 "../../prop-src/parser.pcc"
-#line 1180 "../../prop-src/parser.pcc"
+#line 1180 "parser.pcc"
+#line 1180 "parser.pcc"
       ;
       
-#line 1181 "../../prop-src/parser.pcc"
+#line 1181 "parser.pcc"
 } break;
     case 380: {
-#line 1183 "../../prop-src/parser.pcc"
+#line 1183 "parser.pcc"
      syn_._1574 = lookup_lexeme_class(t__[2+to__]._1577); 
-#line 1183 "../../prop-src/parser.pcc"
+#line 1183 "parser.pcc"
 } break;
     case 381: {
-#line 1186 "../../prop-src/parser.pcc"
+#line 1186 "parser.pcc"
      syn_._1579 = NOexp; 
-#line 1186 "../../prop-src/parser.pcc"
+#line 1186 "parser.pcc"
 } break;
     case 382: {
-#line 1187 "../../prop-src/parser.pcc"
+#line 1187 "parser.pcc"
      syn_._1581 = t__[1+to__]._1583; 
-#line 1187 "../../prop-src/parser.pcc"
+#line 1187 "parser.pcc"
 } break;
     case 383: {
-#line 1190 "../../prop-src/parser.pcc"
+#line 1190 "parser.pcc"
      syn_._1585 = 
-#line 1190 "../../prop-src/parser.pcc"
-#line 1190 "../../prop-src/parser.pcc"
+#line 1190 "parser.pcc"
+#line 1190 "parser.pcc"
       nil_1_
-#line 1190 "../../prop-src/parser.pcc"
-#line 1190 "../../prop-src/parser.pcc"
+#line 1190 "parser.pcc"
+#line 1190 "parser.pcc"
       ; 
-#line 1190 "../../prop-src/parser.pcc"
+#line 1190 "parser.pcc"
 } break;
     case 384: {
-#line 1191 "../../prop-src/parser.pcc"
+#line 1191 "parser.pcc"
      syn_._1587 = t__[1+to__]._1589; 
-#line 1191 "../../prop-src/parser.pcc"
+#line 1191 "parser.pcc"
 } break;
     case 385: {
-#line 1200 "../../prop-src/parser.pcc"
+#line 1200 "parser.pcc"
      syn_._1591 = t__[1+to__]._1592; 
-#line 1200 "../../prop-src/parser.pcc"
+#line 1200 "parser.pcc"
 } break;
     case 386: {
-#line 1201 "../../prop-src/parser.pcc"
+#line 1201 "parser.pcc"
      syn_._1594 = t__[1+to__]._1595; syn_._1594->opt = OPTunboxed; 
-#line 1201 "../../prop-src/parser.pcc"
+#line 1201 "parser.pcc"
 } break;
     case 387: {
-#line 1202 "../../prop-src/parser.pcc"
+#line 1202 "parser.pcc"
      syn_._1598 = t__[2+to__]._1602; syn_._1598->view_predicate = t__[1+to__]._1600; 
-#line 1202 "../../prop-src/parser.pcc"
+#line 1202 "parser.pcc"
 } break;
     case 388: {
-#line 1203 "../../prop-src/parser.pcc"
+#line 1203 "parser.pcc"
      syn_._1604 = t__[1+to__]._1606; syn_._1604->qual |= QUALvirtualdestr; 
-#line 1203 "../../prop-src/parser.pcc"
+#line 1203 "parser.pcc"
 } break;
     case 389: {
-#line 1207 "../../prop-src/parser.pcc"
+#line 1207 "parser.pcc"
      syn_._1608 = 
-#line 1207 "../../prop-src/parser.pcc"
-#line 1207 "../../prop-src/parser.pcc"
+#line 1207 "parser.pcc"
+#line 1207 "parser.pcc"
       TERMdef(t__[1+to__]._1609, NOty, nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1207 "../../prop-src/parser.pcc"
-#line 1207 "../../prop-src/parser.pcc"
+#line 1207 "parser.pcc"
+#line 1207 "parser.pcc"
       ; 
-#line 1207 "../../prop-src/parser.pcc"
+#line 1207 "parser.pcc"
 } break;
     case 390: {
-#line 1209 "../../prop-src/parser.pcc"
+#line 1209 "parser.pcc"
       
       syn_._1611 = 
-#line 1210 "../../prop-src/parser.pcc"
-#line 1210 "../../prop-src/parser.pcc"
+#line 1210 "parser.pcc"
+#line 1210 "parser.pcc"
       TERMdef(t__[1+to__]._1612, NOty, nil_1_, nil_1_, LITERALpat(STRINGlit(t__[2+to__]._1613)), nil_1_, OPTnone, QUALnone, NOexp)
-#line 1215 "../../prop-src/parser.pcc"
-#line 1215 "../../prop-src/parser.pcc"
+#line 1215 "parser.pcc"
+#line 1215 "parser.pcc"
       ;
       
-#line 1216 "../../prop-src/parser.pcc"
+#line 1216 "parser.pcc"
 } break;
     case 391: {
-#line 1218 "../../prop-src/parser.pcc"
+#line 1218 "parser.pcc"
       
       syn_._1615 = 
-#line 1219 "../../prop-src/parser.pcc"
-#line 1219 "../../prop-src/parser.pcc"
+#line 1219 "parser.pcc"
+#line 1219 "parser.pcc"
       TERMdef(t__[1+to__]._1616, NOty, nil_1_, nil_1_, mk_regexp_pat(t__[2+to__]._1617), nil_1_, OPTnone, QUALnone, NOexp)
-#line 1224 "../../prop-src/parser.pcc"
-#line 1224 "../../prop-src/parser.pcc"
+#line 1224 "parser.pcc"
+#line 1224 "parser.pcc"
       ;
       
-#line 1225 "../../prop-src/parser.pcc"
+#line 1225 "parser.pcc"
 } break;
     case 392: {
-#line 1227 "../../prop-src/parser.pcc"
+#line 1227 "parser.pcc"
       
       syn_._1619 = 
-#line 1228 "../../prop-src/parser.pcc"
-#line 1228 "../../prop-src/parser.pcc"
+#line 1228 "parser.pcc"
+#line 1228 "parser.pcc"
       TERMdef(t__[1+to__]._1620, NOty, nil_1_, nil_1_, LITERALpat(STRINGlit(t__[2+to__]._1622)), list_1_(TERMSTRINGsym(t__[2+to__]._1622)), OPTnone, QUALnone, NOexp)
-#line 1234 "../../prop-src/parser.pcc"
-#line 1234 "../../prop-src/parser.pcc"
+#line 1234 "parser.pcc"
+#line 1234 "parser.pcc"
       ;
       Used::printer = true;
       
-#line 1236 "../../prop-src/parser.pcc"
+#line 1236 "parser.pcc"
 } break;
     case 393: {
-#line 1238 "../../prop-src/parser.pcc"
+#line 1238 "parser.pcc"
       
       syn_._1624 = 
-#line 1239 "../../prop-src/parser.pcc"
-#line 1239 "../../prop-src/parser.pcc"
+#line 1239 "parser.pcc"
+#line 1239 "parser.pcc"
       TERMdef(t__[1+to__]._1625, NOty, nil_1_, nil_1_, NOpat, list_1_(TERMSTRINGsym(t__[1+to__]._1625)), OPTnone, QUALnone, NOexp)
-#line 1244 "../../prop-src/parser.pcc"
-#line 1244 "../../prop-src/parser.pcc"
+#line 1244 "parser.pcc"
+#line 1244 "parser.pcc"
       ;
       Used::printer = true;
       
-#line 1246 "../../prop-src/parser.pcc"
+#line 1246 "parser.pcc"
 } break;
     case 394: {
-#line 1247 "../../prop-src/parser.pcc"
+#line 1247 "parser.pcc"
      syn_._1627 = 
-#line 1247 "../../prop-src/parser.pcc"
-#line 1247 "../../prop-src/parser.pcc"
+#line 1247 "parser.pcc"
+#line 1247 "parser.pcc"
       TERMdef(t__[1+to__]._1628, t__[3+to__]._1630, nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1247 "../../prop-src/parser.pcc"
-#line 1247 "../../prop-src/parser.pcc"
+#line 1247 "parser.pcc"
+#line 1247 "parser.pcc"
       ; 
-#line 1247 "../../prop-src/parser.pcc"
+#line 1247 "parser.pcc"
 } break;
     case 395: {
-#line 1248 "../../prop-src/parser.pcc"
+#line 1248 "parser.pcc"
      syn_._1632 = 
-#line 1248 "../../prop-src/parser.pcc"
-#line 1248 "../../prop-src/parser.pcc"
+#line 1248 "parser.pcc"
+#line 1248 "parser.pcc"
       TERMdef(t__[1+to__]._1633, mktuplety(t__[3+to__]._1635), nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1248 "../../prop-src/parser.pcc"
-#line 1248 "../../prop-src/parser.pcc"
+#line 1248 "parser.pcc"
+#line 1248 "parser.pcc"
       ; 
-#line 1248 "../../prop-src/parser.pcc"
+#line 1248 "parser.pcc"
 } break;
     case 396: {
-#line 1249 "../../prop-src/parser.pcc"
+#line 1249 "parser.pcc"
      syn_._1637 = 
-#line 1249 "../../prop-src/parser.pcc"
-#line 1249 "../../prop-src/parser.pcc"
+#line 1249 "parser.pcc"
+#line 1249 "parser.pcc"
       TERMdef("#[]", NOty, nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1249 "../../prop-src/parser.pcc"
-#line 1249 "../../prop-src/parser.pcc"
+#line 1249 "parser.pcc"
+#line 1249 "parser.pcc"
       ; 
-#line 1249 "../../prop-src/parser.pcc"
+#line 1249 "parser.pcc"
 } break;
     case 397: {
-#line 1250 "../../prop-src/parser.pcc"
+#line 1250 "parser.pcc"
      syn_._1642 = 
-#line 1250 "../../prop-src/parser.pcc"
-#line 1250 "../../prop-src/parser.pcc"
+#line 1250 "parser.pcc"
+#line 1250 "parser.pcc"
       TERMdef("#()", NOty, nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1250 "../../prop-src/parser.pcc"
-#line 1250 "../../prop-src/parser.pcc"
+#line 1250 "parser.pcc"
+#line 1250 "parser.pcc"
       ; 
-#line 1250 "../../prop-src/parser.pcc"
+#line 1250 "parser.pcc"
 } break;
     case 398: {
-#line 1251 "../../prop-src/parser.pcc"
+#line 1251 "parser.pcc"
      syn_._1647 = 
-#line 1251 "../../prop-src/parser.pcc"
-#line 1251 "../../prop-src/parser.pcc"
+#line 1251 "parser.pcc"
+#line 1251 "parser.pcc"
       TERMdef("#{}", NOty, nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1251 "../../prop-src/parser.pcc"
-#line 1251 "../../prop-src/parser.pcc"
+#line 1251 "parser.pcc"
+#line 1251 "parser.pcc"
       ; 
-#line 1251 "../../prop-src/parser.pcc"
+#line 1251 "parser.pcc"
 } break;
     case 399: {
-#line 1252 "../../prop-src/parser.pcc"
+#line 1252 "parser.pcc"
      syn_._1652 = mklistterm( "#[...]", t__[1+to__]._1655, t__[2+to__]._1657, 
-#line 1252 "../../prop-src/parser.pcc"
-#line 1252 "../../prop-src/parser.pcc"
+#line 1252 "parser.pcc"
+#line 1252 "parser.pcc"
       nil_1_
-#line 1252 "../../prop-src/parser.pcc"
-#line 1252 "../../prop-src/parser.pcc"
+#line 1252 "parser.pcc"
+#line 1252 "parser.pcc"
       ); 
-#line 1252 "../../prop-src/parser.pcc"
+#line 1252 "parser.pcc"
 } break;
     case 400: {
-#line 1253 "../../prop-src/parser.pcc"
+#line 1253 "parser.pcc"
      syn_._1660 = mklistterm( "#(...)", t__[1+to__]._1663, t__[2+to__]._1665, 
-#line 1253 "../../prop-src/parser.pcc"
-#line 1253 "../../prop-src/parser.pcc"
+#line 1253 "parser.pcc"
+#line 1253 "parser.pcc"
       nil_1_
-#line 1253 "../../prop-src/parser.pcc"
-#line 1253 "../../prop-src/parser.pcc"
+#line 1253 "parser.pcc"
+#line 1253 "parser.pcc"
       ); 
-#line 1253 "../../prop-src/parser.pcc"
+#line 1253 "parser.pcc"
 } break;
     case 401: {
-#line 1254 "../../prop-src/parser.pcc"
+#line 1254 "parser.pcc"
      syn_._1668 = mklistterm( "#{...}", t__[1+to__]._1671, t__[2+to__]._1673, 
-#line 1254 "../../prop-src/parser.pcc"
-#line 1254 "../../prop-src/parser.pcc"
+#line 1254 "parser.pcc"
+#line 1254 "parser.pcc"
       nil_1_
-#line 1254 "../../prop-src/parser.pcc"
-#line 1254 "../../prop-src/parser.pcc"
+#line 1254 "parser.pcc"
+#line 1254 "parser.pcc"
       ); 
-#line 1254 "../../prop-src/parser.pcc"
+#line 1254 "parser.pcc"
 } break;
     case 402: {
-#line 1255 "../../prop-src/parser.pcc"
+#line 1255 "parser.pcc"
      syn_._1676 = 
-#line 1255 "../../prop-src/parser.pcc"
-#line 1255 "../../prop-src/parser.pcc"
+#line 1255 "parser.pcc"
+#line 1255 "parser.pcc"
       TERMdef("[|...|]", t__[1+to__]._1678, nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1255 "../../prop-src/parser.pcc"
-#line 1255 "../../prop-src/parser.pcc"
+#line 1255 "parser.pcc"
+#line 1255 "parser.pcc"
       ; 
-#line 1255 "../../prop-src/parser.pcc"
+#line 1255 "parser.pcc"
 } break;
     case 403: {
-#line 1256 "../../prop-src/parser.pcc"
+#line 1256 "parser.pcc"
      syn_._1681 = 
-#line 1256 "../../prop-src/parser.pcc"
-#line 1256 "../../prop-src/parser.pcc"
+#line 1256 "parser.pcc"
+#line 1256 "parser.pcc"
       TERMdef("(|...|)", t__[1+to__]._1683, nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1256 "../../prop-src/parser.pcc"
-#line 1256 "../../prop-src/parser.pcc"
+#line 1256 "parser.pcc"
+#line 1256 "parser.pcc"
       ; 
-#line 1256 "../../prop-src/parser.pcc"
+#line 1256 "parser.pcc"
 } break;
     case 404: {
-#line 1257 "../../prop-src/parser.pcc"
+#line 1257 "parser.pcc"
      syn_._1686 = 
-#line 1257 "../../prop-src/parser.pcc"
-#line 1257 "../../prop-src/parser.pcc"
+#line 1257 "parser.pcc"
+#line 1257 "parser.pcc"
       TERMdef("{|...|}", t__[1+to__]._1688, nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 1257 "../../prop-src/parser.pcc"
-#line 1257 "../../prop-src/parser.pcc"
+#line 1257 "parser.pcc"
+#line 1257 "parser.pcc"
       ; 
-#line 1257 "../../prop-src/parser.pcc"
+#line 1257 "parser.pcc"
 } break;
     case 407: {
-#line 1270 "../../prop-src/parser.pcc"
+#line 1270 "parser.pcc"
      syn_._1694 = 
-#line 1270 "../../prop-src/parser.pcc"
-#line 1270 "../../prop-src/parser.pcc"
+#line 1270 "parser.pcc"
+#line 1270 "parser.pcc"
       nil_1_
-#line 1270 "../../prop-src/parser.pcc"
-#line 1270 "../../prop-src/parser.pcc"
+#line 1270 "parser.pcc"
+#line 1270 "parser.pcc"
       ; 
-#line 1270 "../../prop-src/parser.pcc"
+#line 1270 "parser.pcc"
 } break;
     case 408: {
-#line 1271 "../../prop-src/parser.pcc"
+#line 1271 "parser.pcc"
      syn_._1696 = 
-#line 1271 "../../prop-src/parser.pcc"
-#line 1271 "../../prop-src/parser.pcc"
+#line 1271 "parser.pcc"
+#line 1271 "parser.pcc"
       list_1_(t__[1+to__]._1697,t__[2+to__]._1698)
-#line 1271 "../../prop-src/parser.pcc"
-#line 1271 "../../prop-src/parser.pcc"
+#line 1271 "parser.pcc"
+#line 1271 "parser.pcc"
       ; 
-#line 1271 "../../prop-src/parser.pcc"
+#line 1271 "parser.pcc"
 } break;
     case 409: {
-#line 1275 "../../prop-src/parser.pcc"
+#line 1275 "parser.pcc"
      syn_._1700 = POSNONTERMsym(t__[1+to__]._1701); 
-#line 1275 "../../prop-src/parser.pcc"
+#line 1275 "parser.pcc"
 } break;
     case 410: {
-#line 1276 "../../prop-src/parser.pcc"
+#line 1276 "parser.pcc"
      syn_._1703 = NONTERMsym(t__[1+to__]._1704); 
-#line 1276 "../../prop-src/parser.pcc"
+#line 1276 "parser.pcc"
 } break;
     case 411: {
-#line 1277 "../../prop-src/parser.pcc"
+#line 1277 "parser.pcc"
      syn_._1706 = TERMSTRINGsym(t__[1+to__]._1707); 
-#line 1277 "../../prop-src/parser.pcc"
+#line 1277 "parser.pcc"
 } break;
     case 412: {
-#line 1278 "../../prop-src/parser.pcc"
+#line 1278 "parser.pcc"
      syn_._1709 = TERMsym(t__[1+to__]._1710); 
-#line 1278 "../../prop-src/parser.pcc"
+#line 1278 "parser.pcc"
 } break;
     case 413: {
-#line 1279 "../../prop-src/parser.pcc"
+#line 1279 "parser.pcc"
      syn_._1712 = SPECIALsym(t__[1+to__]._1713); 
-#line 1279 "../../prop-src/parser.pcc"
+#line 1279 "parser.pcc"
 } break;
     case 414: {
-#line 1283 "../../prop-src/parser.pcc"
+#line 1283 "parser.pcc"
      syn_._1715 = '{'; 
-#line 1283 "../../prop-src/parser.pcc"
+#line 1283 "parser.pcc"
 } break;
     case 415: {
-#line 1284 "../../prop-src/parser.pcc"
+#line 1284 "parser.pcc"
      syn_._1718 = '}'; 
-#line 1284 "../../prop-src/parser.pcc"
+#line 1284 "parser.pcc"
 } break;
     case 416: {
-#line 1285 "../../prop-src/parser.pcc"
+#line 1285 "parser.pcc"
      syn_._1721 = '('; 
-#line 1285 "../../prop-src/parser.pcc"
+#line 1285 "parser.pcc"
 } break;
     case 417: {
-#line 1286 "../../prop-src/parser.pcc"
+#line 1286 "parser.pcc"
      syn_._1724 = ')'; 
-#line 1286 "../../prop-src/parser.pcc"
+#line 1286 "parser.pcc"
 } break;
     case 418: {
-#line 1287 "../../prop-src/parser.pcc"
+#line 1287 "parser.pcc"
      syn_._1727 = '['; 
-#line 1287 "../../prop-src/parser.pcc"
+#line 1287 "parser.pcc"
 } break;
     case 419: {
-#line 1288 "../../prop-src/parser.pcc"
+#line 1288 "parser.pcc"
      syn_._1730 = ']'; 
-#line 1288 "../../prop-src/parser.pcc"
+#line 1288 "parser.pcc"
 } break;
     case 420: {
-#line 1289 "../../prop-src/parser.pcc"
+#line 1289 "parser.pcc"
      syn_._1733 = '^'; 
-#line 1289 "../../prop-src/parser.pcc"
+#line 1289 "parser.pcc"
 } break;
     case 421: {
-#line 1290 "../../prop-src/parser.pcc"
+#line 1290 "parser.pcc"
      syn_._1736 = '_'; 
-#line 1290 "../../prop-src/parser.pcc"
+#line 1290 "parser.pcc"
 } break;
     case 422: {
-#line 1291 "../../prop-src/parser.pcc"
+#line 1291 "parser.pcc"
      syn_._1739 = '/'; 
-#line 1291 "../../prop-src/parser.pcc"
+#line 1291 "parser.pcc"
 } break;
     case 423: {
-#line 1294 "../../prop-src/parser.pcc"
+#line 1294 "parser.pcc"
      syn_._1742 = 
-#line 1294 "../../prop-src/parser.pcc"
-#line 1294 "../../prop-src/parser.pcc"
+#line 1294 "parser.pcc"
+#line 1294 "parser.pcc"
       nil_1_
-#line 1294 "../../prop-src/parser.pcc"
-#line 1294 "../../prop-src/parser.pcc"
+#line 1294 "parser.pcc"
+#line 1294 "parser.pcc"
       ; 
-#line 1294 "../../prop-src/parser.pcc"
+#line 1294 "parser.pcc"
 } break;
     case 424: {
-#line 1295 "../../prop-src/parser.pcc"
+#line 1295 "parser.pcc"
      syn_._1744 = t__[1+to__]._1747; 
-#line 1295 "../../prop-src/parser.pcc"
+#line 1295 "parser.pcc"
 } break;
     case 425: {
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
      syn_._1749 = DATATYPEdecl( 
-#line 1298 "../../prop-src/parser.pcc"
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
+#line 1298 "parser.pcc"
       nil_1_
-#line 1298 "../../prop-src/parser.pcc"
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
+#line 1298 "parser.pcc"
       , 
-#line 1298 "../../prop-src/parser.pcc"
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
+#line 1298 "parser.pcc"
       nil_1_
-#line 1298 "../../prop-src/parser.pcc"
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
+#line 1298 "parser.pcc"
       , 
-#line 1298 "../../prop-src/parser.pcc"
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
+#line 1298 "parser.pcc"
       nil_1_
-#line 1298 "../../prop-src/parser.pcc"
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
+#line 1298 "parser.pcc"
       , t__[1+to__]._1751); 
-#line 1298 "../../prop-src/parser.pcc"
+#line 1298 "parser.pcc"
 } break;
     case 426: {
-#line 1302 "../../prop-src/parser.pcc"
+#line 1302 "parser.pcc"
      syn_._1754 = 
-#line 1302 "../../prop-src/parser.pcc"
-#line 1302 "../../prop-src/parser.pcc"
+#line 1302 "parser.pcc"
+#line 1302 "parser.pcc"
       list_1_(t__[1+to__]._1755)
-#line 1302 "../../prop-src/parser.pcc"
-#line 1302 "../../prop-src/parser.pcc"
+#line 1302 "parser.pcc"
+#line 1302 "parser.pcc"
       ; 
-#line 1302 "../../prop-src/parser.pcc"
+#line 1302 "parser.pcc"
 } break;
     case 427: {
-#line 1303 "../../prop-src/parser.pcc"
+#line 1303 "parser.pcc"
      syn_._1757 = 
-#line 1303 "../../prop-src/parser.pcc"
-#line 1303 "../../prop-src/parser.pcc"
+#line 1303 "parser.pcc"
+#line 1303 "parser.pcc"
       list_1_(t__[1+to__]._1758,t__[3+to__]._1760)
-#line 1303 "../../prop-src/parser.pcc"
-#line 1303 "../../prop-src/parser.pcc"
+#line 1303 "parser.pcc"
+#line 1303 "parser.pcc"
       ; 
-#line 1303 "../../prop-src/parser.pcc"
+#line 1303 "parser.pcc"
 } break;
     case 428: {
-#line 1308 "../../prop-src/parser.pcc"
+#line 1308 "parser.pcc"
       
       syn_._1762 = TYdef( t__[2+to__]._1764, t__[3+to__]._1765, t__[4+to__]._1767, t__[1+to__]._1763);
       add_type( t__[2+to__]._1764, t__[3+to__]._1765, t__[4+to__]._1767);
       var_top = 0;
       
-#line 1312 "../../prop-src/parser.pcc"
+#line 1312 "parser.pcc"
 } break;
     case 429: {
-#line 1315 "../../prop-src/parser.pcc"
+#line 1315 "parser.pcc"
      syn_._1769 = true; 
-#line 1315 "../../prop-src/parser.pcc"
+#line 1315 "parser.pcc"
 } break;
     case 430: {
-#line 1316 "../../prop-src/parser.pcc"
+#line 1316 "parser.pcc"
      syn_._1771 = false; 
-#line 1316 "../../prop-src/parser.pcc"
+#line 1316 "parser.pcc"
 } break;
     case 431: {
-#line 1319 "../../prop-src/parser.pcc"
+#line 1319 "parser.pcc"
      syn_._1774 = 
-#line 1319 "../../prop-src/parser.pcc"
-#line 1319 "../../prop-src/parser.pcc"
+#line 1319 "parser.pcc"
+#line 1319 "parser.pcc"
       nil_1_
-#line 1319 "../../prop-src/parser.pcc"
-#line 1319 "../../prop-src/parser.pcc"
+#line 1319 "parser.pcc"
+#line 1319 "parser.pcc"
       ; 
-#line 1319 "../../prop-src/parser.pcc"
+#line 1319 "parser.pcc"
 } break;
     case 432: {
-#line 1320 "../../prop-src/parser.pcc"
+#line 1320 "parser.pcc"
      syn_._1776 = t__[2+to__]._1780; 
-#line 1320 "../../prop-src/parser.pcc"
+#line 1320 "parser.pcc"
 } break;
     case 433: {
-#line 1324 "../../prop-src/parser.pcc"
+#line 1324 "parser.pcc"
      syn_._1782 = 
-#line 1324 "../../prop-src/parser.pcc"
-#line 1324 "../../prop-src/parser.pcc"
+#line 1324 "parser.pcc"
+#line 1324 "parser.pcc"
       list_1_(t__[1+to__]._1783)
-#line 1324 "../../prop-src/parser.pcc"
-#line 1324 "../../prop-src/parser.pcc"
+#line 1324 "parser.pcc"
+#line 1324 "parser.pcc"
       ; 
-#line 1324 "../../prop-src/parser.pcc"
+#line 1324 "parser.pcc"
 } break;
     case 434: {
-#line 1325 "../../prop-src/parser.pcc"
+#line 1325 "parser.pcc"
      syn_._1785 = 
-#line 1325 "../../prop-src/parser.pcc"
-#line 1325 "../../prop-src/parser.pcc"
+#line 1325 "parser.pcc"
+#line 1325 "parser.pcc"
       list_1_(t__[1+to__]._1786,t__[2+to__]._1788)
-#line 1325 "../../prop-src/parser.pcc"
-#line 1325 "../../prop-src/parser.pcc"
+#line 1325 "parser.pcc"
+#line 1325 "parser.pcc"
       ; 
-#line 1325 "../../prop-src/parser.pcc"
+#line 1325 "parser.pcc"
 } break;
 #undef to__
 #define to__ -0
     case 762: {
-#line 1329 "../../prop-src/parser.pcc"
+#line 1329 "parser.pcc"
      pv_env.new_scope(! options.nonlinear_patterns); 
-#line 1329 "../../prop-src/parser.pcc"
+#line 1329 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 435: {
-#line 1331 "../../prop-src/parser.pcc"
+#line 1331 "parser.pcc"
       
       syn_._1790 = VIEWdef( t__[2+to__]._1792, t__[3+to__]._1794, t__[4+to__]._1795);
       pv_env.old_scope();
       
-#line 1334 "../../prop-src/parser.pcc"
+#line 1334 "parser.pcc"
 } break;
     case 436: {
-#line 1337 "../../prop-src/parser.pcc"
+#line 1337 "parser.pcc"
      syn_._1797 = 
-#line 1337 "../../prop-src/parser.pcc"
-#line 1337 "../../prop-src/parser.pcc"
+#line 1337 "parser.pcc"
+#line 1337 "parser.pcc"
       nil_1_
-#line 1337 "../../prop-src/parser.pcc"
-#line 1337 "../../prop-src/parser.pcc"
+#line 1337 "parser.pcc"
+#line 1337 "parser.pcc"
       ; 
-#line 1337 "../../prop-src/parser.pcc"
+#line 1337 "parser.pcc"
 } break;
     case 437: {
-#line 1338 "../../prop-src/parser.pcc"
+#line 1338 "parser.pcc"
      syn_._1799 = t__[1+to__]._1801; 
-#line 1338 "../../prop-src/parser.pcc"
+#line 1338 "parser.pcc"
 } break;
     case 438: {
-#line 1342 "../../prop-src/parser.pcc"
+#line 1342 "parser.pcc"
      syn_._1803 = 
-#line 1342 "../../prop-src/parser.pcc"
-#line 1342 "../../prop-src/parser.pcc"
+#line 1342 "parser.pcc"
+#line 1342 "parser.pcc"
       list_1_(t__[1+to__]._1804)
-#line 1342 "../../prop-src/parser.pcc"
-#line 1342 "../../prop-src/parser.pcc"
+#line 1342 "parser.pcc"
+#line 1342 "parser.pcc"
       ; 
-#line 1342 "../../prop-src/parser.pcc"
+#line 1342 "parser.pcc"
 } break;
     case 439: {
-#line 1343 "../../prop-src/parser.pcc"
+#line 1343 "parser.pcc"
      syn_._1806 = 
-#line 1343 "../../prop-src/parser.pcc"
-#line 1343 "../../prop-src/parser.pcc"
+#line 1343 "parser.pcc"
+#line 1343 "parser.pcc"
       list_1_(t__[1+to__]._1807,t__[2+to__]._1809)
-#line 1343 "../../prop-src/parser.pcc"
-#line 1343 "../../prop-src/parser.pcc"
+#line 1343 "parser.pcc"
+#line 1343 "parser.pcc"
       ; 
-#line 1343 "../../prop-src/parser.pcc"
+#line 1343 "parser.pcc"
 } break;
     case 440: {
-#line 1347 "../../prop-src/parser.pcc"
+#line 1347 "parser.pcc"
      syn_._1811.label = t__[1+to__]._1812; syn_._1811.exp = t__[2+to__]._1814; 
-#line 1347 "../../prop-src/parser.pcc"
+#line 1347 "parser.pcc"
 } break;
     case 441: {
-#line 1356 "../../prop-src/parser.pcc"
+#line 1356 "parser.pcc"
      syn_._1816 = 
-#line 1356 "../../prop-src/parser.pcc"
-#line 1356 "../../prop-src/parser.pcc"
+#line 1356 "parser.pcc"
+#line 1356 "parser.pcc"
       nil_1_
-#line 1356 "../../prop-src/parser.pcc"
-#line 1356 "../../prop-src/parser.pcc"
+#line 1356 "parser.pcc"
+#line 1356 "parser.pcc"
       ; 
-#line 1356 "../../prop-src/parser.pcc"
+#line 1356 "parser.pcc"
 } break;
     case 442: {
-#line 1357 "../../prop-src/parser.pcc"
+#line 1357 "parser.pcc"
      syn_._1818 = t__[1+to__]._1820; 
-#line 1357 "../../prop-src/parser.pcc"
+#line 1357 "parser.pcc"
 } break;
     case 443: {
-#line 1361 "../../prop-src/parser.pcc"
+#line 1361 "parser.pcc"
      syn_._1822 = 
-#line 1361 "../../prop-src/parser.pcc"
-#line 1361 "../../prop-src/parser.pcc"
+#line 1361 "parser.pcc"
+#line 1361 "parser.pcc"
       list_1_(t__[1+to__]._1823)
-#line 1361 "../../prop-src/parser.pcc"
-#line 1361 "../../prop-src/parser.pcc"
+#line 1361 "parser.pcc"
+#line 1361 "parser.pcc"
       ; 
-#line 1361 "../../prop-src/parser.pcc"
+#line 1361 "parser.pcc"
 } break;
     case 444: {
-#line 1362 "../../prop-src/parser.pcc"
+#line 1362 "parser.pcc"
      syn_._1825 = 
-#line 1362 "../../prop-src/parser.pcc"
-#line 1362 "../../prop-src/parser.pcc"
+#line 1362 "parser.pcc"
+#line 1362 "parser.pcc"
       list_1_(t__[1+to__]._1826,t__[3+to__]._1828)
-#line 1362 "../../prop-src/parser.pcc"
-#line 1362 "../../prop-src/parser.pcc"
+#line 1362 "parser.pcc"
+#line 1362 "parser.pcc"
       ; 
-#line 1362 "../../prop-src/parser.pcc"
+#line 1362 "parser.pcc"
 } break;
 #undef to__
 #define to__ -2
     case 763: {
-#line 1371 "../../prop-src/parser.pcc"
+#line 1371 "parser.pcc"
      var_top = 0; 
-#line 1371 "../../prop-src/parser.pcc"
+#line 1371 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 447: {
-#line 1373 "../../prop-src/parser.pcc"
+#line 1373 "parser.pcc"
       
       syn_._1834 = 
-#line 1374 "../../prop-src/parser.pcc"
-#line 1374 "../../prop-src/parser.pcc"
+#line 1374 "parser.pcc"
+#line 1374 "parser.pcc"
       LAWdef(t__[2+to__]._1836, t__[4+to__]._1838, t__[5+to__]._1839, t__[6+to__]._1841, t__[1+to__]._1835, NOty)
-#line 1381 "../../prop-src/parser.pcc"
-#line 1381 "../../prop-src/parser.pcc"
+#line 1381 "parser.pcc"
+#line 1381 "parser.pcc"
       ;
       var_top = 0;
       DatatypeCompiler::add_law(syn_._1834);
       
-#line 1384 "../../prop-src/parser.pcc"
+#line 1384 "parser.pcc"
 } break;
     case 448: {
-#line 1388 "../../prop-src/parser.pcc"
+#line 1388 "parser.pcc"
      syn_._1843 = true; 
-#line 1388 "../../prop-src/parser.pcc"
+#line 1388 "parser.pcc"
 } break;
     case 449: {
-#line 1389 "../../prop-src/parser.pcc"
+#line 1389 "parser.pcc"
      syn_._1846 = false; 
-#line 1389 "../../prop-src/parser.pcc"
+#line 1389 "parser.pcc"
 } break;
     case 450: {
-#line 1392 "../../prop-src/parser.pcc"
+#line 1392 "parser.pcc"
      syn_._1848 = NOexp; 
-#line 1392 "../../prop-src/parser.pcc"
+#line 1392 "parser.pcc"
 } break;
     case 451: {
-#line 1393 "../../prop-src/parser.pcc"
+#line 1393 "parser.pcc"
      syn_._1850 = t__[2+to__]._1852; 
-#line 1393 "../../prop-src/parser.pcc"
+#line 1393 "parser.pcc"
 } break;
     case 452: {
-#line 1396 "../../prop-src/parser.pcc"
+#line 1396 "parser.pcc"
      syn_._1854 = 
-#line 1396 "../../prop-src/parser.pcc"
-#line 1396 "../../prop-src/parser.pcc"
+#line 1396 "parser.pcc"
+#line 1396 "parser.pcc"
       nil_1_
-#line 1396 "../../prop-src/parser.pcc"
-#line 1396 "../../prop-src/parser.pcc"
+#line 1396 "parser.pcc"
+#line 1396 "parser.pcc"
       ; 
-#line 1396 "../../prop-src/parser.pcc"
+#line 1396 "parser.pcc"
 } break;
     case 453: {
-#line 1397 "../../prop-src/parser.pcc"
+#line 1397 "parser.pcc"
      syn_._1856 = t__[1+to__]._1857; 
-#line 1397 "../../prop-src/parser.pcc"
+#line 1397 "parser.pcc"
 } break;
     case 454: {
-#line 1398 "../../prop-src/parser.pcc"
+#line 1398 "parser.pcc"
      syn_._1859 = t__[1+to__]._1861; 
-#line 1398 "../../prop-src/parser.pcc"
+#line 1398 "parser.pcc"
 } break;
     case 455: {
-#line 1408 "../../prop-src/parser.pcc"
+#line 1408 "parser.pcc"
      syn_._1864 = NOdecl; 
-#line 1408 "../../prop-src/parser.pcc"
+#line 1408 "parser.pcc"
 } break;
     case 458: {
-#line 1418 "../../prop-src/parser.pcc"
+#line 1418 "parser.pcc"
       
       for_each (RefineTyDecl, r, t__[1+to__]._1876)
       {
         
-#line 1421 "../../prop-src/parser.pcc"
-#line 1424 "../../prop-src/parser.pcc"
+#line 1421 "parser.pcc"
+#line 1424 "parser.pcc"
       {
-#line 1424 "../../prop-src/parser.pcc"
+#line 1424 "parser.pcc"
        update_datatype( r->_1, r->_2, t__[2+to__]._1877, t__[3+to__]._1878, t__[4+to__]._1879); 
-#line 1424 "../../prop-src/parser.pcc"
+#line 1424 "parser.pcc"
       }
-#line 1425 "../../prop-src/parser.pcc"
-#line 1425 "../../prop-src/parser.pcc"
+#line 1425 "parser.pcc"
+#line 1425 "parser.pcc"
       
       }
       
-#line 1427 "../../prop-src/parser.pcc"
+#line 1427 "parser.pcc"
 } break;
     case 459: {
-#line 1429 "../../prop-src/parser.pcc"
+#line 1429 "parser.pcc"
       
       for_each (RefineConsDecl, r, t__[1+to__]._1882)
       {
         
-#line 1432 "../../prop-src/parser.pcc"
-#line 1435 "../../prop-src/parser.pcc"
+#line 1432 "parser.pcc"
+#line 1435 "parser.pcc"
       {
-#line 1435 "../../prop-src/parser.pcc"
+#line 1435 "parser.pcc"
        if (r->_1) update_constructor( r->_1->name, r->_2, t__[2+to__]._1883, 
-#line 1435 "../../prop-src/parser.pcc"
-#line 1435 "../../prop-src/parser.pcc"
+#line 1435 "parser.pcc"
+#line 1435 "parser.pcc"
         nil_1_
-#line 1435 "../../prop-src/parser.pcc"
-#line 1435 "../../prop-src/parser.pcc"
+#line 1435 "parser.pcc"
+#line 1435 "parser.pcc"
         , t__[3+to__]._1884); 
-#line 1435 "../../prop-src/parser.pcc"
+#line 1435 "parser.pcc"
       }
-#line 1436 "../../prop-src/parser.pcc"
-#line 1436 "../../prop-src/parser.pcc"
+#line 1436 "parser.pcc"
+#line 1436 "parser.pcc"
       
       }
       
-#line 1438 "../../prop-src/parser.pcc"
+#line 1438 "parser.pcc"
 } break;
     case 460: {
-#line 1439 "../../prop-src/parser.pcc"
+#line 1439 "parser.pcc"
      
-#line 1439 "../../prop-src/parser.pcc"
+#line 1439 "parser.pcc"
 } break;
     case 461: {
-#line 1440 "../../prop-src/parser.pcc"
+#line 1440 "parser.pcc"
      
-#line 1440 "../../prop-src/parser.pcc"
+#line 1440 "parser.pcc"
 } break;
     case 462: {
-#line 1442 "../../prop-src/parser.pcc"
+#line 1442 "parser.pcc"
       
       ClassDefinition::add_constructor_code( t__[1+to__]._1896, t__[2+to__]._1898, t__[3+to__]._1901);
       
-#line 1444 "../../prop-src/parser.pcc"
+#line 1444 "parser.pcc"
 } break;
     case 463: {
-#line 1446 "../../prop-src/parser.pcc"
+#line 1446 "parser.pcc"
       
       ClassDefinition::add_destructor_code( t__[1+to__]._1905, t__[2+to__]._1908, t__[3+to__]._1911);
       
-#line 1448 "../../prop-src/parser.pcc"
+#line 1448 "parser.pcc"
 } break;
     case 464: {
-#line 1452 "../../prop-src/parser.pcc"
+#line 1452 "parser.pcc"
      syn_._1913 = REFINEtype( t__[1+to__]._1914, t__[2+to__]._1915); var_top = 0; 
-#line 1452 "../../prop-src/parser.pcc"
+#line 1452 "parser.pcc"
 } break;
     case 465: {
-#line 1456 "../../prop-src/parser.pcc"
+#line 1456 "parser.pcc"
      syn_._1917 = 
-#line 1456 "../../prop-src/parser.pcc"
-#line 1456 "../../prop-src/parser.pcc"
+#line 1456 "parser.pcc"
+#line 1456 "parser.pcc"
       list_1_(t__[1+to__]._1918)
-#line 1456 "../../prop-src/parser.pcc"
-#line 1456 "../../prop-src/parser.pcc"
+#line 1456 "parser.pcc"
+#line 1456 "parser.pcc"
       ; 
-#line 1456 "../../prop-src/parser.pcc"
+#line 1456 "parser.pcc"
 } break;
     case 466: {
-#line 1457 "../../prop-src/parser.pcc"
+#line 1457 "parser.pcc"
      syn_._1920 = 
-#line 1457 "../../prop-src/parser.pcc"
-#line 1457 "../../prop-src/parser.pcc"
+#line 1457 "parser.pcc"
+#line 1457 "parser.pcc"
       list_1_(t__[1+to__]._1921,t__[2+to__]._1923)
-#line 1457 "../../prop-src/parser.pcc"
-#line 1457 "../../prop-src/parser.pcc"
+#line 1457 "parser.pcc"
+#line 1457 "parser.pcc"
       ; 
-#line 1457 "../../prop-src/parser.pcc"
+#line 1457 "parser.pcc"
 } break;
     case 467: {
-#line 1461 "../../prop-src/parser.pcc"
+#line 1461 "parser.pcc"
      syn_._1925 = REFINEconstructor( t__[1+to__]._1926, t__[2+to__]._1927); 
-#line 1461 "../../prop-src/parser.pcc"
+#line 1461 "parser.pcc"
 } break;
     case 468: {
-#line 1465 "../../prop-src/parser.pcc"
+#line 1465 "parser.pcc"
      syn_._1929 = 
-#line 1465 "../../prop-src/parser.pcc"
-#line 1465 "../../prop-src/parser.pcc"
+#line 1465 "parser.pcc"
+#line 1465 "parser.pcc"
       list_1_(t__[1+to__]._1930)
-#line 1465 "../../prop-src/parser.pcc"
-#line 1465 "../../prop-src/parser.pcc"
+#line 1465 "parser.pcc"
+#line 1465 "parser.pcc"
       ; 
-#line 1465 "../../prop-src/parser.pcc"
+#line 1465 "parser.pcc"
 } break;
     case 469: {
-#line 1466 "../../prop-src/parser.pcc"
+#line 1466 "parser.pcc"
      syn_._1932 = 
-#line 1466 "../../prop-src/parser.pcc"
-#line 1466 "../../prop-src/parser.pcc"
+#line 1466 "parser.pcc"
+#line 1466 "parser.pcc"
       list_1_(t__[1+to__]._1933,t__[2+to__]._1935)
-#line 1466 "../../prop-src/parser.pcc"
-#line 1466 "../../prop-src/parser.pcc"
+#line 1466 "parser.pcc"
+#line 1466 "parser.pcc"
       ; 
-#line 1466 "../../prop-src/parser.pcc"
+#line 1466 "parser.pcc"
 } break;
     case 472: {
-#line 1480 "../../prop-src/parser.pcc"
+#line 1480 "parser.pcc"
      if (t__[1+to__]._1944) update_constructor( t__[1+to__]._1944->name, t__[2+to__]._1945, 
-#line 1480 "../../prop-src/parser.pcc"
-#line 1480 "../../prop-src/parser.pcc"
+#line 1480 "parser.pcc"
+#line 1480 "parser.pcc"
       nil_1_
-#line 1480 "../../prop-src/parser.pcc"
-#line 1480 "../../prop-src/parser.pcc"
+#line 1480 "parser.pcc"
+#line 1480 "parser.pcc"
       , t__[3+to__]._1947, 
-#line 1480 "../../prop-src/parser.pcc"
-#line 1480 "../../prop-src/parser.pcc"
+#line 1480 "parser.pcc"
+#line 1480 "parser.pcc"
       nil_1_
-#line 1480 "../../prop-src/parser.pcc"
-#line 1480 "../../prop-src/parser.pcc"
+#line 1480 "parser.pcc"
+#line 1480 "parser.pcc"
       ); 
-#line 1480 "../../prop-src/parser.pcc"
+#line 1480 "parser.pcc"
 } break;
     case 475: {
-#line 1494 "../../prop-src/parser.pcc"
+#line 1494 "parser.pcc"
      update_persistent( t__[1+to__]._1956, t__[2+to__]._1957, t__[3+to__]._1959); 
-#line 1494 "../../prop-src/parser.pcc"
+#line 1494 "parser.pcc"
 } break;
     case 476: {
-#line 1498 "../../prop-src/parser.pcc"
+#line 1498 "parser.pcc"
      syn_._1961 = PERSISTid(t__[1+to__]._1962); 
-#line 1498 "../../prop-src/parser.pcc"
+#line 1498 "parser.pcc"
 } break;
     case 477: {
-#line 1501 "../../prop-src/parser.pcc"
+#line 1501 "parser.pcc"
      syn_._1964 = 
-#line 1501 "../../prop-src/parser.pcc"
-#line 1501 "../../prop-src/parser.pcc"
+#line 1501 "parser.pcc"
+#line 1501 "parser.pcc"
       nil_1_
-#line 1501 "../../prop-src/parser.pcc"
-#line 1501 "../../prop-src/parser.pcc"
+#line 1501 "parser.pcc"
+#line 1501 "parser.pcc"
       ; 
-#line 1501 "../../prop-src/parser.pcc"
+#line 1501 "parser.pcc"
 } break;
     case 478: {
-#line 1502 "../../prop-src/parser.pcc"
+#line 1502 "parser.pcc"
      syn_._1966 = t__[1+to__]._1968; 
-#line 1502 "../../prop-src/parser.pcc"
+#line 1502 "parser.pcc"
 } break;
     case 479: {
-#line 1506 "../../prop-src/parser.pcc"
+#line 1506 "parser.pcc"
      syn_._1970 = 
-#line 1506 "../../prop-src/parser.pcc"
-#line 1506 "../../prop-src/parser.pcc"
+#line 1506 "parser.pcc"
+#line 1506 "parser.pcc"
       list_1_(t__[1+to__]._1971)
-#line 1506 "../../prop-src/parser.pcc"
-#line 1506 "../../prop-src/parser.pcc"
+#line 1506 "parser.pcc"
+#line 1506 "parser.pcc"
       ; 
-#line 1506 "../../prop-src/parser.pcc"
+#line 1506 "parser.pcc"
 } break;
     case 480: {
-#line 1507 "../../prop-src/parser.pcc"
+#line 1507 "parser.pcc"
      syn_._1973 = 
-#line 1507 "../../prop-src/parser.pcc"
-#line 1507 "../../prop-src/parser.pcc"
+#line 1507 "parser.pcc"
+#line 1507 "parser.pcc"
       list_1_(t__[1+to__]._1974,t__[2+to__]._1976)
-#line 1507 "../../prop-src/parser.pcc"
-#line 1507 "../../prop-src/parser.pcc"
+#line 1507 "parser.pcc"
+#line 1507 "parser.pcc"
       ; 
-#line 1507 "../../prop-src/parser.pcc"
+#line 1507 "parser.pcc"
 } break;
     case 481: {
-#line 1512 "../../prop-src/parser.pcc"
+#line 1512 "parser.pcc"
       
       syn_._1978 = 
-#line 1513 "../../prop-src/parser.pcc"
-#line 1513 "../../prop-src/parser.pcc"
+#line 1513 "parser.pcc"
+#line 1513 "parser.pcc"
       INHERIT(t__[3+to__]._1981, t__[2+to__]._1980, t__[1+to__]._1979)
-#line 1518 "../../prop-src/parser.pcc"
-#line 1518 "../../prop-src/parser.pcc"
+#line 1518 "parser.pcc"
+#line 1518 "parser.pcc"
       ;
       
-#line 1519 "../../prop-src/parser.pcc"
+#line 1519 "parser.pcc"
 } break;
     case 482: {
-#line 1522 "../../prop-src/parser.pcc"
+#line 1522 "parser.pcc"
      syn_._1983 = 0; 
-#line 1522 "../../prop-src/parser.pcc"
+#line 1522 "parser.pcc"
 } break;
     case 483: {
-#line 1523 "../../prop-src/parser.pcc"
+#line 1523 "parser.pcc"
      syn_._1985 = t__[1+to__]._1987 | QUALtaggedpointer; 
-#line 1523 "../../prop-src/parser.pcc"
+#line 1523 "parser.pcc"
 } break;
     case 484: {
-#line 1524 "../../prop-src/parser.pcc"
+#line 1524 "parser.pcc"
      syn_._1989 = t__[1+to__]._1991; 
-#line 1524 "../../prop-src/parser.pcc"
+#line 1524 "parser.pcc"
 } break;
     case 485: {
-#line 1527 "../../prop-src/parser.pcc"
+#line 1527 "parser.pcc"
      syn_._1993 = 0; 
-#line 1527 "../../prop-src/parser.pcc"
+#line 1527 "parser.pcc"
 } break;
     case 486: {
-#line 1528 "../../prop-src/parser.pcc"
+#line 1528 "parser.pcc"
      syn_._1995 = t__[1+to__]._1996 | t__[2+to__]._1997; 
-#line 1528 "../../prop-src/parser.pcc"
+#line 1528 "parser.pcc"
 } break;
     case 487: {
-#line 1532 "../../prop-src/parser.pcc"
+#line 1532 "parser.pcc"
      syn_._1999 = QUALprintable; 
-#line 1532 "../../prop-src/parser.pcc"
+#line 1532 "parser.pcc"
 } break;
     case 488: {
-#line 1533 "../../prop-src/parser.pcc"
+#line 1533 "parser.pcc"
      syn_._2002 = QUALcollectable | QUALvirtualdestr; 
-#line 1533 "../../prop-src/parser.pcc"
+#line 1533 "parser.pcc"
 } break;
     case 489: {
-#line 1534 "../../prop-src/parser.pcc"
+#line 1534 "parser.pcc"
      syn_._2005 = QUALlexeme; 
-#line 1534 "../../prop-src/parser.pcc"
+#line 1534 "parser.pcc"
 } break;
     case 490: {
-#line 1535 "../../prop-src/parser.pcc"
+#line 1535 "parser.pcc"
      syn_._2008 = QUALfinalizable | QUALcollectable | QUALvirtualdestr; 
-#line 1535 "../../prop-src/parser.pcc"
+#line 1535 "parser.pcc"
 } break;
     case 491: {
-#line 1536 "../../prop-src/parser.pcc"
+#line 1536 "parser.pcc"
      syn_._2011 = QUALrewritable; 
-#line 1536 "../../prop-src/parser.pcc"
+#line 1536 "parser.pcc"
 } break;
     case 492: {
-#line 1537 "../../prop-src/parser.pcc"
+#line 1537 "parser.pcc"
      syn_._2014 = QUALpersistent | QUALvirtualdestr; 
-#line 1537 "../../prop-src/parser.pcc"
+#line 1537 "parser.pcc"
 } break;
     case 493: {
-#line 1538 "../../prop-src/parser.pcc"
+#line 1538 "parser.pcc"
      syn_._2017 = QUALtracable; 
-#line 1538 "../../prop-src/parser.pcc"
+#line 1538 "parser.pcc"
 } break;
     case 494: {
-#line 1539 "../../prop-src/parser.pcc"
+#line 1539 "parser.pcc"
      syn_._2020 = QUALunifiable; 
-#line 1539 "../../prop-src/parser.pcc"
+#line 1539 "parser.pcc"
 } break;
     case 495: {
-#line 1540 "../../prop-src/parser.pcc"
+#line 1540 "parser.pcc"
      syn_._2023 = QUALrelation | QUALvirtualdestr; Used::infer = true; 
-#line 1540 "../../prop-src/parser.pcc"
+#line 1540 "parser.pcc"
 } break;
     case 496: {
-#line 1541 "../../prop-src/parser.pcc"
+#line 1541 "parser.pcc"
      syn_._2026 = QUALvirtual; 
-#line 1541 "../../prop-src/parser.pcc"
+#line 1541 "parser.pcc"
 } break;
     case 497: {
-#line 1542 "../../prop-src/parser.pcc"
+#line 1542 "parser.pcc"
      syn_._2029 = QUALconst; 
-#line 1542 "../../prop-src/parser.pcc"
+#line 1542 "parser.pcc"
 } break;
     case 498: {
-#line 1543 "../../prop-src/parser.pcc"
+#line 1543 "parser.pcc"
      syn_._2032 = QUALapplicative; 
-#line 1543 "../../prop-src/parser.pcc"
+#line 1543 "parser.pcc"
 } break;
     case 499: {
-#line 1544 "../../prop-src/parser.pcc"
+#line 1544 "parser.pcc"
      syn_._2035 = QUALtreeparser; 
-#line 1544 "../../prop-src/parser.pcc"
+#line 1544 "parser.pcc"
 } break;
     case 500: {
-#line 1545 "../../prop-src/parser.pcc"
+#line 1545 "parser.pcc"
      syn_._2038 = QUALview; 
-#line 1545 "../../prop-src/parser.pcc"
+#line 1545 "parser.pcc"
 } break;
     case 501: {
-#line 1546 "../../prop-src/parser.pcc"
+#line 1546 "parser.pcc"
      syn_._2041 = QUALbitfield; 
-#line 1546 "../../prop-src/parser.pcc"
+#line 1546 "parser.pcc"
 } break;
     case 502: {
-#line 1547 "../../prop-src/parser.pcc"
+#line 1547 "parser.pcc"
      syn_._2044 = QUALinline; 
-#line 1547 "../../prop-src/parser.pcc"
+#line 1547 "parser.pcc"
 } break;
     case 503: {
-#line 1548 "../../prop-src/parser.pcc"
+#line 1548 "parser.pcc"
      syn_._2047 = QUALextern; 
-#line 1548 "../../prop-src/parser.pcc"
+#line 1548 "parser.pcc"
 } break;
     case 504: {
-#line 1559 "../../prop-src/parser.pcc"
+#line 1559 "parser.pcc"
      syn_._2050 = INSTANTIATEdecl(t__[1+to__]._2052,t__[2+to__]._2054); 
-#line 1559 "../../prop-src/parser.pcc"
+#line 1559 "parser.pcc"
 } break;
     case 505: {
-#line 1562 "../../prop-src/parser.pcc"
+#line 1562 "parser.pcc"
      syn_._2057 = false; 
-#line 1562 "../../prop-src/parser.pcc"
+#line 1562 "parser.pcc"
 } break;
     case 506: {
-#line 1563 "../../prop-src/parser.pcc"
+#line 1563 "parser.pcc"
      syn_._2059 = true; 
-#line 1563 "../../prop-src/parser.pcc"
+#line 1563 "parser.pcc"
 } break;
     case 507: {
-#line 1575 "../../prop-src/parser.pcc"
+#line 1575 "parser.pcc"
      syn_._2062 = CLASSDEFdecl(new InferenceClass(t__[2+to__]._2065,t__[3+to__]._2066,t__[4+to__]._2067,t__[5+to__]._2068)); 
-#line 1575 "../../prop-src/parser.pcc"
+#line 1575 "parser.pcc"
 } break;
     case 508: {
-#line 1586 "../../prop-src/parser.pcc"
+#line 1586 "parser.pcc"
      syn_._2071 = INFERENCEdecl(t__[2+to__]._2073,t__[3+to__]._2075); 
-#line 1586 "../../prop-src/parser.pcc"
+#line 1586 "parser.pcc"
 } break;
     case 509: {
-#line 1589 "../../prop-src/parser.pcc"
+#line 1589 "parser.pcc"
      syn_._2079 = 
-#line 1589 "../../prop-src/parser.pcc"
-#line 1589 "../../prop-src/parser.pcc"
+#line 1589 "parser.pcc"
+#line 1589 "parser.pcc"
       nil_1_
-#line 1589 "../../prop-src/parser.pcc"
-#line 1589 "../../prop-src/parser.pcc"
+#line 1589 "parser.pcc"
+#line 1589 "parser.pcc"
       ; 
-#line 1589 "../../prop-src/parser.pcc"
+#line 1589 "parser.pcc"
 } break;
     case 510: {
-#line 1590 "../../prop-src/parser.pcc"
+#line 1590 "parser.pcc"
      syn_._2081 = 
-#line 1590 "../../prop-src/parser.pcc"
-#line 1590 "../../prop-src/parser.pcc"
+#line 1590 "parser.pcc"
+#line 1590 "parser.pcc"
       list_1_(t__[1+to__]._2082,t__[2+to__]._2083)
-#line 1590 "../../prop-src/parser.pcc"
-#line 1590 "../../prop-src/parser.pcc"
+#line 1590 "parser.pcc"
+#line 1590 "parser.pcc"
       ; 
-#line 1590 "../../prop-src/parser.pcc"
+#line 1590 "parser.pcc"
 } break;
 #undef to__
 #define to__ -0
     case 764: {
-#line 1594 "../../prop-src/parser.pcc"
+#line 1594 "parser.pcc"
       
       antecedent_count = 0;
       me_stack[++me_top] = 
-#line 1596 "../../prop-src/parser.pcc"
-#line 1596 "../../prop-src/parser.pcc"
+#line 1596 "parser.pcc"
+#line 1596 "parser.pcc"
       nil_1_
-#line 1596 "../../prop-src/parser.pcc"
-#line 1596 "../../prop-src/parser.pcc"
+#line 1596 "parser.pcc"
+#line 1596 "parser.pcc"
       ;
       pv_env.new_scope(! options.nonlinear_patterns, true);
       
-#line 1598 "../../prop-src/parser.pcc"
+#line 1598 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 511: {
-#line 1600 "../../prop-src/parser.pcc"
+#line 1600 "parser.pcc"
       
       syn_._2085 = INFERENCErule(t__[2+to__]._2087, pv_env.guard(), t__[3+to__]._2089);
       me_top--;
       pv_env.old_scope();
       
-#line 1604 "../../prop-src/parser.pcc"
+#line 1604 "parser.pcc"
 } break;
     case 512: {
-#line 1607 "../../prop-src/parser.pcc"
+#line 1607 "parser.pcc"
      syn_._2092 = 
-#line 1607 "../../prop-src/parser.pcc"
-#line 1607 "../../prop-src/parser.pcc"
+#line 1607 "parser.pcc"
+#line 1607 "parser.pcc"
       nil_1_
-#line 1607 "../../prop-src/parser.pcc"
-#line 1607 "../../prop-src/parser.pcc"
+#line 1607 "parser.pcc"
+#line 1607 "parser.pcc"
       ; 
-#line 1607 "../../prop-src/parser.pcc"
+#line 1607 "parser.pcc"
 } break;
     case 513: {
-#line 1608 "../../prop-src/parser.pcc"
+#line 1608 "parser.pcc"
      syn_._2094 = t__[1+to__]._2095; 
-#line 1608 "../../prop-src/parser.pcc"
+#line 1608 "parser.pcc"
 } break;
     case 514: {
-#line 1612 "../../prop-src/parser.pcc"
+#line 1612 "parser.pcc"
      syn_._2097 = 
-#line 1612 "../../prop-src/parser.pcc"
-#line 1612 "../../prop-src/parser.pcc"
+#line 1612 "parser.pcc"
+#line 1612 "parser.pcc"
       list_1_(t__[1+to__]._2098)
-#line 1612 "../../prop-src/parser.pcc"
-#line 1612 "../../prop-src/parser.pcc"
+#line 1612 "parser.pcc"
+#line 1612 "parser.pcc"
       ; 
-#line 1612 "../../prop-src/parser.pcc"
+#line 1612 "parser.pcc"
 } break;
     case 515: {
-#line 1613 "../../prop-src/parser.pcc"
+#line 1613 "parser.pcc"
      syn_._2100 = 
-#line 1613 "../../prop-src/parser.pcc"
-#line 1613 "../../prop-src/parser.pcc"
+#line 1613 "parser.pcc"
+#line 1613 "parser.pcc"
       list_1_(t__[1+to__]._2101,t__[2+to__]._2103)
-#line 1613 "../../prop-src/parser.pcc"
-#line 1613 "../../prop-src/parser.pcc"
+#line 1613 "parser.pcc"
+#line 1613 "parser.pcc"
       ; 
-#line 1613 "../../prop-src/parser.pcc"
+#line 1613 "parser.pcc"
 } break;
     case 516: {
-#line 1618 "../../prop-src/parser.pcc"
+#line 1618 "parser.pcc"
      syn_._2105 = t__[1+to__]._2106; syn_._2105->negated = false; syn_._2105->rewriting = false; 
-#line 1618 "../../prop-src/parser.pcc"
+#line 1618 "parser.pcc"
 } break;
     case 517: {
-#line 1620 "../../prop-src/parser.pcc"
+#line 1620 "parser.pcc"
      syn_._2108 = t__[1+to__]._2110; syn_._2108->negated = false; syn_._2108->rewriting = true; 
-#line 1620 "../../prop-src/parser.pcc"
+#line 1620 "parser.pcc"
 } break;
     case 518: {
-#line 1622 "../../prop-src/parser.pcc"
+#line 1622 "parser.pcc"
      syn_._2112 = t__[1+to__]._2114; syn_._2112->negated = true; syn_._2112->rewriting = false; 
-#line 1622 "../../prop-src/parser.pcc"
+#line 1622 "parser.pcc"
 } break;
     case 519: {
-#line 1627 "../../prop-src/parser.pcc"
+#line 1627 "parser.pcc"
       
       me_stack[me_top] = 
-#line 1628 "../../prop-src/parser.pcc"
-#line 1628 "../../prop-src/parser.pcc"
+#line 1628 "parser.pcc"
+#line 1628 "parser.pcc"
       nil_1_
-#line 1628 "../../prop-src/parser.pcc"
-#line 1628 "../../prop-src/parser.pcc"
+#line 1628 "parser.pcc"
+#line 1628 "parser.pcc"
       ;
       decor( me_stack[me_top], t__[1+to__]._2117, pv_env, match_rule, antecedent_count);
       syn_._2116 = MATCHrule( 0, t__[1+to__]._2117, NOexp, NOcost, 
-#line 1630 "../../prop-src/parser.pcc"
-#line 1630 "../../prop-src/parser.pcc"
+#line 1630 "parser.pcc"
+#line 1630 "parser.pcc"
       nil_1_
-#line 1630 "../../prop-src/parser.pcc"
-#line 1630 "../../prop-src/parser.pcc"
+#line 1630 "parser.pcc"
+#line 1630 "parser.pcc"
       );
       syn_._2116->ty = NOty;
       antecedent_count++;
       
-#line 1633 "../../prop-src/parser.pcc"
+#line 1633 "parser.pcc"
 } break;
 #undef to__
 #define to__ -2
     case 765: {
-#line 1635 "../../prop-src/parser.pcc"
+#line 1635 "parser.pcc"
       
       me_stack[me_top] = 
-#line 1636 "../../prop-src/parser.pcc"
-#line 1636 "../../prop-src/parser.pcc"
+#line 1636 "parser.pcc"
+#line 1636 "parser.pcc"
       nil_1_
-#line 1636 "../../prop-src/parser.pcc"
-#line 1636 "../../prop-src/parser.pcc"
+#line 1636 "parser.pcc"
+#line 1636 "parser.pcc"
       ;
       decor( me_stack[me_top], t__[1+to__]._2120, pv_env, match_rule, antecedent_count);
       
-#line 1638 "../../prop-src/parser.pcc"
+#line 1638 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 520: {
-#line 1640 "../../prop-src/parser.pcc"
+#line 1640 "parser.pcc"
       
       syn_._2119 = MATCHrule( 0, t__[1+to__]._2120, t__[4+to__]._2123, NOcost, 
-#line 1641 "../../prop-src/parser.pcc"
-#line 1641 "../../prop-src/parser.pcc"
+#line 1641 "parser.pcc"
+#line 1641 "parser.pcc"
       nil_1_
-#line 1641 "../../prop-src/parser.pcc"
-#line 1641 "../../prop-src/parser.pcc"
+#line 1641 "parser.pcc"
+#line 1641 "parser.pcc"
       );
       syn_._2119->ty = NOty;
       antecedent_count++;
       
-#line 1644 "../../prop-src/parser.pcc"
+#line 1644 "parser.pcc"
 } break;
     case 521: {
-#line 1648 "../../prop-src/parser.pcc"
+#line 1648 "parser.pcc"
      syn_._2125 = 
-#line 1648 "../../prop-src/parser.pcc"
-#line 1648 "../../prop-src/parser.pcc"
+#line 1648 "parser.pcc"
+#line 1648 "parser.pcc"
       list_1_(t__[1+to__]._2126)
-#line 1648 "../../prop-src/parser.pcc"
-#line 1648 "../../prop-src/parser.pcc"
+#line 1648 "parser.pcc"
+#line 1648 "parser.pcc"
       ; 
-#line 1648 "../../prop-src/parser.pcc"
+#line 1648 "parser.pcc"
 } break;
     case 522: {
-#line 1649 "../../prop-src/parser.pcc"
+#line 1649 "parser.pcc"
      syn_._2128 = 
-#line 1649 "../../prop-src/parser.pcc"
-#line 1649 "../../prop-src/parser.pcc"
+#line 1649 "parser.pcc"
+#line 1649 "parser.pcc"
       list_1_(t__[1+to__]._2129,t__[2+to__]._2131)
-#line 1649 "../../prop-src/parser.pcc"
-#line 1649 "../../prop-src/parser.pcc"
+#line 1649 "parser.pcc"
+#line 1649 "parser.pcc"
       ; 
-#line 1649 "../../prop-src/parser.pcc"
+#line 1649 "parser.pcc"
 } break;
     case 523: {
-#line 1653 "../../prop-src/parser.pcc"
+#line 1653 "parser.pcc"
      syn_._2133 = ASSERTaction(t__[1+to__]._2134); 
-#line 1653 "../../prop-src/parser.pcc"
+#line 1653 "parser.pcc"
 } break;
     case 524: {
-#line 1654 "../../prop-src/parser.pcc"
+#line 1654 "parser.pcc"
      syn_._2136 = RETRACTaction(t__[1+to__]._2138); 
-#line 1654 "../../prop-src/parser.pcc"
+#line 1654 "parser.pcc"
 } break;
     case 525: {
-#line 1655 "../../prop-src/parser.pcc"
+#line 1655 "parser.pcc"
      syn_._2140 = STMTaction(t__[1+to__]._2141); 
-#line 1655 "../../prop-src/parser.pcc"
+#line 1655 "parser.pcc"
 } break;
     case 526: {
-#line 1666 "../../prop-src/parser.pcc"
+#line 1666 "parser.pcc"
       
       syn_._2143 = CLASSDEFdecl(
          new SyntaxClass( ClassDefinition::SYNTAX_CLASS, t__[2+to__]._2146, t__[3+to__]._2147, t__[4+to__]._2148, t__[5+to__]._2149));
       
-#line 1669 "../../prop-src/parser.pcc"
+#line 1669 "parser.pcc"
 } break;
 #undef to__
 #define to__ -2
     case 766: {
-#line 1680 "../../prop-src/parser.pcc"
+#line 1680 "parser.pcc"
      symbol_count = 0; 
-#line 1680 "../../prop-src/parser.pcc"
+#line 1680 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
@@ -7811,105 +7803,105 @@ inline void PropParser::action_driver(const Rule _r_)
 #undef to__
 #define to__ -5
     case 767: {
-#line 1683 "../../prop-src/parser.pcc"
+#line 1683 "parser.pcc"
      symbol_count = 0; 
-#line 1683 "../../prop-src/parser.pcc"
+#line 1683 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 527: {
-#line 1686 "../../prop-src/parser.pcc"
+#line 1686 "parser.pcc"
      syn_._2152 = SYNTAXdecl( t__[2+to__]._2154, EXPgram( t__[4+to__]._2157, t__[5+to__]._2158, t__[7+to__]._2160)); 
-#line 1686 "../../prop-src/parser.pcc"
+#line 1686 "parser.pcc"
 } break;
     case 528: {
-#line 1689 "../../prop-src/parser.pcc"
+#line 1689 "parser.pcc"
      syn_._2164 = 
-#line 1689 "../../prop-src/parser.pcc"
-#line 1689 "../../prop-src/parser.pcc"
+#line 1689 "parser.pcc"
+#line 1689 "parser.pcc"
       nil_1_
-#line 1689 "../../prop-src/parser.pcc"
-#line 1689 "../../prop-src/parser.pcc"
+#line 1689 "parser.pcc"
+#line 1689 "parser.pcc"
       ; 
-#line 1689 "../../prop-src/parser.pcc"
+#line 1689 "parser.pcc"
 } break;
     case 529: {
-#line 1690 "../../prop-src/parser.pcc"
+#line 1690 "parser.pcc"
      syn_._2166 = 
-#line 1690 "../../prop-src/parser.pcc"
-#line 1690 "../../prop-src/parser.pcc"
+#line 1690 "parser.pcc"
+#line 1690 "parser.pcc"
       list_1_(t__[1+to__]._2167,t__[2+to__]._2168)
-#line 1690 "../../prop-src/parser.pcc"
-#line 1690 "../../prop-src/parser.pcc"
+#line 1690 "parser.pcc"
+#line 1690 "parser.pcc"
       ; 
-#line 1690 "../../prop-src/parser.pcc"
+#line 1690 "parser.pcc"
 } break;
     case 530: {
-#line 1695 "../../prop-src/parser.pcc"
+#line 1695 "parser.pcc"
      syn_._2170 = PRECrule( LEFTassoc, t__[1+to__]._2172, t__[2+to__]._2173); 
-#line 1695 "../../prop-src/parser.pcc"
+#line 1695 "parser.pcc"
 } break;
     case 531: {
-#line 1697 "../../prop-src/parser.pcc"
+#line 1697 "parser.pcc"
      syn_._2176 = PRECrule( RIGHTassoc, t__[1+to__]._2178, t__[2+to__]._2179); 
-#line 1697 "../../prop-src/parser.pcc"
+#line 1697 "parser.pcc"
 } break;
     case 532: {
-#line 1700 "../../prop-src/parser.pcc"
+#line 1700 "parser.pcc"
      syn_._2182 = -1; 
-#line 1700 "../../prop-src/parser.pcc"
+#line 1700 "parser.pcc"
 } break;
     case 533: {
-#line 1701 "../../prop-src/parser.pcc"
+#line 1701 "parser.pcc"
      syn_._2184 = t__[1+to__]._2186; 
-#line 1701 "../../prop-src/parser.pcc"
+#line 1701 "parser.pcc"
 } break;
     case 534: {
-#line 1702 "../../prop-src/parser.pcc"
+#line 1702 "parser.pcc"
      syn_._2189 = -2; 
-#line 1702 "../../prop-src/parser.pcc"
+#line 1702 "parser.pcc"
 } break;
     case 535: {
-#line 1706 "../../prop-src/parser.pcc"
+#line 1706 "parser.pcc"
      syn_._2194 = 
-#line 1706 "../../prop-src/parser.pcc"
-#line 1706 "../../prop-src/parser.pcc"
+#line 1706 "parser.pcc"
+#line 1706 "parser.pcc"
       nil_1_
-#line 1706 "../../prop-src/parser.pcc"
-#line 1706 "../../prop-src/parser.pcc"
+#line 1706 "parser.pcc"
+#line 1706 "parser.pcc"
       ; 
-#line 1706 "../../prop-src/parser.pcc"
+#line 1706 "parser.pcc"
 } break;
     case 536: {
-#line 1707 "../../prop-src/parser.pcc"
+#line 1707 "parser.pcc"
      syn_._2196 = 
-#line 1707 "../../prop-src/parser.pcc"
-#line 1707 "../../prop-src/parser.pcc"
+#line 1707 "parser.pcc"
+#line 1707 "parser.pcc"
       list_1_(t__[1+to__]._2197,t__[2+to__]._2198)
-#line 1707 "../../prop-src/parser.pcc"
-#line 1707 "../../prop-src/parser.pcc"
+#line 1707 "parser.pcc"
+#line 1707 "parser.pcc"
       ; 
-#line 1707 "../../prop-src/parser.pcc"
+#line 1707 "parser.pcc"
 } break;
     case 537: {
-#line 1712 "../../prop-src/parser.pcc"
+#line 1712 "parser.pcc"
     syn_._2200 = BNFrule( t__[2+to__]._2202, t__[3+to__]._2203, t__[4+to__]._2205); syn_._2200->begin_line = t__[1+to__]._2201; 
-#line 1712 "../../prop-src/parser.pcc"
+#line 1712 "parser.pcc"
 } break;
     case 538: {
-#line 1723 "../../prop-src/parser.pcc"
+#line 1723 "parser.pcc"
       
       Used::parser = true;
       syn_._2208 = CLASSDEFdecl( new AttributeGrammarClass( t__[1+to__]._2211, t__[2+to__]._2212, t__[3+to__]._2213, t__[4+to__]._2214));
       
-#line 1726 "../../prop-src/parser.pcc"
+#line 1726 "parser.pcc"
 } break;
 #undef to__
 #define to__ -1
     case 768: {
-#line 1737 "../../prop-src/parser.pcc"
+#line 1737 "parser.pcc"
      symbol_count = 0; 
-#line 1737 "../../prop-src/parser.pcc"
+#line 1737 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
@@ -7917,99 +7909,99 @@ inline void PropParser::action_driver(const Rule _r_)
 #undef to__
 #define to__ -4
     case 769: {
-#line 1739 "../../prop-src/parser.pcc"
+#line 1739 "parser.pcc"
      symbol_count = 0; 
-#line 1739 "../../prop-src/parser.pcc"
+#line 1739 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 539: {
-#line 1742 "../../prop-src/parser.pcc"
+#line 1742 "parser.pcc"
      syn_._2217 = ATTRIBUTEGRAMMARdecl( t__[1+to__]._2219, EXPgram( t__[3+to__]._2222, t__[4+to__]._2223, t__[6+to__]._2225)); 
-#line 1742 "../../prop-src/parser.pcc"
+#line 1742 "parser.pcc"
 } break;
     case 540: {
-#line 1752 "../../prop-src/parser.pcc"
+#line 1752 "parser.pcc"
      
-#line 1752 "../../prop-src/parser.pcc"
+#line 1752 "parser.pcc"
 } break;
     case 541: {
-#line 1753 "../../prop-src/parser.pcc"
+#line 1753 "parser.pcc"
      
-#line 1753 "../../prop-src/parser.pcc"
+#line 1753 "parser.pcc"
 } break;
     case 542: {
-#line 1757 "../../prop-src/parser.pcc"
+#line 1757 "parser.pcc"
      
-#line 1757 "../../prop-src/parser.pcc"
+#line 1757 "parser.pcc"
 } break;
     case 543: {
-#line 1758 "../../prop-src/parser.pcc"
+#line 1758 "parser.pcc"
      
-#line 1758 "../../prop-src/parser.pcc"
+#line 1758 "parser.pcc"
 } break;
     case 544: {
-#line 1763 "../../prop-src/parser.pcc"
+#line 1763 "parser.pcc"
      update_lexeme( t__[1+to__]._2249, 
-#line 1763 "../../prop-src/parser.pcc"
-#line 1763 "../../prop-src/parser.pcc"
+#line 1763 "parser.pcc"
+#line 1763 "parser.pcc"
       nil_1_
-#line 1763 "../../prop-src/parser.pcc"
-#line 1763 "../../prop-src/parser.pcc"
+#line 1763 "parser.pcc"
+#line 1763 "parser.pcc"
       , t__[2+to__]._2251); 
-#line 1763 "../../prop-src/parser.pcc"
+#line 1763 "parser.pcc"
 } break;
     case 545: {
-#line 1766 "../../prop-src/parser.pcc"
+#line 1766 "parser.pcc"
      
-#line 1766 "../../prop-src/parser.pcc"
+#line 1766 "parser.pcc"
 } break;
     case 546: {
-#line 1767 "../../prop-src/parser.pcc"
+#line 1767 "parser.pcc"
      
-#line 1767 "../../prop-src/parser.pcc"
+#line 1767 "parser.pcc"
 } break;
     case 547: {
-#line 1772 "../../prop-src/parser.pcc"
+#line 1772 "parser.pcc"
      update_lexeme_class( t__[1+to__]._2262, t__[2+to__]._2264); 
-#line 1772 "../../prop-src/parser.pcc"
+#line 1772 "parser.pcc"
 } break;
     case 548: {
-#line 1775 "../../prop-src/parser.pcc"
+#line 1775 "parser.pcc"
      syn_._2266 = NOty; 
-#line 1775 "../../prop-src/parser.pcc"
+#line 1775 "parser.pcc"
 } break;
     case 549: {
-#line 1776 "../../prop-src/parser.pcc"
+#line 1776 "parser.pcc"
      syn_._2268 = t__[1+to__]._2269; 
-#line 1776 "../../prop-src/parser.pcc"
+#line 1776 "parser.pcc"
 } break;
     case 550: {
-#line 1780 "../../prop-src/parser.pcc"
+#line 1780 "parser.pcc"
      syn_._2271 = 
-#line 1780 "../../prop-src/parser.pcc"
-#line 1780 "../../prop-src/parser.pcc"
+#line 1780 "parser.pcc"
+#line 1780 "parser.pcc"
       list_1_(t__[1+to__]._2272)
-#line 1780 "../../prop-src/parser.pcc"
-#line 1780 "../../prop-src/parser.pcc"
+#line 1780 "parser.pcc"
+#line 1780 "parser.pcc"
       ; 
-#line 1780 "../../prop-src/parser.pcc"
+#line 1780 "parser.pcc"
 } break;
     case 551: {
-#line 1781 "../../prop-src/parser.pcc"
+#line 1781 "parser.pcc"
      syn_._2274 = 
-#line 1781 "../../prop-src/parser.pcc"
-#line 1781 "../../prop-src/parser.pcc"
+#line 1781 "parser.pcc"
+#line 1781 "parser.pcc"
       list_1_(t__[1+to__]._2275,t__[2+to__]._2277)
-#line 1781 "../../prop-src/parser.pcc"
-#line 1781 "../../prop-src/parser.pcc"
+#line 1781 "parser.pcc"
+#line 1781 "parser.pcc"
       ; 
-#line 1781 "../../prop-src/parser.pcc"
+#line 1781 "parser.pcc"
 } break;
 #undef to__
 #define to__ -0
     case 770: {
-#line 1785 "../../prop-src/parser.pcc"
+#line 1785 "parser.pcc"
       
       pv_env.new_scope();
       ++symbol_count;
@@ -8017,175 +8009,175 @@ inline void PropParser::action_driver(const Rule _r_)
       nonterm_count = 0;
       add_parse_stack_binding(0,symbol_count,0);
       
-#line 1791 "../../prop-src/parser.pcc"
+#line 1791 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 552: {
-#line 1793 "../../prop-src/parser.pcc"
+#line 1793 "parser.pcc"
       
       syn_._2279 = t__[2+to__]._2281;
       pv_env.old_scope();
       
-#line 1796 "../../prop-src/parser.pcc"
+#line 1796 "parser.pcc"
 } break;
     case 553: {
-#line 1800 "../../prop-src/parser.pcc"
+#line 1800 "parser.pcc"
      syn_._2283 = 
-#line 1800 "../../prop-src/parser.pcc"
-#line 1800 "../../prop-src/parser.pcc"
+#line 1800 "parser.pcc"
+#line 1800 "parser.pcc"
       nil_1_
-#line 1800 "../../prop-src/parser.pcc"
-#line 1800 "../../prop-src/parser.pcc"
+#line 1800 "parser.pcc"
+#line 1800 "parser.pcc"
       ; 
-#line 1800 "../../prop-src/parser.pcc"
+#line 1800 "parser.pcc"
 } break;
 #undef to__
 #define to__ -0
     case 771: {
-#line 1801 "../../prop-src/parser.pcc"
+#line 1801 "parser.pcc"
      ++symbol_count; ++item_count; 
-#line 1801 "../../prop-src/parser.pcc"
+#line 1801 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 554: {
-#line 1802 "../../prop-src/parser.pcc"
+#line 1802 "parser.pcc"
      syn_._2285 = 
-#line 1802 "../../prop-src/parser.pcc"
-#line 1802 "../../prop-src/parser.pcc"
+#line 1802 "parser.pcc"
+#line 1802 "parser.pcc"
       list_1_(t__[2+to__]._2287,t__[3+to__]._2288)
-#line 1802 "../../prop-src/parser.pcc"
-#line 1802 "../../prop-src/parser.pcc"
+#line 1802 "parser.pcc"
+#line 1802 "parser.pcc"
       ; 
-#line 1802 "../../prop-src/parser.pcc"
+#line 1802 "parser.pcc"
 } break;
     case 555: {
-#line 1807 "../../prop-src/parser.pcc"
+#line 1807 "parser.pcc"
       
       syn_._2290 = NONTERMsym(t__[1+to__]._2291);
       ++nonterm_count;
       add_parse_stack_binding(item_count,symbol_count,nonterm_count);
       
-#line 1811 "../../prop-src/parser.pcc"
+#line 1811 "parser.pcc"
 } break;
     case 556: {
-#line 1812 "../../prop-src/parser.pcc"
+#line 1812 "parser.pcc"
      syn_._2293 = TOKENsym(t__[1+to__]._2294); 
-#line 1812 "../../prop-src/parser.pcc"
+#line 1812 "parser.pcc"
 } break;
     case 557: {
-#line 1813 "../../prop-src/parser.pcc"
+#line 1813 "parser.pcc"
      syn_._2296 = TERMsym(t__[1+to__]._2297); 
-#line 1813 "../../prop-src/parser.pcc"
+#line 1813 "parser.pcc"
 } break;
     case 558: {
-#line 1814 "../../prop-src/parser.pcc"
+#line 1814 "parser.pcc"
      syn_._2299 = TOKENsym(lookup_token(t__[1+to__]._2300)); 
-#line 1814 "../../prop-src/parser.pcc"
+#line 1814 "parser.pcc"
 } break;
     case 559: {
-#line 1815 "../../prop-src/parser.pcc"
+#line 1815 "parser.pcc"
      syn_._2302 = TERMREGEXPsym(t__[1+to__]._2303); 
-#line 1815 "../../prop-src/parser.pcc"
+#line 1815 "parser.pcc"
 } break;
     case 560: {
-#line 1816 "../../prop-src/parser.pcc"
+#line 1816 "parser.pcc"
      ++nonterm_count; syn_._2305 = PREDICATEsym(t__[1+to__]._2306); 
-#line 1816 "../../prop-src/parser.pcc"
+#line 1816 "parser.pcc"
 } break;
     case 561: {
-#line 1817 "../../prop-src/parser.pcc"
+#line 1817 "parser.pcc"
      ++nonterm_count; syn_._2308 = ACTIONsym(t__[1+to__]._2309); 
-#line 1817 "../../prop-src/parser.pcc"
+#line 1817 "parser.pcc"
 } break;
     case 562: {
-#line 1818 "../../prop-src/parser.pcc"
+#line 1818 "parser.pcc"
      syn_._2311 = ERRORsym(); 
-#line 1818 "../../prop-src/parser.pcc"
+#line 1818 "parser.pcc"
 } break;
     case 563: {
-#line 1819 "../../prop-src/parser.pcc"
+#line 1819 "parser.pcc"
      syn_._2314 = PRECsym(t__[1+to__]._2316); 
-#line 1819 "../../prop-src/parser.pcc"
+#line 1819 "parser.pcc"
 } break;
     case 564: {
-#line 1833 "../../prop-src/parser.pcc"
+#line 1833 "parser.pcc"
      syn_._2318 = CLASSDEFdecl( new RewriteClass( t__[2+to__]._2321, t__[3+to__]._2323, t__[4+to__]._2325, t__[5+to__]._2326, t__[6+to__]._2327)); 
-#line 1833 "../../prop-src/parser.pcc"
+#line 1833 "parser.pcc"
 } break;
     case 565: {
-#line 1836 "../../prop-src/parser.pcc"
+#line 1836 "parser.pcc"
      syn_._2330 = 
-#line 1836 "../../prop-src/parser.pcc"
-#line 1836 "../../prop-src/parser.pcc"
+#line 1836 "parser.pcc"
+#line 1836 "parser.pcc"
       nil_1_
-#line 1836 "../../prop-src/parser.pcc"
-#line 1836 "../../prop-src/parser.pcc"
+#line 1836 "parser.pcc"
+#line 1836 "parser.pcc"
       ; 
-#line 1836 "../../prop-src/parser.pcc"
+#line 1836 "parser.pcc"
 } break;
     case 566: {
-#line 1837 "../../prop-src/parser.pcc"
+#line 1837 "parser.pcc"
      syn_._2332 = t__[1+to__]._2334; 
-#line 1837 "../../prop-src/parser.pcc"
+#line 1837 "parser.pcc"
 } break;
     case 567: {
-#line 1841 "../../prop-src/parser.pcc"
+#line 1841 "parser.pcc"
      syn_._2337 = 
-#line 1841 "../../prop-src/parser.pcc"
-#line 1841 "../../prop-src/parser.pcc"
+#line 1841 "parser.pcc"
+#line 1841 "parser.pcc"
       list_1_(t__[1+to__]._2338)
-#line 1841 "../../prop-src/parser.pcc"
-#line 1841 "../../prop-src/parser.pcc"
+#line 1841 "parser.pcc"
+#line 1841 "parser.pcc"
       ; 
-#line 1841 "../../prop-src/parser.pcc"
+#line 1841 "parser.pcc"
 } break;
     case 568: {
-#line 1842 "../../prop-src/parser.pcc"
+#line 1842 "parser.pcc"
      syn_._2340 = 
-#line 1842 "../../prop-src/parser.pcc"
-#line 1842 "../../prop-src/parser.pcc"
+#line 1842 "parser.pcc"
+#line 1842 "parser.pcc"
       list_1_(t__[1+to__]._2341,t__[2+to__]._2343)
-#line 1842 "../../prop-src/parser.pcc"
-#line 1842 "../../prop-src/parser.pcc"
+#line 1842 "parser.pcc"
+#line 1842 "parser.pcc"
       ; 
-#line 1842 "../../prop-src/parser.pcc"
+#line 1842 "parser.pcc"
 } break;
     case 569: {
-#line 1847 "../../prop-src/parser.pcc"
+#line 1847 "parser.pcc"
      syn_._2345 = PROTOCOL( t__[1+to__]._2346, t__[2+to__]._2347, t__[3+to__]._2348); 
-#line 1847 "../../prop-src/parser.pcc"
+#line 1847 "parser.pcc"
 } break;
     case 570: {
-#line 1851 "../../prop-src/parser.pcc"
+#line 1851 "parser.pcc"
      syn_._2350 = NOty; 
-#line 1851 "../../prop-src/parser.pcc"
+#line 1851 "parser.pcc"
 } break;
     case 571: {
-#line 1852 "../../prop-src/parser.pcc"
+#line 1852 "parser.pcc"
      syn_._2352 = t__[1+to__]._2354; 
-#line 1852 "../../prop-src/parser.pcc"
+#line 1852 "parser.pcc"
 } break;
     case 572: {
-#line 1856 "../../prop-src/parser.pcc"
+#line 1856 "parser.pcc"
      syn_._2356 = NOty; 
-#line 1856 "../../prop-src/parser.pcc"
+#line 1856 "parser.pcc"
 } break;
     case 573: {
-#line 1857 "../../prop-src/parser.pcc"
+#line 1857 "parser.pcc"
      syn_._2358 = t__[1+to__]._2360; 
-#line 1857 "../../prop-src/parser.pcc"
+#line 1857 "parser.pcc"
 } break;
     case 574: {
-#line 1858 "../../prop-src/parser.pcc"
+#line 1858 "parser.pcc"
      syn_._2362 = t__[1+to__]._2364; 
-#line 1858 "../../prop-src/parser.pcc"
+#line 1858 "parser.pcc"
 } break;
 #undef to__
 #define to__ -2
     case 772: {
-#line 1869 "../../prop-src/parser.pcc"
+#line 1869 "parser.pcc"
       
       in_rewrite = true;
       rule_count = 0;
@@ -8196,146 +8188,146 @@ inline void PropParser::action_driver(const Rule _r_)
                 );
       if (C) rw_stack[rw_top].qual = C->qualifiers;
       me_stack[++me_top] = 
-#line 1878 "../../prop-src/parser.pcc"
-#line 1878 "../../prop-src/parser.pcc"
+#line 1878 "parser.pcc"
+#line 1878 "parser.pcc"
       list_1_(MATCHexp(IDexp("redex"),0))
-#line 1878 "../../prop-src/parser.pcc"
-#line 1878 "../../prop-src/parser.pcc"
+#line 1878 "parser.pcc"
+#line 1878 "parser.pcc"
       ;
       
-#line 1879 "../../prop-src/parser.pcc"
+#line 1879 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 575: {
-#line 1881 "../../prop-src/parser.pcc"
+#line 1881 "parser.pcc"
       
       syn_._2366 = REWRITEdecl(t__[2+to__]._2368,t__[4+to__]._2371,t__[5+to__]._2372);
       in_rewrite = false; me_top--;
       pop_rw_stack();
       
-#line 1885 "../../prop-src/parser.pcc"
+#line 1885 "parser.pcc"
 } break;
 #undef to__
 #define to__ -5
     case 773: {
-#line 1890 "../../prop-src/parser.pcc"
+#line 1890 "parser.pcc"
       
       in_rewrite = true;
       rule_count = 0;
       me_stack[++me_top] = 
-#line 1893 "../../prop-src/parser.pcc"
-#line 1893 "../../prop-src/parser.pcc"
+#line 1893 "parser.pcc"
+#line 1893 "parser.pcc"
       list_1_(MATCHexp(IDexp("redex"),0))
-#line 1893 "../../prop-src/parser.pcc"
-#line 1893 "../../prop-src/parser.pcc"
+#line 1893 "parser.pcc"
+#line 1893 "parser.pcc"
       ;
       push_rw_stack();
       rw_stack[rw_top].qual = t__[5+to__]._2384;
       
-#line 1896 "../../prop-src/parser.pcc"
+#line 1896 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 576: {
-#line 1898 "../../prop-src/parser.pcc"
+#line 1898 "parser.pcc"
       
       syn_._2376 = REWRITINGdecl(t__[4+to__]._2382,t__[2+to__]._2378,t__[3+to__]._2379,t__[7+to__]._2387,t__[8+to__]._2388,t__[5+to__]._2384);
       in_rewrite = false; me_top--;
       pop_rw_stack();
       
-#line 1902 "../../prop-src/parser.pcc"
+#line 1902 "parser.pcc"
 } break;
 #undef to__
 #define to__ -5
     case 774: {
-#line 1904 "../../prop-src/parser.pcc"
+#line 1904 "parser.pcc"
       
       in_rewrite = true;
       rule_count = 0;
       me_stack[++me_top] = 
-#line 1907 "../../prop-src/parser.pcc"
-#line 1907 "../../prop-src/parser.pcc"
+#line 1907 "parser.pcc"
+#line 1907 "parser.pcc"
       list_1_(MATCHexp(IDexp("redex"),0))
-#line 1907 "../../prop-src/parser.pcc"
-#line 1907 "../../prop-src/parser.pcc"
+#line 1907 "parser.pcc"
+#line 1907 "parser.pcc"
       ;
       push_rw_stack();
       rw_stack[rw_top].qual = t__[5+to__]._2399;
       
-#line 1910 "../../prop-src/parser.pcc"
+#line 1910 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 577: {
-#line 1912 "../../prop-src/parser.pcc"
+#line 1912 "parser.pcc"
       
       syn_._2391 = REWRITINGdecl(t__[4+to__]._2397,t__[2+to__]._2393,t__[3+to__]._2394,t__[7+to__]._2402,t__[8+to__]._2403,t__[5+to__]._2399);
       in_rewrite = false; me_top--;
       pop_rw_stack();
       
-#line 1916 "../../prop-src/parser.pcc"
+#line 1916 "parser.pcc"
 } break;
     case 578: {
-#line 1920 "../../prop-src/parser.pcc"
+#line 1920 "parser.pcc"
      syn_._2408 = t__[1+to__]._2410; 
-#line 1920 "../../prop-src/parser.pcc"
+#line 1920 "parser.pcc"
 } break;
     case 579: {
-#line 1921 "../../prop-src/parser.pcc"
+#line 1921 "parser.pcc"
      syn_._2413 = 
-#line 1921 "../../prop-src/parser.pcc"
-#line 1921 "../../prop-src/parser.pcc"
+#line 1921 "parser.pcc"
+#line 1921 "parser.pcc"
       nil_1_
-#line 1921 "../../prop-src/parser.pcc"
-#line 1921 "../../prop-src/parser.pcc"
+#line 1921 "parser.pcc"
+#line 1921 "parser.pcc"
       ; 
-#line 1921 "../../prop-src/parser.pcc"
+#line 1921 "parser.pcc"
 } break;
     case 580: {
-#line 1925 "../../prop-src/parser.pcc"
+#line 1925 "parser.pcc"
      syn_._2415 = 
-#line 1925 "../../prop-src/parser.pcc"
-#line 1925 "../../prop-src/parser.pcc"
+#line 1925 "parser.pcc"
+#line 1925 "parser.pcc"
       list_1_(t__[1+to__]._2416)
-#line 1925 "../../prop-src/parser.pcc"
-#line 1925 "../../prop-src/parser.pcc"
+#line 1925 "parser.pcc"
+#line 1925 "parser.pcc"
       ; 
-#line 1925 "../../prop-src/parser.pcc"
+#line 1925 "parser.pcc"
 } break;
     case 581: {
-#line 1926 "../../prop-src/parser.pcc"
+#line 1926 "parser.pcc"
      syn_._2418 = 
-#line 1926 "../../prop-src/parser.pcc"
-#line 1926 "../../prop-src/parser.pcc"
+#line 1926 "parser.pcc"
+#line 1926 "parser.pcc"
       list_1_(t__[1+to__]._2419,t__[2+to__]._2421)
-#line 1926 "../../prop-src/parser.pcc"
-#line 1926 "../../prop-src/parser.pcc"
+#line 1926 "parser.pcc"
+#line 1926 "parser.pcc"
       ; 
-#line 1926 "../../prop-src/parser.pcc"
+#line 1926 "parser.pcc"
 } break;
     case 582: {
-#line 1931 "../../prop-src/parser.pcc"
+#line 1931 "parser.pcc"
      syn_._2423 = new RewriteIndexing(t__[1+to__]._2424,t__[2+to__]._2426,false); 
-#line 1931 "../../prop-src/parser.pcc"
+#line 1931 "parser.pcc"
 } break;
     case 583: {
-#line 1933 "../../prop-src/parser.pcc"
+#line 1933 "parser.pcc"
      syn_._2428 = new RewriteIndexing(t__[1+to__]._2429,t__[2+to__]._2432,true); 
-#line 1933 "../../prop-src/parser.pcc"
+#line 1933 "parser.pcc"
 } break;
     case 584: {
-#line 1936 "../../prop-src/parser.pcc"
+#line 1936 "parser.pcc"
      syn_._2434 = NOexp; 
-#line 1936 "../../prop-src/parser.pcc"
+#line 1936 "parser.pcc"
 } break;
     case 585: {
-#line 1937 "../../prop-src/parser.pcc"
+#line 1937 "parser.pcc"
      syn_._2436 = t__[1+to__]._2438; 
-#line 1937 "../../prop-src/parser.pcc"
+#line 1937 "parser.pcc"
 } break;
     case 586: {
-#line 1942 "../../prop-src/parser.pcc"
+#line 1942 "parser.pcc"
       
       if (in_rewrite)
       {
@@ -8348,127 +8340,127 @@ inline void PropParser::action_driver(const Rule _r_)
         syn_._2440 = NOdecl;
       }
       
-#line 1953 "../../prop-src/parser.pcc"
+#line 1953 "parser.pcc"
 } break;
     case 587: {
-#line 1955 "../../prop-src/parser.pcc"
+#line 1955 "parser.pcc"
       
       syn_._2444 = CUTREWRITEdecl(t__[1+to__]._2446,rw_stack[rw_top].mode);
       rw_stack[rw_top].option |= MatchRuleInfo::CUTREWRITE;
       
-#line 1958 "../../prop-src/parser.pcc"
+#line 1958 "parser.pcc"
 } break;
     case 588: {
-#line 1960 "../../prop-src/parser.pcc"
+#line 1960 "parser.pcc"
       
       syn_._2448 = CUTREWRITEdecl(NOexp,rw_stack[rw_top].mode);
       rw_stack[rw_top].option |= MatchRuleInfo::CUTREWRITE;
       
-#line 1963 "../../prop-src/parser.pcc"
+#line 1963 "parser.pcc"
 } break;
     case 589: {
-#line 1965 "../../prop-src/parser.pcc"
+#line 1965 "parser.pcc"
       
       syn_._2451 = FAILREWRITEdecl(rw_stack[rw_top].mode);
       rw_stack[rw_top].option |= MatchRuleInfo::FAILREWRITE;
       
-#line 1968 "../../prop-src/parser.pcc"
+#line 1968 "parser.pcc"
 } break;
     case 591: {
-#line 1972 "../../prop-src/parser.pcc"
+#line 1972 "parser.pcc"
      rw_stack[rw_top].mode = MatchRuleInfo::TOPDOWN; 
-#line 1972 "../../prop-src/parser.pcc"
+#line 1972 "parser.pcc"
 } break;
     case 592: {
-#line 1973 "../../prop-src/parser.pcc"
+#line 1973 "parser.pcc"
      rw_stack[rw_top].mode = MatchRuleInfo::BOTTOMUP; 
-#line 1973 "../../prop-src/parser.pcc"
+#line 1973 "parser.pcc"
 } break;
     case 593: {
-#line 1974 "../../prop-src/parser.pcc"
+#line 1974 "parser.pcc"
      rw_stack[rw_top].mode = MatchRuleInfo::BEFORE; 
-#line 1974 "../../prop-src/parser.pcc"
+#line 1974 "parser.pcc"
 } break;
     case 594: {
-#line 1975 "../../prop-src/parser.pcc"
+#line 1975 "parser.pcc"
      rw_stack[rw_top].mode = MatchRuleInfo::PREORDER; 
-#line 1975 "../../prop-src/parser.pcc"
+#line 1975 "parser.pcc"
 } break;
     case 595: {
-#line 1976 "../../prop-src/parser.pcc"
+#line 1976 "parser.pcc"
      rw_stack[rw_top].mode = MatchRuleInfo::POSTORDER; 
-#line 1976 "../../prop-src/parser.pcc"
+#line 1976 "parser.pcc"
 } break;
     case 596: {
-#line 1986 "../../prop-src/parser.pcc"
+#line 1986 "parser.pcc"
      syn_._2470 = FUNdecl(t__[1+to__]._2472); 
-#line 1986 "../../prop-src/parser.pcc"
+#line 1986 "parser.pcc"
 } break;
     case 597: {
-#line 1991 "../../prop-src/parser.pcc"
+#line 1991 "parser.pcc"
      syn_._2475 = 
-#line 1991 "../../prop-src/parser.pcc"
-#line 1991 "../../prop-src/parser.pcc"
+#line 1991 "parser.pcc"
+#line 1991 "parser.pcc"
       list_1_(FUNdef(t__[1+to__]._2476.id,NOty,t__[1+to__]._2476.return_ty,t__[1+to__]._2476.rules))
-#line 1991 "../../prop-src/parser.pcc"
-#line 1991 "../../prop-src/parser.pcc"
+#line 1991 "parser.pcc"
+#line 1991 "parser.pcc"
       ; 
-#line 1991 "../../prop-src/parser.pcc"
+#line 1991 "parser.pcc"
 } break;
     case 598: {
-#line 1993 "../../prop-src/parser.pcc"
+#line 1993 "parser.pcc"
      syn_._2478 = 
-#line 1993 "../../prop-src/parser.pcc"
-#line 1993 "../../prop-src/parser.pcc"
+#line 1993 "parser.pcc"
+#line 1993 "parser.pcc"
       list_1_(FUNdef(t__[1+to__]._2479.id,NOty,t__[1+to__]._2479.return_ty,t__[1+to__]._2479.rules),t__[2+to__]._2481)
-#line 1993 "../../prop-src/parser.pcc"
-#line 1993 "../../prop-src/parser.pcc"
+#line 1993 "parser.pcc"
+#line 1993 "parser.pcc"
       ; 
-#line 1993 "../../prop-src/parser.pcc"
+#line 1993 "parser.pcc"
 } break;
 #undef to__
 #define to__ -0
     case 775: {
-#line 1997 "../../prop-src/parser.pcc"
+#line 1997 "parser.pcc"
      me_stack[++me_top] = 
-#line 1997 "../../prop-src/parser.pcc"
-#line 1997 "../../prop-src/parser.pcc"
+#line 1997 "parser.pcc"
+#line 1997 "parser.pcc"
       nil_1_
-#line 1997 "../../prop-src/parser.pcc"
-#line 1997 "../../prop-src/parser.pcc"
+#line 1997 "parser.pcc"
+#line 1997 "parser.pcc"
       ; 
-#line 1997 "../../prop-src/parser.pcc"
+#line 1997 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 599: {
-#line 1999 "../../prop-src/parser.pcc"
+#line 1999 "parser.pcc"
      syn_._2483 = t__[2+to__]._2485; me_top--; 
-#line 1999 "../../prop-src/parser.pcc"
+#line 1999 "parser.pcc"
 } break;
     case 600: {
-#line 2004 "../../prop-src/parser.pcc"
+#line 2004 "parser.pcc"
       
       syn_._2487.id = t__[1+to__]._2488.id; syn_._2487.rules = 
-#line 2005 "../../prop-src/parser.pcc"
-#line 2005 "../../prop-src/parser.pcc"
+#line 2005 "parser.pcc"
+#line 2005 "parser.pcc"
       list_1_(t__[1+to__]._2488.rule)
-#line 2005 "../../prop-src/parser.pcc"
-#line 2005 "../../prop-src/parser.pcc"
+#line 2005 "parser.pcc"
+#line 2005 "parser.pcc"
       ;
       syn_._2487.return_ty = t__[1+to__]._2488.return_ty;
       
-#line 2007 "../../prop-src/parser.pcc"
+#line 2007 "parser.pcc"
 } break;
     case 601: {
-#line 2009 "../../prop-src/parser.pcc"
+#line 2009 "parser.pcc"
       
       syn_._2490.id = t__[1+to__]._2491.id; syn_._2490.rules = 
-#line 2010 "../../prop-src/parser.pcc"
-#line 2010 "../../prop-src/parser.pcc"
+#line 2010 "parser.pcc"
+#line 2010 "parser.pcc"
       list_1_(t__[1+to__]._2491.rule,t__[2+to__]._2493.rules)
-#line 2010 "../../prop-src/parser.pcc"
-#line 2010 "../../prop-src/parser.pcc"
+#line 2010 "parser.pcc"
+#line 2010 "parser.pcc"
       ;
       if (t__[1+to__]._2491.return_ty == NOty)
         syn_._2490.return_ty = t__[2+to__]._2493.return_ty;
@@ -8487,719 +8479,719 @@ inline void PropParser::action_driver(const Rule _r_)
                "%Lbut found %q %r\n",
                t__[1+to__]._2491.id, t__[2+to__]._2493.id, t__[1+to__]._2491.rule);
       
-#line 2027 "../../prop-src/parser.pcc"
+#line 2027 "parser.pcc"
 } break;
     case 602: {
-#line 2033 "../../prop-src/parser.pcc"
+#line 2033 "parser.pcc"
       
       pv_env.new_scope( !options.nonlinear_patterns);
       decor( me_stack[me_top], t__[2+to__]._2497, pv_env, match_rule);
       syn_._2495.label = t__[1+to__]._2496; syn_._2495.pat = t__[2+to__]._2497;
       
-#line 2037 "../../prop-src/parser.pcc"
+#line 2037 "parser.pcc"
 } break;
     case 603: {
-#line 2042 "../../prop-src/parser.pcc"
+#line 2042 "parser.pcc"
       
       syn_._2499.id = t__[1+to__]._2500.label;
       syn_._2499.rule = MATCHrule( 0, t__[1+to__]._2500.pat, t__[4+to__]._2504, NOcost, t__[5+to__]._2506);
       syn_._2499.return_ty = t__[2+to__]._2502;
       pv_env.old_scope();
       
-#line 2047 "../../prop-src/parser.pcc"
+#line 2047 "parser.pcc"
 } break;
     case 604: {
-#line 2049 "../../prop-src/parser.pcc"
+#line 2049 "parser.pcc"
       
       syn_._2508.id = t__[1+to__]._2509.label;
       syn_._2508.rule = MATCHrule(0,t__[1+to__]._2509.pat, t__[3+to__]._2511, NOcost, t__[4+to__]._2513);
       syn_._2508.return_ty = NOty;
       pv_env.old_scope();
       
-#line 2054 "../../prop-src/parser.pcc"
+#line 2054 "parser.pcc"
 } break;
     case 605: {
-#line 2056 "../../prop-src/parser.pcc"
+#line 2056 "parser.pcc"
       
       syn_._2515.id = t__[1+to__]._2516.label;
       syn_._2515.rule = MATCHrule(0,t__[1+to__]._2516.pat, NOexp, NOcost, t__[3+to__]._2520);
       syn_._2515.return_ty = t__[2+to__]._2518;
       pv_env.old_scope();
       
-#line 2061 "../../prop-src/parser.pcc"
+#line 2061 "parser.pcc"
 } break;
     case 606: {
-#line 2063 "../../prop-src/parser.pcc"
+#line 2063 "parser.pcc"
       
       syn_._2522.id = t__[1+to__]._2523.label;
       syn_._2522.rule = MATCHrule(0,t__[1+to__]._2523.pat, NOexp, NOcost, t__[2+to__]._2525);
       syn_._2522.return_ty = NOty;
       pv_env.old_scope();
       
-#line 2068 "../../prop-src/parser.pcc"
+#line 2068 "parser.pcc"
 } break;
     case 607: {
-#line 2072 "../../prop-src/parser.pcc"
+#line 2072 "parser.pcc"
      syn_._2527 = t__[1+to__]._2528; 
-#line 2072 "../../prop-src/parser.pcc"
+#line 2072 "parser.pcc"
 } break;
     case 608: {
-#line 2073 "../../prop-src/parser.pcc"
+#line 2073 "parser.pcc"
      syn_._2530 = t__[1+to__]._2531; 
-#line 2073 "../../prop-src/parser.pcc"
+#line 2073 "parser.pcc"
 } break;
     case 609: {
-#line 2085 "../../prop-src/parser.pcc"
+#line 2085 "parser.pcc"
      syn_._2533 = 
-#line 2085 "../../prop-src/parser.pcc"
-#line 2085 "../../prop-src/parser.pcc"
+#line 2085 "parser.pcc"
+#line 2085 "parser.pcc"
       VARdef(t__[1+to__]._2534, t__[2+to__]._2536, NOexp)
-#line 2085 "../../prop-src/parser.pcc"
-#line 2085 "../../prop-src/parser.pcc"
+#line 2085 "parser.pcc"
+#line 2085 "parser.pcc"
       ; 
-#line 2085 "../../prop-src/parser.pcc"
+#line 2085 "parser.pcc"
 } break;
     case 610: {
-#line 2087 "../../prop-src/parser.pcc"
+#line 2087 "parser.pcc"
      syn_._2539 = 
-#line 2087 "../../prop-src/parser.pcc"
-#line 2087 "../../prop-src/parser.pcc"
+#line 2087 "parser.pcc"
+#line 2087 "parser.pcc"
       VARdef(t__[1+to__]._2540, t__[2+to__]._2542, t__[3+to__]._2544)
-#line 2087 "../../prop-src/parser.pcc"
-#line 2087 "../../prop-src/parser.pcc"
+#line 2087 "parser.pcc"
+#line 2087 "parser.pcc"
       ; 
-#line 2087 "../../prop-src/parser.pcc"
+#line 2087 "parser.pcc"
 } break;
     case 611: {
-#line 2089 "../../prop-src/parser.pcc"
+#line 2089 "parser.pcc"
      syn_._2547 = TYPEdef(t__[1+to__]._2548); 
-#line 2089 "../../prop-src/parser.pcc"
+#line 2089 "parser.pcc"
 } break;
     case 612: {
-#line 2091 "../../prop-src/parser.pcc"
+#line 2091 "parser.pcc"
      syn_._2550 = TYPEdef(t__[1+to__]._2551); 
-#line 2091 "../../prop-src/parser.pcc"
+#line 2091 "parser.pcc"
 } break;
     case 613: {
-#line 2093 "../../prop-src/parser.pcc"
+#line 2093 "parser.pcc"
      syn_._2553 = t__[1+to__]._2554; 
-#line 2093 "../../prop-src/parser.pcc"
+#line 2093 "parser.pcc"
 } break;
     case 614: {
-#line 2097 "../../prop-src/parser.pcc"
+#line 2097 "parser.pcc"
      syn_._2556 = t__[1+to__]._2557; 
-#line 2097 "../../prop-src/parser.pcc"
+#line 2097 "parser.pcc"
 } break;
     case 615: {
-#line 2098 "../../prop-src/parser.pcc"
+#line 2098 "parser.pcc"
      syn_._2559 = t__[1+to__]._2560; 
-#line 2098 "../../prop-src/parser.pcc"
+#line 2098 "parser.pcc"
 } break;
     case 616: {
-#line 2099 "../../prop-src/parser.pcc"
+#line 2099 "parser.pcc"
      syn_._2562 = t__[1+to__]._2563; 
-#line 2099 "../../prop-src/parser.pcc"
+#line 2099 "parser.pcc"
 } break;
     case 617: {
-#line 2111 "../../prop-src/parser.pcc"
+#line 2111 "parser.pcc"
       
       syn_._2565 = 
-#line 2112 "../../prop-src/parser.pcc"
-#line 2112 "../../prop-src/parser.pcc"
+#line 2112 "parser.pcc"
+#line 2112 "parser.pcc"
       FUNCTIONdef(t__[1+to__]._2567, t__[2+to__]._2569, t__[3+to__]._2572, t__[4+to__]._2574, t__[5+to__]._2576)
-#line 2119 "../../prop-src/parser.pcc"
-#line 2119 "../../prop-src/parser.pcc"
+#line 2119 "parser.pcc"
+#line 2119 "parser.pcc"
       ;
       
-#line 2120 "../../prop-src/parser.pcc"
+#line 2120 "parser.pcc"
 } break;
     case 618: {
-#line 2124 "../../prop-src/parser.pcc"
+#line 2124 "parser.pcc"
       
       syn_._2580 = 
-#line 2125 "../../prop-src/parser.pcc"
-#line 2125 "../../prop-src/parser.pcc"
+#line 2125 "parser.pcc"
+#line 2125 "parser.pcc"
       FUNCTIONdef(t__[1+to__]._2582, t__[2+to__]._2584, void_ty, t__[3+to__]._2587, t__[4+to__]._2589)
-#line 2132 "../../prop-src/parser.pcc"
-#line 2132 "../../prop-src/parser.pcc"
+#line 2132 "parser.pcc"
+#line 2132 "parser.pcc"
       ;
       
-#line 2133 "../../prop-src/parser.pcc"
+#line 2133 "parser.pcc"
 } break;
     case 619: {
-#line 2136 "../../prop-src/parser.pcc"
+#line 2136 "parser.pcc"
      syn_._2593 = 
-#line 2136 "../../prop-src/parser.pcc"
-#line 2136 "../../prop-src/parser.pcc"
+#line 2136 "parser.pcc"
+#line 2136 "parser.pcc"
       nil_1_
-#line 2136 "../../prop-src/parser.pcc"
-#line 2136 "../../prop-src/parser.pcc"
+#line 2136 "parser.pcc"
+#line 2136 "parser.pcc"
       ; 
-#line 2136 "../../prop-src/parser.pcc"
+#line 2136 "parser.pcc"
 } break;
     case 620: {
-#line 2137 "../../prop-src/parser.pcc"
+#line 2137 "parser.pcc"
      syn_._2595 = t__[1+to__]._2596; 
-#line 2137 "../../prop-src/parser.pcc"
+#line 2137 "parser.pcc"
 } break;
     case 621: {
-#line 2141 "../../prop-src/parser.pcc"
+#line 2141 "parser.pcc"
      syn_._2598 = 
-#line 2141 "../../prop-src/parser.pcc"
-#line 2141 "../../prop-src/parser.pcc"
+#line 2141 "parser.pcc"
+#line 2141 "parser.pcc"
       list_1_(t__[1+to__]._2599)
-#line 2141 "../../prop-src/parser.pcc"
-#line 2141 "../../prop-src/parser.pcc"
+#line 2141 "parser.pcc"
+#line 2141 "parser.pcc"
       ; 
-#line 2141 "../../prop-src/parser.pcc"
+#line 2141 "parser.pcc"
 } break;
     case 622: {
-#line 2142 "../../prop-src/parser.pcc"
+#line 2142 "parser.pcc"
      syn_._2601 = 
-#line 2142 "../../prop-src/parser.pcc"
-#line 2142 "../../prop-src/parser.pcc"
+#line 2142 "parser.pcc"
+#line 2142 "parser.pcc"
       list_1_(t__[1+to__]._2602,t__[2+to__]._2604)
-#line 2142 "../../prop-src/parser.pcc"
-#line 2142 "../../prop-src/parser.pcc"
+#line 2142 "parser.pcc"
+#line 2142 "parser.pcc"
       ; 
-#line 2142 "../../prop-src/parser.pcc"
+#line 2142 "parser.pcc"
 } break;
     case 623: {
-#line 2146 "../../prop-src/parser.pcc"
+#line 2146 "parser.pcc"
      syn_._2606.label = t__[1+to__]._2607; syn_._2606.ty = t__[2+to__]._2609; 
-#line 2146 "../../prop-src/parser.pcc"
+#line 2146 "parser.pcc"
 } break;
     case 624: {
-#line 2158 "../../prop-src/parser.pcc"
+#line 2158 "parser.pcc"
       
       syn_._2611 = 
-#line 2159 "../../prop-src/parser.pcc"
-#line 2159 "../../prop-src/parser.pcc"
+#line 2159 "parser.pcc"
+#line 2159 "parser.pcc"
       MODULEdef(t__[1+to__]._2613, t__[2+to__]._2614, t__[3+to__]._2615, t__[4+to__]._2618)
-#line 2165 "../../prop-src/parser.pcc"
-#line 2165 "../../prop-src/parser.pcc"
+#line 2165 "parser.pcc"
+#line 2165 "parser.pcc"
       ;
       
-#line 2166 "../../prop-src/parser.pcc"
+#line 2166 "parser.pcc"
 } break;
     case 625: {
-#line 2169 "../../prop-src/parser.pcc"
+#line 2169 "parser.pcc"
      syn_._2622 = 
-#line 2169 "../../prop-src/parser.pcc"
-#line 2169 "../../prop-src/parser.pcc"
+#line 2169 "parser.pcc"
+#line 2169 "parser.pcc"
       nil_1_
-#line 2169 "../../prop-src/parser.pcc"
-#line 2169 "../../prop-src/parser.pcc"
+#line 2169 "parser.pcc"
+#line 2169 "parser.pcc"
       ; 
-#line 2169 "../../prop-src/parser.pcc"
+#line 2169 "parser.pcc"
 } break;
     case 626: {
-#line 2170 "../../prop-src/parser.pcc"
+#line 2170 "parser.pcc"
      syn_._2624 = t__[1+to__]._2626; 
-#line 2170 "../../prop-src/parser.pcc"
+#line 2170 "parser.pcc"
 } break;
     case 627: {
-#line 2174 "../../prop-src/parser.pcc"
+#line 2174 "parser.pcc"
      syn_._2629 = 
-#line 2174 "../../prop-src/parser.pcc"
-#line 2174 "../../prop-src/parser.pcc"
+#line 2174 "parser.pcc"
+#line 2174 "parser.pcc"
       list_1_(t__[1+to__]._2630)
-#line 2174 "../../prop-src/parser.pcc"
-#line 2174 "../../prop-src/parser.pcc"
+#line 2174 "parser.pcc"
+#line 2174 "parser.pcc"
       ; 
-#line 2174 "../../prop-src/parser.pcc"
+#line 2174 "parser.pcc"
 } break;
     case 628: {
-#line 2175 "../../prop-src/parser.pcc"
+#line 2175 "parser.pcc"
      syn_._2632 = 
-#line 2175 "../../prop-src/parser.pcc"
-#line 2175 "../../prop-src/parser.pcc"
+#line 2175 "parser.pcc"
+#line 2175 "parser.pcc"
       list_1_(t__[1+to__]._2633,t__[2+to__]._2635)
-#line 2175 "../../prop-src/parser.pcc"
-#line 2175 "../../prop-src/parser.pcc"
+#line 2175 "parser.pcc"
+#line 2175 "parser.pcc"
       ; 
-#line 2175 "../../prop-src/parser.pcc"
+#line 2175 "parser.pcc"
 } break;
     case 629: {
-#line 2179 "../../prop-src/parser.pcc"
+#line 2179 "parser.pcc"
      syn_._2637.id = t__[1+to__]._2638; syn_._2637.sig = t__[2+to__]._2640; 
-#line 2179 "../../prop-src/parser.pcc"
+#line 2179 "parser.pcc"
 } break;
     case 630: {
-#line 2182 "../../prop-src/parser.pcc"
+#line 2182 "parser.pcc"
      syn_._2642 = NOsig; 
-#line 2182 "../../prop-src/parser.pcc"
+#line 2182 "parser.pcc"
 } break;
     case 631: {
-#line 2183 "../../prop-src/parser.pcc"
+#line 2183 "parser.pcc"
      syn_._2644 = t__[1+to__]._2646; 
-#line 2183 "../../prop-src/parser.pcc"
+#line 2183 "parser.pcc"
 } break;
     case 632: {
-#line 2194 "../../prop-src/parser.pcc"
+#line 2194 "parser.pcc"
      syn_._2648 = 
-#line 2194 "../../prop-src/parser.pcc"
-#line 2194 "../../prop-src/parser.pcc"
+#line 2194 "parser.pcc"
+#line 2194 "parser.pcc"
       SIGNATUREdef(t__[1+to__]._2650, t__[2+to__]._2651, t__[3+to__]._2653)
-#line 2194 "../../prop-src/parser.pcc"
-#line 2194 "../../prop-src/parser.pcc"
+#line 2194 "parser.pcc"
+#line 2194 "parser.pcc"
       ; 
-#line 2194 "../../prop-src/parser.pcc"
+#line 2194 "parser.pcc"
 } break;
     case 633: {
-#line 2204 "../../prop-src/parser.pcc"
+#line 2204 "parser.pcc"
      syn_._2656 = IDsig(t__[1+to__]._2657); 
-#line 2204 "../../prop-src/parser.pcc"
+#line 2204 "parser.pcc"
 } break;
     case 634: {
-#line 2205 "../../prop-src/parser.pcc"
+#line 2205 "parser.pcc"
      syn_._2659 = APPsig(t__[1+to__]._2660,t__[2+to__]._2662); 
-#line 2205 "../../prop-src/parser.pcc"
+#line 2205 "parser.pcc"
 } break;
     case 635: {
-#line 2206 "../../prop-src/parser.pcc"
+#line 2206 "parser.pcc"
      syn_._2665 = DOTsig(t__[1+to__]._2666,t__[2+to__]._2668); 
-#line 2206 "../../prop-src/parser.pcc"
+#line 2206 "parser.pcc"
 } break;
     case 636: {
-#line 2207 "../../prop-src/parser.pcc"
+#line 2207 "parser.pcc"
      syn_._2670 = DEFsig(t__[1+to__]._2672); 
-#line 2207 "../../prop-src/parser.pcc"
+#line 2207 "parser.pcc"
 } break;
     case 637: {
-#line 2211 "../../prop-src/parser.pcc"
+#line 2211 "parser.pcc"
      syn_._2675 = 
-#line 2211 "../../prop-src/parser.pcc"
-#line 2211 "../../prop-src/parser.pcc"
+#line 2211 "parser.pcc"
+#line 2211 "parser.pcc"
       list_1_(t__[1+to__]._2676)
-#line 2211 "../../prop-src/parser.pcc"
-#line 2211 "../../prop-src/parser.pcc"
+#line 2211 "parser.pcc"
+#line 2211 "parser.pcc"
       ; 
-#line 2211 "../../prop-src/parser.pcc"
+#line 2211 "parser.pcc"
 } break;
     case 638: {
-#line 2212 "../../prop-src/parser.pcc"
+#line 2212 "parser.pcc"
      syn_._2678 = 
-#line 2212 "../../prop-src/parser.pcc"
-#line 2212 "../../prop-src/parser.pcc"
+#line 2212 "parser.pcc"
+#line 2212 "parser.pcc"
       list_1_(t__[1+to__]._2679,t__[2+to__]._2681)
-#line 2212 "../../prop-src/parser.pcc"
-#line 2212 "../../prop-src/parser.pcc"
+#line 2212 "parser.pcc"
+#line 2212 "parser.pcc"
       ; 
-#line 2212 "../../prop-src/parser.pcc"
+#line 2212 "parser.pcc"
 } break;
     case 639: {
-#line 2220 "../../prop-src/parser.pcc"
+#line 2220 "parser.pcc"
      syn_._2683 = 
-#line 2220 "../../prop-src/parser.pcc"
-#line 2220 "../../prop-src/parser.pcc"
+#line 2220 "parser.pcc"
+#line 2220 "parser.pcc"
       nil_1_
-#line 2220 "../../prop-src/parser.pcc"
-#line 2220 "../../prop-src/parser.pcc"
+#line 2220 "parser.pcc"
+#line 2220 "parser.pcc"
       ; 
-#line 2220 "../../prop-src/parser.pcc"
+#line 2220 "parser.pcc"
 } break;
     case 640: {
-#line 2221 "../../prop-src/parser.pcc"
+#line 2221 "parser.pcc"
      syn_._2685 = 
-#line 2221 "../../prop-src/parser.pcc"
-#line 2221 "../../prop-src/parser.pcc"
+#line 2221 "parser.pcc"
+#line 2221 "parser.pcc"
       list_1_(t__[1+to__]._2686,t__[2+to__]._2687)
-#line 2221 "../../prop-src/parser.pcc"
-#line 2221 "../../prop-src/parser.pcc"
+#line 2221 "parser.pcc"
+#line 2221 "parser.pcc"
       ; 
-#line 2221 "../../prop-src/parser.pcc"
+#line 2221 "parser.pcc"
 } break;
     case 641: {
-#line 2232 "../../prop-src/parser.pcc"
+#line 2232 "parser.pcc"
      syn_._2689 = ASSIGNstmt(t__[1+to__]._2690,t__[2+to__]._2692); 
-#line 2232 "../../prop-src/parser.pcc"
+#line 2232 "parser.pcc"
 } break;
     case 642: {
-#line 2234 "../../prop-src/parser.pcc"
+#line 2234 "parser.pcc"
      syn_._2695 = WHILEstmt(t__[1+to__]._2697,BLOCKstmt(
-#line 2234 "../../prop-src/parser.pcc"
-#line 2234 "../../prop-src/parser.pcc"
+#line 2234 "parser.pcc"
+#line 2234 "parser.pcc"
       nil_1_
-#line 2234 "../../prop-src/parser.pcc"
-#line 2234 "../../prop-src/parser.pcc"
+#line 2234 "parser.pcc"
+#line 2234 "parser.pcc"
       ,t__[2+to__]._2699)); 
-#line 2234 "../../prop-src/parser.pcc"
+#line 2234 "parser.pcc"
 } break;
     case 643: {
-#line 2236 "../../prop-src/parser.pcc"
+#line 2236 "parser.pcc"
      syn_._2704 = IFstmt(t__[1+to__]._2706,BLOCKstmt(
-#line 2236 "../../prop-src/parser.pcc"
-#line 2236 "../../prop-src/parser.pcc"
+#line 2236 "parser.pcc"
+#line 2236 "parser.pcc"
       nil_1_
-#line 2236 "../../prop-src/parser.pcc"
-#line 2236 "../../prop-src/parser.pcc"
+#line 2236 "parser.pcc"
+#line 2236 "parser.pcc"
       ,t__[2+to__]._2708),t__[3+to__]._2709); 
-#line 2236 "../../prop-src/parser.pcc"
+#line 2236 "parser.pcc"
 } break;
     case 644: {
-#line 2238 "../../prop-src/parser.pcc"
+#line 2238 "parser.pcc"
      syn_._2712 = FORALLstmt(t__[1+to__]._2714,BLOCKstmt(
-#line 2238 "../../prop-src/parser.pcc"
-#line 2238 "../../prop-src/parser.pcc"
+#line 2238 "parser.pcc"
+#line 2238 "parser.pcc"
       nil_1_
-#line 2238 "../../prop-src/parser.pcc"
-#line 2238 "../../prop-src/parser.pcc"
+#line 2238 "parser.pcc"
+#line 2238 "parser.pcc"
       ,t__[2+to__]._2716)); 
-#line 2238 "../../prop-src/parser.pcc"
+#line 2238 "parser.pcc"
 } break;
     case 645: {
-#line 2240 "../../prop-src/parser.pcc"
+#line 2240 "parser.pcc"
      syn_._2721 = RETURNstmt(t__[1+to__]._2723); 
-#line 2240 "../../prop-src/parser.pcc"
+#line 2240 "parser.pcc"
 } break;
     case 646: {
-#line 2242 "../../prop-src/parser.pcc"
+#line 2242 "parser.pcc"
      syn_._2726 = MATCHstmt(t__[1+to__]._2727); 
-#line 2242 "../../prop-src/parser.pcc"
+#line 2242 "parser.pcc"
 } break;
     case 647: {
-#line 2244 "../../prop-src/parser.pcc"
+#line 2244 "parser.pcc"
      syn_._2729 = REWRITEstmt(t__[1+to__]._2730); 
-#line 2244 "../../prop-src/parser.pcc"
+#line 2244 "parser.pcc"
 } break;
     case 648: {
-#line 2246 "../../prop-src/parser.pcc"
+#line 2246 "parser.pcc"
      syn_._2732 = REPLACEMENTstmt(t__[1+to__]._2733); 
-#line 2246 "../../prop-src/parser.pcc"
+#line 2246 "parser.pcc"
 } break;
     case 649: {
-#line 2248 "../../prop-src/parser.pcc"
+#line 2248 "parser.pcc"
      syn_._2736 = t__[1+to__]._2737; 
-#line 2248 "../../prop-src/parser.pcc"
+#line 2248 "parser.pcc"
 } break;
     case 650: {
-#line 2253 "../../prop-src/parser.pcc"
+#line 2253 "parser.pcc"
      syn_._2739 = NOstmt; 
-#line 2253 "../../prop-src/parser.pcc"
+#line 2253 "parser.pcc"
 } break;
     case 651: {
-#line 2255 "../../prop-src/parser.pcc"
+#line 2255 "parser.pcc"
      syn_._2743 = BLOCKstmt(
-#line 2255 "../../prop-src/parser.pcc"
-#line 2255 "../../prop-src/parser.pcc"
+#line 2255 "parser.pcc"
+#line 2255 "parser.pcc"
       nil_1_
-#line 2255 "../../prop-src/parser.pcc"
-#line 2255 "../../prop-src/parser.pcc"
+#line 2255 "parser.pcc"
+#line 2255 "parser.pcc"
       ,t__[1+to__]._2745); 
-#line 2255 "../../prop-src/parser.pcc"
+#line 2255 "parser.pcc"
 } break;
     case 652: {
-#line 2257 "../../prop-src/parser.pcc"
+#line 2257 "parser.pcc"
      syn_._2749 = IFstmt(t__[1+to__]._2751,BLOCKstmt(
-#line 2257 "../../prop-src/parser.pcc"
-#line 2257 "../../prop-src/parser.pcc"
+#line 2257 "parser.pcc"
+#line 2257 "parser.pcc"
       nil_1_
-#line 2257 "../../prop-src/parser.pcc"
-#line 2257 "../../prop-src/parser.pcc"
+#line 2257 "parser.pcc"
+#line 2257 "parser.pcc"
       ,t__[2+to__]._2753),t__[3+to__]._2754); 
-#line 2257 "../../prop-src/parser.pcc"
+#line 2257 "parser.pcc"
 } break;
     case 653: {
-#line 2261 "../../prop-src/parser.pcc"
+#line 2261 "parser.pcc"
      syn_._2756 = 
-#line 2261 "../../prop-src/parser.pcc"
-#line 2261 "../../prop-src/parser.pcc"
+#line 2261 "parser.pcc"
+#line 2261 "parser.pcc"
       list_1_(t__[1+to__]._2757)
-#line 2261 "../../prop-src/parser.pcc"
-#line 2261 "../../prop-src/parser.pcc"
+#line 2261 "parser.pcc"
+#line 2261 "parser.pcc"
       ; 
-#line 2261 "../../prop-src/parser.pcc"
+#line 2261 "parser.pcc"
 } break;
     case 654: {
-#line 2262 "../../prop-src/parser.pcc"
+#line 2262 "parser.pcc"
      syn_._2759 = 
-#line 2262 "../../prop-src/parser.pcc"
-#line 2262 "../../prop-src/parser.pcc"
+#line 2262 "parser.pcc"
+#line 2262 "parser.pcc"
       list_1_(t__[1+to__]._2760,t__[2+to__]._2761)
-#line 2262 "../../prop-src/parser.pcc"
-#line 2262 "../../prop-src/parser.pcc"
+#line 2262 "parser.pcc"
+#line 2262 "parser.pcc"
       ; 
-#line 2262 "../../prop-src/parser.pcc"
+#line 2262 "parser.pcc"
 } break;
     case 655: {
-#line 2267 "../../prop-src/parser.pcc"
+#line 2267 "parser.pcc"
      syn_._2763 = BLOCKstmt( 
-#line 2267 "../../prop-src/parser.pcc"
-#line 2267 "../../prop-src/parser.pcc"
+#line 2267 "parser.pcc"
+#line 2267 "parser.pcc"
       nil_1_
-#line 2267 "../../prop-src/parser.pcc"
-#line 2267 "../../prop-src/parser.pcc"
+#line 2267 "parser.pcc"
+#line 2267 "parser.pcc"
       , t__[1+to__]._2765); 
-#line 2267 "../../prop-src/parser.pcc"
+#line 2267 "parser.pcc"
 } break;
     case 656: {
-#line 2269 "../../prop-src/parser.pcc"
+#line 2269 "parser.pcc"
      syn_._2769 = BLOCKstmt( t__[1+to__]._2771, t__[2+to__]._2773); 
-#line 2269 "../../prop-src/parser.pcc"
+#line 2269 "parser.pcc"
 } break;
     case 657: {
-#line 2279 "../../prop-src/parser.pcc"
+#line 2279 "parser.pcc"
      syn_._2777 = 
-#line 2279 "../../prop-src/parser.pcc"
-#line 2279 "../../prop-src/parser.pcc"
+#line 2279 "parser.pcc"
+#line 2279 "parser.pcc"
       list_1_(t__[1+to__]._2778)
-#line 2279 "../../prop-src/parser.pcc"
-#line 2279 "../../prop-src/parser.pcc"
+#line 2279 "parser.pcc"
+#line 2279 "parser.pcc"
       ; 
-#line 2279 "../../prop-src/parser.pcc"
+#line 2279 "parser.pcc"
 } break;
     case 658: {
-#line 2280 "../../prop-src/parser.pcc"
+#line 2280 "parser.pcc"
      syn_._2780 = 
-#line 2280 "../../prop-src/parser.pcc"
-#line 2280 "../../prop-src/parser.pcc"
+#line 2280 "parser.pcc"
+#line 2280 "parser.pcc"
       list_1_(t__[1+to__]._2781,t__[2+to__]._2783)
-#line 2280 "../../prop-src/parser.pcc"
-#line 2280 "../../prop-src/parser.pcc"
+#line 2280 "parser.pcc"
+#line 2280 "parser.pcc"
       ; 
-#line 2280 "../../prop-src/parser.pcc"
+#line 2280 "parser.pcc"
 } break;
     case 659: {
-#line 2285 "../../prop-src/parser.pcc"
+#line 2285 "parser.pcc"
      syn_._2785 = 
-#line 2285 "../../prop-src/parser.pcc"
-#line 2285 "../../prop-src/parser.pcc"
+#line 2285 "parser.pcc"
+#line 2285 "parser.pcc"
       GENERATOR(t__[1+to__]._2786, t__[2+to__]._2787, t__[3+to__]._2789)
-#line 2285 "../../prop-src/parser.pcc"
-#line 2285 "../../prop-src/parser.pcc"
+#line 2285 "parser.pcc"
+#line 2285 "parser.pcc"
       ; 
-#line 2285 "../../prop-src/parser.pcc"
+#line 2285 "parser.pcc"
 } break;
     case 660: {
-#line 2295 "../../prop-src/parser.pcc"
+#line 2295 "parser.pcc"
      syn_._2791 = mklistty(t__[1+to__]._2794); 
-#line 2295 "../../prop-src/parser.pcc"
+#line 2295 "parser.pcc"
 } break;
     case 661: {
-#line 2296 "../../prop-src/parser.pcc"
+#line 2296 "parser.pcc"
      syn_._2797 = mktuplety(t__[1+to__]._2800); 
-#line 2296 "../../prop-src/parser.pcc"
+#line 2296 "parser.pcc"
 } break;
     case 662: {
-#line 2297 "../../prop-src/parser.pcc"
+#line 2297 "parser.pcc"
      syn_._2803 = mksetty(t__[1+to__]._2806); 
-#line 2297 "../../prop-src/parser.pcc"
+#line 2297 "parser.pcc"
 } break;
     case 663: {
-#line 2298 "../../prop-src/parser.pcc"
+#line 2298 "parser.pcc"
      syn_._2809 = mkbagty(t__[1+to__]._2812); 
-#line 2298 "../../prop-src/parser.pcc"
+#line 2298 "parser.pcc"
 } break;
     case 664: {
-#line 2299 "../../prop-src/parser.pcc"
+#line 2299 "parser.pcc"
      syn_._2815 = mkmapty(t__[1+to__]._2818,t__[2+to__]._2820); 
-#line 2299 "../../prop-src/parser.pcc"
+#line 2299 "parser.pcc"
 } break;
     case 665: {
-#line 2300 "../../prop-src/parser.pcc"
+#line 2300 "parser.pcc"
      syn_._2823 = mkmultimapty(t__[1+to__]._2826,t__[2+to__]._2828); 
-#line 2300 "../../prop-src/parser.pcc"
+#line 2300 "parser.pcc"
 } break;
     case 666: {
-#line 2301 "../../prop-src/parser.pcc"
+#line 2301 "parser.pcc"
      syn_._2831 = mkqueuety(t__[1+to__]._2834); 
-#line 2301 "../../prop-src/parser.pcc"
+#line 2301 "parser.pcc"
 } break;
     case 667: {
-#line 2302 "../../prop-src/parser.pcc"
+#line 2302 "parser.pcc"
      syn_._2837 = mkpriqueuety(t__[1+to__]._2840); 
-#line 2302 "../../prop-src/parser.pcc"
+#line 2302 "parser.pcc"
 } break;
     case 668: {
-#line 2303 "../../prop-src/parser.pcc"
+#line 2303 "parser.pcc"
      syn_._2843 = mkdequety(t__[1+to__]._2846); 
-#line 2303 "../../prop-src/parser.pcc"
+#line 2303 "parser.pcc"
 } break;
     case 669: {
-#line 2313 "../../prop-src/parser.pcc"
+#line 2313 "parser.pcc"
      syn_._2849 = SETLexp( ARBop, 
-#line 2313 "../../prop-src/parser.pcc"
-#line 2313 "../../prop-src/parser.pcc"
+#line 2313 "parser.pcc"
+#line 2313 "parser.pcc"
       list_1_(t__[1+to__]._2851)
-#line 2313 "../../prop-src/parser.pcc"
-#line 2313 "../../prop-src/parser.pcc"
+#line 2313 "parser.pcc"
+#line 2313 "parser.pcc"
       ); 
-#line 2313 "../../prop-src/parser.pcc"
+#line 2313 "parser.pcc"
 } break;
     case 670: {
-#line 2314 "../../prop-src/parser.pcc"
+#line 2314 "parser.pcc"
      syn_._2853 = SETLexp( DOMop, 
-#line 2314 "../../prop-src/parser.pcc"
-#line 2314 "../../prop-src/parser.pcc"
+#line 2314 "parser.pcc"
+#line 2314 "parser.pcc"
       list_1_(t__[1+to__]._2855)
-#line 2314 "../../prop-src/parser.pcc"
-#line 2314 "../../prop-src/parser.pcc"
+#line 2314 "parser.pcc"
+#line 2314 "parser.pcc"
       ); 
-#line 2314 "../../prop-src/parser.pcc"
+#line 2314 "parser.pcc"
 } break;
     case 671: {
-#line 2315 "../../prop-src/parser.pcc"
+#line 2315 "parser.pcc"
      syn_._2857 = SETLexp( RANop, 
-#line 2315 "../../prop-src/parser.pcc"
-#line 2315 "../../prop-src/parser.pcc"
+#line 2315 "parser.pcc"
+#line 2315 "parser.pcc"
       list_1_(t__[1+to__]._2859)
-#line 2315 "../../prop-src/parser.pcc"
-#line 2315 "../../prop-src/parser.pcc"
+#line 2315 "parser.pcc"
+#line 2315 "parser.pcc"
       ); 
-#line 2315 "../../prop-src/parser.pcc"
+#line 2315 "parser.pcc"
 } break;
     case 672: {
-#line 2316 "../../prop-src/parser.pcc"
+#line 2316 "parser.pcc"
      syn_._2861 = SETLexp( WITHop, 
-#line 2316 "../../prop-src/parser.pcc"
-#line 2316 "../../prop-src/parser.pcc"
+#line 2316 "parser.pcc"
+#line 2316 "parser.pcc"
       list_1_(t__[1+to__]._2862,list_1_(t__[2+to__]._2864))
-#line 2316 "../../prop-src/parser.pcc"
-#line 2316 "../../prop-src/parser.pcc"
+#line 2316 "parser.pcc"
+#line 2316 "parser.pcc"
       ); 
-#line 2316 "../../prop-src/parser.pcc"
+#line 2316 "parser.pcc"
 } break;
     case 673: {
-#line 2317 "../../prop-src/parser.pcc"
+#line 2317 "parser.pcc"
      syn_._2866 = SETLexp( LESSop, 
-#line 2317 "../../prop-src/parser.pcc"
-#line 2317 "../../prop-src/parser.pcc"
+#line 2317 "parser.pcc"
+#line 2317 "parser.pcc"
       list_1_(t__[1+to__]._2867,list_1_(t__[2+to__]._2869))
-#line 2317 "../../prop-src/parser.pcc"
-#line 2317 "../../prop-src/parser.pcc"
+#line 2317 "parser.pcc"
+#line 2317 "parser.pcc"
       ); 
-#line 2317 "../../prop-src/parser.pcc"
+#line 2317 "parser.pcc"
 } break;
     case 674: {
-#line 2318 "../../prop-src/parser.pcc"
+#line 2318 "parser.pcc"
      syn_._2871 = SETLexp( WITHASSIGNop, 
-#line 2318 "../../prop-src/parser.pcc"
-#line 2318 "../../prop-src/parser.pcc"
+#line 2318 "parser.pcc"
+#line 2318 "parser.pcc"
       list_1_(t__[1+to__]._2872,list_1_(t__[2+to__]._2875))
-#line 2318 "../../prop-src/parser.pcc"
-#line 2318 "../../prop-src/parser.pcc"
+#line 2318 "parser.pcc"
+#line 2318 "parser.pcc"
       ); 
-#line 2318 "../../prop-src/parser.pcc"
+#line 2318 "parser.pcc"
 } break;
     case 675: {
-#line 2319 "../../prop-src/parser.pcc"
+#line 2319 "parser.pcc"
      syn_._2877 = SETLexp( LESSASSIGNop, 
-#line 2319 "../../prop-src/parser.pcc"
-#line 2319 "../../prop-src/parser.pcc"
+#line 2319 "parser.pcc"
+#line 2319 "parser.pcc"
       list_1_(t__[1+to__]._2878,list_1_(t__[2+to__]._2881))
-#line 2319 "../../prop-src/parser.pcc"
-#line 2319 "../../prop-src/parser.pcc"
+#line 2319 "parser.pcc"
+#line 2319 "parser.pcc"
       ); 
-#line 2319 "../../prop-src/parser.pcc"
+#line 2319 "parser.pcc"
 } break;
     case 676: {
-#line 2320 "../../prop-src/parser.pcc"
+#line 2320 "parser.pcc"
      syn_._2883 = t__[1+to__]._2884; 
-#line 2320 "../../prop-src/parser.pcc"
+#line 2320 "parser.pcc"
 } break;
     case 677: {
-#line 2331 "../../prop-src/parser.pcc"
+#line 2331 "parser.pcc"
      syn_._2886 = NOexp; 
-#line 2331 "../../prop-src/parser.pcc"
+#line 2331 "parser.pcc"
 } break;
     case 678: {
-#line 2334 "../../prop-src/parser.pcc"
+#line 2334 "parser.pcc"
      syn_._2895 = NOexp; 
-#line 2334 "../../prop-src/parser.pcc"
+#line 2334 "parser.pcc"
 } break;
     case 679: {
-#line 2335 "../../prop-src/parser.pcc"
+#line 2335 "parser.pcc"
      syn_._2897 = t__[1+to__]._2899; 
-#line 2335 "../../prop-src/parser.pcc"
+#line 2335 "parser.pcc"
 } break;
     case 680: {
-#line 2345 "../../prop-src/parser.pcc"
+#line 2345 "parser.pcc"
      syn_._2901 = Var(t__[1+to__]._2902); 
-#line 2345 "../../prop-src/parser.pcc"
+#line 2345 "parser.pcc"
 } break;
     case 681: {
-#line 2346 "../../prop-src/parser.pcc"
+#line 2346 "parser.pcc"
      syn_._2904 = t__[1+to__]._2906; 
-#line 2346 "../../prop-src/parser.pcc"
+#line 2346 "parser.pcc"
 } break;
     case 682: {
-#line 2347 "../../prop-src/parser.pcc"
+#line 2347 "parser.pcc"
      syn_._2909 = Add(t__[1+to__]._2910,t__[2+to__]._2912); 
-#line 2347 "../../prop-src/parser.pcc"
+#line 2347 "parser.pcc"
 } break;
     case 683: {
-#line 2348 "../../prop-src/parser.pcc"
+#line 2348 "parser.pcc"
      syn_._2914 = Mul(t__[1+to__]._2915,t__[2+to__]._2917); 
-#line 2348 "../../prop-src/parser.pcc"
+#line 2348 "parser.pcc"
 } break;
     case 684: {
-#line 2349 "../../prop-src/parser.pcc"
+#line 2349 "parser.pcc"
      syn_._2919 = Div(t__[1+to__]._2920,t__[2+to__]._2922); 
-#line 2349 "../../prop-src/parser.pcc"
+#line 2349 "parser.pcc"
 } break;
     case 685: {
-#line 2350 "../../prop-src/parser.pcc"
+#line 2350 "parser.pcc"
      syn_._2924 = Power(t__[1+to__]._2925,t__[2+to__]._2927); 
-#line 2350 "../../prop-src/parser.pcc"
+#line 2350 "parser.pcc"
 } break;
     case 686: {
-#line 2351 "../../prop-src/parser.pcc"
+#line 2351 "parser.pcc"
      syn_._2929 = Const(t__[1+to__]._2930); 
-#line 2351 "../../prop-src/parser.pcc"
+#line 2351 "parser.pcc"
 } break;
     case 687: {
-#line 2352 "../../prop-src/parser.pcc"
+#line 2352 "parser.pcc"
      syn_._2932 = Const(t__[1+to__]._2933); 
-#line 2352 "../../prop-src/parser.pcc"
+#line 2352 "parser.pcc"
 } break;
     case 688: {
-#line 2354 "../../prop-src/parser.pcc"
+#line 2354 "parser.pcc"
       
       
-#line 2355 "../../prop-src/parser.pcc"
-#line 2364 "../../prop-src/parser.pcc"
+#line 2355 "parser.pcc"
+#line 2364 "parser.pcc"
       {
         char const * _V5 = t__[1+to__]._2936;
         if (_equal_string(_V5,"O")) {
-#line 2356 "../../prop-src/parser.pcc"
+#line 2356 "parser.pcc"
        syn_._2935 = BigOh(t__[2+to__]._2937); 
-#line 2356 "../../prop-src/parser.pcc"
+#line 2356 "parser.pcc"
 }
         else if (_equal_string(_V5,"Omega")) {
-#line 2358 "../../prop-src/parser.pcc"
+#line 2358 "parser.pcc"
        syn_._2935 = Omega(t__[2+to__]._2937); 
-#line 2358 "../../prop-src/parser.pcc"
+#line 2358 "parser.pcc"
 }
         else if (_equal_string(_V5,"log")) {
-#line 2359 "../../prop-src/parser.pcc"
+#line 2359 "parser.pcc"
        syn_._2935 = Log(t__[2+to__]._2937); 
-#line 2359 "../../prop-src/parser.pcc"
+#line 2359 "parser.pcc"
 }
         else if (_equal_string(_V5,"o")) {
-#line 2357 "../../prop-src/parser.pcc"
+#line 2357 "parser.pcc"
        syn_._2935 = LittleOh(t__[2+to__]._2937); 
-#line 2357 "../../prop-src/parser.pcc"
+#line 2357 "parser.pcc"
 }
         else {
-#line 2361 "../../prop-src/parser.pcc"
+#line 2361 "parser.pcc"
         
         error("%LUnknown complexity operator: %s\n",t__[1+to__]._2936);
         syn_._2935 = BigOh(t__[2+to__]._2937);
         
-#line 2364 "../../prop-src/parser.pcc"
+#line 2364 "parser.pcc"
 }
       }
-#line 2365 "../../prop-src/parser.pcc"
-#line 2365 "../../prop-src/parser.pcc"
+#line 2365 "parser.pcc"
+#line 2365 "parser.pcc"
       
       
-#line 2366 "../../prop-src/parser.pcc"
+#line 2366 "parser.pcc"
 } break;
 #undef to__
 #define to__ -3
     case 776: {
-#line 2460 "../../prop-src/parser.pcc"
+#line 2460 "parser.pcc"
       /*
       *  Ignore for now
       *
@@ -9279,7 +9271,7 @@ inline void PropParser::action_driver(const Rule _r_)
                Used::graph_type = true;
                graphtype_def = new GraphTypeDef( t__[1+to__]._2941, t__[2+to__]._2942, t__[3+to__]._2943);
              
-#line 2463 "../../prop-src/parser.pcc"
+#line 2463 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
@@ -9287,401 +9279,401 @@ inline void PropParser::action_driver(const Rule _r_)
 #undef to__
 #define to__ -5
     case 777: {
-#line 2465 "../../prop-src/parser.pcc"
+#line 2465 "parser.pcc"
      graphtype_def->set_nodes(t__[5+to__]._2946); 
-#line 2465 "../../prop-src/parser.pcc"
+#line 2465 "parser.pcc"
 } break;
 #undef to__
 #define to__ 0
     case 689: {
-#line 2469 "../../prop-src/parser.pcc"
+#line 2469 "parser.pcc"
       
       graphtype_def->set_edges(t__[7+to__]._2948);
       graphtype_def->set_body(t__[8+to__]._2950);
       syn_._2939 = CLASSDEFdecl( graphtype_def);
       
-#line 2473 "../../prop-src/parser.pcc"
+#line 2473 "parser.pcc"
 } break;
     case 690: {
-#line 2476 "../../prop-src/parser.pcc"
+#line 2476 "parser.pcc"
      syn_._2953 = 
-#line 2476 "../../prop-src/parser.pcc"
-#line 2476 "../../prop-src/parser.pcc"
+#line 2476 "parser.pcc"
+#line 2476 "parser.pcc"
       nil_1_
-#line 2476 "../../prop-src/parser.pcc"
-#line 2476 "../../prop-src/parser.pcc"
+#line 2476 "parser.pcc"
+#line 2476 "parser.pcc"
       ; 
-#line 2476 "../../prop-src/parser.pcc"
+#line 2476 "parser.pcc"
 } break;
     case 691: {
-#line 2477 "../../prop-src/parser.pcc"
+#line 2477 "parser.pcc"
      syn_._2955 = t__[1+to__]._2957; 
-#line 2477 "../../prop-src/parser.pcc"
+#line 2477 "parser.pcc"
 } break;
     case 692: {
-#line 2481 "../../prop-src/parser.pcc"
+#line 2481 "parser.pcc"
      syn_._2959 = 
-#line 2481 "../../prop-src/parser.pcc"
-#line 2481 "../../prop-src/parser.pcc"
+#line 2481 "parser.pcc"
+#line 2481 "parser.pcc"
       list_1_(t__[1+to__]._2960)
-#line 2481 "../../prop-src/parser.pcc"
-#line 2481 "../../prop-src/parser.pcc"
+#line 2481 "parser.pcc"
+#line 2481 "parser.pcc"
       ; 
-#line 2481 "../../prop-src/parser.pcc"
+#line 2481 "parser.pcc"
 } break;
     case 693: {
-#line 2482 "../../prop-src/parser.pcc"
+#line 2482 "parser.pcc"
      syn_._2962 = 
-#line 2482 "../../prop-src/parser.pcc"
-#line 2482 "../../prop-src/parser.pcc"
+#line 2482 "parser.pcc"
+#line 2482 "parser.pcc"
       list_1_(t__[1+to__]._2963,t__[2+to__]._2965)
-#line 2482 "../../prop-src/parser.pcc"
-#line 2482 "../../prop-src/parser.pcc"
+#line 2482 "parser.pcc"
+#line 2482 "parser.pcc"
       ; 
-#line 2482 "../../prop-src/parser.pcc"
+#line 2482 "parser.pcc"
 } break;
     case 694: {
-#line 2483 "../../prop-src/parser.pcc"
+#line 2483 "parser.pcc"
      syn_._2967 = 
-#line 2483 "../../prop-src/parser.pcc"
-#line 2483 "../../prop-src/parser.pcc"
+#line 2483 "parser.pcc"
+#line 2483 "parser.pcc"
       list_1_(t__[1+to__]._2968,t__[2+to__]._2970)
-#line 2483 "../../prop-src/parser.pcc"
-#line 2483 "../../prop-src/parser.pcc"
+#line 2483 "parser.pcc"
+#line 2483 "parser.pcc"
       ; 
-#line 2483 "../../prop-src/parser.pcc"
+#line 2483 "parser.pcc"
 } break;
     case 695: {
-#line 2488 "../../prop-src/parser.pcc"
+#line 2488 "parser.pcc"
      syn_._2972 = new NodeDef( graphtype_def, t__[1+to__]._2973); 
-#line 2488 "../../prop-src/parser.pcc"
+#line 2488 "parser.pcc"
 } break;
     case 696: {
-#line 2490 "../../prop-src/parser.pcc"
+#line 2490 "parser.pcc"
      syn_._2975 = new NodeDef( graphtype_def, t__[1+to__]._2976, t__[3+to__]._2978, t__[4+to__]._2979, t__[5+to__]._2980); 
-#line 2490 "../../prop-src/parser.pcc"
+#line 2490 "parser.pcc"
 } break;
     case 697: {
-#line 2494 "../../prop-src/parser.pcc"
+#line 2494 "parser.pcc"
      syn_._2982 = 0; 
-#line 2494 "../../prop-src/parser.pcc"
+#line 2494 "parser.pcc"
 } break;
     case 698: {
-#line 2495 "../../prop-src/parser.pcc"
+#line 2495 "parser.pcc"
      syn_._2984 = t__[1+to__]._2986; 
-#line 2495 "../../prop-src/parser.pcc"
+#line 2495 "parser.pcc"
 } break;
     case 699: {
-#line 2498 "../../prop-src/parser.pcc"
+#line 2498 "parser.pcc"
      syn_._2988 = 0; 
-#line 2498 "../../prop-src/parser.pcc"
+#line 2498 "parser.pcc"
 } break;
     case 700: {
-#line 2499 "../../prop-src/parser.pcc"
+#line 2499 "parser.pcc"
      syn_._2990 = t__[1+to__]._2992; 
-#line 2499 "../../prop-src/parser.pcc"
+#line 2499 "parser.pcc"
 } break;
     case 701: {
-#line 2502 "../../prop-src/parser.pcc"
+#line 2502 "parser.pcc"
      syn_._2994 = 
-#line 2502 "../../prop-src/parser.pcc"
-#line 2502 "../../prop-src/parser.pcc"
+#line 2502 "parser.pcc"
+#line 2502 "parser.pcc"
       nil_1_
-#line 2502 "../../prop-src/parser.pcc"
-#line 2502 "../../prop-src/parser.pcc"
+#line 2502 "parser.pcc"
+#line 2502 "parser.pcc"
       ; 
-#line 2502 "../../prop-src/parser.pcc"
+#line 2502 "parser.pcc"
 } break;
     case 702: {
-#line 2503 "../../prop-src/parser.pcc"
+#line 2503 "parser.pcc"
      syn_._2996 = t__[1+to__]._2998; 
-#line 2503 "../../prop-src/parser.pcc"
+#line 2503 "parser.pcc"
 } break;
     case 703: {
-#line 2507 "../../prop-src/parser.pcc"
+#line 2507 "parser.pcc"
      syn_._3000 = 
-#line 2507 "../../prop-src/parser.pcc"
-#line 2507 "../../prop-src/parser.pcc"
+#line 2507 "parser.pcc"
+#line 2507 "parser.pcc"
       list_1_(t__[1+to__]._3001)
-#line 2507 "../../prop-src/parser.pcc"
-#line 2507 "../../prop-src/parser.pcc"
+#line 2507 "parser.pcc"
+#line 2507 "parser.pcc"
       ; 
-#line 2507 "../../prop-src/parser.pcc"
+#line 2507 "parser.pcc"
 } break;
     case 704: {
-#line 2508 "../../prop-src/parser.pcc"
+#line 2508 "parser.pcc"
      syn_._3003 = 
-#line 2508 "../../prop-src/parser.pcc"
-#line 2508 "../../prop-src/parser.pcc"
+#line 2508 "parser.pcc"
+#line 2508 "parser.pcc"
       list_1_(t__[1+to__]._3004,t__[2+to__]._3006)
-#line 2508 "../../prop-src/parser.pcc"
-#line 2508 "../../prop-src/parser.pcc"
+#line 2508 "parser.pcc"
+#line 2508 "parser.pcc"
       ; 
-#line 2508 "../../prop-src/parser.pcc"
+#line 2508 "parser.pcc"
 } break;
     case 705: {
-#line 2509 "../../prop-src/parser.pcc"
+#line 2509 "parser.pcc"
      syn_._3008 = 
-#line 2509 "../../prop-src/parser.pcc"
-#line 2509 "../../prop-src/parser.pcc"
+#line 2509 "parser.pcc"
+#line 2509 "parser.pcc"
       list_1_(t__[1+to__]._3009,t__[2+to__]._3011)
-#line 2509 "../../prop-src/parser.pcc"
-#line 2509 "../../prop-src/parser.pcc"
+#line 2509 "parser.pcc"
+#line 2509 "parser.pcc"
       ; 
-#line 2509 "../../prop-src/parser.pcc"
+#line 2509 "parser.pcc"
 } break;
     case 706: {
-#line 2514 "../../prop-src/parser.pcc"
+#line 2514 "parser.pcc"
      syn_._3013 = new MapEdge( graphtype_def, t__[1+to__]._3014, t__[3+to__]._3016, t__[4+to__]._3018, t__[5+to__]._3019); 
-#line 2514 "../../prop-src/parser.pcc"
+#line 2514 "parser.pcc"
 } break;
     case 707: {
-#line 2516 "../../prop-src/parser.pcc"
+#line 2516 "parser.pcc"
      syn_._3021 = new BijectionEdge( graphtype_def, t__[1+to__]._3022, t__[3+to__]._3024, t__[4+to__]._3026, t__[5+to__]._3027); 
-#line 2516 "../../prop-src/parser.pcc"
+#line 2516 "parser.pcc"
 } break;
     case 708: {
-#line 2518 "../../prop-src/parser.pcc"
+#line 2518 "parser.pcc"
      syn_._3029 = new MultiMapEdge( graphtype_def, t__[1+to__]._3030, t__[3+to__]._3032, t__[4+to__]._3034, t__[5+to__]._3035); 
-#line 2518 "../../prop-src/parser.pcc"
+#line 2518 "parser.pcc"
 } break;
     case 709: {
-#line 2520 "../../prop-src/parser.pcc"
+#line 2520 "parser.pcc"
      syn_._3037 = new EquivRelationEdge( graphtype_def, t__[1+to__]._3038, t__[3+to__]._3040, t__[4+to__]._3043, t__[5+to__]._3044); 
-#line 2520 "../../prop-src/parser.pcc"
+#line 2520 "parser.pcc"
 } break;
     case 710: {
-#line 2523 "../../prop-src/parser.pcc"
+#line 2523 "parser.pcc"
      syn_._3046 = graphtype_def->lookup_node(t__[1+to__]._3047); 
-#line 2523 "../../prop-src/parser.pcc"
+#line 2523 "parser.pcc"
 } break;
     case 711: {
-#line 2526 "../../prop-src/parser.pcc"
+#line 2526 "parser.pcc"
      syn_._3049 = NOindex; 
-#line 2526 "../../prop-src/parser.pcc"
+#line 2526 "parser.pcc"
 } break;
     case 712: {
-#line 2527 "../../prop-src/parser.pcc"
+#line 2527 "parser.pcc"
      syn_._3051 = t__[1+to__]._3053; 
-#line 2527 "../../prop-src/parser.pcc"
+#line 2527 "parser.pcc"
 } break;
     case 713: {
-#line 2531 "../../prop-src/parser.pcc"
+#line 2531 "parser.pcc"
      syn_._3055 = t__[1+to__]._3056; 
-#line 2531 "../../prop-src/parser.pcc"
+#line 2531 "parser.pcc"
 } break;
     case 714: {
-#line 2532 "../../prop-src/parser.pcc"
+#line 2532 "parser.pcc"
      syn_._3058 = t__[1+to__]._3059 | t__[2+to__]._3060; 
-#line 2532 "../../prop-src/parser.pcc"
+#line 2532 "parser.pcc"
 } break;
     case 715: {
-#line 2533 "../../prop-src/parser.pcc"
+#line 2533 "parser.pcc"
      syn_._3062 = t__[1+to__]._3063 | t__[2+to__]._3065; 
-#line 2533 "../../prop-src/parser.pcc"
+#line 2533 "parser.pcc"
 } break;
     case 716: {
-#line 2537 "../../prop-src/parser.pcc"
+#line 2537 "parser.pcc"
      syn_._3067 = DOMindex; 
-#line 2537 "../../prop-src/parser.pcc"
+#line 2537 "parser.pcc"
 } break;
     case 717: {
-#line 2538 "../../prop-src/parser.pcc"
+#line 2538 "parser.pcc"
      syn_._3070 = RANindex; 
-#line 2538 "../../prop-src/parser.pcc"
+#line 2538 "parser.pcc"
 } break;
     case 718: {
-#line 2539 "../../prop-src/parser.pcc"
+#line 2539 "parser.pcc"
      syn_._3073 = FORWARDindex; 
-#line 2539 "../../prop-src/parser.pcc"
+#line 2539 "parser.pcc"
 } break;
     case 719: {
-#line 2540 "../../prop-src/parser.pcc"
+#line 2540 "parser.pcc"
      syn_._3078 = INVERSEindex; 
-#line 2540 "../../prop-src/parser.pcc"
+#line 2540 "parser.pcc"
 } break;
     case 720: {
-#line 2541 "../../prop-src/parser.pcc"
+#line 2541 "parser.pcc"
      syn_._3083 = INVERSEindex; 
-#line 2541 "../../prop-src/parser.pcc"
+#line 2541 "parser.pcc"
 } break;
     case 721: {
-#line 2542 "../../prop-src/parser.pcc"
+#line 2542 "parser.pcc"
      syn_._3088 = FORWARDindex | INVERSEindex; 
-#line 2542 "../../prop-src/parser.pcc"
+#line 2542 "parser.pcc"
 } break;
     case 722: {
-#line 2553 "../../prop-src/parser.pcc"
+#line 2553 "parser.pcc"
      syn_._3093 = 
-#line 2553 "../../prop-src/parser.pcc"
-#line 2553 "../../prop-src/parser.pcc"
+#line 2553 "parser.pcc"
+#line 2553 "parser.pcc"
       GRAPHREWRITEdecl(t__[1+to__]._3095, t__[2+to__]._3097, t__[3+to__]._3100)
-#line 2553 "../../prop-src/parser.pcc"
-#line 2553 "../../prop-src/parser.pcc"
+#line 2553 "parser.pcc"
+#line 2553 "parser.pcc"
       ; 
-#line 2553 "../../prop-src/parser.pcc"
+#line 2553 "parser.pcc"
 } break;
     case 723: {
-#line 2556 "../../prop-src/parser.pcc"
+#line 2556 "parser.pcc"
      syn_._3103 = 
-#line 2556 "../../prop-src/parser.pcc"
-#line 2556 "../../prop-src/parser.pcc"
+#line 2556 "parser.pcc"
+#line 2556 "parser.pcc"
       GRAPHREWRITEdecl(t__[1+to__]._3105, t__[2+to__]._3107, t__[3+to__]._3111)
-#line 2556 "../../prop-src/parser.pcc"
-#line 2556 "../../prop-src/parser.pcc"
+#line 2556 "parser.pcc"
+#line 2556 "parser.pcc"
       ; 
-#line 2556 "../../prop-src/parser.pcc"
+#line 2556 "parser.pcc"
 } break;
     case 724: {
-#line 2563 "../../prop-src/parser.pcc"
+#line 2563 "parser.pcc"
     syn_._3116 = t__[3+to__]._3119; 
-#line 2563 "../../prop-src/parser.pcc"
+#line 2563 "parser.pcc"
 } break;
     case 727: {
-#line 2573 "../../prop-src/parser.pcc"
+#line 2573 "parser.pcc"
      syn_._3123 = t__[1+to__]._3124; 
-#line 2573 "../../prop-src/parser.pcc"
+#line 2573 "parser.pcc"
 } break;
     case 728: {
-#line 2577 "../../prop-src/parser.pcc"
+#line 2577 "parser.pcc"
      syn_._3126 = t__[1+to__]._3127; 
-#line 2577 "../../prop-src/parser.pcc"
+#line 2577 "parser.pcc"
 } break;
     case 729: {
-#line 2581 "../../prop-src/parser.pcc"
+#line 2581 "parser.pcc"
      syn_._3129 = 
-#line 2581 "../../prop-src/parser.pcc"
-#line 2581 "../../prop-src/parser.pcc"
+#line 2581 "parser.pcc"
+#line 2581 "parser.pcc"
       nil_1_
-#line 2581 "../../prop-src/parser.pcc"
-#line 2581 "../../prop-src/parser.pcc"
+#line 2581 "parser.pcc"
+#line 2581 "parser.pcc"
       ; 
-#line 2581 "../../prop-src/parser.pcc"
+#line 2581 "parser.pcc"
 } break;
     case 730: {
-#line 2582 "../../prop-src/parser.pcc"
+#line 2582 "parser.pcc"
      syn_._3131 = 
-#line 2582 "../../prop-src/parser.pcc"
-#line 2582 "../../prop-src/parser.pcc"
+#line 2582 "parser.pcc"
+#line 2582 "parser.pcc"
       list_1_(t__[1+to__]._3132,t__[2+to__]._3133)
-#line 2582 "../../prop-src/parser.pcc"
-#line 2582 "../../prop-src/parser.pcc"
+#line 2582 "parser.pcc"
+#line 2582 "parser.pcc"
       ; 
-#line 2582 "../../prop-src/parser.pcc"
+#line 2582 "parser.pcc"
 } break;
     case 731: {
-#line 2587 "../../prop-src/parser.pcc"
+#line 2587 "parser.pcc"
      syn_._3135 = 
-#line 2587 "../../prop-src/parser.pcc"
-#line 2587 "../../prop-src/parser.pcc"
+#line 2587 "parser.pcc"
+#line 2587 "parser.pcc"
       GRSrule(t__[1+to__]._3136, t__[3+to__]._3138)
-#line 2587 "../../prop-src/parser.pcc"
-#line 2587 "../../prop-src/parser.pcc"
+#line 2587 "parser.pcc"
+#line 2587 "parser.pcc"
       ; 
-#line 2587 "../../prop-src/parser.pcc"
+#line 2587 "parser.pcc"
 } break;
     case 732: {
-#line 2591 "../../prop-src/parser.pcc"
+#line 2591 "parser.pcc"
      syn_._3141 = t__[1+to__]._3142; 
-#line 2591 "../../prop-src/parser.pcc"
+#line 2591 "parser.pcc"
 } break;
     case 733: {
-#line 2592 "../../prop-src/parser.pcc"
+#line 2592 "parser.pcc"
      syn_._3144 = GUARDgpat(t__[1+to__]._3147); 
-#line 2592 "../../prop-src/parser.pcc"
+#line 2592 "parser.pcc"
 } break;
     case 734: {
-#line 2593 "../../prop-src/parser.pcc"
+#line 2593 "parser.pcc"
      syn_._3150 = FORALLgpat(t__[1+to__]._3152,t__[2+to__]._3154); 
-#line 2593 "../../prop-src/parser.pcc"
+#line 2593 "parser.pcc"
 } break;
     case 735: {
-#line 2594 "../../prop-src/parser.pcc"
+#line 2594 "parser.pcc"
      syn_._3156 = ANDgpat(t__[1+to__]._3157,t__[2+to__]._3159); 
-#line 2594 "../../prop-src/parser.pcc"
+#line 2594 "parser.pcc"
 } break;
     case 736: {
-#line 2595 "../../prop-src/parser.pcc"
+#line 2595 "parser.pcc"
      syn_._3161 = ANDgpat(t__[1+to__]._3162,t__[2+to__]._3164); 
-#line 2595 "../../prop-src/parser.pcc"
+#line 2595 "parser.pcc"
 } break;
     case 737: {
-#line 2596 "../../prop-src/parser.pcc"
+#line 2596 "parser.pcc"
      syn_._3166 = ORgpat(t__[1+to__]._3167,t__[2+to__]._3169); 
-#line 2596 "../../prop-src/parser.pcc"
+#line 2596 "parser.pcc"
 } break;
     case 738: {
-#line 2597 "../../prop-src/parser.pcc"
+#line 2597 "parser.pcc"
      syn_._3171 = t__[1+to__]._3173; 
-#line 2597 "../../prop-src/parser.pcc"
+#line 2597 "parser.pcc"
 } break;
     case 739: {
-#line 2601 "../../prop-src/parser.pcc"
+#line 2601 "parser.pcc"
      syn_._3176 = EDGEgpat(t__[1+to__]._3177,t__[2+to__]._3179); 
-#line 2601 "../../prop-src/parser.pcc"
+#line 2601 "parser.pcc"
 } break;
     case 740: {
-#line 2602 "../../prop-src/parser.pcc"
+#line 2602 "parser.pcc"
      syn_._3182 = NOTgpat(EDGEgpat(t__[2+to__]._3184,t__[3+to__]._3186)); 
-#line 2602 "../../prop-src/parser.pcc"
+#line 2602 "parser.pcc"
 } break;
     case 741: {
-#line 2606 "../../prop-src/parser.pcc"
+#line 2606 "parser.pcc"
      syn_._3189 = 
-#line 2606 "../../prop-src/parser.pcc"
-#line 2606 "../../prop-src/parser.pcc"
+#line 2606 "parser.pcc"
+#line 2606 "parser.pcc"
       list_1_(t__[1+to__]._3190)
-#line 2606 "../../prop-src/parser.pcc"
-#line 2606 "../../prop-src/parser.pcc"
+#line 2606 "parser.pcc"
+#line 2606 "parser.pcc"
       ; 
-#line 2606 "../../prop-src/parser.pcc"
+#line 2606 "parser.pcc"
 } break;
     case 742: {
-#line 2607 "../../prop-src/parser.pcc"
+#line 2607 "parser.pcc"
      syn_._3192 = 
-#line 2607 "../../prop-src/parser.pcc"
-#line 2607 "../../prop-src/parser.pcc"
+#line 2607 "parser.pcc"
+#line 2607 "parser.pcc"
       list_1_(t__[1+to__]._3193,t__[2+to__]._3195)
-#line 2607 "../../prop-src/parser.pcc"
-#line 2607 "../../prop-src/parser.pcc"
+#line 2607 "parser.pcc"
+#line 2607 "parser.pcc"
       ; 
-#line 2607 "../../prop-src/parser.pcc"
+#line 2607 "parser.pcc"
 } break;
     case 743: {
-#line 2608 "../../prop-src/parser.pcc"
+#line 2608 "parser.pcc"
      syn_._3197 = 
-#line 2608 "../../prop-src/parser.pcc"
-#line 2608 "../../prop-src/parser.pcc"
+#line 2608 "parser.pcc"
+#line 2608 "parser.pcc"
       list_1_(t__[1+to__]._3198,t__[2+to__]._3200)
-#line 2608 "../../prop-src/parser.pcc"
-#line 2608 "../../prop-src/parser.pcc"
+#line 2608 "parser.pcc"
+#line 2608 "parser.pcc"
       ; 
-#line 2608 "../../prop-src/parser.pcc"
+#line 2608 "parser.pcc"
 } break;
     case 744: {
-#line 2612 "../../prop-src/parser.pcc"
+#line 2612 "parser.pcc"
      syn_._3202 = ADDEDGEaction(t__[1+to__]._3203,t__[2+to__]._3205); 
-#line 2612 "../../prop-src/parser.pcc"
+#line 2612 "parser.pcc"
 } break;
     case 745: {
-#line 2613 "../../prop-src/parser.pcc"
+#line 2613 "parser.pcc"
      syn_._3208 = DELETEEDGEaction(t__[2+to__]._3210,t__[3+to__]._3212); 
-#line 2613 "../../prop-src/parser.pcc"
+#line 2613 "parser.pcc"
 } break;
     case 746: {
-#line 2614 "../../prop-src/parser.pcc"
+#line 2614 "parser.pcc"
      syn_._3215 = ADDNODEaction(t__[1+to__]._3217); 
-#line 2614 "../../prop-src/parser.pcc"
+#line 2614 "parser.pcc"
 } break;
     case 747: {
-#line 2615 "../../prop-src/parser.pcc"
+#line 2615 "parser.pcc"
      syn_._3219 = DELETENODEaction(t__[1+to__]._3221); 
-#line 2615 "../../prop-src/parser.pcc"
+#line 2615 "parser.pcc"
 } break;
     case 748: {
-#line 2616 "../../prop-src/parser.pcc"
+#line 2616 "parser.pcc"
      syn_._3223 = ::EMBEDDEDaction(t__[1+to__]._3224); 
-#line 2616 "../../prop-src/parser.pcc"
+#line 2616 "parser.pcc"
 } break;
   }
   if (t__ >= bot__ + stack_size__) grow_semantic_stack();
@@ -9725,8 +9717,8 @@ PropParser::PropParser ()
           PropParser_len,PropParser_ncount,PropParser_lhs,PropParser_equiv,430,430,705)
 {
 }
-#line 2636 "../../prop-src/parser.pcc"
-#line 2636 "../../prop-src/parser.pcc"
+#line 2636 "parser.pcc"
+#line 2636 "parser.pcc"
 /*
 dataflow_class_decl Decl:
     "dataflow" "class" id inherit_list_opt qualifiers_opt brace_body ';'
@@ -9738,7 +9730,7 @@ dataflow_decl Decl:
     {  $$ = DATAFLOWdecl'{ name = $2 }; }
 ;
 */
-#line 2637 "../../prop-src/parser.pcc"
+#line 2637 "parser.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -9747,8 +9739,8 @@ Number of ifs generated      = 9
 Number of switches generated = 4
 Number of labels             = 2
 Number of gotos              = 6
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

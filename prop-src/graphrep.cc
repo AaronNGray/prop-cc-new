@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\graphrep.pcc".
+//  The original source file is "graphrep.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/graphrep.pcc"
+#line 1 "graphrep.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This file implements data structure mapping for graph nodes and edges.
@@ -19,14 +19,14 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 15 "../../prop-src/graphrep.pcc"
-#line 15 "../../prop-src/graphrep.pcc"
+#line 15 "graphrep.pcc"
+#line 15 "graphrep.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Interface specification of datatype List<NodeDef *>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 15 "../../prop-src/graphrep.pcc"
+#line 15 "graphrep.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -34,7 +34,7 @@
 // Interface specification of datatype List<EdgeDef *>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 15 "../../prop-src/graphrep.pcc"
+#line 15 "graphrep.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -42,7 +42,7 @@
 // Instantiation of datatype List<NodeDef *>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 15 "../../prop-src/graphrep.pcc"
+#line 15 "graphrep.pcc"
 #ifdef PROP_EXPLICIT_TEMPLATE_INSTANTIATION
 template class a_List<NodeDef *>;
 template a_List<NodeDef *> * list_1_(EdgeDef * x_1, a_List<EdgeDef *> *  x_2);
@@ -56,7 +56,7 @@ template int untag(const a_List<NodeDef *> *);
 // Instantiation of datatype List<EdgeDef *>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 15 "../../prop-src/graphrep.pcc"
+#line 15 "graphrep.pcc"
 #ifdef PROP_EXPLICIT_TEMPLATE_INSTANTIATION
 template class a_List<EdgeDef *>;
 template a_List<EdgeDef *> * list_1_(NodeDef * x_1, a_List<NodeDef *> *  x_2);
@@ -65,8 +65,8 @@ template int boxed(const a_List<EdgeDef *> *);
 template int untag(const a_List<EdgeDef *> *);
 #endif /* PROP_EXPLICIT_TEMPLATE_INSTANTIATION */
 
-#line 15 "../../prop-src/graphrep.pcc"
-#line 15 "../../prop-src/graphrep.pcc"
+#line 15 "graphrep.pcc"
+#line 15 "graphrep.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -522,7 +522,7 @@ void EquivRelationEdge::generate_impl( CodeGen& C)
 {
   Super::generate_impl(C);
 }
-#line 470 "../../prop-src/graphrep.pcc"
+#line 470 "graphrep.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -531,8 +531,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

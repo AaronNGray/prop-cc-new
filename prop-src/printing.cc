@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\printing.pcc".
+//  The original source file is "printing.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_STRCMP_USED
@@ -10,8 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_r_i_n_t_i_n_gco_c_c_Q1("x_");
-#line 1 "../../prop-src/printing.pcc"
+static const Quark _p_r_i_n_t_i_n_gco_c_c_Q1("x_");
+#line 1 "printing.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements various pretty printing and formating routines.
@@ -75,32 +75,32 @@ std::ostream& operator << (std::ostream& f, Ids vars)
 std::ostream& operator << (std::ostream& f, Scope s)
 {
   
-#line 63 "../../prop-src/printing.pcc"
-#line 68 "../../prop-src/printing.pcc"
+#line 63 "printing.pcc"
+#line 68 "printing.pcc"
 {
   switch (s) {
     case PRIVATEscope: {
-#line 67 "../../prop-src/printing.pcc"
+#line 67 "printing.pcc"
    f << "private";
       
-#line 68 "../../prop-src/printing.pcc"
+#line 68 "printing.pcc"
       } break;
     case PROTECTEDscope: {
-#line 66 "../../prop-src/printing.pcc"
+#line 66 "printing.pcc"
      f << "protected";
       
-#line 67 "../../prop-src/printing.pcc"
+#line 67 "printing.pcc"
       } break;
     default: {
-#line 65 "../../prop-src/printing.pcc"
+#line 65 "printing.pcc"
   f << "public";
       
-#line 66 "../../prop-src/printing.pcc"
+#line 66 "printing.pcc"
       } break;
   }
 }
-#line 68 "../../prop-src/printing.pcc"
-#line 68 "../../prop-src/printing.pcc"
+#line 68 "printing.pcc"
+#line 68 "printing.pcc"
 
   return f;
 }
@@ -125,17 +125,17 @@ Id index_of( int i, Id prefix)
 std::ostream& operator << (std::ostream& f, Pid pid)
 {
   
-#line 91 "../../prop-src/printing.pcc"
-#line 95 "../../prop-src/printing.pcc"
+#line 91 "printing.pcc"
+#line 95 "printing.pcc"
 {
   if (pid) {
-#line 93 "../../prop-src/printing.pcc"
+#line 93 "printing.pcc"
    f << pid->PERSISTid; 
-#line 93 "../../prop-src/printing.pcc"
+#line 93 "printing.pcc"
   } else {}
 }
-#line 95 "../../prop-src/printing.pcc"
-#line 95 "../../prop-src/printing.pcc"
+#line 95 "printing.pcc"
+#line 95 "printing.pcc"
 
   return f;
 }
@@ -149,73 +149,73 @@ std::ostream& operator << (std::ostream& f, Pid pid)
 std::ostream& operator << (std::ostream& f, Literal l)
 {
   
-#line 107 "../../prop-src/printing.pcc"
-#line 138 "../../prop-src/printing.pcc"
+#line 107 "printing.pcc"
+#line 138 "printing.pcc"
 {
   switch (l->tag__) {
     case a_Literal::tag_INTlit: {
-#line 109 "../../prop-src/printing.pcc"
-     f << _INTlit(l)->INTlit; 
-#line 109 "../../prop-src/printing.pcc"
+#line 109 "printing.pcc"
+     f << ((Literal_INTlit *)l)->INTlit; 
+#line 109 "printing.pcc"
       } break;
     case a_Literal::tag_BOOLlit: {
-#line 110 "../../prop-src/printing.pcc"
-     f << (_BOOLlit(l)->BOOLlit ? "true" : "false"); 
-#line 110 "../../prop-src/printing.pcc"
+#line 110 "printing.pcc"
+     f << (((Literal_BOOLlit *)l)->BOOLlit ? "true" : "false"); 
+#line 110 "printing.pcc"
       } break;
     case a_Literal::tag_CHARlit: {
-#line 111 "../../prop-src/printing.pcc"
-     char b[32]; print_char(b,_CHARlit(l)->CHARlit); f << '\'' << b << '\''; 
-#line 111 "../../prop-src/printing.pcc"
+#line 111 "printing.pcc"
+     char b[32]; print_char(b,((Literal_CHARlit *)l)->CHARlit); f << '\'' << b << '\''; 
+#line 111 "printing.pcc"
       } break;
     case a_Literal::tag_REALlit: {
-#line 113 "../../prop-src/printing.pcc"
+#line 113 "printing.pcc"
       
       // use sprintf due to library problems in libg++ 2.5.8 on Linux
       char buf[256];
-      sprintf( buf,"%lf", _REALlit(l)->REALlit);
+      sprintf( buf,"%lf", ((Literal_REALlit *)l)->REALlit);
       f << buf;
       // std::ostrstream S(buf,sizeof(buf));
       // std::ostream& S2 = S;
       // S2 << r << std::ends;
       // f << S.str();
       
-#line 122 "../../prop-src/printing.pcc"
+#line 122 "printing.pcc"
       } break;
     case a_Literal::tag_STRINGlit: {
-#line 123 "../../prop-src/printing.pcc"
-     f << _STRINGlit(l)->STRINGlit; 
-#line 123 "../../prop-src/printing.pcc"
+#line 123 "printing.pcc"
+     f << ((Literal_STRINGlit *)l)->STRINGlit; 
+#line 123 "printing.pcc"
       } break;
     case a_Literal::tag_REGEXPlit: {
-#line 124 "../../prop-src/printing.pcc"
-     f << _REGEXPlit(l)->REGEXPlit; 
-#line 124 "../../prop-src/printing.pcc"
+#line 124 "printing.pcc"
+     f << ((Literal_REGEXPlit *)l)->REGEXPlit; 
+#line 124 "printing.pcc"
       } break;
     case a_Literal::tag_QUARKlit: {
-#line 126 "../../prop-src/printing.pcc"
+#line 126 "printing.pcc"
       
       if (pretty_print_pattern)
-        f << '#' << _QUARKlit(l)->QUARKlit;
+        f << '#' << ((Literal_QUARKlit *)l)->QUARKlit;
       else
-        f << MatchCompiler::quark_name(_QUARKlit(l)->QUARKlit);
+        f << MatchCompiler::quark_name(((Literal_QUARKlit *)l)->QUARKlit);
       
-#line 131 "../../prop-src/printing.pcc"
+#line 131 "printing.pcc"
       } break;
     default: {
-#line 133 "../../prop-src/printing.pcc"
+#line 133 "printing.pcc"
       
       if (pretty_print_pattern)
-        f << "#" << _BIGINTlit(l)->BIGINTlit;
+        f << "#" << ((Literal_BIGINTlit *)l)->BIGINTlit;
       else
-        f << _BIGINTlit(l)->BIGINTlit;
+        f << ((Literal_BIGINTlit *)l)->BIGINTlit;
       
-#line 138 "../../prop-src/printing.pcc"
+#line 138 "printing.pcc"
       } break;
   }
 }
-#line 139 "../../prop-src/printing.pcc"
-#line 139 "../../prop-src/printing.pcc"
+#line 139 "printing.pcc"
+#line 139 "printing.pcc"
 
   return f;
 }
@@ -232,11 +232,11 @@ std::ostream& operator << (std::ostream& f, Tys tys)
   {
     f << t->_1;
     if (t->_2 != 
-#line 154 "../../prop-src/printing.pcc"
-#line 154 "../../prop-src/printing.pcc"
+#line 154 "printing.pcc"
+#line 154 "printing.pcc"
 nil_1_
-#line 154 "../../prop-src/printing.pcc"
-#line 154 "../../prop-src/printing.pcc"
+#line 154 "printing.pcc"
+#line 154 "printing.pcc"
 )
       f << ", ";
   }
@@ -251,11 +251,11 @@ nil_1_
 void print_tyvars( std::ostream& f, Tys tys, Bool is_datatype)
 {
   if (tys != 
-#line 167 "../../prop-src/printing.pcc"
-#line 167 "../../prop-src/printing.pcc"
+#line 167 "printing.pcc"
+#line 167 "printing.pcc"
 nil_1_
-#line 167 "../../prop-src/printing.pcc"
-#line 167 "../../prop-src/printing.pcc"
+#line 167 "printing.pcc"
+#line 167 "printing.pcc"
 )
     if (is_datatype)
       f << "(" << tys << ")";
@@ -272,11 +272,11 @@ nil_1_
 void print_tyvars( std::ostream& f, TyVars tyvars, char open, char close, Bool header)
 {
   if (tyvars != 
-#line 182 "../../prop-src/printing.pcc"
-#line 182 "../../prop-src/printing.pcc"
+#line 182 "printing.pcc"
+#line 182 "printing.pcc"
 nil_1_
-#line 182 "../../prop-src/printing.pcc"
-#line 182 "../../prop-src/printing.pcc"
+#line 182 "printing.pcc"
+#line 182 "printing.pcc"
 )
   {
     if (header) f << "template ";
@@ -314,11 +314,11 @@ void print_tuple(std::ostream& f, Tys tys)
       ty_id = index_of(i);
       f << t->_1 << "; ";
       ty_id = 
-#line 218 "../../prop-src/printing.pcc"
-#line 218 "../../prop-src/printing.pcc"
+#line 218 "printing.pcc"
+#line 218 "printing.pcc"
 nil_1_
-#line 218 "../../prop-src/printing.pcc"
-#line 218 "../../prop-src/printing.pcc"
+#line 218 "printing.pcc"
+#line 218 "printing.pcc"
 ;
     }
     f << "} ";
@@ -364,11 +364,11 @@ void print_record( std::ostream& f, Ids labs, Tys tys, Bool flex)
     {
       ty_id = l->_1; f << t->_1 << "; ";
       ty_id = 
-#line 262 "../../prop-src/printing.pcc"
-#line 262 "../../prop-src/printing.pcc"
+#line 262 "printing.pcc"
+#line 262 "printing.pcc"
 nil_1_
-#line 262 "../../prop-src/printing.pcc"
-#line 262 "../../prop-src/printing.pcc"
+#line 262 "printing.pcc"
+#line 262 "printing.pcc"
 ;
     }
   }
@@ -390,39 +390,39 @@ void print_parameter( std::ostream& f, Ty ty, Id id, Parameter p)
   pretty_print_ty = false;
   ty_parameter = p;
   
-#line 282 "../../prop-src/printing.pcc"
-#line 352 "../../prop-src/printing.pcc"
+#line 282 "printing.pcc"
+#line 352 "printing.pcc"
 {
   Ty _V1 = deref(ty);
   if (_V1) {
     switch (_V1->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V1)->_1)) {
-          switch (_TYCONty(_V1)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V1)->_1)) {
+          switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 304 "../../prop-src/printing.pcc"
+#line 304 "printing.pcc"
               
               Ids l;
               Tys t;
               if (p == TYformal || p == TYsimpleformal ||
-                  p == TYactual && _TYCONty(_V1)->_2 != 
-#line 308 "../../prop-src/printing.pcc"
-#line 308 "../../prop-src/printing.pcc"
+                  p == TYactual && ((Ty_TYCONty *)_V1)->_2 != 
+#line 308 "printing.pcc"
+#line 308 "printing.pcc"
               nil_1_
-#line 308 "../../prop-src/printing.pcc"
-#line 308 "../../prop-src/printing.pcc"
+#line 308 "printing.pcc"
+#line 308 "printing.pcc"
               )
               f << '(';
               
-              for (l = _RECORDtycon(_TYCONty(_V1)->_1)->_1, t = _TYCONty(_V1)->_2; l && t; l = l->_2, t = t->_2)
+              for (l = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V1)->_1)->_1, t = ((Ty_TYCONty *)_V1)->_2; l && t; l = l->_2, t = t->_2)
               {
               if (p != TYbody)
                 ty_id = 
-#line 314 "../../prop-src/printing.pcc"
-#line 314 "../../prop-src/printing.pcc"
-              cocofmcocofm_p_r_o_pcn_s_r_cfm_p_r_i_n_t_i_n_gco_c_c_Q1
-#line 314 "../../prop-src/printing.pcc"
-#line 314 "../../prop-src/printing.pcc"
+#line 314 "printing.pcc"
+#line 314 "printing.pcc"
+              _p_r_i_n_t_i_n_gco_c_c_Q1
+#line 314 "printing.pcc"
+#line 314 "printing.pcc"
              + l->_1;
               else
                 ty_id = l->_1;
@@ -438,39 +438,39 @@ void print_parameter( std::ostream& f, Ty ty, Id id, Parameter p)
               else
                 f << "; ";
               ty_id = 
-#line 328 "../../prop-src/printing.pcc"
-#line 328 "../../prop-src/printing.pcc"
+#line 328 "printing.pcc"
+#line 328 "printing.pcc"
               nil_1_
-#line 328 "../../prop-src/printing.pcc"
-#line 328 "../../prop-src/printing.pcc"
+#line 328 "printing.pcc"
+#line 328 "printing.pcc"
               ;
               }
               
               if (p == TYformal || p == TYsimpleformal ||
-                  p == TYactual && _TYCONty(_V1)->_2 != 
-#line 332 "../../prop-src/printing.pcc"
-#line 332 "../../prop-src/printing.pcc"
+                  p == TYactual && ((Ty_TYCONty *)_V1)->_2 != 
+#line 332 "printing.pcc"
+#line 332 "printing.pcc"
               nil_1_
-#line 332 "../../prop-src/printing.pcc"
-#line 332 "../../prop-src/printing.pcc"
+#line 332 "printing.pcc"
+#line 332 "printing.pcc"
               )
               f << ')';
               
-#line 334 "../../prop-src/printing.pcc"
+#line 334 "printing.pcc"
               } break;
             default: {
               L1:; 
-#line 336 "../../prop-src/printing.pcc"
+#line 336 "printing.pcc"
               
               if (p != TYbody)
                 f << '(';
               if (p != TYbody)
                 ty_id = 
-#line 340 "../../prop-src/printing.pcc"
-#line 340 "../../prop-src/printing.pcc"
-              cocofmcocofm_p_r_o_pcn_s_r_cfm_p_r_i_n_t_i_n_gco_c_c_Q1
-#line 340 "../../prop-src/printing.pcc"
-#line 340 "../../prop-src/printing.pcc"
+#line 340 "printing.pcc"
+#line 340 "printing.pcc"
+              _p_r_i_n_t_i_n_gco_c_c_Q1
+#line 340 "printing.pcc"
+#line 340 "printing.pcc"
              + id;
               else
                 ty_id = id;
@@ -484,24 +484,24 @@ void print_parameter( std::ostream& f, Ty ty, Id id, Parameter p)
               if (p != TYbody)
                 f << ')';
               
-#line 352 "../../prop-src/printing.pcc"
+#line 352 "printing.pcc"
               } break;
           }
         } else {
-          switch ((int)_TYCONty(_V1)->_1) {
+          switch ((int)((Ty_TYCONty *)_V1)->_1) {
             case ((int)TUPLEtycon): {
-#line 285 "../../prop-src/printing.pcc"
+#line 285 "printing.pcc"
               
               int i = 1;
               if (p == TYformal || p == TYsimpleformal ||
-                  p == TYactual && _TYCONty(_V1)->_2 != 
-#line 288 "../../prop-src/printing.pcc"
-#line 288 "../../prop-src/printing.pcc"
+                  p == TYactual && ((Ty_TYCONty *)_V1)->_2 != 
+#line 288 "printing.pcc"
+#line 288 "printing.pcc"
               nil_1_
-#line 288 "../../prop-src/printing.pcc"
-#line 288 "../../prop-src/printing.pcc"
+#line 288 "printing.pcc"
+#line 288 "printing.pcc"
               ) f << '(';
-              for (Tys ts = _TYCONty(_V1)->_2; ts; ts = ts->_2)
+              for (Tys ts = ((Ty_TYCONty *)_V1)->_2; ts; ts = ts->_2)
               {
                 ty_id = index_of(i,(p != TYbody ? "x" : ""));
                 if (p != TYactual) f << ts->_1;
@@ -510,24 +510,24 @@ void print_parameter( std::ostream& f, Ty ty, Id id, Parameter p)
                 else f << "; ";
                 i++;
                 ty_id = 
-#line 297 "../../prop-src/printing.pcc"
-#line 297 "../../prop-src/printing.pcc"
+#line 297 "printing.pcc"
+#line 297 "printing.pcc"
               nil_1_
-#line 297 "../../prop-src/printing.pcc"
-#line 297 "../../prop-src/printing.pcc"
+#line 297 "printing.pcc"
+#line 297 "printing.pcc"
               ;
               }
               if (p == TYformal || p == TYsimpleformal ||
-                  p == TYactual && _TYCONty(_V1)->_2 != 
-#line 300 "../../prop-src/printing.pcc"
-#line 300 "../../prop-src/printing.pcc"
+                  p == TYactual && ((Ty_TYCONty *)_V1)->_2 != 
+#line 300 "printing.pcc"
+#line 300 "printing.pcc"
               nil_1_
-#line 300 "../../prop-src/printing.pcc"
-#line 300 "../../prop-src/printing.pcc"
+#line 300 "printing.pcc"
+#line 300 "printing.pcc"
               )
               f << ')';
               
-#line 302 "../../prop-src/printing.pcc"
+#line 302 "printing.pcc"
               } break;
             default: { goto L1; } break;
           }
@@ -537,8 +537,8 @@ void print_parameter( std::ostream& f, Ty ty, Id id, Parameter p)
     }
   } else { goto L1; }
 }
-#line 353 "../../prop-src/printing.pcc"
-#line 353 "../../prop-src/printing.pcc"
+#line 353 "printing.pcc"
+#line 353 "printing.pcc"
 
   ty_parameter = save;
   pretty_print_ty = sp;
@@ -561,96 +561,96 @@ std::ostream& operator << (std::ostream& f, Ty ty)
 
   ty = deref(ty);
   
-#line 374 "../../prop-src/printing.pcc"
-#line 480 "../../prop-src/printing.pcc"
+#line 374 "printing.pcc"
+#line 480 "printing.pcc"
 {
   if (ty) {
     switch (ty->tag__) {
       case a_Ty::tag_VARty: {
-#line 377 "../../prop-src/printing.pcc"
+#line 377 "printing.pcc"
        f << "???"; 
-#line 377 "../../prop-src/printing.pcc"
+#line 377 "printing.pcc"
         } break;
       case a_Ty::tag_INDty: {
-#line 378 "../../prop-src/printing.pcc"
-       f << _INDty(ty)->_1; 
-#line 378 "../../prop-src/printing.pcc"
+#line 378 "printing.pcc"
+       f << ((Ty_INDty *)ty)->_1; 
+#line 378 "printing.pcc"
         } break;
       case a_Ty::tag_QUALty: {
-#line 446 "../../prop-src/printing.pcc"
+#line 446 "printing.pcc"
         
-        if (_QUALty(ty)->_1 & QUALunsigned)
+        if (((Ty_QUALty *)ty)->_1 & QUALunsigned)
           f << "unsigned ";
-        if (_QUALty(ty)->_1 & QUALsigned)
+        if (((Ty_QUALty *)ty)->_1 & QUALsigned)
           f << "signed ";
         if ((ty_parameter == TYformal || ty_parameter == TYsimpleformal)
-        	      && (_QUALty(ty)->_1 & QUALclass))
+        	      && (((Ty_QUALty *)ty)->_1 & QUALclass))
           f << (TYCONty((TyCon)REFtycon,
-#line 453 "../../prop-src/printing.pcc"
-#line 453 "../../prop-src/printing.pcc"
-        list_1_(QUALty(QUALconst,_QUALty(ty)->_2))
-#line 453 "../../prop-src/printing.pcc"
-#line 453 "../../prop-src/printing.pcc"
+#line 453 "printing.pcc"
+#line 453 "printing.pcc"
+        list_1_(QUALty(QUALconst,((Ty_QUALty *)ty)->_2))
+#line 453 "printing.pcc"
+#line 453 "printing.pcc"
         ));
         else
-          f << _QUALty(ty)->_2;
-        if (_QUALty(ty)->_1 & QUALconst)
+          f << ((Ty_QUALty *)ty)->_2;
+        if (((Ty_QUALty *)ty)->_1 & QUALconst)
           f << " const";
         
-#line 458 "../../prop-src/printing.pcc"
+#line 458 "printing.pcc"
         } break;
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(ty)->_1)) {
-          switch (_TYCONty(ty)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)ty)->_1)) {
+          switch (((Ty_TYCONty *)ty)->_1->tag__) {
             case a_TyCon::tag_IDtycon: {
-#line 391 "../../prop-src/printing.pcc"
+#line 391 "printing.pcc"
               
-              if (options.new_type_format && _TYCONty(ty)->_2 != 
-#line 392 "../../prop-src/printing.pcc"
-#line 392 "../../prop-src/printing.pcc"
+              if (options.new_type_format && ((Ty_TYCONty *)ty)->_2 != 
+#line 392 "printing.pcc"
+#line 392 "printing.pcc"
               nil_1_
-#line 392 "../../prop-src/printing.pcc"
-#line 392 "../../prop-src/printing.pcc"
+#line 392 "printing.pcc"
+#line 392 "printing.pcc"
               )
               {
                 
-#line 394 "../../prop-src/printing.pcc"
-#line 411 "../../prop-src/printing.pcc"
+#line 394 "printing.pcc"
+#line 411 "printing.pcc"
               {
                 Ty _V2 = deref_all(ty);
                 if (_V2) {
                   switch (_V2->tag__) {
                     case a_Ty::tag_TYCONty: {
-                      if (boxed(_TYCONty(_V2)->_1)) {
-                        switch (_TYCONty(_V2)->_1->tag__) {
+                      if (boxed(((Ty_TYCONty *)_V2)->_1)) {
+                        switch (((Ty_TYCONty *)_V2)->_1->tag__) {
                           case a_TyCon::tag_DATATYPEtycon: {
-#line 397 "../../prop-src/printing.pcc"
+#line 397 "printing.pcc"
                             
                             if ( !pretty_print_ty) f << "a_";
-                            f << _DATATYPEtycon(_TYCONty(_V2)->_1)->id; print_tyvars(f,_TYCONty(ty)->_2,false);
+                            f << ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->id; print_tyvars(f,((Ty_TYCONty *)ty)->_2,false);
                             if ( !pretty_print_ty)
                             {
-                              if (_TYCONty(ty)->_2 == 
-#line 402 "../../prop-src/printing.pcc"
-#line 402 "../../prop-src/printing.pcc"
+                              if (((Ty_TYCONty *)ty)->_2 == 
+#line 402 "printing.pcc"
+#line 402 "printing.pcc"
                             nil_1_
-#line 402 "../../prop-src/printing.pcc"
-#line 402 "../../prop-src/printing.pcc"
+#line 402 "printing.pcc"
+#line 402 "printing.pcc"
                             )
                             f << ' ';
                             f << "* ";
                             }
                             
-#line 406 "../../prop-src/printing.pcc"
+#line 406 "printing.pcc"
                             } break;
                           default: {
                             L2:; 
-#line 408 "../../prop-src/printing.pcc"
+#line 408 "printing.pcc"
                             
-                            f << _IDtycon(_TYCONty(ty)->_1)->IDtycon;
-                            print_tyvars(f,_TYCONty(ty)->_2,false);
+                            f << ((TyCon_IDtycon *)((Ty_TYCONty *)ty)->_1)->IDtycon;
+                            print_tyvars(f,((Ty_TYCONty *)ty)->_2,false);
                             
-#line 411 "../../prop-src/printing.pcc"
+#line 411 "printing.pcc"
                             } break;
                         }
                       } else { goto L2; }
@@ -659,33 +659,33 @@ std::ostream& operator << (std::ostream& f, Ty ty)
                   }
                 } else { goto L2; }
               }
-#line 412 "../../prop-src/printing.pcc"
-#line 412 "../../prop-src/printing.pcc"
+#line 412 "printing.pcc"
+#line 412 "printing.pcc"
               
               }
               else
               {
-                f << _IDtycon(_TYCONty(ty)->_1)->IDtycon;
+                f << ((TyCon_IDtycon *)((Ty_TYCONty *)ty)->_1)->IDtycon;
                 
-#line 417 "../../prop-src/printing.pcc"
-#line 420 "../../prop-src/printing.pcc"
+#line 417 "printing.pcc"
+#line 420 "printing.pcc"
               {
                 Ty _V3 = deref_all(ty);
                 if (_V3) {
                   switch (_V3->tag__) {
                     case a_Ty::tag_TYCONty: {
-                      if (boxed(_TYCONty(_V3)->_1)) {
-                        switch (_TYCONty(_V3)->_1->tag__) {
+                      if (boxed(((Ty_TYCONty *)_V3)->_1)) {
+                        switch (((Ty_TYCONty *)_V3)->_1->tag__) {
                           case a_TyCon::tag_DATATYPEtycon: {
-#line 419 "../../prop-src/printing.pcc"
-                           print_tyvars( f, _TYCONty(ty)->_2, !pretty_print_ty); 
-#line 419 "../../prop-src/printing.pcc"
+#line 419 "printing.pcc"
+                           print_tyvars( f, ((Ty_TYCONty *)ty)->_2, !pretty_print_ty); 
+#line 419 "printing.pcc"
                             } break;
                           default: {
                             L3:; 
-#line 420 "../../prop-src/printing.pcc"
-                           print_tyvars( f, _TYCONty(ty)->_2, false); 
-#line 420 "../../prop-src/printing.pcc"
+#line 420 "printing.pcc"
+                           print_tyvars( f, ((Ty_TYCONty *)ty)->_2, false); 
+#line 420 "printing.pcc"
                             } break;
                         }
                       } else { goto L3; }
@@ -694,173 +694,173 @@ std::ostream& operator << (std::ostream& f, Ty ty)
                   }
                 } else { goto L3; }
               }
-#line 421 "../../prop-src/printing.pcc"
-#line 421 "../../prop-src/printing.pcc"
+#line 421 "printing.pcc"
+#line 421 "printing.pcc"
               
               }
               
-#line 423 "../../prop-src/printing.pcc"
+#line 423 "printing.pcc"
               } break;
             case a_TyCon::tag_RECORDtycon: {
-#line 389 "../../prop-src/printing.pcc"
-             print_record(f,_RECORDtycon(_TYCONty(ty)->_1)->_1,_TYCONty(ty)->_2,_RECORDtycon(_TYCONty(ty)->_1)->_2); 
-#line 389 "../../prop-src/printing.pcc"
+#line 389 "printing.pcc"
+             print_record(f,((TyCon_RECORDtycon *)((Ty_TYCONty *)ty)->_1)->_1,((Ty_TYCONty *)ty)->_2,((TyCon_RECORDtycon *)((Ty_TYCONty *)ty)->_1)->_2); 
+#line 389 "printing.pcc"
               } break;
             case a_TyCon::tag_ARRAYtycon: {
-              if (_TYCONty(ty)->_2) {
-                if (_TYCONty(ty)->_2->_2) {
+              if (((Ty_TYCONty *)ty)->_2) {
+                if (((Ty_TYCONty *)ty)->_2->_2) {
                   L4:; 
-#line 478 "../../prop-src/printing.pcc"
+#line 478 "printing.pcc"
                   
                   bug ("operator << (std::ostream&, Ty)");
                   
-#line 480 "../../prop-src/printing.pcc"
+#line 480 "printing.pcc"
                 } else {
-#line 425 "../../prop-src/printing.pcc"
+#line 425 "printing.pcc"
                   
                   if (this_id)
                   {
                     ty_id = this_id;
                     this_id = 0;
                   }
-                  f << _TYCONty(ty)->_2->_1 << '[' << _ARRAYtycon(_TYCONty(ty)->_1)->ARRAYtycon << ']';
+                  f << ((Ty_TYCONty *)ty)->_2->_1 << '[' << ((TyCon_ARRAYtycon *)((Ty_TYCONty *)ty)->_1)->ARRAYtycon << ']';
                   
-#line 432 "../../prop-src/printing.pcc"
+#line 432 "printing.pcc"
                 }
               } else { goto L4; }
               } break;
             case a_TyCon::tag_DATATYPEtycon: {
-              if (_TYCONty(ty)->_2) {
-#line 461 "../../prop-src/printing.pcc"
+              if (((Ty_TYCONty *)ty)->_2) {
+#line 461 "printing.pcc"
                 
                 if ( !pretty_print_ty)
                   f << "a_";
-                f << _DATATYPEtycon(_TYCONty(ty)->_1)->id;
-                print_tyvars( f, _TYCONty(ty)->_2, false);
+                f << ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)ty)->_1)->id;
+                print_tyvars( f, ((Ty_TYCONty *)ty)->_2, false);
                 if ( !pretty_print_ty)
                 {
-                  if (_TYCONty(ty)->_2 == 
-#line 468 "../../prop-src/printing.pcc"
-#line 468 "../../prop-src/printing.pcc"
+                  if (((Ty_TYCONty *)ty)->_2 == 
+#line 468 "printing.pcc"
+#line 468 "printing.pcc"
                 nil_1_
-#line 468 "../../prop-src/printing.pcc"
-#line 468 "../../prop-src/printing.pcc"
+#line 468 "printing.pcc"
+#line 468 "printing.pcc"
                 )
                 f << ' ';
                 f << "* ";
                 }
                 
-#line 472 "../../prop-src/printing.pcc"
+#line 472 "printing.pcc"
               } else {
-#line 459 "../../prop-src/printing.pcc"
-               f << _DATATYPEtycon(_TYCONty(ty)->_1)->id; 
-#line 459 "../../prop-src/printing.pcc"
+#line 459 "printing.pcc"
+               f << ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)ty)->_1)->id; 
+#line 459 "printing.pcc"
               }
               } break;
             case a_TyCon::tag_GRAPHtycon: {
-#line 384 "../../prop-src/printing.pcc"
-             f << _GRAPHtycon(_TYCONty(ty)->_1)->GRAPHtycon->class_name; 
-#line 384 "../../prop-src/printing.pcc"
+#line 384 "printing.pcc"
+             f << ((TyCon_GRAPHtycon *)((Ty_TYCONty *)ty)->_1)->GRAPHtycon->class_name; 
+#line 384 "printing.pcc"
               } break;
             case a_TyCon::tag_NODEtycon: {
-#line 385 "../../prop-src/printing.pcc"
-             f << _NODEtycon(_TYCONty(ty)->_1)->NODEtycon->graph()->class_name <<"::"<< _NODEtycon(_TYCONty(ty)->_1)->NODEtycon->name(); 
-#line 385 "../../prop-src/printing.pcc"
+#line 385 "printing.pcc"
+             f << ((TyCon_NODEtycon *)((Ty_TYCONty *)ty)->_1)->NODEtycon->graph()->class_name <<"::"<< ((TyCon_NODEtycon *)((Ty_TYCONty *)ty)->_1)->NODEtycon->name(); 
+#line 385 "printing.pcc"
               } break;
             case a_TyCon::tag_EDGEtycon: {
-#line 386 "../../prop-src/printing.pcc"
-             f << "edge " << _EDGEtycon(_TYCONty(ty)->_1)->EDGEtycon->name(); 
-#line 386 "../../prop-src/printing.pcc"
+#line 386 "printing.pcc"
+             f << "edge " << ((TyCon_EDGEtycon *)((Ty_TYCONty *)ty)->_1)->EDGEtycon->name(); 
+#line 386 "printing.pcc"
               } break;
             default: { goto L4; } break;
           }
         } else {
-          switch ((int)_TYCONty(ty)->_1) {
+          switch ((int)((Ty_TYCONty *)ty)->_1) {
             case ((int)POINTERtycon): {
-              if (_TYCONty(ty)->_2) {
-                if (_TYCONty(ty)->_2->_2) { goto L4; } else {
-#line 381 "../../prop-src/printing.pcc"
-                 f << _TYCONty(ty)->_2->_1 << " *"; 
-#line 381 "../../prop-src/printing.pcc"
+              if (((Ty_TYCONty *)ty)->_2) {
+                if (((Ty_TYCONty *)ty)->_2->_2) { goto L4; } else {
+#line 381 "printing.pcc"
+                 f << ((Ty_TYCONty *)ty)->_2->_1 << " *"; 
+#line 381 "printing.pcc"
                 }
               } else { goto L4; }
               } break;
             case ((int)REFtycon): {
-              if (_TYCONty(ty)->_2) {
-                if (_TYCONty(ty)->_2->_2) { goto L4; } else {
-#line 382 "../../prop-src/printing.pcc"
-                 f << _TYCONty(ty)->_2->_1 << " &"; 
-#line 382 "../../prop-src/printing.pcc"
+              if (((Ty_TYCONty *)ty)->_2) {
+                if (((Ty_TYCONty *)ty)->_2->_2) { goto L4; } else {
+#line 382 "printing.pcc"
+                 f << ((Ty_TYCONty *)ty)->_2->_1 << " &"; 
+#line 382 "printing.pcc"
                 }
               } else { goto L4; }
               } break;
             case ((int)TUPLEtycon): {
-#line 387 "../../prop-src/printing.pcc"
-             print_tuple(f,_TYCONty(ty)->_2); 
-#line 387 "../../prop-src/printing.pcc"
+#line 387 "printing.pcc"
+             print_tuple(f,((Ty_TYCONty *)ty)->_2); 
+#line 387 "printing.pcc"
               } break;
             case ((int)EXTUPLEtycon): {
-#line 388 "../../prop-src/printing.pcc"
-             print_mktuple(f,_TYCONty(ty)->_2); 
-#line 388 "../../prop-src/printing.pcc"
+#line 388 "printing.pcc"
+             print_mktuple(f,((Ty_TYCONty *)ty)->_2); 
+#line 388 "printing.pcc"
               } break;
             case ((int)FUNtycon): {
-              if (_TYCONty(ty)->_2) {
-                if (_TYCONty(ty)->_2->_2) {
-                  if (_TYCONty(ty)->_2->_2->_2) { goto L4; } else {
-#line 383 "../../prop-src/printing.pcc"
-                   f << _TYCONty(ty)->_2->_1 << " -> " << _TYCONty(ty)->_2->_2->_1; 
-#line 383 "../../prop-src/printing.pcc"
+              if (((Ty_TYCONty *)ty)->_2) {
+                if (((Ty_TYCONty *)ty)->_2->_2) {
+                  if (((Ty_TYCONty *)ty)->_2->_2->_2) { goto L4; } else {
+#line 383 "printing.pcc"
+                   f << ((Ty_TYCONty *)ty)->_2->_1 << " -> " << ((Ty_TYCONty *)ty)->_2->_2->_1; 
+#line 383 "printing.pcc"
                   }
                 } else { goto L4; }
               } else { goto L4; }
               } break;
             default: {
-              if (_TYCONty(ty)->_2) { goto L4; } else {
-#line 380 "../../prop-src/printing.pcc"
+              if (((Ty_TYCONty *)ty)->_2) { goto L4; } else {
+#line 380 "printing.pcc"
                f << "type"; 
-#line 380 "../../prop-src/printing.pcc"
+#line 380 "printing.pcc"
               }
               } break;
           }
         }
         } break;
       case a_Ty::tag_POLYty: {
-#line 379 "../../prop-src/printing.pcc"
-       f << _POLYty(ty)->_1; 
-#line 379 "../../prop-src/printing.pcc"
+#line 379 "printing.pcc"
+       f << ((Ty_POLYty *)ty)->_1; 
+#line 379 "printing.pcc"
         } break;
       case a_Ty::tag_DEFVALty: {
-#line 434 "../../prop-src/printing.pcc"
+#line 434 "printing.pcc"
         
         if (this_id)
         {
           ty_id = this_id;
           this_id = 0;
         }
-        f << _DEFVALty(ty)->_1;
+        f << ((Ty_DEFVALty *)ty)->_1;
         if (ty_parameter != TYbody && ty_parameter != TYsimpleformal
         	      && print_default_value)
-        	    f << " = " << _DEFVALty(ty)->_2;
+        	    f << " = " << ((Ty_DEFVALty *)ty)->_2;
         
-#line 444 "../../prop-src/printing.pcc"
+#line 444 "printing.pcc"
         } break;
       default: {
-#line 474 "../../prop-src/printing.pcc"
+#line 474 "printing.pcc"
         
-        f << _NESTEDty(ty)->_1 << "::" << _NESTEDty(ty)->_2;
+        f << ((Ty_NESTEDty *)ty)->_1 << "::" << ((Ty_NESTEDty *)ty)->_2;
         
-#line 476 "../../prop-src/printing.pcc"
+#line 476 "printing.pcc"
         } break;
     }
   } else {
-#line 376 "../../prop-src/printing.pcc"
+#line 376 "printing.pcc"
    f << "error"; 
-#line 376 "../../prop-src/printing.pcc"
+#line 376 "printing.pcc"
   }
 }
-#line 481 "../../prop-src/printing.pcc"
-#line 481 "../../prop-src/printing.pcc"
+#line 481 "printing.pcc"
+#line 481 "printing.pcc"
 
   if (this_id)
     f << ' ' << this_id;
@@ -895,11 +895,11 @@ void print( std::ostream& f, Pats pats, Id open, Id close,
       f << ", ";
   }
   if (flex1 && pats != 
-#line 514 "../../prop-src/printing.pcc"
-#line 514 "../../prop-src/printing.pcc"
+#line 514 "printing.pcc"
+#line 514 "printing.pcc"
 nil_1_
-#line 514 "../../prop-src/printing.pcc"
-#line 514 "../../prop-src/printing.pcc"
+#line 514 "printing.pcc"
+#line 514 "printing.pcc"
  && p != NOpat)
     f << " ... ";
   if (p != NOpat)
@@ -934,11 +934,11 @@ void print( std::ostream& f, LabPats lab_pats, Bool flex)
 Id open_of( Cons c)
 {
   
-#line 547 "../../prop-src/printing.pcc"
-#line 558 "../../prop-src/printing.pcc"
+#line 547 "printing.pcc"
+#line 558 "printing.pcc"
 {
   if (c) {
-#line 550 "../../prop-src/printing.pcc"
+#line 550 "printing.pcc"
     
     char s[3];
     s[0] = c->name[0];
@@ -946,57 +946,57 @@ Id open_of( Cons c)
     s[2] = '\0';
     return Quark(s);
     
-#line 556 "../../prop-src/printing.pcc"
+#line 556 "printing.pcc"
   } else {
-#line 558 "../../prop-src/printing.pcc"
+#line 558 "printing.pcc"
    return "<\?\?>["; 
-#line 558 "../../prop-src/printing.pcc"
+#line 558 "printing.pcc"
   }
 }
-#line 559 "../../prop-src/printing.pcc"
-#line 559 "../../prop-src/printing.pcc"
+#line 559 "printing.pcc"
+#line 559 "printing.pcc"
 
 }
 
 Id close_of( Cons c)
 {
   
-#line 564 "../../prop-src/printing.pcc"
-#line 567 "../../prop-src/printing.pcc"
+#line 564 "printing.pcc"
+#line 567 "printing.pcc"
 {
   if (c) {
-#line 566 "../../prop-src/printing.pcc"
+#line 566 "printing.pcc"
    return c->name+2; 
-#line 566 "../../prop-src/printing.pcc"
+#line 566 "printing.pcc"
   } else {
-#line 567 "../../prop-src/printing.pcc"
+#line 567 "printing.pcc"
    return "]"; 
-#line 567 "../../prop-src/printing.pcc"
+#line 567 "printing.pcc"
   }
 }
-#line 568 "../../prop-src/printing.pcc"
-#line 568 "../../prop-src/printing.pcc"
+#line 568 "printing.pcc"
+#line 568 "printing.pcc"
 
 }
 
 Id close_of2( Cons c)
 {
   
-#line 573 "../../prop-src/printing.pcc"
-#line 576 "../../prop-src/printing.pcc"
+#line 573 "printing.pcc"
+#line 576 "printing.pcc"
 {
   if (c) {
-#line 575 "../../prop-src/printing.pcc"
+#line 575 "printing.pcc"
    return c->name + std::strlen( c->name) - 2; 
-#line 575 "../../prop-src/printing.pcc"
+#line 575 "printing.pcc"
   } else {
-#line 576 "../../prop-src/printing.pcc"
+#line 576 "printing.pcc"
    return "]"; 
-#line 576 "../../prop-src/printing.pcc"
+#line 576 "printing.pcc"
   }
 }
-#line 577 "../../prop-src/printing.pcc"
-#line 577 "../../prop-src/printing.pcc"
+#line 577 "printing.pcc"
+#line 577 "printing.pcc"
 
 }
 
@@ -1021,60 +1021,60 @@ std::ostream& operator << (std::ostream& f, Pats ps)
 std::ostream& operator << (std::ostream& f, Pat p)
 {
   
-#line 600 "../../prop-src/printing.pcc"
-#line 654 "../../prop-src/printing.pcc"
+#line 600 "printing.pcc"
+#line 654 "printing.pcc"
 {
   if (p) {
     switch (p->tag__) {
       case a_Pat::tag_WILDpat: {
-#line 603 "../../prop-src/printing.pcc"
+#line 603 "printing.pcc"
        f << '_'; 
-#line 603 "../../prop-src/printing.pcc"
+#line 603 "printing.pcc"
         } break;
       case a_Pat::tag_INDpat: {
-#line 606 "../../prop-src/printing.pcc"
-       f << '?' << _INDpat(p)->_1; 
-#line 606 "../../prop-src/printing.pcc"
+#line 606 "printing.pcc"
+       f << '?' << ((Pat_INDpat *)p)->_1; 
+#line 606 "printing.pcc"
         } break;
       case a_Pat::tag_POLYpat: {
-        if (_POLYpat(p)->_3) {
-#line 631 "../../prop-src/printing.pcc"
-         f << _POLYpat(p)->_1 << '(' << _POLYpat(p)->_3 << ") = " << _POLYpat(p)->_4; 
-#line 631 "../../prop-src/printing.pcc"
+        if (((Pat_POLYpat *)p)->_3) {
+#line 631 "printing.pcc"
+         f << ((Pat_POLYpat *)p)->_1 << '(' << ((Pat_POLYpat *)p)->_3 << ") = " << ((Pat_POLYpat *)p)->_4; 
+#line 631 "printing.pcc"
         } else {
-#line 630 "../../prop-src/printing.pcc"
-         f << _POLYpat(p)->_1 << " = " << _POLYpat(p)->_4; 
-#line 630 "../../prop-src/printing.pcc"
+#line 630 "printing.pcc"
+         f << ((Pat_POLYpat *)p)->_1 << " = " << ((Pat_POLYpat *)p)->_4; 
+#line 630 "printing.pcc"
         }
         } break;
       case a_Pat::tag_IDpat: {
-#line 605 "../../prop-src/printing.pcc"
-       f << _IDpat(p)->_1; 
-#line 605 "../../prop-src/printing.pcc"
+#line 605 "printing.pcc"
+       f << ((Pat_IDpat *)p)->_1; 
+#line 605 "printing.pcc"
         } break;
       case a_Pat::tag_CONSpat: {
-        if (_CONSpat(p)->CONSpat) {
-          if (_CONSpat(p)->CONSpat->alg_ty) {
-            switch (_CONSpat(p)->CONSpat->alg_ty->tag__) {
+        if (((Pat_CONSpat *)p)->CONSpat) {
+          if (((Pat_CONSpat *)p)->CONSpat->alg_ty) {
+            switch (((Pat_CONSpat *)p)->CONSpat->alg_ty->tag__) {
               case a_Ty::tag_TYCONty: {
-                if (boxed(_TYCONty(_CONSpat(p)->CONSpat->alg_ty)->_1)) {
-                  switch (_TYCONty(_CONSpat(p)->CONSpat->alg_ty)->_1->tag__) {
+                if (boxed(((Ty_TYCONty *)((Pat_CONSpat *)p)->CONSpat->alg_ty)->_1)) {
+                  switch (((Ty_TYCONty *)((Pat_CONSpat *)p)->CONSpat->alg_ty)->_1->tag__) {
                     case a_TyCon::tag_DATATYPEtycon: {
                       if (
-#line 624 "../../prop-src/printing.pcc"
-                      (_CONSpat(p)->CONSpat->qual & QUALvariable)
-#line 624 "../../prop-src/printing.pcc"
+#line 624 "printing.pcc"
+                      (((Pat_CONSpat *)p)->CONSpat->qual & QUALvariable)
+#line 624 "printing.pcc"
 ) {
                         
-#line 625 "../../prop-src/printing.pcc"
-                       f << _DATATYPEtycon(_TYCONty(_CONSpat(p)->CONSpat->alg_ty)->_1)->id << "?"; 
-#line 625 "../../prop-src/printing.pcc"
+#line 625 "printing.pcc"
+                       f << ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)p)->CONSpat->alg_ty)->_1)->id << "?"; 
+#line 625 "printing.pcc"
                       } else {
                         
                         L5:; 
-#line 626 "../../prop-src/printing.pcc"
-                       f << _CONSpat(p)->CONSpat->name; 
-#line 626 "../../prop-src/printing.pcc"
+#line 626 "printing.pcc"
+                       f << ((Pat_CONSpat *)p)->CONSpat->name; 
+#line 626 "printing.pcc"
                       }
                       } break;
                     default: { goto L5; } break;
@@ -1085,150 +1085,150 @@ std::ostream& operator << (std::ostream& f, Pat p)
             }
           } else { goto L5; }
         } else {
-#line 627 "../../prop-src/printing.pcc"
+#line 627 "printing.pcc"
          f << "<none>"; 
-#line 627 "../../prop-src/printing.pcc"
+#line 627 "printing.pcc"
         }
         } break;
       case a_Pat::tag_APPpat: {
-#line 628 "../../prop-src/printing.pcc"
-       f << _APPpat(p)->_1 << ' ' << _APPpat(p)->_2; 
-#line 628 "../../prop-src/printing.pcc"
+#line 628 "printing.pcc"
+       f << ((Pat_APPpat *)p)->_1 << ' ' << ((Pat_APPpat *)p)->_2; 
+#line 628 "printing.pcc"
         } break;
       case a_Pat::tag_TYPEDpat: {
-#line 608 "../../prop-src/printing.pcc"
-       f << _TYPEDpat(p)->_1 << " : " << _TYPEDpat(p)->_2; 
-#line 608 "../../prop-src/printing.pcc"
+#line 608 "printing.pcc"
+       f << ((Pat_TYPEDpat *)p)->_1 << " : " << ((Pat_TYPEDpat *)p)->_2; 
+#line 608 "printing.pcc"
         } break;
       case a_Pat::tag_ASpat: {
-#line 607 "../../prop-src/printing.pcc"
-       f << _ASpat(p)->_1 << " as " << _ASpat(p)->_2; 
-#line 607 "../../prop-src/printing.pcc"
+#line 607 "printing.pcc"
+       f << ((Pat_ASpat *)p)->_1 << " as " << ((Pat_ASpat *)p)->_2; 
+#line 607 "printing.pcc"
         } break;
       case a_Pat::tag_LITERALpat: {
-#line 649 "../../prop-src/printing.pcc"
+#line 649 "printing.pcc"
         
         Bool save = pretty_print_pattern;
         pretty_print_pattern = true;
-        f << _LITERALpat(p)->LITERALpat;
+        f << ((Pat_LITERALpat *)p)->LITERALpat;
         pretty_print_pattern = save;
         
-#line 654 "../../prop-src/printing.pcc"
+#line 654 "printing.pcc"
         } break;
       case a_Pat::tag_CONTEXTpat: {
-#line 637 "../../prop-src/printing.pcc"
+#line 637 "printing.pcc"
         
         f << "<<";
-        for (Conses ids = _CONTEXTpat(p)->_1; ids; ids = ids->_2)
+        for (Conses ids = ((Pat_CONTEXTpat *)p)->_1; ids; ids = ids->_2)
         {
           if (ids->_1 != NOcons)
             f << ids->_1->name;
           if (ids->_2)
             f << ", ";
         }
-        f << ">>" << _CONTEXTpat(p)->_2;
+        f << ">>" << ((Pat_CONTEXTpat *)p)->_2;
         
-#line 647 "../../prop-src/printing.pcc"
+#line 647 "printing.pcc"
         } break;
       case a_Pat::tag_LEXEMEpat: {
-#line 629 "../../prop-src/printing.pcc"
-       f << "lexeme class " << _LEXEMEpat(p)->_1; 
-#line 629 "../../prop-src/printing.pcc"
+#line 629 "printing.pcc"
+       f << "lexeme class " << ((Pat_LEXEMEpat *)p)->_1; 
+#line 629 "printing.pcc"
         } break;
       case a_Pat::tag_ARRAYpat: {
-#line 611 "../../prop-src/printing.pcc"
-       print(f,_ARRAYpat(p)->_1,"[","]",_ARRAYpat(p)->_2,NOpat); 
-#line 611 "../../prop-src/printing.pcc"
+#line 611 "printing.pcc"
+       print(f,((Pat_ARRAYpat *)p)->_1,"[","]",((Pat_ARRAYpat *)p)->_2,NOpat); 
+#line 611 "printing.pcc"
         } break;
       case a_Pat::tag_TUPLEpat: {
-#line 609 "../../prop-src/printing.pcc"
-       print(f,_TUPLEpat(p)->TUPLEpat,"(",")",false,NOpat); 
-#line 609 "../../prop-src/printing.pcc"
+#line 609 "printing.pcc"
+       print(f,((Pat_TUPLEpat *)p)->TUPLEpat,"(",")",false,NOpat); 
+#line 609 "printing.pcc"
         } break;
       case a_Pat::tag_EXTUPLEpat: {
-#line 610 "../../prop-src/printing.pcc"
-       print(f,_EXTUPLEpat(p)->EXTUPLEpat,".(",")",false,NOpat); 
-#line 610 "../../prop-src/printing.pcc"
+#line 610 "printing.pcc"
+       print(f,((Pat_EXTUPLEpat *)p)->EXTUPLEpat,".(",")",false,NOpat); 
+#line 610 "printing.pcc"
         } break;
       case a_Pat::tag_RECORDpat: {
-#line 612 "../../prop-src/printing.pcc"
-       print(f,_RECORDpat(p)->_1,_RECORDpat(p)->_2); 
-#line 612 "../../prop-src/printing.pcc"
+#line 612 "printing.pcc"
+       print(f,((Pat_RECORDpat *)p)->_1,((Pat_RECORDpat *)p)->_2); 
+#line 612 "printing.pcc"
         } break;
       case a_Pat::tag_LISTpat: {
-#line 635 "../../prop-src/printing.pcc"
-       print( f, _LISTpat(p)->head, open_of(_LISTpat(p)->nil), close_of(_LISTpat(p)->nil), true, _LISTpat(p)->tail); 
-#line 635 "../../prop-src/printing.pcc"
+#line 635 "printing.pcc"
+       print( f, ((Pat_LISTpat *)p)->head, open_of(((Pat_LISTpat *)p)->nil), close_of(((Pat_LISTpat *)p)->nil), true, ((Pat_LISTpat *)p)->tail); 
+#line 635 "printing.pcc"
         } break;
       case a_Pat::tag_VECTORpat: {
-#line 633 "../../prop-src/printing.pcc"
-       print( f, _VECTORpat(p)->elements, open_of(_VECTORpat(p)->cons), close_of2(_VECTORpat(p)->cons), _VECTORpat(p)->tail_flex, NOpat, _VECTORpat(p)->head_flex, _VECTORpat(p)->len, _VECTORpat(p)->array); 
-#line 633 "../../prop-src/printing.pcc"
+#line 633 "printing.pcc"
+       print( f, ((Pat_VECTORpat *)p)->elements, open_of(((Pat_VECTORpat *)p)->cons), close_of2(((Pat_VECTORpat *)p)->cons), ((Pat_VECTORpat *)p)->tail_flex, NOpat, ((Pat_VECTORpat *)p)->head_flex, ((Pat_VECTORpat *)p)->len, ((Pat_VECTORpat *)p)->array); 
+#line 633 "printing.pcc"
         } break;
       case a_Pat::tag_APPENDpat: {
-#line 620 "../../prop-src/printing.pcc"
-       f << '(' << _APPENDpat(p)->_1 << " ; " << _APPENDpat(p)->_2 << ')'; 
-#line 620 "../../prop-src/printing.pcc"
+#line 620 "printing.pcc"
+       f << '(' << ((Pat_APPENDpat *)p)->_1 << " ; " << ((Pat_APPENDpat *)p)->_2 << ')'; 
+#line 620 "printing.pcc"
         } break;
       case a_Pat::tag_GUARDpat: {
-#line 619 "../../prop-src/printing.pcc"
-       f << _GUARDpat(p)->_1 << " | " << _GUARDpat(p)->_2; 
-#line 619 "../../prop-src/printing.pcc"
+#line 619 "printing.pcc"
+       f << ((Pat_GUARDpat *)p)->_1 << " | " << ((Pat_GUARDpat *)p)->_2; 
+#line 619 "printing.pcc"
         } break;
       case a_Pat::tag_LOGICALpat: {
-        switch (_LOGICALpat(p)->_1) {
+        switch (((Pat_LOGICALpat *)p)->_1) {
           case NOTpat: {
-#line 613 "../../prop-src/printing.pcc"
-           f << "(! " << _LOGICALpat(p)->_2 << ")"; 
-#line 613 "../../prop-src/printing.pcc"
+#line 613 "printing.pcc"
+           f << "(! " << ((Pat_LOGICALpat *)p)->_2 << ")"; 
+#line 613 "printing.pcc"
             } break;
           case ANDpat: {
-#line 614 "../../prop-src/printing.pcc"
-           f << '(' << _LOGICALpat(p)->_2 << " && " << _LOGICALpat(p)->_3 << ')'; 
-#line 614 "../../prop-src/printing.pcc"
+#line 614 "printing.pcc"
+           f << '(' << ((Pat_LOGICALpat *)p)->_2 << " && " << ((Pat_LOGICALpat *)p)->_3 << ')'; 
+#line 614 "printing.pcc"
             } break;
           case ORpat: {
-#line 615 "../../prop-src/printing.pcc"
-           f << '(' << _LOGICALpat(p)->_2 << " || " << _LOGICALpat(p)->_3 << ')'; 
-#line 615 "../../prop-src/printing.pcc"
+#line 615 "printing.pcc"
+           f << '(' << ((Pat_LOGICALpat *)p)->_2 << " || " << ((Pat_LOGICALpat *)p)->_3 << ')'; 
+#line 615 "printing.pcc"
             } break;
           case EQUIVpat: {
-#line 617 "../../prop-src/printing.pcc"
-           f << '(' << _LOGICALpat(p)->_2 << " equiv: " << _LOGICALpat(p)->_3 << ')'; 
-#line 617 "../../prop-src/printing.pcc"
+#line 617 "printing.pcc"
+           f << '(' << ((Pat_LOGICALpat *)p)->_2 << " equiv: " << ((Pat_LOGICALpat *)p)->_3 << ')'; 
+#line 617 "printing.pcc"
             } break;
           case XORpat: {
-#line 618 "../../prop-src/printing.pcc"
-           f << '(' << _LOGICALpat(p)->_2 << " xor: " << _LOGICALpat(p)->_3 << ')'; 
-#line 618 "../../prop-src/printing.pcc"
+#line 618 "printing.pcc"
+           f << '(' << ((Pat_LOGICALpat *)p)->_2 << " xor: " << ((Pat_LOGICALpat *)p)->_3 << ')'; 
+#line 618 "printing.pcc"
             } break;
           default: {
-#line 616 "../../prop-src/printing.pcc"
-           f << '(' << _LOGICALpat(p)->_2 << " implies: " << _LOGICALpat(p)->_3 << ')'; 
-#line 616 "../../prop-src/printing.pcc"
+#line 616 "printing.pcc"
+           f << '(' << ((Pat_LOGICALpat *)p)->_2 << " implies: " << ((Pat_LOGICALpat *)p)->_3 << ')'; 
+#line 616 "printing.pcc"
             } break;
         }
         } break;
       case a_Pat::tag_BACKEDGEpat: {
-#line 604 "../../prop-src/printing.pcc"
-       f << '<' << _BACKEDGEpat(p)->_2 << '>'; 
-#line 604 "../../prop-src/printing.pcc"
+#line 604 "printing.pcc"
+       f << '<' << ((Pat_BACKEDGEpat *)p)->_2 << '>'; 
+#line 604 "printing.pcc"
         } break;
       case a_Pat::tag_UNIFYpat: {
-#line 621 "../../prop-src/printing.pcc"
-       f << '(' << _UNIFYpat(p)->_1 << " := " << _UNIFYpat(p)->_2 << ")"; 
-#line 621 "../../prop-src/printing.pcc"
+#line 621 "printing.pcc"
+       f << '(' << ((Pat_UNIFYpat *)p)->_1 << " := " << ((Pat_UNIFYpat *)p)->_2 << ")"; 
+#line 621 "printing.pcc"
         } break;
       default: {
-#line 622 "../../prop-src/printing.pcc"
-       f << _MARKEDpat(p)->_2; 
-#line 622 "../../prop-src/printing.pcc"
+#line 622 "printing.pcc"
+       f << ((Pat_MARKEDpat *)p)->_2; 
+#line 622 "printing.pcc"
         } break;
     }
   } else {}
 }
-#line 655 "../../prop-src/printing.pcc"
-#line 655 "../../prop-src/printing.pcc"
+#line 655 "printing.pcc"
+#line 655 "printing.pcc"
 
   return f;
 }
@@ -1270,124 +1270,124 @@ void encode_string( char * buf, const char * s)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 696 "../../prop-src/printing.pcc"
-#line 713 "../../prop-src/printing.pcc"
+#line 696 "printing.pcc"
+#line 713 "printing.pcc"
 Id mangle (char const * x_1);
 Id mangle (char const * x_1)
 {
   if ((x_1 == 0)) {
     
-#line 696 "../../prop-src/printing.pcc"
+#line 696 "printing.pcc"
    return "(null)"; 
-#line 696 "../../prop-src/printing.pcc"
+#line 696 "printing.pcc"
   } else {
     
     if (_less_string(x_1,"#{}")) {
       if (_less_string(x_1,"#[]")) {
         if (_equal_string(x_1,"#()")) {
-#line 701 "../../prop-src/printing.pcc"
+#line 701 "printing.pcc"
        return "nil_2_"; 
-#line 701 "../../prop-src/printing.pcc"
+#line 701 "printing.pcc"
 }
         else if (_equal_string(x_1,"#(...)")) {
-#line 698 "../../prop-src/printing.pcc"
+#line 698 "printing.pcc"
        return "list_2_"; 
-#line 698 "../../prop-src/printing.pcc"
+#line 698 "printing.pcc"
 }
         else if (_equal_string(x_1,"#[...]")) {
-#line 697 "../../prop-src/printing.pcc"
+#line 697 "printing.pcc"
        return "list_1_"; 
-#line 697 "../../prop-src/printing.pcc"
+#line 697 "printing.pcc"
 }
         else {
         if ((x_1[0] == '\"')) {
           
-#line 707 "../../prop-src/printing.pcc"
+#line 707 "printing.pcc"
           
           char buf[256];
           encode_string( buf, x_1);
           return Quark( buf);
           
-#line 711 "../../prop-src/printing.pcc"
+#line 711 "printing.pcc"
         } else {
           
-#line 712 "../../prop-src/printing.pcc"
+#line 712 "printing.pcc"
          return x_1; 
-#line 712 "../../prop-src/printing.pcc"
+#line 712 "printing.pcc"
         }
 }
       } else {
         if (_equal_string(x_1,"#[]")) {
-#line 700 "../../prop-src/printing.pcc"
+#line 700 "printing.pcc"
        return "nil_1_"; 
-#line 700 "../../prop-src/printing.pcc"
+#line 700 "printing.pcc"
 }
         else if (_equal_string(x_1,"#{...}")) {
-#line 699 "../../prop-src/printing.pcc"
+#line 699 "printing.pcc"
        return "list_3_"; 
-#line 699 "../../prop-src/printing.pcc"
+#line 699 "printing.pcc"
 }
         else {
         if ((x_1[0] == '\"')) {
           
-#line 707 "../../prop-src/printing.pcc"
+#line 707 "printing.pcc"
           
           char buf[256];
           encode_string( buf, x_1);
           return Quark( buf);
           
-#line 711 "../../prop-src/printing.pcc"
+#line 711 "printing.pcc"
         } else {
           
-#line 712 "../../prop-src/printing.pcc"
+#line 712 "printing.pcc"
          return x_1; 
-#line 712 "../../prop-src/printing.pcc"
+#line 712 "printing.pcc"
         }
 }
       }
     } else {
       if (_equal_string(x_1,"#{}")) {
-#line 702 "../../prop-src/printing.pcc"
+#line 702 "printing.pcc"
      return "nil_3_"; 
-#line 702 "../../prop-src/printing.pcc"
+#line 702 "printing.pcc"
 }
       else if (_equal_string(x_1,"(|...|)")) {
-#line 704 "../../prop-src/printing.pcc"
+#line 704 "printing.pcc"
      return "vector_2_"; 
-#line 704 "../../prop-src/printing.pcc"
+#line 704 "printing.pcc"
 }
       else if (_equal_string(x_1,"[|...|]")) {
-#line 703 "../../prop-src/printing.pcc"
+#line 703 "printing.pcc"
      return "vector_1_"; 
-#line 703 "../../prop-src/printing.pcc"
+#line 703 "printing.pcc"
 }
       else if (_equal_string(x_1,"{|...|}")) {
-#line 705 "../../prop-src/printing.pcc"
+#line 705 "printing.pcc"
      return "vector_3_"; 
-#line 705 "../../prop-src/printing.pcc"
+#line 705 "printing.pcc"
 }
       else {
       if ((x_1[0] == '\"')) {
         
-#line 707 "../../prop-src/printing.pcc"
+#line 707 "printing.pcc"
         
         char buf[256];
         encode_string( buf, x_1);
         return Quark( buf);
         
-#line 711 "../../prop-src/printing.pcc"
+#line 711 "printing.pcc"
       } else {
         
-#line 712 "../../prop-src/printing.pcc"
+#line 712 "printing.pcc"
        return x_1; 
-#line 712 "../../prop-src/printing.pcc"
+#line 712 "printing.pcc"
       }
 }
     }
   }
 }
-#line 713 "../../prop-src/printing.pcc"
-#line 713 "../../prop-src/printing.pcc"
+#line 713 "printing.pcc"
+#line 713 "printing.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1399,40 +1399,40 @@ Id mangle (char const * x_1)
 std::ostream& print_cons( std::ostream& f, Cons cons)
 {
   
-#line 723 "../../prop-src/printing.pcc"
-#line 734 "../../prop-src/printing.pcc"
+#line 723 "printing.pcc"
+#line 734 "printing.pcc"
 {
   if (cons) {
     if (cons->alg_ty) {
       switch (cons->alg_ty->tag__) {
         case a_Ty::tag_TYCONty: {
           if (cons->ty) {
-            if (boxed(_TYCONty(cons->alg_ty)->_1)) {
-              switch (_TYCONty(cons->alg_ty)->_1->tag__) {
+            if (boxed(((Ty_TYCONty *)cons->alg_ty)->_1)) {
+              switch (((Ty_TYCONty *)cons->alg_ty)->_1->tag__) {
                 case a_TyCon::tag_DATATYPEtycon: {
                   L6:; 
-#line 727 "../../prop-src/printing.pcc"
+#line 727 "printing.pcc"
                   
-                  if (_DATATYPEtycon(_TYCONty(cons->alg_ty)->_1)->opt & OPTsubclassless)
-                    f << "a_" << _DATATYPEtycon(_TYCONty(cons->alg_ty)->_1)->id;
+                  if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)cons->alg_ty)->_1)->opt & OPTsubclassless)
+                    f << "a_" << ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)cons->alg_ty)->_1)->id;
                   else
-                    f << _DATATYPEtycon(_TYCONty(cons->alg_ty)->_1)->id << "_" << mangle( cons->name);
+                    f << ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)cons->alg_ty)->_1)->id << "_" << mangle( cons->name);
                   
-#line 732 "../../prop-src/printing.pcc"
+#line 732 "printing.pcc"
                   } break;
                 default: {
                   L7:; 
-#line 734 "../../prop-src/printing.pcc"
+#line 734 "printing.pcc"
                 bug("print_cons()"); 
-#line 734 "../../prop-src/printing.pcc"
+#line 734 "printing.pcc"
                   } break;
               }
             } else { goto L7; }
           } else {
             L8:; 
-#line 725 "../../prop-src/printing.pcc"
+#line 725 "printing.pcc"
           f << mangle(cons->name); 
-#line 725 "../../prop-src/printing.pcc"
+#line 725 "printing.pcc"
           }
           } break;
         default: {
@@ -1443,8 +1443,8 @@ std::ostream& print_cons( std::ostream& f, Cons cons)
     } else { goto L9; }
   } else { goto L7; }
 }
-#line 735 "../../prop-src/printing.pcc"
-#line 735 "../../prop-src/printing.pcc"
+#line 735 "printing.pcc"
+#line 735 "printing.pcc"
 
   return f;
 }
@@ -1475,156 +1475,156 @@ std::ostream& operator << (std::ostream& f, Exps es)
 std::ostream& operator << (std::ostream& f, Exp e)
 {
   
-#line 764 "../../prop-src/printing.pcc"
-#line 974 "../../prop-src/printing.pcc"
+#line 764 "printing.pcc"
+#line 974 "printing.pcc"
 {
   if (e) {
     switch (e->tag__) {
       case a_Exp::tag_LITERALexp: {
-#line 771 "../../prop-src/printing.pcc"
-       f << _LITERALexp(e)->LITERALexp; 
-#line 771 "../../prop-src/printing.pcc"
+#line 771 "printing.pcc"
+       f << ((Exp_LITERALexp *)e)->LITERALexp; 
+#line 771 "printing.pcc"
         } break;
       case a_Exp::tag_IDexp: {
-#line 767 "../../prop-src/printing.pcc"
-       f << _IDexp(e)->IDexp; 
-#line 767 "../../prop-src/printing.pcc"
+#line 767 "printing.pcc"
+       f << ((Exp_IDexp *)e)->IDexp; 
+#line 767 "printing.pcc"
         } break;
       case a_Exp::tag_RELexp: {
         if (
-#line 768 "../../prop-src/printing.pcc"
+#line 768 "printing.pcc"
         same_selectors
-#line 768 "../../prop-src/printing.pcc"
+#line 768 "printing.pcc"
 ) {
           
-#line 768 "../../prop-src/printing.pcc"
+#line 768 "printing.pcc"
          f << "_0"; 
-#line 768 "../../prop-src/printing.pcc"
+#line 768 "printing.pcc"
         } else {
           
-#line 769 "../../prop-src/printing.pcc"
-         f << '_' << _RELexp(e)->RELexp; 
-#line 769 "../../prop-src/printing.pcc"
+#line 769 "printing.pcc"
+         f << '_' << ((Exp_RELexp *)e)->RELexp; 
+#line 769 "printing.pcc"
         }
         } break;
       case a_Exp::tag_DOTexp: {
-        if (_DOTexp(e)->_1) {
-          switch (_DOTexp(e)->_1->tag__) {
+        if (((Exp_DOTexp *)e)->_1) {
+          switch (((Exp_DOTexp *)e)->_1->tag__) {
             case a_Exp::tag_SELECTORexp: {
               if (
-#line 773 "../../prop-src/printing.pcc"
+#line 773 "printing.pcc"
               pretty_print_exp
-#line 773 "../../prop-src/printing.pcc"
+#line 773 "printing.pcc"
 ) {
                 
-#line 774 "../../prop-src/printing.pcc"
+#line 774 "printing.pcc"
                 
-                f << _SELECTORexp(_DOTexp(e)->_1)->_1 << '!' << _SELECTORexp(_DOTexp(e)->_1)->_2->name << '.';
-                	  int n = std::atol(_DOTexp(e)->_2+1);
+                f << ((Exp_SELECTORexp *)((Exp_DOTexp *)e)->_1)->_1 << '!' << ((Exp_SELECTORexp *)((Exp_DOTexp *)e)->_1)->_2->name << '.';
+                	  int n = std::atol(((Exp_DOTexp *)e)->_2+1);
                 	  if (n > 0)
                 	    f << n;
                 	  else
-                	    f << _DOTexp(e)->_2;
+                	    f << ((Exp_DOTexp *)e)->_2;
                 
-#line 781 "../../prop-src/printing.pcc"
+#line 781 "printing.pcc"
               } else {
                 
-#line 785 "../../prop-src/printing.pcc"
-               f << MatchCompiler::make_select( _SELECTORexp(_DOTexp(e)->_1)->_1, _SELECTORexp(_DOTexp(e)->_1)->_2, _SELECTORexp(_DOTexp(e)->_1)->_3, _DOTexp(e)->_2); 
-#line 785 "../../prop-src/printing.pcc"
+#line 785 "printing.pcc"
+               f << MatchCompiler::make_select( ((Exp_SELECTORexp *)((Exp_DOTexp *)e)->_1)->_1, ((Exp_SELECTORexp *)((Exp_DOTexp *)e)->_1)->_2, ((Exp_SELECTORexp *)((Exp_DOTexp *)e)->_1)->_3, ((Exp_DOTexp *)e)->_2); 
+#line 785 "printing.pcc"
               }
               } break;
             case a_Exp::tag_DEREFexp: {
-#line 788 "../../prop-src/printing.pcc"
-             f << _DEREFexp(_DOTexp(e)->_1)->DEREFexp << "->" << _DOTexp(e)->_2; 
-#line 788 "../../prop-src/printing.pcc"
+#line 788 "printing.pcc"
+             f << ((Exp_DEREFexp *)((Exp_DOTexp *)e)->_1)->DEREFexp << "->" << ((Exp_DOTexp *)e)->_2; 
+#line 788 "printing.pcc"
               } break;
             default: {
               L10:; 
-#line 789 "../../prop-src/printing.pcc"
-             f << _DOTexp(e)->_1 << '.' << _DOTexp(e)->_2; 
-#line 789 "../../prop-src/printing.pcc"
+#line 789 "printing.pcc"
+             f << ((Exp_DOTexp *)e)->_1 << '.' << ((Exp_DOTexp *)e)->_2; 
+#line 789 "printing.pcc"
               } break;
           }
         } else { goto L10; }
         } break;
       case a_Exp::tag_SELECTORexp: {
         if (
-#line 782 "../../prop-src/printing.pcc"
+#line 782 "printing.pcc"
         pretty_print_exp
-#line 782 "../../prop-src/printing.pcc"
+#line 782 "printing.pcc"
 ) {
           
-#line 783 "../../prop-src/printing.pcc"
-         f << _SELECTORexp(e)->_1 << '!' << _SELECTORexp(e)->_2->name; 
-#line 783 "../../prop-src/printing.pcc"
+#line 783 "printing.pcc"
+         f << ((Exp_SELECTORexp *)e)->_1 << '!' << ((Exp_SELECTORexp *)e)->_2->name; 
+#line 783 "printing.pcc"
         } else {
           
-#line 787 "../../prop-src/printing.pcc"
-         f << MatchCompiler::make_select( _SELECTORexp(e)->_1, _SELECTORexp(e)->_2, _SELECTORexp(e)->_3); 
-#line 787 "../../prop-src/printing.pcc"
+#line 787 "printing.pcc"
+         f << MatchCompiler::make_select( ((Exp_SELECTORexp *)e)->_1, ((Exp_SELECTORexp *)e)->_2, ((Exp_SELECTORexp *)e)->_3); 
+#line 787 "printing.pcc"
         }
         } break;
       case a_Exp::tag_DEREFexp: {
-#line 790 "../../prop-src/printing.pcc"
-       f << "(*" << _DEREFexp(e)->DEREFexp << ')'; 
-#line 790 "../../prop-src/printing.pcc"
+#line 790 "printing.pcc"
+       f << "(*" << ((Exp_DEREFexp *)e)->DEREFexp << ')'; 
+#line 790 "printing.pcc"
         } break;
       case a_Exp::tag_ARROWexp: {
-#line 791 "../../prop-src/printing.pcc"
-       f << _ARROWexp(e)->_1 << "->" << _ARROWexp(e)->_2; 
-#line 791 "../../prop-src/printing.pcc"
+#line 791 "printing.pcc"
+       f << ((Exp_ARROWexp *)e)->_1 << "->" << ((Exp_ARROWexp *)e)->_2; 
+#line 791 "printing.pcc"
         } break;
       case a_Exp::tag_INDEXexp: {
-#line 793 "../../prop-src/printing.pcc"
-       f << _INDEXexp(e)->_1 << '[' << _INDEXexp(e)->_2 << ']'; 
-#line 793 "../../prop-src/printing.pcc"
+#line 793 "printing.pcc"
+       f << ((Exp_INDEXexp *)e)->_1 << '[' << ((Exp_INDEXexp *)e)->_2 << ']'; 
+#line 793 "printing.pcc"
         } break;
       case a_Exp::tag_BINOPexp: {
-#line 794 "../../prop-src/printing.pcc"
-       f << '(' << _BINOPexp(e)->_2 << ' ' << _BINOPexp(e)->_1 << ' ' << _BINOPexp(e)->_3 << ')'; 
-#line 794 "../../prop-src/printing.pcc"
+#line 794 "printing.pcc"
+       f << '(' << ((Exp_BINOPexp *)e)->_2 << ' ' << ((Exp_BINOPexp *)e)->_1 << ' ' << ((Exp_BINOPexp *)e)->_3 << ')'; 
+#line 794 "printing.pcc"
         } break;
       case a_Exp::tag_PREFIXexp: {
-#line 795 "../../prop-src/printing.pcc"
-       f << '(' << _PREFIXexp(e)->_1 << ' ' << _PREFIXexp(e)->_2 << ')'; 
-#line 795 "../../prop-src/printing.pcc"
+#line 795 "printing.pcc"
+       f << '(' << ((Exp_PREFIXexp *)e)->_1 << ' ' << ((Exp_PREFIXexp *)e)->_2 << ')'; 
+#line 795 "printing.pcc"
         } break;
       case a_Exp::tag_POSTFIXexp: {
-#line 796 "../../prop-src/printing.pcc"
-       f << '(' << _POSTFIXexp(e)->_2 << ' ' << _POSTFIXexp(e)->_1 << ')'; 
-#line 796 "../../prop-src/printing.pcc"
+#line 796 "printing.pcc"
+       f << '(' << ((Exp_POSTFIXexp *)e)->_2 << ' ' << ((Exp_POSTFIXexp *)e)->_1 << ')'; 
+#line 796 "printing.pcc"
         } break;
       case a_Exp::tag_APPexp: {
-#line 792 "../../prop-src/printing.pcc"
-       f << _APPexp(e)->_1 << '(' << _APPexp(e)->_2 << ')'; 
-#line 792 "../../prop-src/printing.pcc"
+#line 792 "printing.pcc"
+       f << ((Exp_APPexp *)e)->_1 << '(' << ((Exp_APPexp *)e)->_2 << ')'; 
+#line 792 "printing.pcc"
         } break;
       case a_Exp::tag_ASSIGNexp: {
-#line 772 "../../prop-src/printing.pcc"
-       f << '(' << _ASSIGNexp(e)->_1 << " = " << _ASSIGNexp(e)->_2 << ')'; 
-#line 772 "../../prop-src/printing.pcc"
+#line 772 "printing.pcc"
+       f << '(' << ((Exp_ASSIGNexp *)e)->_1 << " = " << ((Exp_ASSIGNexp *)e)->_2 << ')'; 
+#line 772 "printing.pcc"
         } break;
       case a_Exp::tag_IFexp: {
-#line 811 "../../prop-src/printing.pcc"
-       f << '(' << _IFexp(e)->_1 << " ? " << _IFexp(e)->_2 << " : " << _IFexp(e)->_3 <<')';
-#line 811 "../../prop-src/printing.pcc"
+#line 811 "printing.pcc"
+       f << '(' << ((Exp_IFexp *)e)->_1 << " ? " << ((Exp_IFexp *)e)->_2 << " : " << ((Exp_IFexp *)e)->_3 <<')';
+#line 811 "printing.pcc"
         } break;
       case a_Exp::tag_TUPLEexp: {
-#line 809 "../../prop-src/printing.pcc"
-       f << _TUPLEexp(e)->TUPLEexp; 
-#line 809 "../../prop-src/printing.pcc"
+#line 809 "printing.pcc"
+       f << ((Exp_TUPLEexp *)e)->TUPLEexp; 
+#line 809 "printing.pcc"
         } break;
       case a_Exp::tag_EXTUPLEexp: {
-#line 810 "../../prop-src/printing.pcc"
-       f << "mkTuple" << length(_EXTUPLEexp(e)->EXTUPLEexp) << '(' << _EXTUPLEexp(e)->EXTUPLEexp << ')'; 
-#line 810 "../../prop-src/printing.pcc"
+#line 810 "printing.pcc"
+       f << "mkTuple" << length(((Exp_EXTUPLEexp *)e)->EXTUPLEexp) << '(' << ((Exp_EXTUPLEexp *)e)->EXTUPLEexp << ')'; 
+#line 810 "printing.pcc"
         } break;
       case a_Exp::tag_RECORDexp: {
-#line 917 "../../prop-src/printing.pcc"
+#line 917 "printing.pcc"
         
         f << "{ ";
-        for (LabExps l = _RECORDexp(e)->RECORDexp; l; l = l->_2)
+        for (LabExps l = ((Exp_RECORDexp *)e)->RECORDexp; l; l = l->_2)
           {
           f << l->_1.label << " = " << l->_1.exp;
           if (l->_2)
@@ -1632,138 +1632,138 @@ std::ostream& operator << (std::ostream& f, Exp e)
         }
         f << " }";
         
-#line 926 "../../prop-src/printing.pcc"
+#line 926 "printing.pcc"
         } break;
       case a_Exp::tag_LISTexp: {
         if (
-#line 927 "../../prop-src/printing.pcc"
+#line 927 "printing.pcc"
         pretty_print_exp
-#line 927 "../../prop-src/printing.pcc"
+#line 927 "printing.pcc"
 ) {
           
-#line 928 "../../prop-src/printing.pcc"
+#line 928 "printing.pcc"
           
-          f << open_of(_LISTexp(e)->_2);
-          	  for( Exps exp_list = _LISTexp(e)->_3; exp_list; exp_list = exp_list->_2)
+          f << open_of(((Exp_LISTexp *)e)->_2);
+          	  for( Exps exp_list = ((Exp_LISTexp *)e)->_3; exp_list; exp_list = exp_list->_2)
           	  {
           	    f << exp_list->_1;
           	    if (exp_list->_2)
           	      f << ", ";
           }
-          	  if (_LISTexp(e)->_4 != NOexp)
-          	    f << " ... " << _LISTexp(e)->_4;
-          f << close_of(_LISTexp(e)->_2);
+          	  if (((Exp_LISTexp *)e)->_4 != NOexp)
+          	    f << " ... " << ((Exp_LISTexp *)e)->_4;
+          f << close_of(((Exp_LISTexp *)e)->_2);
           
-#line 939 "../../prop-src/printing.pcc"
+#line 939 "printing.pcc"
         } else {
           
-          if (_LISTexp(e)->_1) {
-            if (_LISTexp(e)->_2) {
-#line 941 "../../prop-src/printing.pcc"
+          if (((Exp_LISTexp *)e)->_1) {
+            if (((Exp_LISTexp *)e)->_2) {
+#line 941 "printing.pcc"
               
               int i = 0;
-              for( Exps exp_list = _LISTexp(e)->_3; exp_list; exp_list = exp_list->_2)
+              for( Exps exp_list = ((Exp_LISTexp *)e)->_3; exp_list; exp_list = exp_list->_2)
               	  {
               	    Exp exp = exp_list->_1;
-                f << mangle(_LISTexp(e)->_1->name) << '(' << exp;
+                f << mangle(((Exp_LISTexp *)e)->_1->name) << '(' << exp;
               	    if (exp_list->_2)
               	      f << ',';
               	    i++;
               }
-              if (_LISTexp(e)->_4 != NOexp)
-                f << ',' << _LISTexp(e)->_4;
-              	  else if (_LISTexp(e)->_3 == 
-#line 953 "../../prop-src/printing.pcc"
-#line 953 "../../prop-src/printing.pcc"
+              if (((Exp_LISTexp *)e)->_4 != NOexp)
+                f << ',' << ((Exp_LISTexp *)e)->_4;
+              	  else if (((Exp_LISTexp *)e)->_3 == 
+#line 953 "printing.pcc"
+#line 953 "printing.pcc"
               nil_1_
-#line 953 "../../prop-src/printing.pcc"
-#line 953 "../../prop-src/printing.pcc"
+#line 953 "printing.pcc"
+#line 953 "printing.pcc"
               )
-              	    f << mangle(_LISTexp(e)->_2->name);
+              	    f << mangle(((Exp_LISTexp *)e)->_2->name);
                     while (i-- > 0)
                       f << ')';
                   
-#line 957 "../../prop-src/printing.pcc"
+#line 957 "printing.pcc"
             } else {
               L11:; }
           } else { goto L11; }
         }
         } break;
       case a_Exp::tag_VECTORexp: {
-        if (_VECTORexp(e)->_1) {
-#line 960 "../../prop-src/printing.pcc"
+        if (((Exp_VECTORexp *)e)->_1) {
+#line 960 "printing.pcc"
           
-          f << mangle(_VECTORexp(e)->_1->name) << '(';
+          f << mangle(((Exp_VECTORexp *)e)->_1->name) << '(';
           {
-            for(Exps exps = _VECTORexp(e)->_2; exps; exps = exps->_2)
+            for(Exps exps = ((Exp_VECTORexp *)e)->_2; exps; exps = exps->_2)
             {
               f << exps->_1;
               if (exps->_2 != 
-#line 966 "../../prop-src/printing.pcc"
-#line 966 "../../prop-src/printing.pcc"
+#line 966 "printing.pcc"
+#line 966 "printing.pcc"
           nil_1_
-#line 966 "../../prop-src/printing.pcc"
-#line 966 "../../prop-src/printing.pcc"
+#line 966 "printing.pcc"
+#line 966 "printing.pcc"
           )
           f << ',';
           }
           }
           f << ')';
           
-#line 971 "../../prop-src/printing.pcc"
+#line 971 "printing.pcc"
         } else {}
         } break;
       case a_Exp::tag_CONSexp: {
-        if (_CONSexp(e)->_1) {
-          if (_CONSexp(e)->_3) {
-            switch (_CONSexp(e)->_3->tag__) {
+        if (((Exp_CONSexp *)e)->_1) {
+          if (((Exp_CONSexp *)e)->_3) {
+            switch (((Exp_CONSexp *)e)->_3->tag__) {
               case a_Exp::tag_RECORDexp: {
-                if (_CONSexp(e)->_1->ty) {
-                  switch (_CONSexp(e)->_1->ty->tag__) {
+                if (((Exp_CONSexp *)e)->_1->ty) {
+                  switch (((Exp_CONSexp *)e)->_1->ty->tag__) {
                     case a_Ty::tag_TYCONty: {
-                      if (boxed(_TYCONty(_CONSexp(e)->_1->ty)->_1)) {
-                        switch (_TYCONty(_CONSexp(e)->_1->ty)->_1->tag__) {
+                      if (boxed(((Ty_TYCONty *)((Exp_CONSexp *)e)->_1->ty)->_1)) {
+                        switch (((Ty_TYCONty *)((Exp_CONSexp *)e)->_1->ty)->_1->tag__) {
                           case a_TyCon::tag_RECORDtycon: {
-                            if (_CONSexp(e)->_3) {
-                              switch (_CONSexp(e)->_3->tag__) {
+                            if (((Exp_CONSexp *)e)->_3) {
+                              switch (((Exp_CONSexp *)e)->_3->tag__) {
                                 case a_Exp::tag_RECORDexp: {
                                   L12:; 
-#line 838 "../../prop-src/printing.pcc"
+#line 838 "printing.pcc"
                                 // rearrange arguments to
-                                  if (_CONSexp(e)->_2)
+                                  if (((Exp_CONSexp *)e)->_2)
                                   {
-                                    f << "new (" << _CONSexp(e)->_2 << ") ";
-                                    print_cons( f, _CONSexp(e)->_1);
+                                    f << "new (" << ((Exp_CONSexp *)e)->_2 << ") ";
+                                    print_cons( f, ((Exp_CONSexp *)e)->_1);
                                   }
                                   else
-                                    f << mangle(_CONSexp(e)->_1->name);
+                                    f << mangle(((Exp_CONSexp *)e)->_1->name);
                                   
                                   f << '(';
                                   
                                   {
-                                    for_each ( LabExp, i, _RECORDexp(_CONSexp(e)->_3)->RECORDexp)
+                                    for_each ( LabExp, i, ((Exp_RECORDexp *)((Exp_CONSexp *)e)->_3)->RECORDexp)
                                     {
-                                      for_each ( Id, j, _RECORDtycon(_TYCONty(_CONSexp(e)->_1->ty)->_1)->_1)
+                                      for_each ( Id, j, ((TyCon_RECORDtycon *)((Ty_TYCONty *)((Exp_CONSexp *)e)->_1->ty)->_1)->_1)
                                         if (i.label == j)
                                           goto next;
                                       error( "%Lillegal record label '%s' in expression: %s%e\n",
-                                             i.label, _CONSexp(e)->_1->name, _CONSexp(e)->_3);
+                                             i.label, ((Exp_CONSexp *)e)->_1->name, ((Exp_CONSexp *)e)->_3);
                                       next: ;
                                     }
                                   }
                                   {
                                     Bool comma = false;
                                     Ids is; Tys ts;
-                                    for(is = _RECORDtycon(_TYCONty(_CONSexp(e)->_1->ty)->_1)->_1, ts = _TYCONty(_CONSexp(e)->_1->ty)->_2; is; is = is->_2, ts = ts->_2)
+                                    for(is = ((TyCon_RECORDtycon *)((Ty_TYCONty *)((Exp_CONSexp *)e)->_1->ty)->_1)->_1, ts = ((Ty_TYCONty *)((Exp_CONSexp *)e)->_1->ty)->_2; is; is = is->_2, ts = ts->_2)
                                     {
                                       Id i = is->_1;
                                       Bool found = false;
-                                      for_each (LabExp, j, _RECORDexp(_CONSexp(e)->_3)->RECORDexp)
+                                      for_each (LabExp, j, ((Exp_RECORDexp *)((Exp_CONSexp *)e)->_3)->RECORDexp)
                                       {
                                         if (i == j.label) {
                                           if (found)
                                             error( "%Lduplicated label '%s' in expression: %s%e\n",
-                                                   j.label, _CONSexp(e)->_1->name, _CONSexp(e)->_3);
+                                                   j.label, ((Exp_CONSexp *)e)->_1->name, ((Exp_CONSexp *)e)->_3);
                                           found = true;
                                           if (comma)
                                             f << ", ";
@@ -1774,42 +1774,42 @@ std::ostream& operator << (std::ostream& f, Exp e)
                                       if ( !found)
                                       {
                                         
-#line 882 "../../prop-src/printing.pcc"
-#line 892 "../../prop-src/printing.pcc"
+#line 882 "printing.pcc"
+#line 892 "printing.pcc"
                                   {
                                     Exp _V4 = default_val(ts->_1);
                                     if (_V4) {
-#line 887 "../../prop-src/printing.pcc"
+#line 887 "printing.pcc"
                                       
                                       if (comma)
                                         f << ", ";
                                       comma = true;
                                       f << _V4;
                                       
-#line 892 "../../prop-src/printing.pcc"
+#line 892 "printing.pcc"
                                     } else {
-#line 885 "../../prop-src/printing.pcc"
-                                     error ("%Lmissing label '%s' in expression: %s%e\n", i, _CONSexp(e)->_1->name, _CONSexp(e)->_3); 
-#line 885 "../../prop-src/printing.pcc"
+#line 885 "printing.pcc"
+                                     error ("%Lmissing label '%s' in expression: %s%e\n", i, ((Exp_CONSexp *)e)->_1->name, ((Exp_CONSexp *)e)->_3); 
+#line 885 "printing.pcc"
                                     }
                                   }
-#line 893 "../../prop-src/printing.pcc"
-#line 893 "../../prop-src/printing.pcc"
+#line 893 "printing.pcc"
+#line 893 "printing.pcc"
                                   
                                   }
                                   }
                                   }
                                   f << ')';
                                   
-#line 898 "../../prop-src/printing.pcc"
+#line 898 "printing.pcc"
                                   } break;
                                 default: {
                                   L13:; 
-#line 900 "../../prop-src/printing.pcc"
+#line 900 "printing.pcc"
                                   
-                                  error("%Lconstructor '%s' doesn't take labeled arguments\n", _CONSexp(e)->_1->name);
+                                  error("%Lconstructor '%s' doesn't take labeled arguments\n", ((Exp_CONSexp *)e)->_1->name);
                                   
-#line 902 "../../prop-src/printing.pcc"
+#line 902 "printing.pcc"
                                   } break;
                               }
                             } else { goto L13; }
@@ -1824,31 +1824,31 @@ std::ostream& operator << (std::ostream& f, Exp e)
                 } break;
               default: {
                 L14:; 
-                if (_CONSexp(e)->_1->ty) {
-                  switch (_CONSexp(e)->_1->ty->tag__) {
+                if (((Exp_CONSexp *)e)->_1->ty) {
+                  switch (((Exp_CONSexp *)e)->_1->ty->tag__) {
                     case a_Ty::tag_TYCONty: {
                       L15:; 
-                      if (boxed(_TYCONty(_CONSexp(e)->_1->ty)->_1)) {
-                        switch (_TYCONty(_CONSexp(e)->_1->ty)->_1->tag__) {
+                      if (boxed(((Ty_TYCONty *)((Exp_CONSexp *)e)->_1->ty)->_1)) {
+                        switch (((Ty_TYCONty *)((Exp_CONSexp *)e)->_1->ty)->_1->tag__) {
                           case a_TyCon::tag_RECORDtycon: {
                             L16:; 
-                            if (_CONSexp(e)->_3) {
-                              switch (_CONSexp(e)->_3->tag__) {
+                            if (((Exp_CONSexp *)e)->_3) {
+                              switch (((Exp_CONSexp *)e)->_3->tag__) {
                                 case a_Exp::tag_RECORDexp: { goto L12; } break;
                                 default: {
                                   L17:; 
-#line 906 "../../prop-src/printing.pcc"
+#line 906 "printing.pcc"
                                   
-                                  if (_CONSexp(e)->_2)
+                                  if (((Exp_CONSexp *)e)->_2)
                                   {
-                                    f << "new (" << _CONSexp(e)->_2 << ") ";
-                                    print_cons(f,_CONSexp(e)->_1);
+                                    f << "new (" << ((Exp_CONSexp *)e)->_2 << ") ";
+                                    print_cons(f,((Exp_CONSexp *)e)->_1);
                                   }
                                   else
-                                    f << mangle(_CONSexp(e)->_1->name);
-                                  f << '(' << _CONSexp(e)->_3 << ')';
+                                    f << mangle(((Exp_CONSexp *)e)->_1->name);
+                                  f << '(' << ((Exp_CONSexp *)e)->_3 << ')';
                                   
-#line 915 "../../prop-src/printing.pcc"
+#line 915 "printing.pcc"
                                   } break;
                               }
                             } else { goto L17; }
@@ -1861,13 +1861,13 @@ std::ostream& operator << (std::ostream& f, Exp e)
                   }
                 } else {
                   L18:; 
-                  if (_CONSexp(e)->_2) { goto L17; } else {
+                  if (((Exp_CONSexp *)e)->_3) { goto L17; } else {
                     L19:; 
-                    if (_CONSexp(e)->_3) { goto L17; } else {
+                    if (((Exp_CONSexp *)e)->_2) { goto L17; } else {
                       L20:; 
-#line 904 "../../prop-src/printing.pcc"
-                    f << mangle(_CONSexp(e)->_1->name); 
-#line 904 "../../prop-src/printing.pcc"
+#line 904 "printing.pcc"
+                    f << mangle(((Exp_CONSexp *)e)->_1->name); 
+#line 904 "printing.pcc"
                     }
                   }
                 }
@@ -1876,98 +1876,98 @@ std::ostream& operator << (std::ostream& f, Exp e)
           } else { goto L14; }
         } else {
           L21:; 
-#line 974 "../../prop-src/printing.pcc"
+#line 974 "printing.pcc"
          bug("operator << (std::ostream&, Exp);"); 
-#line 974 "../../prop-src/printing.pcc"
+#line 974 "printing.pcc"
         }
         } break;
       case a_Exp::tag_CASTexp: {
-#line 798 "../../prop-src/printing.pcc"
+#line 798 "printing.pcc"
         
         Bool save = pretty_print_ty;
         pretty_print_ty = false;
-        f << "((" << _CASTexp(e)->_1 << ')' << _CASTexp(e)->_2 << ')';
+        f << "((" << ((Exp_CASTexp *)e)->_1 << ')' << ((Exp_CASTexp *)e)->_2 << ')';
         pretty_print_ty = save;
         
-#line 803 "../../prop-src/printing.pcc"
+#line 803 "printing.pcc"
         } break;
       case a_Exp::tag_QUALexp: {
-#line 804 "../../prop-src/printing.pcc"
-       f << _QUALexp(e)->_1 << "::" << _QUALexp(e)->_2; 
-#line 804 "../../prop-src/printing.pcc"
+#line 804 "printing.pcc"
+       f << ((Exp_QUALexp *)e)->_1 << "::" << ((Exp_QUALexp *)e)->_2; 
+#line 804 "printing.pcc"
         } break;
       case a_Exp::tag_EQexp: {
-#line 805 "../../prop-src/printing.pcc"
-       f << "equality_of(" << _EQexp(e)->_2 << ',' << _EQexp(e)->_3 << ')'; 
-#line 805 "../../prop-src/printing.pcc"
+#line 805 "printing.pcc"
+       f << "equality_of(" << ((Exp_EQexp *)e)->_2 << ',' << ((Exp_EQexp *)e)->_3 << ')'; 
+#line 805 "printing.pcc"
         } break;
       case a_Exp::tag_UNIFYexp: {
-#line 806 "../../prop-src/printing.pcc"
-       f << "unify(" << _UNIFYexp(e)->_2 << ',' << _UNIFYexp(e)->_3 << ')'; 
-#line 806 "../../prop-src/printing.pcc"
+#line 806 "printing.pcc"
+       f << "unify(" << ((Exp_UNIFYexp *)e)->_2 << ',' << ((Exp_UNIFYexp *)e)->_3 << ')'; 
+#line 806 "printing.pcc"
         } break;
       case a_Exp::tag_LTexp: {
-#line 807 "../../prop-src/printing.pcc"
-       f << '(' << _LTexp(e)->_2 << " < " << _LTexp(e)->_3 << ')'; 
-#line 807 "../../prop-src/printing.pcc"
+#line 807 "printing.pcc"
+       f << '(' << ((Exp_LTexp *)e)->_2 << " < " << ((Exp_LTexp *)e)->_3 << ')'; 
+#line 807 "printing.pcc"
         } break;
       case a_Exp::tag_HASHexp: {
-#line 808 "../../prop-src/printing.pcc"
-       f << "hash(" << _HASHexp(e)->_2 << ')'; 
-#line 808 "../../prop-src/printing.pcc"
+#line 808 "printing.pcc"
+       f << "hash(" << ((Exp_HASHexp *)e)->_2 << ')'; 
+#line 808 "printing.pcc"
         } break;
       case a_Exp::tag_THISCOSTexp: {
-#line 834 "../../prop-src/printing.pcc"
+#line 834 "printing.pcc"
        f << "t__->cost"; 
-#line 834 "../../prop-src/printing.pcc"
+#line 834 "printing.pcc"
         } break;
       case a_Exp::tag_COSTexp: {
-#line 833 "../../prop-src/printing.pcc"
-       f << "t__->kids[" << _COSTexp(e)->COSTexp << "]->cost"; 
-#line 833 "../../prop-src/printing.pcc"
+#line 833 "printing.pcc"
+       f << "t__->kids[" << ((Exp_COSTexp *)e)->COSTexp << "]->cost"; 
+#line 833 "printing.pcc"
         } break;
       case a_Exp::tag_THISSYNexp: {
-#line 827 "../../prop-src/printing.pcc"
+#line 827 "printing.pcc"
         
-        if (_THISSYNexp(e)->_3)
+        if (((Exp_THISSYNexp *)e)->_3)
           f << "__";
         else // in parser
-          f << "t__->u._" << _THISSYNexp(e)->_1;
+          f << "t__->u._" << ((Exp_THISSYNexp *)e)->_1;
         
-#line 832 "../../prop-src/printing.pcc"
+#line 832 "printing.pcc"
         } break;
       case a_Exp::tag_SYNexp: {
-#line 813 "../../prop-src/printing.pcc"
+#line 813 "printing.pcc"
         
-        if (_SYNexp(e)->_4)
-          f << '_' << _SYNexp(e)->_1 << "__";
-        else if (_SYNexp(e)->_2 < 0) // parser semantic action
+        if (((Exp_SYNexp *)e)->_4)
+          f << '_' << ((Exp_SYNexp *)e)->_1 << "__";
+        else if (((Exp_SYNexp *)e)->_2 < 0) // parser semantic action
         {
-          if (_SYNexp(e)->_1 == 0)
-            f << "syn_" << "._" << -_SYNexp(e)->_2;
+          if (((Exp_SYNexp *)e)->_1 == 0)
+            f << "syn_" << "._" << -((Exp_SYNexp *)e)->_2;
           else
-            f << "t__[" << _SYNexp(e)->_1 << "+to__]._" << -_SYNexp(e)->_2;
+            f << "t__[" << ((Exp_SYNexp *)e)->_1 << "+to__]._" << -((Exp_SYNexp *)e)->_2;
         }
         else
-          f << "t__->kids[" << _SYNexp(e)->_1 << "]->u._" << _SYNexp(e)->_2;
+          f << "t__->kids[" << ((Exp_SYNexp *)e)->_1 << "]->u._" << ((Exp_SYNexp *)e)->_2;
         
-#line 825 "../../prop-src/printing.pcc"
+#line 825 "printing.pcc"
         } break;
       case a_Exp::tag_MARKEDexp: {
-#line 770 "../../prop-src/printing.pcc"
-       f << _MARKEDexp(e)->_2; 
-#line 770 "../../prop-src/printing.pcc"
+#line 770 "printing.pcc"
+       f << ((Exp_MARKEDexp *)e)->_2; 
+#line 770 "printing.pcc"
         } break;
       default: { goto L21; } break;
     }
   } else {
-#line 766 "../../prop-src/printing.pcc"
+#line 766 "printing.pcc"
    
-#line 766 "../../prop-src/printing.pcc"
+#line 766 "printing.pcc"
   }
 }
-#line 975 "../../prop-src/printing.pcc"
-#line 975 "../../prop-src/printing.pcc"
+#line 975 "printing.pcc"
+#line 975 "printing.pcc"
 
   return f;
 }
@@ -2011,25 +2011,25 @@ std::ostream& operator << (std::ostream& f, Inherits i)
 std::ostream& operator << (std::ostream& f, Cost c)
 {
   
-#line 1017 "../../prop-src/printing.pcc"
-#line 1021 "../../prop-src/printing.pcc"
+#line 1017 "printing.pcc"
+#line 1021 "printing.pcc"
 {
   if (c) {
-    if (c->tag__) {
+    if (untagp(c)) {
       
-#line 1021 "../../prop-src/printing.pcc"
-     f << " \\ " << _INTcost(c)->INTcost; 
-#line 1021 "../../prop-src/printing.pcc"
+#line 1021 "printing.pcc"
+     f << " \\ " << ((Cost_INTcost *)derefp(c))->INTcost; 
+#line 1021 "printing.pcc"
     } else {
       
-#line 1020 "../../prop-src/printing.pcc"
-     f << " \\ " << _EXPcost(c)->_1; 
-#line 1020 "../../prop-src/printing.pcc"
+#line 1020 "printing.pcc"
+     f << " \\ " << ((Cost_EXPcost *)c)->_1; 
+#line 1020 "printing.pcc"
     }
   } else {}
 }
-#line 1022 "../../prop-src/printing.pcc"
-#line 1022 "../../prop-src/printing.pcc"
+#line 1022 "printing.pcc"
+#line 1022 "printing.pcc"
 
   return f;
 }
@@ -2043,35 +2043,35 @@ std::ostream& operator << (std::ostream& f, Cost c)
 std::ostream& operator << (std::ostream& f, QualId id)
 {
   
-#line 1034 "../../prop-src/printing.pcc"
-#line 1038 "../../prop-src/printing.pcc"
+#line 1034 "printing.pcc"
+#line 1038 "printing.pcc"
 {
-  if (id->tag__) {
+  if (untagp(id)) {
     
     if (
-#line 1037 "../../prop-src/printing.pcc"
-    std::isalpha(_SIMPLEid(id)->SIMPLEid[0])
-#line 1037 "../../prop-src/printing.pcc"
+#line 1037 "printing.pcc"
+    std::isalpha(((QualId_SIMPLEid *)derefp(id))->SIMPLEid[0])
+#line 1037 "printing.pcc"
 ) {
       
-#line 1037 "../../prop-src/printing.pcc"
-     f << _SIMPLEid(id)->SIMPLEid; 
-#line 1037 "../../prop-src/printing.pcc"
+#line 1037 "printing.pcc"
+     f << ((QualId_SIMPLEid *)derefp(id))->SIMPLEid; 
+#line 1037 "printing.pcc"
     } else {
       
-#line 1038 "../../prop-src/printing.pcc"
-     f << "operator " << _SIMPLEid(id)->SIMPLEid; 
-#line 1038 "../../prop-src/printing.pcc"
+#line 1038 "printing.pcc"
+     f << "operator " << ((QualId_SIMPLEid *)derefp(id))->SIMPLEid; 
+#line 1038 "printing.pcc"
     }
   } else {
     
-#line 1036 "../../prop-src/printing.pcc"
-   f << _NESTEDid(id)->_1 << "::" << _NESTEDid(id)->_2; 
-#line 1036 "../../prop-src/printing.pcc"
+#line 1036 "printing.pcc"
+   f << ((QualId_NESTEDid *)id)->_1 << "::" << ((QualId_NESTEDid *)id)->_2; 
+#line 1036 "printing.pcc"
   }
 }
-#line 1039 "../../prop-src/printing.pcc"
-#line 1039 "../../prop-src/printing.pcc"
+#line 1039 "printing.pcc"
+#line 1039 "printing.pcc"
 
   return f;
 }
@@ -2083,10 +2083,10 @@ std::ostream& operator << (std::ostream& f, QualId id)
 std::ostream& operator << (std::ostream& f, MatchRule mr)
 {
   
-#line 1049 "../../prop-src/printing.pcc"
-#line 1061 "../../prop-src/printing.pcc"
+#line 1049 "printing.pcc"
+#line 1061 "printing.pcc"
 {
-#line 1052 "../../prop-src/printing.pcc"
+#line 1052 "printing.pcc"
   
   Bool save = pretty_print_exp;
   	  pretty_print_exp = true;
@@ -2097,10 +2097,10 @@ std::ostream& operator << (std::ostream& f, MatchRule mr)
   f << mr->_4 << ": ...";
   	  pretty_print_exp = save;
   
-#line 1061 "../../prop-src/printing.pcc"
+#line 1061 "printing.pcc"
 }
-#line 1062 "../../prop-src/printing.pcc"
-#line 1062 "../../prop-src/printing.pcc"
+#line 1062 "printing.pcc"
+#line 1062 "printing.pcc"
 
   return f;
 }
@@ -2114,23 +2114,23 @@ std::ostream& operator << (std::ostream& f, MatchRule mr)
 std::ostream& operator << (std::ostream& f, Match m)
 {
   
-#line 1074 "../../prop-src/printing.pcc"
-#line 1142 "../../prop-src/printing.pcc"
+#line 1074 "printing.pcc"
+#line 1142 "printing.pcc"
 {
   if (boxed(m)) {
     switch (m->tag__) {
       case a_Match::tag_SUCCESSmatch: {
-#line 1079 "../../prop-src/printing.pcc"
-       f << _SUCCESSmatch(m)->_1; 
-#line 1079 "../../prop-src/printing.pcc"
+#line 1079 "printing.pcc"
+       f << ((Match_SUCCESSmatch *)m)->_1; 
+#line 1079 "printing.pcc"
         } break;
       case a_Match::tag_SUCCESSESmatch: {
-#line 1082 "../../prop-src/printing.pcc"
+#line 1082 "printing.pcc"
         
         f << '{';
         Bool comma = false;
-        for (int i = 0; i < _SUCCESSESmatch(m)->_1; i++)
-          if ((*_SUCCESSESmatch(m)->_2)[i])
+        for (int i = 0; i < ((Match_SUCCESSESmatch *)m)->_1; i++)
+          if ((*((Match_SUCCESSESmatch *)m)->_2)[i])
           {
             if (comma)
               f << ", ";
@@ -2139,85 +2139,85 @@ std::ostream& operator << (std::ostream& f, Match m)
           }
         f << '}';
         
-#line 1094 "../../prop-src/printing.pcc"
+#line 1094 "printing.pcc"
         } break;
       case a_Match::tag_COSTmatch: {
-#line 1096 "../../prop-src/printing.pcc"
+#line 1096 "printing.pcc"
         
         f << '{';
         Bool comma = false;
-        for (int i = 0; i < _COSTmatch(m)->_1; i++)
-          if ((*_COSTmatch(m)->_3)[i])
+        for (int i = 0; i < ((Match_COSTmatch *)m)->_1; i++)
+          if ((*((Match_COSTmatch *)m)->_3)[i])
           {
              if (comma)
                f << ", ";
-             f << _COSTmatch(m)->_2[i] << " = " << i;
+             f << ((Match_COSTmatch *)m)->_2[i] << " = " << i;
              comma = true;
           }
         f << '}';
         
-#line 1108 "../../prop-src/printing.pcc"
+#line 1108 "printing.pcc"
         } break;
       case a_Match::tag_GUARDmatch: {
-#line 1080 "../../prop-src/printing.pcc"
-       f << _GUARDmatch(m)->_1 << '(' << _GUARDmatch(m)->_2 << ',' << _GUARDmatch(m)->_3 << ')'; 
-#line 1080 "../../prop-src/printing.pcc"
+#line 1080 "printing.pcc"
+       f << ((Match_GUARDmatch *)m)->_1 << '(' << ((Match_GUARDmatch *)m)->_2 << ',' << ((Match_GUARDmatch *)m)->_3 << ')'; 
+#line 1080 "printing.pcc"
         } break;
       case a_Match::tag_LITERALmatch: {
-        switch (_LITERALmatch(m)->_3[0]->tag__) {
+        switch (((Match_LITERALmatch *)m)->_3[0]->tag__) {
           case a_Literal::tag_REGEXPlit: {
-#line 1114 "../../prop-src/printing.pcc"
+#line 1114 "printing.pcc"
             
             f << "[\n";
-            for (int i = 0; i < _LITERALmatch(m)->_4; i++)
-              f << "  {" << i << "}" << _LITERALmatch(m)->_3[i] << " => " << _LITERALmatch(m)->_5[i] << ",\n";
-            f << _LITERALmatch(m)->_6 << ']';
+            for (int i = 0; i < ((Match_LITERALmatch *)m)->_4; i++)
+              f << "  {" << i << "}" << ((Match_LITERALmatch *)m)->_3[i] << " => " << ((Match_LITERALmatch *)m)->_5[i] << ",\n";
+            f << ((Match_LITERALmatch *)m)->_6 << ']';
             
-#line 1119 "../../prop-src/printing.pcc"
+#line 1119 "printing.pcc"
             } break;
           default: {
-#line 1121 "../../prop-src/printing.pcc"
+#line 1121 "printing.pcc"
             
             f << '[';
-            for (int i = 0; i < _LITERALmatch(m)->_4; i++)
-              f << _LITERALmatch(m)->_3[i] << ':' << _LITERALmatch(m)->_5[i] << ", ";
-            f << _LITERALmatch(m)->_6 << ']';
+            for (int i = 0; i < ((Match_LITERALmatch *)m)->_4; i++)
+              f << ((Match_LITERALmatch *)m)->_3[i] << ':' << ((Match_LITERALmatch *)m)->_5[i] << ", ";
+            f << ((Match_LITERALmatch *)m)->_6 << ']';
             
-#line 1126 "../../prop-src/printing.pcc"
+#line 1126 "printing.pcc"
             } break;
         }
         } break;
       case a_Match::tag_RANGEmatch: {
-#line 1140 "../../prop-src/printing.pcc"
-       f << '[' << _RANGEmatch(m)->_3 << ".." << _RANGEmatch(m)->_4 << ": " << _RANGEmatch(m)->_5 << ", " << _RANGEmatch(m)->_6 << ']'; 
-#line 1140 "../../prop-src/printing.pcc"
+#line 1140 "printing.pcc"
+       f << '[' << ((Match_RANGEmatch *)m)->_3 << ".." << ((Match_RANGEmatch *)m)->_4 << ": " << ((Match_RANGEmatch *)m)->_5 << ", " << ((Match_RANGEmatch *)m)->_6 << ']'; 
+#line 1140 "printing.pcc"
         } break;
       case a_Match::tag_CONSmatch: {
-        if (_CONSmatch(m)->_4) {
-          switch (_CONSmatch(m)->_4->tag__) {
+        if (((Match_CONSmatch *)m)->_4) {
+          switch (((Match_CONSmatch *)m)->_4->tag__) {
             case a_Ty::tag_TYCONty: {
-              if (boxed(_TYCONty(_CONSmatch(m)->_4)->_1)) {
-                switch (_TYCONty(_CONSmatch(m)->_4)->_1->tag__) {
+              if (boxed(((Ty_TYCONty *)((Match_CONSmatch *)m)->_4)->_1)) {
+                switch (((Ty_TYCONty *)((Match_CONSmatch *)m)->_4)->_1->tag__) {
                   case a_TyCon::tag_DATATYPEtycon: {
-#line 1128 "../../prop-src/printing.pcc"
+#line 1128 "printing.pcc"
                     
-                    f << _DATATYPEtycon(_TYCONty(_CONSmatch(m)->_4)->_1)->id << '[';
-                    for (int i = 0; i < _CONSmatch(m)->_5; i++)
+                    f << ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)m)->_4)->_1)->id << '[';
+                    for (int i = 0; i < ((Match_CONSmatch *)m)->_5; i++)
                     {
-                      f << _CONSmatch(m)->_6[i];
-                      if (i < _CONSmatch(m)->_5 - 1) f << ", ";
+                      f << ((Match_CONSmatch *)m)->_6[i];
+                      if (i < ((Match_CONSmatch *)m)->_5 - 1) f << ", ";
                     }
-                    if (_DATATYPEtycon(_TYCONty(_CONSmatch(m)->_4)->_1)->qualifiers & QUALextensible)
-                      f << ", " << _CONSmatch(m)->_7;
+                    if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)m)->_4)->_1)->qualifiers & QUALextensible)
+                      f << ", " << ((Match_CONSmatch *)m)->_7;
                     f << ']';
                     
-#line 1138 "../../prop-src/printing.pcc"
+#line 1138 "printing.pcc"
                     } break;
                   default: {
                     L22:; 
-#line 1142 "../../prop-src/printing.pcc"
+#line 1142 "printing.pcc"
                    bug("operator << (std::ostream&, Match);"); 
-#line 1142 "../../prop-src/printing.pcc"
+#line 1142 "printing.pcc"
                     } break;
                 }
               } else { goto L22; }
@@ -2227,41 +2227,41 @@ std::ostream& operator << (std::ostream& f, Match m)
         } else { goto L22; }
         } break;
       case a_Match::tag_TREECOSTmatch: {
-#line 1110 "../../prop-src/printing.pcc"
-       f << "TREE{" << *_TREECOSTmatch(m)->_2 << "} => " << _TREECOSTmatch(m)->_1; 
-#line 1110 "../../prop-src/printing.pcc"
+#line 1110 "printing.pcc"
+       f << "TREE{" << *((Match_TREECOSTmatch *)m)->_2 << "} => " << ((Match_TREECOSTmatch *)m)->_1; 
+#line 1110 "printing.pcc"
         } break;
       case a_Match::tag_TREELABELmatch: {
-#line 1112 "../../prop-src/printing.pcc"
-       f << "LABEL{" << _TREELABELmatch(m)->_2 << "(" << _TREELABELmatch(m)->_4 << ")} => " << _TREELABELmatch(m)->_1; 
-#line 1112 "../../prop-src/printing.pcc"
+#line 1112 "printing.pcc"
+       f << "LABEL{" << ((Match_TREELABELmatch *)m)->_2 << "(" << ((Match_TREELABELmatch *)m)->_4 << ")} => " << ((Match_TREELABELmatch *)m)->_1; 
+#line 1112 "printing.pcc"
         } break;
       default: {
-#line 1078 "../../prop-src/printing.pcc"
-       f << '<' << _BACKEDGEmatch(m)->_2 << '>'; 
-#line 1078 "../../prop-src/printing.pcc"
+#line 1078 "printing.pcc"
+       f << '<' << ((Match_BACKEDGEmatch *)m)->_2 << '>'; 
+#line 1078 "printing.pcc"
         } break;
     }
   } else {
     if (m) {
       
-#line 1077 "../../prop-src/printing.pcc"
+#line 1077 "printing.pcc"
      f << '-'; 
-#line 1077 "../../prop-src/printing.pcc"
+#line 1077 "printing.pcc"
     } else {
       
-#line 1076 "../../prop-src/printing.pcc"
+#line 1076 "printing.pcc"
      f << '_'; 
-#line 1076 "../../prop-src/printing.pcc"
+#line 1076 "printing.pcc"
     }
   }
 }
-#line 1143 "../../prop-src/printing.pcc"
-#line 1143 "../../prop-src/printing.pcc"
+#line 1143 "printing.pcc"
+#line 1143 "printing.pcc"
 
   return f;
 }
-#line 1146 "../../prop-src/printing.pcc"
+#line 1146 "printing.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -2270,8 +2270,8 @@ Number of ifs generated      = 77
 Number of switches generated = 31
 Number of labels             = 22
 Number of gotos              = 47
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

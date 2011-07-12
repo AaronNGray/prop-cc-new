@@ -146,14 +146,14 @@ fun pat2exp NOpat: Exp:
         return IDexp(id);
       }
   | pat2exp LITERALpat l:        { return LITERALexp(l); }
-  | pat2exp TYPEDpat(p,_):       { return pat2std::exp(p); }
-  | pat2exp ASpat(_,p,_,_):      { return pat2std::exp(p); }
-  | pat2exp CONTEXTpat(_,p):     { return pat2std::exp(p); }
+  | pat2exp TYPEDpat(p,_):       { return pat2exp(p); }
+  | pat2exp ASpat(_,p,_,_):      { return pat2exp(p); }
+  | pat2exp CONTEXTpat(_,p):     { return pat2exp(p); }
   | pat2exp TUPLEpat ps:         { return TUPLEexp(pat2exp(ps)); }
   | pat2exp EXTUPLEpat ps:       { return EXTUPLEexp(pat2exp(ps)); }
   | pat2exp RECORDpat(ps,_):     { return RECORDexp(pat2exp(ps)); }
-  | pat2exp GUARDpat(p,e):       { return pat2std::exp(p); }
-  | pat2exp MARKEDpat(_,p):      { return pat2std::exp(p); }
+  | pat2exp GUARDpat(p,e):       { return pat2exp(p); }
+  | pat2exp MARKEDpat(_,p):      { return pat2exp(p); }
   | pat2exp CONSpat(ONEcons{name...}): { return IDexp(name); }
   | pat2exp APPpat(CONSpat c,e): { return CONSexp(c,#[],pat2exp(e)); }
   | pat2exp LISTpat { cons, nil, head, tail ... }:
@@ -164,23 +164,23 @@ fun pat2exp NOpat: Exp:
       { return mkvariable(p); }
   | pat2exp p: { bug("pat2exp: %p", p); return NOexp; }
 
-and pat2std::exp( #[]: Pats): Exps: { return #[]; }
-  | pat2exp #[a ... b]:        { return #[pat2std::exp(a) ... pat2exp(b)]; }
+and pat2exp( #[]: Pats): Exps: { return #[]; }
+  | pat2exp #[a ... b]:        { return #[pat2exp(a) ... pat2exp(b)]; }
 
 and pat2exp (#[] : LabPats): LabExps: { return #[]; }
   | pat2exp #[a ... b]:
       {
         LabExp labexp;
         labexp.label = a.label;
-        labexp.exp   = pat2std::exp(a.pat);
-        return #[ labexp ... pat2std::exp(b) ];
+        labexp.exp   = pat2exp(a.pat);
+        return #[ labexp ... pat2exp(b) ];
       }
 
 and pat2constructor( p : Pat) : Exp:
     {
       Bool mode_save = write_mode;
       write_mode = false;
-      Exp  e = pat2std::exp(p);
+      Exp  e = pat2exp(p);
       write_mode = mode_save;
       return e;
     }
@@ -189,7 +189,7 @@ and pat2unifier( p : Pat) : Exp:
     {
       Bool mode_save = write_mode;
       write_mode = true;
-      Exp  e = pat2std::exp(p);
+      Exp  e = pat2exp(p);
       write_mode = mode_save;
       return e;
     }
@@ -218,7 +218,7 @@ Exp DatatypeCompiler::lookup_law( Id id, Exps args)
 	            pat, TUPLEexp(args));
           return NOexp;
         }
-        Exp exp = pat2std::exp(pat);
+        Exp exp = pat2exp(pat);
         actual_args = #[];
         if (application_error)
           error( "%Lcannot apply law %p with arguments %f\n",

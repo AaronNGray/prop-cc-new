@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\datatype.pcc".
+//  The original source file is "datatype.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_QUARK_USED
@@ -9,8 +9,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_d_a_t_a_t_y_p_eco_c_c_Q1("a_");
-#line 1 "../../prop-src/datatype.pcc"
+static const Quark _d_a_t_a_t_y_p_eco_c_c_Q1("a_");
+#line 1 "datatype.pcc"
 /////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the DatatypeClass
@@ -128,11 +128,11 @@ void DatatypeHierarchy::get_info()
 DatatypeHierarchy::DatatypeHierarchy
     (Id id, TyVars p, Inherits i, TyQual q, TermDefs t, Decls d)
     : DatatypeClass(DATATYPE_CLASS,id,
-#line 117 "../../prop-src/datatype.pcc"
-#line 117 "../../prop-src/datatype.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_d_a_t_a_t_y_p_eco_c_c_Q1
-#line 117 "../../prop-src/datatype.pcc"
-#line 117 "../../prop-src/datatype.pcc"
+#line 117 "datatype.pcc"
+#line 117 "datatype.pcc"
+_d_a_t_a_t_y_p_eco_c_c_Q1
+#line 117 "datatype.pcc"
+#line 117 "datatype.pcc"
  + id,p,i,q,d,NOcons,this),
       datatype_name(id), term_defs(t), subclasses(0),
       number_of_subclasses(0), datatype_ty(NOty)
@@ -171,57 +171,57 @@ void DatatypeHierarchy::build_class_hierarchy()
   // construct class hierarchy
 
   
-#line 154 "../../prop-src/datatype.pcc"
-#line 197 "../../prop-src/datatype.pcc"
+#line 154 "datatype.pcc"
+#line 197 "datatype.pcc"
 {
   Ty _V1 = lookup_ty(datatype_name);
   if (_V1) {
     switch (_V1->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V1)->_1)) {
-          switch (_TYCONty(_V1)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V1)->_1)) {
+          switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 157 "../../prop-src/datatype.pcc"
+#line 157 "datatype.pcc"
               
-              arity = _DATATYPEtycon(_TYCONty(_V1)->_1)->unit + _DATATYPEtycon(_TYCONty(_V1)->_1)->arg;
-              unit_constructors = _DATATYPEtycon(_TYCONty(_V1)->_1)->unit;
-              arg_constructors  = _DATATYPEtycon(_TYCONty(_V1)->_1)->arg;
-              constructor_terms = _DATATYPEtycon(_TYCONty(_V1)->_1)->terms;
-              optimizations     = _DATATYPEtycon(_TYCONty(_V1)->_1)->opt;
+              arity = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->unit + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->arg;
+              unit_constructors = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->unit;
+              arg_constructors  = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->arg;
+              constructor_terms = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->terms;
+              optimizations     = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->opt;
               datatype_ty       = _V1;
-              _DATATYPEtycon(_TYCONty(_V1)->_1)->hierarchy         = this;
+              ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->hierarchy         = this;
               
-              if (_DATATYPEtycon(_TYCONty(_V1)->_1)->arg > 0) // build class hierarchy only if we have more than
+              if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->arg > 0) // build class hierarchy only if we have more than
               	      // one variants
               {
-                if (_DATATYPEtycon(_TYCONty(_V1)->_1)->opt & OPTsubclassless) // no subclass
+                if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->opt & OPTsubclassless) // no subclass
                 {
                   number_of_subclasses = 0;
                   for (int i = 0; i < arity; i++)
                   {
-                    if (_DATATYPEtycon(_TYCONty(_V1)->_1)->terms[i]->ty != NOty)
+                    if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->terms[i]->ty != NOty)
                     {
-                      cons = _DATATYPEtycon(_TYCONty(_V1)->_1)->terms[i];
+                      cons = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->terms[i];
                       constructor_name = cons->name;
                       is_list  = is_list_constructor(constructor_name);
                       is_array = is_array_constructor(constructor_name);
-                      class_body = append(class_body, _DATATYPEtycon(_TYCONty(_V1)->_1)->terms[i]->body);
+                      class_body = append(class_body, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->terms[i]->body);
                     }
                   }
                 }
               else // use subclass
                 {
-                  number_of_subclasses = _DATATYPEtycon(_TYCONty(_V1)->_1)->arg;
+                  number_of_subclasses = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->arg;
                   subclasses = new DatatypeClass * [number_of_subclasses];
                   for (int i = 0, j = 0; i < arity; i++)
                   {
-                    if (_DATATYPEtycon(_TYCONty(_V1)->_1)->terms[i]->ty != NOty)
-                      subclasses[j++] = build_one_subclass(_DATATYPEtycon(_TYCONty(_V1)->_1)->terms[i]);
+                    if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->terms[i]->ty != NOty)
+                      subclasses[j++] = build_one_subclass(((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->terms[i]);
                   }
                 }
               }
               
-#line 195 "../../prop-src/datatype.pcc"
+#line 195 "datatype.pcc"
               } break;
             default: {
               L1:; } break;
@@ -232,8 +232,8 @@ void DatatypeHierarchy::build_class_hierarchy()
     }
   } else { goto L1; }
 }
-#line 197 "../../prop-src/datatype.pcc"
-#line 197 "../../prop-src/datatype.pcc"
+#line 197 "datatype.pcc"
+#line 197 "datatype.pcc"
 
 }
 
@@ -246,11 +246,11 @@ void DatatypeHierarchy::build_class_hierarchy()
 DatatypeClass *DatatypeHierarchy::build_one_subclass( Cons cons)
 {
   
-#line 208 "../../prop-src/datatype.pcc"
-#line 223 "../../prop-src/datatype.pcc"
+#line 208 "datatype.pcc"
+#line 223 "datatype.pcc"
 {
   if (cons) {
-#line 211 "../../prop-src/datatype.pcc"
+#line 211 "datatype.pcc"
     
     return cons->class_def = new DatatypeClass(
     	      DATATYPE_SUBCLASS,
@@ -263,15 +263,15 @@ DatatypeClass *DatatypeHierarchy::build_one_subclass( Cons cons)
     	      cons,
     	      this);
     
-#line 222 "../../prop-src/datatype.pcc"
+#line 222 "datatype.pcc"
   } else {
-#line 223 "../../prop-src/datatype.pcc"
+#line 223 "datatype.pcc"
    return 0; 
-#line 223 "../../prop-src/datatype.pcc"
+#line 223 "datatype.pcc"
   }
 }
-#line 224 "../../prop-src/datatype.pcc"
-#line 224 "../../prop-src/datatype.pcc"
+#line 224 "datatype.pcc"
+#line 224 "datatype.pcc"
 
 }
 
@@ -351,35 +351,35 @@ void DatatypeClass::gen_class_constructor_parameters
 {
   Ty arg_ty = cons_arg_ty;
   
-#line 302 "../../prop-src/datatype.pcc"
-#line 307 "../../prop-src/datatype.pcc"
+#line 302 "datatype.pcc"
+#line 307 "datatype.pcc"
 {
   Ty _V2 = deref(arg_ty);
   if (_V2) {
     switch (_V2->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V2)->_1)) {
+        if (boxed(((Ty_TYCONty *)_V2)->_1)) {
           L2:; } else {
-          switch ((int)_TYCONty(_V2)->_1) {
+          switch ((int)((Ty_TYCONty *)_V2)->_1) {
             case ((int)TUPLEtycon): {
-              if (_TYCONty(_V2)->_2) {
-                if (_TYCONty(_V2)->_2->_2) {
-                  if (_TYCONty(_V2)->_2->_2->_2) { goto L2; } else {
+              if (((Ty_TYCONty *)_V2)->_2) {
+                if (((Ty_TYCONty *)_V2)->_2->_2) {
+                  if (((Ty_TYCONty *)_V2)->_2->_2->_2) { goto L2; } else {
                     if (
-#line 304 "../../prop-src/datatype.pcc"
+#line 304 "datatype.pcc"
                     generating_list_special_forms
-#line 304 "../../prop-src/datatype.pcc"
+#line 304 "datatype.pcc"
 ) {
                       
-#line 305 "../../prop-src/datatype.pcc"
+#line 305 "datatype.pcc"
                      arg_ty = mktuplety(
-#line 305 "../../prop-src/datatype.pcc"
-#line 305 "../../prop-src/datatype.pcc"
-                      list_1_(_TYCONty(_V2)->_2->_1)
-#line 305 "../../prop-src/datatype.pcc"
-#line 305 "../../prop-src/datatype.pcc"
+#line 305 "datatype.pcc"
+#line 305 "datatype.pcc"
+                      list_1_(((Ty_TYCONty *)_V2)->_2->_1)
+#line 305 "datatype.pcc"
+#line 305 "datatype.pcc"
                       ); 
-#line 305 "../../prop-src/datatype.pcc"
+#line 305 "datatype.pcc"
                     } else {
                        goto L2; }
                   }
@@ -394,8 +394,8 @@ void DatatypeClass::gen_class_constructor_parameters
     }
   } else { goto L2; }
 }
-#line 307 "../../prop-src/datatype.pcc"
-#line 307 "../../prop-src/datatype.pcc"
+#line 307 "datatype.pcc"
+#line 307 "datatype.pcc"
 
   Parameter param;
   switch (k)
@@ -419,11 +419,11 @@ void DatatypeClass::gen_class_constructor_initializers
    (CodeGen& C, Tys tys, DefKind k)
 {
   
-#line 329 "../../prop-src/datatype.pcc"
-#line 351 "../../prop-src/datatype.pcc"
+#line 329 "datatype.pcc"
+#line 351 "datatype.pcc"
 {
   if (cons) {
-#line 332 "../../prop-src/datatype.pcc"
+#line 332 "datatype.pcc"
     
     Id colon = " : ";
     Id comma = "";
@@ -442,11 +442,11 @@ void DatatypeClass::gen_class_constructor_initializers
     // Now generate the initializers for the arguments
     gen_constructor_initializers( C, tys, k, cons_arg_ty, colon, comma);
     
-#line 349 "../../prop-src/datatype.pcc"
+#line 349 "datatype.pcc"
   } else {}
 }
-#line 351 "../../prop-src/datatype.pcc"
-#line 351 "../../prop-src/datatype.pcc"
+#line 351 "datatype.pcc"
+#line 351 "datatype.pcc"
 
 }
 
@@ -468,20 +468,20 @@ void DatatypeClass::gen_constructor_initializers
   }
 
   
-#line 371 "../../prop-src/datatype.pcc"
-#line 423 "../../prop-src/datatype.pcc"
+#line 371 "datatype.pcc"
+#line 423 "datatype.pcc"
 {
   Ty _V3 = deref(ty);
   if (_V3) {
     switch (_V3->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V3)->_1)) {
-          switch (_TYCONty(_V3)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V3)->_1)) {
+          switch (((Ty_TYCONty *)_V3)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 403 "../../prop-src/datatype.pcc"
+#line 403 "datatype.pcc"
               
               Ids l; Tys t;
-              for (l = _RECORDtycon(_TYCONty(_V3)->_1)->_1, t = _TYCONty(_V3)->_2; l && t; l = l->_2, t = t->_2)
+              for (l = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V3)->_1)->_1, t = ((Ty_TYCONty *)_V3)->_2; l && t; l = l->_2, t = t->_2)
               {
                 if (! is_array_ty(t->_1))
                 {
@@ -491,11 +491,11 @@ void DatatypeClass::gen_constructor_initializers
                 }
               }
               
-#line 414 "../../prop-src/datatype.pcc"
+#line 414 "datatype.pcc"
               } break;
             default: {
               L3:; 
-#line 416 "../../prop-src/datatype.pcc"
+#line 416 "datatype.pcc"
               
               if (! is_array_ty(_V3))
               {
@@ -504,17 +504,17 @@ void DatatypeClass::gen_constructor_initializers
                 colon = ""; comma = ", ";
               }
               
-#line 423 "../../prop-src/datatype.pcc"
+#line 423 "datatype.pcc"
               } break;
           }
         } else {
-          switch ((int)_TYCONty(_V3)->_1) {
+          switch ((int)((Ty_TYCONty *)_V3)->_1) {
             case ((int)TUPLEtycon): {
-              if (_TYCONty(_V3)->_2) {
-#line 375 "../../prop-src/datatype.pcc"
+              if (((Ty_TYCONty *)_V3)->_2) {
+#line 375 "datatype.pcc"
                 
                 int i = 1;
-                for_each(Ty, t, _TYCONty(_V3)->_2)
+                for_each(Ty, t, ((Ty_TYCONty *)_V3)->_2)
                 {
                   if (generating_list_special_forms && i == 2)
                   {
@@ -539,7 +539,7 @@ void DatatypeClass::gen_constructor_initializers
                   i++;
                 }
                 
-#line 401 "../../prop-src/datatype.pcc"
+#line 401 "datatype.pcc"
               } else {}
               } break;
             default: { goto L3; } break;
@@ -550,8 +550,8 @@ void DatatypeClass::gen_constructor_initializers
     }
   } else { goto L3; }
 }
-#line 424 "../../prop-src/datatype.pcc"
-#line 424 "../../prop-src/datatype.pcc"
+#line 424 "datatype.pcc"
+#line 424 "datatype.pcc"
 
 }
 
@@ -572,47 +572,47 @@ void DatatypeClass::gen_class_constructor_body( CodeGen& C, Tys tys, DefKind k)
   // Now generate the initializers for array arguments
 
   
-#line 443 "../../prop-src/datatype.pcc"
-#line 464 "../../prop-src/datatype.pcc"
+#line 443 "datatype.pcc"
+#line 464 "datatype.pcc"
 {
   Ty _V4 = deref(ty);
   if (_V4) {
     switch (_V4->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V4)->_1)) {
-          switch (_TYCONty(_V4)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V4)->_1)) {
+          switch (((Ty_TYCONty *)_V4)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 456 "../../prop-src/datatype.pcc"
+#line 456 "datatype.pcc"
               
               Ids ls; Tys ts;
-              for(ls = _RECORDtycon(_TYCONty(_V4)->_1)->_1, ts = _TYCONty(_V4)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
+              for(ls = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V4)->_1)->_1, ts = ((Ty_TYCONty *)_V4)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
               {
-                gen_array_initializer( C, _TYCONty(_V4)->_2, k, ls->_1, ts->_1, "x_");
+                gen_array_initializer( C, ((Ty_TYCONty *)_V4)->_2, k, ls->_1, ts->_1, "x_");
               }
               
-#line 462 "../../prop-src/datatype.pcc"
+#line 462 "datatype.pcc"
               } break;
             default: {
               L4:; 
-#line 464 "../../prop-src/datatype.pcc"
+#line 464 "datatype.pcc"
              gen_array_initializer( C, tys, k, mangle( cons->name), _V4, "x_"); 
-#line 464 "../../prop-src/datatype.pcc"
+#line 464 "datatype.pcc"
               } break;
           }
         } else {
-          switch ((int)_TYCONty(_V4)->_1) {
+          switch ((int)((Ty_TYCONty *)_V4)->_1) {
             case ((int)TUPLEtycon): {
-              if (_TYCONty(_V4)->_2) {
-#line 447 "../../prop-src/datatype.pcc"
+              if (((Ty_TYCONty *)_V4)->_2) {
+#line 447 "datatype.pcc"
                 
                 int i = 1;
-                for_each(Ty, t, _TYCONty(_V4)->_2)
+                for_each(Ty, t, ((Ty_TYCONty *)_V4)->_2)
                 {
                   gen_array_initializer( C, tys, k, index_of(i), t, "x");
                   i++;
                 }
                 
-#line 454 "../../prop-src/datatype.pcc"
+#line 454 "datatype.pcc"
               } else {}
               } break;
             default: { goto L4; } break;
@@ -623,8 +623,8 @@ void DatatypeClass::gen_class_constructor_body( CodeGen& C, Tys tys, DefKind k)
     }
   } else { goto L4; }
 }
-#line 465 "../../prop-src/datatype.pcc"
-#line 465 "../../prop-src/datatype.pcc"
+#line 465 "datatype.pcc"
+#line 465 "datatype.pcc"
 
 }
 
@@ -638,30 +638,30 @@ void DatatypeClass::gen_array_initializer
    (CodeGen& C, Tys tys, DefKind k, Id exp, Ty ty, Id prefix)
 {
   
-#line 477 "../../prop-src/datatype.pcc"
-#line 498 "../../prop-src/datatype.pcc"
+#line 477 "datatype.pcc"
+#line 498 "datatype.pcc"
 {
   Ty _V5 = deref(ty);
   if (_V5) {
     switch (_V5->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V5)->_1)) {
-          switch (_TYCONty(_V5)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V5)->_1)) {
+          switch (((Ty_TYCONty *)_V5)->_1->tag__) {
             case a_TyCon::tag_ARRAYtycon: {
-              if (_TYCONty(_V5)->_2) {
-                if (_TYCONty(_V5)->_2->_2) {
+              if (((Ty_TYCONty *)_V5)->_2) {
+                if (((Ty_TYCONty *)_V5)->_2->_2) {
                   L5:; } else {
-#line 480 "../../prop-src/datatype.pcc"
+#line 480 "datatype.pcc"
                   
                   C.pr( "%^{%+"
                         "%^for (int i__ = 0; i__ < (%e); i__++)"
                         "%^{%+",
-                        _ARRAYtycon(_TYCONty(_V5)->_1)->ARRAYtycon);
+                        ((TyCon_ARRAYtycon *)((Ty_TYCONty *)_V5)->_1)->ARRAYtycon);
                   if (is_array)
                   {
                     C.pr( "%^typedef %t ELEMENT_TYPE__;"
                           "%^new (%S + i__) ELEMENT_TYPE__ (%s%S[i__]);",
-                          _TYCONty(_V5)->_2->_1, "", exp, prefix, exp);
+                          ((Ty_TYCONty *)_V5)->_2->_1, "", exp, prefix, exp);
                   }
                   else
                   {
@@ -669,7 +669,7 @@ void DatatypeClass::gen_array_initializer
                   }
                   C.pr("%-%^}" "%-%^}");
                   
-#line 496 "../../prop-src/datatype.pcc"
+#line 496 "datatype.pcc"
                 }
               } else { goto L5; }
               } break;
@@ -681,8 +681,8 @@ void DatatypeClass::gen_array_initializer
     }
   } else { goto L5; }
 }
-#line 498 "../../prop-src/datatype.pcc"
-#line 498 "../../prop-src/datatype.pcc"
+#line 498 "datatype.pcc"
+#line 498 "datatype.pcc"
 
 }
 
@@ -732,11 +732,11 @@ void DatatypeHierarchy::generate_forward_declarations( CodeGen& C)
 
   // don't generate code for forward definitions
   if (term_defs == 
-#line 546 "../../prop-src/datatype.pcc"
-#line 546 "../../prop-src/datatype.pcc"
+#line 546 "datatype.pcc"
+#line 546 "datatype.pcc"
 nil_1_
-#line 546 "../../prop-src/datatype.pcc"
-#line 546 "../../prop-src/datatype.pcc"
+#line 546 "datatype.pcc"
+#line 546 "datatype.pcc"
 ) return;
 
   generate_unit_constructors(C);
@@ -754,11 +754,11 @@ nil_1_
 void DatatypeHierarchy::generate_forward_class_declarations( CodeGen& C)
 {  // Generate forward declarations only if we have at least one variant
   if (arg_constructors == 0 && term_defs != 
-#line 562 "../../prop-src/datatype.pcc"
-#line 562 "../../prop-src/datatype.pcc"
+#line 562 "datatype.pcc"
+#line 562 "datatype.pcc"
 nil_1_
-#line 562 "../../prop-src/datatype.pcc"
-#line 562 "../../prop-src/datatype.pcc"
+#line 562 "datatype.pcc"
+#line 562 "datatype.pcc"
 ) return;
 
   C.pr(
@@ -811,11 +811,11 @@ void DatatypeHierarchy::generate_datatype_definitions( CodeGen& C)
 
   // don't generate code for forward definitions
   if (term_defs == 
-#line 613 "../../prop-src/datatype.pcc"
-#line 613 "../../prop-src/datatype.pcc"
+#line 613 "datatype.pcc"
+#line 613 "datatype.pcc"
 nil_1_
-#line 613 "../../prop-src/datatype.pcc"
-#line 613 "../../prop-src/datatype.pcc"
+#line 613 "datatype.pcc"
+#line 613 "datatype.pcc"
 ) return;
 
   // If there are no argument constructors, don't generate code
@@ -835,19 +835,19 @@ nil_1_
         ? INLINE_IMPLEMENTATION : INTERFACE_DEFINITION;
 
     generate_datatype_constructors(C,
-#line 631 "../../prop-src/datatype.pcc"
-#line 631 "../../prop-src/datatype.pcc"
+#line 631 "datatype.pcc"
+#line 631 "datatype.pcc"
 nil_1_
-#line 631 "../../prop-src/datatype.pcc"
-#line 631 "../../prop-src/datatype.pcc"
+#line 631 "datatype.pcc"
+#line 631 "datatype.pcc"
 ,kind);
 
     if (options.inline_casts == false || parameters != 
-#line 633 "../../prop-src/datatype.pcc"
-#line 633 "../../prop-src/datatype.pcc"
+#line 633 "datatype.pcc"
+#line 633 "datatype.pcc"
 nil_1_
-#line 633 "../../prop-src/datatype.pcc"
-#line 633 "../../prop-src/datatype.pcc"
+#line 633 "datatype.pcc"
+#line 633 "datatype.pcc"
 )
       generate_downcasting_functions(C);
     C.pr("\n\n");
@@ -973,18 +973,18 @@ void DatatypeClass::generate_datatype_constructor
   else if (is_array)
     special_forms = options.max_vector_len + 2;
   Tys params = 
-#line 757 "../../prop-src/datatype.pcc"
-#line 757 "../../prop-src/datatype.pcc"
+#line 757 "datatype.pcc"
+#line 757 "datatype.pcc"
 nil_1_
-#line 757 "../../prop-src/datatype.pcc"
-#line 757 "../../prop-src/datatype.pcc"
+#line 757 "datatype.pcc"
+#line 757 "datatype.pcc"
 ;
   Ids labels = 
-#line 758 "../../prop-src/datatype.pcc"
-#line 758 "../../prop-src/datatype.pcc"
+#line 758 "datatype.pcc"
+#line 758 "datatype.pcc"
 nil_1_
-#line 758 "../../prop-src/datatype.pcc"
-#line 758 "../../prop-src/datatype.pcc"
+#line 758 "datatype.pcc"
+#line 758 "datatype.pcc"
 ;
 
   for (int form = 1; form <= special_forms; form++)
@@ -998,33 +998,33 @@ nil_1_
     if (is_list && form == 2)
     {
       
-#line 770 "../../prop-src/datatype.pcc"
-#line 775 "../../prop-src/datatype.pcc"
+#line 770 "datatype.pcc"
+#line 775 "datatype.pcc"
 {
   Ty _V6 = deref(formals_ty);
   if (_V6) {
     switch (_V6->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V6)->_1)) {
+        if (boxed(((Ty_TYCONty *)_V6)->_1)) {
           L6:; 
-#line 775 "../../prop-src/datatype.pcc"
+#line 775 "datatype.pcc"
          bug("%LDatatypeClass::generate_datatype_constructor: %T\n", _V6); 
-#line 775 "../../prop-src/datatype.pcc"
+#line 775 "datatype.pcc"
         } else {
-          switch ((int)_TYCONty(_V6)->_1) {
+          switch ((int)((Ty_TYCONty *)_V6)->_1) {
             case ((int)TUPLEtycon): {
-              if (_TYCONty(_V6)->_2) {
-                if (_TYCONty(_V6)->_2->_2) {
-                  if (_TYCONty(_V6)->_2->_2->_2) { goto L6; } else {
-#line 773 "../../prop-src/datatype.pcc"
+              if (((Ty_TYCONty *)_V6)->_2) {
+                if (((Ty_TYCONty *)_V6)->_2->_2) {
+                  if (((Ty_TYCONty *)_V6)->_2->_2->_2) { goto L6; } else {
+#line 773 "datatype.pcc"
                    formals_ty = actuals_ty = mktuplety(
-#line 773 "../../prop-src/datatype.pcc"
-#line 773 "../../prop-src/datatype.pcc"
-                    list_1_(_TYCONty(_V6)->_2->_1)
-#line 773 "../../prop-src/datatype.pcc"
-#line 773 "../../prop-src/datatype.pcc"
+#line 773 "datatype.pcc"
+#line 773 "datatype.pcc"
+                    list_1_(((Ty_TYCONty *)_V6)->_2->_1)
+#line 773 "datatype.pcc"
+#line 773 "datatype.pcc"
                     ); 
-#line 773 "../../prop-src/datatype.pcc"
+#line 773 "datatype.pcc"
                   }
                 } else { goto L6; }
               } else { goto L6; }
@@ -1037,8 +1037,8 @@ nil_1_
     }
   } else { goto L6; }
 }
-#line 776 "../../prop-src/datatype.pcc"
-#line 776 "../../prop-src/datatype.pcc"
+#line 776 "datatype.pcc"
+#line 776 "datatype.pcc"
 
     }
 
@@ -1049,18 +1049,18 @@ nil_1_
       if (form >= 3)
       {
         params = 
-#line 785 "../../prop-src/datatype.pcc"
-#line 785 "../../prop-src/datatype.pcc"
+#line 785 "datatype.pcc"
+#line 785 "datatype.pcc"
 list_1_(cons_arg_ty,params)
-#line 785 "../../prop-src/datatype.pcc"
-#line 785 "../../prop-src/datatype.pcc"
+#line 785 "datatype.pcc"
+#line 785 "datatype.pcc"
 ;
         labels = append( labels, 
-#line 786 "../../prop-src/datatype.pcc"
-#line 786 "../../prop-src/datatype.pcc"
+#line 786 "datatype.pcc"
+#line 786 "datatype.pcc"
 list_1_(index_of((form - 2)))
-#line 786 "../../prop-src/datatype.pcc"
-#line 786 "../../prop-src/datatype.pcc"
+#line 786 "datatype.pcc"
+#line 786 "datatype.pcc"
 );
       }
       formals_ty = mkrecordty( labels, params, false);
@@ -1195,11 +1195,11 @@ list_1_(index_of((form - 2)))
 void DatatypeClass::gen_class_predefinition( CodeGen& C)
 {
   
-#line 919 "../../prop-src/datatype.pcc"
-#line 943 "../../prop-src/datatype.pcc"
+#line 919 "datatype.pcc"
+#line 943 "datatype.pcc"
 {
   if (cons) {
-#line 922 "../../prop-src/datatype.pcc"
+#line 922 "datatype.pcc"
     
     cons_arg_ty = cons->ty;
     C.pr(
@@ -1211,9 +1211,9 @@ void DatatypeClass::gen_class_predefinition( CodeGen& C)
           root->datatype_name, parameters, cons->name
         );
     
-#line 932 "../../prop-src/datatype.pcc"
+#line 932 "datatype.pcc"
   } else {
-#line 934 "../../prop-src/datatype.pcc"
+#line 934 "datatype.pcc"
     
     cons_arg_ty = NOty;
     C.pr(
@@ -1224,11 +1224,11 @@ void DatatypeClass::gen_class_predefinition( CodeGen& C)
           "%^%/",
           root->datatype_name, parameters);
     
-#line 943 "../../prop-src/datatype.pcc"
+#line 943 "datatype.pcc"
   }
 }
-#line 944 "../../prop-src/datatype.pcc"
-#line 944 "../../prop-src/datatype.pcc"
+#line 944 "datatype.pcc"
+#line 944 "datatype.pcc"
 
 }
 
@@ -1247,11 +1247,11 @@ void DatatypeClass::gen_class_interface( CodeGen& C)
    C.pr( "%-%^public:%+");
 
    
-#line 961 "../../prop-src/datatype.pcc"
-#line 972 "../../prop-src/datatype.pcc"
+#line 961 "datatype.pcc"
+#line 972 "datatype.pcc"
 {
   if (cons) {
-#line 964 "../../prop-src/datatype.pcc"
+#line 964 "datatype.pcc"
     
     if ((cons->opt & OPTunboxed) == 0)
     {
@@ -1259,11 +1259,11 @@ void DatatypeClass::gen_class_interface( CodeGen& C)
             cons->ty, cons->name, TYbody);
     }
     
-#line 970 "../../prop-src/datatype.pcc"
+#line 970 "datatype.pcc"
   } else {}
 }
-#line 972 "../../prop-src/datatype.pcc"
-#line 972 "../../prop-src/datatype.pcc"
+#line 972 "datatype.pcc"
+#line 972 "datatype.pcc"
 
 
    DefKind kind = root->inline_methods
@@ -1272,11 +1272,11 @@ void DatatypeClass::gen_class_interface( CodeGen& C)
    // Generate the constructor of the class
    if (cons != NOcons)
      gen_class_constructor( C, 
-#line 979 "../../prop-src/datatype.pcc"
-#line 979 "../../prop-src/datatype.pcc"
+#line 979 "datatype.pcc"
+#line 979 "datatype.pcc"
 nil_1_
-#line 979 "../../prop-src/datatype.pcc"
-#line 979 "../../prop-src/datatype.pcc"
+#line 979 "datatype.pcc"
+#line 979 "datatype.pcc"
 , kind);
 
    // Generate the destructor of the class
@@ -1285,11 +1285,11 @@ nil_1_
        (qualifiers & QUALvirtualdestr) ||
        (cons && is_array))
      gen_class_destructor( C, 
-#line 986 "../../prop-src/datatype.pcc"
-#line 986 "../../prop-src/datatype.pcc"
+#line 986 "datatype.pcc"
+#line 986 "datatype.pcc"
 nil_1_
-#line 986 "../../prop-src/datatype.pcc"
-#line 986 "../../prop-src/datatype.pcc"
+#line 986 "datatype.pcc"
+#line 986 "datatype.pcc"
 , kind);
 
    // Generate the method declarations for all different types
@@ -1506,7 +1506,7 @@ void DatatypeHierarchy::gen_class_postdefinition( CodeGen& C)
    generate_untagging_functions(C);
    DatatypeClass::gen_class_postdefinition(C);
 }
-#line 1202 "../../prop-src/datatype.pcc"
+#line 1202 "datatype.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -1515,8 +1515,8 @@ Number of ifs generated      = 27
 Number of switches generated = 14
 Number of labels             = 6
 Number of gotos              = 27
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

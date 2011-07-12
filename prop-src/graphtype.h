@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\graphtype.ph".
+//  The original source file is "graphtype.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/graphtype.ph"
+#line 1 "graphtype.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This file implements the graph type generator
@@ -30,22 +30,22 @@ class NodeDef;
 class EdgeDef;
 class GraphTypeDef;
 
-#line 26 "../../prop-src/graphtype.ph"
-#line 28 "../../prop-src/graphtype.ph"
+#line 26 "graphtype.ph"
+#line 28 "graphtype.ph"
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type NodeDefs
 ///////////////////////////////////////////////////////////////////////////////
-#line 26 "../../prop-src/graphtype.ph"
+#line 26 "graphtype.ph"
 typedef a_List<NodeDef *> *  NodeDefs;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type EdgeDefs
 ///////////////////////////////////////////////////////////////////////////////
-#line 27 "../../prop-src/graphtype.ph"
+#line 27 "graphtype.ph"
 typedef a_List<EdgeDef *> *  EdgeDefs;
 
-#line 28 "../../prop-src/graphtype.ph"
-#line 28 "../../prop-src/graphtype.ph"
+#line 28 "graphtype.ph"
+#line 28 "graphtype.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -95,38 +95,38 @@ enum
   UPDATEIMAGEgop = 1<<15   // f(x) := y or f{x} with := y
 };
 
-#line 77 "../../prop-src/graphtype.ph"
-#line 77 "../../prop-src/graphtype.ph"
+#line 77 "graphtype.ph"
+#line 77 "graphtype.ph"
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type GraphIndexing
 ///////////////////////////////////////////////////////////////////////////////
-#line 77 "../../prop-src/graphtype.ph"
+#line 77 "graphtype.ph"
 typedef int GraphIndexing;
 
-#line 77 "../../prop-src/graphtype.ph"
-#line 77 "../../prop-src/graphtype.ph"
+#line 77 "graphtype.ph"
+#line 77 "graphtype.ph"
 
-#line 78 "../../prop-src/graphtype.ph"
-#line 78 "../../prop-src/graphtype.ph"
+#line 78 "graphtype.ph"
+#line 78 "graphtype.ph"
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type GraphOps
 ///////////////////////////////////////////////////////////////////////////////
-#line 78 "../../prop-src/graphtype.ph"
+#line 78 "graphtype.ph"
 typedef int GraphOps;
 
-#line 78 "../../prop-src/graphtype.ph"
-#line 78 "../../prop-src/graphtype.ph"
+#line 78 "graphtype.ph"
+#line 78 "graphtype.ph"
 
-#line 79 "../../prop-src/graphtype.ph"
-#line 79 "../../prop-src/graphtype.ph"
+#line 79 "graphtype.ph"
+#line 79 "graphtype.ph"
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type GraphRep
 ///////////////////////////////////////////////////////////////////////////////
-#line 79 "../../prop-src/graphtype.ph"
+#line 79 "graphtype.ph"
 typedef int GraphRep;
 
-#line 79 "../../prop-src/graphtype.ph"
-#line 79 "../../prop-src/graphtype.ph"
+#line 79 "graphtype.ph"
+#line 79 "graphtype.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -146,23 +146,23 @@ protected:
   EdgeDefs edge_defs;
 public:
   GraphTypeDef( Id name, Inherits, TyQual, NodeDefs=
-#line 97 "../../prop-src/graphtype.ph"
-#line 97 "../../prop-src/graphtype.ph"
+#line 97 "graphtype.ph"
+#line 97 "graphtype.ph"
 nil_1_
-#line 97 "../../prop-src/graphtype.ph"
-#line 97 "../../prop-src/graphtype.ph"
+#line 97 "graphtype.ph"
+#line 97 "graphtype.ph"
 , EdgeDefs=
-#line 97 "../../prop-src/graphtype.ph"
-#line 97 "../../prop-src/graphtype.ph"
+#line 97 "graphtype.ph"
+#line 97 "graphtype.ph"
 nil_1_
-#line 97 "../../prop-src/graphtype.ph"
-#line 97 "../../prop-src/graphtype.ph"
+#line 97 "graphtype.ph"
+#line 97 "graphtype.ph"
 , Decls=
-#line 97 "../../prop-src/graphtype.ph"
-#line 97 "../../prop-src/graphtype.ph"
+#line 97 "graphtype.ph"
+#line 97 "graphtype.ph"
 nil_1_
-#line 97 "../../prop-src/graphtype.ph"
-#line 97 "../../prop-src/graphtype.ph"
+#line 97 "graphtype.ph"
+#line 97 "graphtype.ph"
 );
   virtual ~GraphTypeDef();
 
@@ -205,11 +205,11 @@ protected:
   GraphRep rep;           // representation of this domain
 public:
   NodeDef(GraphTypeDef *, Id, Ty = NOty, Id = 0, Id = 0, LabTys = 
-#line 138 "../../prop-src/graphtype.ph"
-#line 138 "../../prop-src/graphtype.ph"
+#line 138 "graphtype.ph"
+#line 138 "graphtype.ph"
 nil_1_
-#line 138 "../../prop-src/graphtype.ph"
-#line 138 "../../prop-src/graphtype.ph"
+#line 138 "graphtype.ph"
+#line 138 "graphtype.ph"
 );
   virtual ~NodeDef();
 
@@ -247,11 +247,11 @@ protected:
 protected:
   EdgeDef( GraphTypeDef *, Id, NodeDef*, NodeDef*,
            GraphIndexing, LabTys = 
-#line 174 "../../prop-src/graphtype.ph"
-#line 174 "../../prop-src/graphtype.ph"
+#line 174 "graphtype.ph"
+#line 174 "graphtype.ph"
 nil_1_
-#line 174 "../../prop-src/graphtype.ph"
-#line 174 "../../prop-src/graphtype.ph"
+#line 174 "graphtype.ph"
+#line 174 "graphtype.ph"
 );
   virtual ~EdgeDef();
 public:
@@ -290,7 +290,7 @@ protected:
 };
 
 #endif
-#line 212 "../../prop-src/graphtype.ph"
+#line 212 "graphtype.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -299,8 +299,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\classdef.pcc".
+//  The original source file is "classdef.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/classdef.pcc"
+#line 1 "classdef.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the class definition mechanism of Prop.
@@ -108,18 +108,18 @@ ClassDefinition::ClassDefinition
     qualifiers(qual), class_body(body)
 {
   constructor_code = 
-#line 103 "../../prop-src/classdef.pcc"
-#line 103 "../../prop-src/classdef.pcc"
+#line 103 "classdef.pcc"
+#line 103 "classdef.pcc"
 nil_1_
-#line 103 "../../prop-src/classdef.pcc"
-#line 103 "../../prop-src/classdef.pcc"
+#line 103 "classdef.pcc"
+#line 103 "classdef.pcc"
 ;
   destructor_code  = 
-#line 104 "../../prop-src/classdef.pcc"
-#line 104 "../../prop-src/classdef.pcc"
+#line 104 "classdef.pcc"
+#line 104 "classdef.pcc"
 nil_1_
-#line 104 "../../prop-src/classdef.pcc"
-#line 104 "../../prop-src/classdef.pcc"
+#line 104 "classdef.pcc"
+#line 104 "classdef.pcc"
 ;
   insert_class(this);
 }
@@ -137,11 +137,11 @@ void ClassDefinition::gen_class_definition( CodeGen& C)
   gen_class_predefinition( C);
   C.pr( "%^%Hclass %s", parameters, class_name);
   if ( inherited_classes != 
-#line 120 "../../prop-src/classdef.pcc"
-#line 120 "../../prop-src/classdef.pcc"
+#line 120 "classdef.pcc"
+#line 120 "classdef.pcc"
 nil_1_
-#line 120 "../../prop-src/classdef.pcc"
-#line 120 "../../prop-src/classdef.pcc"
+#line 120 "classdef.pcc"
+#line 120 "classdef.pcc"
 ) C.pr ( " : %I", inherited_classes);
   C.pr( " {%+\n");
   gen_class_interface( C);
@@ -168,11 +168,11 @@ void ClassDefinition::gen_class_implementation( CodeGen& C, Tys, DefKind) {}
 
 Id ClassDefinition::mangled_name() const { return mangle(class_name); }
 Bool ClassDefinition::is_polymorphic() const { return parameters != 
-#line 145 "../../prop-src/classdef.pcc"
-#line 145 "../../prop-src/classdef.pcc"
+#line 145 "classdef.pcc"
+#line 145 "classdef.pcc"
 nil_1_
-#line 145 "../../prop-src/classdef.pcc"
-#line 145 "../../prop-src/classdef.pcc"
+#line 145 "classdef.pcc"
+#line 145 "classdef.pcc"
 ; }
 Bool ClassDefinition::is_view() const { return qualifiers & QUALview; }
 
@@ -185,11 +185,11 @@ Bool ClassDefinition::is_view() const { return qualifiers & QUALview; }
 void ClassDefinition::add_base_class( Id name, Scope s, TyQual q)
 {
   inherited_classes = add_inherit( name, 
-#line 156 "../../prop-src/classdef.pcc"
-#line 156 "../../prop-src/classdef.pcc"
+#line 156 "classdef.pcc"
+#line 156 "classdef.pcc"
 nil_1_
-#line 156 "../../prop-src/classdef.pcc"
-#line 156 "../../prop-src/classdef.pcc"
+#line 156 "classdef.pcc"
+#line 156 "classdef.pcc"
 , inherited_classes, s, q);
 }
 
@@ -197,17 +197,17 @@ void ClassDefinition::append_base_class( Id name, Scope s, TyQual q)
 {
   inherited_classes = append( inherited_classes,
 			  add_inherit( name, 
-#line 162 "../../prop-src/classdef.pcc"
-#line 162 "../../prop-src/classdef.pcc"
+#line 162 "classdef.pcc"
+#line 162 "classdef.pcc"
 nil_1_
-#line 162 "../../prop-src/classdef.pcc"
-#line 162 "../../prop-src/classdef.pcc"
+#line 162 "classdef.pcc"
+#line 162 "classdef.pcc"
 , 
-#line 162 "../../prop-src/classdef.pcc"
-#line 162 "../../prop-src/classdef.pcc"
+#line 162 "classdef.pcc"
+#line 162 "classdef.pcc"
 nil_1_
-#line 162 "../../prop-src/classdef.pcc"
-#line 162 "../../prop-src/classdef.pcc"
+#line 162 "classdef.pcc"
+#line 162 "classdef.pcc"
 , s, q));
 }
 
@@ -327,41 +327,41 @@ ClassDefinition * ClassDefinition::lookup_class_or_datatype
    (Id class_name, Id constructor)
 {
   
-#line 280 "../../prop-src/classdef.pcc"
-#line 290 "../../prop-src/classdef.pcc"
+#line 280 "classdef.pcc"
+#line 290 "classdef.pcc"
 {
   Ty _V1 = lookup_ty(class_name);
   if (_V1) {
     switch (_V1->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V1)->_1)) {
-          switch (_TYCONty(_V1)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V1)->_1)) {
+          switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
               if (
-#line 282 "../../prop-src/classdef.pcc"
+#line 282 "classdef.pcc"
               (class_name == constructor)
-#line 282 "../../prop-src/classdef.pcc"
+#line 282 "classdef.pcc"
 ) {
                 
-#line 283 "../../prop-src/classdef.pcc"
-               return _DATATYPEtycon(_TYCONty(_V1)->_1)->hierarchy; 
-#line 283 "../../prop-src/classdef.pcc"
+#line 283 "classdef.pcc"
+               return ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->hierarchy; 
+#line 283 "classdef.pcc"
               } else {
                 
-#line 285 "../../prop-src/classdef.pcc"
+#line 285 "classdef.pcc"
                 
                 Cons cons = lookup_cons( constructor);
                 if (cons)
                   return cons->class_def;
                 
-#line 289 "../../prop-src/classdef.pcc"
+#line 289 "classdef.pcc"
               }
               } break;
             default: {
               L1:; 
-#line 290 "../../prop-src/classdef.pcc"
+#line 290 "classdef.pcc"
              return lookup_class( ANY_CLASS,class_name); 
-#line 290 "../../prop-src/classdef.pcc"
+#line 290 "classdef.pcc"
               } break;
           }
         } else { goto L1; }
@@ -370,8 +370,8 @@ ClassDefinition * ClassDefinition::lookup_class_or_datatype
     }
   } else { goto L1; }
 }
-#line 291 "../../prop-src/classdef.pcc"
-#line 291 "../../prop-src/classdef.pcc"
+#line 291 "classdef.pcc"
+#line 291 "classdef.pcc"
 
    return 0;
 }
@@ -403,7 +403,7 @@ void ClassDefinition::add_destructor_code
   if (C)
     C->destructor_code = append( C->destructor_code, body);
 }
-#line 322 "../../prop-src/classdef.pcc"
+#line 322 "classdef.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -412,8 +412,8 @@ Number of ifs generated      = 3
 Number of switches generated = 2
 Number of labels             = 1
 Number of gotos              = 3
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

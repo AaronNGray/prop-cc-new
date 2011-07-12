@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\basics.ph".
+//  The original source file is "basics.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/basics.ph"
+#line 1 "basics.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file contains the basic definitions used in the
@@ -108,8 +108,8 @@ void     bug      (const char *, ...);     // abort and generate a bug report
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 104 "../../prop-src/basics.ph"
-#line 108 "../../prop-src/basics.ph"
+#line 104 "basics.ph"
+#line 108 "basics.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Forward class definition for List<T>
@@ -137,13 +137,13 @@ template <class A, class B> class a_Pair;
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type Id
 ///////////////////////////////////////////////////////////////////////////////
-#line 106 "../../prop-src/basics.ph"
+#line 106 "basics.ph"
 typedef char const * Id;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type Ids
 ///////////////////////////////////////////////////////////////////////////////
-#line 107 "../../prop-src/basics.ph"
+#line 107 "basics.ph"
 typedef a_List<Id> *  Ids;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -153,7 +153,7 @@ typedef a_List<Id> *  Ids;
 ///////////////////////////////////////////////////////////////////////////////
 template <class T> class a_List : public MEM {
 public:
-#line 104 "../../prop-src/basics.ph"
+#line 104 "basics.ph"
   T _1; a_List<T> *  _2; 
   inline a_List (T x_1, a_List<T> *  x_2)
    : _1(x_1), _2(x_2)
@@ -193,7 +193,7 @@ template <class T> inline a_List<T> * list_1_ (T x_1)
 ///////////////////////////////////////////////////////////////////////////////
 template <class A, class B> class a_Pair : public MEM {
 public:
-#line 105 "../../prop-src/basics.ph"
+#line 105 "basics.ph"
   A fst; B snd; 
   inline a_Pair (A x_fst, B x_snd)
    : fst(x_fst), snd(x_snd)
@@ -218,8 +218,8 @@ template <class A, class B> inline a_Pair<A, B> * makepair (A x_fst, B x_snd)
 ///////////////////////////////////////////////////////////////////////////////
 
 
-#line 108 "../../prop-src/basics.ph"
-#line 108 "../../prop-src/basics.ph"
+#line 108 "basics.ph"
+#line 108 "basics.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -269,7 +269,7 @@ public:
 };
 
 #endif
-#line 157 "../../prop-src/basics.ph"
+#line 157 "basics.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -278,8 +278,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

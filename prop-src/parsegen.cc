@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\parsegen.pcc".
+//  The original source file is "parsegen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_QUARK_USED
@@ -9,8 +9,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
-#line 1 "../../prop-src/parsegen.pcc"
+static const Quark _p_a_r_s_e_g_e_nco_c_c_Q1("'");
+#line 1 "parsegen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the syntax/syntax class constructs of Prop.
@@ -39,14 +39,14 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 29 "../../prop-src/parsegen.pcc"
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
+#line 29 "parsegen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Interface specification of datatype GramExp
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -54,7 +54,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Interface specification of datatype List<GramExp>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Interface specification of datatype BNF
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -70,7 +70,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Interface specification of datatype List<BNF>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -78,7 +78,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Interface specification of datatype ProductionSymbol
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -86,7 +86,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Interface specification of datatype List<ProductionSymbol>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -94,7 +94,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Interface specification of datatype PrecRule
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -102,7 +102,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Interface specification of datatype List<PrecRule>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -110,7 +110,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Interface specification of datatype List<a_List<ProductionSymbol> * >
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -118,7 +118,47 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Instantiation of datatype GramExp
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
+GramExp_EXPgram::GramExp_EXPgram (a_List<PrecRule> *  x_1, ShiftReduceErrors x_2, a_List<BNF> *  x_3)
+ : a_GramExp(tag_EXPgram), _1(x_1), _2(x_2), _3(x_3)
+{
+}
+a_GramExp * EXPgram (a_List<PrecRule> *  x_1, ShiftReduceErrors x_2, a_List<BNF> *  x_3)
+{
+  return new GramExp_EXPgram (x_1, x_2, x_3);
+}
+GramExp_POLYgram::GramExp_POLYgram (int x_1, Id * x_2, GramExp x_3)
+ : a_GramExp(tag_POLYgram), _1(x_1), _2(x_2), _3(x_3)
+{
+}
+a_GramExp * POLYgram (int x_1, Id * x_2, GramExp x_3)
+{
+  return new GramExp_POLYgram (x_1, x_2, x_3);
+}
+GramExp_UNIONgram::GramExp_UNIONgram (GramExp x_1, GramExp x_2)
+ : a_GramExp(tag_UNIONgram), _1(x_1), _2(x_2)
+{
+}
+a_GramExp * UNIONgram (GramExp x_1, GramExp x_2)
+{
+  return new GramExp_UNIONgram (x_1, x_2);
+}
+GramExp_RESTRICTgram::GramExp_RESTRICTgram (GramExp x_RESTRICTgram)
+ : a_GramExp(tag_RESTRICTgram), RESTRICTgram(x_RESTRICTgram)
+{
+}
+a_GramExp * RESTRICTgram (GramExp x_RESTRICTgram)
+{
+  return new GramExp_RESTRICTgram (x_RESTRICTgram);
+}
+GramExp_APPgram::GramExp_APPgram (GramExp x_1, GramExp x_2)
+ : a_GramExp(tag_APPgram), _1(x_1), _2(x_2)
+{
+}
+a_GramExp * APPgram (GramExp x_1, GramExp x_2)
+{
+  return new GramExp_APPgram (x_1, x_2);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -126,7 +166,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1("'");
 // Instantiation of datatype List<GramExp>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 #ifdef PROP_EXPLICIT_TEMPLATE_INSTANTIATION
 template class a_List<GramExp>;
 template a_List<GramExp> * list_1_(a_List<ProductionSymbol> *  x_1, a_List<a_List<ProductionSymbol> * > *  x_2);
@@ -140,7 +180,15 @@ template int untag(const a_List<GramExp> *);
 // Instantiation of datatype BNF
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
+a_BNF::a_BNF (Id x_1, Ty x_2, a_List<ProductionSymbols> *  x_3)
+ : _1(x_1), _2(x_2), _3(x_3)
+{
+}
+a_BNF * BNFrule (Id x_1, Ty x_2, a_List<ProductionSymbols> *  x_3)
+{
+  return new a_BNF (x_1, x_2, x_3);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -148,7 +196,7 @@ template int untag(const a_List<GramExp> *);
 // Instantiation of datatype List<BNF>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 #ifdef PROP_EXPLICIT_TEMPLATE_INSTANTIATION
 template class a_List<BNF>;
 template a_List<BNF> * list_1_(GramExp x_1, a_List<GramExp> *  x_2);
@@ -162,7 +210,95 @@ template int untag(const a_List<BNF> *);
 // Instantiation of datatype ProductionSymbol
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
+ProductionSymbol_TERMsym::ProductionSymbol_TERMsym (char x_TERMsym)
+ : a_ProductionSymbol(tag_TERMsym), TERMsym(x_TERMsym)
+{
+}
+a_ProductionSymbol * TERMsym (char x_TERMsym)
+{
+  return new ProductionSymbol_TERMsym (x_TERMsym);
+}
+ProductionSymbol_TERMSTRINGsym::ProductionSymbol_TERMSTRINGsym (char const * x_TERMSTRINGsym)
+ : a_ProductionSymbol(tag_TERMSTRINGsym), TERMSTRINGsym(x_TERMSTRINGsym)
+{
+}
+a_ProductionSymbol * TERMSTRINGsym (char const * x_TERMSTRINGsym)
+{
+  return new ProductionSymbol_TERMSTRINGsym (x_TERMSTRINGsym);
+}
+ProductionSymbol_TERMREGEXPsym::ProductionSymbol_TERMREGEXPsym (char const * x_TERMREGEXPsym)
+ : a_ProductionSymbol(tag_TERMREGEXPsym), TERMREGEXPsym(x_TERMREGEXPsym)
+{
+}
+a_ProductionSymbol * TERMREGEXPsym (char const * x_TERMREGEXPsym)
+{
+  return new ProductionSymbol_TERMREGEXPsym (x_TERMREGEXPsym);
+}
+ProductionSymbol_TOKENsym::ProductionSymbol_TOKENsym (Cons x_TOKENsym)
+ : a_ProductionSymbol(tag_TOKENsym), TOKENsym(x_TOKENsym)
+{
+}
+a_ProductionSymbol * TOKENsym (Cons x_TOKENsym)
+{
+  return new ProductionSymbol_TOKENsym (x_TOKENsym);
+}
+ProductionSymbol_NONTERMsym::ProductionSymbol_NONTERMsym (Id x_NONTERMsym)
+ : a_ProductionSymbol(tag_NONTERMsym), NONTERMsym(x_NONTERMsym)
+{
+}
+a_ProductionSymbol * NONTERMsym (Id x_NONTERMsym)
+{
+  return new ProductionSymbol_NONTERMsym (x_NONTERMsym);
+}
+ProductionSymbol_POSNONTERMsym::ProductionSymbol_POSNONTERMsym (int x_POSNONTERMsym)
+ : a_ProductionSymbol(tag_POSNONTERMsym), POSNONTERMsym(x_POSNONTERMsym)
+{
+}
+a_ProductionSymbol * POSNONTERMsym (int x_POSNONTERMsym)
+{
+  return new ProductionSymbol_POSNONTERMsym (x_POSNONTERMsym);
+}
+ProductionSymbol_ACTIONsym::ProductionSymbol_ACTIONsym (a_List<Decl> *  x_ACTIONsym)
+ : a_ProductionSymbol(tag_ACTIONsym), ACTIONsym(x_ACTIONsym)
+{
+}
+a_ProductionSymbol * ACTIONsym (a_List<Decl> *  x_ACTIONsym)
+{
+  return new ProductionSymbol_ACTIONsym (x_ACTIONsym);
+}
+ProductionSymbol_PREDICATEsym::ProductionSymbol_PREDICATEsym (Exp x_PREDICATEsym)
+ : a_ProductionSymbol(tag_PREDICATEsym), PREDICATEsym(x_PREDICATEsym)
+{
+}
+a_ProductionSymbol * PREDICATEsym (Exp x_PREDICATEsym)
+{
+  return new ProductionSymbol_PREDICATEsym (x_PREDICATEsym);
+}
+ProductionSymbol_PRECsym::ProductionSymbol_PRECsym (Cons x_PRECsym)
+ : a_ProductionSymbol(tag_PRECsym), PRECsym(x_PRECsym)
+{
+}
+a_ProductionSymbol * PRECsym (Cons x_PRECsym)
+{
+  return new ProductionSymbol_PRECsym (x_PRECsym);
+}
+ProductionSymbol_ERRORsym::ProductionSymbol_ERRORsym ()
+ : a_ProductionSymbol(tag_ERRORsym)
+{
+}
+a_ProductionSymbol * ERRORsym ()
+{
+  return new ProductionSymbol_ERRORsym ;
+}
+ProductionSymbol_SPECIALsym::ProductionSymbol_SPECIALsym (char x_SPECIALsym)
+ : a_ProductionSymbol(tag_SPECIALsym), SPECIALsym(x_SPECIALsym)
+{
+}
+a_ProductionSymbol * SPECIALsym (char x_SPECIALsym)
+{
+  return new ProductionSymbol_SPECIALsym (x_SPECIALsym);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -170,7 +306,7 @@ template int untag(const a_List<BNF> *);
 // Instantiation of datatype List<ProductionSymbol>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 #ifdef PROP_EXPLICIT_TEMPLATE_INSTANTIATION
 template class a_List<ProductionSymbol>;
 template a_List<ProductionSymbol> * list_1_(BNF x_1, a_List<BNF> *  x_2);
@@ -184,7 +320,15 @@ template int untag(const a_List<ProductionSymbol> *);
 // Instantiation of datatype PrecRule
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
+a_PrecRule::a_PrecRule (PrecMode x_1, int x_2, ProductionSymbols x_3)
+ : _1(x_1), _2(x_2), _3(x_3)
+{
+}
+a_PrecRule * PRECrule (PrecMode x_1, int x_2, ProductionSymbols x_3)
+{
+  return new a_PrecRule (x_1, x_2, x_3);
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -192,7 +336,7 @@ template int untag(const a_List<ProductionSymbol> *);
 // Instantiation of datatype List<PrecRule>
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 #ifdef PROP_EXPLICIT_TEMPLATE_INSTANTIATION
 template class a_List<PrecRule>;
 template a_List<PrecRule> * list_1_(ProductionSymbol x_1, a_List<ProductionSymbol> *  x_2);
@@ -206,7 +350,7 @@ template int untag(const a_List<PrecRule> *);
 // Instantiation of datatype List<a_List<ProductionSymbol> * >
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 29 "../../prop-src/parsegen.pcc"
+#line 29 "parsegen.pcc"
 #ifdef PROP_EXPLICIT_TEMPLATE_INSTANTIATION
 template class a_List<a_List<ProductionSymbol> * >;
 template a_List<a_List<ProductionSymbol> * > * list_1_(PrecRule x_1, a_List<PrecRule> *  x_2);
@@ -215,8 +359,8 @@ template int boxed(const a_List<a_List<ProductionSymbol> * > *);
 template int untag(const a_List<a_List<ProductionSymbol> * > *);
 #endif /* PROP_EXPLICIT_TEMPLATE_INSTANTIATION */
 
-#line 33 "../../prop-src/parsegen.pcc"
-#line 33 "../../prop-src/parsegen.pcc"
+#line 33 "parsegen.pcc"
+#line 33 "parsegen.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -243,81 +387,81 @@ ParserCompiler::~ParserCompiler() {}
 std::ostream& operator << (std::ostream& f, ProductionSymbol sym)
 {
   
-#line 58 "../../prop-src/parsegen.pcc"
-#line 72 "../../prop-src/parsegen.pcc"
+#line 58 "parsegen.pcc"
+#line 72 "parsegen.pcc"
 {
   switch (sym->tag__) {
     case a_ProductionSymbol::tag_TERMsym: {
-#line 60 "../../prop-src/parsegen.pcc"
-    f << '\'' << print_char(_TERMsym(sym)->TERMsym) << '\''; 
-#line 60 "../../prop-src/parsegen.pcc"
+#line 60 "parsegen.pcc"
+    f << '\'' << print_char(((ProductionSymbol_TERMsym *)sym)->TERMsym) << '\''; 
+#line 60 "parsegen.pcc"
       } break;
     case a_ProductionSymbol::tag_TERMSTRINGsym: {
-#line 66 "../../prop-src/parsegen.pcc"
-    f << _TERMSTRINGsym(sym)->TERMSTRINGsym; 
-#line 66 "../../prop-src/parsegen.pcc"
+#line 66 "parsegen.pcc"
+    f << ((ProductionSymbol_TERMSTRINGsym *)sym)->TERMSTRINGsym; 
+#line 66 "parsegen.pcc"
       } break;
     case a_ProductionSymbol::tag_TERMREGEXPsym: {
-#line 67 "../../prop-src/parsegen.pcc"
-    f << _TERMREGEXPsym(sym)->TERMREGEXPsym; 
-#line 67 "../../prop-src/parsegen.pcc"
+#line 67 "parsegen.pcc"
+    f << ((ProductionSymbol_TERMREGEXPsym *)sym)->TERMREGEXPsym; 
+#line 67 "parsegen.pcc"
       } break;
     case a_ProductionSymbol::tag_TOKENsym: {
-      if (_TOKENsym(sym)->TOKENsym) {
-#line 62 "../../prop-src/parsegen.pcc"
-      f << _TOKENsym(sym)->TOKENsym->name; 
-#line 62 "../../prop-src/parsegen.pcc"
+      if (((ProductionSymbol_TOKENsym *)sym)->TOKENsym) {
+#line 62 "parsegen.pcc"
+      f << ((ProductionSymbol_TOKENsym *)sym)->TOKENsym->name; 
+#line 62 "parsegen.pcc"
       } else {
-#line 61 "../../prop-src/parsegen.pcc"
+#line 61 "parsegen.pcc"
       f << "<?>"; 
-#line 61 "../../prop-src/parsegen.pcc"
+#line 61 "parsegen.pcc"
       }
       } break;
     case a_ProductionSymbol::tag_NONTERMsym: {
-#line 63 "../../prop-src/parsegen.pcc"
-    f << _NONTERMsym(sym)->NONTERMsym; 
-#line 63 "../../prop-src/parsegen.pcc"
+#line 63 "parsegen.pcc"
+    f << ((ProductionSymbol_NONTERMsym *)sym)->NONTERMsym; 
+#line 63 "parsegen.pcc"
       } break;
     case a_ProductionSymbol::tag_POSNONTERMsym: {
-#line 64 "../../prop-src/parsegen.pcc"
-    f << _POSNONTERMsym(sym)->POSNONTERMsym; 
-#line 64 "../../prop-src/parsegen.pcc"
+#line 64 "parsegen.pcc"
+    f << ((ProductionSymbol_POSNONTERMsym *)sym)->POSNONTERMsym; 
+#line 64 "parsegen.pcc"
       } break;
     case a_ProductionSymbol::tag_ACTIONsym: {
-#line 65 "../../prop-src/parsegen.pcc"
+#line 65 "parsegen.pcc"
     f << "{ ... }"; 
-#line 65 "../../prop-src/parsegen.pcc"
+#line 65 "parsegen.pcc"
       } break;
     case a_ProductionSymbol::tag_PREDICATEsym: {
-#line 68 "../../prop-src/parsegen.pcc"
-    f << '(' << _PREDICATEsym(sym)->PREDICATEsym << ')'; 
-#line 68 "../../prop-src/parsegen.pcc"
+#line 68 "parsegen.pcc"
+    f << '(' << ((ProductionSymbol_PREDICATEsym *)sym)->PREDICATEsym << ')'; 
+#line 68 "parsegen.pcc"
       } break;
     case a_ProductionSymbol::tag_PRECsym: {
-      if (_PRECsym(sym)->PRECsym) {
-#line 69 "../../prop-src/parsegen.pcc"
-      f << "prec: " << _PRECsym(sym)->PRECsym->name; 
-#line 69 "../../prop-src/parsegen.pcc"
+      if (((ProductionSymbol_PRECsym *)sym)->PRECsym) {
+#line 69 "parsegen.pcc"
+      f << "prec: " << ((ProductionSymbol_PRECsym *)sym)->PRECsym->name; 
+#line 69 "parsegen.pcc"
       } else {
-#line 70 "../../prop-src/parsegen.pcc"
+#line 70 "parsegen.pcc"
       f << "prec: ???"; 
-#line 70 "../../prop-src/parsegen.pcc"
+#line 70 "parsegen.pcc"
       }
       } break;
     case a_ProductionSymbol::tag_ERRORsym: {
-#line 71 "../../prop-src/parsegen.pcc"
+#line 71 "parsegen.pcc"
     f << '?'; 
-#line 71 "../../prop-src/parsegen.pcc"
+#line 71 "parsegen.pcc"
       } break;
     default: {
-#line 72 "../../prop-src/parsegen.pcc"
+#line 72 "parsegen.pcc"
     f << "???"; 
-#line 72 "../../prop-src/parsegen.pcc"
+#line 72 "parsegen.pcc"
       } break;
   }
 }
-#line 73 "../../prop-src/parsegen.pcc"
-#line 73 "../../prop-src/parsegen.pcc"
+#line 73 "parsegen.pcc"
+#line 73 "parsegen.pcc"
 
   return f;
 }
@@ -348,10 +492,10 @@ std::ostream& operator << (std::ostream& f, ProductionSymbols P)
 std::ostream& operator << (std::ostream& f, BNF bnf)
 {
   
-#line 102 "../../prop-src/parsegen.pcc"
-#line 112 "../../prop-src/parsegen.pcc"
+#line 102 "parsegen.pcc"
+#line 112 "parsegen.pcc"
 {
-#line 105 "../../prop-src/parsegen.pcc"
+#line 105 "parsegen.pcc"
   
   f << bnf->_1;
   if (bnf->_2 != NOty)
@@ -360,10 +504,10 @@ std::ostream& operator << (std::ostream& f, BNF bnf)
   for_each (ProductionSymbols, p, bnf->_3)
     {  f << '\t' << p << '\n'; }
   
-#line 112 "../../prop-src/parsegen.pcc"
+#line 112 "parsegen.pcc"
 }
-#line 113 "../../prop-src/parsegen.pcc"
-#line 113 "../../prop-src/parsegen.pcc"
+#line 113 "parsegen.pcc"
+#line 113 "parsegen.pcc"
 
   return f;
 }
@@ -390,43 +534,43 @@ std::ostream& operator << (std::ostream& f, BNFs rules)
 std::ostream& operator << (std::ostream& f, PrecRule r)
 {
   
-#line 138 "../../prop-src/parsegen.pcc"
-#line 149 "../../prop-src/parsegen.pcc"
+#line 138 "parsegen.pcc"
+#line 149 "parsegen.pcc"
 {
-#line 141 "../../prop-src/parsegen.pcc"
+#line 141 "parsegen.pcc"
   
   
-#line 142 "../../prop-src/parsegen.pcc"
-#line 146 "../../prop-src/parsegen.pcc"
+#line 142 "parsegen.pcc"
+#line 146 "parsegen.pcc"
   {
     PrecMode _V1 = r->_1;
     switch (_V1) {
       case LEFTassoc: {
-#line 144 "../../prop-src/parsegen.pcc"
+#line 144 "parsegen.pcc"
        f << "left: "; 
-#line 144 "../../prop-src/parsegen.pcc"
+#line 144 "parsegen.pcc"
         } break;
       case RIGHTassoc: {
-#line 145 "../../prop-src/parsegen.pcc"
+#line 145 "parsegen.pcc"
        f << "right: "; 
-#line 145 "../../prop-src/parsegen.pcc"
+#line 145 "parsegen.pcc"
         } break;
       default: {
-#line 146 "../../prop-src/parsegen.pcc"
+#line 146 "parsegen.pcc"
        f << "nonfix: "; 
-#line 146 "../../prop-src/parsegen.pcc"
+#line 146 "parsegen.pcc"
         } break;
     }
   }
-#line 147 "../../prop-src/parsegen.pcc"
-#line 147 "../../prop-src/parsegen.pcc"
+#line 147 "parsegen.pcc"
+#line 147 "parsegen.pcc"
   
   f << r->_2 << ' ' << r->_3 << '\n';
   
-#line 149 "../../prop-src/parsegen.pcc"
+#line 149 "parsegen.pcc"
 }
-#line 150 "../../prop-src/parsegen.pcc"
-#line 150 "../../prop-src/parsegen.pcc"
+#line 150 "parsegen.pcc"
+#line 150 "parsegen.pcc"
 
   return f;
 }
@@ -438,9 +582,9 @@ std::ostream& operator << (std::ostream& f, PrecRule r)
 ///////////////////////////////////////////////////////////////////////////////
 
 std::ostream& operator << (std::ostream& f, 
-#line 160 "../../prop-src/parsegen.pcc"
+#line 160 "parsegen.pcc"
 a_List<PrecRule> *  
-#line 160 "../../prop-src/parsegen.pcc"
+#line 160 "parsegen.pcc"
  rules)
 {
   for_each (PrecRule, r, rules)
@@ -457,19 +601,19 @@ a_List<PrecRule> *
 std::ostream& operator << (std::ostream& f, GramExp exp)
 {
   
-#line 180 "../../prop-src/parsegen.pcc"
+#line 180 "parsegen.pcc"
 {
   switch (exp->tag__) {
     case a_GramExp::tag_EXPgram: {
-#line 178 "../../prop-src/parsegen.pcc"
-     f << _EXPgram(exp)->_1 << _EXPgram(exp)->_3; 
-#line 178 "../../prop-src/parsegen.pcc"
+#line 178 "parsegen.pcc"
+     f << ((GramExp_EXPgram *)exp)->_1 << ((GramExp_EXPgram *)exp)->_3; 
+#line 178 "parsegen.pcc"
       } break;
     default: {} break;
   }
 }
-#line 180 "../../prop-src/parsegen.pcc"
-#line 180 "../../prop-src/parsegen.pcc"
+#line 180 "parsegen.pcc"
+#line 180 "parsegen.pcc"
 
   return f;
 }
@@ -482,31 +626,31 @@ std::ostream& operator << (std::ostream& f, GramExp exp)
 
 SyntaxClass::SyntaxClass( CLASS_TYPE ct, Id id, Inherits i, TyQual q, Decls body)
     : ClassDefinition( ct, id, 
-#line 191 "../../prop-src/parsegen.pcc"
-#line 191 "../../prop-src/parsegen.pcc"
+#line 191 "parsegen.pcc"
+#line 191 "parsegen.pcc"
 nil_1_
-#line 191 "../../prop-src/parsegen.pcc"
-#line 191 "../../prop-src/parsegen.pcc"
+#line 191 "parsegen.pcc"
+#line 191 "parsegen.pcc"
 , add_inherit( "LR1Parser", 
-#line 191 "../../prop-src/parsegen.pcc"
-#line 191 "../../prop-src/parsegen.pcc"
+#line 191 "parsegen.pcc"
+#line 191 "parsegen.pcc"
 nil_1_
-#line 191 "../../prop-src/parsegen.pcc"
-#line 191 "../../prop-src/parsegen.pcc"
+#line 191 "parsegen.pcc"
+#line 191 "parsegen.pcc"
 , i), q, body),
       production_rules(
-#line 192 "../../prop-src/parsegen.pcc"
-#line 192 "../../prop-src/parsegen.pcc"
+#line 192 "parsegen.pcc"
+#line 192 "parsegen.pcc"
 nil_1_
-#line 192 "../../prop-src/parsegen.pcc"
-#line 192 "../../prop-src/parsegen.pcc"
+#line 192 "parsegen.pcc"
+#line 192 "parsegen.pcc"
 ),
       precedence_rules(
-#line 193 "../../prop-src/parsegen.pcc"
-#line 193 "../../prop-src/parsegen.pcc"
+#line 193 "parsegen.pcc"
+#line 193 "parsegen.pcc"
 nil_1_
-#line 193 "../../prop-src/parsegen.pcc"
-#line 193 "../../prop-src/parsegen.pcc"
+#line 193 "parsegen.pcc"
+#line 193 "parsegen.pcc"
 ),
       G(0), parserGen(0), prec(0),
       nonterm_map(string_hash, string_equal),
@@ -600,26 +744,26 @@ void SyntaxClass::gen_parser( CodeGen& C, GramExp e)
 void SyntaxClass::compile_grammar( CodeGen& C, GramExp e)
 {
   
-#line 285 "../../prop-src/parsegen.pcc"
-#line 292 "../../prop-src/parsegen.pcc"
+#line 285 "parsegen.pcc"
+#line 292 "parsegen.pcc"
 {
   switch (e->tag__) {
     case a_GramExp::tag_EXPgram: {
-#line 288 "../../prop-src/parsegen.pcc"
+#line 288 "parsegen.pcc"
       
-      compile_rules(C, _EXPgram(e)->_1, _EXPgram(e)->_2, _EXPgram(e)->_3);
+      compile_rules(C, ((GramExp_EXPgram *)e)->_1, ((GramExp_EXPgram *)e)->_2, ((GramExp_EXPgram *)e)->_3);
       
-#line 290 "../../prop-src/parsegen.pcc"
+#line 290 "parsegen.pcc"
       } break;
     default: {
-#line 292 "../../prop-src/parsegen.pcc"
+#line 292 "parsegen.pcc"
      bug("SyntaxClass::compile_grammar"); 
-#line 292 "../../prop-src/parsegen.pcc"
+#line 292 "parsegen.pcc"
       } break;
   }
 }
-#line 293 "../../prop-src/parsegen.pcc"
-#line 293 "../../prop-src/parsegen.pcc"
+#line 293 "parsegen.pcc"
+#line 293 "parsegen.pcc"
 
 }
 
@@ -641,10 +785,10 @@ void SyntaxClass::preprocess_grammar ()
     for_each(BNF, r, production_rules)
     {
       
-#line 313 "../../prop-src/parsegen.pcc"
-#line 342 "../../prop-src/parsegen.pcc"
+#line 313 "parsegen.pcc"
+#line 342 "parsegen.pcc"
 {
-#line 316 "../../prop-src/parsegen.pcc"
+#line 316 "parsegen.pcc"
   
   for_each ( ProductionSymbols, p, r->_3)
   {
@@ -653,26 +797,26 @@ void SyntaxClass::preprocess_grammar ()
     {
       s->set_loc();
       
-#line 323 "../../prop-src/parsegen.pcc"
-#line 336 "../../prop-src/parsegen.pcc"
+#line 323 "parsegen.pcc"
+#line 336 "parsegen.pcc"
   {
     switch (s->tag__) {
       case a_ProductionSymbol::tag_TOKENsym: {
-        if (_TOKENsym(s)->TOKENsym) {
-          if (_TOKENsym(s)->TOKENsym->alg_ty) {
-            switch (_TOKENsym(s)->TOKENsym->alg_ty->tag__) {
+        if (((ProductionSymbol_TOKENsym *)s)->TOKENsym) {
+          if (((ProductionSymbol_TOKENsym *)s)->TOKENsym->alg_ty) {
+            switch (((ProductionSymbol_TOKENsym *)s)->TOKENsym->alg_ty->tag__) {
               case a_Ty::tag_TYCONty: {
-                if (boxed(_TYCONty(_TOKENsym(s)->TOKENsym->alg_ty)->_1)) {
-                  switch (_TYCONty(_TOKENsym(s)->TOKENsym->alg_ty)->_1->tag__) {
+                if (boxed(((Ty_TYCONty *)((ProductionSymbol_TOKENsym *)s)->TOKENsym->alg_ty)->_1)) {
+                  switch (((Ty_TYCONty *)((ProductionSymbol_TOKENsym *)s)->TOKENsym->alg_ty)->_1->tag__) {
                     case a_TyCon::tag_DATATYPEtycon: {
-#line 328 "../../prop-src/parsegen.pcc"
+#line 328 "parsegen.pcc"
                       
-                      if ((_DATATYPEtycon(_TYCONty(_TOKENsym(s)->TOKENsym->alg_ty)->_1)->qualifiers & QUALlexeme) == 0)
-                        error("%Lconstructor %s is not a lexeme\n",_TOKENsym(s)->TOKENsym->name);
-                      if (tag_of(_TOKENsym(s)->TOKENsym) > max_term)
-                        max_term = tag_of(_TOKENsym(s)->TOKENsym);
+                      if ((((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((ProductionSymbol_TOKENsym *)s)->TOKENsym->alg_ty)->_1)->qualifiers & QUALlexeme) == 0)
+                        error("%Lconstructor %s is not a lexeme\n",((ProductionSymbol_TOKENsym *)s)->TOKENsym->name);
+                      if (tag_of(((ProductionSymbol_TOKENsym *)s)->TOKENsym) > max_term)
+                        max_term = tag_of(((ProductionSymbol_TOKENsym *)s)->TOKENsym);
                       
-#line 333 "../../prop-src/parsegen.pcc"
+#line 333 "parsegen.pcc"
                       } break;
                     default: {
                       L1:; } break;
@@ -685,15 +829,15 @@ void SyntaxClass::preprocess_grammar ()
         } else { goto L1; }
         } break;
       case a_ProductionSymbol::tag_ACTIONsym: {
-#line 334 "../../prop-src/parsegen.pcc"
+#line 334 "parsegen.pcc"
        no_action = false; 
-#line 334 "../../prop-src/parsegen.pcc"
+#line 334 "parsegen.pcc"
         } break;
       default: { goto L1; } break;
     }
   }
-#line 336 "../../prop-src/parsegen.pcc"
-#line 336 "../../prop-src/parsegen.pcc"
+#line 336 "parsegen.pcc"
+#line 336 "parsegen.pcc"
   
   }
   if (r->_2 != NOty && no_action)
@@ -701,10 +845,10 @@ void SyntaxClass::preprocess_grammar ()
           r->loc(), r->_1, r->_2) << p << '\n';
   }
   
-#line 342 "../../prop-src/parsegen.pcc"
+#line 342 "parsegen.pcc"
 }
-#line 343 "../../prop-src/parsegen.pcc"
-#line 343 "../../prop-src/parsegen.pcc"
+#line 343 "parsegen.pcc"
+#line 343 "parsegen.pcc"
 
     }
   }
@@ -722,10 +866,10 @@ void SyntaxClass::preprocess_grammar ()
     for_each(BNF, r, production_rules)
     {
       
-#line 359 "../../prop-src/parsegen.pcc"
-#line 369 "../../prop-src/parsegen.pcc"
+#line 359 "parsegen.pcc"
+#line 369 "parsegen.pcc"
 {
-#line 362 "../../prop-src/parsegen.pcc"
+#line 362 "parsegen.pcc"
   
   if (! nonterm_map.contains(r->_1))
     {
@@ -734,10 +878,10 @@ void SyntaxClass::preprocess_grammar ()
     }
   number_of_productions += length(r->_3);
   
-#line 369 "../../prop-src/parsegen.pcc"
+#line 369 "parsegen.pcc"
 }
-#line 370 "../../prop-src/parsegen.pcc"
-#line 370 "../../prop-src/parsegen.pcc"
+#line 370 "parsegen.pcc"
+#line 370 "parsegen.pcc"
 
     }
   }
@@ -756,10 +900,10 @@ void SyntaxClass::translate_into_grammar ()
   for_each(BNF, r, production_rules)
   {
     
-#line 387 "../../prop-src/parsegen.pcc"
-#line 450 "../../prop-src/parsegen.pcc"
+#line 387 "parsegen.pcc"
+#line 450 "parsegen.pcc"
 {
-#line 390 "../../prop-src/parsegen.pcc"
+#line 390 "parsegen.pcc"
   
   Grammar::NonTerminal A = (Grammar::NonTerminal)nonterm_map[r->_1];
   symbol_names[A] = r->_1;
@@ -773,98 +917,98 @@ void SyntaxClass::translate_into_grammar ()
           (sizeof(Grammar::Symbol) * (length(p) + 2));
     P[0] = A;
     for (
-#line 402 "../../prop-src/parsegen.pcc"
+#line 402 "parsegen.pcc"
 a_List<ProductionSymbol> *  
-#line 402 "../../prop-src/parsegen.pcc"
+#line 402 "parsegen.pcc"
  L = p; L; L = L->_2)
   {
     ProductionSymbol X = L->_1;
     X->set_loc();
     
-#line 443 "../../prop-src/parsegen.pcc"
+#line 443 "parsegen.pcc"
   {
     switch (X->tag__) {
       case a_ProductionSymbol::tag_TERMsym: {
-#line 409 "../../prop-src/parsegen.pcc"
+#line 409 "parsegen.pcc"
         
-        P[j] = _TERMsym(X)->TERMsym;
-        if (symbol_names[_TERMsym(X)->TERMsym] == 0)
-          symbol_names[_TERMsym(X)->TERMsym] = 
-#line 412 "../../prop-src/parsegen.pcc"
-#line 412 "../../prop-src/parsegen.pcc"
-        cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1
-#line 412 "../../prop-src/parsegen.pcc"
-#line 412 "../../prop-src/parsegen.pcc"
-       + print_char(_TERMsym(X)->TERMsym) + 
-#line 412 "../../prop-src/parsegen.pcc"
-#line 412 "../../prop-src/parsegen.pcc"
-        cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_g_e_nco_c_c_Q1
-#line 412 "../../prop-src/parsegen.pcc"
-#line 412 "../../prop-src/parsegen.pcc"
+        P[j] = ((ProductionSymbol_TERMsym *)X)->TERMsym;
+        if (symbol_names[((ProductionSymbol_TERMsym *)X)->TERMsym] == 0)
+          symbol_names[((ProductionSymbol_TERMsym *)X)->TERMsym] = 
+#line 412 "parsegen.pcc"
+#line 412 "parsegen.pcc"
+        _p_a_r_s_e_g_e_nco_c_c_Q1
+#line 412 "parsegen.pcc"
+#line 412 "parsegen.pcc"
+       + print_char(((ProductionSymbol_TERMsym *)X)->TERMsym) + 
+#line 412 "parsegen.pcc"
+#line 412 "parsegen.pcc"
+        _p_a_r_s_e_g_e_nco_c_c_Q1
+#line 412 "parsegen.pcc"
+#line 412 "parsegen.pcc"
         ;
         
-#line 413 "../../prop-src/parsegen.pcc"
+#line 413 "parsegen.pcc"
         } break;
       case a_ProductionSymbol::tag_TOKENsym: {
-        if (_TOKENsym(X)->TOKENsym) {
-#line 423 "../../prop-src/parsegen.pcc"
+        if (((ProductionSymbol_TOKENsym *)X)->TOKENsym) {
+#line 423 "parsegen.pcc"
           
-          P[j] = tag_of(_TOKENsym(X)->TOKENsym);
-          symbol_names[P[j]] = _TOKENsym(X)->TOKENsym->name;
+          P[j] = tag_of(((ProductionSymbol_TOKENsym *)X)->TOKENsym);
+          symbol_names[P[j]] = ((ProductionSymbol_TOKENsym *)X)->TOKENsym->name;
           
-#line 426 "../../prop-src/parsegen.pcc"
+#line 426 "parsegen.pcc"
         } else {
-#line 427 "../../prop-src/parsegen.pcc"
+#line 427 "parsegen.pcc"
          P[j] = ' '; 
-#line 427 "../../prop-src/parsegen.pcc"
+#line 427 "parsegen.pcc"
         }
         } break;
       case a_ProductionSymbol::tag_NONTERMsym: {
-#line 415 "../../prop-src/parsegen.pcc"
+#line 415 "parsegen.pcc"
         
-        if (! nonterm_map.contains(_NONTERMsym(X)->NONTERMsym))
-          error("%Lundefined non-terminal %s\n",_NONTERMsym(X)->NONTERMsym);
+        if (! nonterm_map.contains(((ProductionSymbol_NONTERMsym *)X)->NONTERMsym))
+          error("%Lundefined non-terminal %s\n",((ProductionSymbol_NONTERMsym *)X)->NONTERMsym);
         else
-          P[j] = (Grammar::NonTerminal) nonterm_map[_NONTERMsym(X)->NONTERMsym];
+          P[j] = (Grammar::NonTerminal) nonterm_map[((ProductionSymbol_NONTERMsym *)X)->NONTERMsym];
         ++non_terms_or_actions;
         
-#line 421 "../../prop-src/parsegen.pcc"
+#line 421 "parsegen.pcc"
         } break;
       case a_ProductionSymbol::tag_ACTIONsym: {
-#line 429 "../../prop-src/parsegen.pcc"
+#line 429 "parsegen.pcc"
         
         P[j] = min_action;
-        action_map.insert( HashTable::Key( min_action), _ACTIONsym(X)->ACTIONsym);
+        action_map.insert( HashTable::Key( min_action), ((ProductionSymbol_ACTIONsym *)X)->ACTIONsym);
         line_map.insert( HashTable::Key( min_action),
                         HashTable::Value( X->begin_line));
         if (L->_2 != 
-#line 434 "../../prop-src/parsegen.pcc"
-#line 434 "../../prop-src/parsegen.pcc"
+#line 434 "parsegen.pcc"
+#line 434 "parsegen.pcc"
         nil_1_
-#line 434 "../../prop-src/parsegen.pcc"
-#line 434 "../../prop-src/parsegen.pcc"
+#line 434 "parsegen.pcc"
+#line 434 "parsegen.pcc"
         )
         inner_action_map.insert( HashTable::Key( min_action),
            HashTable::Value( non_terms_or_actions));
         min_action--;
         ++non_terms_or_actions;
         
-#line 439 "../../prop-src/parsegen.pcc"
+#line 439 "parsegen.pcc"
         } break;
       case a_ProductionSymbol::tag_ERRORsym: {
-#line 441 "../../prop-src/parsegen.pcc"
+#line 441 "parsegen.pcc"
        P[j] = error_term; 
-#line 441 "../../prop-src/parsegen.pcc"
+#line 441 "parsegen.pcc"
         } break;
       default: {
-#line 443 "../../prop-src/parsegen.pcc"
+#line 443 "parsegen.pcc"
        bug("translate_into_grammar()"); 
-#line 443 "../../prop-src/parsegen.pcc"
+#line 443 "parsegen.pcc"
         } break;
     }
   }
-#line 444 "../../prop-src/parsegen.pcc"
-#line 444 "../../prop-src/parsegen.pcc"
+#line 444 "parsegen.pcc"
+#line 444 "parsegen.pcc"
   
   j++;
   }
@@ -872,10 +1016,10 @@ a_List<ProductionSymbol> *
   productions[i++] = P;
   }
   
-#line 450 "../../prop-src/parsegen.pcc"
+#line 450 "parsegen.pcc"
 }
-#line 451 "../../prop-src/parsegen.pcc"
-#line 451 "../../prop-src/parsegen.pcc"
+#line 451 "parsegen.pcc"
+#line 451 "parsegen.pcc"
 
   }
 }
@@ -891,80 +1035,80 @@ void SyntaxClass::define_operator_precedence ()
   for_each (PrecRule, r, precedence_rules)
   {
   
-#line 465 "../../prop-src/parsegen.pcc"
-#line 497 "../../prop-src/parsegen.pcc"
+#line 465 "parsegen.pcc"
+#line 497 "parsegen.pcc"
 {
-#line 468 "../../prop-src/parsegen.pcc"
+#line 468 "parsegen.pcc"
   
   OpPrecedence::Associativity a;
   
-#line 470 "../../prop-src/parsegen.pcc"
-#line 474 "../../prop-src/parsegen.pcc"
+#line 470 "parsegen.pcc"
+#line 474 "parsegen.pcc"
   {
     PrecMode _V2 = r->_1;
     switch (_V2) {
       case LEFTassoc: {
-#line 472 "../../prop-src/parsegen.pcc"
+#line 472 "parsegen.pcc"
        a = OpPrecedence::Left; 
-#line 472 "../../prop-src/parsegen.pcc"
+#line 472 "parsegen.pcc"
         } break;
       case RIGHTassoc: {
-#line 473 "../../prop-src/parsegen.pcc"
+#line 473 "parsegen.pcc"
        a = OpPrecedence::Right; 
-#line 473 "../../prop-src/parsegen.pcc"
+#line 473 "parsegen.pcc"
         } break;
       default: {
-#line 474 "../../prop-src/parsegen.pcc"
+#line 474 "parsegen.pcc"
        a = OpPrecedence::None; 
-#line 474 "../../prop-src/parsegen.pcc"
+#line 474 "parsegen.pcc"
         } break;
     }
   }
-#line 475 "../../prop-src/parsegen.pcc"
-#line 475 "../../prop-src/parsegen.pcc"
+#line 475 "parsegen.pcc"
+#line 475 "parsegen.pcc"
   
   for_each(ProductionSymbol, s, r->_3)
   {
     
-#line 478 "../../prop-src/parsegen.pcc"
-#line 494 "../../prop-src/parsegen.pcc"
+#line 478 "parsegen.pcc"
+#line 494 "parsegen.pcc"
   {
     switch (s->tag__) {
       case a_ProductionSymbol::tag_TERMsym: {
-#line 481 "../../prop-src/parsegen.pcc"
+#line 481 "parsegen.pcc"
         
-        prec->precedence(G->map(_TERMsym(s)->TERMsym),r->_2);
-        prec->associativity(G->map(_TERMsym(s)->TERMsym),a);
+        prec->precedence(G->map(((ProductionSymbol_TERMsym *)s)->TERMsym),r->_2);
+        prec->associativity(G->map(((ProductionSymbol_TERMsym *)s)->TERMsym),a);
         
-#line 484 "../../prop-src/parsegen.pcc"
+#line 484 "parsegen.pcc"
         } break;
       case a_ProductionSymbol::tag_TOKENsym: {
-#line 486 "../../prop-src/parsegen.pcc"
+#line 486 "parsegen.pcc"
         
-        prec->precedence(G->map(tag_of(_TOKENsym(s)->TOKENsym)),r->_2);
-        prec->associativity(G->map(tag_of(_TOKENsym(s)->TOKENsym)),a);
+        prec->precedence(G->map(tag_of(((ProductionSymbol_TOKENsym *)s)->TOKENsym)),r->_2);
+        prec->associativity(G->map(tag_of(((ProductionSymbol_TOKENsym *)s)->TOKENsym)),a);
         
-#line 489 "../../prop-src/parsegen.pcc"
+#line 489 "parsegen.pcc"
         } break;
       default: {
-#line 491 "../../prop-src/parsegen.pcc"
+#line 491 "parsegen.pcc"
         
         s->set_loc();
         error("%Lprecedence symbol must be a terminal: ") << s << '\n';
         
-#line 494 "../../prop-src/parsegen.pcc"
+#line 494 "parsegen.pcc"
         } break;
     }
   }
-#line 495 "../../prop-src/parsegen.pcc"
-#line 495 "../../prop-src/parsegen.pcc"
+#line 495 "parsegen.pcc"
+#line 495 "parsegen.pcc"
   
   }
   
-#line 497 "../../prop-src/parsegen.pcc"
+#line 497 "parsegen.pcc"
 }
-#line 498 "../../prop-src/parsegen.pcc"
-#line 498 "../../prop-src/parsegen.pcc"
+#line 498 "parsegen.pcc"
+#line 498 "parsegen.pcc"
 
   }
 }
@@ -981,26 +1125,26 @@ static void add_use( HashTable& table, Id nonterm, int item_number)
   if (e)
   {
     
-#line 513 "../../prop-src/parsegen.pcc"
+#line 513 "parsegen.pcc"
 a_List<int> *  
-#line 513 "../../prop-src/parsegen.pcc"
+#line 513 "parsegen.pcc"
  old_uses = (a_List<int> *  
-#line 513 "../../prop-src/parsegen.pcc"
+#line 513 "parsegen.pcc"
 ) table.value(e);
     table.insert( nonterm, 
-#line 514 "../../prop-src/parsegen.pcc"
+#line 514 "parsegen.pcc"
 list_1_(item_number,old_uses)
-#line 514 "../../prop-src/parsegen.pcc"
-#line 514 "../../prop-src/parsegen.pcc"
+#line 514 "parsegen.pcc"
+#line 514 "parsegen.pcc"
 );
   }
   else
   table.insert( nonterm, 
-#line 517 "../../prop-src/parsegen.pcc"
-#line 517 "../../prop-src/parsegen.pcc"
+#line 517 "parsegen.pcc"
+#line 517 "parsegen.pcc"
 list_1_(item_number)
-#line 517 "../../prop-src/parsegen.pcc"
-#line 517 "../../prop-src/parsegen.pcc"
+#line 517 "parsegen.pcc"
+#line 517 "parsegen.pcc"
 );
 }
 
@@ -1039,10 +1183,10 @@ void SyntaxClass::generate_semantic_stack_definition( CodeGen& C)
   for_each (BNF, rl, production_rules)
   {
     
-#line 554 "../../prop-src/parsegen.pcc"
-#line 569 "../../prop-src/parsegen.pcc"
+#line 554 "parsegen.pcc"
+#line 569 "parsegen.pcc"
 {
-#line 557 "../../prop-src/parsegen.pcc"
+#line 557 "parsegen.pcc"
   
   HashTable::Entry * e = nonterm_to_ty.lookup( rl->_1);
   if (e)
@@ -1056,10 +1200,10 @@ void SyntaxClass::generate_semantic_stack_definition( CodeGen& C)
   }
   nonterm_to_ty.insert( rl->_1, rl->_2);
   
-#line 569 "../../prop-src/parsegen.pcc"
+#line 569 "parsegen.pcc"
 }
-#line 570 "../../prop-src/parsegen.pcc"
-#line 570 "../../prop-src/parsegen.pcc"
+#line 570 "parsegen.pcc"
+#line 570 "parsegen.pcc"
 
   }
 
@@ -1073,10 +1217,10 @@ void SyntaxClass::generate_semantic_stack_definition( CodeGen& C)
   for_each (BNF, r, production_rules)
   {
     
-#line 582 "../../prop-src/parsegen.pcc"
-#line 610 "../../prop-src/parsegen.pcc"
+#line 582 "parsegen.pcc"
+#line 610 "parsegen.pcc"
 {
-#line 585 "../../prop-src/parsegen.pcc"
+#line 585 "parsegen.pcc"
   
   for_each ( ProductionSymbols, p, r->_3)
   {
@@ -1087,36 +1231,36 @@ void SyntaxClass::generate_semantic_stack_definition( CodeGen& C)
     {
       ++item_number;
       
-#line 594 "../../prop-src/parsegen.pcc"
-#line 607 "../../prop-src/parsegen.pcc"
+#line 594 "parsegen.pcc"
+#line 607 "parsegen.pcc"
   {
     switch (X->tag__) {
       case a_ProductionSymbol::tag_NONTERMsym: {
-#line 597 "../../prop-src/parsegen.pcc"
+#line 597 "parsegen.pcc"
         
-        HashTable::Entry * e = nonterm_to_ty.lookup(_NONTERMsym(X)->NONTERMsym);
+        HashTable::Entry * e = nonterm_to_ty.lookup(((ProductionSymbol_NONTERMsym *)X)->NONTERMsym);
         if (e)
         {
           Ty this_ty = (Ty) nonterm_to_ty.value( e);
           if (this_ty != NOty)
-            add_use( nonterm_to_uses, _NONTERMsym(X)->NONTERMsym, item_number);
+            add_use( nonterm_to_uses, ((ProductionSymbol_NONTERMsym *)X)->NONTERMsym, item_number);
         }
         
-#line 605 "../../prop-src/parsegen.pcc"
+#line 605 "parsegen.pcc"
         } break;
       default: {} break;
     }
   }
-#line 607 "../../prop-src/parsegen.pcc"
-#line 607 "../../prop-src/parsegen.pcc"
+#line 607 "parsegen.pcc"
+#line 607 "parsegen.pcc"
   
   }
   }
   
-#line 610 "../../prop-src/parsegen.pcc"
+#line 610 "parsegen.pcc"
 }
-#line 611 "../../prop-src/parsegen.pcc"
-#line 611 "../../prop-src/parsegen.pcc"
+#line 611 "parsegen.pcc"
+#line 611 "parsegen.pcc"
 
   }
 
@@ -1131,33 +1275,33 @@ void SyntaxClass::generate_semantic_stack_definition( CodeGen& C)
     for_each (BNF, r, production_rules)
     {
       
-#line 624 "../../prop-src/parsegen.pcc"
-#line 641 "../../prop-src/parsegen.pcc"
+#line 624 "parsegen.pcc"
+#line 641 "parsegen.pcc"
 {
-#line 627 "../../prop-src/parsegen.pcc"
+#line 627 "parsegen.pcc"
   
   if (r->_2 != NOty)
   {
     
-#line 630 "../../prop-src/parsegen.pcc"
+#line 630 "parsegen.pcc"
 a_List<int> *  
-#line 630 "../../prop-src/parsegen.pcc"
+#line 630 "parsegen.pcc"
  uses = (a_List<int> *  
-#line 630 "../../prop-src/parsegen.pcc"
+#line 630 "parsegen.pcc"
   )nonterm_to_uses[r->_1];
   if (uses != 
-#line 631 "../../prop-src/parsegen.pcc"
+#line 631 "parsegen.pcc"
   nil_1_
-#line 631 "../../prop-src/parsegen.pcc"
-#line 631 "../../prop-src/parsegen.pcc"
+#line 631 "parsegen.pcc"
+#line 631 "parsegen.pcc"
   )
   {
     C.pr ("%#" "%^typedef %tATTRIBUTE_%i;" "%^ATTRIBUTE_%i ",
           r->begin_line, r->file_name, r->_2, "", i, i);
     for (
-#line 635 "../../prop-src/parsegen.pcc"
+#line 635 "parsegen.pcc"
 a_List<int> *  
-#line 635 "../../prop-src/parsegen.pcc"
+#line 635 "parsegen.pcc"
  l = uses; l; l = l->_2)
   { C.pr ("_%i", l->_1); if (l->_2) C.pr(", "); }
   C.pr (";\n");
@@ -1166,8 +1310,8 @@ a_List<int> *
   }
   
 }
-#line 642 "../../prop-src/parsegen.pcc"
-#line 642 "../../prop-src/parsegen.pcc"
+#line 642 "parsegen.pcc"
+#line 642 "parsegen.pcc"
 
     }
   }
@@ -1556,11 +1700,11 @@ void SyntaxClass::compile_rules
   }
 
   gen_class_implementation( C, 
-#line 1029 "../../prop-src/parsegen.pcc"
-#line 1029 "../../prop-src/parsegen.pcc"
+#line 1029 "parsegen.pcc"
+#line 1029 "parsegen.pcc"
 nil_1_
-#line 1029 "../../prop-src/parsegen.pcc"
-#line 1029 "../../prop-src/parsegen.pcc"
+#line 1029 "parsegen.pcc"
+#line 1029 "parsegen.pcc"
 , EXTERNAL_INSTANTIATION);
 }
 
@@ -1671,7 +1815,7 @@ void SyntaxClass::gen_class_constructor_initializers( CodeGen& C, Tys, DefKind)
         (int)error_term, (int)max_term, (int)max_nonterm
       );
 }
-#line 1139 "../../prop-src/parsegen.pcc"
+#line 1139 "parsegen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -1680,8 +1824,8 @@ Number of ifs generated      = 6
 Number of switches generated = 11
 Number of labels             = 1
 Number of gotos              = 5
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

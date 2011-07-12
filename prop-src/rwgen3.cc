@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\rwgen3.pcc".
+//  The original source file is "rwgen3.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/rwgen3.pcc"
+#line 1 "rwgen3.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the dynamic tree parser algorithm, which is
@@ -100,24 +100,24 @@ void RewritingCompiler::generate_accept_rules_tables( FunctorMap& F)
     int max_rule     = 0;
 
     
-#line 95 "../../prop-src/rwgen3.pcc"
-#line 102 "../../prop-src/rwgen3.pcc"
+#line 95 "rwgen3.pcc"
+#line 102 "rwgen3.pcc"
 {
   for (;;) {
     if (rules) {
-#line 98 "../../prop-src/rwgen3.pcc"
+#line 98 "rwgen3.pcc"
       
       if (max_rule < rules->_1->rule_number)
         max_rule = rules->_1->rule_number;
       rules = rules->_2;
       
-#line 102 "../../prop-src/rwgen3.pcc"
+#line 102 "rwgen3.pcc"
     } else { goto L1; }
   }
   L1:;
 }
-#line 103 "../../prop-src/rwgen3.pcc"
-#line 103 "../../prop-src/rwgen3.pcc"
+#line 103 "rwgen3.pcc"
+#line 103 "rwgen3.pcc"
 
 
     Id storage_class = max_rule < 128 ? "char" : "short";
@@ -127,29 +127,29 @@ void RewritingCompiler::generate_accept_rules_tables( FunctorMap& F)
 
     rules = MatchRules(e->v);
     
-#line 111 "../../prop-src/rwgen3.pcc"
-#line 117 "../../prop-src/rwgen3.pcc"
+#line 111 "rwgen3.pcc"
+#line 117 "rwgen3.pcc"
 {
   for (;;) {
     if (rules) {
-#line 114 "../../prop-src/rwgen3.pcc"
+#line 114 "rwgen3.pcc"
       
       pr ("%i%s", rules->_1->rule_number, (rules->_2 != 
-#line 115 "../../prop-src/rwgen3.pcc"
-#line 115 "../../prop-src/rwgen3.pcc"
+#line 115 "rwgen3.pcc"
+#line 115 "rwgen3.pcc"
       nil_1_
-#line 115 "../../prop-src/rwgen3.pcc"
-#line 115 "../../prop-src/rwgen3.pcc"
+#line 115 "rwgen3.pcc"
+#line 115 "rwgen3.pcc"
      ? ", " : ""));
       rules = rules->_2;
       
-#line 117 "../../prop-src/rwgen3.pcc"
+#line 117 "rwgen3.pcc"
     } else { goto L2; }
   }
   L2:;
 }
-#line 118 "../../prop-src/rwgen3.pcc"
-#line 118 "../../prop-src/rwgen3.pcc"
+#line 118 "rwgen3.pcc"
+#line 118 "rwgen3.pcc"
 
     pr (" };\n\n");
   }
@@ -219,43 +219,43 @@ void RewritingCompiler::gen_closure( FunctorMap& F, Id rhs, MatchRules rules)
   int rule_no = 1;
   rules = rev(rules);
   
-#line 186 "../../prop-src/rwgen3.pcc"
-#line 226 "../../prop-src/rwgen3.pcc"
+#line 186 "rwgen3.pcc"
+#line 226 "rwgen3.pcc"
 {
   for (;;) {
     if (rules) {
-#line 189 "../../prop-src/rwgen3.pcc"
+#line 189 "rwgen3.pcc"
       
       Exp cost_exp;
       
-#line 191 "../../prop-src/rwgen3.pcc"
-#line 200 "../../prop-src/rwgen3.pcc"
+#line 191 "rwgen3.pcc"
+#line 200 "rwgen3.pcc"
       {
         Cost _V1 = rules->_1->_4;
         if (_V1) {
-          if (_V1->tag__) {
+          if (untagp(_V1)) {
             
-#line 194 "../../prop-src/rwgen3.pcc"
-           cost_exp = LITERALexp(INTlit(_INTcost(_V1)->INTcost)); 
-#line 194 "../../prop-src/rwgen3.pcc"
+#line 194 "rwgen3.pcc"
+           cost_exp = LITERALexp(INTlit(((Cost_INTcost *)derefp(_V1))->INTcost)); 
+#line 194 "rwgen3.pcc"
           } else {
             
-#line 196 "../../prop-src/rwgen3.pcc"
+#line 196 "rwgen3.pcc"
           // Avoid recomputation of cost
             Id v = vars.new_label();
-            pr ("%^const int %s = %e;", v, _EXPcost(_V1)->_1);
+            pr ("%^const int %s = %e;", v, ((Cost_EXPcost *)_V1)->_1);
             cost_exp = IDexp(v);
             
-#line 200 "../../prop-src/rwgen3.pcc"
+#line 200 "rwgen3.pcc"
           }
         } else {
-#line 193 "../../prop-src/rwgen3.pcc"
+#line 193 "rwgen3.pcc"
          cost_exp = LITERALexp(INTlit(0)); 
-#line 193 "../../prop-src/rwgen3.pcc"
+#line 193 "rwgen3.pcc"
         }
       }
-#line 201 "../../prop-src/rwgen3.pcc"
-#line 201 "../../prop-src/rwgen3.pcc"
+#line 201 "rwgen3.pcc"
+#line 201 "rwgen3.pcc"
       
       int nonterm_number = int(F.var_map[rules->_1->_1]);
       
@@ -282,13 +282,13 @@ void RewritingCompiler::gen_closure( FunctorMap& F, Id rhs, MatchRules rules)
       rule_no++;
       rules = rules->_2;
       
-#line 226 "../../prop-src/rwgen3.pcc"
+#line 226 "rwgen3.pcc"
     } else { goto L3; }
   }
   L3:;
 }
-#line 227 "../../prop-src/rwgen3.pcc"
-#line 227 "../../prop-src/rwgen3.pcc"
+#line 227 "rwgen3.pcc"
+#line 227 "rwgen3.pcc"
 
 
    pr ("%-%^}\n\n");
@@ -385,11 +385,11 @@ void RewritingCompiler::gen_dynamic_traversals( FunctorMap& F, Ty ty)
 
   MatchRules rules = MatchRules( F.rule_map[ty]);
   MatchExps  exps  = 
-#line 322 "../../prop-src/rwgen3.pcc"
-#line 322 "../../prop-src/rwgen3.pcc"
+#line 322 "rwgen3.pcc"
+#line 322 "rwgen3.pcc"
 list_1_(MATCHexp(IDexp("redex"),0))
-#line 322 "../../prop-src/rwgen3.pcc"
-#line 322 "../../prop-src/rwgen3.pcc"
+#line 322 "rwgen3.pcc"
+#line 322 "rwgen3.pcc"
 ;
   rules = rev( rules);
   gen_match_stmt( exps, rules,
@@ -411,57 +411,57 @@ const BitSet * label_treecost( Match& m, int, MatchRules rules, int, Match[], Ma
 const BitSet * label_treecost( Match& m, int N, MatchRules rules)
 {
   
-#line 342 "../../prop-src/rwgen3.pcc"
-#line 356 "../../prop-src/rwgen3.pcc"
+#line 342 "rwgen3.pcc"
+#line 356 "rwgen3.pcc"
 {
   if (boxed(m)) {
     switch (m->tag__) {
       case a_Match::tag_SUCCESSmatch: {
         L4:; 
-#line 344 "../../prop-src/rwgen3.pcc"
+#line 344 "rwgen3.pcc"
        return 0; 
-#line 344 "../../prop-src/rwgen3.pcc"
+#line 344 "rwgen3.pcc"
         } break;
       case a_Match::tag_SUCCESSESmatch: {
-#line 347 "../../prop-src/rwgen3.pcc"
-       return _SUCCESSESmatch(m)->_2; 
-#line 347 "../../prop-src/rwgen3.pcc"
+#line 347 "rwgen3.pcc"
+       return ((Match_SUCCESSESmatch *)m)->_2; 
+#line 347 "rwgen3.pcc"
         } break;
       case a_Match::tag_COSTmatch: {
-#line 346 "../../prop-src/rwgen3.pcc"
-       return _COSTmatch(m)->_3; 
-#line 346 "../../prop-src/rwgen3.pcc"
+#line 346 "rwgen3.pcc"
+       return ((Match_COSTmatch *)m)->_3; 
+#line 346 "rwgen3.pcc"
         } break;
       case a_Match::tag_GUARDmatch: {
-#line 349 "../../prop-src/rwgen3.pcc"
-      return label_treecost(m,N,rules,_GUARDmatch(m)->_2,_GUARDmatch(m)->_3); 
-#line 349 "../../prop-src/rwgen3.pcc"
+#line 349 "rwgen3.pcc"
+      return label_treecost(m,N,rules,((Match_GUARDmatch *)m)->_2,((Match_GUARDmatch *)m)->_3); 
+#line 349 "rwgen3.pcc"
         } break;
       case a_Match::tag_LITERALmatch: {
-#line 353 "../../prop-src/rwgen3.pcc"
-      return label_treecost(m,N,rules,_LITERALmatch(m)->_4,_LITERALmatch(m)->_5,_LITERALmatch(m)->_6,false); 
-#line 353 "../../prop-src/rwgen3.pcc"
+#line 353 "rwgen3.pcc"
+      return label_treecost(m,N,rules,((Match_LITERALmatch *)m)->_4,((Match_LITERALmatch *)m)->_5,((Match_LITERALmatch *)m)->_6,false); 
+#line 353 "rwgen3.pcc"
         } break;
       case a_Match::tag_RANGEmatch: {
-#line 355 "../../prop-src/rwgen3.pcc"
-      return label_treecost(m,N,rules,_RANGEmatch(m)->_5,_RANGEmatch(m)->_6); 
-#line 355 "../../prop-src/rwgen3.pcc"
+#line 355 "rwgen3.pcc"
+      return label_treecost(m,N,rules,((Match_RANGEmatch *)m)->_5,((Match_RANGEmatch *)m)->_6); 
+#line 355 "rwgen3.pcc"
         } break;
       case a_Match::tag_CONSmatch: {
-#line 351 "../../prop-src/rwgen3.pcc"
-      return label_treecost(m,N,rules,_CONSmatch(m)->_5,_CONSmatch(m)->_6,_CONSmatch(m)->_7,true); 
-#line 351 "../../prop-src/rwgen3.pcc"
+#line 351 "rwgen3.pcc"
+      return label_treecost(m,N,rules,((Match_CONSmatch *)m)->_5,((Match_CONSmatch *)m)->_6,((Match_CONSmatch *)m)->_7,true); 
+#line 351 "rwgen3.pcc"
         } break;
       case a_Match::tag_TREECOSTmatch: {
-#line 345 "../../prop-src/rwgen3.pcc"
-       return _TREECOSTmatch(m)->_2; 
-#line 345 "../../prop-src/rwgen3.pcc"
+#line 345 "rwgen3.pcc"
+       return ((Match_TREECOSTmatch *)m)->_2; 
+#line 345 "rwgen3.pcc"
         } break;
       default: {
         L5:; 
-#line 356 "../../prop-src/rwgen3.pcc"
+#line 356 "rwgen3.pcc"
        bug("label_treecost: %M", m); return 0; 
-#line 356 "../../prop-src/rwgen3.pcc"
+#line 356 "rwgen3.pcc"
         } break;
     }
   } else {
@@ -470,8 +470,8 @@ const BitSet * label_treecost( Match& m, int N, MatchRules rules)
        goto L4; }
   }
 }
-#line 357 "../../prop-src/rwgen3.pcc"
-#line 357 "../../prop-src/rwgen3.pcc"
+#line 357 "rwgen3.pcc"
+#line 357 "rwgen3.pcc"
 
 }
 
@@ -546,102 +546,102 @@ const BitSet * label_treecost( Match& m, int N, MatchRules rules,
 void prune_treecost( Match& m, const BitSet * ignore)
 {
   
-#line 430 "../../prop-src/rwgen3.pcc"
-#line 493 "../../prop-src/rwgen3.pcc"
+#line 430 "rwgen3.pcc"
+#line 493 "rwgen3.pcc"
 {
   if (boxed(m)) {
     switch (m->tag__) {
       case a_Match::tag_SUCCESSmatch: {
         L6:; 
-#line 432 "../../prop-src/rwgen3.pcc"
+#line 432 "rwgen3.pcc"
        return; 
-#line 432 "../../prop-src/rwgen3.pcc"
+#line 432 "rwgen3.pcc"
         } break;
       case a_Match::tag_SUCCESSESmatch: {
-#line 443 "../../prop-src/rwgen3.pcc"
+#line 443 "rwgen3.pcc"
         
         if (ignore)
         {
-          _SUCCESSESmatch(m)->_2->Difference(*ignore);
-          if (_SUCCESSESmatch(m)->_2->count() == 0)
+          ((Match_SUCCESSESmatch *)m)->_2->Difference(*ignore);
+          if (((Match_SUCCESSESmatch *)m)->_2->count() == 0)
             m = FAILmatch;
         }
         
-#line 450 "../../prop-src/rwgen3.pcc"
+#line 450 "rwgen3.pcc"
         } break;
       case a_Match::tag_COSTmatch: {
-#line 434 "../../prop-src/rwgen3.pcc"
+#line 434 "rwgen3.pcc"
         
         if (ignore)
         {
-          _COSTmatch(m)->_3->Difference(*ignore);
-          if (_COSTmatch(m)->_3->count() == 0)
+          ((Match_COSTmatch *)m)->_3->Difference(*ignore);
+          if (((Match_COSTmatch *)m)->_3->count() == 0)
             m = FAILmatch;
         }
         
-#line 441 "../../prop-src/rwgen3.pcc"
+#line 441 "rwgen3.pcc"
         } break;
       case a_Match::tag_GUARDmatch: {
-#line 471 "../../prop-src/rwgen3.pcc"
+#line 471 "rwgen3.pcc"
         
-        prune_treecost(_GUARDmatch(m)->_2,ignore);
-        prune_treecost(_GUARDmatch(m)->_3,ignore);
+        prune_treecost(((Match_GUARDmatch *)m)->_2,ignore);
+        prune_treecost(((Match_GUARDmatch *)m)->_3,ignore);
         
-#line 474 "../../prop-src/rwgen3.pcc"
+#line 474 "rwgen3.pcc"
         } break;
       case a_Match::tag_LITERALmatch: {
-#line 487 "../../prop-src/rwgen3.pcc"
+#line 487 "rwgen3.pcc"
         
-        for (int i = 0; i < _LITERALmatch(m)->_4; i++)
-          prune_treecost(_LITERALmatch(m)->_5[i],ignore);
-        prune_treecost(_LITERALmatch(m)->_6,ignore);
+        for (int i = 0; i < ((Match_LITERALmatch *)m)->_4; i++)
+          prune_treecost(((Match_LITERALmatch *)m)->_5[i],ignore);
+        prune_treecost(((Match_LITERALmatch *)m)->_6,ignore);
         
-#line 491 "../../prop-src/rwgen3.pcc"
+#line 491 "rwgen3.pcc"
         } break;
       case a_Match::tag_RANGEmatch: {
-#line 476 "../../prop-src/rwgen3.pcc"
+#line 476 "rwgen3.pcc"
         
-        prune_treecost(_RANGEmatch(m)->_5,ignore);
-        prune_treecost(_RANGEmatch(m)->_6,ignore);
+        prune_treecost(((Match_RANGEmatch *)m)->_5,ignore);
+        prune_treecost(((Match_RANGEmatch *)m)->_6,ignore);
         
-#line 479 "../../prop-src/rwgen3.pcc"
+#line 479 "rwgen3.pcc"
         } break;
       case a_Match::tag_CONSmatch: {
-#line 481 "../../prop-src/rwgen3.pcc"
+#line 481 "rwgen3.pcc"
         
-        for (int i = 0; i < _CONSmatch(m)->_5; i++)
-          prune_treecost(_CONSmatch(m)->_6[i],ignore);
-        prune_treecost(_CONSmatch(m)->_7,ignore);
+        for (int i = 0; i < ((Match_CONSmatch *)m)->_5; i++)
+          prune_treecost(((Match_CONSmatch *)m)->_6[i],ignore);
+        prune_treecost(((Match_CONSmatch *)m)->_7,ignore);
         
-#line 485 "../../prop-src/rwgen3.pcc"
+#line 485 "rwgen3.pcc"
         } break;
       case a_Match::tag_TREECOSTmatch: {
-#line 452 "../../prop-src/rwgen3.pcc"
+#line 452 "rwgen3.pcc"
         
         BitSet * new_ignore;
         if (ignore)
         {
           new_ignore = new (mem_pool, ignore->size()) BitSet;
-          new_ignore->Union(*_TREECOSTmatch(m)->_2);
+          new_ignore->Union(*((Match_TREECOSTmatch *)m)->_2);
         }
         else
-          new_ignore = _TREECOSTmatch(m)->_2;
+          new_ignore = ((Match_TREECOSTmatch *)m)->_2;
         
-        prune_treecost(_TREECOSTmatch(m)->_1,new_ignore);
+        prune_treecost(((Match_TREECOSTmatch *)m)->_1,new_ignore);
         
         if (ignore)
         {
-          _TREECOSTmatch(m)->_2->Difference(*ignore);
-          if (_TREECOSTmatch(m)->_2->count() == 0) m = _TREECOSTmatch(m)->_1;
+          ((Match_TREECOSTmatch *)m)->_2->Difference(*ignore);
+          if (((Match_TREECOSTmatch *)m)->_2->count() == 0) m = ((Match_TREECOSTmatch *)m)->_1;
         }
         
-#line 469 "../../prop-src/rwgen3.pcc"
+#line 469 "rwgen3.pcc"
         } break;
       default: {
         L7:; 
-#line 493 "../../prop-src/rwgen3.pcc"
+#line 493 "rwgen3.pcc"
        bug("prune_treecost: %M", m); 
-#line 493 "../../prop-src/rwgen3.pcc"
+#line 493 "rwgen3.pcc"
         } break;
     }
   } else {
@@ -650,8 +650,8 @@ void prune_treecost( Match& m, const BitSet * ignore)
        goto L6; }
   }
 }
-#line 494 "../../prop-src/rwgen3.pcc"
-#line 494 "../../prop-src/rwgen3.pcc"
+#line 494 "rwgen3.pcc"
+#line 494 "rwgen3.pcc"
 
 }
 
@@ -664,35 +664,35 @@ void prune_treecost( Match& m, const BitSet * ignore)
 void add_traversal( Match& m)
 {
   
-#line 505 "../../prop-src/rwgen3.pcc"
-#line 515 "../../prop-src/rwgen3.pcc"
+#line 505 "rwgen3.pcc"
+#line 515 "rwgen3.pcc"
 {
   if (boxed(m)) {
     switch (m->tag__) {
       case a_Match::tag_CONSmatch: {
-#line 508 "../../prop-src/rwgen3.pcc"
+#line 508 "rwgen3.pcc"
         
-        for (int i = 0; i < _CONSmatch(m)->_5; i++)
-          _CONSmatch(m)->_6[i] = TREELABELmatch(_CONSmatch(m)->_6[i],_CONSmatch(m)->_3,_CONSmatch(m)->_4,i);
+        for (int i = 0; i < ((Match_CONSmatch *)m)->_5; i++)
+          ((Match_CONSmatch *)m)->_6[i] = TREELABELmatch(((Match_CONSmatch *)m)->_6[i],((Match_CONSmatch *)m)->_3,((Match_CONSmatch *)m)->_4,i);
         
-#line 511 "../../prop-src/rwgen3.pcc"
+#line 511 "rwgen3.pcc"
         } break;
       case a_Match::tag_TREECOSTmatch: {
-#line 513 "../../prop-src/rwgen3.pcc"
-       add_traversal(_TREECOSTmatch(m)->_1); 
-#line 513 "../../prop-src/rwgen3.pcc"
+#line 513 "rwgen3.pcc"
+       add_traversal(((Match_TREECOSTmatch *)m)->_1); 
+#line 513 "rwgen3.pcc"
         } break;
       default: {
         L8:; 
-#line 515 "../../prop-src/rwgen3.pcc"
+#line 515 "rwgen3.pcc"
        bug ("add_traversal: %M", m); 
-#line 515 "../../prop-src/rwgen3.pcc"
+#line 515 "rwgen3.pcc"
         } break;
     }
   } else { goto L8; }
 }
-#line 516 "../../prop-src/rwgen3.pcc"
-#line 516 "../../prop-src/rwgen3.pcc"
+#line 516 "rwgen3.pcc"
+#line 516 "rwgen3.pcc"
 
 }
 
@@ -723,25 +723,25 @@ static int rule_of( FunctorMap *Fmap, Id lhs, int r)
   int rule_no = 1;
   MatchRules rules = MatchRules( Fmap->nonterm_rules[lhs]);
   
-#line 545 "../../prop-src/rwgen3.pcc"
-#line 553 "../../prop-src/rwgen3.pcc"
+#line 545 "rwgen3.pcc"
+#line 553 "rwgen3.pcc"
 {
   for (;;) {
     if (rules) {
-#line 548 "../../prop-src/rwgen3.pcc"
+#line 548 "rwgen3.pcc"
       
       if (rules->_1->rule_number == r)
         return rule_no;
       rules = rules->_2;
       rule_no++;
       
-#line 553 "../../prop-src/rwgen3.pcc"
+#line 553 "rwgen3.pcc"
     } else { goto L9; }
   }
   L9:;
 }
-#line 554 "../../prop-src/rwgen3.pcc"
-#line 554 "../../prop-src/rwgen3.pcc"
+#line 554 "rwgen3.pcc"
+#line 554 "rwgen3.pcc"
 
   bug( "rule_of");
   return 0;
@@ -756,23 +756,23 @@ static int rule_of( FunctorMap *Fmap, Id lhs, int r)
 void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
 {  // Generate traversal code
   
-#line 567 "../../prop-src/rwgen3.pcc"
-#line 604 "../../prop-src/rwgen3.pcc"
+#line 567 "rwgen3.pcc"
+#line 604 "rwgen3.pcc"
 {
   Ty _V2 = deref_all(ty);
   if (alg_ty) {
     switch (alg_ty->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(alg_ty)->_1)) {
-          switch (_TYCONty(alg_ty)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)alg_ty)->_1)) {
+          switch (((Ty_TYCONty *)alg_ty)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
               if (_V2) {
                 switch (_V2->tag__) {
                   case a_Ty::tag_TYCONty: {
-#line 570 "../../prop-src/rwgen3.pcc"
+#line 570 "rwgen3.pcc"
                     
-                    Cons cons = _DATATYPEtycon(_TYCONty(alg_ty)->_1)->terms[k];
-                    Ty arg_ty = apply_ty(cons->cons_ty,_TYCONty(_V2)->_2);
+                    Cons cons = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)alg_ty)->_1)->terms[k];
+                    Ty arg_ty = apply_ty(cons->cons_ty,((Ty_TYCONty *)_V2)->_2);
                     Exp e     = select(IDexp("redex"),cons);
                     	  if (cons->ty == NOty)
                     {
@@ -780,46 +780,46 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
                     }
                     
                     
-#line 579 "../../prop-src/rwgen3.pcc"
-#line 600 "../../prop-src/rwgen3.pcc"
+#line 579 "rwgen3.pcc"
+#line 600 "rwgen3.pcc"
                     {
                       if (arg_ty) {
                         switch (arg_ty->tag__) {
                           case a_Ty::tag_TYCONty: {
-                            if (boxed(_TYCONty(arg_ty)->_1)) {
-                              switch (_TYCONty(arg_ty)->_1->tag__) {
+                            if (boxed(((Ty_TYCONty *)arg_ty)->_1)) {
+                              switch (((Ty_TYCONty *)arg_ty)->_1->tag__) {
                                 case a_TyCon::tag_RECORDtycon: {
-#line 592 "../../prop-src/rwgen3.pcc"
+#line 592 "rwgen3.pcc"
                                   
-                                  Ids ids; Tys xtys = _TYCONty(_V2)->_2 = _TYCONty(arg_ty)->_2;
-                                  for (ids = _RECORDtycon(_TYCONty(arg_ty)->_1)->_1; ids && _TYCONty(arg_ty)->_2; ids = ids->_2, _TYCONty(_V2)->_2 = _TYCONty(_V2)->_2->_2)
+                                  Ids ids; Tys xtys = ((Ty_TYCONty *)_V2)->_2 = ((Ty_TYCONty *)arg_ty)->_2;
+                                  for (ids = ((TyCon_RECORDtycon *)((Ty_TYCONty *)arg_ty)->_1)->_1; ids && ((Ty_TYCONty *)arg_ty)->_2; ids = ids->_2, ((Ty_TYCONty *)_V2)->_2 = ((Ty_TYCONty *)_V2)->_2->_2)
                                   {
-                                    if (Fmap->is_rewritable_type(_TYCONty(_V2)->_2->_1))
+                                    if (Fmap->is_rewritable_type(((Ty_TYCONty *)_V2)->_2->_1))
                                       pr( "%^labeler(%e);", DOTexp(e,ids->_1));
                                   }
                                   
-#line 599 "../../prop-src/rwgen3.pcc"
+#line 599 "rwgen3.pcc"
                                   } break;
                                 default: {
                                   L10:; 
-#line 600 "../../prop-src/rwgen3.pcc"
+#line 600 "rwgen3.pcc"
                                  if (Fmap->is_rewritable_type(arg_ty)) pr("%^labeler(%e);",e); 
-#line 600 "../../prop-src/rwgen3.pcc"
+#line 600 "rwgen3.pcc"
                                   } break;
                               }
                             } else {
-                              switch ((int)_TYCONty(arg_ty)->_1) {
+                              switch ((int)((Ty_TYCONty *)arg_ty)->_1) {
                                 case ((int)TUPLEtycon): {
-#line 583 "../../prop-src/rwgen3.pcc"
+#line 583 "rwgen3.pcc"
                                   
                                   int i = 1;
-                                  for_each(Ty, t, _TYCONty(arg_ty)->_2)
+                                  for_each(Ty, t, ((Ty_TYCONty *)arg_ty)->_2)
                                   {
                                     if (Fmap->is_rewritable_type(t))
                                       pr("%^labeler(%e);", DOTexp(e,index_of(i))); i++;
                                   }
                                   
-#line 590 "../../prop-src/rwgen3.pcc"
+#line 590 "rwgen3.pcc"
                                   } break;
                                 default: { goto L10; } break;
                               }
@@ -829,17 +829,17 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
                         }
                       } else {}
                     }
-#line 601 "../../prop-src/rwgen3.pcc"
-#line 601 "../../prop-src/rwgen3.pcc"
+#line 601 "rwgen3.pcc"
+#line 601 "rwgen3.pcc"
                     
                     
-#line 602 "../../prop-src/rwgen3.pcc"
+#line 602 "rwgen3.pcc"
                     } break;
                   default: {
                     L11:; 
-#line 604 "../../prop-src/rwgen3.pcc"
+#line 604 "rwgen3.pcc"
                    bug( "RewritingCompiler::gen_treelabel_match"); 
-#line 604 "../../prop-src/rwgen3.pcc"
+#line 604 "rwgen3.pcc"
                     } break;
                 }
               } else { goto L11; }
@@ -852,8 +852,8 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
     }
   } else { goto L11; }
 }
-#line 605 "../../prop-src/rwgen3.pcc"
-#line 605 "../../prop-src/rwgen3.pcc"
+#line 605 "rwgen3.pcc"
+#line 605 "rwgen3.pcc"
 
 
   // Generate labeling code
@@ -873,12 +873,12 @@ void RewritingCompiler::gen_treecost_match( Match m, const BitSet * set,
   gen(m);
   int rule_no = 0;
   
-#line 623 "../../prop-src/rwgen3.pcc"
-#line 661 "../../prop-src/rwgen3.pcc"
+#line 623 "rwgen3.pcc"
+#line 661 "rwgen3.pcc"
 {
   for (;;) {
     if (rules) {
-#line 626 "../../prop-src/rwgen3.pcc"
+#line 626 "rwgen3.pcc"
       
       if (set->contains(rule_no))
       {
@@ -887,33 +887,33 @@ void RewritingCompiler::gen_treecost_match( Match m, const BitSet * set,
           pr ("%^// %r\n", rules->_1);
           Exp cost_exp;
           
-#line 633 "../../prop-src/rwgen3.pcc"
-#line 641 "../../prop-src/rwgen3.pcc"
+#line 633 "rwgen3.pcc"
+#line 641 "rwgen3.pcc"
       {
         Cost _V3 = rules->_1->_4;
         if (_V3) {
-          if (_V3->tag__) {
+          if (untagp(_V3)) {
             
-#line 636 "../../prop-src/rwgen3.pcc"
-           cost_exp = LITERALexp(INTlit(_INTcost(_V3)->INTcost)); 
-#line 636 "../../prop-src/rwgen3.pcc"
+#line 636 "rwgen3.pcc"
+           cost_exp = LITERALexp(INTlit(((Cost_INTcost *)derefp(_V3))->INTcost)); 
+#line 636 "rwgen3.pcc"
           } else {
             
-#line 638 "../../prop-src/rwgen3.pcc"
+#line 638 "rwgen3.pcc"
             
             cost_exp = IDexp(vars.new_label());
-            pr("%^int %e = %e;",cost_exp,_EXPcost(_V3)->_1);
+            pr("%^int %e = %e;",cost_exp,((Cost_EXPcost *)_V3)->_1);
             
-#line 641 "../../prop-src/rwgen3.pcc"
+#line 641 "rwgen3.pcc"
           }
         } else {
-#line 635 "../../prop-src/rwgen3.pcc"
+#line 635 "rwgen3.pcc"
          cost_exp = LITERALexp(INTlit(0)); 
-#line 635 "../../prop-src/rwgen3.pcc"
+#line 635 "rwgen3.pcc"
         }
       }
-#line 642 "../../prop-src/rwgen3.pcc"
-#line 642 "../../prop-src/rwgen3.pcc"
+#line 642 "rwgen3.pcc"
+#line 642 "rwgen3.pcc"
       
       int nonterm_number = int(Fmap->var_map[rules->_1->_1]);
       pr(
@@ -934,16 +934,16 @@ void RewritingCompiler::gen_treecost_match( Match m, const BitSet * set,
       }
       rules = rules->_2; rule_no++;
       
-#line 661 "../../prop-src/rwgen3.pcc"
+#line 661 "rwgen3.pcc"
     } else { goto L12; }
   }
   L12:;
 }
-#line 662 "../../prop-src/rwgen3.pcc"
-#line 662 "../../prop-src/rwgen3.pcc"
+#line 662 "rwgen3.pcc"
+#line 662 "rwgen3.pcc"
 
 }
-#line 664 "../../prop-src/rwgen3.pcc"
+#line 664 "rwgen3.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -952,8 +952,8 @@ Number of ifs generated      = 19
 Number of switches generated = 9
 Number of labels             = 7
 Number of gotos              = 12
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

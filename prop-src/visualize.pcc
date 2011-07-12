@@ -56,8 +56,10 @@ void PropVisualizer::make_label()
 {
   label_text << std::ends;
   label( text_buffer);
-   // reset buffer
-//   label_text.rdbuf()->seekpos(0);
+  // reset buffer
+  label_text.clear();
+  label_text.freeze(false);
+  label_text.seekp(0, std::ios::beg);
 }
 
 //////////////////////////////////////////////////////////////////////////////

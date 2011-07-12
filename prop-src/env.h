@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\env.ph".
+//  The original source file is "env.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/env.ph"
+#line 1 "env.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file describes the environment class
@@ -32,7 +32,7 @@ public:
 };
 
 #endif
-#line 28 "../../prop-src/env.ph"
+#line 28 "env.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -41,8 +41,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

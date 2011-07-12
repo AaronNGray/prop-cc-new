@@ -1,13 +1,13 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\keywords.ph".
+//  The original source file is "keywords.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_PRINTER_USED
 #define PROP_REGEXP_MATCHING_USED
 #include <propdefs.h>
-#line 1 "../../prop-src/keywords.ph"
+#line 1 "keywords.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file defines the lexical structure of the Prop language.
@@ -23,8 +23,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 16 "../../prop-src/keywords.ph"
-#line 16 "../../prop-src/keywords.ph"
+#line 16 "keywords.ph"
+#line 16 "keywords.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -33,8 +33,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 37 "../../prop-src/keywords.ph"
-#line 109 "../../prop-src/keywords.ph"
+#line 37 "keywords.ph"
+#line 109 "keywords.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -43,8 +43,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 118 "../../prop-src/keywords.ph"
-#line 130 "../../prop-src/keywords.ph"
+#line 118 "keywords.ph"
+#line 130 "keywords.ph"
 enum PropToken {
   XX_r_e_w_r_i_t_eXX = 256, XX_i_n_f_e_r_e_n_c_eXX = 257, XX_m_a_t_c_hXX = 258, 
   XX_m_a_t_c_h_a_l_lXX = 259, XX_m_a_t_c_h_s_c_a_nXX = 260, XX_r_e_f_i_n_eXX = 261, 
@@ -118,12 +118,12 @@ enum PropToken {
 class PrettyOStream;
 extern std::ostream& operator<<(std::ostream&, PropToken);
 extern PrettyOStream& operator<<(PrettyOStream&, PropToken);
-#line 130 "../../prop-src/keywords.ph"
-#line 130 "../../prop-src/keywords.ph"
+#line 130 "keywords.ph"
+#line 130 "keywords.ph"
 
 
 #endif
-#line 133 "../../prop-src/keywords.ph"
+#line 133 "keywords.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -132,8 +132,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

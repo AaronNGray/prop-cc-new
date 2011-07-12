@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\visualize.pcc".
+//  The original source file is "visualize.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/visualize.pcc"
+#line 1 "visualize.pcc"
 //////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the datatype definitions layout generator
@@ -63,8 +63,10 @@ void PropVisualizer::make_label()
 {
   label_text << std::ends;
   label( text_buffer);
-   // reset buffer
-//   label_text.rdbuf()->seekpos(0);
+  // reset buffer
+  label_text.clear();
+  label_text.freeze(false);
+  label_text.seekp(0, std::ios::beg);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -137,7 +139,7 @@ void Compiler::print_definitions_as_GDL()
     delete F;
   }
 }
-#line 133 "../../prop-src/visualize.pcc"
+#line 135 "visualize.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -146,8 +148,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\graphreport.pcc".
+//  The original source file is "graphreport.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/graphreport.pcc"
+#line 1 "graphreport.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file generates a readable report of the graph type representation.
@@ -65,7 +65,7 @@ void BijectionEdge::print_report( CodeGen& f)
 void EquivRelationEdge::print_report( CodeGen& f)
 {  Super::print_report(f);
 }
-#line 61 "../../prop-src/graphreport.pcc"
+#line 61 "graphreport.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -74,8 +74,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

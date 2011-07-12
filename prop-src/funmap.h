@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\funmap.ph".
+//  The original source file is "funmap.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/funmap.ph"
+#line 1 "funmap.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file decribes the functor map data structure, which is
@@ -42,8 +42,8 @@ typedef TreeGrammar::Variable       Variable;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 38 "../../prop-src/funmap.ph"
-#line 38 "../../prop-src/funmap.ph"
+#line 38 "funmap.ph"
+#line 38 "funmap.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Forward class definition for VectorId
@@ -62,12 +62,9 @@ typedef TreeGrammar::Variable       Variable;
 ///////////////////////////////////////////////////////////////////////////////
 class a_VectorId : public MEM {
 public:
-#line 38 "../../prop-src/funmap.ph"
+#line 38 "funmap.ph"
   Cons cons; Ty ty; int arity; 
-  inline a_VectorId (Cons x_cons, Ty x_ty, int x_arity)
-   : cons(x_cons), ty(x_ty), arity(x_arity)
-  {
-  }
+  a_VectorId (Cons x_cons, Ty x_ty, int x_arity);
 };
 inline int boxed(const a_VectorId *) { return 1; }
 inline int untag(const a_VectorId *) { return 0; }
@@ -76,19 +73,10 @@ inline int untag(const a_VectorId *) { return 0; }
 // Datatype constructor functions for VectorId
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_VectorId * vector_id (Cons x_cons, Ty x_ty, int x_arity)
-{
-  return new a_VectorId (x_cons, x_ty, x_arity);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for VectorId
-//
-///////////////////////////////////////////////////////////////////////////////
+extern a_VectorId * vector_id (Cons x_cons, Ty x_ty, int x_arity);
 
-
-#line 38 "../../prop-src/funmap.ph"
-#line 38 "../../prop-src/funmap.ph"
+#line 38 "funmap.ph"
+#line 38 "funmap.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -242,7 +230,7 @@ private:
 };
 
 #endif
-#line 191 "../../prop-src/funmap.ph"
+#line 191 "funmap.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -251,8 +239,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

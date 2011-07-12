@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\visual2.pcc".
+//  The original source file is "visual2.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/visual2.pcc"
+#line 1 "visual2.pcc"
 //////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the datatype definitions layout generator
@@ -118,41 +118,41 @@ void DatatypeClass::visualize( PropVisualizer& v)
   int anchor = 2;
 
   
-#line 113 "../../prop-src/visual2.pcc"
-#line 128 "../../prop-src/visual2.pcc"
+#line 113 "visual2.pcc"
+#line 128 "visual2.pcc"
 {
   Ty _V1 = cons->ty;
   if (_V1) {
     switch (_V1->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V1)->_1)) {
-          switch (_TYCONty(_V1)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V1)->_1)) {
+          switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 121 "../../prop-src/visual2.pcc"
+#line 121 "visual2.pcc"
               
               Ids ls; Tys ts;
-              for(ls = _RECORDtycon(_TYCONty(_V1)->_1)->_1, ts = _TYCONty(_V1)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
+              for(ls = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V1)->_1)->_1, ts = ((Ty_TYCONty *)_V1)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
               {
                 v . add_type(constructor_name,ls->_1, ts->_1,anchor++); }
               
-#line 126 "../../prop-src/visual2.pcc"
+#line 126 "visual2.pcc"
               } break;
             default: {
               L1:; 
-#line 128 "../../prop-src/visual2.pcc"
+#line 128 "visual2.pcc"
              v . add_type(constructor_name,0,_V1,anchor); 
-#line 128 "../../prop-src/visual2.pcc"
+#line 128 "visual2.pcc"
               } break;
           }
         } else {
-          switch ((int)_TYCONty(_V1)->_1) {
+          switch ((int)((Ty_TYCONty *)_V1)->_1) {
             case ((int)TUPLEtycon): {
-#line 116 "../../prop-src/visual2.pcc"
+#line 116 "visual2.pcc"
               
-              for_each(Ty, t, _TYCONty(_V1)->_2)
+              for_each(Ty, t, ((Ty_TYCONty *)_V1)->_2)
                 { v . add_type(constructor_name,0,t,anchor++); }
               
-#line 119 "../../prop-src/visual2.pcc"
+#line 119 "visual2.pcc"
               } break;
             default: { goto L1; } break;
           }
@@ -162,8 +162,8 @@ void DatatypeClass::visualize( PropVisualizer& v)
     }
   } else { goto L1; }
 }
-#line 129 "../../prop-src/visual2.pcc"
-#line 129 "../../prop-src/visual2.pcc"
+#line 129 "visual2.pcc"
+#line 129 "visual2.pcc"
 
 
   v . make_label ();
@@ -184,24 +184,24 @@ void PropVisualizer::add_type( Id cons_name, Id label, Ty ty, int anch)
 
   // Create a has-a edge
   
-#line 148 "../../prop-src/visual2.pcc"
-#line 158 "../../prop-src/visual2.pcc"
+#line 148 "visual2.pcc"
+#line 158 "visual2.pcc"
 {
   Ty _V2 = deref_all(ty);
   if (_V2) {
     switch (_V2->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V2)->_1)) {
-          switch (_TYCONty(_V2)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V2)->_1)) {
+          switch (((Ty_TYCONty *)_V2)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 151 "../../prop-src/visual2.pcc"
+#line 151 "visual2.pcc"
               
               // begin_edge(cons_name,id);
               // color (lightgreen);
               // anchor(anch);
               // end_edge(cons_name,id);
               
-#line 156 "../../prop-src/visual2.pcc"
+#line 156 "visual2.pcc"
               } break;
             default: {
               L2:; } break;
@@ -212,11 +212,11 @@ void PropVisualizer::add_type( Id cons_name, Id label, Ty ty, int anch)
     }
   } else { goto L2; }
 }
-#line 158 "../../prop-src/visual2.pcc"
-#line 158 "../../prop-src/visual2.pcc"
+#line 158 "visual2.pcc"
+#line 158 "visual2.pcc"
 
 }
-#line 160 "../../prop-src/visual2.pcc"
+#line 160 "visual2.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -225,8 +225,8 @@ Number of ifs generated      = 4
 Number of switches generated = 5
 Number of labels             = 2
 Number of gotos              = 6
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

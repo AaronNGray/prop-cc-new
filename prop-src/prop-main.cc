@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\prop-main.pcc".
+//  The original source file is "prop-main.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_REGEXP_MATCHING_USED
 #include <propdefs.h>
-#line 1 "../../prop-src/prop-main.pcc"
+#line 1 "prop-main.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //      ////////
@@ -74,8 +74,8 @@ void PropOptions::process_command_line_arguments
   for (argc--, argv++; argc > 0; argc--, argv++)
   {
     
-#line 67 "../../prop-src/prop-main.pcc"
-#line 132 "../../prop-src/prop-main.pcc"
+#line 67 "prop-main.pcc"
+#line 132 "prop-main.pcc"
 {
   char const * _V1 = argv[0];
   {
@@ -208,71 +208,71 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
                       _X1_equiv_classes );
     switch(_X1.MatchText(_V1)) {
       case 1: {
-#line 68 "../../prop-src/prop-main.pcc"
+#line 68 "prop-main.pcc"
        automake = true; 
-#line 68 "../../prop-src/prop-main.pcc"
+#line 68 "prop-main.pcc"
       } break;
       case 2: {
-#line 69 "../../prop-src/prop-main.pcc"
+#line 69 "prop-main.pcc"
        debug = true; 
-#line 69 "../../prop-src/prop-main.pcc"
+#line 69 "prop-main.pcc"
       } break;
       case 3: {
-#line 70 "../../prop-src/prop-main.pcc"
+#line 70 "prop-main.pcc"
        emit_code = false; 
-#line 70 "../../prop-src/prop-main.pcc"
+#line 70 "prop-main.pcc"
       } break;
       case 4: {
-#line 71 "../../prop-src/prop-main.pcc"
+#line 71 "prop-main.pcc"
        line_directives = false; 
-#line 71 "../../prop-src/prop-main.pcc"
+#line 71 "prop-main.pcc"
       } break;
       case 5: {
-#line 72 "../../prop-src/prop-main.pcc"
+#line 72 "prop-main.pcc"
        GNU_style_message = true; 
-#line 72 "../../prop-src/prop-main.pcc"
+#line 72 "prop-main.pcc"
       } break;
       case 6: {
-#line 73 "../../prop-src/prop-main.pcc"
+#line 73 "prop-main.pcc"
        generate_html = true; 
-#line 73 "../../prop-src/prop-main.pcc"
+#line 73 "prop-main.pcc"
       } break;
       case 7: {
-#line 74 "../../prop-src/prop-main.pcc"
+#line 74 "prop-main.pcc"
        generate_report = true; 
-#line 74 "../../prop-src/prop-main.pcc"
+#line 74 "prop-main.pcc"
       } break;
       case 8: {
-#line 75 "../../prop-src/prop-main.pcc"
+#line 75 "prop-main.pcc"
        strict_checking = true; 
-#line 75 "../../prop-src/prop-main.pcc"
+#line 75 "prop-main.pcc"
       } break;
       case 9: {
-#line 76 "../../prop-src/prop-main.pcc"
+#line 76 "prop-main.pcc"
        to_stdout = true; 
-#line 76 "../../prop-src/prop-main.pcc"
+#line 76 "prop-main.pcc"
       } break;
       case 10: {
-#line 77 "../../prop-src/prop-main.pcc"
+#line 77 "prop-main.pcc"
        trace = true; 
-#line 77 "../../prop-src/prop-main.pcc"
+#line 77 "prop-main.pcc"
       } break;
       case 11: {
-#line 79 "../../prop-src/prop-main.pcc"
+#line 79 "prop-main.pcc"
         
         char c[2]; c[0] = FILE_SEPARATOR; c[1] = '\0';
         std::strcat(search_paths,c);
         std::strcat(search_paths,argv[0]+2);
         
-#line 83 "../../prop-src/prop-main.pcc"
+#line 83 "prop-main.pcc"
       } break;
       case 12: {
-#line 84 "../../prop-src/prop-main.pcc"
+#line 84 "prop-main.pcc"
       std::strcpy(output_file_name,argv[0]+2); 
-#line 84 "../../prop-src/prop-main.pcc"
+#line 84 "prop-main.pcc"
       } break;
       case 13: {
-#line 86 "../../prop-src/prop-main.pcc"
+#line 86 "prop-main.pcc"
         
         if (argc > 1)
         {
@@ -282,10 +282,10 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
         else
           help = true;
         
-#line 94 "../../prop-src/prop-main.pcc"
+#line 94 "prop-main.pcc"
       } break;
       case 14: {
-#line 96 "../../prop-src/prop-main.pcc"
+#line 96 "prop-main.pcc"
         
         int opt = std::atol(argv[0]+2);
         optimization_level = opt <= 0 ? 1 : opt;
@@ -295,110 +295,110 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
         tagged_pointer    = optimization_level & 8;
         optimize_rewrite  = optimization_level & 16;
         
-#line 104 "../../prop-src/prop-main.pcc"
+#line 104 "prop-main.pcc"
       } break;
       case 15: {
-#line 105 "../../prop-src/prop-main.pcc"
+#line 105 "prop-main.pcc"
        fast_string_match = true; 
-#line 105 "../../prop-src/prop-main.pcc"
+#line 105 "prop-main.pcc"
       } break;
       case 16: {
-#line 106 "../../prop-src/prop-main.pcc"
+#line 106 "prop-main.pcc"
        adaptive_matching = true; 
-#line 106 "../../prop-src/prop-main.pcc"
+#line 106 "prop-main.pcc"
       } break;
       case 17: {
-#line 107 "../../prop-src/prop-main.pcc"
+#line 107 "prop-main.pcc"
        inline_casts = true; 
-#line 107 "../../prop-src/prop-main.pcc"
+#line 107 "prop-main.pcc"
       } break;
       case 18: {
-#line 108 "../../prop-src/prop-main.pcc"
+#line 108 "prop-main.pcc"
        tagged_pointer = true; 
-#line 108 "../../prop-src/prop-main.pcc"
+#line 108 "prop-main.pcc"
       } break;
       case 19: {
-#line 109 "../../prop-src/prop-main.pcc"
+#line 109 "prop-main.pcc"
        optimize_rewrite = true; 
-#line 109 "../../prop-src/prop-main.pcc"
+#line 109 "prop-main.pcc"
       } break;
       case 20: {
-#line 110 "../../prop-src/prop-main.pcc"
+#line 110 "prop-main.pcc"
        nonlinear_patterns = true; 
-#line 110 "../../prop-src/prop-main.pcc"
+#line 110 "prop-main.pcc"
       } break;
       case 21: {
-#line 111 "../../prop-src/prop-main.pcc"
+#line 111 "prop-main.pcc"
        save_space = true; 
-#line 111 "../../prop-src/prop-main.pcc"
+#line 111 "prop-main.pcc"
       } break;
       case 22: {
-#line 112 "../../prop-src/prop-main.pcc"
+#line 112 "prop-main.pcc"
        max_vector_len = std::atol(argv[0]+2); 
-#line 112 "../../prop-src/prop-main.pcc"
+#line 112 "prop-main.pcc"
       } break;
       case 23: {
-#line 114 "../../prop-src/prop-main.pcc"
+#line 114 "prop-main.pcc"
         
         verbosity = std::atol(argv[0]+2);
         if (verbosity <= 0)
           verbosity = 1;
         
-#line 118 "../../prop-src/prop-main.pcc"
+#line 118 "prop-main.pcc"
       } break;
       case 24: {
-#line 119 "../../prop-src/prop-main.pcc"
+#line 119 "prop-main.pcc"
        visualization = true; 
-#line 119 "../../prop-src/prop-main.pcc"
+#line 119 "prop-main.pcc"
       } break;
       case 25: {
-#line 120 "../../prop-src/prop-main.pcc"
+#line 120 "prop-main.pcc"
        gen_dependences = true; 
-#line 120 "../../prop-src/prop-main.pcc"
+#line 120 "prop-main.pcc"
       } break;
       case 26: {
-#line 121 "../../prop-src/prop-main.pcc"
+#line 121 "prop-main.pcc"
        emit_code = false; 
-#line 121 "../../prop-src/prop-main.pcc"
+#line 121 "prop-main.pcc"
       } break;
       case 27: {
-#line 122 "../../prop-src/prop-main.pcc"
+#line 122 "prop-main.pcc"
        new_list_format = true; 
-#line 122 "../../prop-src/prop-main.pcc"
+#line 122 "prop-main.pcc"
       } break;
       case 28: {
-#line 123 "../../prop-src/prop-main.pcc"
+#line 123 "prop-main.pcc"
        help = true; 
-#line 123 "../../prop-src/prop-main.pcc"
+#line 123 "prop-main.pcc"
       } break;
       case 29: {
-#line 124 "../../prop-src/prop-main.pcc"
+#line 124 "prop-main.pcc"
        MEM::use_global_pools(); 
-#line 124 "../../prop-src/prop-main.pcc"
+#line 124 "prop-main.pcc"
       } break;
       case 30: {
-#line 125 "../../prop-src/prop-main.pcc"
+#line 125 "prop-main.pcc"
        print_memory_usage = true; 
-#line 125 "../../prop-src/prop-main.pcc"
+#line 125 "prop-main.pcc"
       } break;
       case 31: {
-#line 127 "../../prop-src/prop-main.pcc"
+#line 127 "prop-main.pcc"
         
         error("%s: unknown option %s\n", prog_name, argv[0]);
         help = true;
         
-#line 130 "../../prop-src/prop-main.pcc"
+#line 130 "prop-main.pcc"
       } break;
       default: {
-#line 132 "../../prop-src/prop-main.pcc"
+#line 132 "prop-main.pcc"
        input_files[file_count++] = argv[0]; 
-#line 132 "../../prop-src/prop-main.pcc"
+#line 132 "prop-main.pcc"
       }
     }
   }
 }
-#line 133 "../../prop-src/prop-main.pcc"
-#line 133 "../../prop-src/prop-main.pcc"
+#line 133 "prop-main.pcc"
+#line 133 "prop-main.pcc"
 
     if ( argv[0][0] == '-')
       input_options[option_count++] = argv[0];
@@ -473,7 +473,7 @@ int main( int argc, const char * argv [])
   }
   std::exit(stat);
 }
-#line 207 "../../prop-src/prop-main.pcc"
+#line 207 "prop-main.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -482,8 +482,8 @@ Number of ifs generated      = 0
 Number of switches generated = 1
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

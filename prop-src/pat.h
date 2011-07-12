@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\pat.ph".
+//  The original source file is "pat.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/pat.ph"
+#line 1 "pat.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file describes the analysis routines for patterns and match
@@ -65,7 +65,7 @@ extern Exp pat2unifier     (Pat);
 extern Bool write_mode;    // write mode during unification
 
 #endif
-#line 61 "../../prop-src/pat.ph"
+#line 61 "pat.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -74,8 +74,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

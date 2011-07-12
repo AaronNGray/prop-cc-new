@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\setlgen.ph".
+//  The original source file is "setlgen.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "../../prop-src/setlgen.ph"
+#line 1 "setlgen.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file describes the interface of the SETL-like sublanguage compiler.
@@ -26,8 +26,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 20 "../../prop-src/setlgen.ph"
-#line 20 "../../prop-src/setlgen.ph"
+#line 20 "setlgen.ph"
+#line 20 "setlgen.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Forward class definition for Time
@@ -50,8 +50,8 @@
   typedef a_Space * Space;
 #endif
 
-#line 20 "../../prop-src/setlgen.ph"
-#line 20 "../../prop-src/setlgen.ph"
+#line 20 "setlgen.ph"
+#line 20 "setlgen.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -63,12 +63,12 @@
 extern Ty         type_of (Exp,  const Env&);  // type checking an expression
 extern Tys        type_of (Exps, const Env&);  // type checking an expression list
 extern 
-#line 30 "../../prop-src/setlgen.ph"
+#line 30 "setlgen.ph"
 Tuple2<Id, Ty>  
-#line 30 "../../prop-src/setlgen.ph"
+#line 30 "setlgen.ph"
    type_of (LabExp,  const Env&);  // type checking an labeled expression
 extern Tuple2<Ids, Tys>  
-#line 31 "../../prop-src/setlgen.ph"
+#line 31 "setlgen.ph"
  type_of (LabExps, const Env&);  // type checking an labeled expression list
 extern Env  type_of (Def,   const Env&);  // type checking a definition
 extern Env  type_of (Defs,  const Env&);  // type checking a definition list
@@ -117,10 +117,10 @@ private:
   //
   ////////////////////////////////////////////////////////////////////////////
   Tuple2<Time, Space>  
-#line 78 "../../prop-src/setlgen.ph"
+#line 78 "setlgen.ph"
  complexity_of (Exp, const Env&);
   Tuple2<Time, Space>  
-#line 79 "../../prop-src/setlgen.ph"
+#line 79 "setlgen.ph"
  complexity_of (Stmt, const Env&);
 
   ////////////////////////////////////////////////////////////////////////////
@@ -145,8 +145,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\ast.pcc".
+//  The original source file is "ast.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/ast.pcc"
+#line 1 "ast.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements some basic AST manipulation routines
@@ -26,32 +26,32 @@ Exp component_exp(Exps exps, int n)
   Exps es = exps;
   int  i  = n;
   
-#line 21 "../../prop-src/ast.pcc"
-#line 23 "../../prop-src/ast.pcc"
+#line 21 "ast.pcc"
+#line 23 "ast.pcc"
 {
   for (;;) {
     if (es) {
       if (
-#line 22 "../../prop-src/ast.pcc"
+#line 22 "ast.pcc"
       (i == 1)
-#line 22 "../../prop-src/ast.pcc"
+#line 22 "ast.pcc"
 ) {
         
-#line 22 "../../prop-src/ast.pcc"
+#line 22 "ast.pcc"
        return es->_1; 
-#line 22 "../../prop-src/ast.pcc"
+#line 22 "ast.pcc"
       } else {
         
-#line 23 "../../prop-src/ast.pcc"
+#line 23 "ast.pcc"
        es = es->_2; i--; 
-#line 23 "../../prop-src/ast.pcc"
+#line 23 "ast.pcc"
       }
     } else { goto L1; }
   }
   L1:;
 }
-#line 24 "../../prop-src/ast.pcc"
-#line 24 "../../prop-src/ast.pcc"
+#line 24 "ast.pcc"
+#line 24 "ast.pcc"
 
   error( "%Lexpression %e does not have component %i\n", TUPLEexp(exps), n);
   return NOexp;
@@ -78,38 +78,38 @@ Exp component_exp( LabExps labeled_exps, Id n)
 {
   LabExps les = labeled_exps;
   
-#line 49 "../../prop-src/ast.pcc"
-#line 51 "../../prop-src/ast.pcc"
+#line 49 "ast.pcc"
+#line 51 "ast.pcc"
 {
   for (;;) {
     if (les) {
       if (
-#line 50 "../../prop-src/ast.pcc"
+#line 50 "ast.pcc"
       (les->_1.label == n)
-#line 50 "../../prop-src/ast.pcc"
+#line 50 "ast.pcc"
 ) {
         
-#line 50 "../../prop-src/ast.pcc"
+#line 50 "ast.pcc"
        return les->_1.exp; 
-#line 50 "../../prop-src/ast.pcc"
+#line 50 "ast.pcc"
       } else {
         
-#line 51 "../../prop-src/ast.pcc"
+#line 51 "ast.pcc"
        les = les->_2; 
-#line 51 "../../prop-src/ast.pcc"
+#line 51 "ast.pcc"
       }
     } else { goto L2; }
   }
   L2:;
 }
-#line 52 "../../prop-src/ast.pcc"
-#line 52 "../../prop-src/ast.pcc"
+#line 52 "ast.pcc"
+#line 52 "ast.pcc"
 
   error( "%Lexpression %e does not have component %s\n",
          RECORDexp(labeled_exps), n);
   return NOexp;
 }
-#line 57 "../../prop-src/ast.pcc"
+#line 57 "ast.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -118,8 +118,8 @@ Number of ifs generated      = 4
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\collection.ph".
+//  The original source file is "collection.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/collection.ph"
+#line 1 "collection.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file describe the collection datatypes in Prop.
@@ -91,8 +91,8 @@ enum CollectionRep
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 87 "../../prop-src/collection.ph"
-#line 97 "../../prop-src/collection.ph"
+#line 87 "collection.ph"
+#line 97 "collection.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Forward class definition for CollectionDesc
@@ -107,19 +107,19 @@ enum CollectionRep
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type CollectionOp
 ///////////////////////////////////////////////////////////////////////////////
-#line 94 "../../prop-src/collection.ph"
+#line 94 "collection.ph"
 typedef int CollectionOp;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type CollectionAttrib
 ///////////////////////////////////////////////////////////////////////////////
-#line 95 "../../prop-src/collection.ph"
+#line 95 "collection.ph"
 typedef int CollectionAttrib;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type CollectionDescs
 ///////////////////////////////////////////////////////////////////////////////
-#line 96 "../../prop-src/collection.ph"
+#line 96 "collection.ph"
 typedef a_List<CollectionDesc> *  CollectionDescs;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -129,12 +129,9 @@ typedef a_List<CollectionDesc> *  CollectionDescs;
 ///////////////////////////////////////////////////////////////////////////////
 class a_CollectionDesc : public MEM {
 public:
-#line 87 "../../prop-src/collection.ph"
+#line 87 "collection.ph"
   Id name; CollectionAttrib attrib; CollectionRep rep; 
-  inline a_CollectionDesc (Id x_name, CollectionAttrib x_attrib = COLLECTION_NONE, CollectionRep x_rep = REP_none)
-   : name(x_name), attrib(x_attrib), rep(x_rep)
-  {
-  }
+  a_CollectionDesc (Id x_name, CollectionAttrib x_attrib = COLLECTION_NONE, CollectionRep x_rep = REP_none);
 };
 inline int boxed(const a_CollectionDesc *) { return 1; }
 inline int untag(const a_CollectionDesc *) { return 0; }
@@ -143,23 +140,14 @@ inline int untag(const a_CollectionDesc *) { return 0; }
 // Datatype constructor functions for CollectionDesc
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_CollectionDesc * COLdesc (Id x_name, CollectionAttrib x_attrib = COLLECTION_NONE, CollectionRep x_rep = REP_none)
-{
-  return new a_CollectionDesc (x_name, x_attrib, x_rep);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for CollectionDesc
-//
-///////////////////////////////////////////////////////////////////////////////
+extern a_CollectionDesc * COLdesc (Id x_name, CollectionAttrib x_attrib = COLLECTION_NONE, CollectionRep x_rep = REP_none);
 
-
-#line 97 "../../prop-src/collection.ph"
-#line 97 "../../prop-src/collection.ph"
+#line 97 "collection.ph"
+#line 97 "collection.ph"
 
 
 #endif
-#line 100 "../../prop-src/collection.ph"
+#line 100 "collection.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -168,8 +156,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

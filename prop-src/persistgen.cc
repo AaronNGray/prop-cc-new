@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\persistgen.pcc".
+//  The original source file is "persistgen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_QUARK_USED
@@ -9,9 +9,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_e_r_s_i_s_t_g_e_nco_c_c_Q2("i__");
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_e_r_s_i_s_t_g_e_nco_c_c_Q1("this");
-#line 1 "../../prop-src/persistgen.pcc"
+static const Quark _p_e_r_s_i_s_t_g_e_nco_c_c_Q2("i__");
+static const Quark _p_e_r_s_i_s_t_g_e_nco_c_c_Q1("this");
+#line 1 "persistgen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file handles persistent datatypes processing.
@@ -37,11 +37,11 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_e_r_s_i_s_t_g_e_nco_c_c_Q1("
 unsigned int id_tys_hash( HashTable::Key a)
 {
   
-#line 25 "../../prop-src/persistgen.pcc"
+#line 25 "persistgen.pcc"
 a_Pair<Id, Tys> *  
-#line 25 "../../prop-src/persistgen.pcc"
+#line 25 "persistgen.pcc"
  key = (a_Pair<Id, Tys> *  
-#line 25 "../../prop-src/persistgen.pcc"
+#line 25 "persistgen.pcc"
 )a;
   return (unsigned int)key->fst + tys_hash(key->snd);
 }
@@ -49,14 +49,14 @@ a_Pair<Id, Tys> *
 Bool id_tys_equal( HashTable::Key a, HashTable::Key b)
 {
   a_Pair<Id, Tys> *  
-#line 31 "../../prop-src/persistgen.pcc"
+#line 31 "persistgen.pcc"
  x = (a_Pair<Id, Tys> *  
-#line 31 "../../prop-src/persistgen.pcc"
+#line 31 "persistgen.pcc"
 )a;
   a_Pair<Id, Tys> *  
-#line 32 "../../prop-src/persistgen.pcc"
+#line 32 "persistgen.pcc"
  y = (a_Pair<Id, Tys> *  
-#line 32 "../../prop-src/persistgen.pcc"
+#line 32 "persistgen.pcc"
 )b;
   return x->fst == y->fst && tys_equal(x->snd,y->snd);
 }
@@ -64,47 +64,47 @@ Bool id_tys_equal( HashTable::Key a, HashTable::Key b)
 unsigned int pid_hash( HashTable::Key pid)
 {
   
-#line 41 "../../prop-src/persistgen.pcc"
+#line 41 "persistgen.pcc"
 {
   Pid _V1 = Pid(pid);
   if (_V1) {
-#line 40 "../../prop-src/persistgen.pcc"
+#line 40 "persistgen.pcc"
    return string_hash(_V1->PERSISTid); 
-#line 40 "../../prop-src/persistgen.pcc"
+#line 40 "persistgen.pcc"
   } else {
-#line 41 "../../prop-src/persistgen.pcc"
+#line 41 "persistgen.pcc"
    return 1235; 
-#line 41 "../../prop-src/persistgen.pcc"
+#line 41 "persistgen.pcc"
   }
 }
-#line 42 "../../prop-src/persistgen.pcc"
-#line 42 "../../prop-src/persistgen.pcc"
+#line 42 "persistgen.pcc"
+#line 42 "persistgen.pcc"
 
 }
 
 Bool pid_equal( HashTable::Key a, HashTable::Key b)
 {
   
-#line 47 "../../prop-src/persistgen.pcc"
-#line 50 "../../prop-src/persistgen.pcc"
+#line 47 "persistgen.pcc"
+#line 50 "persistgen.pcc"
 {
   Pid _V2 = Pid(a);
   Pid _V3 = Pid(b);
   if (_V2) {
     if (_V3) {
-#line 49 "../../prop-src/persistgen.pcc"
+#line 49 "persistgen.pcc"
      return string_equal( _V2->PERSISTid, _V3->PERSISTid); 
-#line 49 "../../prop-src/persistgen.pcc"
+#line 49 "persistgen.pcc"
     } else {
       L1:; 
-#line 50 "../../prop-src/persistgen.pcc"
+#line 50 "persistgen.pcc"
      return false; 
-#line 50 "../../prop-src/persistgen.pcc"
+#line 50 "persistgen.pcc"
     }
   } else { goto L1; }
 }
-#line 51 "../../prop-src/persistgen.pcc"
-#line 51 "../../prop-src/persistgen.pcc"
+#line 51 "persistgen.pcc"
+#line 51 "persistgen.pcc"
 
 }
 
@@ -127,9 +127,9 @@ HashTable pid_type_map( pid_hash, pid_equal);
 void update_persistent( Id id, Tys tys, Pid pid)
 {
   
-#line 72 "../../prop-src/persistgen.pcc"
+#line 72 "persistgen.pcc"
 a_Pair<Id, Tys> *  
-#line 72 "../../prop-src/persistgen.pcc"
+#line 72 "persistgen.pcc"
  key = makepair( id, tys);
   HashTable::Entry * e1 = type_pid_map.lookup((HashTable::Key)key);
   HashTable::Entry * e2 = pid_type_map.lookup((HashTable::Key)pid);
@@ -138,9 +138,9 @@ a_Pair<Id, Tys> *
   if (e2)
   {
     a_Pair<Id, Tys> *  
-#line 79 "../../prop-src/persistgen.pcc"
+#line 79 "persistgen.pcc"
  previous = (a_Pair<Id, Tys> *  
-#line 79 "../../prop-src/persistgen.pcc"
+#line 79 "persistgen.pcc"
 )(e2->v);
     error( "%Lpersistence pid %Q already allocated for type %s%P\n",
            pid, previous->fst, previous->snd);
@@ -154,30 +154,30 @@ a_Pair<Id, Tys> *
   // add persistent qualifier to the constructor's type
 
   
-#line 96 "../../prop-src/persistgen.pcc"
+#line 96 "persistgen.pcc"
 {
   Ty _V4 = lookup_ty(id);
   if (_V4) {
     switch (_V4->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V4)->_1)) {
-          switch (_TYCONty(_V4)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V4)->_1)) {
+          switch (((Ty_TYCONty *)_V4)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
               if (
-#line 93 "../../prop-src/persistgen.pcc"
-              (_DATATYPEtycon(_TYCONty(_V4)->_1)->hierarchy != 0)
-#line 93 "../../prop-src/persistgen.pcc"
+#line 93 "persistgen.pcc"
+              (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V4)->_1)->hierarchy != 0)
+#line 93 "persistgen.pcc"
 ) {
                 
-#line 94 "../../prop-src/persistgen.pcc"
-               _DATATYPEtycon(_TYCONty(_V4)->_1)->hierarchy->qualifiers |= QUALpersistent; 
-#line 94 "../../prop-src/persistgen.pcc"
+#line 94 "persistgen.pcc"
+               ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V4)->_1)->hierarchy->qualifiers |= QUALpersistent; 
+#line 94 "persistgen.pcc"
               } else {
                 
                 L2:; 
-#line 96 "../../prop-src/persistgen.pcc"
+#line 96 "persistgen.pcc"
                error("%Ltype %s%P is not a datatype\n",id,tys); 
-#line 96 "../../prop-src/persistgen.pcc"
+#line 96 "persistgen.pcc"
               }
               } break;
             default: { goto L2; } break;
@@ -188,8 +188,8 @@ a_Pair<Id, Tys> *
     }
   } else { goto L2; }
 }
-#line 97 "../../prop-src/persistgen.pcc"
-#line 97 "../../prop-src/persistgen.pcc"
+#line 97 "persistgen.pcc"
+#line 97 "persistgen.pcc"
 
 }
 
@@ -201,9 +201,9 @@ a_Pair<Id, Tys> *
 
 Pid lookup_persistent( Id id, Tys tys)
 {  
-#line 107 "../../prop-src/persistgen.pcc"
+#line 107 "persistgen.pcc"
 a_Pair<Id, Tys> *  
-#line 107 "../../prop-src/persistgen.pcc"
+#line 107 "persistgen.pcc"
  key = makepair( id, tys);
    HashTable::Entry * e1 = type_pid_map.lookup( (HashTable::Key) key);
    if (e1)
@@ -298,10 +298,10 @@ void DatatypeClass::generate_persistence_implementation
   // Generate the read method
   //
   Exp self_exp = DEREFexp( IDexp( 
-#line 200 "../../prop-src/persistgen.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_p_e_r_s_i_s_t_g_e_nco_c_c_Q1
-#line 200 "../../prop-src/persistgen.pcc"
-#line 200 "../../prop-src/persistgen.pcc"
+#line 200 "persistgen.pcc"
+_p_e_r_s_i_s_t_g_e_nco_c_c_Q1
+#line 200 "persistgen.pcc"
+#line 200 "persistgen.pcc"
 ));
   C.pr( "%^Pistream& %s%P::persist_read(Pistream& strm__)"
         "%^{%+",
@@ -367,29 +367,29 @@ void DatatypeClass::gen_field_persist_IO
   Bool is_reading = io[0] == '>';
 
   
-#line 264 "../../prop-src/persistgen.pcc"
-#line 309 "../../prop-src/persistgen.pcc"
+#line 264 "persistgen.pcc"
+#line 309 "persistgen.pcc"
 {
   Ty _V5 = deref(ty);
   if (_V5) {
     switch (_V5->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V5)->_1)) {
-          switch (_TYCONty(_V5)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V5)->_1)) {
+          switch (((Ty_TYCONty *)_V5)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 279 "../../prop-src/persistgen.pcc"
+#line 279 "persistgen.pcc"
               
               Ids ls; Tys ts;
-              for( ls = _RECORDtycon(_TYCONty(_V5)->_1)->_1, ts = _TYCONty(_V5)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
+              for( ls = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V5)->_1)->_1, ts = ((Ty_TYCONty *)_V5)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
                 gen_field_persist_IO( C, DOTexp( exp, ls->_1), ts->_1, tys, k, io);
               
-#line 283 "../../prop-src/persistgen.pcc"
+#line 283 "persistgen.pcc"
               } break;
             case a_TyCon::tag_ARRAYtycon: {
-              if (_TYCONty(_V5)->_2) {
-                if (_TYCONty(_V5)->_2->_2) {
+              if (((Ty_TYCONty *)_V5)->_2) {
+                if (((Ty_TYCONty *)_V5)->_2->_2) {
                   L3:; 
-#line 299 "../../prop-src/persistgen.pcc"
+#line 299 "persistgen.pcc"
                   
                   if (toplevel)
                     exp = DOTexp( exp, mangle(cons->name));
@@ -401,53 +401,53 @@ void DatatypeClass::gen_field_persist_IO
                   
                   C.pr( " // %T", _V5);
                   
-#line 309 "../../prop-src/persistgen.pcc"
+#line 309 "persistgen.pcc"
                 } else {
-#line 285 "../../prop-src/persistgen.pcc"
+#line 285 "persistgen.pcc"
                   
                   C.pr(
                         "%^{%+"
                         "%^for (int i__ = 0; i__ < %e; i__++)"
                         "%^{%+",
-                        _ARRAYtycon(_TYCONty(_V5)->_1)->ARRAYtycon
+                        ((TyCon_ARRAYtycon *)((Ty_TYCONty *)_V5)->_1)->ARRAYtycon
                       );
                   gen_field_persist_IO( C, INDEXexp( exp, IDexp( 
-#line 292 "../../prop-src/persistgen.pcc"
-#line 292 "../../prop-src/persistgen.pcc"
-                  cocofmcocofm_p_r_o_pcn_s_r_cfm_p_e_r_s_i_s_t_g_e_nco_c_c_Q2
-#line 292 "../../prop-src/persistgen.pcc"
-#line 292 "../../prop-src/persistgen.pcc"
-                  )), _TYCONty(_V5)->_2->_1, tys, k, io);
+#line 292 "persistgen.pcc"
+#line 292 "persistgen.pcc"
+                  _p_e_r_s_i_s_t_g_e_nco_c_c_Q2
+#line 292 "persistgen.pcc"
+#line 292 "persistgen.pcc"
+                  )), ((Ty_TYCONty *)_V5)->_2->_1, tys, k, io);
                   C.pr(
                         "%-%^}"
                         "%-%^}"
                       );
                   
-#line 297 "../../prop-src/persistgen.pcc"
+#line 297 "persistgen.pcc"
                 }
               } else { goto L3; }
               } break;
             default: { goto L3; } break;
           }
         } else {
-          switch ((int)_TYCONty(_V5)->_1) {
+          switch ((int)((Ty_TYCONty *)_V5)->_1) {
             case ((int)TUPLEtycon): {
-#line 267 "../../prop-src/persistgen.pcc"
+#line 267 "persistgen.pcc"
               
               int i = 1;
-              for_each ( Ty, ty, _TYCONty(_V5)->_2)
+              for_each ( Ty, ty, ((Ty_TYCONty *)_V5)->_2)
                 gen_field_persist_IO( C, DOTexp( exp, index_of(i++)), ty, tys, k, io);
               
-#line 271 "../../prop-src/persistgen.pcc"
+#line 271 "persistgen.pcc"
               } break;
             case ((int)EXTUPLEtycon): {
-#line 273 "../../prop-src/persistgen.pcc"
+#line 273 "persistgen.pcc"
               
               int i = 1;
-              for_each ( Ty, ty, _TYCONty(_V5)->_2)
+              for_each ( Ty, ty, ((Ty_TYCONty *)_V5)->_2)
                 gen_field_persist_IO( C, DOTexp( exp, index_of(i++)), ty, tys, k, io);
               
-#line 277 "../../prop-src/persistgen.pcc"
+#line 277 "persistgen.pcc"
               } break;
             default: { goto L3; } break;
           }
@@ -457,11 +457,11 @@ void DatatypeClass::gen_field_persist_IO
     }
   } else { goto L3; }
 }
-#line 310 "../../prop-src/persistgen.pcc"
-#line 310 "../../prop-src/persistgen.pcc"
+#line 310 "persistgen.pcc"
+#line 310 "persistgen.pcc"
 
 }
-#line 312 "../../prop-src/persistgen.pcc"
+#line 312 "persistgen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -470,8 +470,8 @@ Number of ifs generated      = 10
 Number of switches generated = 5
 Number of labels             = 3
 Number of gotos              = 10
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

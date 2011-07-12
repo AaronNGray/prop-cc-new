@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\funmap.pcc".
+//  The original source file is "funmap.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_QUARK_USED
@@ -9,11 +9,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q3("##");
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q4("$$");
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q1("#");
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q2("$");
-#line 1 "../../prop-src/funmap.pcc"
+static const Quark _f_u_n_m_a_pco_c_c_Q3("##");
+static const Quark _f_u_n_m_a_pco_c_c_Q4("$$");
+static const Quark _f_u_n_m_a_pco_c_c_Q1("#");
+static const Quark _f_u_n_m_a_pco_c_c_Q2("$");
+#line 1 "funmap.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the FunctorMap data structure
@@ -58,14 +58,14 @@ TreeTerm new_term(Mem& mem, short int f, unsigned char n, TreeTerm * subterms);
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 44 "../../prop-src/funmap.pcc"
-#line 44 "../../prop-src/funmap.pcc"
+#line 45 "funmap.pcc"
+#line 45 "funmap.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Interface specification of datatype VectorId
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 44 "../../prop-src/funmap.pcc"
+#line 45 "funmap.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -73,11 +73,19 @@ TreeTerm new_term(Mem& mem, short int f, unsigned char n, TreeTerm * subterms);
 // Instantiation of datatype VectorId
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 44 "../../prop-src/funmap.pcc"
+#line 45 "funmap.pcc"
+a_VectorId::a_VectorId (Cons x_cons, Ty x_ty, int x_arity)
+ : cons(x_cons), ty(x_ty), arity(x_arity)
+{
+}
+a_VectorId * vector_id (Cons x_cons, Ty x_ty, int x_arity)
+{
+  return new a_VectorId (x_cons, x_ty, x_arity);
+}
 
 
-#line 44 "../../prop-src/funmap.pcc"
-#line 44 "../../prop-src/funmap.pcc"
+#line 45 "funmap.pcc"
+#line 45 "funmap.pcc"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -109,100 +117,100 @@ Bool vector_id_equal( HashTable::Key a, HashTable::Key b)
 int decor_rewrite( Pat pat, int rule, int kid, PatternVarEnv& E)
 {
   
-#line 74 "../../prop-src/funmap.pcc"
-#line 103 "../../prop-src/funmap.pcc"
+#line 75 "funmap.pcc"
+#line 104 "funmap.pcc"
 {
   for (;;) {
     if (pat) {
       switch (pat->tag__) {
         case a_Pat::tag_APPpat: {
-#line 80 "../../prop-src/funmap.pcc"
-         pat = _APPpat(pat)->_2; 
-#line 80 "../../prop-src/funmap.pcc"
+#line 81 "funmap.pcc"
+         pat = ((Pat_APPpat *)pat)->_2; 
+#line 81 "funmap.pcc"
           } break;
         case a_Pat::tag_TYPEDpat: {
-#line 78 "../../prop-src/funmap.pcc"
-         pat = _TYPEDpat(pat)->_1; 
-#line 78 "../../prop-src/funmap.pcc"
+#line 79 "funmap.pcc"
+         pat = ((Pat_TYPEDpat *)pat)->_1; 
+#line 79 "funmap.pcc"
           } break;
         case a_Pat::tag_ASpat: {
-#line 94 "../../prop-src/funmap.pcc"
+#line 95 "funmap.pcc"
           
           Id attrib_name = 
-#line 95 "../../prop-src/funmap.pcc"
-#line 95 "../../prop-src/funmap.pcc"
-          cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q1
-#line 95 "../../prop-src/funmap.pcc"
-#line 95 "../../prop-src/funmap.pcc"
-         + _ASpat(pat)->_1;
+#line 96 "funmap.pcc"
+#line 96 "funmap.pcc"
+          _f_u_n_m_a_pco_c_c_Q1
+#line 96 "funmap.pcc"
+#line 96 "funmap.pcc"
+         + ((Pat_ASpat *)pat)->_1;
           Id cost_name   = 
-#line 96 "../../prop-src/funmap.pcc"
-#line 96 "../../prop-src/funmap.pcc"
-          cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q2
-#line 96 "../../prop-src/funmap.pcc"
-#line 96 "../../prop-src/funmap.pcc"
-         + _ASpat(pat)->_1;
+#line 97 "funmap.pcc"
+#line 97 "funmap.pcc"
+          _f_u_n_m_a_pco_c_c_Q2
+#line 97 "funmap.pcc"
+#line 97 "funmap.pcc"
+         + ((Pat_ASpat *)pat)->_1;
           Ty ty = mkvar();
           E.add( attrib_name, SYNexp( kid, rule, mkvar(), true), ty, ISpositive);
           E.add( cost_name, COSTexp(kid),  ty, ISpositive);
           kid = kid+1;
-          pat = _ASpat(pat)->_2;
+          pat = ((Pat_ASpat *)pat)->_2;
           
-#line 102 "../../prop-src/funmap.pcc"
+#line 103 "funmap.pcc"
           } break;
         case a_Pat::tag_CONTEXTpat: {
-#line 81 "../../prop-src/funmap.pcc"
-         pat = _CONTEXTpat(pat)->_2; 
-#line 81 "../../prop-src/funmap.pcc"
+#line 82 "funmap.pcc"
+         pat = ((Pat_CONTEXTpat *)pat)->_2; 
+#line 82 "funmap.pcc"
           } break;
         case a_Pat::tag_TUPLEpat: {
-#line 83 "../../prop-src/funmap.pcc"
-         return decor_rewrite( _TUPLEpat(pat)->TUPLEpat, rule, kid, E); 
-#line 83 "../../prop-src/funmap.pcc"
+#line 84 "funmap.pcc"
+         return decor_rewrite( ((Pat_TUPLEpat *)pat)->TUPLEpat, rule, kid, E); 
+#line 84 "funmap.pcc"
           } break;
         case a_Pat::tag_LISTpat: {
-#line 85 "../../prop-src/funmap.pcc"
-         kid = decor_rewrite( _LISTpat(pat)->head, rule, kid, E); pat = _LISTpat(pat)->tail; 
-#line 85 "../../prop-src/funmap.pcc"
+#line 86 "funmap.pcc"
+         kid = decor_rewrite( ((Pat_LISTpat *)pat)->head, rule, kid, E); pat = ((Pat_LISTpat *)pat)->tail; 
+#line 86 "funmap.pcc"
           } break;
         case a_Pat::tag_VECTORpat: {
-#line 87 "../../prop-src/funmap.pcc"
+#line 88 "funmap.pcc"
           
-          kid = decor_rewrite(_VECTORpat(pat)->elements, rule, decor_rewrite(_VECTORpat(pat)->array, rule, kid, E), E);
-          if (_VECTORpat(pat)->head_flex || _VECTORpat(pat)->tail_flex)
+          kid = decor_rewrite(((Pat_VECTORpat *)pat)->elements, rule, decor_rewrite(((Pat_VECTORpat *)pat)->array, rule, kid, E), E);
+          if (((Pat_VECTORpat *)pat)->head_flex || ((Pat_VECTORpat *)pat)->tail_flex)
             error( "%Lflexible vector pattern currently not supported in rewriting: %p\n", pat);
-          pat = _VECTORpat(pat)->len;
+          pat = ((Pat_VECTORpat *)pat)->len;
           
-#line 92 "../../prop-src/funmap.pcc"
+#line 93 "funmap.pcc"
           } break;
         case a_Pat::tag_GUARDpat: {
-#line 79 "../../prop-src/funmap.pcc"
-         pat = _GUARDpat(pat)->_1; 
-#line 79 "../../prop-src/funmap.pcc"
+#line 80 "funmap.pcc"
+         pat = ((Pat_GUARDpat *)pat)->_1; 
+#line 80 "funmap.pcc"
           } break;
         case a_Pat::tag_MARKEDpat: {
-#line 77 "../../prop-src/funmap.pcc"
-         pat = _MARKEDpat(pat)->_2; 
-#line 77 "../../prop-src/funmap.pcc"
+#line 78 "funmap.pcc"
+         pat = ((Pat_MARKEDpat *)pat)->_2; 
+#line 78 "funmap.pcc"
           } break;
         case a_Pat::tag_CONSpat:
         case a_Pat::tag_LITERALpat: {
           L2:; 
-#line 76 "../../prop-src/funmap.pcc"
+#line 77 "funmap.pcc"
          return kid; 
-#line 76 "../../prop-src/funmap.pcc"
+#line 77 "funmap.pcc"
           } break;
         default: {
-#line 103 "../../prop-src/funmap.pcc"
+#line 104 "funmap.pcc"
          return kid; 
-#line 103 "../../prop-src/funmap.pcc"
+#line 104 "funmap.pcc"
           } break;
       }
     } else { goto L2; }
   }
 }
-#line 104 "../../prop-src/funmap.pcc"
-#line 104 "../../prop-src/funmap.pcc"
+#line 105 "funmap.pcc"
+#line 105 "funmap.pcc"
 
 }
 
@@ -229,18 +237,18 @@ int decor_rewrite( Pat pat, int rule, PatternVarEnv& E)
 {
   Ty ty = mkvar();
   E.add( 
-#line 129 "../../prop-src/funmap.pcc"
-#line 129 "../../prop-src/funmap.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q3
-#line 129 "../../prop-src/funmap.pcc"
-#line 129 "../../prop-src/funmap.pcc"
+#line 130 "funmap.pcc"
+#line 130 "funmap.pcc"
+_f_u_n_m_a_pco_c_c_Q3
+#line 130 "funmap.pcc"
+#line 130 "funmap.pcc"
 , THISSYNexp(rule,mkvar(),true), ty, ISpositive);
   E.add( 
-#line 130 "../../prop-src/funmap.pcc"
-#line 130 "../../prop-src/funmap.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_f_u_n_m_a_pco_c_c_Q4
-#line 130 "../../prop-src/funmap.pcc"
-#line 130 "../../prop-src/funmap.pcc"
+#line 131 "funmap.pcc"
+#line 131 "funmap.pcc"
+_f_u_n_m_a_pco_c_c_Q4
+#line 131 "funmap.pcc"
+#line 131 "funmap.pcc"
 , THISCOSTexp(), ty, ISpositive);
   return decor_rewrite( pat, rule, 0, E);
 }
@@ -267,11 +275,11 @@ FunctorMap::FunctorMap(Id name, MatchRules rules)
     nonterm_rules_bits( string_hash, string_equal),
     chain_rules( string_hash, string_equal),
     bottomup_rules(
-#line 155 "../../prop-src/funmap.pcc"
-#line 155 "../../prop-src/funmap.pcc"
+#line 156 "funmap.pcc"
+#line 156 "funmap.pcc"
 nil_1_
-#line 155 "../../prop-src/funmap.pcc"
-#line 155 "../../prop-src/funmap.pcc"
+#line 156 "funmap.pcc"
+#line 156 "funmap.pcc"
 )
 {
   ///////////////////////////////////////////////////////////////////////////
@@ -343,20 +351,20 @@ void FunctorMap::enter_protocols()
     for_each (Protocol, p, Ps)
     {
       
-#line 225 "../../prop-src/funmap.pcc"
-#line 233 "../../prop-src/funmap.pcc"
+#line 226 "funmap.pcc"
+#line 234 "funmap.pcc"
 {
-#line 228 "../../prop-src/funmap.pcc"
+#line 229 "funmap.pcc"
   
   encode(p->ty);
   protocols.insert( p->ty, p);
   if (p->syn != NOty)
     has_syn_attrib = true;
   
-#line 233 "../../prop-src/funmap.pcc"
+#line 234 "funmap.pcc"
 }
-#line 234 "../../prop-src/funmap.pcc"
-#line 234 "../../prop-src/funmap.pcc"
+#line 235 "funmap.pcc"
+#line 235 "funmap.pcc"
 
     }
   }
@@ -405,38 +413,38 @@ void FunctorMap::build_tree_grammar( MatchRules rules)
     for_each (MatchRule, r, rules)
     {
       
-#line 281 "../../prop-src/funmap.pcc"
-#line 299 "../../prop-src/funmap.pcc"
+#line 282 "funmap.pcc"
+#line 300 "funmap.pcc"
 {
-#line 284 "../../prop-src/funmap.pcc"
+#line 285 "funmap.pcc"
   
   int rule_no = r->_1 ? var_map[r->_1] : 0;
   int cst;
   
-#line 287 "../../prop-src/funmap.pcc"
-#line 291 "../../prop-src/funmap.pcc"
+#line 288 "funmap.pcc"
+#line 292 "funmap.pcc"
   {
     Cost _V1 = r->_4;
     if (_V1) {
-      if (_V1->tag__) {
+      if (untagp(_V1)) {
         
-#line 290 "../../prop-src/funmap.pcc"
-       cst = _INTcost(_V1)->INTcost; has_cost = true; 
-#line 290 "../../prop-src/funmap.pcc"
+#line 291 "funmap.pcc"
+       cst = ((Cost_INTcost *)derefp(_V1))->INTcost; has_cost = true; 
+#line 291 "funmap.pcc"
       } else {
         
-#line 291 "../../prop-src/funmap.pcc"
+#line 292 "funmap.pcc"
        cst = 0; has_cost_exp = true; 
-#line 291 "../../prop-src/funmap.pcc"
+#line 292 "funmap.pcc"
       }
     } else {
-#line 289 "../../prop-src/funmap.pcc"
+#line 290 "funmap.pcc"
      cst = 0; 
-#line 289 "../../prop-src/funmap.pcc"
+#line 290 "funmap.pcc"
     }
   }
-#line 292 "../../prop-src/funmap.pcc"
-#line 292 "../../prop-src/funmap.pcc"
+#line 293 "funmap.pcc"
+#line 293 "funmap.pcc"
   
   Ps[i] = TreeProduction(rule_no,trans(r->_2),cst);
   if (r->_3 != NOexp || (r->option & MatchRuleInfo::FAILREWRITE))
@@ -445,10 +453,10 @@ void FunctorMap::build_tree_grammar( MatchRules rules)
     has_replacement = true;
   i++;
   
-#line 299 "../../prop-src/funmap.pcc"
+#line 300 "funmap.pcc"
 }
-#line 300 "../../prop-src/funmap.pcc"
-#line 300 "../../prop-src/funmap.pcc"
+#line 301 "funmap.pcc"
+#line 301 "funmap.pcc"
 
     }
   }
@@ -477,23 +485,23 @@ void FunctorMap::build_tree_grammar( MatchRules rules)
 void FunctorMap::make_guard( MatchRules rules)
 {
   
-#line 327 "../../prop-src/funmap.pcc"
-#line 333 "../../prop-src/funmap.pcc"
+#line 328 "funmap.pcc"
+#line 334 "funmap.pcc"
 {
   for (;;) {
     if (rules) {
-#line 330 "../../prop-src/funmap.pcc"
+#line 331 "funmap.pcc"
       
       rules->_1->_2   = make_guard( rules->_1->_2, rules->_1->_3);
       rules = rules->_2;
       
-#line 333 "../../prop-src/funmap.pcc"
+#line 334 "funmap.pcc"
     } else { goto L3; }
   }
   L3:;
 }
-#line 334 "../../prop-src/funmap.pcc"
-#line 334 "../../prop-src/funmap.pcc"
+#line 335 "funmap.pcc"
+#line 335 "funmap.pcc"
 
 }
 
@@ -508,95 +516,95 @@ Pat FunctorMap::make_guard( Pat pat, Exp& e)
   Pat new_pat;
   // return pat; // BUG fix
   
-#line 347 "../../prop-src/funmap.pcc"
-#line 382 "../../prop-src/funmap.pcc"
+#line 348 "funmap.pcc"
+#line 383 "funmap.pcc"
 {
   if (pat) {
     switch (pat->tag__) {
       case a_Pat::tag_APPpat: {
-#line 354 "../../prop-src/funmap.pcc"
-       new_pat = APPpat( make_guard( _APPpat(pat)->_1, e), make_guard( _APPpat(pat)->_2, e)); 
-#line 354 "../../prop-src/funmap.pcc"
+#line 355 "funmap.pcc"
+       new_pat = APPpat( make_guard( ((Pat_APPpat *)pat)->_1, e), make_guard( ((Pat_APPpat *)pat)->_2, e)); 
+#line 355 "funmap.pcc"
         } break;
       case a_Pat::tag_TYPEDpat: {
-#line 350 "../../prop-src/funmap.pcc"
-       new_pat = TYPEDpat( make_guard( _TYPEDpat(pat)->_1, e), _TYPEDpat(pat)->_2); 
-#line 350 "../../prop-src/funmap.pcc"
+#line 351 "funmap.pcc"
+       new_pat = TYPEDpat( make_guard( ((Pat_TYPEDpat *)pat)->_1, e), ((Pat_TYPEDpat *)pat)->_2); 
+#line 351 "funmap.pcc"
         } break;
       case a_Pat::tag_ASpat: {
-#line 349 "../../prop-src/funmap.pcc"
-       new_pat = ASpat( _ASpat(pat)->_1, make_guard( _ASpat(pat)->_2, e), _ASpat(pat)->_3, _ASpat(pat)->_4); 
-#line 349 "../../prop-src/funmap.pcc"
+#line 350 "funmap.pcc"
+       new_pat = ASpat( ((Pat_ASpat *)pat)->_1, make_guard( ((Pat_ASpat *)pat)->_2, e), ((Pat_ASpat *)pat)->_3, ((Pat_ASpat *)pat)->_4); 
+#line 350 "funmap.pcc"
         } break;
       case a_Pat::tag_LITERALpat: {
-        switch (_LITERALpat(pat)->LITERALpat->tag__) {
+        switch (((Pat_LITERALpat *)pat)->LITERALpat->tag__) {
           case a_Literal::tag_INTlit:
           case a_Literal::tag_BOOLlit:
           case a_Literal::tag_CHARlit:
           case a_Literal::tag_REALlit: {
-#line 356 "../../prop-src/funmap.pcc"
+#line 357 "funmap.pcc"
             
-            Exp guard_exp = BINOPexp( "==", pat->selector, LITERALexp(_LITERALpat(pat)->LITERALpat));
+            Exp guard_exp = BINOPexp( "==", pat->selector, LITERALexp(((Pat_LITERALpat *)pat)->LITERALpat));
             e = e == NOexp ? guard_exp : BINOPexp( "&&", e, guard_exp);
             new_pat = WILDpat();
             
-#line 360 "../../prop-src/funmap.pcc"
+#line 361 "funmap.pcc"
             } break;
           default: {
             L4:; 
-#line 382 "../../prop-src/funmap.pcc"
+#line 383 "funmap.pcc"
            new_pat = pat; 
-#line 382 "../../prop-src/funmap.pcc"
+#line 383 "funmap.pcc"
             } break;
         }
         } break;
       case a_Pat::tag_TUPLEpat: {
-#line 352 "../../prop-src/funmap.pcc"
-       new_pat = TUPLEpat( make_guard( _TUPLEpat(pat)->TUPLEpat, e)); 
-#line 352 "../../prop-src/funmap.pcc"
+#line 353 "funmap.pcc"
+       new_pat = TUPLEpat( make_guard( ((Pat_TUPLEpat *)pat)->TUPLEpat, e)); 
+#line 353 "funmap.pcc"
         } break;
       case a_Pat::tag_RECORDpat: {
-#line 353 "../../prop-src/funmap.pcc"
-       new_pat = RECORDpat( make_guard( _RECORDpat(pat)->_1, e), _RECORDpat(pat)->_2); 
-#line 353 "../../prop-src/funmap.pcc"
+#line 354 "funmap.pcc"
+       new_pat = RECORDpat( make_guard( ((Pat_RECORDpat *)pat)->_1, e), ((Pat_RECORDpat *)pat)->_2); 
+#line 354 "funmap.pcc"
         } break;
       case a_Pat::tag_LISTpat: {
-#line 362 "../../prop-src/funmap.pcc"
+#line 363 "funmap.pcc"
         
         new_pat = 
-#line 363 "../../prop-src/funmap.pcc"
-#line 363 "../../prop-src/funmap.pcc"
-        LISTpat(_LISTpat(pat)->cons, _LISTpat(pat)->nil, make_guard(_LISTpat(pat)->head,e), make_guard(_LISTpat(pat)->tail,e))
-#line 368 "../../prop-src/funmap.pcc"
-#line 368 "../../prop-src/funmap.pcc"
+#line 364 "funmap.pcc"
+#line 364 "funmap.pcc"
+        LISTpat(((Pat_LISTpat *)pat)->cons, ((Pat_LISTpat *)pat)->nil, make_guard(((Pat_LISTpat *)pat)->head,e), make_guard(((Pat_LISTpat *)pat)->tail,e))
+#line 369 "funmap.pcc"
+#line 369 "funmap.pcc"
         ;
         
-#line 369 "../../prop-src/funmap.pcc"
+#line 370 "funmap.pcc"
         } break;
       case a_Pat::tag_VECTORpat: {
-#line 371 "../../prop-src/funmap.pcc"
+#line 372 "funmap.pcc"
         
         new_pat = 
-#line 372 "../../prop-src/funmap.pcc"
-#line 372 "../../prop-src/funmap.pcc"
-        VECTORpat(_VECTORpat(pat)->cons, make_guard(_VECTORpat(pat)->len,e), make_guard(_VECTORpat(pat)->array,e), make_guard(_VECTORpat(pat)->elements,e), _VECTORpat(pat)->head_flex, _VECTORpat(pat)->tail_flex)
-#line 380 "../../prop-src/funmap.pcc"
-#line 380 "../../prop-src/funmap.pcc"
+#line 373 "funmap.pcc"
+#line 373 "funmap.pcc"
+        VECTORpat(((Pat_VECTORpat *)pat)->cons, make_guard(((Pat_VECTORpat *)pat)->len,e), make_guard(((Pat_VECTORpat *)pat)->array,e), make_guard(((Pat_VECTORpat *)pat)->elements,e), ((Pat_VECTORpat *)pat)->head_flex, ((Pat_VECTORpat *)pat)->tail_flex)
+#line 381 "funmap.pcc"
+#line 381 "funmap.pcc"
         ;
         
-#line 381 "../../prop-src/funmap.pcc"
+#line 382 "funmap.pcc"
         } break;
       case a_Pat::tag_MARKEDpat: {
-#line 351 "../../prop-src/funmap.pcc"
-       new_pat = MARKEDpat( _MARKEDpat(pat)->_1, make_guard( _MARKEDpat(pat)->_2, e)); 
-#line 351 "../../prop-src/funmap.pcc"
+#line 352 "funmap.pcc"
+       new_pat = MARKEDpat( ((Pat_MARKEDpat *)pat)->_1, make_guard( ((Pat_MARKEDpat *)pat)->_2, e)); 
+#line 352 "funmap.pcc"
         } break;
       default: { goto L4; } break;
     }
   } else { goto L4; }
 }
-#line 383 "../../prop-src/funmap.pcc"
-#line 383 "../../prop-src/funmap.pcc"
+#line 384 "funmap.pcc"
+#line 384 "funmap.pcc"
 
   if (new_pat != pat && boxed(new_pat))
   {
@@ -615,33 +623,33 @@ Pat FunctorMap::make_guard( Pat pat, Exp& e)
 Pats FunctorMap::make_guard( Pats ps, Exp& e)
 {
   
-#line 400 "../../prop-src/funmap.pcc"
-#line 403 "../../prop-src/funmap.pcc"
+#line 401 "funmap.pcc"
+#line 404 "funmap.pcc"
 {
   if (ps) {
-#line 403 "../../prop-src/funmap.pcc"
+#line 404 "funmap.pcc"
    return 
-#line 403 "../../prop-src/funmap.pcc"
-#line 403 "../../prop-src/funmap.pcc"
+#line 404 "funmap.pcc"
+#line 404 "funmap.pcc"
     list_1_(make_guard(ps->_1,e),make_guard(ps->_2,e))
-#line 403 "../../prop-src/funmap.pcc"
-#line 403 "../../prop-src/funmap.pcc"
+#line 404 "funmap.pcc"
+#line 404 "funmap.pcc"
     ; 
-#line 403 "../../prop-src/funmap.pcc"
+#line 404 "funmap.pcc"
   } else {
-#line 402 "../../prop-src/funmap.pcc"
+#line 403 "funmap.pcc"
    return 
-#line 402 "../../prop-src/funmap.pcc"
-#line 402 "../../prop-src/funmap.pcc"
+#line 403 "funmap.pcc"
+#line 403 "funmap.pcc"
     nil_1_
-#line 402 "../../prop-src/funmap.pcc"
-#line 402 "../../prop-src/funmap.pcc"
+#line 403 "funmap.pcc"
+#line 403 "funmap.pcc"
     ; 
-#line 402 "../../prop-src/funmap.pcc"
+#line 403 "funmap.pcc"
   }
 }
-#line 404 "../../prop-src/funmap.pcc"
-#line 404 "../../prop-src/funmap.pcc"
+#line 405 "funmap.pcc"
+#line 405 "funmap.pcc"
 
 }
 
@@ -654,38 +662,38 @@ Pats FunctorMap::make_guard( Pats ps, Exp& e)
 LabPats FunctorMap::make_guard( LabPats ps, Exp& e)
 {
   
-#line 415 "../../prop-src/funmap.pcc"
-#line 423 "../../prop-src/funmap.pcc"
+#line 416 "funmap.pcc"
+#line 424 "funmap.pcc"
 {
   if (ps) {
-#line 418 "../../prop-src/funmap.pcc"
+#line 419 "funmap.pcc"
     
     LabPat lab_pat;
     lab_pat.label = ps->_1.label;
     lab_pat.pat   = make_guard( ps->_1.pat, e);
     return 
-#line 422 "../../prop-src/funmap.pcc"
-#line 422 "../../prop-src/funmap.pcc"
+#line 423 "funmap.pcc"
+#line 423 "funmap.pcc"
     list_1_(lab_pat,make_guard(ps->_2,e))
-#line 422 "../../prop-src/funmap.pcc"
-#line 422 "../../prop-src/funmap.pcc"
+#line 423 "funmap.pcc"
+#line 423 "funmap.pcc"
     ;
     
-#line 423 "../../prop-src/funmap.pcc"
+#line 424 "funmap.pcc"
   } else {
-#line 417 "../../prop-src/funmap.pcc"
+#line 418 "funmap.pcc"
    return 
-#line 417 "../../prop-src/funmap.pcc"
-#line 417 "../../prop-src/funmap.pcc"
+#line 418 "funmap.pcc"
+#line 418 "funmap.pcc"
     nil_1_
-#line 417 "../../prop-src/funmap.pcc"
-#line 417 "../../prop-src/funmap.pcc"
+#line 418 "funmap.pcc"
+#line 418 "funmap.pcc"
     ; 
-#line 417 "../../prop-src/funmap.pcc"
+#line 418 "funmap.pcc"
   }
 }
-#line 424 "../../prop-src/funmap.pcc"
-#line 424 "../../prop-src/funmap.pcc"
+#line 425 "funmap.pcc"
+#line 425 "funmap.pcc"
 
 }
 
@@ -739,31 +747,31 @@ void FunctorMap::encode( Id id)
 void FunctorMap::encode( Ty ty)
 {
   
-#line 476 "../../prop-src/funmap.pcc"
-#line 488 "../../prop-src/funmap.pcc"
+#line 477 "funmap.pcc"
+#line 489 "funmap.pcc"
 {
   Ty _V2 = deref_all(ty);
   if (_V2) {
     switch (_V2->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V2)->_1)) {
-          switch (_TYCONty(_V2)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V2)->_1)) {
+          switch (((Ty_TYCONty *)_V2)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 479 "../../prop-src/funmap.pcc"
+#line 480 "funmap.pcc"
               
               if (! type_map.contains(_V2))
               {
                 type_map.insert( _V2, functors);
-                functors += _DATATYPEtycon(_TYCONty(_V2)->_1)->unit + _DATATYPEtycon(_TYCONty(_V2)->_1)->arg;
+                functors += ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->arg;
               }
               
-#line 485 "../../prop-src/funmap.pcc"
+#line 486 "funmap.pcc"
               } break;
             default: {
               L5:; 
-#line 486 "../../prop-src/funmap.pcc"
-            for_each(Ty, ty, _TYCONty(_V2)->_2) encode(ty); 
-#line 486 "../../prop-src/funmap.pcc"
+#line 487 "funmap.pcc"
+            for_each(Ty, ty, ((Ty_TYCONty *)_V2)->_2) encode(ty); 
+#line 487 "funmap.pcc"
               } break;
           }
         } else { goto L5; }
@@ -773,8 +781,8 @@ void FunctorMap::encode( Ty ty)
     }
   } else { goto L6; }
 }
-#line 488 "../../prop-src/funmap.pcc"
-#line 488 "../../prop-src/funmap.pcc"
+#line 489 "funmap.pcc"
+#line 489 "funmap.pcc"
 
 }
 
@@ -788,35 +796,35 @@ void FunctorMap::encode( Ty ty)
 void FunctorMap::encode( Pat pat)
 {
   
-#line 500 "../../prop-src/funmap.pcc"
-#line 578 "../../prop-src/funmap.pcc"
+#line 501 "funmap.pcc"
+#line 579 "funmap.pcc"
 {
   for (;;) {
     if (pat) {
       switch (pat->tag__) {
         case a_Pat::tag_CONSpat: {
-          if (_CONSpat(pat)->CONSpat) {
-            if (_CONSpat(pat)->CONSpat->alg_ty) {
-              switch (_CONSpat(pat)->CONSpat->alg_ty->tag__) {
+          if (((Pat_CONSpat *)pat)->CONSpat) {
+            if (((Pat_CONSpat *)pat)->CONSpat->alg_ty) {
+              switch (((Pat_CONSpat *)pat)->CONSpat->alg_ty->tag__) {
                 case a_Ty::tag_TYCONty: {
-                  if (boxed(_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1)) {
-                    switch (_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1->tag__) {
+                  if (boxed(((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1)) {
+                    switch (((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1->tag__) {
                       case a_TyCon::tag_DATATYPEtycon: {
-#line 538 "../../prop-src/funmap.pcc"
+#line 539 "funmap.pcc"
                         
                         if (pat->ty != NOty && ! type_map.contains( pat->ty))
                         {  type_map.insert( pat->ty, functors);
-                           functors += _DATATYPEtycon(_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1)->unit + _DATATYPEtycon(_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1)->arg;
+                           functors += ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1)->unit + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1)->arg;
                         }
                         return;
                         
-#line 544 "../../prop-src/funmap.pcc"
+#line 545 "funmap.pcc"
                         } break;
                       default: {
                         L8:; 
-#line 578 "../../prop-src/funmap.pcc"
+#line 579 "funmap.pcc"
                        error ("%LSorry: pattern not supported in rewriting: %p\n", pat); return; 
-#line 578 "../../prop-src/funmap.pcc"
+#line 579 "funmap.pcc"
                         } break;
                     }
                   } else { goto L8; }
@@ -827,96 +835,96 @@ void FunctorMap::encode( Pat pat)
           } else { goto L8; }
           } break;
         case a_Pat::tag_APPpat: {
-#line 545 "../../prop-src/funmap.pcc"
-         encode(pat->ty); pat = _APPpat(pat)->_2; 
-#line 545 "../../prop-src/funmap.pcc"
+#line 546 "funmap.pcc"
+         encode(pat->ty); pat = ((Pat_APPpat *)pat)->_2; 
+#line 546 "funmap.pcc"
           } break;
         case a_Pat::tag_TYPEDpat: {
-#line 504 "../../prop-src/funmap.pcc"
-         pat = _TYPEDpat(pat)->_1; 
-#line 504 "../../prop-src/funmap.pcc"
+#line 505 "funmap.pcc"
+         pat = ((Pat_TYPEDpat *)pat)->_1; 
+#line 505 "funmap.pcc"
           } break;
         case a_Pat::tag_ASpat: {
-#line 503 "../../prop-src/funmap.pcc"
-         pat = _ASpat(pat)->_2; 
-#line 503 "../../prop-src/funmap.pcc"
+#line 504 "funmap.pcc"
+         pat = ((Pat_ASpat *)pat)->_2; 
+#line 504 "funmap.pcc"
           } break;
         case a_Pat::tag_LITERALpat: {
-          switch (_LITERALpat(pat)->LITERALpat->tag__) {
+          switch (((Pat_LITERALpat *)pat)->LITERALpat->tag__) {
             case a_Literal::tag_BIGINTlit: { goto L8; } break;
             case a_Literal::tag_STRINGlit:
             case a_Literal::tag_REGEXPlit:
             case a_Literal::tag_QUARKlit: {
-#line 525 "../../prop-src/funmap.pcc"
+#line 526 "funmap.pcc"
               
-              if (! literal_map.contains(_LITERALpat(pat)->LITERALpat))
+              if (! literal_map.contains(((Pat_LITERALpat *)pat)->LITERALpat))
               {
-                literal_map.insert( _LITERALpat(pat)->LITERALpat, functors);
+                literal_map.insert( ((Pat_LITERALpat *)pat)->LITERALpat, functors);
                 functors++;
               }
               return;
               
-#line 532 "../../prop-src/funmap.pcc"
+#line 533 "funmap.pcc"
               } break;
             default: {
-#line 534 "../../prop-src/funmap.pcc"
+#line 535 "funmap.pcc"
              bug ("%Luntransformed literal pattern %p found in rewriting\n",pat); 
-#line 534 "../../prop-src/funmap.pcc"
+#line 535 "funmap.pcc"
               } break;
           }
           } break;
         case a_Pat::tag_TUPLEpat: {
-#line 507 "../../prop-src/funmap.pcc"
+#line 508 "funmap.pcc"
           
           int i = 0;
-          for_each (Pat, p, _TUPLEpat(pat)->TUPLEpat)
+          for_each (Pat, p, ((Pat_TUPLEpat *)pat)->TUPLEpat)
             { i++; encode(p); }
           if (max_arity < i)
             max_arity = i;
           return;
           
-#line 514 "../../prop-src/funmap.pcc"
+#line 515 "funmap.pcc"
           } break;
         case a_Pat::tag_RECORDpat: {
-#line 516 "../../prop-src/funmap.pcc"
+#line 517 "funmap.pcc"
           
-          for_each (LabPat, p, _RECORDpat(pat)->_1)
+          for_each (LabPat, p, ((Pat_RECORDpat *)pat)->_1)
             encode(p.pat);
           int arity = arity_of(pat->ty);
           if (max_arity < arity)
             max_arity = arity;
           return;
           
-#line 523 "../../prop-src/funmap.pcc"
+#line 524 "funmap.pcc"
           } break;
         case a_Pat::tag_LISTpat: {
-#line 547 "../../prop-src/funmap.pcc"
+#line 548 "funmap.pcc"
           
-          Pat new_pat = CONSpat(_LISTpat(pat)->nil);
+          Pat new_pat = CONSpat(((Pat_LISTpat *)pat)->nil);
           new_pat->ty = pat->ty;
           encode( new_pat);
-          for_each (Pat, i, _LISTpat(pat)->head)
+          for_each (Pat, i, ((Pat_LISTpat *)pat)->head)
             encode(i);
           if (max_arity < 2)
             max_arity = 2;
-          pat = _LISTpat(pat)->tail;
+          pat = ((Pat_LISTpat *)pat)->tail;
           
-#line 556 "../../prop-src/funmap.pcc"
+#line 557 "funmap.pcc"
           } break;
         case a_Pat::tag_VECTORpat: {
-#line 558 "../../prop-src/funmap.pcc"
+#line 559 "funmap.pcc"
           
-          Pat new_pat = CONSpat(_VECTORpat(pat)->cons);
+          Pat new_pat = CONSpat(((Pat_VECTORpat *)pat)->cons);
           new_pat->ty = pat->ty;
           encode(new_pat);
-          for_each (Pat, p, _VECTORpat(pat)->elements)
+          for_each (Pat, p, ((Pat_VECTORpat *)pat)->elements)
             encode(p);
-          int l = length(_VECTORpat(pat)->elements);
+          int l = length(((Pat_VECTORpat *)pat)->elements);
           if (max_arity < l)
             max_arity = l;
           if (pat->ty != NOty)
           {
-            VectorId vec_id = vector_id( _VECTORpat(pat)->cons, pat->ty, l);
+            VectorId vec_id = vector_id( ((Pat_VECTORpat *)pat)->cons, pat->ty, l);
             if ( ! vector_map.contains(vec_id))
             {
               vector_map.insert(vec_id, functors);
@@ -925,27 +933,27 @@ void FunctorMap::encode( Pat pat)
           }
           return;
           
-#line 577 "../../prop-src/funmap.pcc"
+#line 578 "funmap.pcc"
           } break;
         case a_Pat::tag_MARKEDpat: {
-#line 505 "../../prop-src/funmap.pcc"
-         pat = _MARKEDpat(pat)->_2; 
-#line 505 "../../prop-src/funmap.pcc"
+#line 506 "funmap.pcc"
+         pat = ((Pat_MARKEDpat *)pat)->_2; 
+#line 506 "funmap.pcc"
           } break;
         case a_Pat::tag_WILDpat:
         case a_Pat::tag_IDpat: {
           L9:; 
-#line 502 "../../prop-src/funmap.pcc"
+#line 503 "funmap.pcc"
          return; 
-#line 502 "../../prop-src/funmap.pcc"
+#line 503 "funmap.pcc"
           } break;
         default: { goto L8; } break;
       }
     } else { goto L9; }
   }
 }
-#line 579 "../../prop-src/funmap.pcc"
-#line 579 "../../prop-src/funmap.pcc"
+#line 580 "funmap.pcc"
+#line 580 "funmap.pcc"
 
 }
 
@@ -958,87 +966,87 @@ void FunctorMap::encode( Pat pat)
 TreeTerm FunctorMap::trans( Pat pat)
 {
   
-#line 590 "../../prop-src/funmap.pcc"
-#line 693 "../../prop-src/funmap.pcc"
+#line 591 "funmap.pcc"
+#line 694 "funmap.pcc"
 {
   for (;;) {
     if (pat) {
       switch (pat->tag__) {
         case a_Pat::tag_WILDpat: {
           L11:; 
-#line 592 "../../prop-src/funmap.pcc"
+#line 593 "funmap.pcc"
          return wild_term; 
-#line 592 "../../prop-src/funmap.pcc"
+#line 593 "funmap.pcc"
           } break;
         case a_Pat::tag_IDpat: {
-#line 601 "../../prop-src/funmap.pcc"
+#line 602 "funmap.pcc"
           
-          return var_map.contains(_IDpat(pat)->_1) ? var_term(var_map[_IDpat(pat)->_1]) : wild_term;
+          return var_map.contains(((Pat_IDpat *)pat)->_1) ? var_term(var_map[((Pat_IDpat *)pat)->_1]) : wild_term;
           
-#line 603 "../../prop-src/funmap.pcc"
+#line 604 "funmap.pcc"
           } break;
         case a_Pat::tag_CONSpat: {
-          if (_CONSpat(pat)->CONSpat) {
-#line 667 "../../prop-src/funmap.pcc"
-           return new_term( mem_pool, type_map[pat->ty] + _CONSpat(pat)->CONSpat->tag); 
-#line 667 "../../prop-src/funmap.pcc"
+          if (((Pat_CONSpat *)pat)->CONSpat) {
+#line 668 "funmap.pcc"
+           return new_term( mem_pool, type_map[pat->ty] + ((Pat_CONSpat *)pat)->CONSpat->tag); 
+#line 668 "funmap.pcc"
           } else {
             L12:; 
-#line 693 "../../prop-src/funmap.pcc"
+#line 694 "funmap.pcc"
            error ("%LSorry: pattern not supported: %p\n", pat); return wild_term; 
-#line 693 "../../prop-src/funmap.pcc"
+#line 694 "funmap.pcc"
           }
           } break;
         case a_Pat::tag_APPpat: {
-          if (_APPpat(pat)->_1) {
-            switch (_APPpat(pat)->_1->tag__) {
+          if (((Pat_APPpat *)pat)->_1) {
+            switch (((Pat_APPpat *)pat)->_1->tag__) {
               case a_Pat::tag_CONSpat: {
-                if (_CONSpat(_APPpat(pat)->_1)->CONSpat) {
-                  if (_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty) {
-                    switch (_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty->tag__) {
+                if (((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat) {
+                  if (((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty) {
+                    switch (((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty->tag__) {
                       case a_Ty::tag_TYCONty: {
-                        if (boxed(_TYCONty(_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty)->_1)) {
-                          switch (_TYCONty(_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty)->_1->tag__) {
+                        if (boxed(((Ty_TYCONty *)((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty)->_1)) {
+                          switch (((Ty_TYCONty *)((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty)->_1->tag__) {
                             case a_TyCon::tag_DATATYPEtycon: {
-#line 653 "../../prop-src/funmap.pcc"
+#line 654 "funmap.pcc"
                               
-                              TreeTerm a = trans(_APPpat(pat)->_2);
+                              TreeTerm a = trans(((Pat_APPpat *)pat)->_2);
                               
-#line 655 "../../prop-src/funmap.pcc"
-#line 663 "../../prop-src/funmap.pcc"
+#line 656 "funmap.pcc"
+#line 664 "funmap.pcc"
                               {
-                                int _V4 = arity_of(_CONSpat(_APPpat(pat)->_1)->CONSpat->ty);
+                                int _V4 = arity_of(((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->ty);
                                 switch (_V4) {
                                   case 1: {
-#line 658 "../../prop-src/funmap.pcc"
-                                   return new_term( mem_pool, type_map[pat->ty] + _DATATYPEtycon(_TYCONty(_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty)->_1)->unit + _CONSpat(_APPpat(pat)->_1)->CONSpat->tag, 1, &a); 
-#line 658 "../../prop-src/funmap.pcc"
+#line 659 "funmap.pcc"
+                                   return new_term( mem_pool, type_map[pat->ty] + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty)->_1)->unit + ((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->tag, 1, &a); 
+#line 659 "funmap.pcc"
                                   } break;
                                   default: {
                                     if (a) {
                                       switch (a->tag__) {
                                         case a_TreeTerm::tag_tree_term: {
-#line 660 "../../prop-src/funmap.pcc"
-                                        _tree_term(a)->_1 = type_map[pat->ty] + _DATATYPEtycon(_TYCONty(_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty)->_1)->unit + _CONSpat(_APPpat(pat)->_1)->CONSpat->tag; return a; 
-#line 660 "../../prop-src/funmap.pcc"
+#line 661 "funmap.pcc"
+                                        ((TreeTerm_tree_term *)a)->_1 = type_map[pat->ty] + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty)->_1)->unit + ((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->tag; return a; 
+#line 661 "funmap.pcc"
                                           } break;
                                         default: {
                                           L13:; 
-#line 662 "../../prop-src/funmap.pcc"
-                                        return new_term( mem_pool, type_map[pat->ty] + _DATATYPEtycon(_TYCONty(_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty)->_1)->unit + _CONSpat(_APPpat(pat)->_1)->CONSpat->tag, _V4);
+#line 663 "funmap.pcc"
+                                        return new_term( mem_pool, type_map[pat->ty] + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty)->_1)->unit + ((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->tag, _V4);
                                           
-#line 663 "../../prop-src/funmap.pcc"
+#line 664 "funmap.pcc"
                                           } break;
                                       }
                                     } else { goto L13; }
                                   }
                                 }
                               }
-#line 664 "../../prop-src/funmap.pcc"
-#line 664 "../../prop-src/funmap.pcc"
+#line 665 "funmap.pcc"
+#line 665 "funmap.pcc"
                               
                               
-#line 665 "../../prop-src/funmap.pcc"
+#line 666 "funmap.pcc"
                               } break;
                             default: { goto L12; } break;
                           }
@@ -1054,76 +1062,76 @@ TreeTerm FunctorMap::trans( Pat pat)
           } else { goto L12; }
           } break;
         case a_Pat::tag_TYPEDpat: {
-#line 594 "../../prop-src/funmap.pcc"
-         pat = _TYPEDpat(pat)->_1; 
-#line 594 "../../prop-src/funmap.pcc"
+#line 595 "funmap.pcc"
+         pat = ((Pat_TYPEDpat *)pat)->_1; 
+#line 595 "funmap.pcc"
           } break;
         case a_Pat::tag_ASpat: {
-#line 593 "../../prop-src/funmap.pcc"
-         pat = _ASpat(pat)->_2; 
-#line 593 "../../prop-src/funmap.pcc"
+#line 594 "funmap.pcc"
+         pat = ((Pat_ASpat *)pat)->_2; 
+#line 594 "funmap.pcc"
           } break;
         case a_Pat::tag_LITERALpat: {
-          switch (_LITERALpat(pat)->LITERALpat->tag__) {
+          switch (((Pat_LITERALpat *)pat)->LITERALpat->tag__) {
             case a_Literal::tag_STRINGlit:
             case a_Literal::tag_REGEXPlit:
             case a_Literal::tag_QUARKlit: {
-#line 597 "../../prop-src/funmap.pcc"
-             return new_term(mem_pool,literal_map[_LITERALpat(pat)->LITERALpat]); 
-#line 597 "../../prop-src/funmap.pcc"
+#line 598 "funmap.pcc"
+             return new_term(mem_pool,literal_map[((Pat_LITERALpat *)pat)->LITERALpat]); 
+#line 598 "funmap.pcc"
               } break;
             default: {
-#line 599 "../../prop-src/funmap.pcc"
+#line 600 "funmap.pcc"
              return wild_term; 
-#line 599 "../../prop-src/funmap.pcc"
+#line 600 "funmap.pcc"
               } break;
           }
           } break;
         case a_Pat::tag_TUPLEpat: {
-#line 605 "../../prop-src/funmap.pcc"
+#line 606 "funmap.pcc"
           
-          int arity = length (_TUPLEpat(pat)->TUPLEpat);
+          int arity = length (((Pat_TUPLEpat *)pat)->TUPLEpat);
           TreeTerm * subterms =
              (TreeTerm *)mem_pool.c_alloc( sizeof( TreeTerm) * arity);
           int i = 0;
-          for_each (Pat, p, _TUPLEpat(pat)->TUPLEpat)
+          for_each (Pat, p, ((Pat_TUPLEpat *)pat)->TUPLEpat)
             subterms[i++] = trans(p);
           return new_term( mem_pool, 0, arity, subterms);
           
-#line 613 "../../prop-src/funmap.pcc"
+#line 614 "funmap.pcc"
           } break;
         case a_Pat::tag_RECORDpat: {
-#line 615 "../../prop-src/funmap.pcc"
+#line 616 "funmap.pcc"
           
           
-#line 616 "../../prop-src/funmap.pcc"
-#line 646 "../../prop-src/funmap.pcc"
+#line 617 "funmap.pcc"
+#line 647 "funmap.pcc"
           {
             Ty _V3 = deref(pat->ty);
             if (_V3) {
               switch (_V3->tag__) {
                 case a_Ty::tag_TYCONty: {
-                  if (boxed(_TYCONty(_V3)->_1)) {
-                    switch (_TYCONty(_V3)->_1->tag__) {
+                  if (boxed(((Ty_TYCONty *)_V3)->_1)) {
+                    switch (((Ty_TYCONty *)_V3)->_1->tag__) {
                       case a_TyCon::tag_RECORDtycon: {
-#line 619 "../../prop-src/funmap.pcc"
+#line 620 "funmap.pcc"
                         
                         Bool relevant[256];
                         int i;
                         int arity;
                         
                         i = arity = 0;
-                        for_each(Ty, t, _TYCONty(_V3)->_2)
+                        for_each(Ty, t, ((Ty_TYCONty *)_V3)->_2)
                           if (relevant[i++] = is_known_type(t))
                             arity++;
                         TreeTerm * subterms =
                            (TreeTerm *)mem_pool.c_alloc( sizeof( TreeTerm) * arity);
                         for (i = 0; i < arity; i++)
                            subterms[i] = wild_term;
-                        for_each (LabPat, p, _RECORDpat(pat)->_1)
+                        for_each (LabPat, p, ((Pat_RECORDpat *)pat)->_1)
                         {
                           Ids labs; Tys ts;
-                          for (i = 0, labs = _RECORDtycon(_TYCONty(_V3)->_1)->_1, ts = _TYCONty(_V3)->_2;
+                          for (i = 0, labs = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V3)->_1)->_1, ts = ((Ty_TYCONty *)_V3)->_2;
                                labs && ts; labs = labs->_2, ts = ts->_2)
                           {
                             if (p.label == labs->_1)
@@ -1134,13 +1142,13 @@ TreeTerm FunctorMap::trans( Pat pat)
                         }
                         return new_term( mem_pool, 0, arity,subterms);
                         
-#line 645 "../../prop-src/funmap.pcc"
+#line 646 "funmap.pcc"
                         } break;
                       default: {
                         L14:; 
-#line 646 "../../prop-src/funmap.pcc"
+#line 647 "funmap.pcc"
                        bug( "%Lillegal record pattern %p\n", pat); 
-#line 646 "../../prop-src/funmap.pcc"
+#line 647 "funmap.pcc"
                         } break;
                     }
                   } else { goto L14; }
@@ -1149,92 +1157,92 @@ TreeTerm FunctorMap::trans( Pat pat)
               }
             } else { goto L14; }
           }
-#line 647 "../../prop-src/funmap.pcc"
-#line 647 "../../prop-src/funmap.pcc"
+#line 648 "funmap.pcc"
+#line 648 "funmap.pcc"
           
           
-#line 648 "../../prop-src/funmap.pcc"
+#line 649 "funmap.pcc"
           } break;
         case a_Pat::tag_LISTpat: {
-          if (_LISTpat(pat)->head) {
-#line 672 "../../prop-src/funmap.pcc"
+          if (((Pat_LISTpat *)pat)->head) {
+#line 673 "funmap.pcc"
             
             Pat new_tail = 
-#line 673 "../../prop-src/funmap.pcc"
-#line 673 "../../prop-src/funmap.pcc"
-            LISTpat(_LISTpat(pat)->cons, _LISTpat(pat)->nil, _LISTpat(pat)->head->_2, _LISTpat(pat)->tail)
-#line 673 "../../prop-src/funmap.pcc"
-#line 673 "../../prop-src/funmap.pcc"
+#line 674 "funmap.pcc"
+#line 674 "funmap.pcc"
+            LISTpat(((Pat_LISTpat *)pat)->cons, ((Pat_LISTpat *)pat)->nil, ((Pat_LISTpat *)pat)->head->_2, ((Pat_LISTpat *)pat)->tail)
+#line 674 "funmap.pcc"
+#line 674 "funmap.pcc"
             ;
-            Pat new_p    = APPpat( CONSpat( _LISTpat(pat)->cons), TUPLEpat(
-#line 674 "../../prop-src/funmap.pcc"
-#line 674 "../../prop-src/funmap.pcc"
-            list_1_(_LISTpat(pat)->head->_1,list_1_(new_tail))
-#line 674 "../../prop-src/funmap.pcc"
-#line 674 "../../prop-src/funmap.pcc"
+            Pat new_p    = APPpat( CONSpat( ((Pat_LISTpat *)pat)->cons), TUPLEpat(
+#line 675 "funmap.pcc"
+#line 675 "funmap.pcc"
+            list_1_(((Pat_LISTpat *)pat)->head->_1,list_1_(new_tail))
+#line 675 "funmap.pcc"
+#line 675 "funmap.pcc"
             ));
             new_p->ty    = new_tail->ty = pat->ty;
             pat = new_p;
             
-#line 677 "../../prop-src/funmap.pcc"
+#line 678 "funmap.pcc"
           } else {
-            if (_LISTpat(pat)->tail) {
-#line 670 "../../prop-src/funmap.pcc"
-            pat = _LISTpat(pat)->tail; 
-#line 670 "../../prop-src/funmap.pcc"
+            if (((Pat_LISTpat *)pat)->tail) {
+#line 671 "funmap.pcc"
+            pat = ((Pat_LISTpat *)pat)->tail; 
+#line 671 "funmap.pcc"
             } else {
-#line 669 "../../prop-src/funmap.pcc"
-             Pat p = CONSpat(_LISTpat(pat)->nil); p->ty = pat->ty; pat = p; 
-#line 669 "../../prop-src/funmap.pcc"
+#line 670 "funmap.pcc"
+             Pat p = CONSpat(((Pat_LISTpat *)pat)->nil); p->ty = pat->ty; pat = p; 
+#line 670 "funmap.pcc"
             }
           }
           } break;
         case a_Pat::tag_VECTORpat: {
-#line 679 "../../prop-src/funmap.pcc"
+#line 680 "funmap.pcc"
           
-          TreeTerm a     = trans( TUPLEpat(_VECTORpat(pat)->elements));
-          int      arity = length(_VECTORpat(pat)->elements);
+          TreeTerm a     = trans( TUPLEpat(((Pat_VECTORpat *)pat)->elements));
+          int      arity = length(((Pat_VECTORpat *)pat)->elements);
           
-#line 682 "../../prop-src/funmap.pcc"
-#line 690 "../../prop-src/funmap.pcc"
+#line 683 "funmap.pcc"
+#line 691 "funmap.pcc"
           {
             if (a) {
               switch (a->tag__) {
                 case a_TreeTerm::tag_tree_term: {
-#line 685 "../../prop-src/funmap.pcc"
+#line 686 "funmap.pcc"
                   
-                  _tree_term(a)->_1 = vector_map[ vector_id( _VECTORpat(pat)->cons, pat->ty, arity)];
+                  ((TreeTerm_tree_term *)a)->_1 = vector_map[ vector_id( ((Pat_VECTORpat *)pat)->cons, pat->ty, arity)];
                   return a;
                   
-#line 688 "../../prop-src/funmap.pcc"
+#line 689 "funmap.pcc"
                   } break;
                 default: {
                   L15:; 
-#line 690 "../../prop-src/funmap.pcc"
+#line 691 "funmap.pcc"
                  bug ("%Lillegal pattern: %p\n", pat); return wild_term; 
-#line 690 "../../prop-src/funmap.pcc"
+#line 691 "funmap.pcc"
                   } break;
               }
             } else { goto L15; }
           }
-#line 691 "../../prop-src/funmap.pcc"
-#line 691 "../../prop-src/funmap.pcc"
+#line 692 "funmap.pcc"
+#line 692 "funmap.pcc"
           
           
-#line 692 "../../prop-src/funmap.pcc"
+#line 693 "funmap.pcc"
           } break;
         case a_Pat::tag_MARKEDpat: {
-#line 595 "../../prop-src/funmap.pcc"
-         pat = _MARKEDpat(pat)->_2; 
-#line 595 "../../prop-src/funmap.pcc"
+#line 596 "funmap.pcc"
+         pat = ((Pat_MARKEDpat *)pat)->_2; 
+#line 596 "funmap.pcc"
           } break;
         default: { goto L12; } break;
       }
     } else { goto L11; }
   }
 }
-#line 694 "../../prop-src/funmap.pcc"
-#line 694 "../../prop-src/funmap.pcc"
+#line 695 "funmap.pcc"
+#line 695 "funmap.pcc"
 
 }
 
@@ -1262,42 +1270,42 @@ int ln2 (int n)
 Id FunctorMap::chain_rule_rhs( Pat pat)
 {
   
-#line 720 "../../prop-src/funmap.pcc"
-#line 726 "../../prop-src/funmap.pcc"
+#line 721 "funmap.pcc"
+#line 727 "funmap.pcc"
 {
   if (pat) {
     switch (pat->tag__) {
       case a_Pat::tag_IDpat: {
-#line 722 "../../prop-src/funmap.pcc"
-       return var_map.contains(_IDpat(pat)->_1) ? _IDpat(pat)->_1 : 0; 
-#line 722 "../../prop-src/funmap.pcc"
+#line 723 "funmap.pcc"
+       return var_map.contains(((Pat_IDpat *)pat)->_1) ? ((Pat_IDpat *)pat)->_1 : 0; 
+#line 723 "funmap.pcc"
         } break;
       case a_Pat::tag_TYPEDpat: {
-#line 725 "../../prop-src/funmap.pcc"
-       return chain_rule_rhs(_TYPEDpat(pat)->_1); 
-#line 725 "../../prop-src/funmap.pcc"
+#line 726 "funmap.pcc"
+       return chain_rule_rhs(((Pat_TYPEDpat *)pat)->_1); 
+#line 726 "funmap.pcc"
         } break;
       case a_Pat::tag_ASpat: {
-#line 723 "../../prop-src/funmap.pcc"
-       return chain_rule_rhs(_ASpat(pat)->_2); 
-#line 723 "../../prop-src/funmap.pcc"
+#line 724 "funmap.pcc"
+       return chain_rule_rhs(((Pat_ASpat *)pat)->_2); 
+#line 724 "funmap.pcc"
         } break;
       case a_Pat::tag_MARKEDpat: {
-#line 724 "../../prop-src/funmap.pcc"
-       return chain_rule_rhs(_MARKEDpat(pat)->_2); 
-#line 724 "../../prop-src/funmap.pcc"
+#line 725 "funmap.pcc"
+       return chain_rule_rhs(((Pat_MARKEDpat *)pat)->_2); 
+#line 725 "funmap.pcc"
         } break;
       default: {
         L16:; 
-#line 726 "../../prop-src/funmap.pcc"
+#line 727 "funmap.pcc"
        return 0; 
-#line 726 "../../prop-src/funmap.pcc"
+#line 727 "funmap.pcc"
         } break;
     }
   } else { goto L16; }
 }
-#line 727 "../../prop-src/funmap.pcc"
-#line 727 "../../prop-src/funmap.pcc"
+#line 728 "funmap.pcc"
+#line 728 "funmap.pcc"
 
 }
 
@@ -1311,30 +1319,30 @@ Id FunctorMap::chain_rule_rhs( Pat pat)
 MatchRules FunctorMap::partition_rules( MatchRules rules)
 {
   bottomup_rules = 
-#line 739 "../../prop-src/funmap.pcc"
-#line 739 "../../prop-src/funmap.pcc"
+#line 740 "funmap.pcc"
+#line 740 "funmap.pcc"
 nil_1_
-#line 739 "../../prop-src/funmap.pcc"
-#line 739 "../../prop-src/funmap.pcc"
+#line 740 "funmap.pcc"
+#line 740 "funmap.pcc"
 ;
   // First, we assign a new type variable for each lhs non-terminal.
   {
     for_each (MatchRule, r, rules)
     {
       
-#line 744 "../../prop-src/funmap.pcc"
-#line 772 "../../prop-src/funmap.pcc"
+#line 745 "funmap.pcc"
+#line 773 "funmap.pcc"
 {
-#line 747 "../../prop-src/funmap.pcc"
+#line 748 "funmap.pcc"
   
   if (r->mode == MatchRuleInfo::BOTTOMUP)
   {
     bottomup_rules = 
-#line 750 "../../prop-src/funmap.pcc"
-#line 750 "../../prop-src/funmap.pcc"
+#line 751 "funmap.pcc"
+#line 751 "funmap.pcc"
   list_1_(r,bottomup_rules)
-#line 750 "../../prop-src/funmap.pcc"
-#line 750 "../../prop-src/funmap.pcc"
+#line 751 "funmap.pcc"
+#line 751 "funmap.pcc"
   ;
   if (r->_1)
   {
@@ -1345,19 +1353,19 @@ nil_1_
     HashTable::Entry * e = nonterm_rules.lookup(r->_1);
     if ( !e)
       nonterm_rules.insert( r->_1, 
-#line 759 "../../prop-src/funmap.pcc"
-#line 759 "../../prop-src/funmap.pcc"
+#line 760 "funmap.pcc"
+#line 760 "funmap.pcc"
   list_1_(r)
-#line 759 "../../prop-src/funmap.pcc"
-#line 759 "../../prop-src/funmap.pcc"
+#line 760 "funmap.pcc"
+#line 760 "funmap.pcc"
   );
   else
     { e->v = 
-#line 761 "../../prop-src/funmap.pcc"
-#line 761 "../../prop-src/funmap.pcc"
+#line 762 "funmap.pcc"
+#line 762 "funmap.pcc"
   list_1_(r,MatchRules(e->v))
-#line 761 "../../prop-src/funmap.pcc"
-#line 761 "../../prop-src/funmap.pcc"
+#line 762 "funmap.pcc"
+#line 762 "funmap.pcc"
   ; }
   }
   else if (dynamic_search)
@@ -1370,10 +1378,10 @@ nil_1_
          r->loc(), r);
   }
   
-#line 772 "../../prop-src/funmap.pcc"
+#line 773 "funmap.pcc"
 }
-#line 773 "../../prop-src/funmap.pcc"
-#line 773 "../../prop-src/funmap.pcc"
+#line 774 "funmap.pcc"
+#line 774 "funmap.pcc"
 
     }
   }
@@ -1400,10 +1408,10 @@ nil_1_
   for_each (MatchRule, r, bottomup_rules)
   {
     
-#line 798 "../../prop-src/funmap.pcc"
-#line 834 "../../prop-src/funmap.pcc"
+#line 799 "funmap.pcc"
+#line 835 "funmap.pcc"
 {
-#line 801 "../../prop-src/funmap.pcc"
+#line 802 "funmap.pcc"
   
   r->set_loc();
   Ty ty = r->ty = type_of(r->_2);
@@ -1432,28 +1440,28 @@ nil_1_
       HashTable::Entry * cr = chain_rules.lookup(rhs);
       if (! cr)
         chain_rules.insert( rhs, 
-#line 828 "../../prop-src/funmap.pcc"
-#line 828 "../../prop-src/funmap.pcc"
+#line 829 "funmap.pcc"
+#line 829 "funmap.pcc"
   list_1_(r)
-#line 828 "../../prop-src/funmap.pcc"
-#line 828 "../../prop-src/funmap.pcc"
+#line 829 "funmap.pcc"
+#line 829 "funmap.pcc"
   );
   else
     { cr->v = 
-#line 830 "../../prop-src/funmap.pcc"
-#line 830 "../../prop-src/funmap.pcc"
+#line 831 "funmap.pcc"
+#line 831 "funmap.pcc"
   list_1_(r,MatchRules(cr->v))
-#line 830 "../../prop-src/funmap.pcc"
-#line 830 "../../prop-src/funmap.pcc"
+#line 831 "funmap.pcc"
+#line 831 "funmap.pcc"
   ; }
   r->is_chain_rule = true;
   }
   }
   
-#line 834 "../../prop-src/funmap.pcc"
+#line 835 "funmap.pcc"
 }
-#line 835 "../../prop-src/funmap.pcc"
-#line 835 "../../prop-src/funmap.pcc"
+#line 836 "funmap.pcc"
+#line 836 "funmap.pcc"
 
   }
 
@@ -1467,41 +1475,41 @@ nil_1_
   for_each (MatchRule, R, rules)
   {
     
-#line 847 "../../prop-src/funmap.pcc"
-#line 881 "../../prop-src/funmap.pcc"
+#line 848 "funmap.pcc"
+#line 882 "funmap.pcc"
 {
   if (
-#line 849 "../../prop-src/funmap.pcc"
+#line 850 "funmap.pcc"
   (R->mode != MatchRuleInfo::BOTTOMUP)
-#line 849 "../../prop-src/funmap.pcc"
+#line 850 "funmap.pcc"
 ) {
     
-#line 850 "../../prop-src/funmap.pcc"
+#line 851 "funmap.pcc"
     
     R->set_loc();
     R->ty = type_of(R->_2);
     HashTable::Entry * e = rule_maps[R->mode]->lookup(R->ty);
     if (e)
       e->v = 
-#line 855 "../../prop-src/funmap.pcc"
-#line 855 "../../prop-src/funmap.pcc"
+#line 856 "funmap.pcc"
+#line 856 "funmap.pcc"
     list_1_(R,MatchRules(e->v))
-#line 855 "../../prop-src/funmap.pcc"
-#line 855 "../../prop-src/funmap.pcc"
+#line 856 "funmap.pcc"
+#line 856 "funmap.pcc"
     ;
     else
       rule_maps[ R->mode]->insert( R->ty, 
-#line 857 "../../prop-src/funmap.pcc"
-#line 857 "../../prop-src/funmap.pcc"
+#line 858 "funmap.pcc"
+#line 858 "funmap.pcc"
     list_1_(R)
-#line 857 "../../prop-src/funmap.pcc"
-#line 857 "../../prop-src/funmap.pcc"
+#line 858 "funmap.pcc"
+#line 858 "funmap.pcc"
     );
     
-#line 858 "../../prop-src/funmap.pcc"
+#line 859 "funmap.pcc"
   } else {
     
-#line 860 "../../prop-src/funmap.pcc"
+#line 861 "funmap.pcc"
     
     if (! is_ground(R->ty))
       error( "%!rule %r has incomplete type %T\n", R->loc(), R, R->ty);
@@ -1509,19 +1517,19 @@ nil_1_
     HashTable::Entry * e = rule_map.lookup(R->ty);
     if (e)
       e->v = 
-#line 866 "../../prop-src/funmap.pcc"
-#line 866 "../../prop-src/funmap.pcc"
+#line 867 "funmap.pcc"
+#line 867 "funmap.pcc"
     list_1_(R,MatchRules(e->v))
-#line 866 "../../prop-src/funmap.pcc"
-#line 866 "../../prop-src/funmap.pcc"
+#line 867 "funmap.pcc"
+#line 867 "funmap.pcc"
     ;
     else
       rule_map.insert( R->ty, 
-#line 868 "../../prop-src/funmap.pcc"
-#line 868 "../../prop-src/funmap.pcc"
+#line 869 "funmap.pcc"
+#line 869 "funmap.pcc"
     list_1_(R)
-#line 868 "../../prop-src/funmap.pcc"
-#line 868 "../../prop-src/funmap.pcc"
+#line 869 "funmap.pcc"
+#line 869 "funmap.pcc"
     );
     
             // convert literals into guards
@@ -1536,11 +1544,11 @@ nil_1_
     
             R->rule_number = rule_num++;
           
-#line 881 "../../prop-src/funmap.pcc"
+#line 882 "funmap.pcc"
   }
 }
-#line 882 "../../prop-src/funmap.pcc"
-#line 882 "../../prop-src/funmap.pcc"
+#line 883 "funmap.pcc"
+#line 883 "funmap.pcc"
 
   }
 
@@ -1590,46 +1598,46 @@ void FunctorMap::compute_names()
        Ty      t = (Ty)type_map.key(i);
        Functor f = type_map.value(i);
        
-#line 930 "../../prop-src/funmap.pcc"
-#line 947 "../../prop-src/funmap.pcc"
+#line 931 "funmap.pcc"
+#line 948 "funmap.pcc"
 {
   Ty _V5 = deref(t);
   if (_V5) {
     switch (_V5->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V5)->_1)) {
-          switch (_TYCONty(_V5)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V5)->_1)) {
+          switch (((Ty_TYCONty *)_V5)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 933 "../../prop-src/funmap.pcc"
+#line 934 "funmap.pcc"
               
-              int arity = _DATATYPEtycon(_TYCONty(_V5)->_1)->unit + _DATATYPEtycon(_TYCONty(_V5)->_1)->arg;
+              int arity = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->unit + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->arg;
               for (int j = 0; j < arity; j++)
               {
                 
-#line 937 "../../prop-src/funmap.pcc"
-#line 944 "../../prop-src/funmap.pcc"
+#line 938 "funmap.pcc"
+#line 945 "funmap.pcc"
               {
-                Cons _V6 = _DATATYPEtycon(_TYCONty(_V5)->_1)->terms[j];
+                Cons _V6 = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->terms[j];
                 if (_V6) {
-#line 940 "../../prop-src/funmap.pcc"
+#line 941 "funmap.pcc"
                   
-                  functor_names[f + (_V6->ty == NOty ? _V6->tag : _V6->tag + _DATATYPEtycon(_TYCONty(_V5)->_1)->unit)] = _V6->name;
+                  functor_names[f + (_V6->ty == NOty ? _V6->tag : _V6->tag + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->unit)] = _V6->name;
                   
-#line 942 "../../prop-src/funmap.pcc"
+#line 943 "funmap.pcc"
                 } else {}
               }
-#line 944 "../../prop-src/funmap.pcc"
-#line 944 "../../prop-src/funmap.pcc"
+#line 945 "funmap.pcc"
+#line 945 "funmap.pcc"
               
               }
               
-#line 946 "../../prop-src/funmap.pcc"
+#line 947 "funmap.pcc"
               } break;
             default: {
               L17:; 
-#line 947 "../../prop-src/funmap.pcc"
+#line 948 "funmap.pcc"
              bug ("compute_names()"); 
-#line 947 "../../prop-src/funmap.pcc"
+#line 948 "funmap.pcc"
               } break;
           }
         } else { goto L17; }
@@ -1638,8 +1646,8 @@ void FunctorMap::compute_names()
     }
   } else { goto L17; }
 }
-#line 948 "../../prop-src/funmap.pcc"
-#line 948 "../../prop-src/funmap.pcc"
+#line 949 "funmap.pcc"
+#line 949 "funmap.pcc"
 
      }
    }
@@ -1694,41 +1702,41 @@ void FunctorMap::print_report( std::ostream& log)
       Functor f = type_map.value(e);
       log << "datatype " << t << ":\n";
       
-#line 1001 "../../prop-src/funmap.pcc"
-#line 1020 "../../prop-src/funmap.pcc"
+#line 1002 "funmap.pcc"
+#line 1021 "funmap.pcc"
 {
   Ty _V7 = deref(t);
   if (_V7) {
     switch (_V7->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V7)->_1)) {
-          switch (_TYCONty(_V7)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V7)->_1)) {
+          switch (((Ty_TYCONty *)_V7)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 1004 "../../prop-src/funmap.pcc"
+#line 1005 "funmap.pcc"
               
-              int arity = _DATATYPEtycon(_TYCONty(_V7)->_1)->unit + _DATATYPEtycon(_TYCONty(_V7)->_1)->arg;
+              int arity = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V7)->_1)->unit + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V7)->_1)->arg;
               for (int i = 0; i < arity; i++)
               {
                 
-#line 1008 "../../prop-src/funmap.pcc"
-#line 1016 "../../prop-src/funmap.pcc"
+#line 1009 "funmap.pcc"
+#line 1017 "funmap.pcc"
               {
-                Cons _V8 = _DATATYPEtycon(_TYCONty(_V7)->_1)->terms[i];
+                Cons _V8 = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V7)->_1)->terms[i];
                 if (_V8) {
-#line 1011 "../../prop-src/funmap.pcc"
+#line 1012 "funmap.pcc"
                   
                   log << '\t' << _V8->name << "\t=\t"
-                      << f + (_V8->ty == NOty ? _V8->tag : _V8->tag + _DATATYPEtycon(_TYCONty(_V7)->_1)->unit) << '\n';
+                      << f + (_V8->ty == NOty ? _V8->tag : _V8->tag + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V7)->_1)->unit) << '\n';
                   
-#line 1014 "../../prop-src/funmap.pcc"
+#line 1015 "funmap.pcc"
                 } else {}
               }
-#line 1016 "../../prop-src/funmap.pcc"
-#line 1016 "../../prop-src/funmap.pcc"
+#line 1017 "funmap.pcc"
+#line 1017 "funmap.pcc"
               
               }
               
-#line 1018 "../../prop-src/funmap.pcc"
+#line 1019 "funmap.pcc"
               } break;
             default: {
               L18:; } break;
@@ -1739,8 +1747,8 @@ void FunctorMap::print_report( std::ostream& log)
     }
   } else { goto L18; }
 }
-#line 1020 "../../prop-src/funmap.pcc"
-#line 1020 "../../prop-src/funmap.pcc"
+#line 1021 "funmap.pcc"
+#line 1021 "funmap.pcc"
 
     }
   }
@@ -1763,21 +1771,21 @@ void FunctorMap::print_report( std::ostream& log)
 Exp FunctorMap::cost_expr( Id lhs, Pat pat)
 {
   
-#line 1041 "../../prop-src/funmap.pcc"
-#line 1044 "../../prop-src/funmap.pcc"
+#line 1042 "funmap.pcc"
+#line 1045 "funmap.pcc"
 {
   if (pat) {
-#line 1044 "../../prop-src/funmap.pcc"
+#line 1045 "funmap.pcc"
    return cost_expr( lhs, pat, LITERALexp( INTlit(1))); 
-#line 1044 "../../prop-src/funmap.pcc"
+#line 1045 "funmap.pcc"
   } else {
-#line 1043 "../../prop-src/funmap.pcc"
+#line 1044 "funmap.pcc"
    return LITERALexp( INTlit(0)); 
-#line 1043 "../../prop-src/funmap.pcc"
+#line 1044 "funmap.pcc"
   }
 }
-#line 1045 "../../prop-src/funmap.pcc"
-#line 1045 "../../prop-src/funmap.pcc"
+#line 1046 "funmap.pcc"
+#line 1046 "funmap.pcc"
 
 }
 
@@ -1790,91 +1798,91 @@ Exp FunctorMap::cost_expr( Id lhs, Pat pat)
 Exp FunctorMap::cost_expr( Id lhs, Pat pat, Exp exp)
 {
   
-#line 1056 "../../prop-src/funmap.pcc"
-#line 1076 "../../prop-src/funmap.pcc"
+#line 1057 "funmap.pcc"
+#line 1077 "funmap.pcc"
 {
   if (pat) {
     switch (pat->tag__) {
       case a_Pat::tag_WILDpat: {} break;
       case a_Pat::tag_IDpat: {} break;
       case a_Pat::tag_APPpat: {
-#line 1063 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_APPpat(pat)->_2,exp); 
-#line 1063 "../../prop-src/funmap.pcc"
+#line 1064 "funmap.pcc"
+       return cost_expr(lhs,((Pat_APPpat *)pat)->_2,exp); 
+#line 1064 "funmap.pcc"
         } break;
       case a_Pat::tag_TYPEDpat: {
-#line 1061 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_TYPEDpat(pat)->_1,exp); 
-#line 1061 "../../prop-src/funmap.pcc"
+#line 1062 "funmap.pcc"
+       return cost_expr(lhs,((Pat_TYPEDpat *)pat)->_1,exp); 
+#line 1062 "funmap.pcc"
         } break;
       case a_Pat::tag_ASpat: {
-#line 1059 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_ASpat(pat)->_2,exp); 
-#line 1059 "../../prop-src/funmap.pcc"
+#line 1060 "funmap.pcc"
+       return cost_expr(lhs,((Pat_ASpat *)pat)->_2,exp); 
+#line 1060 "funmap.pcc"
         } break;
       case a_Pat::tag_CONTEXTpat: {
-#line 1064 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_CONTEXTpat(pat)->_2,exp); 
-#line 1064 "../../prop-src/funmap.pcc"
+#line 1065 "funmap.pcc"
+       return cost_expr(lhs,((Pat_CONTEXTpat *)pat)->_2,exp); 
+#line 1065 "funmap.pcc"
         } break;
       case a_Pat::tag_ARRAYpat: {
-#line 1067 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_ARRAYpat(pat)->_1,exp); 
-#line 1067 "../../prop-src/funmap.pcc"
+#line 1068 "funmap.pcc"
+       return cost_expr(lhs,((Pat_ARRAYpat *)pat)->_1,exp); 
+#line 1068 "funmap.pcc"
         } break;
       case a_Pat::tag_TUPLEpat: {
-#line 1065 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_TUPLEpat(pat)->TUPLEpat,exp); 
-#line 1065 "../../prop-src/funmap.pcc"
+#line 1066 "funmap.pcc"
+       return cost_expr(lhs,((Pat_TUPLEpat *)pat)->TUPLEpat,exp); 
+#line 1066 "funmap.pcc"
         } break;
       case a_Pat::tag_EXTUPLEpat: {
-#line 1066 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_EXTUPLEpat(pat)->EXTUPLEpat,exp); 
-#line 1066 "../../prop-src/funmap.pcc"
+#line 1067 "funmap.pcc"
+       return cost_expr(lhs,((Pat_EXTUPLEpat *)pat)->EXTUPLEpat,exp); 
+#line 1067 "funmap.pcc"
         } break;
       case a_Pat::tag_RECORDpat: {
-#line 1068 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_RECORDpat(pat)->_1,exp); 
-#line 1068 "../../prop-src/funmap.pcc"
+#line 1069 "funmap.pcc"
+       return cost_expr(lhs,((Pat_RECORDpat *)pat)->_1,exp); 
+#line 1069 "funmap.pcc"
         } break;
       case a_Pat::tag_LISTpat: {
-#line 1070 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_LISTpat(pat)->head,cost_expr(lhs,_LISTpat(pat)->tail,exp)); 
-#line 1070 "../../prop-src/funmap.pcc"
+#line 1071 "funmap.pcc"
+       return cost_expr(lhs,((Pat_LISTpat *)pat)->head,cost_expr(lhs,((Pat_LISTpat *)pat)->tail,exp)); 
+#line 1071 "funmap.pcc"
         } break;
       case a_Pat::tag_VECTORpat: {
-#line 1072 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_VECTORpat(pat)->len,cost_expr(lhs,_VECTORpat(pat)->array,
-        cost_expr(lhs,_VECTORpat(pat)->elements,exp))); 
-#line 1073 "../../prop-src/funmap.pcc"
+#line 1073 "funmap.pcc"
+       return cost_expr(lhs,((Pat_VECTORpat *)pat)->len,cost_expr(lhs,((Pat_VECTORpat *)pat)->array,
+        cost_expr(lhs,((Pat_VECTORpat *)pat)->elements,exp))); 
+#line 1074 "funmap.pcc"
         } break;
       case a_Pat::tag_GUARDpat: {
-#line 1062 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_GUARDpat(pat)->_1,exp); 
-#line 1062 "../../prop-src/funmap.pcc"
+#line 1063 "funmap.pcc"
+       return cost_expr(lhs,((Pat_GUARDpat *)pat)->_1,exp); 
+#line 1063 "funmap.pcc"
         } break;
       case a_Pat::tag_MARKEDpat: {
-#line 1060 "../../prop-src/funmap.pcc"
-       return cost_expr(lhs,_MARKEDpat(pat)->_2,exp); 
-#line 1060 "../../prop-src/funmap.pcc"
+#line 1061 "funmap.pcc"
+       return cost_expr(lhs,((Pat_MARKEDpat *)pat)->_2,exp); 
+#line 1061 "funmap.pcc"
         } break;
       case a_Pat::tag_CONSpat:
       case a_Pat::tag_LITERALpat: {
         L19:; 
-#line 1058 "../../prop-src/funmap.pcc"
+#line 1059 "funmap.pcc"
        return exp; 
-#line 1058 "../../prop-src/funmap.pcc"
+#line 1059 "funmap.pcc"
         } break;
       default: {
-#line 1076 "../../prop-src/funmap.pcc"
+#line 1077 "funmap.pcc"
        return exp; 
-#line 1076 "../../prop-src/funmap.pcc"
+#line 1077 "funmap.pcc"
         } break;
     }
   } else { goto L19; }
 }
-#line 1077 "../../prop-src/funmap.pcc"
-#line 1077 "../../prop-src/funmap.pcc"
+#line 1078 "funmap.pcc"
+#line 1078 "funmap.pcc"
 
 
   // BUG fix: if the argument type is not a datatype or
@@ -1884,22 +1892,22 @@ Exp FunctorMap::cost_expr( Id lhs, Pat pat, Exp exp)
      return exp;
 
   Ty state_rec_ty = mkptrty( mkidty( Quark( class_name,"_StateRec"),
-#line 1085 "../../prop-src/funmap.pcc"
-#line 1085 "../../prop-src/funmap.pcc"
+#line 1086 "funmap.pcc"
+#line 1086 "funmap.pcc"
 nil_1_
-#line 1085 "../../prop-src/funmap.pcc"
-#line 1085 "../../prop-src/funmap.pcc"
+#line 1086 "funmap.pcc"
+#line 1086 "funmap.pcc"
 ));
   Exp cost_e =
      INDEXexp(
        ARROWexp(
           CASTexp( state_rec_ty,
               APPexp( ARROWexp( pat->selector, "get_state_rec"), TUPLEexp(
-#line 1090 "../../prop-src/funmap.pcc"
-#line 1090 "../../prop-src/funmap.pcc"
+#line 1091 "funmap.pcc"
+#line 1091 "funmap.pcc"
 nil_1_
-#line 1090 "../../prop-src/funmap.pcc"
-#line 1090 "../../prop-src/funmap.pcc"
+#line 1091 "funmap.pcc"
+#line 1091 "funmap.pcc"
 ))),
               "cost"), LITERALexp( INTlit( int( var_map[lhs]))));
 
@@ -1915,21 +1923,21 @@ nil_1_
 Exp FunctorMap::cost_expr( Id lhs, Pats pats, Exp exp)
 {
   
-#line 1104 "../../prop-src/funmap.pcc"
-#line 1107 "../../prop-src/funmap.pcc"
+#line 1105 "funmap.pcc"
+#line 1108 "funmap.pcc"
 {
   if (pats) {
-#line 1107 "../../prop-src/funmap.pcc"
+#line 1108 "funmap.pcc"
    return cost_expr( lhs, pats->_1, cost_expr( lhs, pats->_2, exp)); 
-#line 1107 "../../prop-src/funmap.pcc"
+#line 1108 "funmap.pcc"
   } else {
-#line 1106 "../../prop-src/funmap.pcc"
+#line 1107 "funmap.pcc"
    return exp; 
-#line 1106 "../../prop-src/funmap.pcc"
+#line 1107 "funmap.pcc"
   }
 }
-#line 1108 "../../prop-src/funmap.pcc"
-#line 1108 "../../prop-src/funmap.pcc"
+#line 1109 "funmap.pcc"
+#line 1109 "funmap.pcc"
 
 }
 
@@ -1942,24 +1950,24 @@ Exp FunctorMap::cost_expr( Id lhs, Pats pats, Exp exp)
 Exp FunctorMap::cost_expr( Id lhs, LabPats pats, Exp exp)
 {
   
-#line 1119 "../../prop-src/funmap.pcc"
-#line 1122 "../../prop-src/funmap.pcc"
+#line 1120 "funmap.pcc"
+#line 1123 "funmap.pcc"
 {
   if (pats) {
-#line 1122 "../../prop-src/funmap.pcc"
+#line 1123 "funmap.pcc"
    return cost_expr( lhs, pats->_1.pat, cost_expr( lhs, pats->_2, exp)); 
-#line 1122 "../../prop-src/funmap.pcc"
+#line 1123 "funmap.pcc"
   } else {
-#line 1121 "../../prop-src/funmap.pcc"
+#line 1122 "funmap.pcc"
    return exp; 
-#line 1121 "../../prop-src/funmap.pcc"
+#line 1122 "funmap.pcc"
   }
 }
-#line 1123 "../../prop-src/funmap.pcc"
-#line 1123 "../../prop-src/funmap.pcc"
+#line 1124 "funmap.pcc"
+#line 1124 "funmap.pcc"
 
 }
-#line 1125 "../../prop-src/funmap.pcc"
+#line 1126 "funmap.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -1968,8 +1976,8 @@ Number of ifs generated      = 37
 Number of switches generated = 25
 Number of labels             = 15
 Number of gotos              = 34
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

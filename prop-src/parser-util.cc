@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\parser-util.pcc".
+//  The original source file is "parser-util.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_PRINTER_USED
@@ -12,9 +12,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q1("$$");
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q2("$");
-#line 1 "../../prop-src/parser-util.pcc"
+static const Quark _p_a_r_s_e_rcn_u_t_i_lco_c_c_Q1("$$");
+static const Quark _p_a_r_s_e_rcn_u_t_i_lco_c_c_Q2("$");
+#line 1 "parser-util.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the utility routines for the parser.
@@ -45,14 +45,14 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q2
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 31 "../../prop-src/parser-util.pcc"
-#line 31 "../../prop-src/parser-util.pcc"
+#line 31 "parser-util.pcc"
+#line 31 "parser-util.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Interface specification of datatype PropToken
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 31 "../../prop-src/parser-util.pcc"
+#line 31 "parser-util.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Pretty printing methods for PropToken
@@ -66,7 +66,7 @@ PrettyOStream& operator << (PrettyOStream& strm__, PropToken  obj__);
 // Instantiation of datatype PropToken
 //
 ///////////////////////////////////////////////////////////////////////////////
-#line 31 "../../prop-src/parser-util.pcc"
+#line 31 "parser-util.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Pretty printing methods for PropToken
@@ -610,8 +610,8 @@ PrettyOStream& operator << (PrettyOStream& strm__, PropToken  obj__)
 
 
 
-#line 31 "../../prop-src/parser-util.pcc"
-#line 31 "../../prop-src/parser-util.pcc"
+#line 31 "parser-util.pcc"
+#line 31 "parser-util.pcc"
 
 
 void PropParser::print_user_symbol(std::ostream& f, Symbol c)
@@ -664,11 +664,11 @@ void PropParser::initialize( Compiler& C)
   includes_top     = 0;
   included_count   = 0;
   program          = 
-#line 82 "../../prop-src/parser-util.pcc"
-#line 82 "../../prop-src/parser-util.pcc"
+#line 82 "parser-util.pcc"
+#line 82 "parser-util.pcc"
 nil_1_
-#line 82 "../../prop-src/parser-util.pcc"
-#line 82 "../../prop-src/parser-util.pcc"
+#line 82 "parser-util.pcc"
+#line 82 "parser-util.pcc"
 ;
   my_cons          = NOcons;
   my_exp           = NOexp;
@@ -726,11 +726,11 @@ void mark_tuple_used( int arity)
 Pat mklistpat( Id cons, Id nil, Pats ps, Pat p = NOpat)
 {
   return 
-#line 138 "../../prop-src/parser-util.pcc"
-#line 138 "../../prop-src/parser-util.pcc"
+#line 138 "parser-util.pcc"
+#line 138 "parser-util.pcc"
 LISTpat(lookup_cons(cons), lookup_cons(nil), ps, p)
-#line 144 "../../prop-src/parser-util.pcc"
-#line 144 "../../prop-src/parser-util.pcc"
+#line 144 "parser-util.pcc"
+#line 144 "parser-util.pcc"
 ;
 }
 
@@ -739,11 +739,11 @@ Pat mkvecpat
 {
   Used::vector = true;
   return 
-#line 151 "../../prop-src/parser-util.pcc"
-#line 151 "../../prop-src/parser-util.pcc"
+#line 151 "parser-util.pcc"
+#line 151 "parser-util.pcc"
 VECTORpat(lookup_cons(a), len, array, ps, flex1, flex2)
-#line 159 "../../prop-src/parser-util.pcc"
-#line 159 "../../prop-src/parser-util.pcc"
+#line 159 "parser-util.pcc"
+#line 159 "parser-util.pcc"
 ;
 }
 
@@ -762,41 +762,41 @@ Exp mkappexp( Exp a, Exp b)
    }
 */
   
-#line 176 "../../prop-src/parser-util.pcc"
-#line 179 "../../prop-src/parser-util.pcc"
+#line 176 "parser-util.pcc"
+#line 179 "parser-util.pcc"
 {
   if (a) {
     switch (a->tag__) {
       case a_Exp::tag_IDexp: {
         if (
-#line 178 "../../prop-src/parser-util.pcc"
-        (c = find_cons(_IDexp(a)->IDexp))
-#line 178 "../../prop-src/parser-util.pcc"
+#line 178 "parser-util.pcc"
+        (c = find_cons(((Exp_IDexp *)a)->IDexp))
+#line 178 "parser-util.pcc"
 ) {
           
-#line 178 "../../prop-src/parser-util.pcc"
+#line 178 "parser-util.pcc"
          return CONSexp( c, 
-#line 178 "../../prop-src/parser-util.pcc"
-#line 178 "../../prop-src/parser-util.pcc"
+#line 178 "parser-util.pcc"
+#line 178 "parser-util.pcc"
           nil_1_
-#line 178 "../../prop-src/parser-util.pcc"
-#line 178 "../../prop-src/parser-util.pcc"
+#line 178 "parser-util.pcc"
+#line 178 "parser-util.pcc"
           , b); 
-#line 178 "../../prop-src/parser-util.pcc"
+#line 178 "parser-util.pcc"
         } else {
           
           L1:; 
-#line 179 "../../prop-src/parser-util.pcc"
+#line 179 "parser-util.pcc"
          return APPexp( a, b); 
-#line 179 "../../prop-src/parser-util.pcc"
+#line 179 "parser-util.pcc"
         }
         } break;
       default: { goto L1; } break;
     }
   } else { goto L1; }
 }
-#line 180 "../../prop-src/parser-util.pcc"
-#line 180 "../../prop-src/parser-util.pcc"
+#line 180 "parser-util.pcc"
+#line 180 "parser-util.pcc"
 
 }
 
@@ -812,11 +812,11 @@ TermDef mklistterm( Id c, Ty a, Ty b, Decls d)
    //|  _: // skip
    //}
    return 
-#line 194 "../../prop-src/parser-util.pcc"
-#line 194 "../../prop-src/parser-util.pcc"
+#line 194 "parser-util.pcc"
+#line 194 "parser-util.pcc"
 TERMdef(c, mktuplety(list_1_(a,list_1_(b))), d, nil_1_, NOpat, nil_1_, OPTnone, QUALnone, NOexp)
-#line 194 "../../prop-src/parser-util.pcc"
-#line 194 "../../prop-src/parser-util.pcc"
+#line 194 "parser-util.pcc"
+#line 194 "parser-util.pcc"
 ;
 }
 
@@ -835,11 +835,11 @@ Decls PropParser::mkcode( Decls decls)
   {
     Decl code = OPAQUEdecl( str_pool( scan.text(), scan.length()));
     decls = 
-#line 211 "../../prop-src/parser-util.pcc"
-#line 211 "../../prop-src/parser-util.pcc"
+#line 211 "parser-util.pcc"
+#line 211 "parser-util.pcc"
 list_1_(mark(code),decls)
-#line 211 "../../prop-src/parser-util.pcc"
-#line 211 "../../prop-src/parser-util.pcc"
+#line 211 "parser-util.pcc"
+#line 211 "parser-util.pcc"
 ;
   }
   scan.reset();
@@ -869,36 +869,36 @@ Exp PropParser::lookup_exp(Id id)
   Bool from_current;
   Exp e = pv_env.lookup(id,&from_current);
   
-#line 239 "../../prop-src/parser-util.pcc"
-#line 247 "../../prop-src/parser-util.pcc"
+#line 239 "parser-util.pcc"
+#line 247 "parser-util.pcc"
 {
   char _V1 = id[0];
   if (e) {
-#line 247 "../../prop-src/parser-util.pcc"
+#line 247 "parser-util.pcc"
    return e; 
-#line 247 "../../prop-src/parser-util.pcc"
+#line 247 "parser-util.pcc"
   } else {
     switch (_V1) {
       case '#':
       case '$': {
         L2:; 
-#line 242 "../../prop-src/parser-util.pcc"
+#line 242 "parser-util.pcc"
         
         error ("%Lpattern variable '%s' has no binding at this point\n", id);
         return NOexp;
         
-#line 245 "../../prop-src/parser-util.pcc"
+#line 245 "parser-util.pcc"
       } break;
       default: {
-#line 246 "../../prop-src/parser-util.pcc"
+#line 246 "parser-util.pcc"
        return IDexp(id); 
-#line 246 "../../prop-src/parser-util.pcc"
+#line 246 "parser-util.pcc"
       }
     }
   }
 }
-#line 248 "../../prop-src/parser-util.pcc"
-#line 248 "../../prop-src/parser-util.pcc"
+#line 248 "parser-util.pcc"
+#line 248 "parser-util.pcc"
 
 }
 
@@ -912,11 +912,11 @@ Ty PropParser::lookup_tyvar( Id id)
     if (var_stack[i] == id)
       return INDty( id, i);
   return mkidty( id, 
-#line 260 "../../prop-src/parser-util.pcc"
-#line 260 "../../prop-src/parser-util.pcc"
+#line 260 "parser-util.pcc"
+#line 260 "parser-util.pcc"
 nil_1_
-#line 260 "../../prop-src/parser-util.pcc"
-#line 260 "../../prop-src/parser-util.pcc"
+#line 260 "parser-util.pcc"
+#line 260 "parser-util.pcc"
 );
 }
 
@@ -940,23 +940,23 @@ Pat PropParser::lookup_patvar( Id id)
 Pat PropParser::mkconspat( Cons cons)
 {
   
-#line 282 "../../prop-src/parser-util.pcc"
-#line 296 "../../prop-src/parser-util.pcc"
+#line 282 "parser-util.pcc"
+#line 296 "parser-util.pcc"
 {
   if (cons) {
     if (cons->alg_ty) {
       switch (cons->alg_ty->tag__) {
         case a_Ty::tag_TYCONty: {
-          if (boxed(_TYCONty(cons->alg_ty)->_1)) {
-            switch (_TYCONty(cons->alg_ty)->_1->tag__) {
+          if (boxed(((Ty_TYCONty *)cons->alg_ty)->_1)) {
+            switch (((Ty_TYCONty *)cons->alg_ty)->_1->tag__) {
               case a_TyCon::tag_DATATYPEtycon: {
                 if (
-#line 286 "../../prop-src/parser-util.pcc"
-                ((_DATATYPEtycon(_TYCONty(cons->alg_ty)->_1)->qualifiers & QUALlexeme) && (match_kind[me_top] & MATCHscanner))
-#line 286 "../../prop-src/parser-util.pcc"
+#line 286 "parser-util.pcc"
+                ((((TyCon_DATATYPEtycon *)((Ty_TYCONty *)cons->alg_ty)->_1)->qualifiers & QUALlexeme) && (match_kind[me_top] & MATCHscanner))
+#line 286 "parser-util.pcc"
 ) {
                   
-#line 287 "../../prop-src/parser-util.pcc"
+#line 287 "parser-util.pcc"
                   
                   if (cons->lexeme_pattern == NOpat)
                   {
@@ -966,13 +966,13 @@ Pat PropParser::mkconspat( Cons cons)
                   else
                     return cons->lexeme_pattern;
                   
-#line 295 "../../prop-src/parser-util.pcc"
+#line 295 "parser-util.pcc"
                 } else {
                   
                   L3:; 
-#line 296 "../../prop-src/parser-util.pcc"
+#line 296 "parser-util.pcc"
                  return CONSpat(cons); 
-#line 296 "../../prop-src/parser-util.pcc"
+#line 296 "parser-util.pcc"
                 }
                 } break;
               default: { goto L3; } break;
@@ -984,8 +984,8 @@ Pat PropParser::mkconspat( Cons cons)
     } else { goto L3; }
   } else { goto L3; }
 }
-#line 297 "../../prop-src/parser-util.pcc"
-#line 297 "../../prop-src/parser-util.pcc"
+#line 297 "parser-util.pcc"
+#line 297 "parser-util.pcc"
 
 }
 
@@ -999,19 +999,19 @@ void PropParser::add_parse_stack_binding
   Ty junk_ty = NOty;
   if (item_number <= 0)
     pv_env.add( 
-#line 309 "../../prop-src/parser-util.pcc"
-#line 309 "../../prop-src/parser-util.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q1
-#line 309 "../../prop-src/parser-util.pcc"
-#line 309 "../../prop-src/parser-util.pcc"
+#line 309 "parser-util.pcc"
+#line 309 "parser-util.pcc"
+_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q1
+#line 309 "parser-util.pcc"
+#line 309 "parser-util.pcc"
 , SYNexp( 0, -symbol_number, NOty, false), junk_ty);
   else
     pv_env.add( 
-#line 311 "../../prop-src/parser-util.pcc"
-#line 311 "../../prop-src/parser-util.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q2
-#line 311 "../../prop-src/parser-util.pcc"
-#line 311 "../../prop-src/parser-util.pcc"
+#line 311 "parser-util.pcc"
+#line 311 "parser-util.pcc"
+_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q2
+#line 311 "parser-util.pcc"
+#line 311 "parser-util.pcc"
  + item_number,
             SYNexp( nonterm_number, -symbol_number, NOty, false), junk_ty);
 }
@@ -1051,11 +1051,11 @@ void PropParser::initialize_lexer( const char * initial_file_name)
   quote_top   = 0;
   options.emit_code   = true;
   program     = 
-#line 349 "../../prop-src/parser-util.pcc"
-#line 349 "../../prop-src/parser-util.pcc"
+#line 349 "parser-util.pcc"
+#line 349 "parser-util.pcc"
 nil_1_
-#line 349 "../../prop-src/parser-util.pcc"
-#line 349 "../../prop-src/parser-util.pcc"
+#line 349 "parser-util.pcc"
+#line 349 "parser-util.pcc"
 ;
   levels[levels_top++] = -1;
   lexbuf.set_context(C);
@@ -1255,7 +1255,7 @@ char PropParser::end_quote( char c)
     return quote.close;
   }
 }
-#line 548 "../../prop-src/parser-util.pcc"
+#line 548 "parser-util.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -1264,8 +1264,8 @@ Number of ifs generated      = 7
 Number of switches generated = 4
 Number of labels             = 3
 Number of gotos              = 7
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

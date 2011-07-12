@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\gcgen.pcc".
+//  The original source file is "gcgen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_QUARK_USED
@@ -9,9 +9,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_g_c_g_e_nco_c_c_Q2("i__");
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_g_c_g_e_nco_c_c_Q1("this");
-#line 1 "../../prop-src/gcgen.pcc"
+static const Quark _g_c_g_e_nco_c_c_Q2("i__");
+static const Quark _g_c_g_e_nco_c_c_Q1("this");
+#line 1 "gcgen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the garbage collection interface generation
@@ -76,11 +76,11 @@ void DatatypeClass::generate_gc_implementation( CodeGen& C, Tys tys, DefKind k)
     if (is_array)
       arg_ty = mkarrayty( arg_ty, IDexp( "len_"));
     gen_field_tracing_methods( C, DEREFexp( IDexp( 
-#line 64 "../../prop-src/gcgen.pcc"
-#line 64 "../../prop-src/gcgen.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_g_c_g_e_nco_c_c_Q1
-#line 64 "../../prop-src/gcgen.pcc"
-#line 64 "../../prop-src/gcgen.pcc"
+#line 64 "gcgen.pcc"
+#line 64 "gcgen.pcc"
+_g_c_g_e_nco_c_c_Q1
+#line 64 "gcgen.pcc"
+#line 64 "gcgen.pcc"
 )),
                                arg_ty, tys, k, true);
   }
@@ -130,30 +130,30 @@ void DatatypeClass::gen_field_tracing_methods
    (CodeGen& C, Exp exp, Ty ty, Tys tys, DefKind k, Bool toplevel)
 {
   
-#line 112 "../../prop-src/gcgen.pcc"
-#line 160 "../../prop-src/gcgen.pcc"
+#line 112 "gcgen.pcc"
+#line 160 "gcgen.pcc"
 {
   Ty _V1 = deref_all(ty);
   if (_V1) {
     switch (_V1->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V1)->_1)) {
-          switch (_TYCONty(_V1)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V1)->_1)) {
+          switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 127 "../../prop-src/gcgen.pcc"
+#line 127 "gcgen.pcc"
               
               Ids ls;
               Tys ts;
-              for( ls = _RECORDtycon(_TYCONty(_V1)->_1)->_1, ts = _TYCONty(_V1)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
+              for( ls = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V1)->_1)->_1, ts = ((Ty_TYCONty *)_V1)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
                 gen_field_tracing_methods( C, DOTexp( exp, ls->_1), ts->_1, tys,k);
               
-#line 132 "../../prop-src/gcgen.pcc"
+#line 132 "gcgen.pcc"
               } break;
             case a_TyCon::tag_ARRAYtycon: {
-              if (_TYCONty(_V1)->_2) {
-                if (_TYCONty(_V1)->_2->_2) {
+              if (((Ty_TYCONty *)_V1)->_2) {
+                if (((Ty_TYCONty *)_V1)->_2->_2) {
                   L1:; 
-#line 148 "../../prop-src/gcgen.pcc"
+#line 148 "gcgen.pcc"
                   
                   if (is_gc_ty(ty))
                   {
@@ -167,53 +167,53 @@ void DatatypeClass::gen_field_tracing_methods
                   }
                   else
                     C.pr( "%^// omitted %T", ty); 
-#line 160 "../../prop-src/gcgen.pcc"
+#line 160 "gcgen.pcc"
                 } else {
-#line 134 "../../prop-src/gcgen.pcc"
+#line 134 "gcgen.pcc"
                   
                   C.pr(
                         "%^{%+"
                         "%^for (int i__ = 0; i__ < %e; i__++)"
                         "%^{%+",
-                        _ARRAYtycon(_TYCONty(_V1)->_1)->ARRAYtycon
+                        ((TyCon_ARRAYtycon *)((Ty_TYCONty *)_V1)->_1)->ARRAYtycon
                       );
                   gen_field_tracing_methods( C, INDEXexp( exp, IDexp( 
-#line 141 "../../prop-src/gcgen.pcc"
-#line 141 "../../prop-src/gcgen.pcc"
-                  cocofmcocofm_p_r_o_pcn_s_r_cfm_g_c_g_e_nco_c_c_Q2
-#line 141 "../../prop-src/gcgen.pcc"
-#line 141 "../../prop-src/gcgen.pcc"
-                  )), _TYCONty(_V1)->_2->_1, tys, k);
+#line 141 "gcgen.pcc"
+#line 141 "gcgen.pcc"
+                  _g_c_g_e_nco_c_c_Q2
+#line 141 "gcgen.pcc"
+#line 141 "gcgen.pcc"
+                  )), ((Ty_TYCONty *)_V1)->_2->_1, tys, k);
                   C.pr(
                         "%-%^}"
                         "%-%^}"
                       );
                   
-#line 146 "../../prop-src/gcgen.pcc"
+#line 146 "gcgen.pcc"
                 }
               } else { goto L1; }
               } break;
             default: { goto L1; } break;
           }
         } else {
-          switch ((int)_TYCONty(_V1)->_1) {
+          switch ((int)((Ty_TYCONty *)_V1)->_1) {
             case ((int)TUPLEtycon): {
-#line 115 "../../prop-src/gcgen.pcc"
+#line 115 "gcgen.pcc"
               
               int i = 1;
-              for_each ( Ty, ty, _TYCONty(_V1)->_2)
+              for_each ( Ty, ty, ((Ty_TYCONty *)_V1)->_2)
                 gen_field_tracing_methods( C, DOTexp( exp, index_of(i++)), ty, tys, k);
               
-#line 119 "../../prop-src/gcgen.pcc"
+#line 119 "gcgen.pcc"
               } break;
             case ((int)EXTUPLEtycon): {
-#line 121 "../../prop-src/gcgen.pcc"
+#line 121 "gcgen.pcc"
               
               int i = 1;
-              for_each ( Ty, ty, _TYCONty(_V1)->_2)
+              for_each ( Ty, ty, ((Ty_TYCONty *)_V1)->_2)
                 gen_field_tracing_methods( C, DOTexp( exp, index_of(i++)), ty, tys, k);
               
-#line 125 "../../prop-src/gcgen.pcc"
+#line 125 "gcgen.pcc"
               } break;
             default: { goto L1; } break;
           }
@@ -223,11 +223,11 @@ void DatatypeClass::gen_field_tracing_methods
     }
   } else { goto L1; }
 }
-#line 161 "../../prop-src/gcgen.pcc"
-#line 161 "../../prop-src/gcgen.pcc"
+#line 161 "gcgen.pcc"
+#line 161 "gcgen.pcc"
 
 }
-#line 163 "../../prop-src/gcgen.pcc"
+#line 163 "gcgen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -236,8 +236,8 @@ Number of ifs generated      = 4
 Number of switches generated = 3
 Number of labels             = 1
 Number of gotos              = 5
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

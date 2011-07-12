@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\graphops.pcc".
+//  The original source file is "graphops.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/graphops.pcc"
+#line 1 "graphops.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the low level graph operators.
@@ -269,7 +269,7 @@ void MultiMapEdge::gen_update_image( CodeGen& C) // f(x)
         domain_type->name(), range_type->name(), edge_name
       );
 }
-#line 265 "../../prop-src/graphops.pcc"
+#line 265 "graphops.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -278,8 +278,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

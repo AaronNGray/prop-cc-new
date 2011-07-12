@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\parser.ph".
+//  The original source file is "parser.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_PARSER_USED
 #include <propdefs.h>
-#line 1 "../../prop-src/parser.ph"
+#line 1 "parser.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  Definition of the Prop parser.
@@ -33,8 +33,8 @@ class GraphTypeDef;
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 27 "../../prop-src/parser.ph"
-#line 27 "../../prop-src/parser.ph"
+#line 27 "parser.ph"
+#line 27 "parser.ph"
 enum LexicalContext {
   NONE = 0, C = 1, PROP = 2, 
   COMMENT = 3, QUOTE = 4, ANTIQUOTE = 5
@@ -43,8 +43,8 @@ enum LexicalContext {
 
 
 
-#line 27 "../../prop-src/parser.ph"
-#line 27 "../../prop-src/parser.ph"
+#line 27 "parser.ph"
+#line 27 "parser.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -54,8 +54,8 @@ enum LexicalContext {
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 36 "../../prop-src/parser.ph"
-#line 196 "../../prop-src/parser.ph"
+#line 36 "parser.ph"
+#line 196 "parser.ph"
 class PropParser : public LR1Parser {
 public:
   /////////////////////////////////////////////////////////////////////////////
@@ -89,7 +89,7 @@ public:
 private:
   void adjust_stack(int);
   void grow_semantic_stack();
-#line 37 "../../prop-src/parser.ph"
+#line 37 "parser.ph"
   
   PropParser(const PropParser&);
   void operator = (const PropParser&);
@@ -249,14 +249,14 @@ private:
   // For error explanation
   void  print_user_symbol( std::ostream&, Symbol);
   void  explain_error();
-#line 196 "../../prop-src/parser.ph"
+#line 196 "parser.ph"
 };
-#line 196 "../../prop-src/parser.ph"
-#line 196 "../../prop-src/parser.ph"
+#line 196 "parser.ph"
+#line 196 "parser.ph"
 
 
 #endif
-#line 199 "../../prop-src/parser.ph"
+#line 199 "parser.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -265,8 +265,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

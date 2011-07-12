@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\graphtype.pcc".
+//  The original source file is "graphtype.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/graphtype.pcc"
+#line 1 "graphtype.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This file implements the graph type generator
@@ -24,33 +24,33 @@
 GraphTypeDef::GraphTypeDef
     (Id id, Inherits i, TyQual q, NodeDefs nodes, EdgeDefs edges, Decls b)
     : ClassDefinition(GRAPHTYPE_CLASS, id, 
-#line 19 "../../prop-src/graphtype.pcc"
-#line 19 "../../prop-src/graphtype.pcc"
+#line 19 "graphtype.pcc"
+#line 19 "graphtype.pcc"
 nil_1_
-#line 19 "../../prop-src/graphtype.pcc"
-#line 19 "../../prop-src/graphtype.pcc"
+#line 19 "graphtype.pcc"
+#line 19 "graphtype.pcc"
 ,
 	  add_inherit("GraphType",
-#line 20 "../../prop-src/graphtype.pcc"
-#line 20 "../../prop-src/graphtype.pcc"
+#line 20 "graphtype.pcc"
+#line 20 "graphtype.pcc"
 nil_1_
-#line 20 "../../prop-src/graphtype.pcc"
-#line 20 "../../prop-src/graphtype.pcc"
+#line 20 "graphtype.pcc"
+#line 20 "graphtype.pcc"
 ,i,PUBLICscope,QUALvirtualdestr), q, b),
       node_defs(nodes), edge_defs(edges)
 {
   add_type( id, 
-#line 23 "../../prop-src/graphtype.pcc"
-#line 23 "../../prop-src/graphtype.pcc"
+#line 23 "graphtype.pcc"
+#line 23 "graphtype.pcc"
 nil_1_
-#line 23 "../../prop-src/graphtype.pcc"
-#line 23 "../../prop-src/graphtype.pcc"
+#line 23 "graphtype.pcc"
+#line 23 "graphtype.pcc"
 , TYCONty( GRAPHtycon( this), 
-#line 23 "../../prop-src/graphtype.pcc"
-#line 23 "../../prop-src/graphtype.pcc"
+#line 23 "graphtype.pcc"
+#line 23 "graphtype.pcc"
 nil_1_
-#line 23 "../../prop-src/graphtype.pcc"
-#line 23 "../../prop-src/graphtype.pcc"
+#line 23 "graphtype.pcc"
+#line 23 "graphtype.pcc"
 ));
 }
 
@@ -282,7 +282,7 @@ void GraphTypeDef::gen_lookup_node( CodeGen& C) {}
 void GraphTypeDef::gen_insert_node( CodeGen& C) {}
 void GraphTypeDef::gen_remove_node( CodeGen& C) {}
 
-#line 254 "../../prop-src/graphtype.pcc"
+#line 254 "graphtype.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -291,8 +291,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

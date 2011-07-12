@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.6),
-//  last updated on Nov 2, 1999.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "treegen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -56,8 +56,7 @@ TreeTerm new_term(Mem& mem, short int f, unsigned char n, TreeTerm * subterms);
 //  Class TreeGenerator represents the internals of the automata compiler.
 //  This stuff is completely hidden from the interface.
 //////////////////////////////////////////////////////////////////////////////
-class TreeGenerator
-{
+class TreeGenerator {
   TreeGenerator(const TreeGenerator&);    // no copy constructor
   void operator = (const TreeGenerator&); // no assignment
 
@@ -87,9 +86,8 @@ public:
   //  Constructor
   ///////////////////////////////////////////////////////////////////////////
   TreeGenerator(TreeGen& gen, TreeGrammar& g) :
-      treegen(gen), G(g), mem(4096), non_terminals(1037),
-      state_labels(1037), delta(1037)
-  {}
+     treegen(gen), G(g), mem(4096), non_terminals(1037),
+     state_labels(1037), delta(1037) {}
 
   ///////////////////////////////////////////////////////////////////////////
   //  Methods to process various phases of the compilation.
@@ -112,7 +110,6 @@ public:
 //  The following method is used to assign non-terminal symbols
 //  to each distinct term within the grammar
 //////////////////////////////////////////////////////////////////////////////
-
 void TreeGenerator::assign_non_terminals()
 {
   ///////////////////////////////////////////////////////////////////////////
@@ -130,8 +127,9 @@ void TreeGenerator::assign_non_terminals()
   //  Traverse thru the grammar and compute the non-terminal numbers.
   //  The tree grammar *IS* destructively altered.
   ///////////////////////////////////////////////////////////////////////////
-  {  for (int i = G.size() - 1; i >= 0; i--)
-      G.update(i,assign_non_terminal( G[i].term ));
+  {
+    for (int i = G.size() - 1; i >= 0; i--)
+      G.update( i, assign_non_terminal( G[i].term));
   }
 
   ///////////////////////////////////////////////////////////////////////////
@@ -143,13 +141,11 @@ void TreeGenerator::assign_non_terminals()
     int i;
     for (i = max_non_terminal - 1; i >= 0; i--)
       rule_map[i] = -1;
-    for (i = G.size() - 1; i >= 0; i--)
-    {
+    for (i = G.size() - 1; i >= 0; i--) {
       Variable v = non_terminals[G[i].term];
       if (ruleset_map[v] == 0)
         ruleset_map[v] = new (mem, max_non_terminal) BitSet;
-      ruleset_map[v]->add
-      (i);
+      ruleset_map[v]->add(i);
       rule_map[v] = i;
     }
   }
@@ -165,145 +161,108 @@ TreeTerm TreeGenerator::assign_non_terminal( TreeTerm t)
   ///////////////////////////////////////////////////////////////////////////
   //  Step (a) recursively fold the terms.
   ///////////////////////////////////////////////////////////////////////////
-
-#line 153 "treegen.pcc"
-#line 163 "treegen.pcc"
-  {
-    if (t)
-    {
-      switch (t->tag__)
-      {
-      case a_TreeTerm::tag_tree_term:
-        {
-#line 160 "treegen.pcc"
-
-          for (int i = _tree_term(t)->_2 - 1; i >= 0; i--)
-            _tree_term(t)->_3[i] = assign_non_terminal(_tree_term(t)->_3[i]);
-
-#line 163 "treegen.pcc"
-
-        }
-        break;
-      case a_TreeTerm::tag_var_term:
-        {
-#line 155 "treegen.pcc"
-          // skip
-
-#line 156 "treegen.pcc"
-
-        }
-        break;
-      case a_TreeTerm::tag_and_term:
-        {
+  
 #line 157 "treegen.pcc"
-          _and_term(t)->_1 = assign_non_terminal(_and_term(t)->_1);
-          _and_term(t)->_2 = assign_non_terminal(_and_term(t)->_2);
-
-#line 158 "treegen.pcc"
-
-        }
-        break;
-      case a_TreeTerm::tag_or_term:
-        {
-#line 158 "treegen.pcc"
-          _or_term(t)->_1 = assign_non_terminal(_or_term(t)->_1);
-          _or_term(t)->_2 = assign_non_terminal(_or_term(t)->_2);
-
+#line 167 "treegen.pcc"
+{
+  if (t) {
+    switch (t->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+#line 164 "treegen.pcc"
+        
+        for (int i = _tree_term(t)->_2 - 1; i >= 0; i--)
+          _tree_term(t)->_3[i] = assign_non_terminal(_tree_term(t)->_3[i]);
+        
+#line 167 "treegen.pcc"
+        } break;
+      case a_TreeTerm::tag_var_term: {
 #line 159 "treegen.pcc"
-
-        }
-        break;
-      case a_TreeTerm::tag_not_term:
-        {
-#line 159 "treegen.pcc"
-          _not_term(t)->not_term = assign_non_terminal(_not_term(t)->not_term);
-
+   // skip
+        
 #line 160 "treegen.pcc"
-
-        }
-        break;
-      default:
-        {
-#line 156 "treegen.pcc"
-          // skip
-
-#line 157 "treegen.pcc"
-
-        }
-        break;
-      }
+        } break;
+      case a_TreeTerm::tag_and_term: {
+#line 161 "treegen.pcc"
+      _and_term(t)->_1 = assign_non_terminal(_and_term(t)->_1); _and_term(t)->_2 = assign_non_terminal(_and_term(t)->_2);
+        
+#line 162 "treegen.pcc"
+        } break;
+      case a_TreeTerm::tag_or_term: {
+#line 162 "treegen.pcc"
+     _or_term(t)->_1 = assign_non_terminal(_or_term(t)->_1); _or_term(t)->_2 = assign_non_terminal(_or_term(t)->_2);
+        
+#line 163 "treegen.pcc"
+        } break;
+      case a_TreeTerm::tag_not_term: {
+#line 163 "treegen.pcc"
+    _not_term(t)->not_term = assign_non_terminal(_not_term(t)->not_term);
+        
+#line 164 "treegen.pcc"
+        } break;
+      default: {
+#line 160 "treegen.pcc"
+   // skip
+        
+#line 161 "treegen.pcc"
+        } break;
     }
-    else
-    {
-#line 154 "treegen.pcc"
-      // skip
-
-#line 155 "treegen.pcc"
-
-    }
+  } else {
+#line 158 "treegen.pcc"
+  // skip
+    
+#line 159 "treegen.pcc"
   }
-#line 163 "treegen.pcc"
-#line 163 "treegen.pcc"
+}
+#line 167 "treegen.pcc"
+#line 167 "treegen.pcc"
 
 
   ///////////////////////////////////////////////////////////////////////////
   //  Look it up from the ``non_terminal'' map.
   ///////////////////////////////////////////////////////////////////////////
   Ix p = non_terminals.lookup(t);
-  if (p == 0)
-  {  // not found!
+  if (p == 0)   // not found!
+  {
     ////////////////////////////////////////////////////////////////////////
     //  Step (b) if it is not found, assign a new non-terminal number.
     //  Notice that ``wild_term'' always gets the non-terminal number of 0.
     ////////////////////////////////////////////////////////////////////////
     Variable var;
-
-#line 175 "treegen.pcc"
-#line 179 "treegen.pcc"
-    {
-      if (t)
-      {
-        switch (t->tag__)
-        {
-        case a_TreeTerm::tag_var_term:
-          {
-#line 177 "treegen.pcc"
-            var = _var_term(t)->var_term;
-
-#line 178 "treegen.pcc"
-
-          }
-          break;
-        default:
-          {
-#line 178 "treegen.pcc"
-            var = max_non_terminal++;
-
-#line 179 "treegen.pcc"
-
-          }
-          break;
-        }
-      }
-      else
-      {
-#line 176 "treegen.pcc"
-        var = 0;
-
-#line 177 "treegen.pcc"
-
-      }
+    
+#line 180 "treegen.pcc"
+#line 185 "treegen.pcc"
+{
+  if (t) {
+    switch (t->tag__) {
+      case a_TreeTerm::tag_var_term: {
+#line 183 "treegen.pcc"
+      var = _var_term(t)->var_term;
+        
+#line 184 "treegen.pcc"
+        } break;
+      default: {
+#line 184 "treegen.pcc"
+   var = max_non_terminal++;
+        
+#line 185 "treegen.pcc"
+        } break;
     }
-#line 179 "treegen.pcc"
-#line 179 "treegen.pcc"
+  } else {
+#line 182 "treegen.pcc"
+ var = 0;
+    
+#line 183 "treegen.pcc"
+  }
+}
+#line 185 "treegen.pcc"
+#line 185 "treegen.pcc"
 
     non_terminals.insert(t,var);  // update map
     n_states[var] = t;            // update inverse map
   }
   else
-  {
     t = non_terminals.key(p);
-  }
+
   return t;
 }
 
@@ -317,6 +276,7 @@ TreeTerm TreeGenerator::assign_non_terminal( TreeTerm t)
 //
 //  We don't support negation yet since it is anti-monotonic.
 //////////////////////////////////////////////////////////////////////////////
+
 void TreeGenerator::compute_closures()
 {
   ///////////////////////////////////////////////////////////////////////////
@@ -325,18 +285,17 @@ void TreeGenerator::compute_closures()
   //  they are non-trivial (i.e. closure0[v] is something other than
   //  { 0, v }.
   ///////////////////////////////////////////////////////////////////////////
-  closure0 = (BitSet**)mem.c_alloc(sizeof(BitSet*) * max_non_terminal);
+  closure0 = (BitSet**) mem.c_alloc(sizeof(BitSet*) * max_non_terminal);
 
   ///////////////////////////////////////////////////////////////////////////
   //  Allocate closures for user defined non-terminals
   ///////////////////////////////////////////////////////////////////////////
-  {  for (Variable v = G.min_variable(); v <= G.max_variable(); v++)
+  {
+    for (Variable v = G.min_variable(); v <= G.max_variable(); v++)
     {
       closure0[v] = new (mem, max_non_terminal) BitSet;
-      closure0[v]->add
-      (0);
-      closure0[v]->add
-      (v);
+      closure0[v]->add(0);
+      closure0[v]->add(v);
     }
   }
 
@@ -345,6 +304,7 @@ void TreeGenerator::compute_closures()
   ///////////////////////////////////////////////////////////////////////////
   Bool changed;
   BitSet& temp = *new(mem, max_non_terminal) BitSet; // temporary set buffer
+
   do
   {
     changed = false;
@@ -360,159 +320,112 @@ void TreeGenerator::compute_closures()
       /////////////////////////////////////////////////////////////////////
       //  Allocate a new closure set if necessary.
       /////////////////////////////////////////////////////////////////////
-
-#line 236 "treegen.pcc"
-#line 243 "treegen.pcc"
-      {
-        if (term)
-        {
-          switch (term->tag__)
-          {
-          case a_TreeTerm::tag_tree_term:
-          case a_TreeTerm::tag_not_term:
-          case a_TreeTerm::tag_set_term:
-            {
-L1:
-              ;
-#line 242 "treegen.pcc"
-
-
-#line 243 "treegen.pcc"
-
-            }
-            break;
-          default:
-            {
-              if (
-#line 237 "treegen.pcc"
-                (closure0[var] == 0)
-#line 237 "treegen.pcc"
-              )
-              {
-
-L2:
-                ;
-#line 237 "treegen.pcc"
-
-                closure0[var] = new (mem, max_non_terminal) BitSet;
-                closure0[var]->add
-                (0);
-                closure0[var]->add
-                (var);
-                changed = true;
-
-#line 242 "treegen.pcc"
-
-              }
-              else
-              {
-                goto L1;
-              }
-            }
-            break;
-          }
-        }
-        else
-        {
-          goto L1;
-        }
-      }
-#line 243 "treegen.pcc"
-#line 243 "treegen.pcc"
+      
+#line 249 "treegen.pcc"
+#line 257 "treegen.pcc"
+{
+  if (term) {
+    switch (term->tag__) {
+      case a_TreeTerm::tag_tree_term:
+      case a_TreeTerm::tag_not_term:
+      case a_TreeTerm::tag_set_term: {
+        L1:; 
+#line 256 "treegen.pcc"
+        
+        
+#line 257 "treegen.pcc"
+        } break;
+      default: {
+        if (
+#line 251 "treegen.pcc"
+        (closure0[var] == 0)
+#line 251 "treegen.pcc"
+) {
+          
+          L2:; 
+#line 251 "treegen.pcc"
+          
+          closure0[var] = new (mem, max_non_terminal) BitSet;
+          closure0[var]->add(0);
+          closure0[var]->add(var);
+          changed = true;
+          
+#line 256 "treegen.pcc"
+        } else {
+           goto L1; }
+        } break;
+    }
+  } else { goto L1; }
+}
+#line 257 "treegen.pcc"
+#line 257 "treegen.pcc"
 
 
       /////////////////////////////////////////////////////////////////////
       //  Propagate closures sets.
       /////////////////////////////////////////////////////////////////////
-
-#line 248 "treegen.pcc"
-#line 266 "treegen.pcc"
-      {
-        if (term)
-        {
-          switch (term->tag__)
+      
+#line 262 "treegen.pcc"
+#line 286 "treegen.pcc"
+{
+  if (term) {
+    switch (term->tag__) {
+      case a_TreeTerm::tag_var_term: {
+        if (
+#line 274 "treegen.pcc"
+        (var != _var_term(term)->var_term)
+#line 274 "treegen.pcc"
+) {
+          
+#line 274 "treegen.pcc"
+          
+          if (closure0[_var_term(term)->var_term])
           {
-          case a_TreeTerm::tag_var_term:
-            {
-              if (
-#line 259 "treegen.pcc"
-                (var != _var_term(term)->var_term)
-#line 259 "treegen.pcc"
-              )
-              {
-
-#line 259 "treegen.pcc"
-
-                if (closure0[_var_term(term)->var_term])
-                {
-                  if (closure0[var]->Union_if_changed(*closure0[_var_term(term)->var_term]))
-                    changed = true;
-                }
-                else
-                {
-                  if (closure0[var]->add_if_changed(_var_term(term)->var_term))
-                    changed = true;
-                }
-
-#line 265 "treegen.pcc"
-
-              }
-              else
-              {
-
-L3:
-                ;
-#line 265 "treegen.pcc"
-                // skip
-
-#line 266 "treegen.pcc"
-
-              }
-            }
-            break;
-          case a_TreeTerm::tag_and_term:
-            {
-#line 249 "treegen.pcc"
-
-              BitSet * s1 = closure0[ non_terminals[_and_term(term)->_1] ];
-              BitSet * s2 = closure0[ non_terminals[_and_term(term)->_2] ];
-              temp.Intersect(*s1,*s2);
-              if (closure0[var]->Union_if_changed(temp))
-                changed = true;
-
-#line 254 "treegen.pcc"
-
-            }
-            break;
-          case a_TreeTerm::tag_or_term:
-            {
-#line 254 "treegen.pcc"
-
-              BitSet * s1 = closure0[ non_terminals[_or_term(term)->_1] ];
-              BitSet * s2 = closure0[ non_terminals[_or_term(term)->_2] ];
-              if (closure0[var]->Union_if_changed(*s1))
-                changed = true;
-              if (closure0[var]->Union_if_changed(*s2))
-                changed = true;
-
-#line 259 "treegen.pcc"
-
-            }
-            break;
-          default:
-            {
-              goto L3;
-            }
-            break;
+            if (closure0[var]->Union_if_changed(*closure0[_var_term(term)->var_term]))
+              changed = true;
           }
+          else
+          {
+            if (closure0[var]->add_if_changed(_var_term(term)->var_term))
+              changed = true;
+          }
+          
+#line 285 "treegen.pcc"
+        } else {
+          
+          L3:; 
+#line 285 "treegen.pcc"
+        // skip
+          
+#line 286 "treegen.pcc"
         }
-        else
-        {
-          goto L3;
-        }
-      }
-#line 266 "treegen.pcc"
-#line 266 "treegen.pcc"
+        } break;
+      case a_TreeTerm::tag_and_term: {
+#line 264 "treegen.pcc"
+        
+        BitSet * s1 = closure0[ non_terminals[_and_term(term)->_1] ];
+        BitSet * s2 = closure0[ non_terminals[_and_term(term)->_2] ];
+        temp.Intersect(*s1,*s2);
+        if (closure0[var]->Union_if_changed(temp)) changed = true;
+        
+#line 269 "treegen.pcc"
+        } break;
+      case a_TreeTerm::tag_or_term: {
+#line 269 "treegen.pcc"
+        
+        BitSet * s1 = closure0[ non_terminals[_or_term(term)->_1] ];
+        BitSet * s2 = closure0[ non_terminals[_or_term(term)->_2] ];
+        if (closure0[var]->Union_if_changed(*s1)) changed = true;
+        if (closure0[var]->Union_if_changed(*s2)) changed = true;
+        
+#line 274 "treegen.pcc"
+        } break;
+      default: { goto L3; } break;
+    }
+  } else { goto L3; }
+}
+#line 286 "treegen.pcc"
+#line 286 "treegen.pcc"
 
     }
 
@@ -523,11 +436,10 @@ L3:
     {
       Variable v1 = G[i].var;
       Variable v2 = non_terminals[G[i].term];
-      // std::cerr << "[" << v1 << " ";
-      // G.print_variable(std::cerr,v1) << " <= " << v2 << " ";
-      // G.print(std::cerr,G[i].term) << "]\n";
-      if (v1 == 0)
-        continue;
+      // cerr << "[" << v1 << " ";
+      // G.print_variable(cerr,v1) << " <= " << v2 << " ";
+      // G.print(cerr,G[i].term) << "]\n";
+      if (v1 == 0) continue;
       if (closure0[v2])
       {
         if (closure0[v1]->Union_if_changed(*closure0[v2]))
@@ -539,8 +451,7 @@ L3:
           changed = true;
       }
     }
-  }
-  while (changed);
+  } while (changed);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -548,12 +459,14 @@ L3:
 //  A projection on functor f and arity i (written as proj[f][i]) is
 //  the set of non-terminals that can appear in that position.
 //////////////////////////////////////////////////////////////////////////////
+
 void TreeGenerator::compute_projections()
 {
   ///////////////////////////////////////////////////////////////////////////
   //  Allocate the projection array.
   ///////////////////////////////////////////////////////////////////////////
-  {  proj = (BitSet***)mem.c_alloc(sizeof(BitSet**) * (G.max_functor() + 1));
+  {
+    proj = (BitSet***)mem.c_alloc(sizeof(BitSet**) * (G.max_functor() + 1));
     for (Functor f = G.min_functor(); f <= G.max_functor(); f++)
     {
       if (G.arity(f) == 0)
@@ -561,9 +474,8 @@ void TreeGenerator::compute_projections()
       proj[f] = (BitSet**)mem.c_alloc(sizeof(BitSet*) * G.arity(f));
       for (int i = G.arity(f) - 1; i >= 0; i--)
       {
-        proj[f][i] = new (mem, max_non_terminal) BitSet;
-        proj[f][i]->add
-        (0);
+         proj[f][i] = new (mem, max_non_terminal) BitSet;
+         proj[f][i]->add(0);
       }
     }
   }
@@ -572,55 +484,41 @@ void TreeGenerator::compute_projections()
   //  Compute the projections by going over the terms and
   //  looking up the non-terminals at each argument.
   ///////////////////////////////////////////////////////////////////////////
-  {  foreach (p, non_terminals)
-    {
-
-#line 314 "treegen.pcc"
-#line 322 "treegen.pcc"
-      {
-        TreeTerm _V1 = non_terminals.key(p);
-        if (_V1)
+  {
+    foreach (p, non_terminals) {
+      
+#line 346 "treegen.pcc"
+#line 357 "treegen.pcc"
+{
+  TreeTerm _V1 = non_terminals.key(p);
+  if (_V1) {
+    switch (_V1->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+#line 347 "treegen.pcc"
+        
+        for (int i = _tree_term(_V1)->_2 - 1; i >= 0; i--)
         {
-          switch (_V1->tag__)
-          {
-          case a_TreeTerm::tag_tree_term:
-            {
-#line 315 "treegen.pcc"
-
-              for (int i = _tree_term(_V1)->_2 - 1; i >= 0; i--)
-              {
-                Variable v = non_terminals[ _tree_term(_V1)->_3[i] ];
-                if (closure0[v])
-                  proj[_tree_term(_V1)->_1][i]->Union(*closure0[v]);
-                else
-                  proj[_tree_term(_V1)->_1][i]->add
-                  (v);
-              }
-
-#line 321 "treegen.pcc"
-
-            }
-            break;
-          default:
-            {
-L4:
-              ;
-#line 321 "treegen.pcc"
-              // skip
-
-#line 322 "treegen.pcc"
-
-            }
-            break;
-          }
+          Variable v = non_terminals[ _tree_term(_V1)->_3[i] ];
+          if (closure0[v])
+            proj[_tree_term(_V1)->_1][i]->Union(*closure0[v]);
+          else
+            proj[_tree_term(_V1)->_1][i]->add(v);
         }
-        else
-        {
-          goto L4;
-        }
-      }
-#line 322 "treegen.pcc"
-#line 322 "treegen.pcc"
+        
+#line 356 "treegen.pcc"
+        } break;
+      default: {
+        L4:; 
+#line 356 "treegen.pcc"
+      // skip
+        
+#line 357 "treegen.pcc"
+        } break;
+    }
+  } else { goto L4; }
+}
+#line 357 "treegen.pcc"
+#line 357 "treegen.pcc"
 
     }
   }
@@ -630,17 +528,18 @@ L4:
 // Method to allocate the representer state list for each functor at
 // each arity.  ``Representers'' are simply interesting states.
 //////////////////////////////////////////////////////////////////////////////
+
 void TreeGenerator::compute_representers()
 {
-  representers = (StateList***)mem.c_alloc(sizeof(StateList**) * (G.max_functor() + 1));
+  representers = (StateList***) mem.c_alloc( sizeof(StateList**) * (G.max_functor() + 1));
   for (Functor f = G.min_functor(); f <= G.max_functor(); f++)
-    representers[f] =
-      (StateList**)mem.c_alloc(sizeof(StateList*) * G.arity(f));
+    representers[f] = (StateList**) mem.c_alloc( sizeof(StateList*) * G.arity(f));
 }
 
 //////////////////////////////////////////////////////////////////////////////
 //  Method to compute the accept rules of a state
 //////////////////////////////////////////////////////////////////////////////
+
 void TreeGenerator::compute_accept_rules (State s)
 {
   register const BitSet& vars     = *d_states[ s ];
@@ -666,6 +565,7 @@ void TreeGenerator::compute_accept_rules (State s)
 //  These are the ``wildcard'' or no-information state, state 0.
 //  Followed by a state for each unit functor.
 //////////////////////////////////////////////////////////////////////////////
+
 void TreeGenerator::compute_initial_states()
 {
   ///////////////////////////////////////////////////////////////////////////
@@ -674,15 +574,14 @@ void TreeGenerator::compute_initial_states()
   number_of_states = 0;
   {
     BitSet * state_zero = new (mem, max_non_terminal) BitSet;
-    state_zero->add
-    (0);
+    state_zero->add (0);
     state_labels.insert(state_zero, number_of_states);
     d_states[ number_of_states ] = state_zero;
-    d_terms [ number_of_states ] = new(mem)
-#line 371 "treegen.pcc"
-                                   TreeTerm_set_term
-#line 371 "treegen.pcc"
-                                   (state_zero);
+    d_terms [ number_of_states ] = new(mem) 
+#line 415 "treegen.pcc"
+TreeTerm_set_term
+#line 415 "treegen.pcc"
+(state_zero);
     treegen.new_state(0);
     compute_accept_rules(0);
     number_of_states++;
@@ -691,79 +590,58 @@ void TreeGenerator::compute_initial_states()
   ///////////////////////////////////////////////////////////////////////////
   //  Generate the rest of the terminal states formed by unit functors.
   ///////////////////////////////////////////////////////////////////////////
-  {  foreach (i, non_terminals)
-    {
-
-#line 381 "treegen.pcc"
-#line 396 "treegen.pcc"
-      {
-        TreeTerm _V2 = non_terminals.key(i);
-        if (_V2)
-        {
-          switch (_V2->tag__)
-          {
-          case a_TreeTerm::tag_tree_term:
-            {
-              switch (_tree_term(_V2)->_2)
-              {
-              case 0:
-                {
-#line 382 "treegen.pcc"
-                  // use terms with arity 0 only
-                  BitSet * new_state = new (mem, max_non_terminal) BitSet;
-                  Variable v         = non_terminals.value(i);
-                  new_state->add
-                  (0);
-                  if (closure0[v])
-                    new_state->Union(*closure0[v]);
-                  else
-                    new_state->add
-                    (v);
-                  state_labels.insert(new_state, number_of_states);
-                  d_states[ number_of_states ] = new_state;
-                  d_terms [ number_of_states ] =
-#line 390 "treegen.pcc"
-#line 390 "treegen.pcc"
-                    new (mem) TreeTerm_set_term(new_state)
-#line 390 "treegen.pcc"
-#line 390 "treegen.pcc"
-                    ;
-                  treegen.new_state(number_of_states);
-                  treegen.add_delta(_tree_term(_V2)->_1,number_of_states);
-                  compute_accept_rules(number_of_states);
-                  number_of_states++;
-
-#line 395 "treegen.pcc"
-
-                }
-                break;
-              default:
-                {
-L5:
-                  ;
-#line 395 "treegen.pcc"
-
-
-#line 396 "treegen.pcc"
-
-                }
-              }
-            }
-            break;
-          default:
-            {
-              goto L5;
-            }
-            break;
+  {
+    foreach (i, non_terminals) {
+      
+#line 426 "treegen.pcc"
+#line 443 "treegen.pcc"
+{
+  TreeTerm _V2 = non_terminals.key(i);
+  if (_V2) {
+    switch (_V2->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+        switch (_tree_term(_V2)->_2) {
+          case 0: {
+#line 427 "treegen.pcc"
+          // use terms with arity 0 only
+            BitSet * new_state = new (mem, max_non_terminal) BitSet;
+            Variable v         = non_terminals.value(i);
+            new_state->add(0);
+            if (closure0[v])
+              new_state->Union(*closure0[v]);
+            else
+              new_state->add(v);
+            state_labels.insert(new_state, number_of_states);
+            d_states[ number_of_states ] = new_state;
+            d_terms [ number_of_states ] = 
+#line 437 "treegen.pcc"
+#line 437 "treegen.pcc"
+            new (mem) TreeTerm_set_term(new_state)
+#line 437 "treegen.pcc"
+#line 437 "treegen.pcc"
+            ;
+            treegen.new_state(number_of_states);
+            treegen.add_delta(_tree_term(_V2)->_1,number_of_states);
+            compute_accept_rules(number_of_states);
+            number_of_states++;
+            
+#line 442 "treegen.pcc"
+          } break;
+          default: {
+            L5:; 
+#line 442 "treegen.pcc"
+            
+            
+#line 443 "treegen.pcc"
           }
         }
-        else
-        {
-          goto L5;
-        }
-      }
-#line 396 "treegen.pcc"
-#line 396 "treegen.pcc"
+        } break;
+      default: { goto L5; } break;
+    }
+  } else { goto L5; }
+}
+#line 443 "treegen.pcc"
+#line 443 "treegen.pcc"
 
     }
   }
@@ -772,6 +650,7 @@ L5:
 //////////////////////////////////////////////////////////////////////////////
 //  Method to compute transitions.
 //////////////////////////////////////////////////////////////////////////////
+
 void TreeGenerator::compute_transitions()
 {
   ///////////////////////////////////////////////////////////////////////////
@@ -784,13 +663,15 @@ void TreeGenerator::compute_transitions()
   BitSet * T    = 0;                     // current result non-terminal set
   TreeTerm term = new_term(mem, 0, 255); // current term
 
-  {  for (int i = G.max_arity() - 1; i >= 0; i--)
+  {
+    for (int i = G.max_arity() - 1; i >= 0; i--)
       projected[i] = new (mem, max_non_terminal) BitSet;
   }
 
   ///////////////////////////////////////////////////////////////////////////
   //  Compute the transitions of the states.  We'll start from state 0.
   ///////////////////////////////////////////////////////////////////////////
+
   for (State current = 0; current < number_of_states; current++)
   {
     const BitSet& S = *d_states[current];
@@ -805,43 +686,28 @@ void TreeGenerator::compute_transitions()
       if ((n = G.arity(f)) == 0)
         continue;
 
-
-#line 434 "treegen.pcc"
-#line 436 "treegen.pcc"
-      {
-        if (term)
-        {
-          switch (term->tag__)
-          {
-          case a_TreeTerm::tag_tree_term:
-            {
-#line 435 "treegen.pcc"
-              _tree_term(term)->_1 = f;
-              _tree_term(term)->_2 = n;
-#line 435 "treegen.pcc"
-
-            }
-            break;
-          default:
-            {
-L6:
-              ;
-#line 436 "treegen.pcc"
-
-              assert("bug");
-#line 436 "treegen.pcc"
-
-            }
-            break;
-          }
-        }
-        else
-        {
-          goto L6;
-        }
-      }
-#line 437 "treegen.pcc"
-#line 437 "treegen.pcc"
+      
+#line 487 "treegen.pcc"
+#line 490 "treegen.pcc"
+{
+  if (term) {
+    switch (term->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+#line 489 "treegen.pcc"
+      _tree_term(term)->_1 = f; _tree_term(term)->_2 = n; 
+#line 489 "treegen.pcc"
+        } break;
+      default: {
+        L6:; 
+#line 490 "treegen.pcc"
+      assert("bug"); 
+#line 490 "treegen.pcc"
+        } break;
+    }
+  } else { goto L6; }
+}
+#line 491 "treegen.pcc"
+#line 491 "treegen.pcc"
 
 
       /////////////////////////////////////////////////////////////////////
@@ -853,14 +719,11 @@ L6:
       for (int i = n - 1; i >= 0; i--)
       {
         projected[i]->Intersect(S, *proj[f][i]);
-        projected[i]->add
-        (0);
+        projected[i]->add(0);
         Ix old = state_labels.lookup(projected[i]);
         State mapped = current;
         if (old && (mapped = state_labels.value(old)) < current)
-        {
-          is_relevant[i] = false;
-        }
+           is_relevant[i] = false;
         else
         {
           representers[f][i] = new (mem, mapped, representers[f][i]) StateList;
@@ -895,128 +758,105 @@ L6:
 //  Method to compute a set of transitions functions.
 //  We iterate over all the representer states.
 //////////////////////////////////////////////////////////////////////////////
+
 BitSet * TreeGenerator::compute_transition
-( BitSet *      T,        // temporary bitset
-  TreeTerm      term,     // temporary term
-  int           i,        // current arity to consider
-  int           fixed,    // the fixed arity
-  const BitSet& S,        // input state of the fixed arity
-  State         inputs[], // input states
-  int           equiv []  // equiv class of above
-)
+            (
+            BitSet *      T,        // temporary bitset
+            TreeTerm      term,     // temporary term
+            int           i,        // current arity to consider
+            int           fixed,    // the fixed arity
+            const BitSet& S,        // input state of the fixed arity
+            State         inputs[], // input states
+            int           equiv []  // equiv class of above
+            )
 {
-  if (i == fixed)
-      i++;  // skip the fixed arity.
-
-#line 494 "treegen.pcc"
-#line 552 "treegen.pcc"
-  {
-    if (term)
-    {
-      switch (term->tag__)
-      {
-      case a_TreeTerm::tag_tree_term:
-        {
-#line 496 "treegen.pcc"
-
-          if (i < _tree_term(term)->_2)
+  if (i == fixed) i++;  // skip the fixed arity.
+  
+#line 554 "treegen.pcc"
+#line 619 "treegen.pcc"
+{
+  if (term) {
+    switch (term->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+#line 557 "treegen.pcc"
+        
+        if (i < _tree_term(term)->_2) {
+          ////////////////////////////////////////////////////////////////////////
+          //  Try arity i == wildcard first
+          ////////////////////////////////////////////////////////////////////////
+          _tree_term(term)->_3[i] = wild_term;
+          inputs[i]   = 0;
+          equiv [i]   = 0;
+          T = compute_transition(T, term, i+1, fixed, S, inputs, equiv);
+        
+          //////////////////////////////////////////////////////////////////////
+          // Try arity i == a representer state next.
+          ////////////////////////////////////////////////////////////////////////
+          for (StateList * r = representers[_tree_term(term)->_1][i]; r; r = r->tail)
           {
-            ////////////////////////////////////////////////////////////////////////
-            //  Try arity i == wildcard first
-            ////////////////////////////////////////////////////////////////////////
-            _tree_term(term)->_3[i] = wild_term;
-            inputs[i]   = 0;
-            equiv [i]   = 0;
-            T = compute_transition(T, term, i+1, fixed, S, inputs, equiv)
-                  ;
-
-            //////////////////////////////////////////////////////////////////////
-            // Try arity i == a representer state next.
-            ////////////////////////////////////////////////////////////////////////
-            for (StateList * r = representers[_tree_term(term)->_1][i]; r; r = r->tail)
-            {
-              inputs[i]   = r->head;
-              equiv [i]   = treegen.index_map(_tree_term(term)->_1,i,r->head);
-              _tree_term(term)->_3[i] = d_terms[ r->head ];
-              T = compute_transition(T, term, i+1, fixed, S, inputs, equiv)
-                    ;
-            }
+            inputs[i]   = r->head;
+            equiv [i]   = treegen.index_map(_tree_term(term)->_1,i,r->head);
+            _tree_term(term)->_3[i] = d_terms[ r->head ];
+            T = compute_transition(T, term, i+1, fixed, S, inputs, equiv);
           }
-          else
-          {
-            ////////////////////////////////////////////////////////////////////////
-            //  Compute the non-terminal set corresponding to the new state.
-            ////////////////////////////////////////////////////////////////////////
-            if (T == 0)
-              T = new (mem, max_non_terminal) BitSet;
-            else
-              T->clear();
-            T->add
-            (0);
-            int v;
-            foreach_bit_fast (v, S)
-            {
-              _tree_term(term)->_3[ fixed ]
-                = n_states[v];
-              compute_delta(T, term, 0, fixed, inputs)
-                ;
-            }
-
-            ////////////////////////////////////////////////////////////////////////
-            //  Now, lookup the new state to see if it is a new one.
-            //  If so, create a new state.
-            ////////////////////////////////////////////////////////////////////////
-            Ix s;
-            State mapped;
-            if ((s = state_labels.lookup(T)))
-            { // old state
-              mapped = state_labels.value(s);
-            }
-            else
-            {                      // new state
-              d_states[ number_of_states ] = T;
-              d_terms [ number_of_states ] = new(mem)
-#line 538 "treegen.pcc"
-                                             TreeTerm_set_term
-#line 538 "treegen.pcc"
-                                             (T);
-              state_labels.insert(T, number_of_states);
-              treegen.new_state(number_of_states);
-              compute_accept_rules(number_of_states);
-              T = 0;
-              mapped = number_of_states++;
-            }
-
-            ////////////////////////////////////////////////////////////////////////
-            //  Update the delta table.
-            ////////////////////////////////////////////////////////////////////////
-            treegen.add_delta(_tree_term(term)->_1, equiv, mapped);
-          }
-
-#line 551 "treegen.pcc"
-
         }
-        break;
-      default:
+        else
         {
-L7:
-          ;
-#line 552 "treegen.pcc"
-
-          assert("bug");
-#line 552 "treegen.pcc"
-
+          ////////////////////////////////////////////////////////////////////////
+          //  Compute the non-terminal set corresponding to the new state.
+          ////////////////////////////////////////////////////////////////////////
+          if (T == 0) T = new (mem, max_non_terminal) BitSet;
+          else        T->clear();
+          T->add(0);
+          int v;
+          foreach_bit_fast (v, S)
+          {
+            _tree_term(term)->_3[ fixed ] = n_states[v];
+            compute_delta(T, term, 0, fixed, inputs);
+          }
+        
+          ////////////////////////////////////////////////////////////////////////
+          //  Now, lookup the new state to see if it is a new one.
+          //  If so, create a new state.
+          ////////////////////////////////////////////////////////////////////////
+          Ix s;
+          State mapped;
+          if ((s = state_labels.lookup(T))) // old state
+            mapped = state_labels.value(s);
+          else // new state
+          {
+            d_states[ number_of_states ] = T;
+            d_terms [ number_of_states ] = new(mem) 
+#line 604 "treegen.pcc"
+TreeTerm_set_term
+#line 604 "treegen.pcc"
+        (T);
+        state_labels.insert(T, number_of_states);
+        treegen.new_state(number_of_states);
+        compute_accept_rules(number_of_states);
+        T = 0;
+        mapped = number_of_states++;
         }
-        break;
-      }
+        
+        ////////////////////////////////////////////////////////////////////////
+        //  Update the delta table.
+        ////////////////////////////////////////////////////////////////////////
+        treegen.add_delta(_tree_term(term)->_1, equiv, mapped);
+        }
+        
+#line 617 "treegen.pcc"
+        } break;
+      default: {
+        L7:; 
+#line 619 "treegen.pcc"
+       assert("bug"); 
+#line 619 "treegen.pcc"
+        } break;
     }
-    else
-    {
-      goto L7;
-    }
-  }
-#line 553 "treegen.pcc"
-#line 553 "treegen.pcc"
+  } else { goto L7; }
+}
+#line 620 "treegen.pcc"
+#line 620 "treegen.pcc"
 
   return T;
 }
@@ -1024,17 +864,18 @@ L7:
 //////////////////////////////////////////////////////////////////////////////
 //  Method to compute one delta function
 //////////////////////////////////////////////////////////////////////////////
+
 void TreeGenerator::compute_delta
-( BitSet *      T,        // temporary bitset
-  TreeTerm      term,     // temporary term
-  int           i,        // current arity to consider
-  int           fixed,    // the fixed arity
-  const State   inputs[]  // input states
-)
+     (
+     BitSet *      T,        // temporary bitset
+     TreeTerm      term,     // temporary term
+     int           i,        // current arity to consider
+     int           fixed,    // the fixed arity
+     const State   inputs[]  // input states
+     )
 {
   Bool first = i == 0;
-  if (i == fixed)
-      i++;
+  if (i == fixed) i++;
   Ix p;
 
   if ((p = non_terminals.lookup(term)))
@@ -1043,11 +884,8 @@ void TreeGenerator::compute_delta
     // Found! use the info from the grammar.
     ////////////////////////////////////////////////////////////////////////
     Variable v = non_terminals.value(p);
-    if (closure0[v])
-      T->Union(*closure0[v]);
-    else
-      T->add
-      (v);
+    if (closure0[v]) T->Union(*closure0[v]);
+    else T->add(v);
   }
   else if ((p = delta.lookup(term)))
   {
@@ -1062,73 +900,52 @@ void TreeGenerator::compute_delta
     // Split input state s into subcases and compute the union of all of
     // them.  Memorize individual cases into the map ``delta.''
     ////////////////////////////////////////////////////////////////////////
-
-#line 588 "treegen.pcc"
-#line 612 "treegen.pcc"
-    {
-      if (term)
-      {
-        switch (term->tag__)
+    
+#line 663 "treegen.pcc"
+#line 691 "treegen.pcc"
+{
+  if (term) {
+    switch (term->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+#line 666 "treegen.pcc"
+        
+        if (i < _tree_term(term)->_2)
         {
-        case a_TreeTerm::tag_tree_term:
+          const BitSet& U = *d_states[ inputs[i] ];
+          TreeTerm save = _tree_term(term)->_3[i];
+          BitSet * V;
+          if (first) V = T;
+          else { V = new (mem, max_non_terminal) BitSet; V->add(0); }
+        
+          int v;
+          foreach_bit_fast (v, U)
           {
-#line 590 "treegen.pcc"
-
-            if (i < _tree_term(term)->_2)
-            {
-              const BitSet& U = *d_states[ inputs[i] ];
-              TreeTerm save = _tree_term(term)->_3[i];
-              BitSet * V;
-              if (first)
-                V = T;
-              else
-              {
-                V = new (mem, max_non_terminal) BitSet;
-                V->add
-                (0);
-              }
-
-              int v;
-              foreach_bit_fast (v, U)
-              {
-                _tree_term(term)->_3 [i] = n_states[v];
-                compute_delta(V, term, i + 1, fixed, inputs)
-                  ;
-              }
-              _tree_term(term)->_3[i] = save;
-
-              if (! first)
-              {
-                TreeTerm n_term = new_term(mem, _tree_term(term)->_1, _tree_term(term)->_2, _tree_term(term)->_3);
-                delta.insert(n_term,V);
-                T->Union(*V);
-              }
-            }
-
-#line 611 "treegen.pcc"
-
+            _tree_term(term)->_3 [i] = n_states[v];
+            compute_delta( V, term, i + 1, fixed, inputs);
           }
-          break;
-        default:
+          _tree_term(term)->_3[i] = save;
+        
+          if (! first)
           {
-L8:
-            ;
-#line 612 "treegen.pcc"
-
-            assert ("bug");
-#line 612 "treegen.pcc"
-
+            TreeTerm n_term = new_term( mem, _tree_term(term)->_1, _tree_term(term)->_2, _tree_term(term)->_3);
+            delta.insert(n_term,V);
+            T->Union(*V);
           }
-          break;
         }
-      }
-      else
-      {
-        goto L8;
-      }
+        
+#line 690 "treegen.pcc"
+        } break;
+      default: {
+        L8:; 
+#line 691 "treegen.pcc"
+       assert ("bug"); 
+#line 691 "treegen.pcc"
+        } break;
     }
-#line 613 "treegen.pcc"
-#line 613 "treegen.pcc"
+  } else { goto L8; }
+}
+#line 692 "treegen.pcc"
+#line 692 "treegen.pcc"
 
   }
 }
@@ -1136,12 +953,14 @@ L8:
 //////////////////////////////////////////////////////////////////////////////
 //  Method to print a report of the generated tables.
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& TreeGenerator::print_report(std::ostream& log) const
+
+std::ostream& TreeGenerator::print_report( std::ostream& log) const
 {
   ///////////////////////////////////////////////////////////////////////////
   //  (1) Print the item set.
   ///////////////////////////////////////////////////////////////////////////
-  {  log << "\nItems:\n";
+  {
+    log << "\nItems:\n";
     for (Variable v = 0; v < max_non_terminal; v++)
     {
       log << '{' << v << "}\t";
@@ -1152,11 +971,10 @@ std::ostream& TreeGenerator::print_report(std::ostream& log) const
   ///////////////////////////////////////////////////////////////////////////
   //  (2) Print each state
   ///////////////////////////////////////////////////////////////////////////
-  {  log << "\nStates:\n";
+  {
+    log << "\nStates:\n";
     for (State s = 0; s < number_of_states; s++)
-    {
       print_state(log,s);
-    }
   }
   return log;
 }
@@ -1164,7 +982,8 @@ std::ostream& TreeGenerator::print_report(std::ostream& log) const
 //////////////////////////////////////////////////////////////////////////////
 //  Method to print a state
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& TreeGenerator::print_state(std::ostream& log, State s) const
+
+std::ostream& TreeGenerator::print_state( std::ostream& log, State s) const
 {
   log << '<' << s << '>';
   const BitSet& S = *d_states[s];
@@ -1184,22 +1003,19 @@ std::ostream& TreeGenerator::print_state(std::ostream& log, State s) const
 //////////////////////////////////////////////////////////////////////////////
 //  Constructors and destructor of the class TreeGen.
 //////////////////////////////////////////////////////////////////////////////
-TreeGen:: TreeGen(Mem& m) : TreeAutomaton(m), impl(0)
-{}
+
+TreeGen:: TreeGen(Mem& m) : TreeAutomaton(m), impl(0) {}
+
 TreeGen:: TreeGen(Mem& m, TreeGrammar& Gram)
-    : TreeAutomaton(m), impl(0)
-{
-  compile(Gram);
-}
-TreeGen::~TreeGen()
-{
-  delete impl;
-}
+   : TreeAutomaton(m), impl(0) { compile(Gram); }
+
+TreeGen::~TreeGen() { delete impl; }
 
 //////////////////////////////////////////////////////////////////////////////
 //  This is the top level method to compile a tree grammar.
 //////////////////////////////////////////////////////////////////////////////
-void TreeGen::compile (TreeGrammar& Gram)
+
+void TreeGen::compile( TreeGrammar& Gram)
 {
   ///////////////////////////////////////////////////////////////////////////
   //  Let our superclass do its stuff first.
@@ -1226,7 +1042,8 @@ void TreeGen::compile (TreeGrammar& Gram)
 //////////////////////////////////////////////////////////////////////////////
 //  Method to print a report of the generated tables.
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& TreeGen::print_report(std::ostream& log) const
+
+std::ostream& TreeGen::print_report( std::ostream& log) const
 {
   Super::print_report(log);
   if (impl)
@@ -1237,21 +1054,20 @@ std::ostream& TreeGen::print_report(std::ostream& log) const
 //////////////////////////////////////////////////////////////////////////////
 //  Method to print a state of the generated tables.
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& TreeGen::print_state(std::ostream& log, State s) const
+
+std::ostream& TreeGen::print_state( std::ostream& log, State s) const
 {
   if (impl)
-    impl->print_state(log,s);
+    impl->print_state( log, s);
   return log;
 }
 
 //////////////////////////////////////////////////////////////////////////////
 //  Algorithm name
 //////////////////////////////////////////////////////////////////////////////
-const char * TreeGen::algorithm() const
-{
-  return "TreeGen";
-}
-#line 719 "treegen.pcc"
+
+const char * TreeGen::algorithm() const { return "TreeGen"; }
+#line 813 "treegen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

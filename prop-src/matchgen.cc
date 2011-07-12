@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\matchgen.pcc".
+//  The original source file is "matchgen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/matchgen.pcc"
+#line 1 "matchgen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the backend for pattern matching,
@@ -94,35 +94,35 @@ Id          current_failure   = 0;     // jump label for failure
 Bool is_simple_exp( Exp exp)
 {
   
-#line 89 "../../prop-src/matchgen.pcc"
-#line 93 "../../prop-src/matchgen.pcc"
+#line 89 "matchgen.pcc"
+#line 93 "matchgen.pcc"
 {
   for (;;) {
     if (exp) {
       switch (exp->tag__) {
         case a_Exp::tag_MARKEDexp: {
-#line 92 "../../prop-src/matchgen.pcc"
-         exp = _MARKEDexp(exp)->_2; 
-#line 92 "../../prop-src/matchgen.pcc"
+#line 92 "matchgen.pcc"
+         exp = ((Exp_MARKEDexp *)exp)->_2; 
+#line 92 "matchgen.pcc"
           } break;
         case a_Exp::tag_LITERALexp:
         case a_Exp::tag_IDexp: {
-#line 91 "../../prop-src/matchgen.pcc"
+#line 91 "matchgen.pcc"
          return true; 
-#line 91 "../../prop-src/matchgen.pcc"
+#line 91 "matchgen.pcc"
           } break;
         default: {
           L2:; 
-#line 93 "../../prop-src/matchgen.pcc"
+#line 93 "matchgen.pcc"
          return false; 
-#line 93 "../../prop-src/matchgen.pcc"
+#line 93 "matchgen.pcc"
           } break;
       }
     } else { goto L2; }
   }
 }
-#line 94 "../../prop-src/matchgen.pcc"
-#line 94 "../../prop-src/matchgen.pcc"
+#line 94 "matchgen.pcc"
+#line 94 "matchgen.pcc"
 
 }
 
@@ -138,27 +138,27 @@ void compute_match_variables( MatchExps exps)
   for_each (MatchExp, me, exps)
   {
     
-#line 108 "../../prop-src/matchgen.pcc"
-#line 112 "../../prop-src/matchgen.pcc"
+#line 108 "matchgen.pcc"
+#line 112 "matchgen.pcc"
 {
   if (
-#line 110 "../../prop-src/matchgen.pcc"
+#line 110 "matchgen.pcc"
   ((me->_2 == 0) && (! is_simple_exp(me->_1)))
-#line 110 "../../prop-src/matchgen.pcc"
+#line 110 "matchgen.pcc"
 ) {
     
-#line 111 "../../prop-src/matchgen.pcc"
+#line 111 "matchgen.pcc"
    me->_2 = vars.new_label(); 
-#line 111 "../../prop-src/matchgen.pcc"
+#line 111 "matchgen.pcc"
   } else {
     
-#line 112 "../../prop-src/matchgen.pcc"
+#line 112 "matchgen.pcc"
    /* skip */ 
-#line 112 "../../prop-src/matchgen.pcc"
+#line 112 "matchgen.pcc"
   }
 }
-#line 113 "../../prop-src/matchgen.pcc"
-#line 113 "../../prop-src/matchgen.pcc"
+#line 113 "matchgen.pcc"
+#line 113 "matchgen.pcc"
 
   }
 }
@@ -193,171 +193,171 @@ void MatchCompiler::gen( Match mt, MatchOptions match_options, Ty match_ty)
    }
 
    
-#line 146 "../../prop-src/matchgen.pcc"
-#line 238 "../../prop-src/matchgen.pcc"
+#line 146 "matchgen.pcc"
+#line 238 "matchgen.pcc"
 {
   if (boxed(mt)) {
     switch (mt->tag__) {
       case a_Match::tag_SUCCESSmatch: {
-#line 150 "../../prop-src/matchgen.pcc"
+#line 150 "matchgen.pcc"
         
-        MarkCurrentRule mark( current_rule, _SUCCESSmatch(mt)->_2);
-        pr ("%&", _SUCCESSmatch(mt)->_2->_5);
+        MarkCurrentRule mark( current_rule, ((Match_SUCCESSmatch *)mt)->_2);
+        pr ("%&", ((Match_SUCCESSmatch *)mt)->_2->_5);
         
-#line 153 "../../prop-src/matchgen.pcc"
+#line 153 "matchgen.pcc"
         } break;
       case a_Match::tag_SUCCESSESmatch: {
-#line 161 "../../prop-src/matchgen.pcc"
+#line 161 "matchgen.pcc"
         
         if (current_options & MATCHwithtreecost)
-          gen_treecost_match( FAILmatch, _SUCCESSESmatch(mt)->_2, _SUCCESSESmatch(mt)->_3);
+          gen_treecost_match( FAILmatch, ((Match_SUCCESSESmatch *)mt)->_2, ((Match_SUCCESSESmatch *)mt)->_3);
         else
-          gen_success_match( _SUCCESSESmatch(mt)->_1, _SUCCESSESmatch(mt)->_2, _SUCCESSESmatch(mt)->_3);
+          gen_success_match( ((Match_SUCCESSESmatch *)mt)->_1, ((Match_SUCCESSESmatch *)mt)->_2, ((Match_SUCCESSESmatch *)mt)->_3);
         
-#line 166 "../../prop-src/matchgen.pcc"
+#line 166 "matchgen.pcc"
         } break;
       case a_Match::tag_COSTmatch: {
-#line 155 "../../prop-src/matchgen.pcc"
-       gen_cost_success_match( _COSTmatch(mt)->_1, _COSTmatch(mt)->_3, _COSTmatch(mt)->_4); 
-#line 155 "../../prop-src/matchgen.pcc"
+#line 155 "matchgen.pcc"
+       gen_cost_success_match( ((Match_COSTmatch *)mt)->_1, ((Match_COSTmatch *)mt)->_3, ((Match_COSTmatch *)mt)->_4); 
+#line 155 "matchgen.pcc"
         } break;
       case a_Match::tag_GUARDmatch: {
-#line 170 "../../prop-src/matchgen.pcc"
-      ifs++; pr ("%^if (%E) {%+%^%m%-%?} else {%+%^%m%-%?}\n", _GUARDmatch(mt)->_1, _GUARDmatch(mt)->_2, _GUARDmatch(mt)->_3); 
-#line 170 "../../prop-src/matchgen.pcc"
+#line 170 "matchgen.pcc"
+      ifs++; pr ("%^if (%E) {%+%^%m%-%?} else {%+%^%m%-%?}\n", ((Match_GUARDmatch *)mt)->_1, ((Match_GUARDmatch *)mt)->_2, ((Match_GUARDmatch *)mt)->_3); 
+#line 170 "matchgen.pcc"
         } break;
       case a_Match::tag_LITERALmatch: {
-        switch (_LITERALmatch(mt)->_3[0]->tag__) {
+        switch (((Match_LITERALmatch *)mt)->_3[0]->tag__) {
           case a_Literal::tag_REGEXPlit: {
-#line 232 "../../prop-src/matchgen.pcc"
+#line 232 "matchgen.pcc"
            if (options.generate_report) open_logfile() << mt << '\n';
-            gen_regexp_match( _LITERALmatch(mt)->_2, _LITERALmatch(mt)->_4, _LITERALmatch(mt)->_3, _LITERALmatch(mt)->_5, _LITERALmatch(mt)->_6, match_options, match_ty);
+            gen_regexp_match( ((Match_LITERALmatch *)mt)->_2, ((Match_LITERALmatch *)mt)->_4, ((Match_LITERALmatch *)mt)->_3, ((Match_LITERALmatch *)mt)->_5, ((Match_LITERALmatch *)mt)->_6, match_options, match_ty);
             
-#line 234 "../../prop-src/matchgen.pcc"
+#line 234 "matchgen.pcc"
             } break;
           case a_Literal::tag_QUARKlit: {
-#line 236 "../../prop-src/matchgen.pcc"
-           gen_quark_match( _LITERALmatch(mt)->_2, _LITERALmatch(mt)->_4, _LITERALmatch(mt)->_3, _LITERALmatch(mt)->_5, _LITERALmatch(mt)->_6, match_options); 
-#line 236 "../../prop-src/matchgen.pcc"
+#line 236 "matchgen.pcc"
+           gen_quark_match( ((Match_LITERALmatch *)mt)->_2, ((Match_LITERALmatch *)mt)->_4, ((Match_LITERALmatch *)mt)->_3, ((Match_LITERALmatch *)mt)->_5, ((Match_LITERALmatch *)mt)->_6, match_options); 
+#line 236 "matchgen.pcc"
             } break;
           case a_Literal::tag_BIGINTlit: {
             L3:; 
-#line 238 "../../prop-src/matchgen.pcc"
+#line 238 "matchgen.pcc"
            bug ("gen(Match)"); 
-#line 238 "../../prop-src/matchgen.pcc"
+#line 238 "matchgen.pcc"
             } break;
           case a_Literal::tag_REALlit:
           case a_Literal::tag_STRINGlit: {
-#line 230 "../../prop-src/matchgen.pcc"
-           gen_binary_search_on_literals( _LITERALmatch(mt)->_2, _LITERALmatch(mt)->_4, _LITERALmatch(mt)->_3, _LITERALmatch(mt)->_5, _LITERALmatch(mt)->_6); 
-#line 230 "../../prop-src/matchgen.pcc"
+#line 230 "matchgen.pcc"
+           gen_binary_search_on_literals( ((Match_LITERALmatch *)mt)->_2, ((Match_LITERALmatch *)mt)->_4, ((Match_LITERALmatch *)mt)->_3, ((Match_LITERALmatch *)mt)->_5, ((Match_LITERALmatch *)mt)->_6); 
+#line 230 "matchgen.pcc"
             } break;
           default: {
-#line 197 "../../prop-src/matchgen.pcc"
+#line 197 "matchgen.pcc"
             
             Bool is_boolean;
             
-#line 199 "../../prop-src/matchgen.pcc"
-#line 202 "../../prop-src/matchgen.pcc"
+#line 199 "matchgen.pcc"
+#line 202 "matchgen.pcc"
             {
-              Literal _V1 = _LITERALmatch(mt)->_3[0];
+              Literal _V1 = ((Match_LITERALmatch *)mt)->_3[0];
               switch (_V1->tag__) {
                 case a_Literal::tag_BOOLlit: {
-#line 201 "../../prop-src/matchgen.pcc"
+#line 201 "matchgen.pcc"
                  is_boolean = true; 
-#line 201 "../../prop-src/matchgen.pcc"
+#line 201 "matchgen.pcc"
                   } break;
                 default: {
-#line 202 "../../prop-src/matchgen.pcc"
+#line 202 "matchgen.pcc"
                  is_boolean = false; 
-#line 202 "../../prop-src/matchgen.pcc"
+#line 202 "matchgen.pcc"
                   } break;
               }
             }
-#line 203 "../../prop-src/matchgen.pcc"
-#line 203 "../../prop-src/matchgen.pcc"
+#line 203 "matchgen.pcc"
+#line 203 "matchgen.pcc"
             
             switches++;
-            pr ( "%^switch (%e) {\n%+", _LITERALmatch(mt)->_2);
-            for (int i = 0; i < _LITERALmatch(mt)->_4; )
+            pr ( "%^switch (%e) {\n%+", ((Match_LITERALmatch *)mt)->_2);
+            for (int i = 0; i < ((Match_LITERALmatch *)mt)->_4; )
             {
               int j;
-              for (j = i+1; j < _LITERALmatch(mt)->_4; j++) if (_LITERALmatch(mt)->_5[i] != _LITERALmatch(mt)->_5[j]) break;
+              for (j = i+1; j < ((Match_LITERALmatch *)mt)->_4; j++) if (((Match_LITERALmatch *)mt)->_5[i] != ((Match_LITERALmatch *)mt)->_5[j]) break;
               int k = i;
-              if (is_boolean && j == _LITERALmatch(mt)->_4 && _LITERALmatch(mt)->_4 == 2)
+              if (is_boolean && j == ((Match_LITERALmatch *)mt)->_4 && ((Match_LITERALmatch *)mt)->_4 == 2)
               {
-                pr ("%^default:"); i = _LITERALmatch(mt)->_4;
+                pr ("%^default:"); i = ((Match_LITERALmatch *)mt)->_4;
               }
               else
               {
                 for ( ; i < j; i++)
                 {
-                  pr ("%^case %l:", _LITERALmatch(mt)->_3[i]);
+                  pr ("%^case %l:", ((Match_LITERALmatch *)mt)->_3[i]);
                   if (i != j - 1)
                     pr ("\n");
                 }
               }
-              pr(" {%+%m%-%?} break;\n", _LITERALmatch(mt)->_5[k]);
+              pr(" {%+%m%-%?} break;\n", ((Match_LITERALmatch *)mt)->_5[k]);
             }
-            if (! is_boolean || _LITERALmatch(mt)->_4 < 2) pr ("%^default: {%+%m%-%?}", _LITERALmatch(mt)->_6);
+            if (! is_boolean || ((Match_LITERALmatch *)mt)->_4 < 2) pr ("%^default: {%+%m%-%?}", ((Match_LITERALmatch *)mt)->_6);
             pr("%-%^}\n");
             
-#line 228 "../../prop-src/matchgen.pcc"
+#line 228 "matchgen.pcc"
             } break;
         }
         } break;
       case a_Match::tag_RANGEmatch: {
-#line 168 "../../prop-src/matchgen.pcc"
-       gen_range_match( _RANGEmatch(mt)->_1, _RANGEmatch(mt)->_2, _RANGEmatch(mt)->_3, _RANGEmatch(mt)->_4, _RANGEmatch(mt)->_5, _RANGEmatch(mt)->_6, mt); 
-#line 168 "../../prop-src/matchgen.pcc"
+#line 168 "matchgen.pcc"
+       gen_range_match( ((Match_RANGEmatch *)mt)->_1, ((Match_RANGEmatch *)mt)->_2, ((Match_RANGEmatch *)mt)->_3, ((Match_RANGEmatch *)mt)->_4, ((Match_RANGEmatch *)mt)->_5, ((Match_RANGEmatch *)mt)->_6, mt); 
+#line 168 "matchgen.pcc"
         } break;
       case a_Match::tag_CONSmatch: {
-        if (_CONSmatch(mt)->_4) {
-          switch (_CONSmatch(mt)->_4->tag__) {
+        if (((Match_CONSmatch *)mt)->_4) {
+          switch (((Match_CONSmatch *)mt)->_4->tag__) {
             case a_Ty::tag_TYCONty: {
-              if (boxed(_TYCONty(_CONSmatch(mt)->_4)->_1)) {
-                switch (_TYCONty(_CONSmatch(mt)->_4)->_1->tag__) {
+              if (boxed(((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)) {
+                switch (((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1->tag__) {
                   case a_TyCon::tag_DATATYPEtycon: {
                     if (
-#line 173 "../../prop-src/matchgen.pcc"
-                    (_DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->qualifiers & QUALview)
-#line 173 "../../prop-src/matchgen.pcc"
+#line 173 "matchgen.pcc"
+                    (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->qualifiers & QUALview)
+#line 173 "matchgen.pcc"
 ) {
                       
-#line 174 "../../prop-src/matchgen.pcc"
-                     gen_view_match( _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->id, _CONSmatch(mt)->_2, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->view_match, _CONSmatch(mt)->_5, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->terms, _CONSmatch(mt)->_6, _CONSmatch(mt)->_7,
-                      _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->opt, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->qualifiers & QUALextensible); 
-#line 175 "../../prop-src/matchgen.pcc"
+#line 174 "matchgen.pcc"
+                     gen_view_match( ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->id, ((Match_CONSmatch *)mt)->_2, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->view_match, ((Match_CONSmatch *)mt)->_5, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->terms, ((Match_CONSmatch *)mt)->_6, ((Match_CONSmatch *)mt)->_7,
+                      ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->opt, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->qualifiers & QUALextensible); 
+#line 175 "matchgen.pcc"
                     } else {
                       
-                      switch (_DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->arg) {
+                      switch (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->arg) {
                         case 0: {
-#line 178 "../../prop-src/matchgen.pcc"
-                         gen_switch( _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->id, _CONSmatch(mt)->_2, _CONSmatch(mt)->_3, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->unit, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->terms, _CONSmatch(mt)->_6, _CONSmatch(mt)->_7, mt->shared,
-                          false, false, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->opt, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->qualifiers & QUALextensible); 
-#line 179 "../../prop-src/matchgen.pcc"
+#line 178 "matchgen.pcc"
+                         gen_switch( ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->id, ((Match_CONSmatch *)mt)->_2, ((Match_CONSmatch *)mt)->_3, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->unit, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->terms, ((Match_CONSmatch *)mt)->_6, ((Match_CONSmatch *)mt)->_7, mt->shared,
+                          false, false, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->opt, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->qualifiers & QUALextensible); 
+#line 179 "matchgen.pcc"
                         } break;
                         default: {
-                          switch (_DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->unit) {
+                          switch (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->unit) {
                             case 0: {
-#line 182 "../../prop-src/matchgen.pcc"
-                             gen_switch( _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->id, _CONSmatch(mt)->_2, _CONSmatch(mt)->_3, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->arg, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->terms, _CONSmatch(mt)->_6, _CONSmatch(mt)->_7, mt->shared,
-                              false, true, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->opt, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->qualifiers & QUALextensible); 
-#line 183 "../../prop-src/matchgen.pcc"
+#line 182 "matchgen.pcc"
+                             gen_switch( ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->id, ((Match_CONSmatch *)mt)->_2, ((Match_CONSmatch *)mt)->_3, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->arg, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->terms, ((Match_CONSmatch *)mt)->_6, ((Match_CONSmatch *)mt)->_7, mt->shared,
+                              false, true, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->opt, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->qualifiers & QUALextensible); 
+#line 183 "matchgen.pcc"
                             } break;
                             default: {
-#line 186 "../../prop-src/matchgen.pcc"
+#line 186 "matchgen.pcc"
                               
                               ifs++;
-                              pr ((_DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->unit > 1 ? "%^if (boxed(%e)) {%+" : "%^if (%e) {%+"), _CONSmatch(mt)->_2);
-                              gen_switch( _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->id, _CONSmatch(mt)->_2, _CONSmatch(mt)->_3, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->arg, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->terms + _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->unit, _CONSmatch(mt)->_6 + _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->unit, _CONSmatch(mt)->_7, mt->shared,
-                                          true, true, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->opt, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->qualifiers & QUALextensible);
+                              pr ((((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->unit > 1 ? "%^if (boxed(%e)) {%+" : "%^if (%e) {%+"), ((Match_CONSmatch *)mt)->_2);
+                              gen_switch( ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->id, ((Match_CONSmatch *)mt)->_2, ((Match_CONSmatch *)mt)->_3, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->arg, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->terms + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->unit, ((Match_CONSmatch *)mt)->_6 + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->unit, ((Match_CONSmatch *)mt)->_7, mt->shared,
+                                          true, true, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->opt, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->qualifiers & QUALextensible);
                               pr ( "%-%?} else {%+");
-                              gen_switch( _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->id, _CONSmatch(mt)->_2, _CONSmatch(mt)->_3, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->unit, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->terms, _CONSmatch(mt)->_6, _CONSmatch(mt)->_7, mt->shared,
-                                          true, false, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->opt, _DATATYPEtycon(_TYCONty(_CONSmatch(mt)->_4)->_1)->qualifiers & QUALextensible);
+                              gen_switch( ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->id, ((Match_CONSmatch *)mt)->_2, ((Match_CONSmatch *)mt)->_3, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->unit, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->terms, ((Match_CONSmatch *)mt)->_6, ((Match_CONSmatch *)mt)->_7, mt->shared,
+                                          true, false, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->opt, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Match_CONSmatch *)mt)->_4)->_1)->qualifiers & QUALextensible);
                               pr ( "%-%?}\n");
                               
-#line 195 "../../prop-src/matchgen.pcc"
+#line 195 "matchgen.pcc"
                             }
                           }
                         }
@@ -373,14 +373,14 @@ void MatchCompiler::gen( Match mt, MatchOptions match_options, Ty match_ty)
         } else { goto L3; }
         } break;
       case a_Match::tag_TREECOSTmatch: {
-#line 157 "../../prop-src/matchgen.pcc"
-       gen_treecost_match( _TREECOSTmatch(mt)->_1, _TREECOSTmatch(mt)->_2, _TREECOSTmatch(mt)->_3); 
-#line 157 "../../prop-src/matchgen.pcc"
+#line 157 "matchgen.pcc"
+       gen_treecost_match( ((Match_TREECOSTmatch *)mt)->_1, ((Match_TREECOSTmatch *)mt)->_2, ((Match_TREECOSTmatch *)mt)->_3); 
+#line 157 "matchgen.pcc"
         } break;
       case a_Match::tag_TREELABELmatch: {
-#line 159 "../../prop-src/matchgen.pcc"
-       gen_treelabel_match( _TREELABELmatch(mt)->_1, _TREELABELmatch(mt)->_2, _TREELABELmatch(mt)->_3, _TREELABELmatch(mt)->_4); 
-#line 159 "../../prop-src/matchgen.pcc"
+#line 159 "matchgen.pcc"
+       gen_treelabel_match( ((Match_TREELABELmatch *)mt)->_1, ((Match_TREELABELmatch *)mt)->_2, ((Match_TREELABELmatch *)mt)->_3, ((Match_TREELABELmatch *)mt)->_4); 
+#line 159 "matchgen.pcc"
         } break;
       default: { goto L3; } break;
     }
@@ -390,8 +390,8 @@ void MatchCompiler::gen( Match mt, MatchOptions match_options, Ty match_ty)
       }
   }
 }
-#line 239 "../../prop-src/matchgen.pcc"
-#line 239 "../../prop-src/matchgen.pcc"
+#line 239 "matchgen.pcc"
+#line 239 "matchgen.pcc"
 
 }
 
@@ -433,53 +433,53 @@ void MatchCompiler::gen_cost_success_match( int n, const BitSet *set,
 {
   int rule_no = 0;
   
-#line 279 "../../prop-src/matchgen.pcc"
-#line 300 "../../prop-src/matchgen.pcc"
+#line 279 "matchgen.pcc"
+#line 300 "matchgen.pcc"
 {
   for (;;) {
     if (rules) {
-#line 282 "../../prop-src/matchgen.pcc"
+#line 282 "matchgen.pcc"
       
       if ((*set)[rule_no])
       {
         
-#line 285 "../../prop-src/matchgen.pcc"
-#line 295 "../../prop-src/matchgen.pcc"
+#line 285 "matchgen.pcc"
+#line 295 "matchgen.pcc"
       {
         MatchRule _V2 = rules->_1;
-#line 288 "../../prop-src/matchgen.pcc"
+#line 288 "matchgen.pcc"
         
         
-#line 289 "../../prop-src/matchgen.pcc"
-#line 294 "../../prop-src/matchgen.pcc"
+#line 289 "matchgen.pcc"
+#line 294 "matchgen.pcc"
         {
           Cost _V3 = _V2->_4;
           if (_V3) {
-            if (_V3->tag__) {
+            if (untagp(_V3)) {
               } else {
               }
           } else {}
         }
-#line 294 "../../prop-src/matchgen.pcc"
-#line 294 "../../prop-src/matchgen.pcc"
+#line 294 "matchgen.pcc"
+#line 294 "matchgen.pcc"
         
         
-#line 295 "../../prop-src/matchgen.pcc"
+#line 295 "matchgen.pcc"
       }
-#line 296 "../../prop-src/matchgen.pcc"
-#line 296 "../../prop-src/matchgen.pcc"
+#line 296 "matchgen.pcc"
+#line 296 "matchgen.pcc"
       
       }
       rules = rules->_2;
       rule_no++;
       
-#line 300 "../../prop-src/matchgen.pcc"
+#line 300 "matchgen.pcc"
     } else { goto L4; }
   }
   L4:;
 }
-#line 301 "../../prop-src/matchgen.pcc"
-#line 301 "../../prop-src/matchgen.pcc"
+#line 301 "matchgen.pcc"
+#line 301 "matchgen.pcc"
 
 }
 
@@ -632,11 +632,11 @@ void MatchCompiler::gen_switch
         if (i == n-1 || sorted[i].action != sorted[i+1].action)
         {
           parts[number_of_parts].terms  = 
-#line 452 "../../prop-src/matchgen.pcc"
-#line 452 "../../prop-src/matchgen.pcc"
+#line 452 "matchgen.pcc"
+#line 452 "matchgen.pcc"
 list_1_(sorted[i].term)
-#line 452 "../../prop-src/matchgen.pcc"
-#line 452 "../../prop-src/matchgen.pcc"
+#line 452 "matchgen.pcc"
+#line 452 "matchgen.pcc"
 ;
           parts[number_of_parts].action = sorted[i].action;
           parts[number_of_parts].count  = 1;
@@ -647,11 +647,11 @@ list_1_(sorted[i].term)
         {
           parts[number_of_parts-1].terms =
               
-#line 461 "../../prop-src/matchgen.pcc"
-#line 461 "../../prop-src/matchgen.pcc"
+#line 461 "matchgen.pcc"
+#line 461 "matchgen.pcc"
 list_1_(sorted[i].term,parts[(number_of_parts - 1)].terms)
-#line 461 "../../prop-src/matchgen.pcc"
-#line 461 "../../prop-src/matchgen.pcc"
+#line 461 "matchgen.pcc"
+#line 461 "matchgen.pcc"
 ;
           parts[number_of_parts-1].count++;
           if (parts[number_of_parts-1].first_tag > sorted[i].tag)
@@ -681,31 +681,31 @@ list_1_(sorted[i].term,parts[(number_of_parts - 1)].terms)
       {
         Conses tags = parts[i].terms;
         
-#line 489 "../../prop-src/matchgen.pcc"
-#line 497 "../../prop-src/matchgen.pcc"
+#line 489 "matchgen.pcc"
+#line 497 "matchgen.pcc"
 {
   for (;;) {
     if (tags) {
-#line 492 "../../prop-src/matchgen.pcc"
+#line 492 "matchgen.pcc"
       
       pr( "%^case %*:", tags->_1, false);
       if (tags->_2 != 
-#line 494 "../../prop-src/matchgen.pcc"
-#line 494 "../../prop-src/matchgen.pcc"
+#line 494 "matchgen.pcc"
+#line 494 "matchgen.pcc"
       nil_1_
-#line 494 "../../prop-src/matchgen.pcc"
-#line 494 "../../prop-src/matchgen.pcc"
+#line 494 "matchgen.pcc"
+#line 494 "matchgen.pcc"
       )
       pr( "\n");
       tags = tags->_2;
       
-#line 497 "../../prop-src/matchgen.pcc"
+#line 497 "matchgen.pcc"
     } else { goto L5; }
   }
   L5:;
 }
-#line 498 "../../prop-src/matchgen.pcc"
-#line 498 "../../prop-src/matchgen.pcc"
+#line 498 "matchgen.pcc"
+#line 498 "matchgen.pcc"
 
       }
       if (parts[i].action != FAILmatch)
@@ -774,22 +774,22 @@ void MatchCompiler::gen_range_match
     switches++;
     pr( "%^switch (%e) {%+",e);
     
-#line 565 "../../prop-src/matchgen.pcc"
-#line 568 "../../prop-src/matchgen.pcc"
+#line 565 "matchgen.pcc"
+#line 568 "matchgen.pcc"
 {
   for (;;) {
     if (boxed(m)) {
       switch (m->tag__) {
         case a_Match::tag_RANGEmatch: {
           if (
-#line 567 "../../prop-src/matchgen.pcc"
-          ((_RANGEmatch(m)->_3 == _RANGEmatch(m)->_4) && pos_equal(pos,_RANGEmatch(m)->_1))
-#line 567 "../../prop-src/matchgen.pcc"
+#line 567 "matchgen.pcc"
+          ((((Match_RANGEmatch *)m)->_3 == ((Match_RANGEmatch *)m)->_4) && pos_equal(pos,((Match_RANGEmatch *)m)->_1))
+#line 567 "matchgen.pcc"
 ) {
             
-#line 568 "../../prop-src/matchgen.pcc"
-           pr( "%^case %i: {%+%m%-%?} break;", _RANGEmatch(m)->_3, _RANGEmatch(m)->_5); m = _RANGEmatch(m)->_6; 
-#line 568 "../../prop-src/matchgen.pcc"
+#line 568 "matchgen.pcc"
+           pr( "%^case %i: {%+%m%-%?} break;", ((Match_RANGEmatch *)m)->_3, ((Match_RANGEmatch *)m)->_5); m = ((Match_RANGEmatch *)m)->_6; 
+#line 568 "matchgen.pcc"
           } else {
              goto L6; }
           } break;
@@ -799,8 +799,8 @@ void MatchCompiler::gen_range_match
   }
   L6:;
 }
-#line 569 "../../prop-src/matchgen.pcc"
-#line 569 "../../prop-src/matchgen.pcc"
+#line 569 "matchgen.pcc"
+#line 569 "matchgen.pcc"
 
     pr( "%^default: {%+%m%-%?}" "%-%^}\n", m);
   }
@@ -875,47 +875,47 @@ void MatchCompiler::gen_regexp_match
   if (options & MATCHscanner)
   {
     
-#line 642 "../../prop-src/matchgen.pcc"
-#line 661 "../../prop-src/matchgen.pcc"
+#line 642 "matchgen.pcc"
+#line 661 "matchgen.pcc"
 {
   Ty _V4 = deref_all(match_ty);
   if (_V4) {
     switch (_V4->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V4)->_1)) {
-          switch (_TYCONty(_V4)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V4)->_1)) {
+          switch (((Ty_TYCONty *)_V4)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 646 "../../prop-src/matchgen.pcc"
+#line 646 "matchgen.pcc"
               
-              contexts = (const char **)mem_pool[(_DATATYPEtycon(_TYCONty(_V4)->_1)->unit+1)*sizeof(const char *)];
-              if (_DATATYPEtycon(_TYCONty(_V4)->_1)->unit <= 1)
+              contexts = (const char **)mem_pool[(((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V4)->_1)->unit+1)*sizeof(const char *)];
+              if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V4)->_1)->unit <= 1)
                 msg("%L%wdatatype has less than 2 unit constructors for contexts");
-              for (int i = 1; i < _DATATYPEtycon(_TYCONty(_V4)->_1)->unit; i++)
+              for (int i = 1; i < ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V4)->_1)->unit; i++)
               {
                 
-#line 652 "../../prop-src/matchgen.pcc"
-#line 656 "../../prop-src/matchgen.pcc"
+#line 652 "matchgen.pcc"
+#line 656 "matchgen.pcc"
               {
-                Cons _V5 = _DATATYPEtycon(_TYCONty(_V4)->_1)->terms[i];
+                Cons _V5 = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V4)->_1)->terms[i];
                 if (_V5) {
-#line 654 "../../prop-src/matchgen.pcc"
+#line 654 "matchgen.pcc"
                  contexts[i-1] = _V5->name; 
-#line 654 "../../prop-src/matchgen.pcc"
+#line 654 "matchgen.pcc"
                 } else {}
               }
-#line 656 "../../prop-src/matchgen.pcc"
-#line 656 "../../prop-src/matchgen.pcc"
+#line 656 "matchgen.pcc"
+#line 656 "matchgen.pcc"
               
               }
-              contexts[_DATATYPEtycon(_TYCONty(_V4)->_1)->unit-1] = 0;
+              contexts[((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V4)->_1)->unit-1] = 0;
               
-#line 659 "../../prop-src/matchgen.pcc"
+#line 659 "matchgen.pcc"
               } break;
             default: {
               L7:; 
-#line 661 "../../prop-src/matchgen.pcc"
+#line 661 "matchgen.pcc"
              error ("%Lillegal context type: %T\n", match_ty); 
-#line 661 "../../prop-src/matchgen.pcc"
+#line 661 "matchgen.pcc"
               } break;
           }
         } else { goto L7; }
@@ -924,8 +924,8 @@ void MatchCompiler::gen_regexp_match
     }
   } else {}
 }
-#line 662 "../../prop-src/matchgen.pcc"
-#line 662 "../../prop-src/matchgen.pcc"
+#line 662 "matchgen.pcc"
+#line 662 "matchgen.pcc"
 
   }
 
@@ -935,30 +935,30 @@ void MatchCompiler::gen_regexp_match
   for (int i = 0; i < n; i++)
   {
     
-#line 670 "../../prop-src/matchgen.pcc"
-#line 679 "../../prop-src/matchgen.pcc"
+#line 670 "matchgen.pcc"
+#line 679 "matchgen.pcc"
 {
   Literal _V6 = l[i];
   switch (_V6->tag__) {
     case a_Literal::tag_REGEXPlit: {
-#line 673 "../../prop-src/matchgen.pcc"
+#line 673 "matchgen.pcc"
       
-      int len           = std::strlen(_REGEXPlit(_V6)->REGEXPlit);
-       char * regexp     = str_pool(_REGEXPlit(_V6)->REGEXPlit+1,len-1);
+      int len           = std::strlen(((Literal_REGEXPlit *)_V6)->REGEXPlit);
+       char * regexp     = str_pool(((Literal_REGEXPlit *)_V6)->REGEXPlit+1,len-1);
        regexp[len-2]     = '\0';
        regexps[i]        = regexp;
       
-#line 678 "../../prop-src/matchgen.pcc"
+#line 678 "matchgen.pcc"
       } break;
     default: {
-#line 679 "../../prop-src/matchgen.pcc"
+#line 679 "matchgen.pcc"
      bug("gen_regexp_match"); 
-#line 679 "../../prop-src/matchgen.pcc"
+#line 679 "matchgen.pcc"
       } break;
   }
 }
-#line 680 "../../prop-src/matchgen.pcc"
-#line 680 "../../prop-src/matchgen.pcc"
+#line 680 "matchgen.pcc"
+#line 680 "matchgen.pcc"
 
   }
 
@@ -1055,10 +1055,10 @@ Match MatchCompiler::trans_merge
   for_each ( MatchRule, r, rules)
   {
     
-#line 775 "../../prop-src/matchgen.pcc"
-#line 803 "../../prop-src/matchgen.pcc"
+#line 775 "matchgen.pcc"
+#line 803 "matchgen.pcc"
 {
-#line 778 "../../prop-src/matchgen.pcc"
+#line 778 "matchgen.pcc"
   
   if (! r->is_chain_rule)
   {
@@ -1085,10 +1085,10 @@ Match MatchCompiler::trans_merge
   }
   rule_no++;
   
-#line 803 "../../prop-src/matchgen.pcc"
+#line 803 "matchgen.pcc"
 }
-#line 804 "../../prop-src/matchgen.pcc"
-#line 804 "../../prop-src/matchgen.pcc"
+#line 804 "matchgen.pcc"
+#line 804 "matchgen.pcc"
 
   }
   return m;
@@ -1105,21 +1105,21 @@ Match MatchCompiler::trans_no_merge
    (int n, int rule_no, MatchRules rules, int match_options, Cost * costs)
 {
   if (rules == 
-#line 819 "../../prop-src/matchgen.pcc"
-#line 819 "../../prop-src/matchgen.pcc"
+#line 819 "matchgen.pcc"
+#line 819 "matchgen.pcc"
 nil_1_
-#line 819 "../../prop-src/matchgen.pcc"
-#line 819 "../../prop-src/matchgen.pcc"
+#line 819 "matchgen.pcc"
+#line 819 "matchgen.pcc"
 )
     return FAILmatch;
   else
   {
     
-#line 823 "../../prop-src/matchgen.pcc"
-#line 846 "../../prop-src/matchgen.pcc"
+#line 823 "matchgen.pcc"
+#line 846 "matchgen.pcc"
 {
   MatchRule _V7 = rules->_1;
-#line 826 "../../prop-src/matchgen.pcc"
+#line 826 "matchgen.pcc"
   
   Match rhs;
   if (match_options & (MATCHall | MATCHwithcost)) {
@@ -1141,10 +1141,10 @@ nil_1_
     rhs = GUARDmatch( _V7->_3, rhs, no);
   return trans( _V7->_2, POSzero, false, rhs, no);
   
-#line 846 "../../prop-src/matchgen.pcc"
+#line 846 "matchgen.pcc"
 }
-#line 847 "../../prop-src/matchgen.pcc"
-#line 847 "../../prop-src/matchgen.pcc"
+#line 847 "matchgen.pcc"
+#line 847 "matchgen.pcc"
 
   }
 }
@@ -1160,10 +1160,10 @@ void MatchCompiler::instrument_trace(MatchRules rules)
   for_each ( MatchRule, r, rules)
   {
     
-#line 861 "../../prop-src/matchgen.pcc"
-#line 880 "../../prop-src/matchgen.pcc"
+#line 861 "matchgen.pcc"
+#line 880 "matchgen.pcc"
 {
-#line 864 "../../prop-src/matchgen.pcc"
+#line 864 "matchgen.pcc"
   
   char buffer[4096];
   std::ostrstream stream( buffer, sizeof(buffer));
@@ -1171,17 +1171,17 @@ void MatchCompiler::instrument_trace(MatchRules rules)
   s << r << std::ends;
   r->_5 =
     
-#line 870 "../../prop-src/matchgen.pcc"
-#line 870 "../../prop-src/matchgen.pcc"
+#line 870 "matchgen.pcc"
+#line 870 "matchgen.pcc"
   list_1_(EXPdecl(APPexp(IDexp("PROP_TRACE"),TUPLEexp(list_1_(LITERALexp(STRINGlit(make_quoted_string(buffer))),list_1_(LITERALexp(STRINGlit(make_quoted_string(r->file_name))),list_1_(LITERALexp(INTlit(r->begin_line)))))))),list_1_(OPAQUEdecl(";"),r->_5))
-#line 879 "../../prop-src/matchgen.pcc"
-#line 879 "../../prop-src/matchgen.pcc"
+#line 879 "matchgen.pcc"
+#line 879 "matchgen.pcc"
   ;
   
-#line 880 "../../prop-src/matchgen.pcc"
+#line 880 "matchgen.pcc"
 }
-#line 881 "../../prop-src/matchgen.pcc"
-#line 881 "../../prop-src/matchgen.pcc"
+#line 881 "matchgen.pcc"
+#line 881 "matchgen.pcc"
 
   }
 }
@@ -1237,15 +1237,15 @@ Match MatchCompiler::match_of
     for_each ( MatchRule, r, rules)
     {
       
-#line 935 "../../prop-src/matchgen.pcc"
-#line 936 "../../prop-src/matchgen.pcc"
+#line 935 "matchgen.pcc"
+#line 936 "matchgen.pcc"
 {
-#line 936 "../../prop-src/matchgen.pcc"
+#line 936 "matchgen.pcc"
  cost_vector[i] = r->_4; i++; 
-#line 936 "../../prop-src/matchgen.pcc"
+#line 936 "matchgen.pcc"
 }
-#line 936 "../../prop-src/matchgen.pcc"
-#line 936 "../../prop-src/matchgen.pcc"
+#line 936 "matchgen.pcc"
+#line 936 "matchgen.pcc"
 
     }
   }
@@ -1314,25 +1314,25 @@ int involve_cost( MatchRules rules)
   for_each( MatchRule, r, rules)
   {
     
-#line 1003 "../../prop-src/matchgen.pcc"
-#line 1010 "../../prop-src/matchgen.pcc"
+#line 1003 "matchgen.pcc"
+#line 1010 "matchgen.pcc"
 {
   if (r->_4) {
-    if (r->_4->tag__) {
+    if (untagp(r->_4)) {
       
-#line 1006 "../../prop-src/matchgen.pcc"
+#line 1006 "matchgen.pcc"
      options |= MATCHwithcost | MATCHwithintcost; 
-#line 1006 "../../prop-src/matchgen.pcc"
+#line 1006 "matchgen.pcc"
     } else {
       
-#line 1008 "../../prop-src/matchgen.pcc"
+#line 1008 "matchgen.pcc"
      options |= MATCHwithcost | MATCHwithexpcost; 
-#line 1008 "../../prop-src/matchgen.pcc"
+#line 1008 "matchgen.pcc"
     }
   } else {}
 }
-#line 1010 "../../prop-src/matchgen.pcc"
-#line 1010 "../../prop-src/matchgen.pcc"
+#line 1010 "matchgen.pcc"
+#line 1010 "matchgen.pcc"
 
   }
   return options;
@@ -1447,10 +1447,10 @@ void MatchCompiler::gen_matchall_suffix
 
    for_each (MatchRule, r, rules)
    {  
-#line 1123 "../../prop-src/matchgen.pcc"
-#line 1134 "../../prop-src/matchgen.pcc"
+#line 1123 "matchgen.pcc"
+#line 1134 "matchgen.pcc"
 {
-#line 1125 "../../prop-src/matchgen.pcc"
+#line 1125 "matchgen.pcc"
 if (! always_match.contains(index * 8 + bit)) {
   ifs++;
   pr ("%^if (m__[%i] & %i) ", index, 1 << bit);
@@ -1461,10 +1461,10 @@ if (! always_match.contains(index * 8 + bit)) {
   pr ("{%+%&%-%?}\n", r->_5);
   if (++bit == 8) { bit = 0; index++; }
   
-#line 1134 "../../prop-src/matchgen.pcc"
+#line 1134 "matchgen.pcc"
 }
-#line 1135 "../../prop-src/matchgen.pcc"
-#line 1135 "../../prop-src/matchgen.pcc"
+#line 1135 "matchgen.pcc"
+#line 1135 "matchgen.pcc"
 
    }
    if (is_refutable) pr ("%-%^}");
@@ -1505,32 +1505,32 @@ void MatchCompiler::gen_match_cost_minimization
       }
       int rule_no = index * 8 + bit;
       
-#line 1174 "../../prop-src/matchgen.pcc"
-#line 1184 "../../prop-src/matchgen.pcc"
+#line 1174 "matchgen.pcc"
+#line 1184 "matchgen.pcc"
 {
   if (r->_4) {
-    if (r->_4->tag__) {
+    if (untagp(r->_4)) {
       
-#line 1184 "../../prop-src/matchgen.pcc"
-    pr ("if (cost__ > %i) { cost__ = %i; rule__ = %i; }", _INTcost(r->_4)->INTcost, _INTcost(r->_4)->INTcost, rule_no); 
-#line 1184 "../../prop-src/matchgen.pcc"
+#line 1184 "matchgen.pcc"
+    pr ("if (cost__ > %i) { cost__ = %i; rule__ = %i; }", ((Cost_INTcost *)derefp(r->_4))->INTcost, ((Cost_INTcost *)derefp(r->_4))->INTcost, rule_no); 
+#line 1184 "matchgen.pcc"
     } else {
       
-#line 1177 "../../prop-src/matchgen.pcc"
+#line 1177 "matchgen.pcc"
       
       pr( "if ((tmp_cost__ = %e) < cost__) { cost__ = tmp_cost__; rule_ = %i; }",
-            _EXPcost(r->_4)->_1, rule_no);
+            ((Cost_EXPcost *)r->_4)->_1, rule_no);
       
-#line 1180 "../../prop-src/matchgen.pcc"
+#line 1180 "matchgen.pcc"
     }
   } else {
-#line 1182 "../../prop-src/matchgen.pcc"
+#line 1182 "matchgen.pcc"
   pr ("{ rule__ = %i; break; }", rule_no);  
-#line 1182 "../../prop-src/matchgen.pcc"
+#line 1182 "matchgen.pcc"
   }
 }
-#line 1185 "../../prop-src/matchgen.pcc"
-#line 1185 "../../prop-src/matchgen.pcc"
+#line 1185 "matchgen.pcc"
+#line 1185 "matchgen.pcc"
 
       if (++bit == 8)
         { bit = 0; index++; }
@@ -1547,19 +1547,19 @@ void MatchCompiler::gen_match_cost_minimization
     for_each ( MatchRule, r, rules)
     {
       
-#line 1200 "../../prop-src/matchgen.pcc"
-#line 1207 "../../prop-src/matchgen.pcc"
+#line 1200 "matchgen.pcc"
+#line 1207 "matchgen.pcc"
 {
-#line 1203 "../../prop-src/matchgen.pcc"
+#line 1203 "matchgen.pcc"
   
   MarkCurrentRule mark( current_rule, r);
   pr( "%^case %i: {%+%&%-%?} break;", i, r->_5);
   i++;
   
-#line 1207 "../../prop-src/matchgen.pcc"
+#line 1207 "matchgen.pcc"
 }
-#line 1208 "../../prop-src/matchgen.pcc"
-#line 1208 "../../prop-src/matchgen.pcc"
+#line 1208 "matchgen.pcc"
+#line 1208 "matchgen.pcc"
 
     }
   }
@@ -1576,24 +1576,24 @@ void MatchCompiler::gen_match_variables( MatchExps es, Ty ty)
 {  Tys tys;
    if (length(es) > 1) {
       
-#line 1223 "../../prop-src/matchgen.pcc"
-#line 1225 "../../prop-src/matchgen.pcc"
+#line 1223 "matchgen.pcc"
+#line 1225 "matchgen.pcc"
 {
   Ty _V8 = deref(ty);
   if (_V8) {
     switch (_V8->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V8)->_1)) {
+        if (boxed(((Ty_TYCONty *)_V8)->_1)) {
           L8:; 
-#line 1225 "../../prop-src/matchgen.pcc"
+#line 1225 "matchgen.pcc"
          bug("gen_match_variables()"); 
-#line 1225 "../../prop-src/matchgen.pcc"
+#line 1225 "matchgen.pcc"
         } else {
-          switch ((int)_TYCONty(_V8)->_1) {
+          switch ((int)((Ty_TYCONty *)_V8)->_1) {
             case ((int)TUPLEtycon): {
-#line 1224 "../../prop-src/matchgen.pcc"
-             tys = _TYCONty(_V8)->_2; 
-#line 1224 "../../prop-src/matchgen.pcc"
+#line 1224 "matchgen.pcc"
+             tys = ((Ty_TYCONty *)_V8)->_2; 
+#line 1224 "matchgen.pcc"
               } break;
             default: { goto L8; } break;
           }
@@ -1603,46 +1603,46 @@ void MatchCompiler::gen_match_variables( MatchExps es, Ty ty)
     }
   } else { goto L8; }
 }
-#line 1226 "../../prop-src/matchgen.pcc"
-#line 1226 "../../prop-src/matchgen.pcc"
+#line 1226 "matchgen.pcc"
+#line 1226 "matchgen.pcc"
 
    } else {
       tys = 
-#line 1228 "../../prop-src/matchgen.pcc"
-#line 1228 "../../prop-src/matchgen.pcc"
+#line 1228 "matchgen.pcc"
+#line 1228 "matchgen.pcc"
 list_1_(ty)
-#line 1228 "../../prop-src/matchgen.pcc"
-#line 1228 "../../prop-src/matchgen.pcc"
+#line 1228 "matchgen.pcc"
+#line 1228 "matchgen.pcc"
 ;
    }
    for ( ; es && tys; es = es->_2, tys = tys->_2) {
       
-#line 1231 "../../prop-src/matchgen.pcc"
-#line 1238 "../../prop-src/matchgen.pcc"
+#line 1231 "matchgen.pcc"
+#line 1238 "matchgen.pcc"
 {
   MatchExp _V9 = es->_1;
   if (
-#line 1232 "../../prop-src/matchgen.pcc"
+#line 1232 "matchgen.pcc"
   (_V9->_2 != 0)
-#line 1232 "../../prop-src/matchgen.pcc"
+#line 1232 "matchgen.pcc"
 ) {
     
-#line 1233 "../../prop-src/matchgen.pcc"
+#line 1233 "matchgen.pcc"
   if (! is_ground(tys->_1))
     error ("%!missing type info in expression %e : %T\n",
            _V9->loc(), _V9->_1, tys->_1);
     pr ("%^%t = %e;\n", tys->_1, _V9->_2, _V9->_1);
     
-#line 1237 "../../prop-src/matchgen.pcc"
+#line 1237 "matchgen.pcc"
   } else {
     
-#line 1238 "../../prop-src/matchgen.pcc"
+#line 1238 "matchgen.pcc"
    /* skip */ 
-#line 1238 "../../prop-src/matchgen.pcc"
+#line 1238 "matchgen.pcc"
   }
 }
-#line 1239 "../../prop-src/matchgen.pcc"
-#line 1239 "../../prop-src/matchgen.pcc"
+#line 1239 "matchgen.pcc"
+#line 1239 "matchgen.pcc"
 
    }
 }
@@ -1661,10 +1661,10 @@ void MatchCompiler::gen_fun_def (FunDefs fundefs)
     for_each (FunDef, f, fundefs)
     {
       
-#line 1256 "../../prop-src/matchgen.pcc"
-#line 1271 "../../prop-src/matchgen.pcc"
+#line 1256 "matchgen.pcc"
+#line 1271 "matchgen.pcc"
 {
-#line 1259 "../../prop-src/matchgen.pcc"
+#line 1259 "matchgen.pcc"
   
   f->_2 = type_match_rules(f->_4);
   char buf[1024];
@@ -1678,10 +1678,10 @@ void MatchCompiler::gen_fun_def (FunDefs fundefs)
     error( "%!missing type info in function %q %T\n",
            f->loc(), f->_1, f->_2);
   
-#line 1271 "../../prop-src/matchgen.pcc"
+#line 1271 "matchgen.pcc"
 }
-#line 1272 "../../prop-src/matchgen.pcc"
-#line 1272 "../../prop-src/matchgen.pcc"
+#line 1272 "matchgen.pcc"
+#line 1272 "matchgen.pcc"
 
     }
   }
@@ -1691,10 +1691,10 @@ void MatchCompiler::gen_fun_def (FunDefs fundefs)
     for_each (FunDef, f, fundefs)
     {
       
-#line 1280 "../../prop-src/matchgen.pcc"
-#line 1296 "../../prop-src/matchgen.pcc"
+#line 1280 "matchgen.pcc"
+#line 1296 "matchgen.pcc"
 {
-#line 1283 "../../prop-src/matchgen.pcc"
+#line 1283 "matchgen.pcc"
   
   int n = length(f->_4);
   Match m = match_of(n, f->_4, MATCHnone);
@@ -1709,16 +1709,16 @@ void MatchCompiler::gen_fun_def (FunDefs fundefs)
   gen(m);
   pr( "%-%^}\n");
   
-#line 1296 "../../prop-src/matchgen.pcc"
+#line 1296 "matchgen.pcc"
 }
-#line 1297 "../../prop-src/matchgen.pcc"
-#line 1297 "../../prop-src/matchgen.pcc"
+#line 1297 "matchgen.pcc"
+#line 1297 "matchgen.pcc"
 
     }
   }
   mem_pool.setMark( marker); // release all memory used
 }
-#line 1302 "../../prop-src/matchgen.pcc"
+#line 1302 "matchgen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -1727,8 +1727,8 @@ Number of ifs generated      = 23
 Number of switches generated = 14
 Number of labels             = 4
 Number of gotos              = 12
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

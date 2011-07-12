@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\parsegen.ph".
+//  The original source file is "parsegen.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/parsegen.ph"
+#line 1 "parsegen.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file contains the definitions used in the parser generator
@@ -31,8 +31,8 @@ class Grammar;      // grammar class
 class LALR1Gen;     // lalr1 parser class
 class OpPrecedence; // operator precedence class
 
-#line 27 "../../prop-src/parsegen.ph"
-#line 78 "../../prop-src/parsegen.ph"
+#line 27 "parsegen.ph"
+#line 78 "parsegen.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Forward class definition for Exp
@@ -97,31 +97,31 @@ enum PrecMode {
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type ProductionSymbols
 ///////////////////////////////////////////////////////////////////////////////
-#line 73 "../../prop-src/parsegen.ph"
+#line 73 "parsegen.ph"
 typedef a_List<ProductionSymbol> *  ProductionSymbols;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type PrecRules
 ///////////////////////////////////////////////////////////////////////////////
-#line 74 "../../prop-src/parsegen.ph"
+#line 74 "parsegen.ph"
 typedef a_List<PrecRule> *  PrecRules;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type BNFs
 ///////////////////////////////////////////////////////////////////////////////
-#line 75 "../../prop-src/parsegen.ph"
+#line 75 "parsegen.ph"
 typedef a_List<BNF> *  BNFs;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type GramExps
 ///////////////////////////////////////////////////////////////////////////////
-#line 76 "../../prop-src/parsegen.ph"
+#line 76 "parsegen.ph"
 typedef a_List<GramExp> *  GramExps;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of type ShiftReduceErrors
 ///////////////////////////////////////////////////////////////////////////////
-#line 77 "../../prop-src/parsegen.ph"
+#line 77 "parsegen.ph"
 typedef int ShiftReduceErrors;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -151,12 +151,9 @@ inline int untag(const a_GramExp * x) { return x->tag__; }
 ///////////////////////////////////////////////////////////////////////////////
 class GramExp_EXPgram : public a_GramExp {
 public:
-#line 36 "../../prop-src/parsegen.ph"
+#line 36 "parsegen.ph"
   a_List<PrecRule> *  _1; ShiftReduceErrors _2; a_List<BNF> *  _3; 
-  inline GramExp_EXPgram (a_List<PrecRule> *  x_1, ShiftReduceErrors x_2, a_List<BNF> *  x_3)
-   : a_GramExp(tag_EXPgram), _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  GramExp_EXPgram (a_List<PrecRule> *  x_1, ShiftReduceErrors x_2, a_List<BNF> *  x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -166,12 +163,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class GramExp_POLYgram : public a_GramExp {
 public:
-#line 38 "../../prop-src/parsegen.ph"
+#line 38 "parsegen.ph"
   int _1; Id * _2; GramExp _3; 
-  inline GramExp_POLYgram (int x_1, Id * x_2, GramExp x_3)
-   : a_GramExp(tag_POLYgram), _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  GramExp_POLYgram (int x_1, Id * x_2, GramExp x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -181,12 +175,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class GramExp_UNIONgram : public a_GramExp {
 public:
-#line 39 "../../prop-src/parsegen.ph"
+#line 39 "parsegen.ph"
   GramExp _1; GramExp _2; 
-  inline GramExp_UNIONgram (GramExp x_1, GramExp x_2)
-   : a_GramExp(tag_UNIONgram), _1(x_1), _2(x_2)
-  {
-  }
+  GramExp_UNIONgram (GramExp x_1, GramExp x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -196,12 +187,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class GramExp_RESTRICTgram : public a_GramExp {
 public:
-#line 40 "../../prop-src/parsegen.ph"
+#line 40 "parsegen.ph"
   GramExp RESTRICTgram; 
-  inline GramExp_RESTRICTgram (GramExp x_RESTRICTgram)
-   : a_GramExp(tag_RESTRICTgram), RESTRICTgram(x_RESTRICTgram)
-  {
-  }
+  GramExp_RESTRICTgram (GramExp x_RESTRICTgram);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -211,12 +199,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class GramExp_APPgram : public a_GramExp {
 public:
-#line 41 "../../prop-src/parsegen.ph"
+#line 41 "parsegen.ph"
   GramExp _1; GramExp _2; 
-  inline GramExp_APPgram (GramExp x_1, GramExp x_2)
-   : a_GramExp(tag_APPgram), _1(x_1), _2(x_2)
-  {
-  }
+  GramExp_APPgram (GramExp x_1, GramExp x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -224,36 +209,11 @@ public:
 // Datatype constructor functions for GramExp
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_GramExp * EXPgram (a_List<PrecRule> *  x_1, ShiftReduceErrors x_2, a_List<BNF> *  x_3)
-{
-  return new GramExp_EXPgram (x_1, x_2, x_3);
-}
-inline a_GramExp * POLYgram (int x_1, Id * x_2, GramExp x_3)
-{
-  return new GramExp_POLYgram (x_1, x_2, x_3);
-}
-inline a_GramExp * UNIONgram (GramExp x_1, GramExp x_2)
-{
-  return new GramExp_UNIONgram (x_1, x_2);
-}
-inline a_GramExp * RESTRICTgram (GramExp x_RESTRICTgram)
-{
-  return new GramExp_RESTRICTgram (x_RESTRICTgram);
-}
-inline a_GramExp * APPgram (GramExp x_1, GramExp x_2)
-{
-  return new GramExp_APPgram (x_1, x_2);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for GramExp
-//
-///////////////////////////////////////////////////////////////////////////////
-inline GramExp_EXPgram * _EXPgram(const a_GramExp * _x_) { return (GramExp_EXPgram *)_x_; }
-inline GramExp_POLYgram * _POLYgram(const a_GramExp * _x_) { return (GramExp_POLYgram *)_x_; }
-inline GramExp_UNIONgram * _UNIONgram(const a_GramExp * _x_) { return (GramExp_UNIONgram *)_x_; }
-inline GramExp_RESTRICTgram * _RESTRICTgram(const a_GramExp * _x_) { return (GramExp_RESTRICTgram *)_x_; }
-inline GramExp_APPgram * _APPgram(const a_GramExp * _x_) { return (GramExp_APPgram *)_x_; }
+extern a_GramExp * EXPgram (a_List<PrecRule> *  x_1, ShiftReduceErrors x_2, a_List<BNF> *  x_3);
+extern a_GramExp * POLYgram (int x_1, Id * x_2, GramExp x_3);
+extern a_GramExp * UNIONgram (GramExp x_1, GramExp x_2);
+extern a_GramExp * RESTRICTgram (GramExp x_RESTRICTgram);
+extern a_GramExp * APPgram (GramExp x_1, GramExp x_2);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -262,12 +222,9 @@ inline GramExp_APPgram * _APPgram(const a_GramExp * _x_) { return (GramExp_APPgr
 ///////////////////////////////////////////////////////////////////////////////
 class a_BNF : public Loc {
 public:
-#line 49 "../../prop-src/parsegen.ph"
+#line 49 "parsegen.ph"
   Id _1; Ty _2; a_List<ProductionSymbols> *  _3; 
-  inline a_BNF (Id x_1, Ty x_2, a_List<ProductionSymbols> *  x_3)
-   : _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  a_BNF (Id x_1, Ty x_2, a_List<ProductionSymbols> *  x_3);
 };
 inline int boxed(const a_BNF *) { return 1; }
 inline int untag(const a_BNF *) { return 0; }
@@ -276,16 +233,7 @@ inline int untag(const a_BNF *) { return 0; }
 // Datatype constructor functions for BNF
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_BNF * BNFrule (Id x_1, Ty x_2, a_List<ProductionSymbols> *  x_3)
-{
-  return new a_BNF (x_1, x_2, x_3);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for BNF
-//
-///////////////////////////////////////////////////////////////////////////////
-
+extern a_BNF * BNFrule (Id x_1, Ty x_2, a_List<ProductionSymbols> *  x_3);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -294,12 +242,9 @@ inline a_BNF * BNFrule (Id x_1, Ty x_2, a_List<ProductionSymbols> *  x_3)
 ///////////////////////////////////////////////////////////////////////////////
 class a_PrecRule : public Loc {
 public:
-#line 57 "../../prop-src/parsegen.ph"
+#line 57 "parsegen.ph"
   PrecMode _1; int _2; ProductionSymbols _3; 
-  inline a_PrecRule (PrecMode x_1, int x_2, ProductionSymbols x_3)
-   : _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  a_PrecRule (PrecMode x_1, int x_2, ProductionSymbols x_3);
 };
 inline int boxed(const a_PrecRule *) { return 1; }
 inline int untag(const a_PrecRule *) { return 0; }
@@ -308,20 +253,11 @@ inline int untag(const a_PrecRule *) { return 0; }
 // Datatype constructor functions for PrecRule
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_PrecRule * PRECrule (PrecMode x_1, int x_2, ProductionSymbols x_3)
-{
-  return new a_PrecRule (x_1, x_2, x_3);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for PrecRule
-//
-///////////////////////////////////////////////////////////////////////////////
+extern a_PrecRule * PRECrule (PrecMode x_1, int x_2, ProductionSymbols x_3);
 
 
-
-#line 78 "../../prop-src/parsegen.ph"
-#line 78 "../../prop-src/parsegen.ph"
+#line 78 "parsegen.ph"
+#line 78 "parsegen.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -448,7 +384,7 @@ public:
 };
 
 #endif
-#line 204 "../../prop-src/parsegen.ph"
+#line 204 "parsegen.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -457,8 +393,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

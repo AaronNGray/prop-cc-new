@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\setlgen.pcc".
+//  The original source file is "setlgen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/setlgen.pcc"
+#line 1 "setlgen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the data structure mapping component of the
@@ -77,20 +77,20 @@ void SETLCompiler::gen_def(Def def)
 void SETLCompiler::gen_defs( Defs defs)
 {
   
-#line 72 "../../prop-src/setlgen.pcc"
-#line 74 "../../prop-src/setlgen.pcc"
+#line 72 "setlgen.pcc"
+#line 74 "setlgen.pcc"
 {
   for (;;) {
     if (defs) {
-#line 74 "../../prop-src/setlgen.pcc"
+#line 74 "setlgen.pcc"
      gen_def( defs->_1); defs = defs->_2; 
-#line 74 "../../prop-src/setlgen.pcc"
+#line 74 "setlgen.pcc"
     } else { goto L1; }
   }
   L1:;
 }
-#line 75 "../../prop-src/setlgen.pcc"
-#line 75 "../../prop-src/setlgen.pcc"
+#line 75 "setlgen.pcc"
+#line 75 "setlgen.pcc"
 
 }
 
@@ -103,8 +103,8 @@ void SETLCompiler::gen_defs( Defs defs)
 void SETLCompiler::gen_stmt( Stmt stmt)
 {
   
-#line 86 "../../prop-src/setlgen.pcc"
-#line 96 "../../prop-src/setlgen.pcc"
+#line 86 "setlgen.pcc"
+#line 96 "setlgen.pcc"
 {
   if (stmt) {
     switch (stmt->tag__) {
@@ -113,31 +113,31 @@ void SETLCompiler::gen_stmt( Stmt stmt)
       case a_Stmt::tag_WHILEstmt: {} break;
       case a_Stmt::tag_IFstmt: {} break;
       case a_Stmt::tag_MATCHstmt: {
-#line 92 "../../prop-src/setlgen.pcc"
-        pr("%D",_MATCHstmt(stmt)->MATCHstmt);
-#line 92 "../../prop-src/setlgen.pcc"
+#line 92 "setlgen.pcc"
+        pr("%D",((Stmt_MATCHstmt *)stmt)->MATCHstmt);
+#line 92 "setlgen.pcc"
         } break;
       case a_Stmt::tag_REWRITEstmt: {
-#line 93 "../../prop-src/setlgen.pcc"
-        pr("%D",_REWRITEstmt(stmt)->REWRITEstmt);
-#line 93 "../../prop-src/setlgen.pcc"
+#line 93 "setlgen.pcc"
+        pr("%D",((Stmt_REWRITEstmt *)stmt)->REWRITEstmt);
+#line 93 "setlgen.pcc"
         } break;
       case a_Stmt::tag_REPLACEMENTstmt: {
-#line 94 "../../prop-src/setlgen.pcc"
-        pr("%D",_REPLACEMENTstmt(stmt)->REPLACEMENTstmt);
-#line 94 "../../prop-src/setlgen.pcc"
+#line 94 "setlgen.pcc"
+        pr("%D",((Stmt_REPLACEMENTstmt *)stmt)->REPLACEMENTstmt);
+#line 94 "setlgen.pcc"
         } break;
       case a_Stmt::tag_FORALLstmt: {} break;
       default: {
-#line 96 "../../prop-src/setlgen.pcc"
-        pr("return %e;",_RETURNstmt(stmt)->RETURNstmt);
-#line 96 "../../prop-src/setlgen.pcc"
+#line 96 "setlgen.pcc"
+        pr("return %e;",((Stmt_RETURNstmt *)stmt)->RETURNstmt);
+#line 96 "setlgen.pcc"
         } break;
     }
   } else {}
 }
-#line 97 "../../prop-src/setlgen.pcc"
-#line 97 "../../prop-src/setlgen.pcc"
+#line 97 "setlgen.pcc"
+#line 97 "setlgen.pcc"
 
 }
 
@@ -150,20 +150,20 @@ void SETLCompiler::gen_stmt( Stmt stmt)
 void SETLCompiler::gen_stmts( Stmts stmts)
 {
   
-#line 108 "../../prop-src/setlgen.pcc"
-#line 110 "../../prop-src/setlgen.pcc"
+#line 108 "setlgen.pcc"
+#line 110 "setlgen.pcc"
 {
   for (;;) {
     if (stmts) {
-#line 110 "../../prop-src/setlgen.pcc"
+#line 110 "setlgen.pcc"
      gen_stmt(stmts->_1); stmts = stmts->_2; 
-#line 110 "../../prop-src/setlgen.pcc"
+#line 110 "setlgen.pcc"
     } else { goto L2; }
   }
   L2:;
 }
-#line 111 "../../prop-src/setlgen.pcc"
-#line 111 "../../prop-src/setlgen.pcc"
+#line 111 "setlgen.pcc"
+#line 111 "setlgen.pcc"
 
 }
 
@@ -186,35 +186,35 @@ void SETLCompiler::gen_exp( Exp exp)
 void SETLCompiler::gen_exps( Exps exps)
 {
   
-#line 132 "../../prop-src/setlgen.pcc"
-#line 135 "../../prop-src/setlgen.pcc"
+#line 132 "setlgen.pcc"
+#line 135 "setlgen.pcc"
 {
   for (;;) {
     if (exps) {
       if (exps->_2) {
-#line 135 "../../prop-src/setlgen.pcc"
+#line 135 "setlgen.pcc"
        gen_exp(exps->_1); exps = exps->_2; 
-#line 135 "../../prop-src/setlgen.pcc"
+#line 135 "setlgen.pcc"
       } else {
-#line 134 "../../prop-src/setlgen.pcc"
+#line 134 "setlgen.pcc"
        gen_exp(exps->_1); exps = 
-#line 134 "../../prop-src/setlgen.pcc"
-#line 134 "../../prop-src/setlgen.pcc"
+#line 134 "setlgen.pcc"
+#line 134 "setlgen.pcc"
         nil_1_
-#line 134 "../../prop-src/setlgen.pcc"
-#line 134 "../../prop-src/setlgen.pcc"
+#line 134 "setlgen.pcc"
+#line 134 "setlgen.pcc"
         ; 
-#line 134 "../../prop-src/setlgen.pcc"
+#line 134 "setlgen.pcc"
       }
     } else { goto L3; }
   }
   L3:;
 }
-#line 136 "../../prop-src/setlgen.pcc"
-#line 136 "../../prop-src/setlgen.pcc"
+#line 136 "setlgen.pcc"
+#line 136 "setlgen.pcc"
 
 }
-#line 138 "../../prop-src/setlgen.pcc"
+#line 138 "setlgen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -223,8 +223,8 @@ Number of ifs generated      = 5
 Number of switches generated = 1
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

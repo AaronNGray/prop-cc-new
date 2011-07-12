@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\indexing.pcc".
+//  The original source file is "indexing.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/indexing.pcc"
+#line 1 "indexing.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //  Indexing optimizations for pattern matching.
 //
@@ -66,45 +66,45 @@ unsigned int pos_hash( HashTable::Key p)
   Pos pos = (Pos)p;
   unsigned int h = 37;
   
-#line 61 "../../prop-src/indexing.pcc"
-#line 67 "../../prop-src/indexing.pcc"
+#line 61 "indexing.pcc"
+#line 67 "indexing.pcc"
 {
   for (;;) {
     if (boxed(pos)) {
-      switch (pos->tag__) {
+      switch (untagp(pos)) {
         case a_Pos::tag_POSint: {
-#line 65 "../../prop-src/indexing.pcc"
-         h += _POSint(pos)->_1; pos = _POSint(pos)->_2; 
-#line 65 "../../prop-src/indexing.pcc"
+#line 65 "indexing.pcc"
+         h += ((Pos_POSint *)pos)->_1; pos = ((Pos_POSint *)pos)->_2; 
+#line 65 "indexing.pcc"
           } break;
         case a_Pos::tag_POSlabel: {
-#line 66 "../../prop-src/indexing.pcc"
-         h += (unsigned int)_POSlabel(pos)->_1; pos = _POSlabel(pos)->_2; 
-#line 66 "../../prop-src/indexing.pcc"
+#line 66 "indexing.pcc"
+         h += (unsigned int)((Pos_POSlabel *)derefp(pos))->_1; pos = ((Pos_POSlabel *)derefp(pos))->_2; 
+#line 66 "indexing.pcc"
           } break;
         default: {
-#line 67 "../../prop-src/indexing.pcc"
-         h += _POSadaptive(pos)->_1 + 437; pos = _POSadaptive(pos)->_3; 
-#line 67 "../../prop-src/indexing.pcc"
+#line 67 "indexing.pcc"
+         h += ((Pos_POSadaptive *)derefp(pos))->_1 + 437; pos = ((Pos_POSadaptive *)derefp(pos))->_3; 
+#line 67 "indexing.pcc"
           } break;
       }
     } else {
       if (pos) {
         
-#line 64 "../../prop-src/indexing.pcc"
+#line 64 "indexing.pcc"
        return h + 83; 
-#line 64 "../../prop-src/indexing.pcc"
+#line 64 "indexing.pcc"
       } else {
         
-#line 63 "../../prop-src/indexing.pcc"
+#line 63 "indexing.pcc"
        return h; 
-#line 63 "../../prop-src/indexing.pcc"
+#line 63 "indexing.pcc"
       }
     }
   }
 }
-#line 68 "../../prop-src/indexing.pcc"
-#line 68 "../../prop-src/indexing.pcc"
+#line 68 "indexing.pcc"
+#line 68 "indexing.pcc"
 
 }
 
@@ -117,43 +117,43 @@ unsigned int pos_hash( HashTable::Key p)
 Bool is_refutable( Pat pat)
 {
   
-#line 79 "../../prop-src/indexing.pcc"
-#line 107 "../../prop-src/indexing.pcc"
+#line 79 "indexing.pcc"
+#line 107 "indexing.pcc"
 {
   for (;;) {
     if (pat) {
       switch (pat->tag__) {
         case a_Pat::tag_WILDpat: {
           L3:; 
-#line 81 "../../prop-src/indexing.pcc"
+#line 81 "indexing.pcc"
          return false; 
-#line 81 "../../prop-src/indexing.pcc"
+#line 81 "indexing.pcc"
           } break;
         case a_Pat::tag_IDpat: {
-          if (_IDpat(pat)->_3) {
+          if (((Pat_IDpat *)pat)->_3) {
             L4:; 
-#line 83 "../../prop-src/indexing.pcc"
+#line 83 "indexing.pcc"
            return true; 
-#line 83 "../../prop-src/indexing.pcc"
+#line 83 "indexing.pcc"
           } else { goto L3; }
           } break;
         case a_Pat::tag_CONSpat: {
-          if (_CONSpat(pat)->CONSpat) {
-            if (_CONSpat(pat)->CONSpat->alg_ty) {
-              switch (_CONSpat(pat)->CONSpat->alg_ty->tag__) {
+          if (((Pat_CONSpat *)pat)->CONSpat) {
+            if (((Pat_CONSpat *)pat)->CONSpat->alg_ty) {
+              switch (((Pat_CONSpat *)pat)->CONSpat->alg_ty->tag__) {
                 case a_Ty::tag_TYCONty: {
-                  if (boxed(_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1)) {
-                    switch (_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1->tag__) {
+                  if (boxed(((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1)) {
+                    switch (((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1->tag__) {
                       case a_TyCon::tag_DATATYPEtycon: {
-#line 99 "../../prop-src/indexing.pcc"
-                       return ((_DATATYPEtycon(_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1)->unit + _DATATYPEtycon(_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1)->arg > 1) || (_DATATYPEtycon(_TYCONty(_CONSpat(pat)->CONSpat->alg_ty)->_1)->qualifiers & QUALextensible)); 
-#line 99 "../../prop-src/indexing.pcc"
+#line 99 "indexing.pcc"
+                       return ((((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1)->unit + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1)->arg > 1) || (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)pat)->CONSpat->alg_ty)->_1)->qualifiers & QUALextensible)); 
+#line 99 "indexing.pcc"
                         } break;
                       default: {
                         L5:; 
-#line 107 "../../prop-src/indexing.pcc"
+#line 107 "indexing.pcc"
                        bug("is_refutable()"); 
-#line 107 "../../prop-src/indexing.pcc"
+#line 107 "indexing.pcc"
                         } break;
                     }
                   } else { goto L5; }
@@ -164,65 +164,65 @@ Bool is_refutable( Pat pat)
           } else { goto L5; }
           } break;
         case a_Pat::tag_APPpat: {
-#line 100 "../../prop-src/indexing.pcc"
-         return is_refutable(_APPpat(pat)->_1) || is_refutable(_APPpat(pat)->_2); 
-#line 100 "../../prop-src/indexing.pcc"
+#line 100 "indexing.pcc"
+         return is_refutable(((Pat_APPpat *)pat)->_1) || is_refutable(((Pat_APPpat *)pat)->_2); 
+#line 100 "indexing.pcc"
           } break;
         case a_Pat::tag_TYPEDpat: {
-#line 85 "../../prop-src/indexing.pcc"
-         pat = _TYPEDpat(pat)->_1; 
-#line 85 "../../prop-src/indexing.pcc"
+#line 85 "indexing.pcc"
+         pat = ((Pat_TYPEDpat *)pat)->_1; 
+#line 85 "indexing.pcc"
           } break;
         case a_Pat::tag_ASpat: {
-          if (_ASpat(pat)->_4) { goto L4; } else {
-#line 84 "../../prop-src/indexing.pcc"
-           pat = _ASpat(pat)->_2; 
-#line 84 "../../prop-src/indexing.pcc"
+          if (((Pat_ASpat *)pat)->_4) { goto L4; } else {
+#line 84 "indexing.pcc"
+           pat = ((Pat_ASpat *)pat)->_2; 
+#line 84 "indexing.pcc"
           }
           } break;
         case a_Pat::tag_CONTEXTpat: {
-#line 93 "../../prop-src/indexing.pcc"
-         return is_refutable(_CONTEXTpat(pat)->_2); 
-#line 93 "../../prop-src/indexing.pcc"
+#line 93 "indexing.pcc"
+         return is_refutable(((Pat_CONTEXTpat *)pat)->_2); 
+#line 93 "indexing.pcc"
           } break;
         case a_Pat::tag_ARRAYpat: {
-#line 89 "../../prop-src/indexing.pcc"
-         return is_refutable(_ARRAYpat(pat)->_1); 
-#line 89 "../../prop-src/indexing.pcc"
+#line 89 "indexing.pcc"
+         return is_refutable(((Pat_ARRAYpat *)pat)->_1); 
+#line 89 "indexing.pcc"
           } break;
         case a_Pat::tag_TUPLEpat: {
-#line 88 "../../prop-src/indexing.pcc"
-         return is_refutable(_TUPLEpat(pat)->TUPLEpat); 
-#line 88 "../../prop-src/indexing.pcc"
+#line 88 "indexing.pcc"
+         return is_refutable(((Pat_TUPLEpat *)pat)->TUPLEpat); 
+#line 88 "indexing.pcc"
           } break;
         case a_Pat::tag_RECORDpat: {
-#line 92 "../../prop-src/indexing.pcc"
-         return is_refutable(_RECORDpat(pat)->_1); 
-#line 92 "../../prop-src/indexing.pcc"
+#line 92 "indexing.pcc"
+         return is_refutable(((Pat_RECORDpat *)pat)->_1); 
+#line 92 "indexing.pcc"
           } break;
         case a_Pat::tag_LISTpat: {
-#line 102 "../../prop-src/indexing.pcc"
+#line 102 "indexing.pcc"
           
-          if (is_refutable(_LISTpat(pat)->head))
+          if (is_refutable(((Pat_LISTpat *)pat)->head))
             return true;
-          pat = _LISTpat(pat)->tail;
+          pat = ((Pat_LISTpat *)pat)->tail;
           
-#line 106 "../../prop-src/indexing.pcc"
+#line 106 "indexing.pcc"
           } break;
         case a_Pat::tag_VECTORpat: {
-#line 91 "../../prop-src/indexing.pcc"
-         return is_refutable(_VECTORpat(pat)->len) || is_refutable(_VECTORpat(pat)->elements); 
-#line 91 "../../prop-src/indexing.pcc"
+#line 91 "indexing.pcc"
+         return is_refutable(((Pat_VECTORpat *)pat)->len) || is_refutable(((Pat_VECTORpat *)pat)->elements); 
+#line 91 "indexing.pcc"
           } break;
         case a_Pat::tag_LOGICALpat: {
-#line 87 "../../prop-src/indexing.pcc"
-         return is_refutable(_LOGICALpat(pat)->_2) || is_refutable(_LOGICALpat(pat)->_3); 
-#line 87 "../../prop-src/indexing.pcc"
+#line 87 "indexing.pcc"
+         return is_refutable(((Pat_LOGICALpat *)pat)->_2) || is_refutable(((Pat_LOGICALpat *)pat)->_3); 
+#line 87 "indexing.pcc"
           } break;
         case a_Pat::tag_MARKEDpat: {
-#line 86 "../../prop-src/indexing.pcc"
-         pat = _MARKEDpat(pat)->_2; 
-#line 86 "../../prop-src/indexing.pcc"
+#line 86 "indexing.pcc"
+         pat = ((Pat_MARKEDpat *)pat)->_2; 
+#line 86 "indexing.pcc"
           } break;
         case a_Pat::tag_LITERALpat:
         case a_Pat::tag_LEXEMEpat: { goto L4; } break;
@@ -231,8 +231,8 @@ Bool is_refutable( Pat pat)
     } else { goto L3; }
   }
 }
-#line 108 "../../prop-src/indexing.pcc"
-#line 108 "../../prop-src/indexing.pcc"
+#line 108 "indexing.pcc"
+#line 108 "indexing.pcc"
 
 }
 
@@ -273,27 +273,27 @@ Bool is_refutable( LabPats pats)
 void indexing( int priority, Pat pat, Pos pos, HashTable& index_map)
 {
   
-#line 147 "../../prop-src/indexing.pcc"
-#line 167 "../../prop-src/indexing.pcc"
+#line 147 "indexing.pcc"
+#line 167 "indexing.pcc"
 {
   for (;;) {
     if (pat) {
       switch (pat->tag__) {
         case a_Pat::tag_APPpat: {
-          if (_APPpat(pat)->_1) {
-            switch (_APPpat(pat)->_1->tag__) {
+          if (((Pat_APPpat *)pat)->_1) {
+            switch (((Pat_APPpat *)pat)->_1->tag__) {
               case a_Pat::tag_CONSpat: {
-                if (_CONSpat(_APPpat(pat)->_1)->CONSpat) {
-                  if (_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty) {
-                    switch (_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty->tag__) {
+                if (((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat) {
+                  if (((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty) {
+                    switch (((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty->tag__) {
                       case a_Ty::tag_TYCONty: {
-                        if (boxed(_TYCONty(_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty)->_1)) {
-                          switch (_TYCONty(_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty)->_1->tag__) {
+                        if (boxed(((Ty_TYCONty *)((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty)->_1)) {
+                          switch (((Ty_TYCONty *)((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty)->_1->tag__) {
                             case a_TyCon::tag_DATATYPEtycon: {
-                              if (_APPpat(pat)->_2) {
-#line 156 "../../prop-src/indexing.pcc"
-                              indexing(priority, _APPpat(pat)->_2, POSint(_CONSpat(_APPpat(pat)->_1)->CONSpat->tag + _DATATYPEtycon(_TYCONty(_CONSpat(_APPpat(pat)->_1)->CONSpat->alg_ty)->_1)->unit, pos), index_map); return; 
-#line 156 "../../prop-src/indexing.pcc"
+                              if (((Pat_APPpat *)pat)->_2) {
+#line 156 "indexing.pcc"
+                              indexing(priority, ((Pat_APPpat *)pat)->_2, POSint(((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->tag + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)((Pat_CONSpat *)((Pat_APPpat *)pat)->_1)->CONSpat->alg_ty)->_1)->unit, pos), index_map); return; 
+#line 156 "indexing.pcc"
                               } else { goto L6; }
                               } break;
                             default: { goto L6; } break;
@@ -310,59 +310,59 @@ void indexing( int priority, Pat pat, Pos pos, HashTable& index_map)
           } else { goto L6; }
           } break;
         case a_Pat::tag_TYPEDpat: {
-#line 150 "../../prop-src/indexing.pcc"
-         pat = _TYPEDpat(pat)->_1; 
-#line 150 "../../prop-src/indexing.pcc"
+#line 150 "indexing.pcc"
+         pat = ((Pat_TYPEDpat *)pat)->_1; 
+#line 150 "indexing.pcc"
           } break;
         case a_Pat::tag_ASpat: {
-#line 149 "../../prop-src/indexing.pcc"
-         pat = _ASpat(pat)->_2; 
-#line 149 "../../prop-src/indexing.pcc"
+#line 149 "indexing.pcc"
+         pat = ((Pat_ASpat *)pat)->_2; 
+#line 149 "indexing.pcc"
           } break;
         case a_Pat::tag_CONTEXTpat: {
-#line 152 "../../prop-src/indexing.pcc"
-         pat = _CONTEXTpat(pat)->_2; 
-#line 152 "../../prop-src/indexing.pcc"
+#line 152 "indexing.pcc"
+         pat = ((Pat_CONTEXTpat *)pat)->_2; 
+#line 152 "indexing.pcc"
           } break;
         case a_Pat::tag_ARRAYpat: {
-#line 158 "../../prop-src/indexing.pcc"
-         indexing(priority, _ARRAYpat(pat)->_1, pos, index_map); return; 
-#line 158 "../../prop-src/indexing.pcc"
+#line 158 "indexing.pcc"
+         indexing(priority, ((Pat_ARRAYpat *)pat)->_1, pos, index_map); return; 
+#line 158 "indexing.pcc"
           } break;
         case a_Pat::tag_TUPLEpat: {
-#line 157 "../../prop-src/indexing.pcc"
-         indexing(priority, _TUPLEpat(pat)->TUPLEpat, pos, index_map); return; 
-#line 157 "../../prop-src/indexing.pcc"
+#line 157 "indexing.pcc"
+         indexing(priority, ((Pat_TUPLEpat *)pat)->TUPLEpat, pos, index_map); return; 
+#line 157 "indexing.pcc"
           } break;
         case a_Pat::tag_RECORDpat: {
-#line 162 "../../prop-src/indexing.pcc"
+#line 162 "indexing.pcc"
           
-          for_each(LabPat, p, _RECORDpat(pat)->_1)
+          for_each(LabPat, p, ((Pat_RECORDpat *)pat)->_1)
             indexing(priority, p.pat, POSlabel(p.label,pos), index_map);
           return;
           
-#line 166 "../../prop-src/indexing.pcc"
+#line 166 "indexing.pcc"
           } break;
         case a_Pat::tag_VECTORpat: {
-#line 160 "../../prop-src/indexing.pcc"
+#line 160 "indexing.pcc"
          indexing(priority, 
-#line 160 "../../prop-src/indexing.pcc"
-#line 160 "../../prop-src/indexing.pcc"
-          list_1_(_VECTORpat(pat)->len,_VECTORpat(pat)->elements)
-#line 160 "../../prop-src/indexing.pcc"
-#line 160 "../../prop-src/indexing.pcc"
+#line 160 "indexing.pcc"
+#line 160 "indexing.pcc"
+          list_1_(((Pat_VECTORpat *)pat)->len,((Pat_VECTORpat *)pat)->elements)
+#line 160 "indexing.pcc"
+#line 160 "indexing.pcc"
           , pos, index_map); return; 
-#line 160 "../../prop-src/indexing.pcc"
+#line 160 "indexing.pcc"
           } break;
         case a_Pat::tag_LOGICALpat: {
-#line 167 "../../prop-src/indexing.pcc"
-         indexing(priority,_LOGICALpat(pat)->_2,pos,index_map); pat = _LOGICALpat(pat)->_3; 
-#line 167 "../../prop-src/indexing.pcc"
+#line 167 "indexing.pcc"
+         indexing(priority,((Pat_LOGICALpat *)pat)->_2,pos,index_map); pat = ((Pat_LOGICALpat *)pat)->_3; 
+#line 167 "indexing.pcc"
           } break;
         case a_Pat::tag_MARKEDpat: {
-#line 151 "../../prop-src/indexing.pcc"
-         pat = _MARKEDpat(pat)->_2; 
-#line 151 "../../prop-src/indexing.pcc"
+#line 151 "indexing.pcc"
+         pat = ((Pat_MARKEDpat *)pat)->_2; 
+#line 151 "indexing.pcc"
           } break;
         default: { goto L6; } break;
       }
@@ -370,8 +370,8 @@ void indexing( int priority, Pat pat, Pos pos, HashTable& index_map)
   }
   L6:;
 }
-#line 168 "../../prop-src/indexing.pcc"
-#line 168 "../../prop-src/indexing.pcc"
+#line 168 "indexing.pcc"
+#line 168 "indexing.pcc"
 
 }
 
@@ -436,22 +436,22 @@ void indexing( MatchRules rules, HashTable& index_map)
   for_each (MatchRule, r, rules)
   {
     
-#line 231 "../../prop-src/indexing.pcc"
-#line 237 "../../prop-src/indexing.pcc"
+#line 231 "indexing.pcc"
+#line 237 "indexing.pcc"
 {
-#line 234 "../../prop-src/indexing.pcc"
+#line 234 "indexing.pcc"
   
   indexing( priority, r->_2, POSzero, index_map);
   priority++;
   
-#line 237 "../../prop-src/indexing.pcc"
+#line 237 "indexing.pcc"
 }
-#line 238 "../../prop-src/indexing.pcc"
-#line 238 "../../prop-src/indexing.pcc"
+#line 238 "indexing.pcc"
+#line 238 "indexing.pcc"
 
   }
 }
-#line 241 "../../prop-src/indexing.pcc"
+#line 241 "indexing.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -460,8 +460,8 @@ Number of ifs generated      = 14
 Number of switches generated = 8
 Number of labels             = 3
 Number of gotos              = 9
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

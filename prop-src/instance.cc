@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\instance.pcc".
+//  The original source file is "instance.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/instance.pcc"
+#line 1 "instance.pcc"
 //////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements datatype instantiations
@@ -40,18 +40,18 @@ void DatatypeCompiler::instantiate_datatypes( Bool external, Tys tys)
 void DatatypeCompiler::instantiate_datatypes( Bool e, Ty ty)
 {
   
-#line 35 "../../prop-src/instance.pcc"
-#line 51 "../../prop-src/instance.pcc"
+#line 35 "instance.pcc"
+#line 51 "instance.pcc"
 {
   Ty _V1 = deref_all(ty);
   if (_V1) {
     switch (_V1->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V1)->_1)) {
-          switch (_TYCONty(_V1)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V1)->_1)) {
+          switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 38 "../../prop-src/instance.pcc"
-            if (_DATATYPEtycon(_TYCONty(_V1)->_1)->hierarchy == 0)
+#line 38 "instance.pcc"
+            if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->hierarchy == 0)
               	      {
               	        error ( "%Ldefinition of datatype %T is unknown\n", ty);
               	      }
@@ -60,16 +60,16 @@ void DatatypeCompiler::instantiate_datatypes( Bool e, Ty ty)
               	        if ( !is_ground( _V1))
               	          error( "%Lmissing parameters in instantiation of datatype %T\n", ty);
               
-              	        _DATATYPEtycon(_TYCONty(_V1)->_1)->hierarchy->generate_datatype_instantiations( *this, _TYCONty(_V1)->_2, e);
+              	        ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->hierarchy->generate_datatype_instantiations( *this, ((Ty_TYCONty *)_V1)->_2, e);
               	      }
                       
-#line 49 "../../prop-src/instance.pcc"
+#line 49 "instance.pcc"
               } break;
             default: {
               L1:; 
-#line 51 "../../prop-src/instance.pcc"
+#line 51 "instance.pcc"
              error( "%Ldefinition of %T is not found\n", _V1); 
-#line 51 "../../prop-src/instance.pcc"
+#line 51 "instance.pcc"
               } break;
           }
         } else { goto L1; }
@@ -78,8 +78,8 @@ void DatatypeCompiler::instantiate_datatypes( Bool e, Ty ty)
     }
   } else { goto L1; }
 }
-#line 52 "../../prop-src/instance.pcc"
-#line 52 "../../prop-src/instance.pcc"
+#line 52 "instance.pcc"
+#line 52 "instance.pcc"
 
 }
 
@@ -128,11 +128,11 @@ void DatatypeClass::gen_class_implementation(CodeGen& C, Tys tys, DefKind k)
   //
   ///////////////////////////////////////////////////////////////////////////
   
-#line 99 "../../prop-src/instance.pcc"
-#line 113 "../../prop-src/instance.pcc"
+#line 99 "instance.pcc"
+#line 113 "instance.pcc"
 {
   if (cons) {
-#line 102 "../../prop-src/instance.pcc"
+#line 102 "instance.pcc"
     
     switch (k)
     {
@@ -143,15 +143,15 @@ void DatatypeClass::gen_class_implementation(CodeGen& C, Tys tys, DefKind k)
           cons_arg_ty = cons->ty; break;
     }
     
-#line 111 "../../prop-src/instance.pcc"
+#line 111 "instance.pcc"
   } else {
-#line 113 "../../prop-src/instance.pcc"
+#line 113 "instance.pcc"
   cons_arg_ty = NOty; 
-#line 113 "../../prop-src/instance.pcc"
+#line 113 "instance.pcc"
   }
 }
-#line 114 "../../prop-src/instance.pcc"
-#line 114 "../../prop-src/instance.pcc"
+#line 114 "instance.pcc"
+#line 114 "instance.pcc"
 
 
   ///////////////////////////////////////////////////////////////////////////
@@ -165,21 +165,21 @@ void DatatypeClass::gen_class_implementation(CodeGen& C, Tys tys, DefKind k)
   {
     // Generate the constructor of the class
     if (cons != NOcons && (k != EXTERNAL_DEFINITION || tys != 
-#line 126 "../../prop-src/instance.pcc"
-#line 126 "../../prop-src/instance.pcc"
+#line 126 "instance.pcc"
+#line 126 "instance.pcc"
 nil_1_
-#line 126 "../../prop-src/instance.pcc"
-#line 126 "../../prop-src/instance.pcc"
+#line 126 "instance.pcc"
+#line 126 "instance.pcc"
 ))
       gen_class_constructor( C, tys, k);
 
     // Generate the destructor of the class
     if ((k != EXTERNAL_DEFINITION || tys != 
-#line 130 "../../prop-src/instance.pcc"
-#line 130 "../../prop-src/instance.pcc"
+#line 130 "instance.pcc"
+#line 130 "instance.pcc"
 nil_1_
-#line 130 "../../prop-src/instance.pcc"
-#line 130 "../../prop-src/instance.pcc"
+#line 130 "instance.pcc"
+#line 130 "instance.pcc"
 ) &&
         ((root->qualifiers & QUALvirtualdestr) ||
         (qualifiers & QUALvirtualdestr) ||
@@ -187,11 +187,11 @@ nil_1_
       gen_class_destructor( C, tys, k);
 
     if (cons != NOcons && (k != EXTERNAL_DEFINITION || tys != 
-#line 136 "../../prop-src/instance.pcc"
-#line 136 "../../prop-src/instance.pcc"
+#line 136 "instance.pcc"
+#line 136 "instance.pcc"
 nil_1_
-#line 136 "../../prop-src/instance.pcc"
-#line 136 "../../prop-src/instance.pcc"
+#line 136 "instance.pcc"
+#line 136 "instance.pcc"
 ))
       generate_datatype_constructor( C, tys, k);
   }
@@ -257,11 +257,11 @@ void DatatypeClass::gen_class_instantiation( CodeGen& C, Tys tys, DefKind k)
 void DatatypeHierarchy::gen_class_instantiation( CodeGen& C, Tys tys, DefKind k)
 {
   if (tys != 
-#line 200 "../../prop-src/instance.pcc"
-#line 200 "../../prop-src/instance.pcc"
+#line 200 "instance.pcc"
+#line 200 "instance.pcc"
 nil_1_
-#line 200 "../../prop-src/instance.pcc"
-#line 200 "../../prop-src/instance.pcc"
+#line 200 "instance.pcc"
+#line 200 "instance.pcc"
  && k == EXTERNAL_INSTANTIATION && arg_constructors > 0)
   {
     C.pr( "%n#ifdef PROP_EXPLICIT_TEMPLATE_INSTANTIATION");
@@ -310,11 +310,11 @@ void DatatypeHierarchy::gen_downcasting_function_instantiation
    (CodeGen& C, Tys tys, DefKind k)
 {
   if (options.inline_casts == false || parameters != 
-#line 247 "../../prop-src/instance.pcc"
-#line 247 "../../prop-src/instance.pcc"
+#line 247 "instance.pcc"
+#line 247 "instance.pcc"
 nil_1_
-#line 247 "../../prop-src/instance.pcc"
-#line 247 "../../prop-src/instance.pcc"
+#line 247 "instance.pcc"
+#line 247 "instance.pcc"
 )
   {
     for (int i = 0; i < number_of_subclasses; i++)
@@ -327,7 +327,7 @@ nil_1_
     }
   }
 }
-#line 259 "../../prop-src/instance.pcc"
+#line 259 "instance.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -336,8 +336,8 @@ Number of ifs generated      = 3
 Number of switches generated = 2
 Number of labels             = 1
 Number of gotos              = 3
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

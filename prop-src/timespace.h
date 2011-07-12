@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\timespace.ph".
+//  The original source file is "timespace.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/timespace.ph"
+#line 1 "timespace.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file describes the structure of the time and space complexity
@@ -32,8 +32,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 28 "../../prop-src/timespace.ph"
-#line 55 "../../prop-src/timespace.ph"
+#line 28 "timespace.ph"
+#line 55 "timespace.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Forward class definition for Complexity
@@ -96,12 +96,9 @@ inline int untag(const a_Complexity * x) { return x->tag__; }
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_Var : public a_Complexity {
 public:
-#line 28 "../../prop-src/timespace.ph"
+#line 28 "timespace.ph"
   Id Var; 
-  inline Complexity_Var (Id x_Var)
-   : a_Complexity(tag_Var), Var(x_Var)
-  {
-  }
+  Complexity_Var (Id x_Var);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -111,12 +108,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_Add : public a_Complexity {
 public:
-#line 30 "../../prop-src/timespace.ph"
+#line 30 "timespace.ph"
   Complexity _1; Complexity _2; 
-  inline Complexity_Add (Complexity x_1, Complexity x_2)
-   : a_Complexity(tag_Add), _1(x_1), _2(x_2)
-  {
-  }
+  Complexity_Add (Complexity x_1, Complexity x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -126,12 +120,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_Mul : public a_Complexity {
 public:
-#line 31 "../../prop-src/timespace.ph"
+#line 31 "timespace.ph"
   Complexity _1; Complexity _2; 
-  inline Complexity_Mul (Complexity x_1, Complexity x_2)
-   : a_Complexity(tag_Mul), _1(x_1), _2(x_2)
-  {
-  }
+  Complexity_Mul (Complexity x_1, Complexity x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -141,12 +132,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_Div : public a_Complexity {
 public:
-#line 32 "../../prop-src/timespace.ph"
+#line 32 "timespace.ph"
   Complexity _1; Complexity _2; 
-  inline Complexity_Div (Complexity x_1, Complexity x_2)
-   : a_Complexity(tag_Div), _1(x_1), _2(x_2)
-  {
-  }
+  Complexity_Div (Complexity x_1, Complexity x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -156,12 +144,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_Power : public a_Complexity {
 public:
-#line 33 "../../prop-src/timespace.ph"
+#line 33 "timespace.ph"
   Complexity _1; Complexity _2; 
-  inline Complexity_Power (Complexity x_1, Complexity x_2)
-   : a_Complexity(tag_Power), _1(x_1), _2(x_2)
-  {
-  }
+  Complexity_Power (Complexity x_1, Complexity x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -171,12 +156,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_Log : public a_Complexity {
 public:
-#line 34 "../../prop-src/timespace.ph"
+#line 34 "timespace.ph"
   Complexity Log; 
-  inline Complexity_Log (Complexity x_Log)
-   : a_Complexity(tag_Log), Log(x_Log)
-  {
-  }
+  Complexity_Log (Complexity x_Log);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -186,12 +168,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_Const : public a_Complexity {
 public:
-#line 35 "../../prop-src/timespace.ph"
+#line 35 "timespace.ph"
   double Const; 
-  inline Complexity_Const (double x_Const)
-   : a_Complexity(tag_Const), Const(x_Const)
-  {
-  }
+  Complexity_Const (double x_Const);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -201,12 +180,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_BigOh : public a_Complexity {
 public:
-#line 36 "../../prop-src/timespace.ph"
+#line 36 "timespace.ph"
   Complexity BigOh; 
-  inline Complexity_BigOh (Complexity x_BigOh)
-   : a_Complexity(tag_BigOh), BigOh(x_BigOh)
-  {
-  }
+  Complexity_BigOh (Complexity x_BigOh);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -216,12 +192,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_Omega : public a_Complexity {
 public:
-#line 37 "../../prop-src/timespace.ph"
+#line 37 "timespace.ph"
   Complexity Omega; 
-  inline Complexity_Omega (Complexity x_Omega)
-   : a_Complexity(tag_Omega), Omega(x_Omega)
-  {
-  }
+  Complexity_Omega (Complexity x_Omega);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -231,12 +204,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Complexity_LittleOh : public a_Complexity {
 public:
-#line 38 "../../prop-src/timespace.ph"
+#line 38 "timespace.ph"
   Complexity LittleOh; 
-  inline Complexity_LittleOh (Complexity x_LittleOh)
-   : a_Complexity(tag_LittleOh), LittleOh(x_LittleOh)
-  {
-  }
+  Complexity_LittleOh (Complexity x_LittleOh);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -244,61 +214,16 @@ public:
 // Datatype constructor functions for Complexity
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_Complexity * Var (Id x_Var)
-{
-  return new Complexity_Var (x_Var);
-}
-inline a_Complexity * Add (Complexity x_1, Complexity x_2)
-{
-  return new Complexity_Add (x_1, x_2);
-}
-inline a_Complexity * Mul (Complexity x_1, Complexity x_2)
-{
-  return new Complexity_Mul (x_1, x_2);
-}
-inline a_Complexity * Div (Complexity x_1, Complexity x_2)
-{
-  return new Complexity_Div (x_1, x_2);
-}
-inline a_Complexity * Power (Complexity x_1, Complexity x_2)
-{
-  return new Complexity_Power (x_1, x_2);
-}
-inline a_Complexity * Log (Complexity x_Log)
-{
-  return new Complexity_Log (x_Log);
-}
-inline a_Complexity * Const (double x_Const)
-{
-  return new Complexity_Const (x_Const);
-}
-inline a_Complexity * BigOh (Complexity x_BigOh)
-{
-  return new Complexity_BigOh (x_BigOh);
-}
-inline a_Complexity * Omega (Complexity x_Omega)
-{
-  return new Complexity_Omega (x_Omega);
-}
-inline a_Complexity * LittleOh (Complexity x_LittleOh)
-{
-  return new Complexity_LittleOh (x_LittleOh);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for Complexity
-//
-///////////////////////////////////////////////////////////////////////////////
-inline Complexity_Var * _Var(const a_Complexity * _x_) { return (Complexity_Var *)_x_; }
-inline Complexity_Add * _Add(const a_Complexity * _x_) { return (Complexity_Add *)_x_; }
-inline Complexity_Mul * _Mul(const a_Complexity * _x_) { return (Complexity_Mul *)_x_; }
-inline Complexity_Div * _Div(const a_Complexity * _x_) { return (Complexity_Div *)_x_; }
-inline Complexity_Power * _Power(const a_Complexity * _x_) { return (Complexity_Power *)_x_; }
-inline Complexity_Log * _Log(const a_Complexity * _x_) { return (Complexity_Log *)_x_; }
-inline Complexity_Const * _Const(const a_Complexity * _x_) { return (Complexity_Const *)_x_; }
-inline Complexity_BigOh * _BigOh(const a_Complexity * _x_) { return (Complexity_BigOh *)_x_; }
-inline Complexity_Omega * _Omega(const a_Complexity * _x_) { return (Complexity_Omega *)_x_; }
-inline Complexity_LittleOh * _LittleOh(const a_Complexity * _x_) { return (Complexity_LittleOh *)_x_; }
+extern a_Complexity * Var (Id x_Var);
+extern a_Complexity * Add (Complexity x_1, Complexity x_2);
+extern a_Complexity * Mul (Complexity x_1, Complexity x_2);
+extern a_Complexity * Div (Complexity x_1, Complexity x_2);
+extern a_Complexity * Power (Complexity x_1, Complexity x_2);
+extern a_Complexity * Log (Complexity x_Log);
+extern a_Complexity * Const (double x_Const);
+extern a_Complexity * BigOh (Complexity x_BigOh);
+extern a_Complexity * Omega (Complexity x_Omega);
+extern a_Complexity * LittleOh (Complexity x_LittleOh);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -307,12 +232,9 @@ inline Complexity_LittleOh * _LittleOh(const a_Complexity * _x_) { return (Compl
 ///////////////////////////////////////////////////////////////////////////////
 class a_Time : public MEM {
 public:
-#line 46 "../../prop-src/timespace.ph"
+#line 46 "timespace.ph"
   Complexity TIME; 
-  inline a_Time (Complexity x_TIME)
-   : TIME(x_TIME)
-  {
-  }
+  a_Time (Complexity x_TIME);
 };
 inline int boxed(const a_Time *) { return 1; }
 inline int untag(const a_Time *) { return 0; }
@@ -321,16 +243,7 @@ inline int untag(const a_Time *) { return 0; }
 // Datatype constructor functions for Time
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_Time * TIME (Complexity x_TIME)
-{
-  return new a_Time (x_TIME);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for Time
-//
-///////////////////////////////////////////////////////////////////////////////
-
+extern a_Time * TIME (Complexity x_TIME);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -339,12 +252,9 @@ inline a_Time * TIME (Complexity x_TIME)
 ///////////////////////////////////////////////////////////////////////////////
 class a_Space : public MEM {
 public:
-#line 54 "../../prop-src/timespace.ph"
+#line 54 "timespace.ph"
   Complexity SPACE; 
-  inline a_Space (Complexity x_SPACE)
-   : SPACE(x_SPACE)
-  {
-  }
+  a_Space (Complexity x_SPACE);
 };
 inline int boxed(const a_Space *) { return 1; }
 inline int untag(const a_Space *) { return 0; }
@@ -353,19 +263,10 @@ inline int untag(const a_Space *) { return 0; }
 // Datatype constructor functions for Space
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_Space * SPACE (Complexity x_SPACE)
-{
-  return new a_Space (x_SPACE);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for Space
-//
-///////////////////////////////////////////////////////////////////////////////
+extern a_Space * SPACE (Complexity x_SPACE);
 
-
-#line 55 "../../prop-src/timespace.ph"
-#line 55 "../../prop-src/timespace.ph"
+#line 55 "timespace.ph"
+#line 55 "timespace.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -387,7 +288,7 @@ extern std::ostream& operator << (std::ostream&, Space);
 extern Complexity simplify( Complexity);
 
 #endif
-#line 76 "../../prop-src/timespace.ph"
+#line 76 "timespace.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -396,8 +297,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

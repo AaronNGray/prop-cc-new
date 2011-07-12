@@ -95,8 +95,8 @@ public:
   BitSet * compute_transition (BitSet *, TreeTerm, int, int, const BitSet&, State [], int []);
   void     compute_delta      (BitSet *, TreeTerm, int, int, const State []);
   void     compute_accept_rules (State);
-  ostream& print_report (ostream&) const;
-  ostream& print_state (ostream&, State) const;
+  std::ostream& print_report (std::ostream&) const;
+  std::ostream& print_state (std::ostream&, State) const;
 };
 
 //////////////////////////////////////////////////////////////////////////////
@@ -697,7 +697,7 @@ void TreeGenerator::compute_delta
 //  Method to print a report of the generated tables.
 //////////////////////////////////////////////////////////////////////////////
 
-ostream& TreeGenerator::print_report( ostream& log) const
+std::ostream& TreeGenerator::print_report( std::ostream& log) const
 {
   ///////////////////////////////////////////////////////////////////////////
   //  (1) Print the item set.
@@ -726,7 +726,7 @@ ostream& TreeGenerator::print_report( ostream& log) const
 //  Method to print a state
 //////////////////////////////////////////////////////////////////////////////
 
-ostream& TreeGenerator::print_state( ostream& log, State s) const
+std::ostream& TreeGenerator::print_state( std::ostream& log, State s) const
 {
   log << '<' << s << '>';
   const BitSet& S = *d_states[s];
@@ -786,7 +786,7 @@ void TreeGen::compile( TreeGrammar& Gram)
 //  Method to print a report of the generated tables.
 //////////////////////////////////////////////////////////////////////////////
 
-ostream& TreeGen::print_report( ostream& log) const
+std::ostream& TreeGen::print_report( std::ostream& log) const
 {
   Super::print_report(log);
   if (impl)
@@ -798,7 +798,7 @@ ostream& TreeGen::print_report( ostream& log) const
 //  Method to print a state of the generated tables.
 //////////////////////////////////////////////////////////////////////////////
 
-ostream& TreeGen::print_state( ostream& log, State s) const
+std::ostream& TreeGen::print_state( std::ostream& log, State s) const
 {
   if (impl)
     impl->print_state( log, s);

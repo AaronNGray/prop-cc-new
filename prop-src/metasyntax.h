@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\metasyntax.ph".
+//  The original source file is "metasyntax.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/metasyntax.ph"
+#line 1 "metasyntax.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file describes the interface to the meta-syntax compiler.
@@ -70,7 +70,7 @@ private:
 };
 
 #endif
-#line 66 "../../prop-src/metasyntax.ph"
+#line 66 "metasyntax.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -79,8 +79,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

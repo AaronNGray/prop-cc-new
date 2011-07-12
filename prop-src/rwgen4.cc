@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\rwgen4.pcc".
+//  The original source file is "rwgen4.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_STRCMP_USED
 #include <propdefs.h>
-#line 1 "../../prop-src/rwgen4.pcc"
+#line 1 "rwgen4.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the tree rewriting/tree parsing compiler.
@@ -43,11 +43,11 @@ void RewritingCompiler::gen_auxiliary_rules
         F.class_name, ty);
     for_each(MatchRule,r,rules) debug_msg("%!\t%r\n",r->loc(),r);
     gen_match_stmt(
-#line 36 "../../prop-src/rwgen4.pcc"
-#line 36 "../../prop-src/rwgen4.pcc"
+#line 36 "rwgen4.pcc"
+#line 36 "rwgen4.pcc"
 list_1_(MATCHexp(IDexp(redex_name(ty)),0))
-#line 36 "../../prop-src/rwgen4.pcc"
-#line 36 "../../prop-src/rwgen4.pcc"
+#line 36 "rwgen4.pcc"
+#line 36 "rwgen4.pcc"
 ,rules,MATCHnocheck);
   }
 }
@@ -130,54 +130,54 @@ void RewritingCompiler::gen_trace_macro( Id name, FunctorMap& F)
 Bool is_simple_replacement( Exp exp)
 {
   
-#line 117 "../../prop-src/rwgen4.pcc"
-#line 122 "../../prop-src/rwgen4.pcc"
+#line 117 "rwgen4.pcc"
+#line 122 "rwgen4.pcc"
 {
   for (;;) {
     if (exp) {
       switch (exp->tag__) {
         case a_Exp::tag_IDexp: {
-          if (_equal_string(_IDexp(exp)->IDexp,"redex")) {
-#line 118 "../../prop-src/rwgen4.pcc"
+          if (_equal_string(((Exp_IDexp *)exp)->IDexp,"redex")) {
+#line 118 "rwgen4.pcc"
          return true; 
-#line 118 "../../prop-src/rwgen4.pcc"
+#line 118 "rwgen4.pcc"
 }
           else {
           L2:; 
-#line 122 "../../prop-src/rwgen4.pcc"
+#line 122 "rwgen4.pcc"
          return false; 
-#line 122 "../../prop-src/rwgen4.pcc"
+#line 122 "rwgen4.pcc"
 }
           } break;
         case a_Exp::tag_DOTexp: {
-          if (_DOTexp(exp)->_1) {
-            switch (_DOTexp(exp)->_1->tag__) {
+          if (((Exp_DOTexp *)exp)->_1) {
+            switch (((Exp_DOTexp *)exp)->_1->tag__) {
               case a_Exp::tag_SELECTORexp: {
-#line 119 "../../prop-src/rwgen4.pcc"
-               exp = _SELECTORexp(_DOTexp(exp)->_1)->_1; 
-#line 119 "../../prop-src/rwgen4.pcc"
+#line 119 "rwgen4.pcc"
+               exp = ((Exp_SELECTORexp *)((Exp_DOTexp *)exp)->_1)->_1; 
+#line 119 "rwgen4.pcc"
                 } break;
               default: { goto L2; } break;
             }
           } else { goto L2; }
           } break;
         case a_Exp::tag_SELECTORexp: {
-#line 120 "../../prop-src/rwgen4.pcc"
-         exp = _SELECTORexp(exp)->_1; 
-#line 120 "../../prop-src/rwgen4.pcc"
+#line 120 "rwgen4.pcc"
+         exp = ((Exp_SELECTORexp *)exp)->_1; 
+#line 120 "rwgen4.pcc"
           } break;
         case a_Exp::tag_MARKEDexp: {
-#line 121 "../../prop-src/rwgen4.pcc"
-         exp = _MARKEDexp(exp)->_2; 
-#line 121 "../../prop-src/rwgen4.pcc"
+#line 121 "rwgen4.pcc"
+         exp = ((Exp_MARKEDexp *)exp)->_2; 
+#line 121 "rwgen4.pcc"
           } break;
         default: { goto L2; } break;
       }
     } else { goto L2; }
   }
 }
-#line 123 "../../prop-src/rwgen4.pcc"
-#line 123 "../../prop-src/rwgen4.pcc"
+#line 123 "rwgen4.pcc"
+#line 123 "rwgen4.pcc"
 
 }
 
@@ -248,7 +248,7 @@ void RewritingCompiler::gen_cutreplacement
     current_rule_line(), current_rule_text());
   }
 }
-#line 193 "../../prop-src/rwgen4.pcc"
+#line 193 "rwgen4.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -257,8 +257,8 @@ Number of ifs generated      = 3
 Number of switches generated = 2
 Number of labels             = 1
 Number of gotos              = 4
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

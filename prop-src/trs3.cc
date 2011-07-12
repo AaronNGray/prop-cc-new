@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\trs3.pcc".
+//  The original source file is "trs3.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_TUPLE2_USED
 #include <propdefs.h>
-#line 1 "../../prop-src/trs3.pcc"
+#line 1 "trs3.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  These are the routines for code generation after partial evaluation
@@ -64,11 +64,11 @@ void TRS::print_specializations( std::ostream& log) const
     for (int i = 0; i < num_var_map[r]; i++)
     {
       if (residue_map[r][i] == 
-#line 57 "../../prop-src/trs3.pcc"
-#line 57 "../../prop-src/trs3.pcc"
+#line 57 "trs3.pcc"
+#line 57 "trs3.pcc"
 nil_1_
-#line 57 "../../prop-src/trs3.pcc"
-#line 57 "../../prop-src/trs3.pcc"
+#line 57 "trs3.pcc"
+#line 57 "trs3.pcc"
 )
         continue;
       for_each (Residue, res, residue_map[r][i])
@@ -96,11 +96,11 @@ void TRS::generate_residue( Rule rule, int arity, State state, Term rhs)
   number_of_specializations++;
   // print_residue(rule,rhs);
   residue_map[rule][arity] = 
-#line 83 "../../prop-src/trs3.pcc"
-#line 83 "../../prop-src/trs3.pcc"
+#line 83 "trs3.pcc"
+#line 83 "trs3.pcc"
 list_1_(mkTuple2(state,rhs),residue_map[rule][arity])
-#line 83 "../../prop-src/trs3.pcc"
-#line 83 "../../prop-src/trs3.pcc"
+#line 83 "trs3.pcc"
+#line 83 "trs3.pcc"
 ;
 }
 
@@ -113,94 +113,94 @@ list_1_(mkTuple2(state,rhs),residue_map[rule][arity])
 Exp TRS::make_exp(Term term) const
 {
   
-#line 94 "../../prop-src/trs3.pcc"
-#line 117 "../../prop-src/trs3.pcc"
+#line 94 "trs3.pcc"
+#line 117 "trs3.pcc"
 {
   switch (term->tag__) {
     case a_Term::tag_CONSterm: {
-      if (_CONSterm(term)->_2) {
-        switch (_CONSterm(term)->_3) {
+      if (((Term_CONSterm *)term)->_2) {
+        switch (((Term_CONSterm *)term)->_3) {
           case 0: {
-#line 97 "../../prop-src/trs3.pcc"
-           return CONSexp(_CONSterm(term)->_2,
-#line 97 "../../prop-src/trs3.pcc"
-#line 97 "../../prop-src/trs3.pcc"
+#line 97 "trs3.pcc"
+           return CONSexp(((Term_CONSterm *)term)->_2,
+#line 97 "trs3.pcc"
+#line 97 "trs3.pcc"
             nil_1_
-#line 97 "../../prop-src/trs3.pcc"
-#line 97 "../../prop-src/trs3.pcc"
+#line 97 "trs3.pcc"
+#line 97 "trs3.pcc"
             ,NOexp); 
-#line 97 "../../prop-src/trs3.pcc"
+#line 97 "trs3.pcc"
           } break;
           case 1: {
-#line 98 "../../prop-src/trs3.pcc"
-           return CONSexp(_CONSterm(term)->_2,
-#line 98 "../../prop-src/trs3.pcc"
-#line 98 "../../prop-src/trs3.pcc"
+#line 98 "trs3.pcc"
+           return CONSexp(((Term_CONSterm *)term)->_2,
+#line 98 "trs3.pcc"
+#line 98 "trs3.pcc"
             nil_1_
-#line 98 "../../prop-src/trs3.pcc"
-#line 98 "../../prop-src/trs3.pcc"
-            ,make_exp(_CONSterm(term)->_4[0])); 
-#line 98 "../../prop-src/trs3.pcc"
+#line 98 "trs3.pcc"
+#line 98 "trs3.pcc"
+            ,make_exp(((Term_CONSterm *)term)->_4[0])); 
+#line 98 "trs3.pcc"
           } break;
           case 2: {
             if (
-#line 99 "../../prop-src/trs3.pcc"
-            is_list_constructor(_CONSterm(term)->_2)
-#line 99 "../../prop-src/trs3.pcc"
+#line 99 "trs3.pcc"
+            is_list_constructor(((Term_CONSterm *)term)->_2)
+#line 99 "trs3.pcc"
 ) {
               
-#line 100 "../../prop-src/trs3.pcc"
+#line 100 "trs3.pcc"
               
               Exps heads = 
-#line 101 "../../prop-src/trs3.pcc"
-#line 101 "../../prop-src/trs3.pcc"
+#line 101 "trs3.pcc"
+#line 101 "trs3.pcc"
               nil_1_
-#line 101 "../../prop-src/trs3.pcc"
-#line 101 "../../prop-src/trs3.pcc"
+#line 101 "trs3.pcc"
+#line 101 "trs3.pcc"
               ;
               	  Term t = term;
               	  
-#line 103 "../../prop-src/trs3.pcc"
-#line 110 "../../prop-src/trs3.pcc"
+#line 103 "trs3.pcc"
+#line 110 "trs3.pcc"
               {
                 for (;;) {
                   switch (t->tag__) {
                     case a_Term::tag_CONSterm: {
-                      switch (_CONSterm(t)->_3) {
+                      switch (((Term_CONSterm *)t)->_3) {
                         case 0: {
                           if (
-#line 107 "../../prop-src/trs3.pcc"
-                          is_list_constructor(_CONSterm(t)->_2)
-#line 107 "../../prop-src/trs3.pcc"
+#line 107 "trs3.pcc"
+                          is_list_constructor(((Term_CONSterm *)t)->_2)
+#line 107 "trs3.pcc"
 ) {
                             
-#line 108 "../../prop-src/trs3.pcc"
-                           return LISTexp(_CONSterm(term)->_2,_CONSterm(t)->_2,rev(heads),NOexp); 
-#line 108 "../../prop-src/trs3.pcc"
+#line 108 "trs3.pcc"
+                           return LISTexp(((Term_CONSterm *)term)->_2,((Term_CONSterm *)t)->_2,rev(heads),NOexp); 
+#line 108 "trs3.pcc"
                           } else {
                             
                             L2:; 
-#line 110 "../../prop-src/trs3.pcc"
-                          return LISTexp(_CONSterm(term)->_2,NOcons,rev(heads),make_exp(term)); 
-#line 110 "../../prop-src/trs3.pcc"
+#line 110 "trs3.pcc"
+                          return LISTexp(((Term_CONSterm *)term)->_2,NOcons,rev(heads),make_exp(term)); 
+#line 110 "trs3.pcc"
                           }
                         } break;
                         case 2: {
                           if (
-#line 105 "../../prop-src/trs3.pcc"
-                          (_CONSterm(term)->_1 == _CONSterm(t)->_1)
-#line 105 "../../prop-src/trs3.pcc"
+#line 105 "trs3.pcc"
+                          (((Term_CONSterm *)term)->_1 == ((Term_CONSterm *)t)->_1)
+#line 105 "trs3.pcc"
 ) {
                             
-#line 106 "../../prop-src/trs3.pcc"
+#line 106 "trs3.pcc"
                            heads = 
-#line 106 "../../prop-src/trs3.pcc"
-#line 106 "../../prop-src/trs3.pcc"
-                            list_1_(make_exp(_CONSterm(t)->_4[0]),heads)
-#line 106 "../../prop-src/trs3.pcc"
-#line 106 "../../prop-src/trs3.pcc"
-                            ; t = _CONSterm(t)->_4[1]; 
-#line 106 "../../prop-src/trs3.pcc"
+#line 106 "trs3.pcc"
+#line 106 "trs3.pcc"
+                            list_1_(make_exp(((Term_CONSterm *)t)->_4[0]),heads)
+#line 106 "trs3.pcc"
+#line 106 "trs3.pcc"
+                            ; t = ((Term_CONSterm *)t)->_4[1]; 
+#line 106 "trs3.pcc"
                           } else {
                              goto L2; }
                         } break;
@@ -211,52 +211,52 @@ Exp TRS::make_exp(Term term) const
                   }
                 }
               }
-#line 111 "../../prop-src/trs3.pcc"
-#line 111 "../../prop-src/trs3.pcc"
+#line 111 "trs3.pcc"
+#line 111 "trs3.pcc"
               
               
-#line 112 "../../prop-src/trs3.pcc"
+#line 112 "trs3.pcc"
             } else {
               
               L3:; 
-#line 114 "../../prop-src/trs3.pcc"
-             return CONSexp( _CONSterm(term)->_2, 
-#line 114 "../../prop-src/trs3.pcc"
-#line 114 "../../prop-src/trs3.pcc"
+#line 114 "trs3.pcc"
+             return CONSexp( ((Term_CONSterm *)term)->_2, 
+#line 114 "trs3.pcc"
+#line 114 "trs3.pcc"
               nil_1_
-#line 114 "../../prop-src/trs3.pcc"
-#line 114 "../../prop-src/trs3.pcc"
-              , TUPLEexp( make_exp( _CONSterm(term)->_3, _CONSterm(term)->_4))); 
-#line 114 "../../prop-src/trs3.pcc"
+#line 114 "trs3.pcc"
+#line 114 "trs3.pcc"
+              , TUPLEexp( make_exp( ((Term_CONSterm *)term)->_3, ((Term_CONSterm *)term)->_4))); 
+#line 114 "trs3.pcc"
             }
           } break;
           default: { goto L3; }
         }
       } else {
-#line 96 "../../prop-src/trs3.pcc"
-       return LITERALexp(literal_map[_CONSterm(term)->_1]); 
-#line 96 "../../prop-src/trs3.pcc"
+#line 96 "trs3.pcc"
+       return LITERALexp(literal_map[((Term_CONSterm *)term)->_1]); 
+#line 96 "trs3.pcc"
       }
       } break;
     case a_Term::tag_VARterm: {
-#line 115 "../../prop-src/trs3.pcc"
-     return _VARterm(term)->_3; 
-#line 115 "../../prop-src/trs3.pcc"
+#line 115 "trs3.pcc"
+     return ((Term_VARterm *)term)->_3; 
+#line 115 "trs3.pcc"
       } break;
     case a_Term::tag_CODEterm: {
-#line 116 "../../prop-src/trs3.pcc"
-     return _CODEterm(term)->CODEterm; 
-#line 116 "../../prop-src/trs3.pcc"
+#line 116 "trs3.pcc"
+     return ((Term_CODEterm *)term)->CODEterm; 
+#line 116 "trs3.pcc"
       } break;
     default: {
-#line 117 "../../prop-src/trs3.pcc"
+#line 117 "trs3.pcc"
      bug("TRS::make_exp"); return NOexp; 
-#line 117 "../../prop-src/trs3.pcc"
+#line 117 "trs3.pcc"
       } break;
   }
 }
-#line 118 "../../prop-src/trs3.pcc"
-#line 118 "../../prop-src/trs3.pcc"
+#line 118 "trs3.pcc"
+#line 118 "trs3.pcc"
 
 }
 
@@ -269,19 +269,19 @@ Exp TRS::make_exp(Term term) const
 Exps TRS::make_exp(int n, Term terms[]) const
 {
   Exps exps = 
-#line 129 "../../prop-src/trs3.pcc"
-#line 129 "../../prop-src/trs3.pcc"
+#line 129 "trs3.pcc"
+#line 129 "trs3.pcc"
 nil_1_
-#line 129 "../../prop-src/trs3.pcc"
-#line 129 "../../prop-src/trs3.pcc"
+#line 129 "trs3.pcc"
+#line 129 "trs3.pcc"
 ;
   for (int i = n - 1; i >= 0; i--)
      exps = 
-#line 131 "../../prop-src/trs3.pcc"
-#line 131 "../../prop-src/trs3.pcc"
+#line 131 "trs3.pcc"
+#line 131 "trs3.pcc"
 list_1_(make_exp(terms[i]),exps)
-#line 131 "../../prop-src/trs3.pcc"
-#line 131 "../../prop-src/trs3.pcc"
+#line 131 "trs3.pcc"
+#line 131 "trs3.pcc"
 ;
   return exps;
 }
@@ -303,11 +303,11 @@ Bool TRS::gen_replacement(CodeGen& C, Rule r, Exp default_rhs)
   {
     Residues residues = residue_map[r][i];
     if (residues != 
-#line 151 "../../prop-src/trs3.pcc"
-#line 151 "../../prop-src/trs3.pcc"
+#line 151 "trs3.pcc"
+#line 151 "trs3.pcc"
 nil_1_
-#line 151 "../../prop-src/trs3.pcc"
-#line 151 "../../prop-src/trs3.pcc"
+#line 151 "trs3.pcc"
+#line 151 "trs3.pcc"
 )
     {
       levels++;
@@ -347,7 +347,7 @@ nil_1_
 
   return optimized;
 }
-#line 190 "../../prop-src/trs3.pcc"
+#line 190 "trs3.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -356,8 +356,8 @@ Number of ifs generated      = 4
 Number of switches generated = 4
 Number of labels             = 2
 Number of gotos              = 4
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

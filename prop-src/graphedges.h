@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\graphedges.ph".
+//  The original source file is "graphedges.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/graphedges.ph"
+#line 1 "graphedges.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // This file implements different kind of graph edges
@@ -29,11 +29,11 @@ class MapEdge : public EdgeDef
 public:
   typedef EdgeDef Super;
   MapEdge(GraphTypeDef *, Id, NodeDef*, NodeDef*, GraphIndexing, LabTys = 
-#line 24 "../../prop-src/graphedges.ph"
-#line 24 "../../prop-src/graphedges.ph"
+#line 24 "graphedges.ph"
+#line 24 "graphedges.ph"
 nil_1_
-#line 24 "../../prop-src/graphedges.ph"
-#line 24 "../../prop-src/graphedges.ph"
+#line 24 "graphedges.ph"
+#line 24 "graphedges.ph"
 );
 
 protected:
@@ -63,11 +63,11 @@ public:
   typedef EdgeDef Super;
   MultiMapEdge
       (GraphTypeDef *, Id, NodeDef*, NodeDef*, GraphIndexing, LabTys = 
-#line 52 "../../prop-src/graphedges.ph"
-#line 52 "../../prop-src/graphedges.ph"
+#line 52 "graphedges.ph"
+#line 52 "graphedges.ph"
 nil_1_
-#line 52 "../../prop-src/graphedges.ph"
-#line 52 "../../prop-src/graphedges.ph"
+#line 52 "graphedges.ph"
+#line 52 "graphedges.ph"
 );
 
 protected:
@@ -98,11 +98,11 @@ public:
   typedef MapEdge Super;
   BijectionEdge
       (GraphTypeDef *, Id, NodeDef*, NodeDef*, GraphIndexing, LabTys = 
-#line 81 "../../prop-src/graphedges.ph"
-#line 81 "../../prop-src/graphedges.ph"
+#line 81 "graphedges.ph"
+#line 81 "graphedges.ph"
 nil_1_
-#line 81 "../../prop-src/graphedges.ph"
-#line 81 "../../prop-src/graphedges.ph"
+#line 81 "graphedges.ph"
+#line 81 "graphedges.ph"
 );
 
 protected:
@@ -128,11 +128,11 @@ public:
   typedef MapEdge Super;
   EquivRelationEdge
       (GraphTypeDef *, Id, NodeDef*, NodeDef*, GraphIndexing, LabTys = 
-#line 105 "../../prop-src/graphedges.ph"
-#line 105 "../../prop-src/graphedges.ph"
+#line 105 "graphedges.ph"
+#line 105 "graphedges.ph"
 nil_1_
-#line 105 "../../prop-src/graphedges.ph"
-#line 105 "../../prop-src/graphedges.ph"
+#line 105 "graphedges.ph"
+#line 105 "graphedges.ph"
 );
 
 protected:
@@ -145,7 +145,7 @@ protected:
 };
 
 #endif
-#line 117 "../../prop-src/graphedges.ph"
+#line 117 "graphedges.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -154,8 +154,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

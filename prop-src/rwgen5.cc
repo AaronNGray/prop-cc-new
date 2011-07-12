@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\rwgen5.pcc".
+//  The original source file is "rwgen5.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_QUARK_USED
@@ -9,8 +9,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_r_w_g_e_n_5co_c_c_Q1("none");
-#line 1 "../../prop-src/rwgen5.pcc"
+static const Quark _r_w_g_e_n_5co_c_c_Q1("none");
+#line 1 "rwgen5.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements indexing for rewriters
@@ -81,11 +81,11 @@ Protocols RewritingCompiler::lookup_protocols( Id id)
 {
   RewriteClass * C = lookup_rewrite_class(id);
   return C ? C->protocols : 
-#line 70 "../../prop-src/rwgen5.pcc"
-#line 70 "../../prop-src/rwgen5.pcc"
+#line 70 "rwgen5.pcc"
+#line 70 "rwgen5.pcc"
 nil_1_
-#line 70 "../../prop-src/rwgen5.pcc"
-#line 70 "../../prop-src/rwgen5.pcc"
+#line 70 "rwgen5.pcc"
+#line 70 "rwgen5.pcc"
 ;
 }
 
@@ -126,11 +126,11 @@ Bool RewritingCompiler::compute_index( Ty ty, Id& name, Bool& external) const
   Bool ok = is_boxed && (rewritable || I != 0) && need_cache;
 
   if (I != 0 && I->name == 
-#line 109 "../../prop-src/rwgen5.pcc"
-#line 109 "../../prop-src/rwgen5.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_r_w_g_e_n_5co_c_c_Q1
-#line 109 "../../prop-src/rwgen5.pcc"
-#line 109 "../../prop-src/rwgen5.pcc"
+#line 109 "rwgen5.pcc"
+#line 109 "rwgen5.pcc"
+_r_w_g_e_n_5co_c_c_Q1
+#line 109 "rwgen5.pcc"
+#line 109 "rwgen5.pcc"
 ) ok = false;
 
   if (ok)
@@ -299,7 +299,7 @@ void RewritingCompiler::gen_get_rewrite_rule( Ty ty, Id redex)
   else
     pr("%s->get_%s_rule()", redex, name);
 }
-#line 277 "../../prop-src/rwgen5.pcc"
+#line 277 "rwgen5.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -308,8 +308,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

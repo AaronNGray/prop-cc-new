@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\matchcom.ph".
+//  The original source file is "matchcom.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/matchcom.ph"
+#line 1 "matchcom.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file describes the interface to the pattern matching compiler.
@@ -44,8 +44,8 @@ struct MatchBase : public MEM
   MatchBase();
 };
 
-#line 40 "../../prop-src/matchcom.ph"
-#line 76 "../../prop-src/matchcom.ph"
+#line 40 "matchcom.ph"
+#line 76 "matchcom.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Forward class definition for Match
@@ -116,12 +116,9 @@ inline int untag(const a_Match * x) { return boxed(x) ? x->tag__ + 2 : (int)x; }
 ///////////////////////////////////////////////////////////////////////////////
 class Match_SUCCESSmatch : public a_Match {
 public:
-#line 42 "../../prop-src/matchcom.ph"
+#line 42 "matchcom.ph"
   int _1; MatchRule _2; 
-  inline Match_SUCCESSmatch (int x_1, MatchRule x_2)
-   : a_Match(tag_SUCCESSmatch), _1(x_1), _2(x_2)
-  {
-  }
+  Match_SUCCESSmatch (int x_1, MatchRule x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -131,12 +128,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_SUCCESSESmatch : public a_Match {
 public:
-#line 43 "../../prop-src/matchcom.ph"
+#line 43 "matchcom.ph"
   int _1; BitSet * _2; MatchRules _3; 
-  inline Match_SUCCESSESmatch (int x_1, BitSet * x_2, MatchRules x_3)
-   : a_Match(tag_SUCCESSESmatch), _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  Match_SUCCESSESmatch (int x_1, BitSet * x_2, MatchRules x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -146,12 +140,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_COSTmatch : public a_Match {
 public:
-#line 44 "../../prop-src/matchcom.ph"
+#line 44 "matchcom.ph"
   int _1; Cost * _2; BitSet * _3; MatchRules _4; 
-  inline Match_COSTmatch (int x_1, Cost * x_2, BitSet * x_3, MatchRules x_4)
-   : a_Match(tag_COSTmatch), _1(x_1), _2(x_2), _3(x_3), _4(x_4)
-  {
-  }
+  Match_COSTmatch (int x_1, Cost * x_2, BitSet * x_3, MatchRules x_4);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -161,12 +152,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_GUARDmatch : public a_Match {
 public:
-#line 45 "../../prop-src/matchcom.ph"
+#line 45 "matchcom.ph"
   Exp _1; Match _2; Match _3; 
-  inline Match_GUARDmatch (Exp x_1, Match x_2, Match x_3)
-   : a_Match(tag_GUARDmatch), _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  Match_GUARDmatch (Exp x_1, Match x_2, Match x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -176,12 +164,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_LITERALmatch : public a_Match {
 public:
-#line 46 "../../prop-src/matchcom.ph"
+#line 46 "matchcom.ph"
   Pos _1; Exp _2; Literal * _3; int _4; Match * _5; Match _6; 
-  inline Match_LITERALmatch (Pos x_1, Exp x_2, Literal * x_3, int x_4, Match * x_5, Match x_6)
-   : a_Match(tag_LITERALmatch), _1(x_1), _2(x_2), _3(x_3), _4(x_4), _5(x_5), _6(x_6)
-  {
-  }
+  Match_LITERALmatch (Pos x_1, Exp x_2, Literal * x_3, int x_4, Match * x_5, Match x_6);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -191,12 +176,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_RANGEmatch : public a_Match {
 public:
-#line 47 "../../prop-src/matchcom.ph"
+#line 47 "matchcom.ph"
   Pos _1; Exp _2; int _3; int _4; Match _5; Match _6; 
-  inline Match_RANGEmatch (Pos x_1, Exp x_2, int x_3, int x_4, Match x_5, Match x_6)
-   : a_Match(tag_RANGEmatch), _1(x_1), _2(x_2), _3(x_3), _4(x_4), _5(x_5), _6(x_6)
-  {
-  }
+  Match_RANGEmatch (Pos x_1, Exp x_2, int x_3, int x_4, Match x_5, Match x_6);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -206,12 +188,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_CONSmatch : public a_Match {
 public:
-#line 48 "../../prop-src/matchcom.ph"
+#line 48 "matchcom.ph"
   Pos _1; Exp _2; Ty _3; Ty _4; int _5; Match * _6; Match _7; 
-  inline Match_CONSmatch (Pos x_1, Exp x_2, Ty x_3, Ty x_4, int x_5, Match * x_6, Match x_7)
-   : a_Match(tag_CONSmatch), _1(x_1), _2(x_2), _3(x_3), _4(x_4), _5(x_5), _6(x_6), _7(x_7)
-  {
-  }
+  Match_CONSmatch (Pos x_1, Exp x_2, Ty x_3, Ty x_4, int x_5, Match * x_6, Match x_7);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -221,12 +200,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_TREECOSTmatch : public a_Match {
 public:
-#line 50 "../../prop-src/matchcom.ph"
+#line 50 "matchcom.ph"
   Match _1; BitSet * _2; MatchRules _3; 
-  inline Match_TREECOSTmatch (Match x_1, BitSet * x_2, MatchRules x_3)
-   : a_Match(tag_TREECOSTmatch), _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  Match_TREECOSTmatch (Match x_1, BitSet * x_2, MatchRules x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -236,12 +212,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_TREELABELmatch : public a_Match {
 public:
-#line 51 "../../prop-src/matchcom.ph"
+#line 51 "matchcom.ph"
   Match _1; Ty _2; Ty _3; int _4; 
-  inline Match_TREELABELmatch (Match x_1, Ty x_2, Ty x_3, int x_4)
-   : a_Match(tag_TREELABELmatch), _1(x_1), _2(x_2), _3(x_3), _4(x_4)
-  {
-  }
+  Match_TREELABELmatch (Match x_1, Ty x_2, Ty x_3, int x_4);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -251,12 +224,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Match_BACKEDGEmatch : public a_Match {
 public:
-#line 53 "../../prop-src/matchcom.ph"
+#line 53 "matchcom.ph"
   int _1; Id _2; Match _3; 
-  inline Match_BACKEDGEmatch (int x_1, Id x_2, Match x_3)
-   : a_Match(tag_BACKEDGEmatch), _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  Match_BACKEDGEmatch (int x_1, Id x_2, Match x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -264,61 +234,16 @@ public:
 // Datatype constructor functions for Match
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_Match * SUCCESSmatch (int x_1, MatchRule x_2)
-{
-  return new Match_SUCCESSmatch (x_1, x_2);
-}
-inline a_Match * SUCCESSESmatch (int x_1, BitSet * x_2, MatchRules x_3)
-{
-  return new Match_SUCCESSESmatch (x_1, x_2, x_3);
-}
-inline a_Match * COSTmatch (int x_1, Cost * x_2, BitSet * x_3, MatchRules x_4)
-{
-  return new Match_COSTmatch (x_1, x_2, x_3, x_4);
-}
-inline a_Match * GUARDmatch (Exp x_1, Match x_2, Match x_3)
-{
-  return new Match_GUARDmatch (x_1, x_2, x_3);
-}
-inline a_Match * LITERALmatch (Pos x_1, Exp x_2, Literal * x_3, int x_4, Match * x_5, Match x_6)
-{
-  return new Match_LITERALmatch (x_1, x_2, x_3, x_4, x_5, x_6);
-}
-inline a_Match * RANGEmatch (Pos x_1, Exp x_2, int x_3, int x_4, Match x_5, Match x_6)
-{
-  return new Match_RANGEmatch (x_1, x_2, x_3, x_4, x_5, x_6);
-}
-inline a_Match * CONSmatch (Pos x_1, Exp x_2, Ty x_3, Ty x_4, int x_5, Match * x_6, Match x_7)
-{
-  return new Match_CONSmatch (x_1, x_2, x_3, x_4, x_5, x_6, x_7);
-}
-inline a_Match * TREECOSTmatch (Match x_1, BitSet * x_2, MatchRules x_3)
-{
-  return new Match_TREECOSTmatch (x_1, x_2, x_3);
-}
-inline a_Match * TREELABELmatch (Match x_1, Ty x_2, Ty x_3, int x_4)
-{
-  return new Match_TREELABELmatch (x_1, x_2, x_3, x_4);
-}
-inline a_Match * BACKEDGEmatch (int x_1, Id x_2, Match x_3)
-{
-  return new Match_BACKEDGEmatch (x_1, x_2, x_3);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for Match
-//
-///////////////////////////////////////////////////////////////////////////////
-inline Match_SUCCESSmatch * _SUCCESSmatch(const a_Match * _x_) { return (Match_SUCCESSmatch *)_x_; }
-inline Match_SUCCESSESmatch * _SUCCESSESmatch(const a_Match * _x_) { return (Match_SUCCESSESmatch *)_x_; }
-inline Match_COSTmatch * _COSTmatch(const a_Match * _x_) { return (Match_COSTmatch *)_x_; }
-inline Match_GUARDmatch * _GUARDmatch(const a_Match * _x_) { return (Match_GUARDmatch *)_x_; }
-inline Match_LITERALmatch * _LITERALmatch(const a_Match * _x_) { return (Match_LITERALmatch *)_x_; }
-inline Match_RANGEmatch * _RANGEmatch(const a_Match * _x_) { return (Match_RANGEmatch *)_x_; }
-inline Match_CONSmatch * _CONSmatch(const a_Match * _x_) { return (Match_CONSmatch *)_x_; }
-inline Match_TREECOSTmatch * _TREECOSTmatch(const a_Match * _x_) { return (Match_TREECOSTmatch *)_x_; }
-inline Match_TREELABELmatch * _TREELABELmatch(const a_Match * _x_) { return (Match_TREELABELmatch *)_x_; }
-inline Match_BACKEDGEmatch * _BACKEDGEmatch(const a_Match * _x_) { return (Match_BACKEDGEmatch *)_x_; }
+extern a_Match * SUCCESSmatch (int x_1, MatchRule x_2);
+extern a_Match * SUCCESSESmatch (int x_1, BitSet * x_2, MatchRules x_3);
+extern a_Match * COSTmatch (int x_1, Cost * x_2, BitSet * x_3, MatchRules x_4);
+extern a_Match * GUARDmatch (Exp x_1, Match x_2, Match x_3);
+extern a_Match * LITERALmatch (Pos x_1, Exp x_2, Literal * x_3, int x_4, Match * x_5, Match x_6);
+extern a_Match * RANGEmatch (Pos x_1, Exp x_2, int x_3, int x_4, Match x_5, Match x_6);
+extern a_Match * CONSmatch (Pos x_1, Exp x_2, Ty x_3, Ty x_4, int x_5, Match * x_6, Match x_7);
+extern a_Match * TREECOSTmatch (Match x_1, BitSet * x_2, MatchRules x_3);
+extern a_Match * TREELABELmatch (Match x_1, Ty x_2, Ty x_3, int x_4);
+extern a_Match * BACKEDGEmatch (int x_1, Id x_2, Match x_3);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -332,13 +257,18 @@ public:
   };
 
 public:
-  const Tag_Cost tag__; // variant tag
-protected:
-  inline a_Cost(Tag_Cost t__) : tag__(t__) {}
-public:
 };
 inline int boxed(const a_Cost * x) { return x != 0; }
-inline int untag(const a_Cost * x) { return x ? (x->tag__+1) : 0; }
+///////////////////////////////////////////////////////////////////////////////
+//
+// Embbeded tag extraction functions
+//
+///////////////////////////////////////////////////////////////////////////////
+inline int untagp(const a_Cost * x)
+  { return (unsigned long)x & 3; }
+inline a_Cost * derefp(const a_Cost * x)
+  { return (a_Cost*)((unsigned long)x & ~3); }
+inline int untag(const a_Cost * x) { return x ? untagp(x)+1 : 0; }
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Class for datatype constructor Cost::EXPcost
@@ -346,12 +276,9 @@ inline int untag(const a_Cost * x) { return x ? (x->tag__+1) : 0; }
 ///////////////////////////////////////////////////////////////////////////////
 class Cost_EXPcost : public a_Cost {
 public:
-#line 62 "../../prop-src/matchcom.ph"
+#line 62 "matchcom.ph"
   Exp _1; Ty _2; 
-  inline Cost_EXPcost (Exp x_1, Ty x_2 = NOty)
-   : a_Cost(tag_EXPcost), _1(x_1), _2(x_2)
-  {
-  }
+  Cost_EXPcost (Exp x_1, Ty x_2 = NOty);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -361,12 +288,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Cost_INTcost : public a_Cost {
 public:
-#line 63 "../../prop-src/matchcom.ph"
+#line 63 "matchcom.ph"
   int INTcost; 
-  inline Cost_INTcost (int x_INTcost)
-   : a_Cost(tag_INTcost), INTcost(x_INTcost)
-  {
-  }
+  Cost_INTcost (int x_INTcost);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -374,21 +298,8 @@ public:
 // Datatype constructor functions for Cost
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_Cost * EXPcost (Exp x_1, Ty x_2 = NOty)
-{
-  return new Cost_EXPcost (x_1, x_2);
-}
-inline a_Cost * INTcost (int x_INTcost)
-{
-  return new Cost_INTcost (x_INTcost);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for Cost
-//
-///////////////////////////////////////////////////////////////////////////////
-inline Cost_EXPcost * _EXPcost(const a_Cost * _x_) { return (Cost_EXPcost *)_x_; }
-inline Cost_INTcost * _INTcost(const a_Cost * _x_) { return (Cost_INTcost *)_x_; }
+extern a_Cost * EXPcost (Exp x_1, Ty x_2 = NOty);
+extern a_Cost * INTcost (int x_INTcost);
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -402,13 +313,18 @@ public:
   };
 
 public:
-  const Tag_Pos tag__; // variant tag
-protected:
-  inline a_Pos(Tag_Pos t__) : tag__(t__) {}
-public:
 };
 inline int boxed(const a_Pos * x) { return (unsigned long)x >= 2; }
-inline int untag(const a_Pos * x) { return boxed(x) ? x->tag__ + 2 : (int)x; }
+///////////////////////////////////////////////////////////////////////////////
+//
+// Embbeded tag extraction functions
+//
+///////////////////////////////////////////////////////////////////////////////
+inline int untagp(const a_Pos * x)
+  { return (unsigned long)x & 3; }
+inline a_Pos * derefp(const a_Pos * x)
+  { return (a_Pos*)((unsigned long)x & ~3); }
+inline int untag(const a_Pos * x) { return boxed(x) ? untagp(x) + 2 : (int)x; }
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Class for datatype constructor Pos::POSint
@@ -416,12 +332,9 @@ inline int untag(const a_Pos * x) { return boxed(x) ? x->tag__ + 2 : (int)x; }
 ///////////////////////////////////////////////////////////////////////////////
 class Pos_POSint : public a_Pos {
 public:
-#line 73 "../../prop-src/matchcom.ph"
+#line 73 "matchcom.ph"
   int _1; Pos _2; 
-  inline Pos_POSint (int x_1, Pos x_2)
-   : a_Pos(tag_POSint), _1(x_1), _2(x_2)
-  {
-  }
+  Pos_POSint (int x_1, Pos x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -431,12 +344,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Pos_POSlabel : public a_Pos {
 public:
-#line 74 "../../prop-src/matchcom.ph"
+#line 74 "matchcom.ph"
   Id _1; Pos _2; 
-  inline Pos_POSlabel (Id x_1, Pos x_2)
-   : a_Pos(tag_POSlabel), _1(x_1), _2(x_2)
-  {
-  }
+  Pos_POSlabel (Id x_1, Pos x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -446,12 +356,9 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 class Pos_POSadaptive : public a_Pos {
 public:
-#line 75 "../../prop-src/matchcom.ph"
+#line 75 "matchcom.ph"
   int _1; int * _2; Pos _3; 
-  inline Pos_POSadaptive (int x_1, int * x_2, Pos x_3)
-   : a_Pos(tag_POSadaptive), _1(x_1), _2(x_2), _3(x_3)
-  {
-  }
+  Pos_POSadaptive (int x_1, int * x_2, Pos x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -459,29 +366,12 @@ public:
 // Datatype constructor functions for Pos
 //
 ///////////////////////////////////////////////////////////////////////////////
-inline a_Pos * POSint (int x_1, Pos x_2)
-{
-  return new Pos_POSint (x_1, x_2);
-}
-inline a_Pos * POSlabel (Id x_1, Pos x_2)
-{
-  return new Pos_POSlabel (x_1, x_2);
-}
-inline a_Pos * POSadaptive (int x_1, int * x_2, Pos x_3)
-{
-  return new Pos_POSadaptive (x_1, x_2, x_3);
-}
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for Pos
-//
-///////////////////////////////////////////////////////////////////////////////
-inline Pos_POSint * _POSint(const a_Pos * _x_) { return (Pos_POSint *)_x_; }
-inline Pos_POSlabel * _POSlabel(const a_Pos * _x_) { return (Pos_POSlabel *)_x_; }
-inline Pos_POSadaptive * _POSadaptive(const a_Pos * _x_) { return (Pos_POSadaptive *)_x_; }
+extern a_Pos * POSint (int x_1, Pos x_2);
+extern a_Pos * POSlabel (Id x_1, Pos x_2);
+extern a_Pos * POSadaptive (int x_1, int * x_2, Pos x_3);
 
-#line 76 "../../prop-src/matchcom.ph"
-#line 76 "../../prop-src/matchcom.ph"
+#line 76 "matchcom.ph"
+#line 76 "matchcom.ph"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -832,7 +722,7 @@ protected:
 };
 
 #endif
-#line 426 "../../prop-src/matchcom.ph"
+#line 426 "matchcom.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -841,8 +731,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

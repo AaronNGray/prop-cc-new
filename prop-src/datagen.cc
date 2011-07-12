@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\datagen.pcc".
+//  The original source file is "datagen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/datagen.pcc"
+#line 1 "datagen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the datatype compiler of Prop.
@@ -54,25 +54,25 @@ static DatatypeHierarchy *create_datatype_hierarchy
     TermDefs terms, Decls body)
 {
   
-#line 49 "../../prop-src/datagen.pcc"
-#line 54 "../../prop-src/datagen.pcc"
+#line 49 "datagen.pcc"
+#line 54 "datagen.pcc"
 {
   Ty _V1 = lookup_ty(name);
   if (_V1) {
     switch (_V1->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V1)->_1)) {
-          switch (_TYCONty(_V1)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V1)->_1)) {
+          switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 52 "../../prop-src/datagen.pcc"
-             return _DATATYPEtycon(_TYCONty(_V1)->_1)->hierarchy; 
-#line 52 "../../prop-src/datagen.pcc"
+#line 52 "datagen.pcc"
+             return ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->hierarchy; 
+#line 52 "datagen.pcc"
               } break;
             default: {
               L1:; 
-#line 54 "../../prop-src/datagen.pcc"
+#line 54 "datagen.pcc"
              return new DatatypeHierarchy( name, parameters, inhs, qual, terms, body); 
-#line 54 "../../prop-src/datagen.pcc"
+#line 54 "datagen.pcc"
               } break;
           }
         } else { goto L1; }
@@ -81,8 +81,8 @@ static DatatypeHierarchy *create_datatype_hierarchy
     }
   } else { goto L1; }
 }
-#line 55 "../../prop-src/datagen.pcc"
-#line 55 "../../prop-src/datagen.pcc"
+#line 55 "datagen.pcc"
+#line 55 "datagen.pcc"
 
 }
 
@@ -110,18 +110,18 @@ void DatatypeCompiler::gen_datatype
     for_each (DatatypeDef, d, data_defs)
     {
       
-#line 81 "../../prop-src/datagen.pcc"
-#line 87 "../../prop-src/datagen.pcc"
+#line 81 "datagen.pcc"
+#line 87 "datagen.pcc"
 {
-#line 84 "../../prop-src/datagen.pcc"
+#line 84 "datagen.pcc"
   
   H[i] = create_datatype_hierarchy(d->_1,d->_2,d->_3,d->_4,d->_5,d->_6);
   i++;
   
-#line 87 "../../prop-src/datagen.pcc"
+#line 87 "datagen.pcc"
 }
-#line 88 "../../prop-src/datagen.pcc"
-#line 88 "../../prop-src/datagen.pcc"
+#line 88 "datagen.pcc"
+#line 88 "datagen.pcc"
 
     }
   }
@@ -155,16 +155,16 @@ void DatatypeCompiler::gen_datatype
 void DatatypeCompiler::gen_type_def( TyDef ty_def)
 {
   
-#line 120 "../../prop-src/datagen.pcc"
-#line 131 "../../prop-src/datagen.pcc"
+#line 120 "datagen.pcc"
+#line 131 "datagen.pcc"
 {
   if (
-#line 122 "../../prop-src/datagen.pcc"
+#line 122 "datagen.pcc"
   ty_def->_4
-#line 122 "../../prop-src/datagen.pcc"
+#line 122 "datagen.pcc"
 ) {
     
-#line 123 "../../prop-src/datagen.pcc"
+#line 123 "datagen.pcc"
     
     pr(
         "%^%/%^// Definition of type %s%V%^%/"
@@ -172,12 +172,12 @@ void DatatypeCompiler::gen_type_def( TyDef ty_def)
         "%^%^typedef %t;\n\n",
         ty_def->_1, ty_def->_2, ty_def->begin_line, ty_def->file_name, ty_def->_3, ty_def->_1);
     
-#line 129 "../../prop-src/datagen.pcc"
+#line 129 "datagen.pcc"
   } else {
     }
 }
-#line 131 "../../prop-src/datagen.pcc"
-#line 131 "../../prop-src/datagen.pcc"
+#line 131 "datagen.pcc"
+#line 131 "datagen.pcc"
 /* skip */
 }
 
@@ -190,43 +190,43 @@ void DatatypeCompiler::gen_type_def( TyDef ty_def)
 void DatatypeCompiler::preprocess_def( DatatypeDef def)
 {
   
-#line 142 "../../prop-src/datagen.pcc"
-#line 156 "../../prop-src/datagen.pcc"
+#line 142 "datagen.pcc"
+#line 156 "datagen.pcc"
 {
   if (
-#line 143 "../../prop-src/datagen.pcc"
+#line 143 "datagen.pcc"
   (def->_4 & QUALunifiable)
-#line 143 "../../prop-src/datagen.pcc"
+#line 143 "datagen.pcc"
 ) {
     
-#line 144 "../../prop-src/datagen.pcc"
+#line 144 "datagen.pcc"
     
     Id      var_term_name = Quark(def->_1,"_var");
     TermDef var_term = 
-#line 146 "../../prop-src/datagen.pcc"
-#line 146 "../../prop-src/datagen.pcc"
+#line 146 "datagen.pcc"
+#line 146 "datagen.pcc"
     TERMdef(var_term_name, mkidvarty(def->_1,def->_2), nil_1_, nil_1_, NOpat, nil_1_, OPTnone, QUALvariable, NOexp)
-#line 151 "../../prop-src/datagen.pcc"
-#line 151 "../../prop-src/datagen.pcc"
+#line 151 "datagen.pcc"
+#line 151 "datagen.pcc"
     ;
     def->_5 = 
-#line 152 "../../prop-src/datagen.pcc"
-#line 152 "../../prop-src/datagen.pcc"
+#line 152 "datagen.pcc"
+#line 152 "datagen.pcc"
     list_1_(var_term,def->_5)
-#line 152 "../../prop-src/datagen.pcc"
-#line 152 "../../prop-src/datagen.pcc"
+#line 152 "datagen.pcc"
+#line 152 "datagen.pcc"
     ;
     // msg("[Unifiable datatype %s]\n", id);
     
-#line 154 "../../prop-src/datagen.pcc"
+#line 154 "datagen.pcc"
   } else {
     }
 }
-#line 156 "../../prop-src/datagen.pcc"
-#line 156 "../../prop-src/datagen.pcc"
+#line 156 "datagen.pcc"
+#line 156 "datagen.pcc"
 
 }
-#line 158 "../../prop-src/datagen.pcc"
+#line 158 "datagen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -235,8 +235,8 @@ Number of ifs generated      = 4
 Number of switches generated = 2
 Number of labels             = 1
 Number of gotos              = 3
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

@@ -1,14 +1,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\lexer.pcc".
+//  The original source file is "lexer.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_PRINTER_USED
 #define PROP_REGEXP_MATCHING_USED
 #define PROP_PARSER_USED
 #include <propdefs.h>
-#line 1 "../../prop-src/lexer.pcc"
+#line 1 "lexer.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This is the implementation of the Prop lexical scanner.
@@ -49,8 +49,8 @@ int PropParser::get_token()
   for (;;)
   {
     
-#line 40 "../../prop-src/lexer.pcc"
-#line 224 "../../prop-src/lexer.pcc"
+#line 40 "lexer.pcc"
+#line 224 "lexer.pcc"
 {
   for (;;) {
     {
@@ -1778,13 +1778,13 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
       switch(rule__ = _X1.MatchText(RegexMatch::start_state,lexbuf,next)) {
         case 1: {
           L2:; 
-#line 43 "../../prop-src/lexer.pcc"
+#line 43 "lexer.pcc"
           
           if (lexbuf.context() == C)
             start_sc(PROP);
           return ((PropToken)(rule__ + 255));
           
-#line 47 "../../prop-src/lexer.pcc"
+#line 47 "lexer.pcc"
         } break;
         case 2: { goto L2; } break;
         case 3: { goto L2; } break;
@@ -1813,62 +1813,62 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
         case 26: { goto L2; } break;
         case 27: { goto L2; } break;
         case 28: {
-#line 48 "../../prop-src/lexer.pcc"
+#line 48 "lexer.pcc"
          start_quote('(',')'); emit(); 
-#line 48 "../../prop-src/lexer.pcc"
+#line 48 "lexer.pcc"
         } break;
         case 29: {
-#line 49 "../../prop-src/lexer.pcc"
+#line 49 "lexer.pcc"
          start_quote('[',']'); emit(); 
-#line 49 "../../prop-src/lexer.pcc"
+#line 49 "lexer.pcc"
         } break;
         case 30: {
-#line 50 "../../prop-src/lexer.pcc"
+#line 50 "lexer.pcc"
          start_quote('{','}'); emit(); 
-#line 50 "../../prop-src/lexer.pcc"
+#line 50 "lexer.pcc"
         } break;
         case 31: {
-#line 51 "../../prop-src/lexer.pcc"
+#line 51 "lexer.pcc"
          start_quote('(',')'); start_sc(PROP); return XXcihmXX; 
-#line 51 "../../prop-src/lexer.pcc"
+#line 51 "lexer.pcc"
         } break;
         case 32: {
-#line 52 "../../prop-src/lexer.pcc"
+#line 52 "lexer.pcc"
          start_quote('[',']'); start_sc(PROP); return XXflhmXX; 
-#line 52 "../../prop-src/lexer.pcc"
+#line 52 "lexer.pcc"
         } break;
         case 33: {
-#line 53 "../../prop-src/lexer.pcc"
+#line 53 "lexer.pcc"
          start_quote('{','}'); start_sc(PROP); return XXhlhmXX; 
-#line 53 "../../prop-src/lexer.pcc"
+#line 53 "lexer.pcc"
         } break;
         case 34: {
-#line 54 "../../prop-src/lexer.pcc"
+#line 54 "lexer.pcc"
          start_quote('(',')'); start_sc(PROP); return XXcociXX; 
-#line 54 "../../prop-src/lexer.pcc"
+#line 54 "lexer.pcc"
         } break;
         case 35: {
-#line 55 "../../prop-src/lexer.pcc"
+#line 55 "lexer.pcc"
          start_quote('[',']'); start_sc(PROP); return XXcoflXX; 
-#line 55 "../../prop-src/lexer.pcc"
+#line 55 "lexer.pcc"
         } break;
         case 36: {
-#line 56 "../../prop-src/lexer.pcc"
+#line 56 "lexer.pcc"
          emit("._"); emit(lexbuf.text()+2); 
-#line 56 "../../prop-src/lexer.pcc"
+#line 56 "lexer.pcc"
         } break;
         case 37: {
-#line 57 "../../prop-src/lexer.pcc"
+#line 57 "lexer.pcc"
          emit("->_"); emit(lexbuf.text()+3); 
-#line 57 "../../prop-src/lexer.pcc"
+#line 57 "lexer.pcc"
         } break;
         case 38: {
-#line 59 "../../prop-src/lexer.pcc"
+#line 59 "lexer.pcc"
          lexbuf.push_back(1); start_sc(PROP); return '#'; 
-#line 59 "../../prop-src/lexer.pcc"
+#line 59 "lexer.pcc"
         } break;
         case 39: {
-#line 61 "../../prop-src/lexer.pcc"
+#line 61 "lexer.pcc"
           
           char c = end_quote(lexbuf[0]);
           if (levels[levels_top-1] > quote_top)
@@ -1879,11 +1879,11 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
           else
             emit();
           
-#line 70 "../../prop-src/lexer.pcc"
+#line 70 "lexer.pcc"
         } break;
         case 40: {
           L3:; 
-#line 72 "../../prop-src/lexer.pcc"
+#line 72 "lexer.pcc"
           
           if (levels[levels_top-1] >= quote_top)
           {
@@ -1893,35 +1893,35 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
           else
             emit();
           
-#line 80 "../../prop-src/lexer.pcc"
+#line 80 "lexer.pcc"
         } break;
         case 41: { goto L3; } break;
         case 42: { goto L3; } break;
         case 43: {
-#line 81 "../../prop-src/lexer.pcc"
+#line 81 "lexer.pcc"
          emit_cons(lexbuf.text()+1); 
-#line 81 "../../prop-src/lexer.pcc"
+#line 81 "lexer.pcc"
         } break;
         case 44: {
-#line 82 "../../prop-src/lexer.pcc"
+#line 82 "lexer.pcc"
          start_sc(PROP); return QUARK_TOK; 
-#line 82 "../../prop-src/lexer.pcc"
+#line 82 "lexer.pcc"
         } break;
         case 45: {
-#line 83 "../../prop-src/lexer.pcc"
+#line 83 "lexer.pcc"
          start_sc(PROP); return BIGINT_TOK; 
-#line 83 "../../prop-src/lexer.pcc"
+#line 83 "lexer.pcc"
         } break;
         case 46: {
           L4:; 
-#line 85 "../../prop-src/lexer.pcc"
+#line 85 "lexer.pcc"
           
           if (lexbuf.context() == C)
             emit();
           else
             return ((PropToken)(rule__ + 329));
           
-#line 90 "../../prop-src/lexer.pcc"
+#line 90 "lexer.pcc"
         } break;
         case 47: { goto L4; } break;
         case 48: { goto L4; } break;
@@ -1955,15 +1955,15 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
         case 76: { goto L4; } break;
         case 77: {
           L5:; 
-#line 92 "../../prop-src/lexer.pcc"
+#line 92 "lexer.pcc"
         if (lexbuf.context() == C) emit(); else return ((PropToken)(rule__ + 345)); 
-#line 92 "../../prop-src/lexer.pcc"
+#line 92 "lexer.pcc"
         } break;
         case 78: { goto L5; } break;
         case 79: { goto L5; } break;
         case 80: { goto L5; } break;
         case 81: {
-#line 94 "../../prop-src/lexer.pcc"
+#line 94 "lexer.pcc"
           
           Quark id(lexbuf.text());
           Bool  is_from_current_scope;
@@ -2003,15 +2003,15 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
             }
           }
           
-#line 132 "../../prop-src/lexer.pcc"
+#line 132 "lexer.pcc"
         } break;
         case 82: {
-#line 134 "../../prop-src/lexer.pcc"
+#line 134 "lexer.pcc"
          emit(); 
-#line 134 "../../prop-src/lexer.pcc"
+#line 134 "lexer.pcc"
         } break;
         case 83: {
-#line 136 "../../prop-src/lexer.pcc"
+#line 136 "lexer.pcc"
           
           char name_buffer[256], * q;
           const char * p;
@@ -2027,103 +2027,103 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
           emit (p+2);
           open_include_file(file_name);
           
-#line 150 "../../prop-src/lexer.pcc"
+#line 150 "lexer.pcc"
         } break;
         case 84: {
-#line 151 "../../prop-src/lexer.pcc"
+#line 151 "lexer.pcc"
          emit(); 
-#line 151 "../../prop-src/lexer.pcc"
+#line 151 "lexer.pcc"
         } break;
         case 85: {
-#line 152 "../../prop-src/lexer.pcc"
+#line 152 "lexer.pcc"
          emit(); line++; 
-#line 152 "../../prop-src/lexer.pcc"
+#line 152 "lexer.pcc"
         } break;
         case 86: {
-#line 153 "../../prop-src/lexer.pcc"
+#line 153 "lexer.pcc"
          emit_header(); line++; 
-#line 153 "../../prop-src/lexer.pcc"
+#line 153 "lexer.pcc"
         } break;
         case 87: {
-#line 154 "../../prop-src/lexer.pcc"
+#line 154 "lexer.pcc"
          emit(); 
-#line 154 "../../prop-src/lexer.pcc"
+#line 154 "lexer.pcc"
         } break;
         case 88: {
-#line 155 "../../prop-src/lexer.pcc"
+#line 155 "lexer.pcc"
          start_quote('`','`'); start_sc(QUOTE); 
-#line 155 "../../prop-src/lexer.pcc"
+#line 155 "lexer.pcc"
         } break;
         case 89: {
-#line 156 "../../prop-src/lexer.pcc"
+#line 156 "lexer.pcc"
          return lexbuf[0]; 
-#line 156 "../../prop-src/lexer.pcc"
+#line 156 "lexer.pcc"
         } break;
         case 90: {
-#line 157 "../../prop-src/lexer.pcc"
+#line 157 "lexer.pcc"
          start_quote('(',')'); return '('; 
-#line 157 "../../prop-src/lexer.pcc"
+#line 157 "lexer.pcc"
         } break;
         case 91: {
-#line 158 "../../prop-src/lexer.pcc"
+#line 158 "lexer.pcc"
          start_quote('{','}'); return '{'; 
-#line 158 "../../prop-src/lexer.pcc"
+#line 158 "lexer.pcc"
         } break;
         case 92: {
-#line 159 "../../prop-src/lexer.pcc"
+#line 159 "lexer.pcc"
          start_quote('[',']'); return '['; 
-#line 159 "../../prop-src/lexer.pcc"
+#line 159 "lexer.pcc"
         } break;
         case 93: {
-#line 160 "../../prop-src/lexer.pcc"
+#line 160 "lexer.pcc"
          start_quote('(',')'); return XXcihmXX; 
-#line 160 "../../prop-src/lexer.pcc"
+#line 160 "lexer.pcc"
         } break;
         case 94: {
-#line 161 "../../prop-src/lexer.pcc"
+#line 161 "lexer.pcc"
          start_quote('{','}'); return XXhlhmXX; 
-#line 161 "../../prop-src/lexer.pcc"
+#line 161 "lexer.pcc"
         } break;
         case 95: {
-#line 162 "../../prop-src/lexer.pcc"
+#line 162 "lexer.pcc"
          start_quote('[',']'); return XXflhmXX; 
-#line 162 "../../prop-src/lexer.pcc"
+#line 162 "lexer.pcc"
         } break;
         case 96: {
-#line 163 "../../prop-src/lexer.pcc"
+#line 163 "lexer.pcc"
          start_quote('(',')'); return XXcociXX; 
-#line 163 "../../prop-src/lexer.pcc"
+#line 163 "lexer.pcc"
         } break;
         case 97: {
-#line 164 "../../prop-src/lexer.pcc"
+#line 164 "lexer.pcc"
          start_quote('[',']'); return XXcoflXX; 
-#line 164 "../../prop-src/lexer.pcc"
+#line 164 "lexer.pcc"
         } break;
         case 98: {
-#line 165 "../../prop-src/lexer.pcc"
+#line 165 "lexer.pcc"
          return end_quote(lexbuf[0]); 
-#line 165 "../../prop-src/lexer.pcc"
+#line 165 "lexer.pcc"
         } break;
         case 99: {
-#line 166 "../../prop-src/lexer.pcc"
+#line 166 "lexer.pcc"
          end_quote(')'); return XXhmcjXX; 
-#line 166 "../../prop-src/lexer.pcc"
+#line 166 "lexer.pcc"
         } break;
         case 100: {
-#line 167 "../../prop-src/lexer.pcc"
+#line 167 "lexer.pcc"
          end_quote('}'); return XXhmhnXX; 
-#line 167 "../../prop-src/lexer.pcc"
+#line 167 "lexer.pcc"
         } break;
         case 101: {
-#line 168 "../../prop-src/lexer.pcc"
+#line 168 "lexer.pcc"
          end_quote(']'); return XXhmfnXX; 
-#line 168 "../../prop-src/lexer.pcc"
+#line 168 "lexer.pcc"
         } break;
         case 102: {
           L6:; 
-#line 169 "../../prop-src/lexer.pcc"
+#line 169 "lexer.pcc"
          return ((PropToken)(rule__ + 181)); 
-#line 169 "../../prop-src/lexer.pcc"
+#line 169 "lexer.pcc"
         } break;
         case 103: { goto L6; } break;
         case 104: { goto L6; } break;
@@ -2215,22 +2215,22 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
         case 190: { goto L6; } break;
         case 191: {
           L7:; 
-#line 170 "../../prop-src/lexer.pcc"
+#line 170 "lexer.pcc"
          return ((PropToken)(rule__ + 181)); 
-#line 170 "../../prop-src/lexer.pcc"
+#line 170 "lexer.pcc"
         } break;
         case 192: { goto L7; } break;
         case 193: { goto L7; } break;
         case 194: {
-#line 172 "../../prop-src/lexer.pcc"
+#line 172 "lexer.pcc"
           
           my_cons = lookup_cons(lexbuf.text()+1);
           return CONS_TOK;
           
-#line 175 "../../prop-src/lexer.pcc"
+#line 175 "lexer.pcc"
         } break;
         case 195: {
-#line 177 "../../prop-src/lexer.pcc"
+#line 177 "lexer.pcc"
           
           if ((my_cons = find_cons(lexbuf.text())) != NOcons)
               return CONS_TOK;
@@ -2247,60 +2247,60 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
           }
           return ID_TOK;
           
-#line 192 "../../prop-src/lexer.pcc"
+#line 192 "lexer.pcc"
         } break;
         case 196: {
-#line 193 "../../prop-src/lexer.pcc"
+#line 193 "lexer.pcc"
          return QUARK_TOK; 
-#line 193 "../../prop-src/lexer.pcc"
+#line 193 "lexer.pcc"
         } break;
         case 197: {
-#line 194 "../../prop-src/lexer.pcc"
+#line 194 "lexer.pcc"
          return BIGINT_TOK; 
-#line 194 "../../prop-src/lexer.pcc"
+#line 194 "lexer.pcc"
         } break;
         case 198: {
-#line 195 "../../prop-src/lexer.pcc"
+#line 195 "lexer.pcc"
          return REGEXP_TOK; 
-#line 195 "../../prop-src/lexer.pcc"
+#line 195 "lexer.pcc"
         } break;
         case 199: {
-#line 196 "../../prop-src/lexer.pcc"
+#line 196 "lexer.pcc"
          return lexbuf[0]; 
-#line 196 "../../prop-src/lexer.pcc"
+#line 196 "lexer.pcc"
         } break;
         case 200: {
-#line 197 "../../prop-src/lexer.pcc"
+#line 197 "lexer.pcc"
          /* skip */ 
-#line 197 "../../prop-src/lexer.pcc"
+#line 197 "lexer.pcc"
         } break;
         case 201: {
-#line 198 "../../prop-src/lexer.pcc"
+#line 198 "lexer.pcc"
          line++; 
-#line 198 "../../prop-src/lexer.pcc"
+#line 198 "lexer.pcc"
         } break;
         case 202: {
-#line 199 "../../prop-src/lexer.pcc"
+#line 199 "lexer.pcc"
          emit(); start_sc(COMMENT); 
-#line 199 "../../prop-src/lexer.pcc"
+#line 199 "lexer.pcc"
         } break;
         case 203: {
-#line 200 "../../prop-src/lexer.pcc"
+#line 200 "lexer.pcc"
          emit(); end_sc(); 
-#line 200 "../../prop-src/lexer.pcc"
+#line 200 "lexer.pcc"
         } break;
         case 204: {
-#line 201 "../../prop-src/lexer.pcc"
+#line 201 "lexer.pcc"
          emit(); line++; 
-#line 201 "../../prop-src/lexer.pcc"
+#line 201 "lexer.pcc"
         } break;
         case 205: {
-#line 202 "../../prop-src/lexer.pcc"
+#line 202 "lexer.pcc"
          emit(); 
-#line 202 "../../prop-src/lexer.pcc"
+#line 202 "lexer.pcc"
         } break;
         case 206: {
-#line 204 "../../prop-src/lexer.pcc"
+#line 204 "lexer.pcc"
           
           char buffer[1024];
           const char * p;
@@ -2314,35 +2314,35 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
           debug_msg("[%s, %i]", file, line);
           emit();
           
-#line 216 "../../prop-src/lexer.pcc"
+#line 216 "lexer.pcc"
         } break;
         case 207: {
-#line 217 "../../prop-src/lexer.pcc"
+#line 217 "lexer.pcc"
          meta.emit('\0'); end_quote('`'); end_sc();
           		   return META_QUOTE;
           		 
-#line 219 "../../prop-src/lexer.pcc"
+#line 219 "lexer.pcc"
         } break;
         case 208: {
-#line 220 "../../prop-src/lexer.pcc"
+#line 220 "lexer.pcc"
          meta.emit(lexbuf[0]); 
-#line 220 "../../prop-src/lexer.pcc"
+#line 220 "lexer.pcc"
         } break;
         case 209: {
-#line 221 "../../prop-src/lexer.pcc"
+#line 221 "lexer.pcc"
          line++; meta.emit(lexbuf[0]); 
-#line 221 "../../prop-src/lexer.pcc"
+#line 221 "lexer.pcc"
         } break;
         case 210: {
-#line 222 "../../prop-src/lexer.pcc"
+#line 222 "lexer.pcc"
          line++; emit_doc(); 
-#line 222 "../../prop-src/lexer.pcc"
+#line 222 "lexer.pcc"
         } break;
         case 211: {} break;
         case 212: {
-#line 224 "../../prop-src/lexer.pcc"
+#line 224 "lexer.pcc"
          error("%Lillegal character %c\n", lexbuf[0]); 
-#line 224 "../../prop-src/lexer.pcc"
+#line 224 "lexer.pcc"
         } break;
         default: { goto L1; }
       }
@@ -2350,8 +2350,8 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
   }
   L1:;
 }
-#line 225 "../../prop-src/lexer.pcc"
-#line 225 "../../prop-src/lexer.pcc"
+#line 225 "lexer.pcc"
+#line 225 "lexer.pcc"
 
     if (includes_top != 0)
       close_include_file();
@@ -2359,7 +2359,7 @@ static const DFATables::Rule _X1_accept_rule [ 1749 ] = {
       return EOF;
   }
 }
-#line 232 "../../prop-src/lexer.pcc"
+#line 232 "lexer.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -2368,8 +2368,8 @@ Number of ifs generated      = 0
 Number of switches generated = 1
 Number of labels             = 6
 Number of gotos              = 151
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.6),
-//  last updated on Nov 2, 1999.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "topdowng.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -8,24 +8,24 @@
 //////////////////////////////////////////////////////////////////////////////
 // NOTICE:
 //
-// ADLib, Prop and their related set of tools and documentation are in the 
-// public domain.   The author(s) of this software reserve no copyrights on 
+// ADLib, Prop and their related set of tools and documentation are in the
+// public domain.   The author(s) of this software reserve no copyrights on
 // the source code and any code generated using the tools.  You are encouraged
 // to use ADLib and Prop to develop software, in both academic and commercial
 // settings, and are free to incorporate any part of ADLib and Prop into
 // your programs.
 //
-// Although you are under no obligation to do so, we strongly recommend that 
+// Although you are under no obligation to do so, we strongly recommend that
 // you give away all software developed using our tools.
 //
-// We also ask that credit be given to us when ADLib and/or Prop are used in 
-// your programs, and that this notice be preserved intact in all the source 
+// We also ask that credit be given to us when ADLib and/or Prop are used in
+// your programs, and that this notice be preserved intact in all the source
 // code.
 //
-// This software is still under development and we welcome any suggestions 
+// This software is still under development and we welcome any suggestions
 // and help from the users.
 //
-// Allen Leung 
+// Allen Leung
 // 1994
 //////////////////////////////////////////////////////////////////////////////
 
@@ -45,60 +45,70 @@
 //////////////////////////////////////////////////////////////////////////////
 //  Make hidden types visible
 //////////////////////////////////////////////////////////////////////////////
+
 typedef TreeGrammar::TreeProduction TreeProduction;
 
 //////////////////////////////////////////////////////////////////////////////
 //  Constructors and destructor
 //////////////////////////////////////////////////////////////////////////////
-TopDownGen:: TopDownGen() {}
-TopDownGen:: TopDownGen(const TreeGrammar& Gram) { compile(Gram); }
-TopDownGen::~TopDownGen() {}
+
+TopDownGen:: TopDownGen()
+{}
+TopDownGen:: TopDownGen(const TreeGrammar& Gram)
+{
+  compile(Gram);
+}
+TopDownGen::~TopDownGen()
+{}
 
 //////////////////////////////////////////////////////////////////////////////
 //  Compile a set of tree patterns
 //////////////////////////////////////////////////////////////////////////////
+
 void TopDownGen::compile(const TreeGrammar& g)
 {
-   ///////////////////////////////////////////////////////////////////////////
-   //  Set the tree grammar
-   ///////////////////////////////////////////////////////////////////////////
-   G = &g;
+  ///////////////////////////////////////////////////////////////////////////
+  //  Set the tree grammar
+  ///////////////////////////////////////////////////////////////////////////
+  G = &g;
 
-   ///////////////////////////////////////////////////////////////////////////
-   //  A temporary buffer for the path string.  You won't have 
-   //  patterns with such deep nesting (512).
-   ///////////////////////////////////////////////////////////////////////////
-   Symbol path[ 1024 ];
+  ///////////////////////////////////////////////////////////////////////////
+  //  A temporary buffer for the path string.  You won't have
+  //  patterns with such deep nesting (512).
+  ///////////////////////////////////////////////////////////////////////////
+  Symbol path[ 1024 ];
 
-   ///////////////////////////////////////////////////////////////////////////
-   //  Get the minimum and maximum functor coding within the grammar.
-   ///////////////////////////////////////////////////////////////////////////
-   Symbol min = g.min_functor();
-   Symbol max = g.max_functor();
+  ///////////////////////////////////////////////////////////////////////////
+  //  Get the minimum and maximum functor coding within the grammar.
+  ///////////////////////////////////////////////////////////////////////////
+  Symbol min = g.min_functor();
+  Symbol max = g.max_functor();
 
-   ///////////////////////////////////////////////////////////////////////////
-   //  Min and max are the symbol value range for the path strings.
-   //  Since the arities are also part of the path string, make sure
-   //  the range covers them.
-   ///////////////////////////////////////////////////////////////////////////
-   if (min > 0) min = 0;
-   if (max < g.max_arity()) max = g.max_arity();
+  ///////////////////////////////////////////////////////////////////////////
+  //  Min and max are the symbol value range for the path strings.
+  //  Since the arities are also part of the path string, make sure
+  //  the range covers them.
+  ///////////////////////////////////////////////////////////////////////////
+  if (min > 0)
+    min = 0;
+  if (max < g.max_arity())
+    max = g.max_arity();
 
-   ///////////////////////////////////////////////////////////////////////////
-   //  Start creating the compressed tables.
-   ///////////////////////////////////////////////////////////////////////////
-   start(min,max);
+  ///////////////////////////////////////////////////////////////////////////
+  //  Start creating the compressed tables.
+  ///////////////////////////////////////////////////////////////////////////
+  start(min,max);
 
-   ///////////////////////////////////////////////////////////////////////////
-   //  Now compile the path strings, one for each pattern in the grammar.
-   ///////////////////////////////////////////////////////////////////////////
-   for (int i = 0; i < g.size(); i++) 
-      add_path(i, g[i].term, 0, path);
+  ///////////////////////////////////////////////////////////////////////////
+  //  Now compile the path strings, one for each pattern in the grammar.
+  ///////////////////////////////////////////////////////////////////////////
+  for (int i = 0; i < g.size(); i++)
+    add_path(i, g[i].term, 0, path);
 
-   ///////////////////////////////////////////////////////////////////////////
-   //  Finish up the table compression process.
-   ///////////////////////////////////////////////////////////////////////////
-   finish();
+  ///////////////////////////////////////////////////////////////////////////
+  //  Finish up the table compression process.
+  ///////////////////////////////////////////////////////////////////////////
+  finish();
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -109,45 +119,52 @@ void TopDownGen::compile(const TreeGrammar& g)
 //     f 0 g 1 a
 //     f 1 b
 //////////////////////////////////////////////////////////////////////////////
-void TopDownGen::add_path(int rule, const TreeTerm term, int len, Symbol path[])
+
+void TopDownGen::add_path( int rule, const TreeTerm term, int len, Symbol path[])
 {
-   
-#line 107 "topdowng.pcc"
-#line 120 "topdowng.pcc"
+  
+#line 118 "topdowng.pcc"
+#line 138 "topdowng.pcc"
 {
-   if (term) {
-      switch (term->tag__) {
-         case a_TreeTerm::tag_tree_term: {
-#line 109 "topdowng.pcc"
-            
-            path[len] = _tree_term(term)->_1;
-            if (_tree_term(term)->_2 > 0) {  // a non-terminal ?
-               for (int i = 0; i < _tree_term(term)->_2; i++) {
-                  path[len + 1] = i; 
-                  add_path(rule,_tree_term(term)->_3[i],len+2,path);
-               }
-            } else {  // a terminal
-               add_string(rule, len + 1, path);
-            }
-            
-#line 119 "topdowng.pcc"
-            } break;
-         default: {
-#line 119 "topdowng.pcc"
-           assert("Bug in TopDownGen::add_path()");
-            
+  if (term) {
+    switch (term->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+#line 122 "topdowng.pcc"
+        
+        path[len] = _tree_term(term)->_1;
+        if (_tree_term(term)->_2 > 0)
+        {  // a non-terminal ?
+        for (int i = 0; i < _tree_term(term)->_2; i++)
+        {
+        path[len + 1] = i;
+        add_path(rule,_tree_term(term)->_3[i],len+2,path);
+        }
+        }
+        else
+        {  // a terminal
+        add_string(rule, len + 1, path);
+        }
+        
+#line 136 "topdowng.pcc"
+        } break;
+      default: {
+#line 136 "topdowng.pcc"
+        
+        assert("Bug in TopDownGen::add_path()");
+        
+#line 138 "topdowng.pcc"
+        } break;
+    }
+  } else {
 #line 120 "topdowng.pcc"
-            } break;
-      }
-   } else {
-#line 108 "topdowng.pcc"
-   add_string(rule, len, path);
-      
-#line 109 "topdowng.pcc"
-   }
+    
+    add_string(rule, len, path);
+    
+#line 122 "topdowng.pcc"
+  }
 }
-#line 120 "topdowng.pcc"
-#line 120 "topdowng.pcc"
+#line 138 "topdowng.pcc"
+#line 138 "topdowng.pcc"
 
 }
 
@@ -156,10 +173,11 @@ void TopDownGen::add_path(int rule, const TreeTerm term, int len, Symbol path[])
 //  Emit C++ code for the tables.
 //
 //////////////////////////////////////////////////////////////////////////////
+
 std::ostream& TopDownGen::gen_code(std::ostream& out, const char name[]) const
-{  
-   Super::gen_code(out,name);
-   return out;
+{
+  Super::gen_code(out,name);
+  return out;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -167,12 +185,13 @@ std::ostream& TopDownGen::gen_code(std::ostream& out, const char name[]) const
 //  Print report
 //
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& TopDownGen::print_report(std::ostream& f) const
-{  
-   f << "\nCanonical grammar:\n" << *G << '\n';
-   return f;
+
+std::ostream& TopDownGen::print_report( std::ostream& f) const
+{
+  f << "\nCanonical grammar:\n" << *G << '\n';
+  return f;
 }
-#line 144 "topdowng.pcc"
+#line 164 "topdowng.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

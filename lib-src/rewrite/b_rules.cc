@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.6),
-//  last updated on Nov 2, 1999.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "b_rules.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -74,11 +74,10 @@ inline unsigned hash( const LeafReduction* a)
 
 inline Bool equal( const Reduction* a, const Reduction* b)
 {
-  if (a->f != b->f || a->cost != b->cost || a->rule != b->rule || a->n != b->n)
-    return false;
+  if (a->f != b->f || a->cost != b->cost ||
+      a->rule != b->rule || a->n != b->n) return false;
   for (int i = a->n - 1; i >= 0; i--)
-    if (a->rhs[i] != b->rhs[i])
-      return false;
+    if (a->rhs[i] != b->rhs[i]) return false;
   return true;
 }
 
@@ -101,7 +100,7 @@ inline Bool equal( const ChainRule* a, const ChainRule* b)
   return a->rhs == b->rhs && a->cost == b->cost && a->rule == b->rule;
 }
 
-inline unsigned hash( const ChainRule* a)
+inline unsigned hash (const ChainRule* a)
 {
   return a->rhs + a->cost + a->rule;
 }
@@ -116,18 +115,14 @@ class BURS_RuleSet_Impl
 {
   BURS_RuleSet_Impl(const BURS_RuleSet_Impl&);
   void operator = (const BURS_RuleSet_Impl&);
-
 public:
   DCHashTable <LeafReduction*, int> leaf_map;
   DCHashTable <Reduction*, int> non_leaf_map;
   DCHashTable <ChainRule*, int> chain_rule_map;
 
-  inline  BURS_RuleSet_Impl()
-  {}
-  inline ~BURS_RuleSet_Impl()
-  {}
-}
-;
+  inline  BURS_RuleSet_Impl() {}
+  inline ~BURS_RuleSet_Impl() {}
+};
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -152,7 +147,7 @@ BURS_RuleSet:: BURS_RuleSet( Mem& mem, const TreeGrammar& g) : G(g)
   chain_rule_count     = G.size();  // e.g.  A -> B
   has_wild_card        = false; // assume we don't have wildcard in grammar
 
-  foreach_production (i, g) count_rules( g[i].term);
+  { foreach_production (i, g) count_rules(g[i].term); }
 
   ///////////////////////////////////////////////////////////////////////////
   //  Allocate the tables.
@@ -162,13 +157,14 @@ BURS_RuleSet:: BURS_RuleSet( Mem& mem, const TreeGrammar& g) : G(g)
   reduction_table       = new Reduction *   [ reduction_count ];
   chain_rule_table      = new ChainRule     [ chain_rule_count ];
   int non_term_count = g.max_variable() + 1 + leaf_reduction_count +
-                       reduction_count + chain_rule_count;
+                          reduction_count + chain_rule_count;
   non_term_to_tree      = new TreeTerm [non_term_count];
+  Bool * var_used = (Bool*)mem.c_alloc(sizeof(Bool) * (g.max_variable()+1));
 
-  Bool* var_used = (Bool*) mem.c_alloc(sizeof(Bool) * (g.max_variable()+1));
-
-  for (int i = 0; i < non_term_count; i++)
-    non_term_to_tree[i] = wild_term;
+  {
+    for (int i = 0; i < non_term_count; i++)
+      non_term_to_tree[i] = wild_term;
+  }
 
   ///////////////////////////////////////////////////////////////////////////
   //  Now normalise the patterns into canonical form.
@@ -198,9 +194,11 @@ BURS_RuleSet:: BURS_RuleSet( Mem& mem, const TreeGrammar& g) : G(g)
       }
     }
   }
+
   ///////////////////////////////////////////////////////////////////////////
   //  Compute the chain rules
   ///////////////////////////////////////////////////////////////////////////
+
   {
     for (NonTerminal v = g.min_variable(); v <= g.max_variable(); v++)
     {
@@ -221,23 +219,24 @@ BURS_RuleSet:: BURS_RuleSet( Mem& mem, const TreeGrammar& g) : G(g)
   //  Finally compute the list of non-unit reductions partitioned by
   //  the functors.
   ///////////////////////////////////////////////////////////////////////////
+
   reductions = new ReductionList * [ g.max_functor() + 1 ];
 
-  {
-    foreach_functor (f,g) reductions[f] = 0;
-  }
+  { foreach_functor (f,g) reductions[f] = 0; }
+
   {
     for (int i = 0; i < reduction_count; i++)
     {
       Functor f = reduction_table[i]->f;
       reductions[f] =
-        new (mem, reduction_table[i], reductions[f]) ReductionList;
+         new (mem, reduction_table[i], reductions[f]) ReductionList;
     }
   }
 
   ///////////////////////////////////////////////////////////////////////////
   // Clean up
   ///////////////////////////////////////////////////////////////////////////
+
   delete impl;
 }
 
@@ -261,74 +260,54 @@ BURS_RuleSet::~BURS_RuleSet()
 //
 //////////////////////////////////////////////////////////////////////////////
 
-void BURS_RuleSet::count_rules(TreeTerm t)
+void BURS_RuleSet::count_rules( TreeTerm t)
 {
-#line 214 "b_rules.pcc"
-#line 222 "b_rules.pcc"
-  {
-    if (t)
-    {
-      switch (t->tag__)
-      {
-      case a_TreeTerm::tag_tree_term:
-        {
-          switch (_tree_term(t)->_2)
-          {
-          case 0:
-            {
-#line 217 "b_rules.pcc"
-              leaf_reduction_count++;
-
-#line 218 "b_rules.pcc"
-
-            }
-            break;
-          default:
-            {
-#line 218 "b_rules.pcc"
-
-              for (int i = _tree_term(t)->_2 - 1; i >= 0; i--)
-                count_rules(_tree_term(t)->_3[i]);
-              reduction_count++;
-
-#line 221 "b_rules.pcc"
-
-            }
+  
+#line 258 "b_rules.pcc"
+#line 267 "b_rules.pcc"
+{
+  if (t) {
+    switch (t->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+        switch (_tree_term(t)->_2) {
+          case 0: {
+#line 262 "b_rules.pcc"
+        leaf_reduction_count++;
+            
+#line 263 "b_rules.pcc"
+          } break;
+          default: {
+#line 263 "b_rules.pcc"
+            
+            for (int i = _tree_term(t)->_2 - 1; i >= 0; i--) count_rules(_tree_term(t)->_3[i]);
+            reduction_count++;
+            
+#line 266 "b_rules.pcc"
           }
         }
-        break;
-      case a_TreeTerm::tag_var_term:
-        {
-#line 216 "b_rules.pcc"
-          chain_rule_count++;
-
-#line 217 "b_rules.pcc"
-
-        }
-        break;
-      default:
-        {
-#line 221 "b_rules.pcc"
-          assert("Error in BURS_RuleSet::count_rules");
-
-#line 222 "b_rules.pcc"
-
-        }
-        break;
-      }
+        } break;
+      case a_TreeTerm::tag_var_term: {
+#line 261 "b_rules.pcc"
+ chain_rule_count++;
+        
+#line 262 "b_rules.pcc"
+        } break;
+      default: {
+#line 266 "b_rules.pcc"
+    assert("Error in BURS_RuleSet::count_rules");
+        
+#line 267 "b_rules.pcc"
+        } break;
     }
-    else
-    {
-#line 215 "b_rules.pcc"
-      has_wild_card = true;
-      chain_rule_count++;
-
-#line 216 "b_rules.pcc"
-
-    }
+  } else {
+#line 260 "b_rules.pcc"
+       has_wild_card = true; chain_rule_count++;
+    
+#line 261 "b_rules.pcc"
   }
-#line 222 "b_rules.pcc"
-#line 222 "b_rules.pcc"
+}
+#line 267 "b_rules.pcc"
+#line 267 "b_rules.pcc"
 
 }
 
@@ -337,138 +316,116 @@ void BURS_RuleSet::count_rules(TreeTerm t)
 //  Method to add an reduction rule into the table
 //
 //////////////////////////////////////////////////////////////////////////////
-NonTerminal BURS_RuleSet::add_reduction
-(Mem& mem, Rule r, TreeTerm t, Cost cost)
-{
-#line 232 "b_rules.pcc"
-#line 276 "b_rules.pcc"
-  {
-    if (t)
-    {
-      switch (t->tag__)
-      {
-      case a_TreeTerm::tag_tree_term:
-        {
-          switch (_tree_term(t)->_2)
-          {
-          case 0:
-            {
-#line 233 "b_rules.pcc"
 
+NonTerminal BURS_RuleSet::add_reduction
+   (Mem& mem, Rule r, TreeTerm t, Cost cost)
+{
+  
+#line 279 "b_rules.pcc"
+#line 333 "b_rules.pcc"
+{
+  if (t) {
+    switch (t->tag__) {
+      case a_TreeTerm::tag_tree_term: {
+        switch (_tree_term(t)->_2) {
+          case 0: {
+#line 281 "b_rules.pcc"
+            
+            {
               leaf_reduction_table[ leaf_reduction_count ].f    = _tree_term(t)->_1;
               leaf_reduction_table[ leaf_reduction_count ].cost = cost;
               leaf_reduction_table[ leaf_reduction_count ].rule = r;
               Ix i = impl->leaf_map.lookup(leaf_reduction_table + leaf_reduction_count);
+            
               if (i)
-              {
-                return impl->leaf_map.key(i)->lhs;
-              }
+                 return impl->leaf_map.key(i)->lhs;
               else
               {
                 impl->leaf_map.insert(leaf_reduction_table + leaf_reduction_count,0);
                 NonTerminal T = non_terminal_count++;
                 non_term_to_tree[T] = t;
-                // std::cerr << "Non-term " << T << " = "; G.print(std::cerr,t) << '\n';
+                // cerr << "Non-term " << T << " = "; G.print(cerr,t) << '\n';
                 return leaf_reduction_table[ leaf_reduction_count++ ].lhs = T;
               }
-
-#line 247 "b_rules.pcc"
-
             }
-            break;
-          default:
+            
+#line 299 "b_rules.pcc"
+          } break;
+          default: {
+#line 299 "b_rules.pcc"
+            
             {
-#line 247 "b_rules.pcc"
-
-              {  Reduction * red = new (mem, _tree_term(t)->_2) Reduction;
-                red->f    = _tree_term(t)->_1;
-                red->n    = _tree_term(t)->_2;
-                red->cost = cost;
-                red->rule = r;
+              Reduction * red = new (mem, _tree_term(t)->_2) Reduction;
+              red->f    = _tree_term(t)->_1;
+              red->n    = _tree_term(t)->_2;
+              red->cost = cost;
+              red->rule = r;
+              {
+                for (int i = 0; i < _tree_term(t)->_2; i++)
                 {
-                  for (int i = 0; i < _tree_term(t)->_2; i++)
-                  {
-
-#line 254 "b_rules.pcc"
-#line 257 "b_rules.pcc"
-                    {
-                      TreeTerm _V1 = _tree_term(t)->_3[i];
-                      if (_V1)
-                      {
-#line 256 "b_rules.pcc"
-                        red->rhs[i] = add_reduction(mem, -1, _tree_term(t)->_3[i], 0);
-
-#line 257 "b_rules.pcc"
-
-                      }
-                      else
-                      {
-#line 255 "b_rules.pcc"
-                        red->rhs[i] = 0;
-
-#line 256 "b_rules.pcc"
-
-                      }
-                    }
-#line 257 "b_rules.pcc"
-#line 257 "b_rules.pcc"
-
-                  }
-                }
-                Ix i = impl->non_leaf_map.lookup(red);
-                if (i)
-                {
-                  return impl->non_leaf_map.key(i)->lhs;
-                }
-                else
-                {
-                  reduction_table[ reduction_count++ ] = red;
-                  impl->non_leaf_map.insert(red,0);
-                  NonTerminal T = non_terminal_count++;
-                  non_term_to_tree[T] = t;
-                  // std::cerr << "Non-term " << T << " = "; G.print(std::cerr,t) << '\n';
-                  return red->lhs = T;
-                }
+                  
+#line 309 "b_rules.pcc"
+#line 313 "b_rules.pcc"
+            {
+              TreeTerm _V1 = _tree_term(t)->_3[i];
+              if (_V1) {
+#line 312 "b_rules.pcc"
+               red->rhs[i] = add_reduction(mem, -1, _tree_term(t)->_3[i], 0);
+                
+#line 313 "b_rules.pcc"
+              } else {
+#line 311 "b_rules.pcc"
+               red->rhs[i] = 0;
+                
+#line 312 "b_rules.pcc"
               }
-
-#line 272 "b_rules.pcc"
-
             }
+#line 313 "b_rules.pcc"
+#line 313 "b_rules.pcc"
+            
+            }
+            }
+            Ix i = impl->non_leaf_map.lookup(red);
+            if (i)
+            return impl->non_leaf_map.key(i)->lhs;
+            else
+            {
+            reduction_table[ reduction_count++ ] = red;
+            impl->non_leaf_map.insert(red,0);
+            NonTerminal T = non_terminal_count++;
+            non_term_to_tree[T] = t;
+            // cerr << "Non-term " << T << " = "; G.print(cerr,t) << '\n';
+            return red->lhs = T;
+            }
+            }
+            
+#line 329 "b_rules.pcc"
           }
         }
-        break;
-      case a_TreeTerm::tag_var_term:
-        {
-#line 273 "b_rules.pcc"
-          return _var_term(t)->var_term;
-
-#line 274 "b_rules.pcc"
-
-        }
-        break;
-      default:
-        {
-#line 274 "b_rules.pcc"
-          assert("Error in BURS_RuleSet::add_reduction\n");
-          return 0;
-
-#line 276 "b_rules.pcc"
-
-        }
-        break;
-      }
+        } break;
+      case a_TreeTerm::tag_var_term: {
+#line 330 "b_rules.pcc"
+       return _var_term(t)->var_term;
+        
+#line 331 "b_rules.pcc"
+        } break;
+      default: {
+#line 331 "b_rules.pcc"
+     assert("Error in BURS_RuleSet::add_reduction\n");
+        return 0;
+        
+#line 333 "b_rules.pcc"
+        } break;
     }
-    else
-    {
-#line 272 "b_rules.pcc"
-      return 0;
-
-#line 273 "b_rules.pcc"
-
-    }
+  } else {
+#line 329 "b_rules.pcc"
+ return 0;
+    
+#line 330 "b_rules.pcc"
   }
-#line 276 "b_rules.pcc"
-#line 276 "b_rules.pcc"
+}
+#line 333 "b_rules.pcc"
+#line 333 "b_rules.pcc"
 
 }
 
@@ -484,15 +441,14 @@ NonTerminal BURS_RuleSet::add_reduction
 // Print a leaf reduction rule
 //
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::LeafReduction& r) const
+
+std::ostream& BURS_RuleSet::print( std::ostream& f, const BURS_RuleSet::LeafReduction& r) const
 {
-  G.print_variable(f, r.lhs);
+  G.print_variable( f, r.lhs);
   f << "\t -> ";
-  G.print_functor (f, r.f);
-  if (r.cost > 0)
-    f << "\t(cost " << r.cost << ')';
-  if (r.rule >= 0)
-    f << "\t[rule " << r.rule << ']';
+  G.print_functor( f, r.f);
+  if (r.cost > 0) f << "\t(cost " << r.cost << ')';
+  if (r.rule >= 0) f << "\t[rule " << r.rule << ']';
   return f;
 }
 
@@ -501,7 +457,8 @@ std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::LeafRedu
 // Print a reduction rule
 //
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::Reduction& r) const
+
+std::ostream& BURS_RuleSet::print( std::ostream& f, const BURS_RuleSet::Reduction& r) const
 {
   G.print_variable(f, r.lhs);
   f << "\t -> ";
@@ -514,8 +471,7 @@ std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::Reductio
     for (int i = 0; i < r.n; i++)
     {
       print (f, r.rhs[i]);
-      if (i < r.n - 1)
-        f << " ... ";
+      if (i < r.n - 1) f << " ... ";
     }
     f << end_s;
   }
@@ -526,15 +482,12 @@ std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::Reductio
     for (int i = 0; i < r.n; i++)
     {
       print (f, r.rhs[i]);
-      if (i < r.n - 1)
-        f << ',';
+      if (i < r.n - 1) f << ',';
     }
     f << ')';
   }
-  if (r.cost > 0)
-    f << "\t(cost " << r.cost << ')';
-  if (r.rule >= 0)
-    f << "\t[rule " << r.rule << ']';
+  if (r.cost > 0) f << "\t(cost " << r.cost << ')';
+  if (r.rule >= 0) f << "\t[rule " << r.rule << ']';
   return f;
 }
 
@@ -543,15 +496,14 @@ std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::Reductio
 //  Print a chain rule
 //
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::ChainRule& r) const
+
+std::ostream& BURS_RuleSet::print( std::ostream& f, const BURS_RuleSet::ChainRule& r) const
 {
   G.print_variable(f,r.lhs);
   f << "\t -> ";
   G.print_variable(f,r.rhs);
-  if (r.cost > 0)
-    f << "\t(cost " << r.cost << ')';
-  if (r.rule >= 0)
-    f << "\t[rule " << r.rule << ']';
+  if (r.cost > 0) f << "\t(cost " << r.cost << ')';
+  if (r.rule >= 0) f << "\t[rule " << r.rule << ']';
   return f;
 }
 
@@ -560,19 +512,16 @@ std::ostream& BURS_RuleSet::print (std::ostream& f, const BURS_RuleSet::ChainRul
 //  Print a rule set
 //
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& operator <<(std::ostream& f, const BURS_RuleSet& r)
+std::ostream& operator << (std::ostream& f, const BURS_RuleSet& r)
 {
   int i;
-  if (r.number_of_leaf_reductions() > 0)
-    f << "Leaf reductions:\n";
+  if (r.number_of_leaf_reductions() > 0) f << "Leaf reductions:\n";
   for (i = 0; i < r.number_of_leaf_reductions(); i++)
     r.print(f,r.leaf(i)) << '\n';
-  if (r.number_of_reductions() > 0)
-    f << "Non-leaf reductions:\n";
+  if (r.number_of_reductions() > 0) f << "Non-leaf reductions:\n";
   for (i = 0; i < r.number_of_reductions(); i++)
     r.print(f,r.reduction(i)) << '\n';
-  if (r.number_of_chain_rules() > 0)
-    f << "Chain rules:\n";
+  if (r.number_of_chain_rules() > 0) f << "Chain rules:\n";
   for (i = 0; i < r.number_of_chain_rules(); i++)
     r.print(f,r.chain_rule(i)) << '\n';
   return f;
@@ -583,20 +532,17 @@ std::ostream& operator <<(std::ostream& f, const BURS_RuleSet& r)
 //  Print a non-terminal
 //
 //////////////////////////////////////////////////////////////////////////////
-std::ostream& BURS_RuleSet::print (std::ostream& f, NonTerminal n) const
+
+std::ostream& BURS_RuleSet::print( std::ostream& f, NonTerminal n) const
 {
   TreeTerm t = non_term_to_tree[n];
   if (t != wild_term || n == 0)
-  {
-    G.print(f,t);
-  }
+    G.print( f, t);
   else
-  {
-    G.print_variable(f,n);
-  }
+    G.print_variable( f, n);
   return f;
 }
-#line 379 "b_rules.pcc"
+#line 449 "b_rules.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

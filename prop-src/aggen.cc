@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\aggen.pcc".
+//  The original source file is "aggen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/aggen.pcc"
+#line 1 "aggen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the attribute grammar generator.
@@ -77,7 +77,7 @@ void AttributeGrammarCompiler::gen_attribute_grammar( Id id, GramExp e)
   if (C)
     C->gen_parser(*this,e);
 }
-#line 73 "../../prop-src/aggen.pcc"
+#line 73 "aggen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -86,8 +86,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

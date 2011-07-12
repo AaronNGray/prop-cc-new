@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\aggen.ph".
+//  The original source file is "aggen.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
-#line 1 "../../prop-src/aggen.ph"
+#line 1 "aggen.ph"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file contains the definitions used in the attribute
@@ -60,7 +60,7 @@ public:
 };
 
 #endif
-#line 56 "../../prop-src/aggen.ph"
+#line 56 "aggen.ph"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -69,8 +69,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  This file is generated automatically using Prop (version 2.4.0),
 //  last updated on Jul 1, 2011.
-//  The original source file is "..\..\prop-src\rwgen.pcc".
+//  The original source file is "rwgen.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
 #define PROP_QUARK_USED
@@ -9,8 +9,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  Quark literals
 ///////////////////////////////////////////////////////////////////////////////
-static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_r_w_g_e_nco_c_c_Q1("redex");
-#line 1 "../../prop-src/rwgen.pcc"
+static const Quark _r_w_g_e_nco_c_c_Q1("redex");
+#line 1 "rwgen.pcc"
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  This file implements the tree rewriting/tree parsing compiler.
@@ -46,11 +46,11 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_r_w_g_e_nco_c_c_Q1("redex");
 
 RewritingCompiler::RewritingCompiler()
     : rewriters(
-#line 35 "../../prop-src/rwgen.pcc"
-#line 35 "../../prop-src/rwgen.pcc"
+#line 35 "rwgen.pcc"
+#line 35 "rwgen.pcc"
 nil_1_
-#line 35 "../../prop-src/rwgen.pcc"
-#line 35 "../../prop-src/rwgen.pcc"
+#line 35 "rwgen.pcc"
+#line 35 "rwgen.pcc"
 ), Fmap(0), trs(0) {}
 RewritingCompiler::~RewritingCompiler() {}
 
@@ -73,31 +73,31 @@ typedef TreeGrammar::Cost           TreeCost;
 Id redex_name( Ty ty)
 {
   
-#line 56 "../../prop-src/rwgen.pcc"
-#line 61 "../../prop-src/rwgen.pcc"
+#line 56 "rwgen.pcc"
+#line 61 "rwgen.pcc"
 {
   Ty _V1 = deref_all(ty);
   if (_V1) {
     switch (_V1->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V1)->_1)) {
-          switch (_TYCONty(_V1)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V1)->_1)) {
+          switch (((Ty_TYCONty *)_V1)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
               if (
-#line 58 "../../prop-src/rwgen.pcc"
-              (_DATATYPEtycon(_TYCONty(_V1)->_1)->opt & OPTtaggedpointer)
-#line 58 "../../prop-src/rwgen.pcc"
+#line 58 "rwgen.pcc"
+              (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V1)->_1)->opt & OPTtaggedpointer)
+#line 58 "rwgen.pcc"
 ) {
                 
-#line 59 "../../prop-src/rwgen.pcc"
+#line 59 "rwgen.pcc"
                return "derefp(redex)"; 
-#line 59 "../../prop-src/rwgen.pcc"
+#line 59 "rwgen.pcc"
               } else {
                 
                 L1:; 
-#line 61 "../../prop-src/rwgen.pcc"
+#line 61 "rwgen.pcc"
                return "redex"; 
-#line 61 "../../prop-src/rwgen.pcc"
+#line 61 "rwgen.pcc"
               }
               } break;
             default: { goto L1; } break;
@@ -108,8 +108,8 @@ Id redex_name( Ty ty)
     }
   } else { goto L1; }
 }
-#line 62 "../../prop-src/rwgen.pcc"
-#line 62 "../../prop-src/rwgen.pcc"
+#line 62 "rwgen.pcc"
+#line 62 "rwgen.pcc"
 
 }
 
@@ -121,18 +121,18 @@ Id redex_name( Ty ty)
 
 RewriteClass::RewriteClass( Id id, Protocols p, Inherits i, TyQual q, Decls b)
     : ClassDefinition( REWRITE_CLASS, id, 
-#line 72 "../../prop-src/rwgen.pcc"
-#line 72 "../../prop-src/rwgen.pcc"
+#line 72 "rwgen.pcc"
+#line 72 "rwgen.pcc"
 nil_1_
-#line 72 "../../prop-src/rwgen.pcc"
-#line 72 "../../prop-src/rwgen.pcc"
+#line 72 "rwgen.pcc"
+#line 72 "rwgen.pcc"
 ,
         add_inherit("BURS", 
-#line 73 "../../prop-src/rwgen.pcc"
-#line 73 "../../prop-src/rwgen.pcc"
+#line 73 "rwgen.pcc"
+#line 73 "rwgen.pcc"
 nil_1_
-#line 73 "../../prop-src/rwgen.pcc"
-#line 73 "../../prop-src/rwgen.pcc"
+#line 73 "rwgen.pcc"
+#line 73 "rwgen.pcc"
 , i), q, b), index_info(ty_hash,ty_equal)
 {
   protocols = p;
@@ -174,10 +174,10 @@ void RewriteClass::gen_class_interface( CodeGen& C)
     for_each (Protocol, p, protocols)
     {
       
-#line 113 "../../prop-src/rwgen.pcc"
-#line 156 "../../prop-src/rwgen.pcc"
+#line 113 "rwgen.pcc"
+#line 156 "rwgen.pcc"
 {
-#line 116 "../../prop-src/rwgen.pcc"
+#line 116 "rwgen.pcc"
   
   Ty t = (is_app || gen_reducers) ? p->ty : mkrefty(p->ty);
   Ty r = (is_app || gen_reducers) ? p->ty : void_ty;
@@ -219,10 +219,10 @@ void RewriteClass::gen_class_interface( CodeGen& C)
   //   error("%Ltype '%T' is not rewritable in treeparser mode rewrite class %s\n",
   //         ty, class_name);
   
-#line 156 "../../prop-src/rwgen.pcc"
+#line 156 "rwgen.pcc"
 }
-#line 157 "../../prop-src/rwgen.pcc"
-#line 157 "../../prop-src/rwgen.pcc"
+#line 157 "rwgen.pcc"
+#line 157 "rwgen.pcc"
 
     }
   }
@@ -479,19 +479,19 @@ void RewritingCompiler::gen_literal_labeler( FunctorMap& F, Ty ty)
   ///////////////////////////////////////////////////////////////////////////
   Exp        selector = IDexp("redex");
   MatchExps  exps     = 
-#line 412 "../../prop-src/rwgen.pcc"
-#line 412 "../../prop-src/rwgen.pcc"
+#line 412 "rwgen.pcc"
+#line 412 "rwgen.pcc"
 list_1_(MATCHexp(selector,0))
-#line 412 "../../prop-src/rwgen.pcc"
-#line 412 "../../prop-src/rwgen.pcc"
+#line 412 "rwgen.pcc"
+#line 412 "rwgen.pcc"
 ;
   MatchRules rules    = // Default is state zero.
       
-#line 414 "../../prop-src/rwgen.pcc"
-#line 414 "../../prop-src/rwgen.pcc"
+#line 414 "rwgen.pcc"
+#line 414 "rwgen.pcc"
 list_1_(MATCHrule(0,WILDpat(),NOexp,NOcost,list_1_(SETSTATEdecl(0))))
-#line 414 "../../prop-src/rwgen.pcc"
-#line 414 "../../prop-src/rwgen.pcc"
+#line 414 "rwgen.pcc"
+#line 414 "rwgen.pcc"
 ;
 
   ///////////////////////////////////////////////////////////////////////////
@@ -507,18 +507,18 @@ list_1_(MATCHrule(0,WILDpat(),NOexp,NOcost,list_1_(SETSTATEdecl(0))))
       pat->selector  = selector;
       MatchRule rule = MATCHrule(0,pat,NOexp,NOcost,
                           
-#line 428 "../../prop-src/rwgen.pcc"
-#line 428 "../../prop-src/rwgen.pcc"
+#line 428 "rwgen.pcc"
+#line 428 "rwgen.pcc"
 list_1_(SETSTATEdecl(F.tree_gen->go(f)))
-#line 428 "../../prop-src/rwgen.pcc"
-#line 428 "../../prop-src/rwgen.pcc"
+#line 428 "rwgen.pcc"
+#line 428 "rwgen.pcc"
 );
       rules = 
-#line 429 "../../prop-src/rwgen.pcc"
-#line 429 "../../prop-src/rwgen.pcc"
+#line 429 "rwgen.pcc"
+#line 429 "rwgen.pcc"
 list_1_(rule,rules)
-#line 429 "../../prop-src/rwgen.pcc"
-#line 429 "../../prop-src/rwgen.pcc"
+#line 429 "rwgen.pcc"
+#line 429 "rwgen.pcc"
 ;
     }
   }
@@ -658,25 +658,25 @@ void RewritingCompiler::gen_bottomup_traversals(FunctorMap& F, Ty ty)
   Id redex  = redex_name(ty);
   Functor f = F.type_map[ty];             // functor encoding
   
-#line 567 "../../prop-src/rwgen.pcc"
-#line 620 "../../prop-src/rwgen.pcc"
+#line 567 "rwgen.pcc"
+#line 620 "rwgen.pcc"
 {
   Ty _V2 = deref_all(ty);
   if (_V2) {
     switch (_V2->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V2)->_1)) {
-          switch (_TYCONty(_V2)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V2)->_1)) {
+          switch (((Ty_TYCONty *)_V2)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 570 "../../prop-src/rwgen.pcc"
+#line 570 "rwgen.pcc"
               
-              int  arity         = _DATATYPEtycon(_TYCONty(_V2)->_1)->unit + _DATATYPEtycon(_TYCONty(_V2)->_1)->arg;  // arity of this datatype
+              int  arity         = ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->arg;  // arity of this datatype
               Bool fast_encoding = false;
               int  first_state   = F.tree_gen->go(f);
               
               // Check whether fast encoding should be used.
               // This changes a switch statement into addition.
-              if (_DATATYPEtycon(_TYCONty(_V2)->_1)->arg == 0)
+              if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->arg == 0)
               {
                 int i;
                 for (i = arity - 1; i >= 0; i--)
@@ -687,7 +687,7 @@ void RewritingCompiler::gen_bottomup_traversals(FunctorMap& F, Ty ty)
               //
               // Views cannot use the fast encoding
               //
-              if (_DATATYPEtycon(_TYCONty(_V2)->_1)->qualifiers & QUALview)
+              if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->qualifiers & QUALview)
                 fast_encoding = false;
               
               if (fast_encoding)
@@ -696,29 +696,29 @@ void RewritingCompiler::gen_bottomup_traversals(FunctorMap& F, Ty ty)
               }
               else  // Slower encoding
               {
-                if (_DATATYPEtycon(_TYCONty(_V2)->_1)->qualifiers & QUALview)
+                if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->qualifiers & QUALview)
                 {
-                  gen_bottomup_traversals(F, f, _DATATYPEtycon(_TYCONty(_V2)->_1)->unit + _DATATYPEtycon(_TYCONty(_V2)->_1)->arg, _DATATYPEtycon(_TYCONty(_V2)->_1)->terms, ty);
+                  gen_bottomup_traversals(F, f, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->arg, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->terms, ty);
                 }
-                else if (_DATATYPEtycon(_TYCONty(_V2)->_1)->arg == 0)  // all unit functors
+                else if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->arg == 0)  // all unit functors
                 {
-                  gen_bottomup_traversals(F, f, _DATATYPEtycon(_TYCONty(_V2)->_1)->unit, _DATATYPEtycon(_TYCONty(_V2)->_1)->terms, ty);
+                  gen_bottomup_traversals(F, f, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->terms, ty);
                 }
-                else if (_DATATYPEtycon(_TYCONty(_V2)->_1)->unit == 0)  // all argument functors
+                else if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit == 0)  // all argument functors
                 {
-                  gen_bottomup_traversals(F, f, _DATATYPEtycon(_TYCONty(_V2)->_1)->arg, _DATATYPEtycon(_TYCONty(_V2)->_1)->terms, ty);
+                  gen_bottomup_traversals(F, f, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->arg, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->terms, ty);
                 }
                 else
                 {
-                  pr( "%^if (%s(redex)) {%+", (_DATATYPEtycon(_TYCONty(_V2)->_1)->unit > 1 ? "boxed" : ""));
-                  gen_bottomup_traversals(F, f + _DATATYPEtycon(_TYCONty(_V2)->_1)->unit, _DATATYPEtycon(_TYCONty(_V2)->_1)->arg, _DATATYPEtycon(_TYCONty(_V2)->_1)->terms + _DATATYPEtycon(_TYCONty(_V2)->_1)->unit, ty);
+                  pr( "%^if (%s(redex)) {%+", (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit > 1 ? "boxed" : ""));
+                  gen_bottomup_traversals(F, f + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->arg, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->terms + ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit, ty);
                   pr( "%-%^} else {%+");
-                  gen_bottomup_traversals(F, f, _DATATYPEtycon(_TYCONty(_V2)->_1)->unit, _DATATYPEtycon(_TYCONty(_V2)->_1)->terms, ty);
+                  gen_bottomup_traversals(F, f, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->unit, ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V2)->_1)->terms, ty);
                   pr( "%-%^}");
                 }
               }
               
-#line 618 "../../prop-src/rwgen.pcc"
+#line 618 "rwgen.pcc"
               } break;
             default: {
               L2:; } break;
@@ -729,8 +729,8 @@ void RewritingCompiler::gen_bottomup_traversals(FunctorMap& F, Ty ty)
     }
   } else { goto L2; }
 }
-#line 620 "../../prop-src/rwgen.pcc"
-#line 620 "../../prop-src/rwgen.pcc"
+#line 620 "rwgen.pcc"
+#line 620 "rwgen.pcc"
 
 }
 
@@ -747,11 +747,11 @@ void RewritingCompiler::gen_bottomup_traversals
   //Id redex    = is_boxed ? redex_name(ty) : "(int)redex";
   //Id untagger = is_boxed ? "->tag__" : "";
   Exp redex = IDexp(
-#line 635 "../../prop-src/rwgen.pcc"
-#line 635 "../../prop-src/rwgen.pcc"
-cocofmcocofm_p_r_o_pcn_s_r_cfm_r_w_g_e_nco_c_c_Q1
-#line 635 "../../prop-src/rwgen.pcc"
-#line 635 "../../prop-src/rwgen.pcc"
+#line 635 "rwgen.pcc"
+#line 635 "rwgen.pcc"
+_r_w_g_e_nco_c_c_Q1
+#line 635 "rwgen.pcc"
+#line 635 "rwgen.pcc"
 );
 
   if (arity == 1)
@@ -854,39 +854,39 @@ void RewritingCompiler::gen_component_traversal
   ///////////////////////////////////////////////////////////////////////////
 
   
-#line 736 "../../prop-src/rwgen.pcc"
-#line 751 "../../prop-src/rwgen.pcc"
+#line 736 "rwgen.pcc"
+#line 751 "rwgen.pcc"
 {
   if (arg_ty) {
     switch (arg_ty->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(arg_ty)->_1)) {
-          switch (_TYCONty(arg_ty)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)arg_ty)->_1)) {
+          switch (((Ty_TYCONty *)arg_ty)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 744 "../../prop-src/rwgen.pcc"
+#line 744 "rwgen.pcc"
               
-              gen_record_component_traversal(F,term,arity,relevant,_RECORDtycon(_TYCONty(arg_ty)->_1)->_1,_TYCONty(arg_ty)->_2);
+              gen_record_component_traversal(F,term,arity,relevant,((TyCon_RECORDtycon *)((Ty_TYCONty *)arg_ty)->_1)->_1,((Ty_TYCONty *)arg_ty)->_2);
               is_record = true;
               
-#line 747 "../../prop-src/rwgen.pcc"
+#line 747 "rwgen.pcc"
               } break;
             default: {
               L3:; 
-#line 749 "../../prop-src/rwgen.pcc"
+#line 749 "rwgen.pcc"
               
               gen_single_component_traversal(F,term,arg_ty);
               
-#line 751 "../../prop-src/rwgen.pcc"
+#line 751 "rwgen.pcc"
               } break;
           }
         } else {
-          switch ((int)_TYCONty(arg_ty)->_1) {
+          switch ((int)((Ty_TYCONty *)arg_ty)->_1) {
             case ((int)TUPLEtycon): {
-#line 740 "../../prop-src/rwgen.pcc"
+#line 740 "rwgen.pcc"
               
-              gen_tuple_component_traversal(F,term,arity,_TYCONty(arg_ty)->_2);
+              gen_tuple_component_traversal(F,term,arity,((Ty_TYCONty *)arg_ty)->_2);
               
-#line 742 "../../prop-src/rwgen.pcc"
+#line 742 "rwgen.pcc"
               } break;
             default: { goto L3; } break;
           }
@@ -896,8 +896,8 @@ void RewritingCompiler::gen_component_traversal
     }
   } else {}
 }
-#line 752 "../../prop-src/rwgen.pcc"
-#line 752 "../../prop-src/rwgen.pcc"
+#line 752 "rwgen.pcc"
+#line 752 "rwgen.pcc"
 
 
   if (F.is_applicative && term->ty != NOty)
@@ -1060,40 +1060,40 @@ void RewritingCompiler::gen_action( FunctorMap& F, Ty ty)
     for_each(MatchRule, r, rules)
     {
       
-#line 913 "../../prop-src/rwgen.pcc"
-#line 923 "../../prop-src/rwgen.pcc"
+#line 913 "rwgen.pcc"
+#line 923 "rwgen.pcc"
 {
-#line 915 "../../prop-src/rwgen.pcc"
+#line 915 "rwgen.pcc"
   
   if (r->_3 != NOexp || (r->option & MatchRuleInfo::FAILREWRITE))
     has_conditional_rules = true;
   
-#line 918 "../../prop-src/rwgen.pcc"
-#line 921 "../../prop-src/rwgen.pcc"
+#line 918 "rwgen.pcc"
+#line 921 "rwgen.pcc"
   {
     Cost _V3 = r->_4;
     if (_V3) {
-      if (_V3->tag__) {
+      if (untagp(_V3)) {
         
-#line 920 "../../prop-src/rwgen.pcc"
+#line 920 "rwgen.pcc"
        has_cost = true; 
-#line 920 "../../prop-src/rwgen.pcc"
+#line 920 "rwgen.pcc"
       } else {
         
-#line 921 "../../prop-src/rwgen.pcc"
+#line 921 "rwgen.pcc"
        has_cost_exp = true; 
-#line 921 "../../prop-src/rwgen.pcc"
+#line 921 "rwgen.pcc"
       }
     } else {}
   }
-#line 922 "../../prop-src/rwgen.pcc"
-#line 922 "../../prop-src/rwgen.pcc"
+#line 922 "rwgen.pcc"
+#line 922 "rwgen.pcc"
   
   
-#line 923 "../../prop-src/rwgen.pcc"
+#line 923 "rwgen.pcc"
 }
-#line 924 "../../prop-src/rwgen.pcc"
-#line 924 "../../prop-src/rwgen.pcc"
+#line 924 "rwgen.pcc"
+#line 924 "rwgen.pcc"
 
     }
   }
@@ -1165,10 +1165,10 @@ void RewritingCompiler::gen_costless_guarded_labeler_action
   for_each (MatchRule, r, rules)
   {
     
-#line 994 "../../prop-src/rwgen.pcc"
-#line 1004 "../../prop-src/rwgen.pcc"
+#line 994 "rwgen.pcc"
+#line 1004 "rwgen.pcc"
 {
-#line 997 "../../prop-src/rwgen.pcc"
+#line 997 "rwgen.pcc"
   
   if (r->_3 != NOexp)
     {
@@ -1177,10 +1177,10 @@ void RewritingCompiler::gen_costless_guarded_labeler_action
         );
     }
   
-#line 1004 "../../prop-src/rwgen.pcc"
+#line 1004 "rwgen.pcc"
 }
-#line 1005 "../../prop-src/rwgen.pcc"
-#line 1005 "../../prop-src/rwgen.pcc"
+#line 1005 "rwgen.pcc"
+#line 1005 "rwgen.pcc"
 
   }
   pr( "%-%^}" "%^%srule__ = *o__;", F.tree_gen->get_rule_type());
@@ -1236,56 +1236,56 @@ void RewritingCompiler::gen_cost_rewriter_action
     for_each (MatchRule, r, rules)
     {
       
-#line 1059 "../../prop-src/rwgen.pcc"
-#line 1086 "../../prop-src/rwgen.pcc"
+#line 1059 "rwgen.pcc"
+#line 1086 "rwgen.pcc"
 {
-#line 1062 "../../prop-src/rwgen.pcc"
+#line 1062 "rwgen.pcc"
   
   pr("%^case %i: %+",r->rule_number);
   if (r->_3 != NOexp) pr ("%^if (%e)%+", r->_3);
   
-#line 1065 "../../prop-src/rwgen.pcc"
-#line 1082 "../../prop-src/rwgen.pcc"
+#line 1065 "rwgen.pcc"
+#line 1082 "rwgen.pcc"
   {
     Cost _V4 = r->_4;
     if (_V4) {
-      if (_V4->tag__) {
+      if (untagp(_V4)) {
         
-#line 1072 "../../prop-src/rwgen.pcc"
+#line 1072 "rwgen.pcc"
         
         pr( "%^if (min_cost__ > %i) { min_cost__ = %i; rule__ = %i; }",
-            _INTcost(_V4)->INTcost, _INTcost(_V4)->INTcost, r->rule_number
+            ((Cost_INTcost *)derefp(_V4))->INTcost, ((Cost_INTcost *)derefp(_V4))->INTcost, r->rule_number
           );
         
-#line 1076 "../../prop-src/rwgen.pcc"
+#line 1076 "rwgen.pcc"
       } else {
         
-#line 1078 "../../prop-src/rwgen.pcc"
+#line 1078 "rwgen.pcc"
         
         pr( "%^if (min_cost__ > (temp_cost__ = %e)) { min_cost__ = temp_cost__; rule__ = %i; }",
-            _EXPcost(_V4)->_1, r->rule_number
+            ((Cost_EXPcost *)_V4)->_1, r->rule_number
           );
         
-#line 1082 "../../prop-src/rwgen.pcc"
+#line 1082 "rwgen.pcc"
       }
     } else {
-#line 1068 "../../prop-src/rwgen.pcc"
+#line 1068 "rwgen.pcc"
       
       pr( "%^{ rule__ = %i; goto found__; }", r->rule_number);
       
-#line 1070 "../../prop-src/rwgen.pcc"
+#line 1070 "rwgen.pcc"
     }
   }
-#line 1083 "../../prop-src/rwgen.pcc"
-#line 1083 "../../prop-src/rwgen.pcc"
+#line 1083 "rwgen.pcc"
+#line 1083 "rwgen.pcc"
   
   if (r->_3 != NOexp) pr ("%-");
   pr ("%- break; ");
   
-#line 1086 "../../prop-src/rwgen.pcc"
+#line 1086 "rwgen.pcc"
 }
-#line 1087 "../../prop-src/rwgen.pcc"
-#line 1087 "../../prop-src/rwgen.pcc"
+#line 1087 "rwgen.pcc"
+#line 1087 "rwgen.pcc"
 
     }
   }
@@ -1307,18 +1307,18 @@ void RewritingCompiler::gen_cost_rewriter_action
     for_each (MatchRule, r, rules)
     {
       
-#line 1107 "../../prop-src/rwgen.pcc"
-#line 1113 "../../prop-src/rwgen.pcc"
+#line 1107 "rwgen.pcc"
+#line 1113 "rwgen.pcc"
 {
-#line 1110 "../../prop-src/rwgen.pcc"
+#line 1110 "rwgen.pcc"
   
   MarkCurrentRule mark( current_rule,r);
   	      pr("%^case %i: %+{%&}%- break;", r->rule_number, r->_5);
   	    
-#line 1113 "../../prop-src/rwgen.pcc"
+#line 1113 "rwgen.pcc"
 }
-#line 1114 "../../prop-src/rwgen.pcc"
-#line 1114 "../../prop-src/rwgen.pcc"
+#line 1114 "rwgen.pcc"
+#line 1114 "rwgen.pcc"
 
     }
   }
@@ -1346,10 +1346,10 @@ void RewritingCompiler::gen_costless_guarded_rewriter_action
   for_each (MatchRule, r, rules)
   {
     
-#line 1140 "../../prop-src/rwgen.pcc"
-#line 1152 "../../prop-src/rwgen.pcc"
+#line 1140 "rwgen.pcc"
+#line 1152 "rwgen.pcc"
 {
-#line 1143 "../../prop-src/rwgen.pcc"
+#line 1143 "rwgen.pcc"
   
   pr( "%^case %i: ", r->rule_number);
   if (r->_3 != NOexp)
@@ -1360,10 +1360,10 @@ void RewritingCompiler::gen_costless_guarded_rewriter_action
     pr( "%^else { ++o__; goto accept__; }");
   pr( " break;");
   
-#line 1152 "../../prop-src/rwgen.pcc"
+#line 1152 "rwgen.pcc"
 }
-#line 1153 "../../prop-src/rwgen.pcc"
-#line 1153 "../../prop-src/rwgen.pcc"
+#line 1153 "rwgen.pcc"
+#line 1153 "rwgen.pcc"
 
   }
   pr("%-%^}");
@@ -1385,10 +1385,10 @@ void RewritingCompiler::gen_costless_guardless_rewriter_action
   for_each (MatchRule, r, rules)
   {
     
-#line 1173 "../../prop-src/rwgen.pcc"
-#line 1188 "../../prop-src/rwgen.pcc"
+#line 1173 "rwgen.pcc"
+#line 1188 "rwgen.pcc"
 {
-#line 1176 "../../prop-src/rwgen.pcc"
+#line 1176 "rwgen.pcc"
   
   Bool used = false;
   for (int s = F.tree_gen->number_of_states() - 1; s >= 0; s--)
@@ -1402,10 +1402,10 @@ void RewritingCompiler::gen_costless_guardless_rewriter_action
   if (used)
     pr( "%+{%&}%- break;", r->_5);
   
-#line 1188 "../../prop-src/rwgen.pcc"
+#line 1188 "rwgen.pcc"
 }
-#line 1189 "../../prop-src/rwgen.pcc"
-#line 1189 "../../prop-src/rwgen.pcc"
+#line 1189 "rwgen.pcc"
+#line 1189 "rwgen.pcc"
 
   }
   pr("%-%^}");
@@ -1500,48 +1500,48 @@ void RewritingCompiler::gen_datatype_reducer( FunctorMap& F, Ty ty)
   else
   {
     
-#line 1282 "../../prop-src/rwgen.pcc"
-#line 1333 "../../prop-src/rwgen.pcc"
+#line 1282 "rwgen.pcc"
+#line 1333 "rwgen.pcc"
 {
   Ty _V5 = deref_all(ty);
   if (_V5) {
     switch (_V5->tag__) {
       case a_Ty::tag_TYCONty: {
-        if (boxed(_TYCONty(_V5)->_1)) {
-          switch (_TYCONty(_V5)->_1->tag__) {
+        if (boxed(((Ty_TYCONty *)_V5)->_1)) {
+          switch (((Ty_TYCONty *)_V5)->_1->tag__) {
             case a_TyCon::tag_DATATYPEtycon: {
-#line 1285 "../../prop-src/rwgen.pcc"
+#line 1285 "rwgen.pcc"
               
               Id var        = redex_name(ty);
               Id table_name = 0;
               
               // generate mapping from unit tag to accept rule if necessary.
-              if (_DATATYPEtycon(_TYCONty(_V5)->_1)->unit > 1)
+              if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->unit > 1)
               {
                 table_name = vars.new_label();
                 pr( "%^static const %s%s[] = { ",
                     F.tree_gen->get_rule_type(), table_name);
-                for (int i = 0; i < _DATATYPEtycon(_TYCONty(_V5)->_1)->unit; i++)
+                for (int i = 0; i < ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->unit; i++)
                 {
                   pr ("%i", F.tree_gen->accept1_rule(F.tree_gen->go(f+i)));
-                  if (i != _DATATYPEtycon(_TYCONty(_V5)->_1)->unit - 1)
+                  if (i != ((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->unit - 1)
                     pr(", ");
                 }
                 pr( " };");
               }
               
               // Generate code that computes the accept rule(try to optimize a bit).
-              if (_DATATYPEtycon(_TYCONty(_V5)->_1)->unit == 0)       // all boxed
+              if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->unit == 0)       // all boxed
               {  // pr ("%^int r__ = %s->get_rewrite_rule();",var);
                 pr ("%^int r__ = ");
                 gen_get_rewrite_rule(ty,var);
                 pr (";");
               }
-              else if (_DATATYPEtycon(_TYCONty(_V5)->_1)->arg == 0)   // all unboxed
+              else if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->arg == 0)   // all unboxed
               {
                 pr ("%^int r__ = %s[redex]",table_name);
               }
-              else if (_DATATYPEtycon(_TYCONty(_V5)->_1)->unit == 1)  // one is unboxed
+              else if (((TyCon_DATATYPEtycon *)((Ty_TYCONty *)_V5)->_1)->unit == 1)  // one is unboxed
               {
                 // pr ("%^int r__ = redex ? %s->get_rewrite_rule() : %i;",var,
                 //     F.tree_gen->accept1_rule(F.tree_gen->go(f)));
@@ -1558,13 +1558,13 @@ void RewritingCompiler::gen_datatype_reducer( FunctorMap& F, Ty ty)
                 pr (" : %s[(int)redex];", table_name);
               }
               
-#line 1331 "../../prop-src/rwgen.pcc"
+#line 1331 "rwgen.pcc"
               } break;
             default: {
               L4:; 
-#line 1333 "../../prop-src/rwgen.pcc"
+#line 1333 "rwgen.pcc"
              bug("RewritingCompiler::gen_datatype_labeler"); 
-#line 1333 "../../prop-src/rwgen.pcc"
+#line 1333 "rwgen.pcc"
               } break;
           }
         } else { goto L4; }
@@ -1573,8 +1573,8 @@ void RewritingCompiler::gen_datatype_reducer( FunctorMap& F, Ty ty)
     }
   } else { goto L4; }
 }
-#line 1334 "../../prop-src/rwgen.pcc"
-#line 1334 "../../prop-src/rwgen.pcc"
+#line 1334 "rwgen.pcc"
+#line 1334 "rwgen.pcc"
 
   }
 
@@ -1585,20 +1585,20 @@ void RewritingCompiler::gen_datatype_reducer( FunctorMap& F, Ty ty)
   for_each(MatchRule, r, rules)
   {
     
-#line 1343 "../../prop-src/rwgen.pcc"
-#line 1350 "../../prop-src/rwgen.pcc"
+#line 1343 "rwgen.pcc"
+#line 1350 "rwgen.pcc"
 {
-#line 1345 "../../prop-src/rwgen.pcc"
+#line 1345 "rwgen.pcc"
   
   pr( "%^case %i: {%+ // %p\n", r->rule_number, r->_2);
   gen_pattern_traversal( F, r->_1, r->_2, 0);
   MarkCurrentRule mark( current_rule,r);
   pr( "%^%&} break;%-", r->_5);
   
-#line 1350 "../../prop-src/rwgen.pcc"
+#line 1350 "rwgen.pcc"
 }
-#line 1351 "../../prop-src/rwgen.pcc"
-#line 1351 "../../prop-src/rwgen.pcc"
+#line 1351 "rwgen.pcc"
+#line 1351 "rwgen.pcc"
 
   }
   pr ("%-%^}");
@@ -1623,74 +1623,74 @@ void RewritingCompiler::gen_datatype_reducer( FunctorMap& F, Ty ty)
 int RewritingCompiler::gen_pattern_traversal( FunctorMap& F, Id lhs, Pat pat, int i)
 {
   
-#line 1374 "../../prop-src/rwgen.pcc"
-#line 1421 "../../prop-src/rwgen.pcc"
+#line 1374 "rwgen.pcc"
+#line 1421 "rwgen.pcc"
 {
   if (pat) {
     switch (pat->tag__) {
       case a_Pat::tag_APPpat: {
-#line 1381 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_APPpat(pat)->_2,i); 
-#line 1381 "../../prop-src/rwgen.pcc"
+#line 1381 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_APPpat *)pat)->_2,i); 
+#line 1381 "rwgen.pcc"
         } break;
       case a_Pat::tag_TYPEDpat: {
-#line 1378 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_TYPEDpat(pat)->_1,i); 
-#line 1378 "../../prop-src/rwgen.pcc"
+#line 1378 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_TYPEDpat *)pat)->_1,i); 
+#line 1378 "rwgen.pcc"
         } break;
       case a_Pat::tag_ASpat: {
-#line 1377 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_ASpat(pat)->_2,i); 
-#line 1377 "../../prop-src/rwgen.pcc"
+#line 1377 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_ASpat *)pat)->_2,i); 
+#line 1377 "rwgen.pcc"
         } break;
       case a_Pat::tag_ARRAYpat: {
-#line 1382 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_ARRAYpat(pat)->_1,i); 
-#line 1382 "../../prop-src/rwgen.pcc"
+#line 1382 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_ARRAYpat *)pat)->_1,i); 
+#line 1382 "rwgen.pcc"
         } break;
       case a_Pat::tag_TUPLEpat: {
-#line 1383 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_TUPLEpat(pat)->TUPLEpat,i); 
-#line 1383 "../../prop-src/rwgen.pcc"
+#line 1383 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_TUPLEpat *)pat)->TUPLEpat,i); 
+#line 1383 "rwgen.pcc"
         } break;
       case a_Pat::tag_EXTUPLEpat: {
-#line 1384 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_EXTUPLEpat(pat)->EXTUPLEpat,i); 
-#line 1384 "../../prop-src/rwgen.pcc"
+#line 1384 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_EXTUPLEpat *)pat)->EXTUPLEpat,i); 
+#line 1384 "rwgen.pcc"
         } break;
       case a_Pat::tag_RECORDpat: {
-#line 1385 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_RECORDpat(pat)->_1,i); 
-#line 1385 "../../prop-src/rwgen.pcc"
+#line 1385 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_RECORDpat *)pat)->_1,i); 
+#line 1385 "rwgen.pcc"
         } break;
       case a_Pat::tag_LISTpat: {
-#line 1387 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_LISTpat(pat)->head,i);
-        i = gen_pattern_traversal(F,lhs,_LISTpat(pat)->tail,i);
+#line 1387 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_LISTpat *)pat)->head,i);
+        i = gen_pattern_traversal(F,lhs,((Pat_LISTpat *)pat)->tail,i);
         
-#line 1389 "../../prop-src/rwgen.pcc"
+#line 1389 "rwgen.pcc"
         } break;
       case a_Pat::tag_VECTORpat: {
-#line 1391 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_VECTORpat(pat)->elements,i);
-        i = gen_pattern_traversal(F,lhs,_VECTORpat(pat)->array,i);
-        i = gen_pattern_traversal(F,lhs,_VECTORpat(pat)->len,i);
+#line 1391 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_VECTORpat *)pat)->elements,i);
+        i = gen_pattern_traversal(F,lhs,((Pat_VECTORpat *)pat)->array,i);
+        i = gen_pattern_traversal(F,lhs,((Pat_VECTORpat *)pat)->len,i);
         
-#line 1394 "../../prop-src/rwgen.pcc"
+#line 1394 "rwgen.pcc"
         } break;
       case a_Pat::tag_GUARDpat: {
-#line 1380 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_GUARDpat(pat)->_1,i); 
-#line 1380 "../../prop-src/rwgen.pcc"
+#line 1380 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_GUARDpat *)pat)->_1,i); 
+#line 1380 "rwgen.pcc"
         } break;
       case a_Pat::tag_MARKEDpat: {
-#line 1379 "../../prop-src/rwgen.pcc"
-       i = gen_pattern_traversal(F,lhs,_MARKEDpat(pat)->_2,i); 
-#line 1379 "../../prop-src/rwgen.pcc"
+#line 1379 "rwgen.pcc"
+       i = gen_pattern_traversal(F,lhs,((Pat_MARKEDpat *)pat)->_2,i); 
+#line 1379 "rwgen.pcc"
         } break;
       case a_Pat::tag_WILDpat:
       case a_Pat::tag_IDpat: {
-#line 1396 "../../prop-src/rwgen.pcc"
+#line 1396 "rwgen.pcc"
         
         if (F.is_rewritable_type(pat->ty))
         {
@@ -1713,7 +1713,7 @@ int RewritingCompiler::gen_pattern_traversal( FunctorMap& F, Id lhs, Pat pat, in
           i++;
         }
         
-#line 1417 "../../prop-src/rwgen.pcc"
+#line 1417 "rwgen.pcc"
         } break;
       case a_Pat::tag_CONSpat:
       case a_Pat::tag_LITERALpat:
@@ -1721,17 +1721,17 @@ int RewritingCompiler::gen_pattern_traversal( FunctorMap& F, Id lhs, Pat pat, in
       case a_Pat::tag_LEXEMEpat: {
         L5:; } break;
       default: {
-#line 1419 "../../prop-src/rwgen.pcc"
+#line 1419 "rwgen.pcc"
         
         bug("RewritingCompiler::gen_pattern_traversal on %p\n",pat);
         
-#line 1421 "../../prop-src/rwgen.pcc"
+#line 1421 "rwgen.pcc"
         } break;
     }
   } else { goto L5; }
 }
-#line 1422 "../../prop-src/rwgen.pcc"
-#line 1422 "../../prop-src/rwgen.pcc"
+#line 1422 "rwgen.pcc"
+#line 1422 "rwgen.pcc"
 
   return i;
 }
@@ -1761,7 +1761,7 @@ int RewritingCompiler::gen_pattern_traversal( FunctorMap& F, Id lhs, LabPats ps,
     i = gen_pattern_traversal( F, lhs, p.pat, i);
   return i;
 }
-#line 1451 "../../prop-src/rwgen.pcc"
+#line 1451 "rwgen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes
@@ -1770,8 +1770,8 @@ Number of ifs generated      = 14
 Number of switches generated = 10
 Number of labels             = 5
 Number of gotos              = 13
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */
