@@ -195,7 +195,7 @@ public:
 #line 42 "../../prop-src/setl-ast.ph"
   Id id; Ty ty; Exp init_exp; 
   inline Def_VARdef (Id x_id, Ty x_ty, Exp x_init_exp = NOexp)
-   : a_Def(tag_VARdef), id(x_id), ty(x_ty), init_std::exp(x_init_exp)
+   : a_Def(tag_VARdef), id(x_id), ty(x_ty), init_exp(x_init_exp)
   {
   }
 };

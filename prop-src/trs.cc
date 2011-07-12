@@ -178,13 +178,13 @@ Bool is_pattern_var( Exp exp)
     if (exp) {
       switch (exp->tag__) {
         case a_Exp::tag_DOTexp: {
-          if (_DOTstd::exp(exp)->_1) {
-            switch (_DOTstd::exp(exp)->_1->tag__) {
+          if (_DOTexp(exp)->_1) {
+            switch (_DOTexp(exp)->_1->tag__) {
               case a_Exp::tag_SELECTORexp: {
-                if (_SELECTORstd::exp(_DOTexp(exp)->_1)->_1) {
-                  switch (_SELECTORstd::exp(_DOTexp(exp)->_1)->_1->tag__) {
+                if (_SELECTORexp(_DOTexp(exp)->_1)->_1) {
+                  switch (_SELECTORexp(_DOTexp(exp)->_1)->_1->tag__) {
                     case a_Exp::tag_IDexp: {
-                      if (_equal_string(_IDstd::exp(_SELECTORexp(_DOTexp(exp)->_1)->_1)->IDexp,"redex")) {
+                      if (_equal_string(_IDexp(_SELECTORexp(_DOTexp(exp)->_1)->_1)->IDexp,"redex")) {
 #line 114 "../../prop-src/trs.pcc"
                      return true; 
 #line 114 "../../prop-src/trs.pcc"
@@ -192,7 +192,7 @@ Bool is_pattern_var( Exp exp)
                       else {
                       L3:; 
 #line 116 "../../prop-src/trs.pcc"
-                     exp = _SELECTORstd::exp(_DOTexp(exp)->_1)->_1; 
+                     exp = _SELECTORexp(_DOTexp(exp)->_1)->_1; 
 #line 116 "../../prop-src/trs.pcc"
 }
                       } break;
@@ -210,10 +210,10 @@ Bool is_pattern_var( Exp exp)
           } else { goto L4; }
           } break;
         case a_Exp::tag_SELECTORexp: {
-          if (_SELECTORstd::exp(exp)->_1) {
-            switch (_SELECTORstd::exp(exp)->_1->tag__) {
+          if (_SELECTORexp(exp)->_1) {
+            switch (_SELECTORexp(exp)->_1->tag__) {
               case a_Exp::tag_IDexp: {
-                if (_equal_string(_IDstd::exp(_SELECTORexp(exp)->_1)->IDexp,"redex")) {
+                if (_equal_string(_IDexp(_SELECTORexp(exp)->_1)->IDexp,"redex")) {
 #line 112 "../../prop-src/trs.pcc"
                return true; 
 #line 112 "../../prop-src/trs.pcc"
@@ -221,7 +221,7 @@ Bool is_pattern_var( Exp exp)
                 else {
                 L5:; 
 #line 118 "../../prop-src/trs.pcc"
-               exp = _SELECTORstd::exp(exp)->_1; 
+               exp = _SELECTORexp(exp)->_1; 
 #line 118 "../../prop-src/trs.pcc"
 }
                 } break;
@@ -509,12 +509,12 @@ Term TRS::make_term(Exp exp)
         case a_Exp::tag_LITERALexp: {
           if (
 #line 301 "../../prop-src/trs.pcc"
-          Fmap.literal_map.contains(_LITERALstd::exp(exp)->LITERALexp)
+          Fmap.literal_map.contains(_LITERALexp(exp)->LITERALexp)
 #line 301 "../../prop-src/trs.pcc"
 ) {
             
 #line 302 "../../prop-src/trs.pcc"
-           return CONSterm( Fmap.literal_map[_LITERALstd::exp(exp)->LITERALexp], 0, 0, 0); 
+           return CONSterm( Fmap.literal_map[_LITERALexp(exp)->LITERALexp], 0, 0, 0); 
 #line 302 "../../prop-src/trs.pcc"
           } else {
             
@@ -540,7 +540,7 @@ Term TRS::make_term(Exp exp)
           } break;
         case a_Exp::tag_IDexp: {
 #line 266 "../../prop-src/trs.pcc"
-         return make_term( exp, _IDstd::exp(exp)->IDexp, 
+         return make_term( exp, _IDexp(exp)->IDexp, 
 #line 266 "../../prop-src/trs.pcc"
 #line 266 "../../prop-src/trs.pcc"
           nil_1_
@@ -556,19 +556,19 @@ Term TRS::make_term(Exp exp)
 #line 303 "../../prop-src/trs.pcc"
 ) {
             
-            if (_APPstd::exp(exp)->_1) {
-              switch (_APPstd::exp(exp)->_1->tag__) {
+            if (_APPexp(exp)->_1) {
+              switch (_APPexp(exp)->_1->tag__) {
                 case a_Exp::tag_IDexp: {
                   L14:; 
-                  if (_APPstd::exp(exp)->_2) {
-                    switch (_APPstd::exp(exp)->_2->tag__) {
+                  if (_APPexp(exp)->_2) {
+                    switch (_APPexp(exp)->_2->tag__) {
                       case a_Exp::tag_TUPLEexp: {
                         L15:; 
 #line 286 "../../prop-src/trs.pcc"
                         
-                        law_exp = DatatypeCompiler::lookup_law( _IDstd::exp(_APPexp(exp)->_1)->IDexp, _TUPLEexp(_APPexp(exp)->_2)->TUPLEexp);
+                        law_exp = DatatypeCompiler::lookup_law( _IDexp(_APPexp(exp)->_1)->IDexp, _TUPLEexp(_APPexp(exp)->_2)->TUPLEexp);
                         if (law_exp == NOexp)
-                          return make_term( exp, _IDstd::exp(_APPexp(exp)->_1)->IDexp, _TUPLEexp(_APPexp(exp)->_2)->TUPLEexp);
+                          return make_term( exp, _IDexp(_APPexp(exp)->_1)->IDexp, _TUPLEexp(_APPexp(exp)->_2)->TUPLEexp);
                         type_of( law_exp);
                         exp = law_exp;
                         
@@ -578,18 +578,18 @@ Term TRS::make_term(Exp exp)
                         L16:; 
 #line 294 "../../prop-src/trs.pcc"
                         
-                        law_exp = DatatypeCompiler::lookup_law(_IDstd::exp(_APPexp(exp)->_1)->IDexp,
+                        law_exp = DatatypeCompiler::lookup_law(_IDexp(_APPexp(exp)->_1)->IDexp,
 #line 295 "../../prop-src/trs.pcc"
 #line 295 "../../prop-src/trs.pcc"
-                        list_1_(_APPstd::exp(exp)->_2)
+                        list_1_(_APPexp(exp)->_2)
 #line 295 "../../prop-src/trs.pcc"
 #line 295 "../../prop-src/trs.pcc"
                         );
                         if (law_exp == NOexp)
-                          return make_term(exp,_IDstd::exp(_APPexp(exp)->_1)->IDexp,
+                          return make_term(exp,_IDexp(_APPexp(exp)->_1)->IDexp,
 #line 297 "../../prop-src/trs.pcc"
 #line 297 "../../prop-src/trs.pcc"
-                        list_1_(_APPstd::exp(exp)->_2)
+                        list_1_(_APPexp(exp)->_2)
 #line 297 "../../prop-src/trs.pcc"
 #line 297 "../../prop-src/trs.pcc"
                         );
@@ -606,8 +606,8 @@ Term TRS::make_term(Exp exp)
             } else { goto L12; }
           } else {
             
-            if (_APPstd::exp(exp)->_1) {
-              switch (_APPstd::exp(exp)->_1->tag__) {
+            if (_APPexp(exp)->_1) {
+              switch (_APPexp(exp)->_1->tag__) {
                 case a_Exp::tag_IDexp: { goto L14; } break;
                 default: { goto L13; } break;
               }
@@ -621,18 +621,18 @@ Term TRS::make_term(Exp exp)
 #line 303 "../../prop-src/trs.pcc"
 ) {
             
-            if (_LISTstd::exp(exp)->_3) {
+            if (_LISTexp(exp)->_3) {
               L17:; 
-              if (_LISTstd::exp(exp)->_3->_2) {
+              if (_LISTexp(exp)->_3->_2) {
                 L18:; 
 #line 280 "../../prop-src/trs.pcc"
                 
-                Exp e2 = LISTstd::exp(_LISTexp(exp)->_1, _LISTexp(exp)->_2, _LISTexp(exp)->_3->_2, _LISTexp(exp)->_4);
+                Exp e2 = LISTexp(_LISTexp(exp)->_1, _LISTexp(exp)->_2, _LISTexp(exp)->_3->_2, _LISTexp(exp)->_4);
                 e2->ty = exp->ty;
-                return make_term(exp,_LISTstd::exp(exp)->_1->name,
+                return make_term(exp,_LISTexp(exp)->_1->name,
 #line 283 "../../prop-src/trs.pcc"
 #line 283 "../../prop-src/trs.pcc"
-                list_1_(_LISTstd::exp(exp)->_3->_1,list_1_(e2))
+                list_1_(_LISTexp(exp)->_3->_1,list_1_(e2))
 #line 283 "../../prop-src/trs.pcc"
 #line 283 "../../prop-src/trs.pcc"
                 );
@@ -642,18 +642,18 @@ Term TRS::make_term(Exp exp)
                 L19:; 
 #line 274 "../../prop-src/trs.pcc"
                 
-                Exp nil_exp = _LISTstd::exp(exp)->_4 == NOexp ? CONSexp( _LISTexp(exp)->_2, 
+                Exp nil_exp = _LISTexp(exp)->_4 == NOexp ? CONSexp( _LISTexp(exp)->_2, 
 #line 275 "../../prop-src/trs.pcc"
 #line 275 "../../prop-src/trs.pcc"
                 nil_1_
 #line 275 "../../prop-src/trs.pcc"
 #line 275 "../../prop-src/trs.pcc"
-                , NOexp) : _LISTstd::exp(exp)->_4;
+                , NOexp) : _LISTexp(exp)->_4;
                 nil_exp->ty = exp->ty;
-                return make_term( exp, _LISTstd::exp(exp)->_1->name, 
+                return make_term( exp, _LISTexp(exp)->_1->name, 
 #line 277 "../../prop-src/trs.pcc"
 #line 277 "../../prop-src/trs.pcc"
-                list_1_(_LISTstd::exp(exp)->_3->_1,list_1_(nil_exp))
+                list_1_(_LISTexp(exp)->_3->_1,list_1_(nil_exp))
 #line 277 "../../prop-src/trs.pcc"
 #line 277 "../../prop-src/trs.pcc"
                 );
@@ -663,7 +663,7 @@ Term TRS::make_term(Exp exp)
             } else { goto L12; }
           } else {
             
-            if (_LISTstd::exp(exp)->_3) { goto L17; } else { goto L13; }
+            if (_LISTexp(exp)->_3) { goto L17; } else { goto L13; }
           }
           } break;
         case a_Exp::tag_CONSexp: {
@@ -673,23 +673,23 @@ Term TRS::make_term(Exp exp)
 #line 303 "../../prop-src/trs.pcc"
 ) {
             
-            if (_CONSstd::exp(exp)->_2) { goto L12; } else {
+            if (_CONSexp(exp)->_2) { goto L12; } else {
               L20:; 
-              if (_CONSstd::exp(exp)->_3) {
-                switch (_CONSstd::exp(exp)->_3->tag__) {
+              if (_CONSexp(exp)->_3) {
+                switch (_CONSexp(exp)->_3->tag__) {
                   case a_Exp::tag_TUPLEexp: {
                     L21:; 
 #line 270 "../../prop-src/trs.pcc"
-                   return make_term( exp, _CONSstd::exp(exp)->_1->name, _TUPLEexp(_CONSexp(exp)->_3)->TUPLEexp); 
+                   return make_term( exp, _CONSexp(exp)->_1->name, _TUPLEexp(_CONSexp(exp)->_3)->TUPLEexp); 
 #line 270 "../../prop-src/trs.pcc"
                     } break;
                   default: {
                     L22:; 
 #line 272 "../../prop-src/trs.pcc"
-                   return make_term( exp, _CONSstd::exp(exp)->_1->name, 
+                   return make_term( exp, _CONSexp(exp)->_1->name, 
 #line 272 "../../prop-src/trs.pcc"
 #line 272 "../../prop-src/trs.pcc"
-                    list_1_(_CONSstd::exp(exp)->_3)
+                    list_1_(_CONSexp(exp)->_3)
 #line 272 "../../prop-src/trs.pcc"
 #line 272 "../../prop-src/trs.pcc"
                     ); 
@@ -699,7 +699,7 @@ Term TRS::make_term(Exp exp)
               } else {
                 L23:; 
 #line 268 "../../prop-src/trs.pcc"
-               return make_term( exp, _CONSstd::exp(exp)->_1->name, 
+               return make_term( exp, _CONSexp(exp)->_1->name, 
 #line 268 "../../prop-src/trs.pcc"
 #line 268 "../../prop-src/trs.pcc"
                 nil_1_
@@ -711,12 +711,12 @@ Term TRS::make_term(Exp exp)
             }
           } else {
             
-            if (_CONSstd::exp(exp)->_2) { goto L13; } else { goto L20; }
+            if (_CONSexp(exp)->_2) { goto L13; } else { goto L20; }
           }
           } break;
         case a_Exp::tag_MARKEDexp: {
 #line 264 "../../prop-src/trs.pcc"
-         exp = _MARKEDstd::exp(exp)->_2; 
+         exp = _MARKEDexp(exp)->_2; 
 #line 264 "../../prop-src/trs.pcc"
           } break;
         default: { goto L11; } break;

@@ -60,8 +60,8 @@ void DatatypeClass::generate_gc_implementation( CodeGen& C, Tys tys, DefKind k)
   {
     Ty arg_ty = cons_arg_ty;
     if (is_array)
-      arg_ty = mkarrayty( arg_ty, IDstd::exp( "len_"));
-    gen_field_tracing_methods( C, DEREFstd::exp( IDexp( #"this")),
+      arg_ty = mkarrayty( arg_ty, IDexp( "len_"));
+    gen_field_tracing_methods( C, DEREFexp( IDexp( #"this")),
                                arg_ty, tys, k, true);
   }
 
@@ -115,20 +115,20 @@ void DatatypeClass::gen_field_tracing_methods
     {
       int i = 1;
       for_each ( Ty, ty, types)
-        gen_field_tracing_methods( C, DOTstd::exp( exp, index_of(i++)), ty, tys, k);
+        gen_field_tracing_methods( C, DOTexp( exp, index_of(i++)), ty, tys, k);
     }
   | EXTUPLEty types:
     {
       int i = 1;
       for_each ( Ty, ty, types)
-        gen_field_tracing_methods( C, DOTstd::exp( exp, index_of(i++)), ty, tys, k);
+        gen_field_tracing_methods( C, DOTexp( exp, index_of(i++)), ty, tys, k);
     }
   | RECORDty( labels, _, types):
     {
     Ids ls;
     Tys ts;
     for( ls = labels, ts = types; ls && ts; ls = ls->#2, ts = ts->#2)
-      gen_field_tracing_methods( C, DOTstd::exp( exp, ls->#1), ts->#1, tys,k);
+      gen_field_tracing_methods( C, DOTexp( exp, ls->#1), ts->#1, tys,k);
     }
   | ARRAYty( ty, bound):
     {
@@ -138,7 +138,7 @@ void DatatypeClass::gen_field_tracing_methods
             "%^{%+",
             bound
           );
-     gen_field_tracing_methods( C, INDEXstd::exp( exp, IDexp( #"i__")), ty, tys, k);
+     gen_field_tracing_methods( C, INDEXexp( exp, IDexp( #"i__")), ty, tys, k);
      C.pr(
            "%-%^}"
            "%-%^}"
@@ -149,7 +149,7 @@ void DatatypeClass::gen_field_tracing_methods
      if (is_gc_ty(ty))
      {
        if (toplevel)
-         exp = DOTstd::exp( exp, mangle( cons->name));
+         exp = DOTexp( exp, mangle( cons->name));
        if (is_pointer_ty(ty))
          C.pr( "%^%e = (%t)gc__->trace(%e);", exp, ty, "", exp);
        else

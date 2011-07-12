@@ -175,8 +175,8 @@ private:
   //
   ////////////////////////////////////////////////////////////////////////////
   void generate_residue( Rule, int, State, Term);
-  Exp  make_std::exp( Term) const;
-  Exps make_std::exp( int n, Term []) const;
+  Exp  make_exp( Term) const;
+  Exps make_exp( int n, Term []) const;
 
   ////////////////////////////////////////////////////////////////////////////
   //

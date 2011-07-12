@@ -69,7 +69,7 @@ void TRS::mix_0( Rule r)
   if (reductions > 0)
   {
     print_residue( r, rhs);
-    make_rhs( r, optimized_map[r] = make_std::exp(rhs));
+    make_rhs( r, optimized_map[r] = make_exp(rhs));
   }
 }
 
@@ -263,7 +263,7 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
   match (exp) and (redex)
   {
     IDexp "redex", redex:  { return redex; }
-  | DOTstd::exp( SELECTORexp( e, c1, ty), ith), redex:
+  | DOTexp( SELECTORexp( e, c1, ty), ith), redex:
     {
       match (proj( e, redex, ok))
       {
@@ -271,9 +271,9 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
             c1 == c2 && ((nth = std::atol(ith+1)-1), nth < n):
           {  return args[nth]; }
       | CODEterm(e):
-        { return CODEterm( DOTstd::exp( SELECTORexp( e, c1, ty), ith)); }
+        { return CODEterm( DOTexp( SELECTORexp( e, c1, ty), ith)); }
       | VARterm( _, _, e):
-	    { return CODEterm( DOTstd::exp( SELECTORexp( e, c1, ty), ith)); }
+	    { return CODEterm( DOTexp( SELECTORexp( e, c1, ty), ith)); }
       | redex as CONSterm(_,c2,n,args):
         {  // msg("1 Can't project %e %i %i", exp,nth,n);
 	      // print(msg(""),redex); msg("\n");
@@ -288,14 +288,14 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
 	    }
       }
     }
-  | SELECTORstd::exp( e, c1, ty), redex:
+  | SELECTORexp( e, c1, ty), redex:
     {
       match (proj( e, redex, ok))
       {
       CONSterm( _, c2, n, args) | c1 == c2:
         {  return args[0]; }
-      | CODEterm(e): { return CODEterm(SELECTORstd::exp(e,c1,ty)); }
-      | VARterm(_,_,e): { return CODEterm(SELECTORstd::exp(e,c1,ty)); }
+      | CODEterm(e): { return CODEterm(SELECTORexp(e,c1,ty)); }
+      | VARterm(_,_,e): { return CODEterm(SELECTORexp(e,c1,ty)); }
       | redex:
         {  // msg("2 Can't project %e ", exp);
 	    // print(msg(""),redex); msg("\n");
@@ -324,8 +324,8 @@ Exp TRS::proj( Exp e1, Exp e2, Bool& ok)
   match (e1)
   {
     IDexp "redex":          { return e2; }
-  | SELECTORstd::exp( e, c, ty): { return SELECTORexp(proj( e, e2, ok), c, ty); }
-  | DOTstd::exp( e, id):         { return DOTexp(proj( e, e2, ok), id); }
+  | SELECTORexp( e, c, ty): { return SELECTORexp(proj( e, e2, ok), c, ty); }
+  | DOTexp( e, id):         { return DOTexp(proj( e, e2, ok), id); }
   | _: { msg("Can't project %e %e\n", e1, e2);  return NOexp; }
   }
 }

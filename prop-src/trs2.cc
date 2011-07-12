@@ -79,7 +79,7 @@ void TRS::mix_0( Rule r)
   if (reductions > 0)
   {
     print_residue( r, rhs);
-    make_rhs( r, optimized_map[r] = make_std::exp(rhs));
+    make_rhs( r, optimized_map[r] = make_exp(rhs));
   }
 }
 
@@ -315,7 +315,7 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
   if (exp) {
     switch (exp->tag__) {
       case a_Exp::tag_IDexp: {
-        if (_equal_string(_IDstd::exp(exp)->IDexp,"redex")) {
+        if (_equal_string(_IDexp(exp)->IDexp,"redex")) {
 #line 265 "../../prop-src/trs2.pcc"
        return redex; 
 #line 265 "../../prop-src/trs2.pcc"
@@ -332,8 +332,8 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
 }
         } break;
       case a_Exp::tag_DOTexp: {
-        if (_DOTstd::exp(exp)->_1) {
-          switch (_DOTstd::exp(exp)->_1->tag__) {
+        if (_DOTexp(exp)->_1) {
+          switch (_DOTexp(exp)->_1->tag__) {
             case a_Exp::tag_SELECTORexp: {
 #line 267 "../../prop-src/trs2.pcc"
               
@@ -341,12 +341,12 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
 #line 268 "../../prop-src/trs2.pcc"
 #line 288 "../../prop-src/trs2.pcc"
               {
-                Term _V1 = proj(_SELECTORstd::exp(_DOTexp(exp)->_1)->_1,redex,ok);
+                Term _V1 = proj(_SELECTORexp(_DOTexp(exp)->_1)->_1,redex,ok);
                 switch (_V1->tag__) {
                   case a_Term::tag_CONSterm: {
                     if (
 #line 270 "../../prop-src/trs2.pcc"
-                    ((_SELECTORstd::exp(_DOTexp(exp)->_1)->_2 == _CONSterm(_V1)->_2) && (nth = (std::atol((_DOTexp(exp)->_2 + 1)) - 1)),(nth < _CONSterm(_V1)->_3))
+                    ((_SELECTORexp(_DOTexp(exp)->_1)->_2 == _CONSterm(_V1)->_2) && (nth = (std::atol((_DOTexp(exp)->_2 + 1)) - 1)),(nth < _CONSterm(_V1)->_3))
 #line 271 "../../prop-src/trs2.pcc"
 ) {
                       
@@ -366,12 +366,12 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
                     } break;
                   case a_Term::tag_VARterm: {
 #line 276 "../../prop-src/trs2.pcc"
-                   return CODEterm( DOTstd::exp( SELECTORexp( _VARterm(_V1)->_3, _SELECTORexp(_DOTexp(exp)->_1)->_2, _SELECTORexp(_DOTexp(exp)->_1)->_3), _DOTexp(exp)->_2)); 
+                   return CODEterm( DOTexp( SELECTORexp( _VARterm(_V1)->_3, _SELECTORexp(_DOTexp(exp)->_1)->_2, _SELECTORexp(_DOTexp(exp)->_1)->_3), _DOTexp(exp)->_2)); 
 #line 276 "../../prop-src/trs2.pcc"
                     } break;
                   case a_Term::tag_CODEterm: {
 #line 274 "../../prop-src/trs2.pcc"
-                   return CODEterm( DOTstd::exp( SELECTORexp( _CODEterm(_V1)->CODEterm, _SELECTORexp(_DOTexp(exp)->_1)->_2, _SELECTORexp(_DOTexp(exp)->_1)->_3), _DOTexp(exp)->_2)); 
+                   return CODEterm( DOTexp( SELECTORexp( _CODEterm(_V1)->CODEterm, _SELECTORexp(_DOTexp(exp)->_1)->_2, _SELECTORexp(_DOTexp(exp)->_1)->_3), _DOTexp(exp)->_2)); 
 #line 274 "../../prop-src/trs2.pcc"
                     } break;
                   default: {
@@ -402,12 +402,12 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
 #line 293 "../../prop-src/trs2.pcc"
 #line 304 "../../prop-src/trs2.pcc"
         {
-          Term _V2 = proj(_SELECTORstd::exp(exp)->_1,redex,ok);
+          Term _V2 = proj(_SELECTORexp(exp)->_1,redex,ok);
           switch (_V2->tag__) {
             case a_Term::tag_CONSterm: {
               if (
 #line 295 "../../prop-src/trs2.pcc"
-              (_SELECTORstd::exp(exp)->_2 == _CONSterm(_V2)->_2)
+              (_SELECTORexp(exp)->_2 == _CONSterm(_V2)->_2)
 #line 295 "../../prop-src/trs2.pcc"
 ) {
                 
@@ -428,12 +428,12 @@ Term TRS::proj( Exp exp, Term redex, Bool& ok)
               } break;
             case a_Term::tag_VARterm: {
 #line 298 "../../prop-src/trs2.pcc"
-             return CODEterm(SELECTORstd::exp(_VARterm(_V2)->_3,_SELECTORexp(exp)->_2,_SELECTORexp(exp)->_3)); 
+             return CODEterm(SELECTORexp(_VARterm(_V2)->_3,_SELECTORexp(exp)->_2,_SELECTORexp(exp)->_3)); 
 #line 298 "../../prop-src/trs2.pcc"
               } break;
             case a_Term::tag_CODEterm: {
 #line 297 "../../prop-src/trs2.pcc"
-             return CODEterm(SELECTORstd::exp(_CODEterm(_V2)->CODEterm,_SELECTORexp(exp)->_2,_SELECTORexp(exp)->_3)); 
+             return CODEterm(SELECTORexp(_CODEterm(_V2)->CODEterm,_SELECTORexp(exp)->_2,_SELECTORexp(exp)->_3)); 
 #line 297 "../../prop-src/trs2.pcc"
               } break;
             default: { goto L2; } break;
@@ -469,7 +469,7 @@ Exp TRS::proj( Exp e1, Exp e2, Bool& ok)
   if (e1) {
     switch (e1->tag__) {
       case a_Exp::tag_IDexp: {
-        if (_equal_string(_IDstd::exp(e1)->IDexp,"redex")) {
+        if (_equal_string(_IDexp(e1)->IDexp,"redex")) {
 #line 326 "../../prop-src/trs2.pcc"
        return e2; 
 #line 326 "../../prop-src/trs2.pcc"
@@ -483,12 +483,12 @@ Exp TRS::proj( Exp e1, Exp e2, Bool& ok)
         } break;
       case a_Exp::tag_DOTexp: {
 #line 328 "../../prop-src/trs2.pcc"
-       return DOTstd::exp(proj( _DOTexp(e1)->_1, e2, ok), _DOTexp(e1)->_2); 
+       return DOTexp(proj( _DOTexp(e1)->_1, e2, ok), _DOTexp(e1)->_2); 
 #line 328 "../../prop-src/trs2.pcc"
         } break;
       case a_Exp::tag_SELECTORexp: {
 #line 327 "../../prop-src/trs2.pcc"
-       return SELECTORstd::exp(proj( _SELECTORexp(e1)->_1, e2, ok), _SELECTORexp(e1)->_2, _SELECTORexp(e1)->_3); 
+       return SELECTORexp(proj( _SELECTORexp(e1)->_1, e2, ok), _SELECTORexp(e1)->_2, _SELECTORexp(e1)->_3); 
 #line 327 "../../prop-src/trs2.pcc"
         } break;
       default: { goto L3; } break;

@@ -23,7 +23,7 @@ struct BINDING
   BINDING()
   {}
   BINDING(Id v, Exp e, Ty t, Polarity p)
-      : var(v), std::exp(e), ty(t), polarity(p)
+      : var(v), exp(e), ty(t), polarity(p)
   {}
 }
 ;
@@ -170,7 +170,7 @@ Exp  PatternVarEnv::guard( Exp e)
     return e2;
   if (e2 == NOexp)
     return e;
-  return BINOPstd::exp("&&",e2,e);
+  return BINOPexp("&&",e2,e);
 }
 
 void PatternVarEnv::add_guard( Exp e)
@@ -179,7 +179,7 @@ void PatternVarEnv::add_guard( Exp e)
   {
     Exp& g = impl->guards.top();
     if (g != NOexp)
-      g = BINOPstd::exp("&&",g,e);
+      g = BINOPexp("&&",g,e);
     else
       g = e;
     if (options.debug)

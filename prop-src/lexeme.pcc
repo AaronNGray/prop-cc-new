@@ -63,7 +63,7 @@ Pat add_contexts( Conses contexts, Pat pat)
   | STRINGpat s:
     {
       return add_contexts(
-            contexts, LITERALpat( REGEXPlit( convert_regstd::exp( s))));
+            contexts, LITERALpat( REGEXPlit( convert_regexp( s))));
     }
   | LEXEMEpat( _, ty, n, cs):
     {
@@ -97,7 +97,7 @@ Pat add_contexts( Conses contexts, Pat pat)
 ///////////////////////////////////////////////////////////////////////////////
 
 fun convert_regexp STRINGpat s: Pat:
-    { return LITERALpat( REGEXPlit( convert_regstd::exp(s))); }
+    { return LITERALpat( REGEXPlit( convert_regexp(s))); }
 |   convert_regexp p:
     { return p; }
 ;
@@ -106,7 +106,7 @@ fun convert_regexp STRINGpat s: Pat:
 //  Convert a string literal into a regular expression literal.
 ///////////////////////////////////////////////////////////////////////////////
 
-const char *convert_regstd::exp( const char * string, Bool quotes)
+const char *convert_regexp( const char * string, Bool quotes)
 {
   char buf[4096];
   register char * p = buf;
@@ -210,7 +210,7 @@ Pat mk_regexp_pat( const char * re)
             | LITERALpat( STRINGlit s):
               {
                 *q++ = '(';
-                std::strcpy( q, convert_regstd::exp( s, false));
+                std::strcpy( q, convert_regexp( s, false));
                 q += std::strlen(q) - 1;
                 *q++ = ')';
               }
@@ -286,7 +286,7 @@ Pat expand_lexeme_pat( Pat pat, Ty ty, int n, Cons terms[])
         {
         ONEcons { lexeme_pattern = p as ! NOpat ... }:
           {
-            Pat new_pat = subst(convert_regstd::exp(p),0,true);
+            Pat new_pat = subst(convert_regexp(p),0,true);
             disj_pats = (disj_pats == NOpat) ? new_pat
                         : LOGICALpat(ORpat,disj_pats, new_pat);
             disj_pats->selector = pat->selector;

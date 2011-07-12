@@ -5057,202 +5057,202 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 182: {
 #line 526 "../../prop-src/parser.pcc"
-     syn_._732 = BINOPstd::exp("+",t__[1+to__]._733,t__[2+to__]._735); 
+     syn_._732 = BINOPexp("+",t__[1+to__]._733,t__[2+to__]._735); 
 #line 526 "../../prop-src/parser.pcc"
 } break;
     case 183: {
 #line 527 "../../prop-src/parser.pcc"
-     syn_._737 = BINOPstd::exp("-",t__[1+to__]._738,t__[2+to__]._740); 
+     syn_._737 = BINOPexp("-",t__[1+to__]._738,t__[2+to__]._740); 
 #line 527 "../../prop-src/parser.pcc"
 } break;
     case 184: {
 #line 528 "../../prop-src/parser.pcc"
-     syn_._742 = BINOPstd::exp("*",t__[1+to__]._743,t__[2+to__]._745); 
+     syn_._742 = BINOPexp("*",t__[1+to__]._743,t__[2+to__]._745); 
 #line 528 "../../prop-src/parser.pcc"
 } break;
     case 185: {
 #line 529 "../../prop-src/parser.pcc"
-     syn_._747 = BINOPstd::exp("/",t__[1+to__]._748,t__[2+to__]._750); 
+     syn_._747 = BINOPexp("/",t__[1+to__]._748,t__[2+to__]._750); 
 #line 529 "../../prop-src/parser.pcc"
 } break;
     case 186: {
 #line 530 "../../prop-src/parser.pcc"
-     syn_._752 = BINOPstd::exp("%",t__[1+to__]._753,t__[2+to__]._755); 
+     syn_._752 = BINOPexp("%",t__[1+to__]._753,t__[2+to__]._755); 
 #line 530 "../../prop-src/parser.pcc"
 } break;
     case 187: {
 #line 531 "../../prop-src/parser.pcc"
-     syn_._757 = ASSIGNstd::exp(t__[1+to__]._758,t__[2+to__]._760); 
+     syn_._757 = ASSIGNexp(t__[1+to__]._758,t__[2+to__]._760); 
 #line 531 "../../prop-src/parser.pcc"
 } break;
     case 188: {
 #line 532 "../../prop-src/parser.pcc"
-     syn_._762 = ASSIGNstd::exp(t__[1+to__]._763,t__[2+to__]._765); 
+     syn_._762 = ASSIGNexp(t__[1+to__]._763,t__[2+to__]._765); 
 #line 532 "../../prop-src/parser.pcc"
 } break;
     case 189: {
 #line 533 "../../prop-src/parser.pcc"
-     syn_._767 = BINOPstd::exp("<",t__[1+to__]._768,t__[2+to__]._770); 
+     syn_._767 = BINOPexp("<",t__[1+to__]._768,t__[2+to__]._770); 
 #line 533 "../../prop-src/parser.pcc"
 } break;
     case 190: {
 #line 534 "../../prop-src/parser.pcc"
-     syn_._772 = BINOPstd::exp(">",t__[1+to__]._773,t__[2+to__]._775); 
+     syn_._772 = BINOPexp(">",t__[1+to__]._773,t__[2+to__]._775); 
 #line 534 "../../prop-src/parser.pcc"
 } break;
     case 191: {
 #line 535 "../../prop-src/parser.pcc"
-     syn_._777 = BINOPstd::exp("|",t__[1+to__]._778,t__[2+to__]._780); 
+     syn_._777 = BINOPexp("|",t__[1+to__]._778,t__[2+to__]._780); 
 #line 535 "../../prop-src/parser.pcc"
 } break;
     case 192: {
 #line 536 "../../prop-src/parser.pcc"
-     syn_._782 = BINOPstd::exp("&",t__[1+to__]._783,t__[2+to__]._785); 
+     syn_._782 = BINOPexp("&",t__[1+to__]._783,t__[2+to__]._785); 
 #line 536 "../../prop-src/parser.pcc"
 } break;
     case 193: {
 #line 537 "../../prop-src/parser.pcc"
-     syn_._787 = BINOPstd::exp("^",t__[1+to__]._788,t__[2+to__]._790); 
+     syn_._787 = BINOPexp("^",t__[1+to__]._788,t__[2+to__]._790); 
 #line 537 "../../prop-src/parser.pcc"
 } break;
     case 194: {
 #line 538 "../../prop-src/parser.pcc"
-     syn_._792 = BINOPstd::exp("+=",t__[1+to__]._793,t__[2+to__]._795); 
+     syn_._792 = BINOPexp("+=",t__[1+to__]._793,t__[2+to__]._795); 
 #line 538 "../../prop-src/parser.pcc"
 } break;
     case 195: {
 #line 539 "../../prop-src/parser.pcc"
-     syn_._797 = BINOPstd::exp("-=",t__[1+to__]._798,t__[2+to__]._800); 
+     syn_._797 = BINOPexp("-=",t__[1+to__]._798,t__[2+to__]._800); 
 #line 539 "../../prop-src/parser.pcc"
 } break;
     case 196: {
 #line 540 "../../prop-src/parser.pcc"
-     syn_._802 = BINOPstd::exp("*=",t__[1+to__]._803,t__[2+to__]._805); 
+     syn_._802 = BINOPexp("*=",t__[1+to__]._803,t__[2+to__]._805); 
 #line 540 "../../prop-src/parser.pcc"
 } break;
     case 197: {
 #line 541 "../../prop-src/parser.pcc"
-     syn_._807 = BINOPstd::exp("/=",t__[1+to__]._808,t__[2+to__]._810); 
+     syn_._807 = BINOPexp("/=",t__[1+to__]._808,t__[2+to__]._810); 
 #line 541 "../../prop-src/parser.pcc"
 } break;
     case 198: {
 #line 542 "../../prop-src/parser.pcc"
-     syn_._812 = BINOPstd::exp("%=",t__[1+to__]._813,t__[2+to__]._815); 
+     syn_._812 = BINOPexp("%=",t__[1+to__]._813,t__[2+to__]._815); 
 #line 542 "../../prop-src/parser.pcc"
 } break;
     case 199: {
 #line 543 "../../prop-src/parser.pcc"
-     syn_._817 = BINOPstd::exp("&=",t__[1+to__]._818,t__[2+to__]._820); 
+     syn_._817 = BINOPexp("&=",t__[1+to__]._818,t__[2+to__]._820); 
 #line 543 "../../prop-src/parser.pcc"
 } break;
     case 200: {
 #line 544 "../../prop-src/parser.pcc"
-     syn_._822 = BINOPstd::exp("|=",t__[1+to__]._823,t__[2+to__]._825); 
+     syn_._822 = BINOPexp("|=",t__[1+to__]._823,t__[2+to__]._825); 
 #line 544 "../../prop-src/parser.pcc"
 } break;
     case 201: {
 #line 545 "../../prop-src/parser.pcc"
-     syn_._827 = BINOPstd::exp("^=",t__[1+to__]._828,t__[2+to__]._830); 
+     syn_._827 = BINOPexp("^=",t__[1+to__]._828,t__[2+to__]._830); 
 #line 545 "../../prop-src/parser.pcc"
 } break;
     case 202: {
 #line 546 "../../prop-src/parser.pcc"
-     syn_._832 = BINOPstd::exp(">=",t__[1+to__]._833,t__[2+to__]._835); 
+     syn_._832 = BINOPexp(">=",t__[1+to__]._833,t__[2+to__]._835); 
 #line 546 "../../prop-src/parser.pcc"
 } break;
     case 203: {
 #line 547 "../../prop-src/parser.pcc"
-     syn_._837 = BINOPstd::exp("<=",t__[1+to__]._838,t__[2+to__]._840); 
+     syn_._837 = BINOPexp("<=",t__[1+to__]._838,t__[2+to__]._840); 
 #line 547 "../../prop-src/parser.pcc"
 } break;
     case 204: {
 #line 548 "../../prop-src/parser.pcc"
-     syn_._842 = BINOPstd::exp("==",t__[1+to__]._843,t__[2+to__]._845); 
+     syn_._842 = BINOPexp("==",t__[1+to__]._843,t__[2+to__]._845); 
 #line 548 "../../prop-src/parser.pcc"
 } break;
     case 205: {
 #line 549 "../../prop-src/parser.pcc"
-     syn_._847 = BINOPstd::exp("!=",t__[1+to__]._848,t__[2+to__]._850); 
+     syn_._847 = BINOPexp("!=",t__[1+to__]._848,t__[2+to__]._850); 
 #line 549 "../../prop-src/parser.pcc"
 } break;
     case 206: {
 #line 550 "../../prop-src/parser.pcc"
-     syn_._852 = BINOPstd::exp("||",t__[1+to__]._853,t__[2+to__]._855); 
+     syn_._852 = BINOPexp("||",t__[1+to__]._853,t__[2+to__]._855); 
 #line 550 "../../prop-src/parser.pcc"
 } break;
     case 207: {
 #line 551 "../../prop-src/parser.pcc"
-     syn_._857 = BINOPstd::exp("&&",t__[1+to__]._858,t__[2+to__]._860); 
+     syn_._857 = BINOPexp("&&",t__[1+to__]._858,t__[2+to__]._860); 
 #line 551 "../../prop-src/parser.pcc"
 } break;
     case 208: {
 #line 552 "../../prop-src/parser.pcc"
-     syn_._862 = BINOPstd::exp("<<",t__[1+to__]._863,t__[2+to__]._865); 
+     syn_._862 = BINOPexp("<<",t__[1+to__]._863,t__[2+to__]._865); 
 #line 552 "../../prop-src/parser.pcc"
 } break;
     case 209: {
 #line 553 "../../prop-src/parser.pcc"
-     syn_._867 = BINOPstd::exp(">>",t__[1+to__]._868,t__[2+to__]._870); 
+     syn_._867 = BINOPexp(">>",t__[1+to__]._868,t__[2+to__]._870); 
 #line 553 "../../prop-src/parser.pcc"
 } break;
     case 210: {
 #line 554 "../../prop-src/parser.pcc"
-     syn_._872 = BINOPstd::exp("<<=",t__[1+to__]._873,t__[2+to__]._875); 
+     syn_._872 = BINOPexp("<<=",t__[1+to__]._873,t__[2+to__]._875); 
 #line 554 "../../prop-src/parser.pcc"
 } break;
     case 211: {
 #line 555 "../../prop-src/parser.pcc"
-     syn_._877 = BINOPstd::exp(">>=",t__[1+to__]._878,t__[2+to__]._880); 
+     syn_._877 = BINOPexp(">>=",t__[1+to__]._878,t__[2+to__]._880); 
 #line 555 "../../prop-src/parser.pcc"
 } break;
     case 212: {
 #line 556 "../../prop-src/parser.pcc"
-     syn_._882 = POSTFIXstd::exp("++",t__[1+to__]._883); 
+     syn_._882 = POSTFIXexp("++",t__[1+to__]._883); 
 #line 556 "../../prop-src/parser.pcc"
 } break;
     case 213: {
 #line 557 "../../prop-src/parser.pcc"
-     syn_._886 = POSTFIXstd::exp("--",t__[1+to__]._887); 
+     syn_._886 = POSTFIXexp("--",t__[1+to__]._887); 
 #line 557 "../../prop-src/parser.pcc"
 } break;
     case 214: {
 #line 558 "../../prop-src/parser.pcc"
-     syn_._890 = PREFIXstd::exp("-",t__[1+to__]._892); 
+     syn_._890 = PREFIXexp("-",t__[1+to__]._892); 
 #line 558 "../../prop-src/parser.pcc"
 } break;
     case 215: {
 #line 559 "../../prop-src/parser.pcc"
-     syn_._894 = PREFIXstd::exp("!",t__[1+to__]._896); 
+     syn_._894 = PREFIXexp("!",t__[1+to__]._896); 
 #line 559 "../../prop-src/parser.pcc"
 } break;
     case 216: {
 #line 560 "../../prop-src/parser.pcc"
-     syn_._898 = PREFIXstd::exp("++",t__[1+to__]._900); 
+     syn_._898 = PREFIXexp("++",t__[1+to__]._900); 
 #line 560 "../../prop-src/parser.pcc"
 } break;
     case 217: {
 #line 561 "../../prop-src/parser.pcc"
-     syn_._902 = PREFIXstd::exp("--",t__[1+to__]._904); 
+     syn_._902 = PREFIXexp("--",t__[1+to__]._904); 
 #line 561 "../../prop-src/parser.pcc"
 } break;
     case 218: {
 #line 562 "../../prop-src/parser.pcc"
-     syn_._906 = PREFIXstd::exp("&",t__[1+to__]._908); 
+     syn_._906 = PREFIXexp("&",t__[1+to__]._908); 
 #line 562 "../../prop-src/parser.pcc"
 } break;
     case 219: {
 #line 563 "../../prop-src/parser.pcc"
-     syn_._910 = PREFIXstd::exp("~",t__[1+to__]._912); 
+     syn_._910 = PREFIXexp("~",t__[1+to__]._912); 
 #line 563 "../../prop-src/parser.pcc"
 } break;
     case 220: {
 #line 564 "../../prop-src/parser.pcc"
-     syn_._914 = DEREFstd::exp(t__[1+to__]._916); 
+     syn_._914 = DEREFexp(t__[1+to__]._916); 
 #line 564 "../../prop-src/parser.pcc"
 } break;
     case 221: {
 #line 565 "../../prop-src/parser.pcc"
-     syn_._918 = IFstd::exp(t__[1+to__]._919,t__[2+to__]._921,t__[3+to__]._923); 
+     syn_._918 = IFexp(t__[1+to__]._919,t__[2+to__]._921,t__[3+to__]._923); 
 #line 565 "../../prop-src/parser.pcc"
 } break;
     case 222: {
@@ -5267,7 +5267,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 224: {
 #line 571 "../../prop-src/parser.pcc"
-     syn_._931 = mkappstd::exp(t__[1+to__]._932,t__[2+to__]._933); 
+     syn_._931 = mkappexp(t__[1+to__]._932,t__[2+to__]._933); 
 #line 571 "../../prop-src/parser.pcc"
 } break;
     case 225: {
@@ -5277,30 +5277,30 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 226: {
 #line 576 "../../prop-src/parser.pcc"
-     syn_._938 = mkappstd::exp(t__[1+to__]._939,t__[2+to__]._940); 
+     syn_._938 = mkappexp(t__[1+to__]._939,t__[2+to__]._940); 
 #line 576 "../../prop-src/parser.pcc"
 } break;
     case 227: {
 #line 580 "../../prop-src/parser.pcc"
-     syn_._942 = lookup_std::exp(t__[1+to__]._943); 
+     syn_._942 = lookup_exp(t__[1+to__]._943); 
 #line 580 "../../prop-src/parser.pcc"
 } break;
     case 228: {
 #line 581 "../../prop-src/parser.pcc"
-     syn_._945 = LITERALstd::exp(t__[1+to__]._946); 
+     syn_._945 = LITERALexp(t__[1+to__]._946); 
 #line 581 "../../prop-src/parser.pcc"
 } break;
     case 229: {
 #line 582 "../../prop-src/parser.pcc"
       
       syn_._948 = my_cons->ty == NOty
-      ? CONSstd::exp(my_cons,
+      ? CONSexp(my_cons,
 #line 584 "../../prop-src/parser.pcc"
 #line 584 "../../prop-src/parser.pcc"
       nil_1_
 #line 584 "../../prop-src/parser.pcc"
 #line 584 "../../prop-src/parser.pcc"
-      ,NOexp) : IDstd::exp(t__[1+to__]._949->name);
+      ,NOexp) : IDexp(t__[1+to__]._949->name);
       
 #line 585 "../../prop-src/parser.pcc"
 } break;
@@ -5311,7 +5311,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 231: {
 #line 590 "../../prop-src/parser.pcc"
-     syn_._954 = TUPLEstd::exp(
+     syn_._954 = TUPLEexp(
 #line 590 "../../prop-src/parser.pcc"
 #line 590 "../../prop-src/parser.pcc"
       nil_1_
@@ -5327,12 +5327,12 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 233: {
 #line 592 "../../prop-src/parser.pcc"
-     syn_._963 = TUPLEstd::exp(t__[1+to__]._965); 
+     syn_._963 = TUPLEexp(t__[1+to__]._965); 
 #line 592 "../../prop-src/parser.pcc"
 } break;
     case 234: {
 #line 593 "../../prop-src/parser.pcc"
-     syn_._968 = RECORDstd::exp(t__[2+to__]._971); 
+     syn_._968 = RECORDexp(t__[2+to__]._971); 
 #line 593 "../../prop-src/parser.pcc"
 } break;
     case 235: {
@@ -5352,108 +5352,108 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 238: {
 #line 597 "../../prop-src/parser.pcc"
-     syn_._983 = DOTstd::exp(t__[1+to__]._984,t__[2+to__]._986); 
+     syn_._983 = DOTexp(t__[1+to__]._984,t__[2+to__]._986); 
 #line 597 "../../prop-src/parser.pcc"
 } break;
     case 239: {
 #line 598 "../../prop-src/parser.pcc"
-     syn_._988 = DOTstd::exp(t__[1+to__]._989,Quark("_",t__[2+to__]._992)); 
+     syn_._988 = DOTexp(t__[1+to__]._989,Quark("_",t__[2+to__]._992)); 
 #line 598 "../../prop-src/parser.pcc"
 } break;
     case 240: {
 #line 599 "../../prop-src/parser.pcc"
-     syn_._994 = INDEXstd::exp(t__[1+to__]._995,t__[2+to__]._997); 
+     syn_._994 = INDEXexp(t__[1+to__]._995,t__[2+to__]._997); 
 #line 599 "../../prop-src/parser.pcc"
 } break;
     case 241: {
 #line 600 "../../prop-src/parser.pcc"
-     syn_._1000 = ARROWstd::exp(t__[1+to__]._1001,t__[2+to__]._1003); 
+     syn_._1000 = ARROWexp(t__[1+to__]._1001,t__[2+to__]._1003); 
 #line 600 "../../prop-src/parser.pcc"
 } break;
     case 242: {
 #line 601 "../../prop-src/parser.pcc"
-     syn_._1005 = ARROWstd::exp(t__[1+to__]._1006,Quark("_",t__[2+to__]._1009)); 
+     syn_._1005 = ARROWexp(t__[1+to__]._1006,Quark("_",t__[2+to__]._1009)); 
 #line 601 "../../prop-src/parser.pcc"
 } break;
     case 243: {
 #line 602 "../../prop-src/parser.pcc"
-     syn_._1011 = QUALstd::exp(lookup_tyvar(t__[1+to__]._1012),t__[2+to__]._1014); 
+     syn_._1011 = QUALexp(lookup_tyvar(t__[1+to__]._1012),t__[2+to__]._1014); 
 #line 602 "../../prop-src/parser.pcc"
 } break;
     case 246: {
 #line 610 "../../prop-src/parser.pcc"
-     syn_._1020 = mkliststd::exp("#[...]","#[]",t__[1+to__]._1023); 
+     syn_._1020 = mklistexp("#[...]","#[]",t__[1+to__]._1023); 
 #line 610 "../../prop-src/parser.pcc"
 } break;
     case 247: {
 #line 611 "../../prop-src/parser.pcc"
-     syn_._1026 = mkliststd::exp("#(...)","#()",t__[1+to__]._1029); 
+     syn_._1026 = mklistexp("#(...)","#()",t__[1+to__]._1029); 
 #line 611 "../../prop-src/parser.pcc"
 } break;
     case 248: {
 #line 612 "../../prop-src/parser.pcc"
-     syn_._1032 = mkliststd::exp("#{...}","#{}",t__[1+to__]._1035); 
+     syn_._1032 = mklistexp("#{...}","#{}",t__[1+to__]._1035); 
 #line 612 "../../prop-src/parser.pcc"
 } break;
     case 249: {
 #line 613 "../../prop-src/parser.pcc"
-     syn_._1038 = mkliststd::exp("#[...]","#[]",t__[1+to__]._1041,t__[2+to__]._1043); 
+     syn_._1038 = mklistexp("#[...]","#[]",t__[1+to__]._1041,t__[2+to__]._1043); 
 #line 613 "../../prop-src/parser.pcc"
 } break;
     case 250: {
 #line 614 "../../prop-src/parser.pcc"
-     syn_._1046 = mkliststd::exp("#(...)","#()",t__[1+to__]._1049,t__[2+to__]._1051); 
+     syn_._1046 = mklistexp("#(...)","#()",t__[1+to__]._1049,t__[2+to__]._1051); 
 #line 614 "../../prop-src/parser.pcc"
 } break;
     case 251: {
 #line 615 "../../prop-src/parser.pcc"
-     syn_._1054 = mkliststd::exp("#{...}","#{}",t__[1+to__]._1057,t__[2+to__]._1059); 
+     syn_._1054 = mklistexp("#{...}","#{}",t__[1+to__]._1057,t__[2+to__]._1059); 
 #line 615 "../../prop-src/parser.pcc"
 } break;
     case 252: {
 #line 616 "../../prop-src/parser.pcc"
-     syn_._1062 = mkvecstd::exp("[|...|]",t__[1+to__]._1064); 
+     syn_._1062 = mkvecexp("[|...|]",t__[1+to__]._1064); 
 #line 616 "../../prop-src/parser.pcc"
 } break;
     case 253: {
 #line 617 "../../prop-src/parser.pcc"
-     syn_._1067 = mkvecstd::exp("(|...|)",t__[1+to__]._1069); 
+     syn_._1067 = mkvecexp("(|...|)",t__[1+to__]._1069); 
 #line 617 "../../prop-src/parser.pcc"
 } break;
     case 254: {
 #line 618 "../../prop-src/parser.pcc"
-     syn_._1072 = mkvecstd::exp("{|...|}",t__[1+to__]._1074); 
+     syn_._1072 = mkvecexp("{|...|}",t__[1+to__]._1074); 
 #line 618 "../../prop-src/parser.pcc"
 } break;
     case 255: {
 #line 619 "../../prop-src/parser.pcc"
-     syn_._1077 = extuplestd::exp(t__[1+to__]._1079); 
+     syn_._1077 = extupleexp(t__[1+to__]._1079); 
 #line 619 "../../prop-src/parser.pcc"
 } break;
     case 256: {
 #line 624 "../../prop-src/parser.pcc"
-     syn_._1082 = CONSstd::exp(t__[1+to__]._1083,
+     syn_._1082 = CONSexp(t__[1+to__]._1083,
 #line 624 "../../prop-src/parser.pcc"
 #line 624 "../../prop-src/parser.pcc"
       nil_1_
 #line 624 "../../prop-src/parser.pcc"
 #line 624 "../../prop-src/parser.pcc"
-      ,RECORDstd::exp(t__[3+to__]._1086)); 
+      ,RECORDexp(t__[3+to__]._1086)); 
 #line 624 "../../prop-src/parser.pcc"
 } break;
     case 257: {
 #line 626 "../../prop-src/parser.pcc"
-     syn_._1089 = CONSstd::exp(t__[1+to__]._1090,t__[3+to__]._1093,RECORDexp(t__[4+to__]._1096)); 
+     syn_._1089 = CONSexp(t__[1+to__]._1090,t__[3+to__]._1093,RECORDexp(t__[4+to__]._1096)); 
 #line 626 "../../prop-src/parser.pcc"
 } break;
     case 258: {
 #line 628 "../../prop-src/parser.pcc"
-     syn_._1099 = CONSstd::exp(t__[1+to__]._1100,t__[3+to__]._1103,TUPLEexp(t__[4+to__]._1106)); 
+     syn_._1099 = CONSexp(t__[1+to__]._1100,t__[3+to__]._1103,TUPLEexp(t__[4+to__]._1106)); 
 #line 628 "../../prop-src/parser.pcc"
 } break;
     case 259: {
 #line 631 "../../prop-src/parser.pcc"
-     syn_._1109 = compiler->parse_std::exp("",t__[1+to__]._1110); 
+     syn_._1109 = compiler->parse_exp("",t__[1+to__]._1110); 
 #line 631 "../../prop-src/parser.pcc"
 } break;
     case 260: {
@@ -5650,7 +5650,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 280: {
 #line 710 "../../prop-src/parser.pcc"
-     syn_._1200 = MATCHstd::exp(mark(t__[1+to__]._1201),0); 
+     syn_._1200 = MATCHexp(mark(t__[1+to__]._1201),0); 
 #line 710 "../../prop-src/parser.pcc"
 } break;
     case 281: {
@@ -5950,15 +5950,15 @@ inline void PropParser::action_driver(const Rule _r_)
         if (_V3) {
           switch (_V3->tag__) {
             case a_Exp::tag_LITERALexp: {
-              switch (_LITERALstd::exp(_V3)->LITERALexp->tag__) {
+              switch (_LITERALexp(_V3)->LITERALexp->tag__) {
                 case a_Literal::tag_INTlit: {
 #line 856 "../../prop-src/parser.pcc"
                   
-                  if (_INTlit(_LITERALstd::exp(_V3)->LITERALexp)->INTlit < 0) error ("%Lnegative cost %i is illegal\n",_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit);
-                  if (_INTlit(_LITERALstd::exp(_V3)->LITERALexp)->INTlit <= 0)
+                  if (_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit < 0) error ("%Lnegative cost %i is illegal\n",_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit);
+                  if (_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit <= 0)
                     syn_._1314 = NOcost;
                   else
-                    syn_._1314 = INTcost(_INTlit(_LITERALstd::exp(_V3)->LITERALexp)->INTlit);
+                    syn_._1314 = INTcost(_INTlit(_LITERALexp(_V3)->LITERALexp)->INTlit);
                   
 #line 862 "../../prop-src/parser.pcc"
                   } break;
@@ -6336,12 +6336,12 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 350: {
 #line 1055 "../../prop-src/parser.pcc"
-     syn_._1447 = EXPdecl( LITERALstd::exp( QUARKlit(t__[1+to__]._1448))); 
+     syn_._1447 = EXPdecl( LITERALexp( QUARKlit(t__[1+to__]._1448))); 
 #line 1055 "../../prop-src/parser.pcc"
 } break;
     case 351: {
 #line 1056 "../../prop-src/parser.pcc"
-     syn_._1450 = EXPdecl( LITERALstd::exp( BIGINTlit(t__[1+to__]._1451))); 
+     syn_._1450 = EXPdecl( LITERALexp( BIGINTlit(t__[1+to__]._1451))); 
 #line 1056 "../../prop-src/parser.pcc"
 } break;
     case 352: {
@@ -6417,7 +6417,7 @@ inline void PropParser::action_driver(const Rule _r_)
       cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rco_c_c_Q1
 #line 1094 "../../prop-src/parser.pcc"
 #line 1094 "../../prop-src/parser.pcc"
-      , RELstd::exp(0), junk_ty);
+      , RELexp(0), junk_ty);
       }
       
 #line 1096 "../../prop-src/parser.pcc"
@@ -8198,7 +8198,7 @@ inline void PropParser::action_driver(const Rule _r_)
       me_stack[++me_top] = 
 #line 1878 "../../prop-src/parser.pcc"
 #line 1878 "../../prop-src/parser.pcc"
-      list_1_(MATCHstd::exp(IDexp("redex"),0))
+      list_1_(MATCHexp(IDexp("redex"),0))
 #line 1878 "../../prop-src/parser.pcc"
 #line 1878 "../../prop-src/parser.pcc"
       ;
@@ -8226,7 +8226,7 @@ inline void PropParser::action_driver(const Rule _r_)
       me_stack[++me_top] = 
 #line 1893 "../../prop-src/parser.pcc"
 #line 1893 "../../prop-src/parser.pcc"
-      list_1_(MATCHstd::exp(IDexp("redex"),0))
+      list_1_(MATCHexp(IDexp("redex"),0))
 #line 1893 "../../prop-src/parser.pcc"
 #line 1893 "../../prop-src/parser.pcc"
       ;
@@ -8256,7 +8256,7 @@ inline void PropParser::action_driver(const Rule _r_)
       me_stack[++me_top] = 
 #line 1907 "../../prop-src/parser.pcc"
 #line 1907 "../../prop-src/parser.pcc"
-      list_1_(MATCHstd::exp(IDexp("redex"),0))
+      list_1_(MATCHexp(IDexp("redex"),0))
 #line 1907 "../../prop-src/parser.pcc"
 #line 1907 "../../prop-src/parser.pcc"
       ;
@@ -9018,7 +9018,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 669: {
 #line 2313 "../../prop-src/parser.pcc"
-     syn_._2849 = SETLstd::exp( ARBop, 
+     syn_._2849 = SETLexp( ARBop, 
 #line 2313 "../../prop-src/parser.pcc"
 #line 2313 "../../prop-src/parser.pcc"
       list_1_(t__[1+to__]._2851)
@@ -9029,7 +9029,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 670: {
 #line 2314 "../../prop-src/parser.pcc"
-     syn_._2853 = SETLstd::exp( DOMop, 
+     syn_._2853 = SETLexp( DOMop, 
 #line 2314 "../../prop-src/parser.pcc"
 #line 2314 "../../prop-src/parser.pcc"
       list_1_(t__[1+to__]._2855)
@@ -9040,7 +9040,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 671: {
 #line 2315 "../../prop-src/parser.pcc"
-     syn_._2857 = SETLstd::exp( RANop, 
+     syn_._2857 = SETLexp( RANop, 
 #line 2315 "../../prop-src/parser.pcc"
 #line 2315 "../../prop-src/parser.pcc"
       list_1_(t__[1+to__]._2859)
@@ -9051,7 +9051,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 672: {
 #line 2316 "../../prop-src/parser.pcc"
-     syn_._2861 = SETLstd::exp( WITHop, 
+     syn_._2861 = SETLexp( WITHop, 
 #line 2316 "../../prop-src/parser.pcc"
 #line 2316 "../../prop-src/parser.pcc"
       list_1_(t__[1+to__]._2862,list_1_(t__[2+to__]._2864))
@@ -9062,7 +9062,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 673: {
 #line 2317 "../../prop-src/parser.pcc"
-     syn_._2866 = SETLstd::exp( LESSop, 
+     syn_._2866 = SETLexp( LESSop, 
 #line 2317 "../../prop-src/parser.pcc"
 #line 2317 "../../prop-src/parser.pcc"
       list_1_(t__[1+to__]._2867,list_1_(t__[2+to__]._2869))
@@ -9073,7 +9073,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 674: {
 #line 2318 "../../prop-src/parser.pcc"
-     syn_._2871 = SETLstd::exp( WITHASSIGNop, 
+     syn_._2871 = SETLexp( WITHASSIGNop, 
 #line 2318 "../../prop-src/parser.pcc"
 #line 2318 "../../prop-src/parser.pcc"
       list_1_(t__[1+to__]._2872,list_1_(t__[2+to__]._2875))
@@ -9084,7 +9084,7 @@ inline void PropParser::action_driver(const Rule _r_)
 } break;
     case 675: {
 #line 2319 "../../prop-src/parser.pcc"
-     syn_._2877 = SETLstd::exp( LESSASSIGNop, 
+     syn_._2877 = SETLexp( LESSASSIGNop, 
 #line 2319 "../../prop-src/parser.pcc"
 #line 2319 "../../prop-src/parser.pcc"
       list_1_(t__[1+to__]._2878,list_1_(t__[2+to__]._2881))

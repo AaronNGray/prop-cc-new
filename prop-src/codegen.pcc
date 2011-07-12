@@ -209,7 +209,7 @@ std::ostream& CodeGen::outv( const char * fmt, std::va_list arg)
             if (p == TYbody)
             {
               pr ("%^const int len_;%^");
-              body_ty = mkarrayty( ty, LITERALstd::exp( INTlit(0)));
+              body_ty = mkarrayty( ty, LITERALexp( INTlit(0)));
             }
             else
             {

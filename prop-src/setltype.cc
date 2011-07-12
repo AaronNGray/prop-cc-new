@@ -75,7 +75,7 @@ Ty type_of( Exp exp, const Env& E)
     switch (exp->tag__) {
       case a_Exp::tag_LITERALexp: {
 #line 63 "../../prop-src/setltype.pcc"
-       ty = type_of(_LITERALstd::exp(exp)->LITERALexp); 
+       ty = type_of(_LITERALexp(exp)->LITERALexp); 
 #line 63 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_IDexp: {
@@ -90,12 +90,12 @@ Ty type_of( Exp exp, const Env& E)
         } break;
       case a_Exp::tag_DOTexp: {
 #line 74 "../../prop-src/setltype.pcc"
-       ty = component_ty(type_of(_DOTstd::exp(exp)->_1,E),_DOTexp(exp)->_2); 
+       ty = component_ty(type_of(_DOTexp(exp)->_1,E),_DOTexp(exp)->_2); 
 #line 74 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_SELECTORexp: {
 #line 75 "../../prop-src/setltype.pcc"
-       ty = component_ty(type_of(_SELECTORstd::exp(exp)->_1,E),_SELECTORexp(exp)->_2); 
+       ty = component_ty(type_of(_SELECTORexp(exp)->_1,E),_SELECTORexp(exp)->_2); 
 #line 75 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_DEREFexp: {
@@ -145,12 +145,12 @@ Ty type_of( Exp exp, const Env& E)
         } break;
       case a_Exp::tag_TUPLEexp: {
 #line 85 "../../prop-src/setltype.pcc"
-       return mktuplety(type_of(_TUPLEstd::exp(exp)->TUPLEexp,E)); 
+       return mktuplety(type_of(_TUPLEexp(exp)->TUPLEexp,E)); 
 #line 85 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_EXTUPLEexp: {
 #line 86 "../../prop-src/setltype.pcc"
-       return extuplety(type_of(_EXTUPLEstd::exp(exp)->EXTUPLEexp,E)); 
+       return extuplety(type_of(_EXTUPLEexp(exp)->EXTUPLEexp,E)); 
 #line 86 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_RECORDexp: {
@@ -160,19 +160,19 @@ Ty type_of( Exp exp, const Env& E)
 #line 89 "../../prop-src/setltype.pcc"
 Tuple2<Ids, Tys>  
 #line 89 "../../prop-src/setltype.pcc"
-       t = type_of( _RECORDstd::exp(exp)->RECORDexp, E);
+       t = type_of( _RECORDexp(exp)->RECORDexp, E);
         return mkrecordty( t._1, t._2, false);
         } break;
       case a_Exp::tag_LISTexp: {
-        if (_LISTstd::exp(exp)->_1) {
+        if (_LISTexp(exp)->_1) {
 #line 94 "../../prop-src/setltype.pcc"
           
-          Tys head_tys = type_of( _LISTstd::exp(exp)->_3, E);
-          	  Ty  tail_ty  = type_of( _LISTstd::exp(exp)->_4, E);
+          Tys head_tys = type_of( _LISTexp(exp)->_3, E);
+          	  Ty  tail_ty  = type_of( _LISTexp(exp)->_4, E);
           	  Ty  arg_ty   = mkvar();
           	  for_each (Ty, one_ty, head_tys)
           	    unify( exp, one_ty, arg_ty);
-          Ty fun_ty = inst( _LISTstd::exp(exp)->_1->cons_ty);
+          Ty fun_ty = inst( _LISTexp(exp)->_1->cons_ty);
           	  ty = mkvar();
           	  unify( exp, fun_ty, mkfunty( mktuplety( 
 #line 102 "../../prop-src/setltype.pcc"
@@ -181,7 +181,7 @@ Tuple2<Ids, Tys>
 #line 102 "../../prop-src/setltype.pcc"
 #line 102 "../../prop-src/setltype.pcc"
           ), ty));
-          if (_LISTstd::exp(exp)->_4 != NOexp)
+          if (_LISTexp(exp)->_4 != NOexp)
             unify( exp, tail_ty, ty);
           
 #line 105 "../../prop-src/setltype.pcc"
@@ -198,24 +198,24 @@ Tuple2<Ids, Tys>
 #line 106 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_CONSexp: {
-        if (_CONSstd::exp(exp)->_1) {
-          if (_CONSstd::exp(exp)->_3) {
+        if (_CONSexp(exp)->_1) {
+          if (_CONSexp(exp)->_3) {
 #line 69 "../../prop-src/setltype.pcc"
-          Ty fun_ty   = inst(_CONSstd::exp(exp)->_1->cons_ty);
+          Ty fun_ty   = inst(_CONSexp(exp)->_1->cons_ty);
             	ty = mkvar();
-            	unify(exp,fun_ty,mkfunty(type_of(_CONSstd::exp(exp)->_3,E),ty));
+            	unify(exp,fun_ty,mkfunty(type_of(_CONSexp(exp)->_3,E),ty));
                 
 #line 72 "../../prop-src/setltype.pcc"
           } else {
 #line 67 "../../prop-src/setltype.pcc"
-          ty = inst(_CONSstd::exp(exp)->_1->cons_ty); 
+          ty = inst(_CONSexp(exp)->_1->cons_ty); 
 #line 67 "../../prop-src/setltype.pcc"
           }
         } else { goto L1; }
         } break;
       case a_Exp::tag_CASTexp: {
 #line 107 "../../prop-src/setltype.pcc"
-       type_of(_CASTstd::exp(exp)->_2,E); return _CASTexp(exp)->_1; 
+       type_of(_CASTexp(exp)->_2,E); return _CASTexp(exp)->_1; 
 #line 107 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_QUALexp: {
@@ -255,12 +255,12 @@ Tuple2<Ids, Tys>
         } break;
       case a_Exp::tag_THISSYNexp: {
 #line 115 "../../prop-src/setltype.pcc"
-       return _THISSYNstd::exp(exp)->_2; 
+       return _THISSYNexp(exp)->_2; 
 #line 115 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_SYNexp: {
 #line 116 "../../prop-src/setltype.pcc"
-       return _SYNstd::exp(exp)->_3; 
+       return _SYNexp(exp)->_3; 
 #line 116 "../../prop-src/setltype.pcc"
         } break;
       case a_Exp::tag_SENDexp: {
@@ -290,7 +290,7 @@ Tuple2<Ids, Tys>
         } break;
       default: {
 #line 65 "../../prop-src/setltype.pcc"
-       _MARKEDstd::exp(exp)->_1.set_loc(); ty = type_of(_MARKEDexp(exp)->_2,E); 
+       _MARKEDexp(exp)->_1.set_loc(); ty = type_of(_MARKEDexp(exp)->_2,E); 
 #line 65 "../../prop-src/setltype.pcc"
         } break;
     }

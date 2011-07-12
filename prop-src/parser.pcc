@@ -182,7 +182,7 @@ cons_or_string(Id):	id_or_cons	{ $$ = $1; }
 cons_id(Cons):		CONS_EXP	{ $$ = my_cons; };
 
 string(const char *):	STRING_TOK	{ $$ = str_pool(lexbuf.text(),lexbuf.length()); };
-regstd::exp(const char *):	REGEXP_TOK	{ $$ = str_pool(lexbuf.text(),lexbuf.length()); };
+regexp(const char *):	REGEXP_TOK	{ $$ = str_pool(lexbuf.text(),lexbuf.length()); };
 quark(Id):
         QUARK_TOK
             {
@@ -523,118 +523,118 @@ lab_ty_list2(LabTyList):
 
 std::exp(Exp):
     app_exp         { $$ = $1; }
-|   exp '+' exp     { $$ = BINOPstd::exp("+",$1,$3); }
-|   exp '-' exp     { $$ = BINOPstd::exp("-",$1,$3); }
-|   exp '*' exp     { $$ = BINOPstd::exp("*",$1,$3); }
-|   exp '/' exp     { $$ = BINOPstd::exp("/",$1,$3); }
-|   exp '%' exp     { $$ = BINOPstd::exp("%",$1,$3); }
-|   exp '=' exp     { $$ = ASSIGNstd::exp($1,$3); }
-|   exp ":=" exp    { $$ = ASSIGNstd::exp($1,$3); }
-|   exp '<' exp     { $$ = BINOPstd::exp("<",$1,$3); }
-|   exp '>' exp     { $$ = BINOPstd::exp(">",$1,$3); }
-|   exp '|' exp     { $$ = BINOPstd::exp("|",$1,$3); }
-|   exp '&' exp     { $$ = BINOPstd::exp("&",$1,$3); }
-|   exp '^' exp     { $$ = BINOPstd::exp("^",$1,$3); }
-|   exp "+=" exp    { $$ = BINOPstd::exp("+=",$1,$3); }
-|   exp "-=" exp    { $$ = BINOPstd::exp("-=",$1,$3); }
-|   exp "*=" exp    { $$ = BINOPstd::exp("*=",$1,$3); }
-|   exp "/=" exp    { $$ = BINOPstd::exp("/=",$1,$3); }
-|   exp "%=" exp    { $$ = BINOPstd::exp("%=",$1,$3); }
-|   exp "&=" exp    { $$ = BINOPstd::exp("&=",$1,$3); }
-|   exp "|=" exp    { $$ = BINOPstd::exp("|=",$1,$3); }
-|   exp "^=" exp    { $$ = BINOPstd::exp("^=",$1,$3); }
-|   exp ">=" exp    { $$ = BINOPstd::exp(">=",$1,$3); }
-|   exp "<=" exp    { $$ = BINOPstd::exp("<=",$1,$3); }
-|   exp "==" exp    { $$ = BINOPstd::exp("==",$1,$3); }
-|   exp "!=" exp    { $$ = BINOPstd::exp("!=",$1,$3); }
-|   exp "||" exp    { $$ = BINOPstd::exp("||",$1,$3); }
-|   exp "&&" exp    { $$ = BINOPstd::exp("&&",$1,$3); }
-|   exp "<<" exp    { $$ = BINOPstd::exp("<<",$1,$3); }
-|   exp ">>" exp    { $$ = BINOPstd::exp(">>",$1,$3); }
-|   exp "<<=" exp   { $$ = BINOPstd::exp("<<=",$1,$3); }
-|   exp ">>=" exp   { $$ = BINOPstd::exp(">>=",$1,$3); }
-|   exp "++"        { $$ = POSTFIXstd::exp("++",$1); }
-|   exp "--"        { $$ = POSTFIXstd::exp("--",$1); }
-|   '-' exp	        { $$ = PREFIXstd::exp("-",$2); }
-|   '!' exp	        { $$ = PREFIXstd::exp("!",$2); }
-|   "++" exp        { $$ = PREFIXstd::exp("++",$2); }
-|   "--" exp        { $$ = PREFIXstd::exp("--",$2); }
-|   '&' exp	        { $$ = PREFIXstd::exp("&",$2); }
-|   '~' exp	        { $$ = PREFIXstd::exp("~",$2); }
-|   '*' exp	        { $$ = DEREFstd::exp($2); }
-|   exp '?' exp ':' exp { $$ = IFstd::exp($1,$3,$5); }
+|   exp '+' exp     { $$ = BINOPexp("+",$1,$3); }
+|   exp '-' exp     { $$ = BINOPexp("-",$1,$3); }
+|   exp '*' exp     { $$ = BINOPexp("*",$1,$3); }
+|   exp '/' exp     { $$ = BINOPexp("/",$1,$3); }
+|   exp '%' exp     { $$ = BINOPexp("%",$1,$3); }
+|   exp '=' exp     { $$ = ASSIGNexp($1,$3); }
+|   exp ":=" exp    { $$ = ASSIGNexp($1,$3); }
+|   exp '<' exp     { $$ = BINOPexp("<",$1,$3); }
+|   exp '>' exp     { $$ = BINOPexp(">",$1,$3); }
+|   exp '|' exp     { $$ = BINOPexp("|",$1,$3); }
+|   exp '&' exp     { $$ = BINOPexp("&",$1,$3); }
+|   exp '^' exp     { $$ = BINOPexp("^",$1,$3); }
+|   exp "+=" exp    { $$ = BINOPexp("+=",$1,$3); }
+|   exp "-=" exp    { $$ = BINOPexp("-=",$1,$3); }
+|   exp "*=" exp    { $$ = BINOPexp("*=",$1,$3); }
+|   exp "/=" exp    { $$ = BINOPexp("/=",$1,$3); }
+|   exp "%=" exp    { $$ = BINOPexp("%=",$1,$3); }
+|   exp "&=" exp    { $$ = BINOPexp("&=",$1,$3); }
+|   exp "|=" exp    { $$ = BINOPexp("|=",$1,$3); }
+|   exp "^=" exp    { $$ = BINOPexp("^=",$1,$3); }
+|   exp ">=" exp    { $$ = BINOPexp(">=",$1,$3); }
+|   exp "<=" exp    { $$ = BINOPexp("<=",$1,$3); }
+|   exp "==" exp    { $$ = BINOPexp("==",$1,$3); }
+|   exp "!=" exp    { $$ = BINOPexp("!=",$1,$3); }
+|   exp "||" exp    { $$ = BINOPexp("||",$1,$3); }
+|   exp "&&" exp    { $$ = BINOPexp("&&",$1,$3); }
+|   exp "<<" exp    { $$ = BINOPexp("<<",$1,$3); }
+|   exp ">>" exp    { $$ = BINOPexp(">>",$1,$3); }
+|   exp "<<=" exp   { $$ = BINOPexp("<<=",$1,$3); }
+|   exp ">>=" exp   { $$ = BINOPexp(">>=",$1,$3); }
+|   exp "++"        { $$ = POSTFIXexp("++",$1); }
+|   exp "--"        { $$ = POSTFIXexp("--",$1); }
+|   '-' exp	        { $$ = PREFIXexp("-",$2); }
+|   '!' exp	        { $$ = PREFIXexp("!",$2); }
+|   "++" exp        { $$ = PREFIXexp("++",$2); }
+|   "--" exp        { $$ = PREFIXexp("--",$2); }
+|   '&' exp	        { $$ = PREFIXexp("&",$2); }
+|   '~' exp	        { $$ = PREFIXexp("~",$2); }
+|   '*' exp	        { $$ = DEREFexp($2); }
+|   exp '?' exp ':' exp { $$ = IFexp($1,$3,$5); }
 |   setl_exp        { $$ = $1; }
 ;
 
-app_std::exp(Exp):
+app_exp(Exp):
         simple_exp          { $$ = $1; }
-|       app_exp simple_exp  { $$ = mkappstd::exp($1,$2); }
+|       app_exp simple_exp  { $$ = mkappexp($1,$2); }
 ;
 
-primitive_app_std::exp(Exp):
+primitive_app_exp(Exp):
         primitive_exp                   { $$ = $1; }
-|       primitive_app_exp simple_exp    { $$ = mkappstd::exp($1,$2); }
+|       primitive_app_exp simple_exp    { $$ = mkappexp($1,$2); }
 ;
 
-primitive_std::exp(Exp):
-    id          { $$ = lookup_std::exp($1); }
-|   literal     { $$ = LITERALstd::exp($1); }
+primitive_exp(Exp):
+    id          { $$ = lookup_exp($1); }
+|   literal     { $$ = LITERALexp($1); }
 |   cons        {
                   $$ = my_cons->ty == NOty
-                  ? CONSstd::exp(my_cons,#[],NOexp) : IDexp($1->name);
+                  ? CONSexp(my_cons,#[],NOexp) : IDexp($1->name);
                 }
 ;
 
-simple_std::exp(Exp):
+simple_exp(Exp):
     primitive_exp               { $$ = $1; }
-|    '(' ')'                    { $$ = TUPLEstd::exp(#[]); }
+|    '(' ')'                    { $$ = TUPLEexp(#[]); }
 |   '(' exp ')'                 { $$ = $2; }
-|   '(' exp_list2 ')'           { $$ = TUPLEstd::exp($2); }
-|   tick '{' lab_exp_list '}'   { $$ = RECORDstd::exp($3); }
+|   '(' exp_list2 ')'           { $$ = TUPLEexp($2); }
+|   tick '{' lab_exp_list '}'   { $$ = RECORDexp($3); }
 |   list_exp                    { $$ = $1; }
 |   cons_exp                    { $$ = $1; }
 |   meta_exp                    { $$ = $1; }
-|   simple_exp '.' id           { $$ = DOTstd::exp($1,$3); }
-|   simple_exp '.' '#' integer  { $$ = DOTstd::exp($1,Quark("_",$4)); }
-|   simple_exp '[' exp ']'      { $$ = INDEXstd::exp($1,$3); }
-|   simple_exp "->" id          { $$ = ARROWstd::exp($1,$3); }
-|   simple_exp "->" '#' integer { $$ = ARROWstd::exp($1,Quark("_",$4)); }
-|   id "::" id                  { $$ = QUALstd::exp(lookup_tyvar($1),$3); }
+|   simple_exp '.' id           { $$ = DOTexp($1,$3); }
+|   simple_exp '.' '#' integer  { $$ = DOTexp($1,Quark("_",$4)); }
+|   simple_exp '[' exp ']'      { $$ = INDEXexp($1,$3); }
+|   simple_exp "->" id          { $$ = ARROWexp($1,$3); }
+|   simple_exp "->" '#' integer { $$ = ARROWexp($1,Quark("_",$4)); }
+|   id "::" id                  { $$ = QUALexp(lookup_tyvar($1),$3); }
 ;
 
 tick:
 |   '\'' tick
 ;
 
-list_std::exp(Exp):
-    '#' '[' exp_list ']'            { $$ = mkliststd::exp("#[...]","#[]",$3); }
-|   '#' '(' exp_list ')'            { $$ = mkliststd::exp("#(...)","#()",$3); }
-|   '#' '{' exp_list '}'            { $$ = mkliststd::exp("#{...}","#{}",$3); }
-|   '#' '[' exp_list "..." exp ']'  { $$ = mkliststd::exp("#[...]","#[]",$3,$5); }
-|   '#' '(' exp_list "..." exp ')'  { $$ = mkliststd::exp("#(...)","#()",$3,$5); }
-|   '#' '{' exp_list "..." exp '}'  { $$ = mkliststd::exp("#{...}","#{}",$3,$5); }
-|   "[|" exp_list "|]"              { $$ = mkvecstd::exp("[|...|]",$2); }
-|   "(|" exp_list "|)"              { $$ = mkvecstd::exp("(|...|)",$2); }
-|   "{|" exp_list "|}"              { $$ = mkvecstd::exp("{|...|}",$2); }
-|   ".(" exp_list2 ')'              { $$ = extuplestd::exp($2); }
+list_exp(Exp):
+    '#' '[' exp_list ']'            { $$ = mklistexp("#[...]","#[]",$3); }
+|   '#' '(' exp_list ')'            { $$ = mklistexp("#(...)","#()",$3); }
+|   '#' '{' exp_list '}'            { $$ = mklistexp("#{...}","#{}",$3); }
+|   '#' '[' exp_list "..." exp ']'  { $$ = mklistexp("#[...]","#[]",$3,$5); }
+|   '#' '(' exp_list "..." exp ')'  { $$ = mklistexp("#(...)","#()",$3,$5); }
+|   '#' '{' exp_list "..." exp '}'  { $$ = mklistexp("#{...}","#{}",$3,$5); }
+|   "[|" exp_list "|]"              { $$ = mkvecexp("[|...|]",$2); }
+|   "(|" exp_list "|)"              { $$ = mkvecexp("(|...|)",$2); }
+|   "{|" exp_list "|}"              { $$ = mkvecexp("{|...|}",$2); }
+|   ".(" exp_list2 ')'              { $$ = extupleexp($2); }
 ;
 
-cons_std::exp(Exp):
+cons_exp(Exp):
     cons_id tick '{' lab_exp_list '}'
-        { $$ = CONSstd::exp($1,#[],RECORDexp($4)); }
+        { $$ = CONSexp($1,#[],RECORDexp($4)); }
 |   cons_id tick '(' exp_list ')' '{' lab_exp_list '}'
-        { $$ = CONSstd::exp($1,$4,RECORDexp($7)); }
+        { $$ = CONSexp($1,$4,RECORDexp($7)); }
 |   cons_id tick '(' exp_list ')' '(' exp_list ')'
-        { $$ = CONSstd::exp($1,$4,TUPLEexp($7)); }
+        { $$ = CONSexp($1,$4,TUPLEexp($7)); }
 ;
 
-meta_std::exp(Exp):	meta_quote  { $$ = compiler->parse_exp("",$1); }
+meta_exp(Exp):	meta_quote  { $$ = compiler->parse_exp("",$1); }
 ;
 
-lab_std::exp(LabExp):    id '=' exp  { $$.label = $1; $$.exp = $3; }
+lab_exp(LabExp):    id '=' exp  { $$.label = $1; $$.exp = $3; }
 ;
 
-paren_std::exp(Exp): '(' exp ')' { $$ = $2; }
+paren_exp(Exp): '(' exp ')' { $$ = $2; }
 ;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -707,7 +707,7 @@ match_exps(MatchExps):
 |       match_exp "and" match_exps  { $$ = #[ $1 ... $3 ]; }
 ;
 
-match_std::exp(MatchExp):	paren_exp   { $$ = MATCHexp(mark($1),0); }
+match_exp(MatchExp):	paren_exp   { $$ = MATCHexp(mark($1),0); }
 ;
 
 case_or_bar_rules(MatchRules):
@@ -757,7 +757,7 @@ case_rule(MatchRule):
         }
 ;
 
-guard_std::exp(Exp):         { $$ = NOexp; }
+guard_exp(Exp):         { $$ = NOexp; }
 |       where_or_if exp { $$ = mark($2); }
 ;
 
@@ -831,7 +831,7 @@ replacement_exp_decl(Decls):
     }
 ;
 
-return_std::exp(Decls):
+return_exp(Decls):
     "return" replacement_exp
     {
       $$ = #[ mark(EXPdecl{ prefix = "return ", exp = $2, suffix = ";"}) ];
@@ -841,7 +841,7 @@ return_std::exp(Decls):
 semi_opt:   | ';'
 ;
 
-replacement_std::exp(Exp):
+replacement_exp(Exp):
          primitive_app_exp  { $$ = $1; }
 |        list_exp           { $$ = $1; }
 |        '(' exp ')'        { $$ = $2; }
@@ -1052,8 +1052,8 @@ field_law(FieldLaw):
 exp_decl(Decl):
         cons_exp    { $$ = EXPdecl($1); }
 |       list_exp    { $$ = EXPdecl($1); }
-|       quark       { $$ = EXPdecl( LITERALstd::exp( QUARKlit($1))); }
-|       bigint      { $$ = EXPdecl( LITERALstd::exp( BIGINTlit($1))); }
+|       quark       { $$ = EXPdecl( LITERALexp( QUARKlit($1))); }
+|       bigint      { $$ = EXPdecl( LITERALexp( BIGINTlit($1))); }
 |       meta_exp    { $$ = EXPdecl($1); }
 ;
 
@@ -1091,7 +1091,7 @@ datatype_def(DatatypeDef):
           {
             Ty junk_ty = NOty;
             pv_env.new_scope();
-            pv_env.add( #"this", RELstd::exp(0), junk_ty);
+            pv_env.add( #"this", RELexp(0), junk_ty);
           }
         }
     switch_exp
@@ -1120,7 +1120,7 @@ datatype_def(DatatypeDef):
         { $$ = DATATYPEdef( $1, $2, $3, $4, #[], #[]); var_top = 0; }
 ;
 
-switch_std::exp(Exp):            { $$ = NOexp; }
+switch_exp(Exp):            { $$ = NOexp; }
 |        "match" paren_exp  { $$ = $2; }
 ;
 
@@ -1875,7 +1875,7 @@ rewrite_decl(Decl):
                     ClassDefinition::REWRITE_CLASS, $2
                     );
           if (C) rw_stack[rw_top].qual = C->qualifiers;
-          me_stack[++me_top] = #[ MATCHstd::exp(IDexp("redex"),0) ];
+          me_stack[++me_top] = #[ MATCHexp(IDexp("redex"),0) ];
         }
     '{' rewrite_indexings case_or_bar_rules '}' ';'
         {
@@ -1890,7 +1890,7 @@ rewriting_decl(Decl):
         {
           in_rewrite = true;
           rule_count = 0;
-          me_stack[++me_top] = #[ MATCHstd::exp(IDexp("redex"),0) ];
+          me_stack[++me_top] = #[ MATCHexp(IDexp("redex"),0) ];
           push_rw_stack();
           rw_stack[rw_top].qual = $8;
         }
@@ -1904,7 +1904,7 @@ rewriting_decl(Decl):
         {
           in_rewrite = true;
           rule_count = 0;
-          me_stack[++me_top] = #[ MATCHstd::exp(IDexp("redex"),0) ];
+          me_stack[++me_top] = #[ MATCHexp(IDexp("redex"),0) ];
           push_rw_stack();
           rw_stack[rw_top].qual = $8;
         }
@@ -2309,14 +2309,14 @@ setl_ty(Ty):
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-setl_std::exp(Exp):
-    "arb" exp           { $$ = SETLstd::exp( ARBop, #[$2]); }
-|   "dom" exp           { $$ = SETLstd::exp( DOMop, #[$2]); }
-|   "ran" exp           { $$ = SETLstd::exp( RANop, #[$2]); }
-|   exp "with" exp      { $$ = SETLstd::exp( WITHop, #[$1,$3]); }
-|   exp "less" exp      { $$ = SETLstd::exp( LESSop, #[$1,$3]); }
-|   exp "with" ":=" exp { $$ = SETLstd::exp( WITHASSIGNop, #[$1,$4]); }
-|   exp "less" ":=" exp { $$ = SETLstd::exp( LESSASSIGNop, #[$1,$4]); }
+setl_exp(Exp):
+    "arb" exp           { $$ = SETLexp( ARBop, #[$2]); }
+|   "dom" exp           { $$ = SETLexp( DOMop, #[$2]); }
+|   "ran" exp           { $$ = SETLexp( RANop, #[$2]); }
+|   exp "with" exp      { $$ = SETLexp( WITHop, #[$1,$3]); }
+|   exp "less" exp      { $$ = SETLexp( LESSop, #[$1,$3]); }
+|   exp "with" ":=" exp { $$ = SETLexp( WITHASSIGNop, #[$1,$4]); }
+|   exp "less" ":=" exp { $$ = SETLexp( LESSASSIGNop, #[$1,$4]); }
 |   set_comprehension   { $$ = $1; }
 ;
 

@@ -173,7 +173,7 @@ void SETLCompiler::gen_stmts( Stmts stmts)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-void SETLCompiler::gen_std::exp( Exp exp)
+void SETLCompiler::gen_exp( Exp exp)
 {
 }
 
@@ -193,11 +193,11 @@ void SETLCompiler::gen_exps( Exps exps)
     if (exps) {
       if (exps->_2) {
 #line 135 "../../prop-src/setlgen.pcc"
-       gen_std::exp(exps->_1); exps = exps->_2; 
+       gen_exp(exps->_1); exps = exps->_2; 
 #line 135 "../../prop-src/setlgen.pcc"
       } else {
 #line 134 "../../prop-src/setlgen.pcc"
-       gen_std::exp(exps->_1); exps = 
+       gen_exp(exps->_1); exps = 
 #line 134 "../../prop-src/setlgen.pcc"
 #line 134 "../../prop-src/setlgen.pcc"
         nil_1_

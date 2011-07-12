@@ -477,11 +477,11 @@ void RewritingCompiler::gen_literal_labeler( FunctorMap& F, Ty ty)
   ///////////////////////////////////////////////////////////////////////////
   // The selector is named 'redex'
   ///////////////////////////////////////////////////////////////////////////
-  Exp        selector = IDstd::exp("redex");
+  Exp        selector = IDexp("redex");
   MatchExps  exps     = 
 #line 412 "../../prop-src/rwgen.pcc"
 #line 412 "../../prop-src/rwgen.pcc"
-list_1_(MATCHstd::exp(selector,0))
+list_1_(MATCHexp(selector,0))
 #line 412 "../../prop-src/rwgen.pcc"
 #line 412 "../../prop-src/rwgen.pcc"
 ;
@@ -746,7 +746,7 @@ void RewritingCompiler::gen_bottomup_traversals
   Bool is_boxed = terms[0]->ty != NOty; // are we dealing with boxed terms?
   //Id redex    = is_boxed ? redex_name(ty) : "(int)redex";
   //Id untagger = is_boxed ? "->tag__" : "";
-  Exp redex = IDstd::exp(
+  Exp redex = IDexp(
 #line 635 "../../prop-src/rwgen.pcc"
 #line 635 "../../prop-src/rwgen.pcc"
 cocofmcocofm_p_r_o_pcn_s_r_cfm_r_w_g_e_nco_c_c_Q1
@@ -944,7 +944,7 @@ void RewritingCompiler::gen_component_traversal
 void RewritingCompiler::gen_single_component_traversal
   (FunctorMap& F, Cons term, Ty arg_ty)
 {
-  Exp e = select(IDstd::exp("redex"),term);
+  Exp e = select(IDexp("redex"),term);
   if (is_array_constructor(term->name))
   {
     if (F.is_known_type(arg_ty)) // generate traversal code for vectors
@@ -983,12 +983,12 @@ void RewritingCompiler::gen_tuple_component_traversal
     ( FunctorMap& F, Cons term, int arity, Tys tys)
 {
   Tys ts; int i;
-  Exp e = select(IDstd::exp("redex"),term);
+  Exp e = select(IDexp("redex"),term);
   for (i = 0, ts = tys; i < arity && ts; i++, ts = ts->_2)
   {
     Ty ty   = ts->_1;
     Id mark = F.is_applicative ? (i != arity - 1 ? "," : "") : ";";
-    Exp  e_i  = DOTstd::exp(e,index_of(i+1));
+    Exp  e_i  = DOTexp(e,index_of(i+1));
 
     if (F.is_known_type(ty))
       pr( "%^labeler(%e, s%i__, r__)%s\n", e_i, i, mark);
@@ -1009,11 +1009,11 @@ void RewritingCompiler::gen_record_component_traversal
    (FunctorMap& F, Cons term, int arity, Bool relevant[], Ids labs, Tys tys)
 {
   Tys ts; Ids ids; int i;
-  Exp e = select(IDstd::exp("redex"),term);
+  Exp e = select(IDexp("redex"),term);
   for (ids = labs, ts = tys, i = 0; ids && ts; ids=ids->_2, ts=ts->_2, i++)
   {
     Ty   ty   = ts->_1;
-    Exp  e_i  = DOTstd::exp(e,ids->_1);
+    Exp  e_i  = DOTexp(e,ids->_1);
     Id   mark = F.is_applicative ? (i != arity - 1 ? "," : "") : ";";
 
     if (F.is_known_type(ty))

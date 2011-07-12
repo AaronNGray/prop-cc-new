@@ -33,7 +33,7 @@ void RewritingCompiler::gen_auxiliary_rules
     debug_msg("%Lgenerating auxiliary rules for rewrite class %s type %T:\n",
         F.class_name, ty);
     for_each(MatchRule,r,rules) debug_msg("%!\t%r\n",r->loc(),r);
-    gen_match_stmt(#[MATCHstd::exp(IDexp(redex_name(ty)),0)],rules,MATCHnocheck);
+    gen_match_stmt(#[MATCHexp(IDexp(redex_name(ty)),0)],rules,MATCHnocheck);
   }
 }
 
@@ -116,9 +116,9 @@ Bool is_simple_replacement( Exp exp)
 {
   match while (exp) of
      IDexp "redex":                { return true; }
-  |  DOTstd::exp(SELECTORexp(e,_,_),x): { exp = e; }
-  |  SELECTORstd::exp(e,_,_):           { exp = e; }
-  |  MARKEDstd::exp(_,e):               { exp = e; }
+  |  DOTexp(SELECTORexp(e,_,_),x): { exp = e; }
+  |  SELECTORexp(e,_,_):           { exp = e; }
+  |  MARKEDexp(_,e):               { exp = e; }
   |  _:                            { return false; }
   end match;
 }
@@ -137,7 +137,7 @@ void RewritingCompiler::gen_replacement
 	trs && trs->gen_replacement(*this,current_rule->rule_number,exp);
   pr(
        "%^{ redex = DEBUG_%S(%e,redex,%S_file_name,%i,%s);",
-       Fmap->class_name, (optimized ? IDstd::exp("repl__") : exp),
+       Fmap->class_name, (optimized ? IDexp("repl__") : exp),
        Fmap->class_name, current_rule_line(), current_rule_text()
     );
   pr ("%^  r__ = 1; goto replacement__; }");

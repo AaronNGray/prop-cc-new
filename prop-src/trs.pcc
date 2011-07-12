@@ -108,13 +108,13 @@ Bool is_pattern_var( Exp exp)
 {
   match while (exp)
   {
-    SELECTORstd::exp( IDexp "redex", _, _):
+    SELECTORexp( IDexp "redex", _, _):
       { return true; }
-  | DOTstd::exp( SELECTORexp( IDexp "redex", _, _), _):
+  | DOTexp( SELECTORexp( IDexp "redex", _, _), _):
       { return true; }
-  | DOTstd::exp( SELECTORexp( e, _, _), _):
+  | DOTexp( SELECTORexp( e, _, _), _):
       { exp = e; }
-  | SELECTORstd::exp( e, _, _):
+  | SELECTORexp( e, _, _):
       { exp = e; }
   | _:
       { return false; }
@@ -260,29 +260,29 @@ Term TRS::make_term(Exp exp)
   Exp law_exp;
   match while (exp)
   {
-    MARKEDstd::exp( _, e):
+    MARKEDexp( _, e):
     { exp = e; }
   | IDexp id:
     { return make_term( exp, id, #[]); }
-  | CONSstd::exp( cons, #[], NOexp):
+  | CONSexp( cons, #[], NOexp):
     { return make_term( exp, cons->name, #[]); }
-  | CONSstd::exp( cons, #[], TUPLEexp es):
+  | CONSexp( cons, #[], TUPLEexp es):
     { return make_term( exp, cons->name, es); }
-  | CONSstd::exp( cons,#[],e):
+  | CONSexp( cons,#[],e):
     { return make_term( exp, cons->name, #[e]); }
-  | LISTstd::exp( cons, nil, #[h], t):
+  | LISTexp( cons, nil, #[h], t):
     {
-      Exp nil_exp = t == NOexp ? CONSstd::exp( nil, #[], NOexp) : t;
+      Exp nil_exp = t == NOexp ? CONSexp( nil, #[], NOexp) : t;
       nil_exp->ty = exp->ty;
       return make_term( exp, cons->name, #[ h, nil_exp]);
     }
-  | LISTstd::exp( cons, nil, #[h ... t], tail):
+  | LISTexp( cons, nil, #[h ... t], tail):
     {
-      Exp e2 = LISTstd::exp(cons, nil, t, tail);
+      Exp e2 = LISTexp(cons, nil, t, tail);
       e2->ty = exp->ty;
       return make_term(exp,cons->name,#[h,e2]);
     }
-  | APPstd::exp( IDexp id, TUPLEexp es):
+  | APPexp( IDexp id, TUPLEexp es):
     {
       law_exp = DatatypeCompiler::lookup_law( id, es);
       if (law_exp == NOexp)
@@ -290,7 +290,7 @@ Term TRS::make_term(Exp exp)
       type_of( law_exp);
       exp = law_exp;
     }
-  | APPstd::exp( IDexp id, e):
+  | APPexp( IDexp id, e):
     {
       law_exp = DatatypeCompiler::lookup_law(id,#[e]);
       if (law_exp == NOexp)

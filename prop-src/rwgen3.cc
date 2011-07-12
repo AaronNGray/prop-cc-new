@@ -236,7 +236,7 @@ void RewritingCompiler::gen_closure( FunctorMap& F, Id rhs, MatchRules rules)
           if (_V1->tag__) {
             
 #line 194 "../../prop-src/rwgen3.pcc"
-           cost_exp = LITERALstd::exp(INTlit(_INTcost(_V1)->INTcost)); 
+           cost_exp = LITERALexp(INTlit(_INTcost(_V1)->INTcost)); 
 #line 194 "../../prop-src/rwgen3.pcc"
           } else {
             
@@ -244,13 +244,13 @@ void RewritingCompiler::gen_closure( FunctorMap& F, Id rhs, MatchRules rules)
           // Avoid recomputation of cost
             Id v = vars.new_label();
             pr ("%^const int %s = %e;", v, _EXPcost(_V1)->_1);
-            cost_exp = IDstd::exp(v);
+            cost_exp = IDexp(v);
             
 #line 200 "../../prop-src/rwgen3.pcc"
           }
         } else {
 #line 193 "../../prop-src/rwgen3.pcc"
-         cost_exp = LITERALstd::exp(INTlit(0)); 
+         cost_exp = LITERALexp(INTlit(0)); 
 #line 193 "../../prop-src/rwgen3.pcc"
         }
       }
@@ -387,7 +387,7 @@ void RewritingCompiler::gen_dynamic_traversals( FunctorMap& F, Ty ty)
   MatchExps  exps  = 
 #line 322 "../../prop-src/rwgen3.pcc"
 #line 322 "../../prop-src/rwgen3.pcc"
-list_1_(MATCHstd::exp(IDexp("redex"),0))
+list_1_(MATCHexp(IDexp("redex"),0))
 #line 322 "../../prop-src/rwgen3.pcc"
 #line 322 "../../prop-src/rwgen3.pcc"
 ;
@@ -773,7 +773,7 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
                     
                     Cons cons = _DATATYPEtycon(_TYCONty(alg_ty)->_1)->terms[k];
                     Ty arg_ty = apply_ty(cons->cons_ty,_TYCONty(_V2)->_2);
-                    Exp e     = select(IDstd::exp("redex"),cons);
+                    Exp e     = select(IDexp("redex"),cons);
                     	  if (cons->ty == NOty)
                     {
                       error("%Ltree parsing mode cannot be used on datatype with unit constructors: %T\n", alg_ty);
@@ -795,7 +795,7 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
                                   for (ids = _RECORDtycon(_TYCONty(arg_ty)->_1)->_1; ids && _TYCONty(arg_ty)->_2; ids = ids->_2, _TYCONty(_V2)->_2 = _TYCONty(_V2)->_2->_2)
                                   {
                                     if (Fmap->is_rewritable_type(_TYCONty(_V2)->_2->_1))
-                                      pr( "%^labeler(%e);", DOTstd::exp(e,ids->_1));
+                                      pr( "%^labeler(%e);", DOTexp(e,ids->_1));
                                   }
                                   
 #line 599 "../../prop-src/rwgen3.pcc"
@@ -816,7 +816,7 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
                                   for_each(Ty, t, _TYCONty(arg_ty)->_2)
                                   {
                                     if (Fmap->is_rewritable_type(t))
-                                      pr("%^labeler(%e);", DOTstd::exp(e,index_of(i))); i++;
+                                      pr("%^labeler(%e);", DOTexp(e,index_of(i))); i++;
                                   }
                                   
 #line 590 "../../prop-src/rwgen3.pcc"
@@ -895,20 +895,20 @@ void RewritingCompiler::gen_treecost_match( Match m, const BitSet * set,
           if (_V3->tag__) {
             
 #line 636 "../../prop-src/rwgen3.pcc"
-           cost_exp = LITERALstd::exp(INTlit(_INTcost(_V3)->INTcost)); 
+           cost_exp = LITERALexp(INTlit(_INTcost(_V3)->INTcost)); 
 #line 636 "../../prop-src/rwgen3.pcc"
           } else {
             
 #line 638 "../../prop-src/rwgen3.pcc"
             
-            cost_exp = IDstd::exp(vars.new_label());
+            cost_exp = IDexp(vars.new_label());
             pr("%^int %e = %e;",cost_exp,_EXPcost(_V3)->_1);
             
 #line 641 "../../prop-src/rwgen3.pcc"
           }
         } else {
 #line 635 "../../prop-src/rwgen3.pcc"
-         cost_exp = LITERALstd::exp(INTlit(0)); 
+         cost_exp = LITERALexp(INTlit(0)); 
 #line 635 "../../prop-src/rwgen3.pcc"
         }
       }

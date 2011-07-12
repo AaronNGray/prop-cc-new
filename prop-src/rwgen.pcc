@@ -408,8 +408,8 @@ void RewritingCompiler::gen_literal_labeler( FunctorMap& F, Ty ty)
   ///////////////////////////////////////////////////////////////////////////
   // The selector is named 'redex'
   ///////////////////////////////////////////////////////////////////////////
-  Exp        selector = IDstd::exp("redex");
-  MatchExps  exps     = #[MATCHstd::exp(selector,0)];
+  Exp        selector = IDexp("redex");
+  MatchExps  exps     = #[MATCHexp(selector,0)];
   MatchRules rules    = // Default is state zero.
       #[ MATCHrule(0,WILDpat(),NOexp,NOcost,#[SETSTATEdecl(0)]) ];
 
@@ -632,7 +632,7 @@ void RewritingCompiler::gen_bottomup_traversals
   Bool is_boxed = terms[0]->ty != NOty; // are we dealing with boxed terms?
   //Id redex    = is_boxed ? redex_name(ty) : "(int)redex";
   //Id untagger = is_boxed ? "->tag__" : "";
-  Exp redex = IDstd::exp(#"redex");
+  Exp redex = IDexp(#"redex");
 
   if (arity == 1)
   {
@@ -795,7 +795,7 @@ void RewritingCompiler::gen_component_traversal
 void RewritingCompiler::gen_single_component_traversal
   (FunctorMap& F, Cons term, Ty arg_ty)
 {
-  Exp e = select(IDstd::exp("redex"),term);
+  Exp e = select(IDexp("redex"),term);
   if (is_array_constructor(term->name))
   {
     if (F.is_known_type(arg_ty)) // generate traversal code for vectors
@@ -834,12 +834,12 @@ void RewritingCompiler::gen_tuple_component_traversal
     ( FunctorMap& F, Cons term, int arity, Tys tys)
 {
   Tys ts; int i;
-  Exp e = select(IDstd::exp("redex"),term);
+  Exp e = select(IDexp("redex"),term);
   for (i = 0, ts = tys; i < arity && ts; i++, ts = ts->#2)
   {
     Ty ty   = ts->#1;
     Id mark = F.is_applicative ? (i != arity - 1 ? "," : "") : ";";
-    Exp  e_i  = DOTstd::exp(e,index_of(i+1));
+    Exp  e_i  = DOTexp(e,index_of(i+1));
 
     if (F.is_known_type(ty))
       pr( "%^labeler(%e, s%i__, r__)%s\n", e_i, i, mark);
@@ -860,11 +860,11 @@ void RewritingCompiler::gen_record_component_traversal
    (FunctorMap& F, Cons term, int arity, Bool relevant[], Ids labs, Tys tys)
 {
   Tys ts; Ids ids; int i;
-  Exp e = select(IDstd::exp("redex"),term);
+  Exp e = select(IDexp("redex"),term);
   for (ids = labs, ts = tys, i = 0; ids && ts; ids=ids->#2, ts=ts->#2, i++)
   {
     Ty   ty   = ts->#1;
-    Exp  e_i  = DOTstd::exp(e,ids->#1);
+    Exp  e_i  = DOTexp(e,ids->#1);
     Id   mark = F.is_applicative ? (i != arity - 1 ? "," : "") : ";";
 
     if (F.is_known_type(ty))

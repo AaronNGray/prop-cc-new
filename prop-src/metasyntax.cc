@@ -88,7 +88,7 @@ void MetaSyntaxCompiler::install_grammar( Id grammar_name, GramExp grammar)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp MetaSyntaxCompiler::parse_std::exp( Id grammar_name, const char *text)
+Exp MetaSyntaxCompiler::parse_exp( Id grammar_name, const char *text)
 {
   error( "%Lunrecognized quoted expression `%s`\n", text);
   return NOexp;

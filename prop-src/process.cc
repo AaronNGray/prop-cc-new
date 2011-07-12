@@ -103,7 +103,7 @@ void Loc::set_loc() const
   file = file_name;
 }
 
-const char * my_std::strrchr( const char * s, char c)
+const char * my_strrchr( const char * s, char c)
 {
   register const char * p;
   for (p = s + std::strlen(s) - 1; p != s; p--)
@@ -121,8 +121,8 @@ const char * my_std::strrchr( const char * s, char c)
 void PropOptions::compute_output_file_name()
 {  // Locate the . in the file name and
   // Cut out the directory prefix.
-  const char * dot   = my_std::strrchr(input_file_name,'.');
-  const char * slash = my_std::strrchr(input_file_name,PATH_SEPARATOR);
+  const char * dot   = my_strrchr(input_file_name,'.');
+  const char * slash = my_strrchr(input_file_name,PATH_SEPARATOR);
   if (dot == 0 || ! (dot[1] == 'p' || dot[1] == 'P'))
   {
     std::cerr << '"' << input_file_name

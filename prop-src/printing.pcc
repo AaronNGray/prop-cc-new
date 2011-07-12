@@ -770,7 +770,7 @@ std::ostream& operator << (std::ostream& f, Exp e)
   | MARKEDexp (_,e):           { f << e; }
   | LITERALexp l:              { f << l; }
   | ASSIGNexp (e1,e2):         { f << '(' << e1 << " = " << e2 << ')'; }
-  | DOTstd::exp(SELECTORexp(e,c,t),id) | pretty_print_exp:
+  | DOTexp(SELECTORexp(e,c,t),id) | pretty_print_exp:
     {
       f << e << '!' << c->name << '.';
 	  int n = std::atol(id+1);
@@ -779,11 +779,11 @@ std::ostream& operator << (std::ostream& f, Exp e)
 	  else
 	    f << id;
     }
-  | SELECTORstd::exp(e,c,t) | pretty_print_exp:
+  | SELECTORexp(e,c,t) | pretty_print_exp:
     { f << e << '!' << c->name; }
-  | DOTstd::exp( SELECTORexp( e, c, t), id):
+  | DOTexp( SELECTORexp( e, c, t), id):
     { f << MatchCompiler::make_select( e, c, t, id); }
-  | SELECTORstd::exp( e, cons, t):
+  | SELECTORexp( e, cons, t):
     { f << MatchCompiler::make_select( e, cons, t); }
   | DOTexp (DEREFexp e,id):    { f << e << "->" << id; }
   | DOTexp    (e,id):     { f << e << '.' << id; }
@@ -793,8 +793,8 @@ std::ostream& operator << (std::ostream& f, Exp e)
   | INDEXexp  (e1,e2):    { f << e1 << '[' << e2 << ']'; }
   | BINOPexp  (x,e1,e2):  { f << '(' << e1 << ' ' << x << ' ' << e2 << ')'; }
   | PREFIXexp (x,e):      { f << '(' << x << ' ' << e << ')'; }
-  | POSTFIXstd::exp(x,e):      { f << '(' << e << ' ' << x << ')'; }
-  | CASTstd::exp( ty, e):
+  | POSTFIXexp(x,e):      { f << '(' << e << ' ' << x << ')'; }
+  | CASTexp( ty, e):
     {
       Bool save = pretty_print_ty;
       pretty_print_ty = false;
@@ -802,14 +802,14 @@ std::ostream& operator << (std::ostream& f, Exp e)
       pretty_print_ty = save;
     }
   | QUALexp (ty,e):       { f << ty << "::" << e; }
-  | EQstd::exp(_,e1,e2):       { f << "equality_of(" << e1 << ',' << e2 << ')'; }
-  | UNIFYstd::exp(_,e1,e2):    { f << "unify(" << e1 << ',' << e2 << ')'; }
-  | LTstd::exp(_,e1,e2):       { f << '(' << e1 << " < " << e2 << ')'; }
-  | HASHstd::exp(_,e):         { f << "hash(" << e << ')'; }
+  | EQexp(_,e1,e2):       { f << "equality_of(" << e1 << ',' << e2 << ')'; }
+  | UNIFYexp(_,e1,e2):    { f << "unify(" << e1 << ',' << e2 << ')'; }
+  | LTexp(_,e1,e2):       { f << '(' << e1 << " < " << e2 << ')'; }
+  | HASHexp(_,e):         { f << "hash(" << e << ')'; }
   | TUPLEexp es:          { f << es; }
   | EXTUPLEexp es:        { f << "mkTuple" << length(es) << '(' << es << ')'; }
-  | IFstd::exp(a,b,c):         { f << '(' << a << " ? " << b << " : " << c <<')';}
-  | SYNstd::exp( i, r, _, in_rewrite):
+  | IFexp(a,b,c):         { f << '(' << a << " ? " << b << " : " << c <<')';}
+  | SYNexp( i, r, _, in_rewrite):
     {
       if (in_rewrite)
         f << '_' << i << "__";
@@ -832,7 +832,7 @@ std::ostream& operator << (std::ostream& f, Exp e)
     }
   | COSTexp (i): { f << "t__->kids[" << i << "]->cost"; }
   | THISCOSTexp _: { f << "t__->cost"; }
-  | CONSstd::exp(c as
+  | CONSexp(c as
             ONEcons { name, ty = TYCONty(RECORDtycon(labels,_),tys) ... },
             placement, e as RECORDexp lab_exps):
     {  // rearrange arguments to
@@ -896,13 +896,13 @@ std::ostream& operator << (std::ostream& f, Exp e)
       }
       f << ')';
     }
-  | CONSstd::exp(ONEcons { name ... }, placement, RECORDexp _):
+  | CONSexp(ONEcons { name ... }, placement, RECORDexp _):
     {
       error("%Lconstructor '%s' doesn't take labeled arguments\n", name);
     }
-  | CONSstd::exp(ONEcons { name, ty = NOty ... },#[], NOexp):
+  | CONSexp(ONEcons { name, ty = NOty ... },#[], NOexp):
     {  f << mangle(name); }
-  | CONSstd::exp(cons as ONEcons { name ... }, placement, e):
+  | CONSexp(cons as ONEcons { name ... }, placement, e):
     {
       if (placement)
       {

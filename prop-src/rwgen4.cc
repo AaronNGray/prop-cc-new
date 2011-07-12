@@ -45,7 +45,7 @@ void RewritingCompiler::gen_auxiliary_rules
     gen_match_stmt(
 #line 36 "../../prop-src/rwgen4.pcc"
 #line 36 "../../prop-src/rwgen4.pcc"
-list_1_(MATCHstd::exp(IDexp(redex_name(ty)),0))
+list_1_(MATCHexp(IDexp(redex_name(ty)),0))
 #line 36 "../../prop-src/rwgen4.pcc"
 #line 36 "../../prop-src/rwgen4.pcc"
 ,rules,MATCHnocheck);
@@ -137,7 +137,7 @@ Bool is_simple_replacement( Exp exp)
     if (exp) {
       switch (exp->tag__) {
         case a_Exp::tag_IDexp: {
-          if (_equal_string(_IDstd::exp(exp)->IDexp,"redex")) {
+          if (_equal_string(_IDexp(exp)->IDexp,"redex")) {
 #line 118 "../../prop-src/rwgen4.pcc"
          return true; 
 #line 118 "../../prop-src/rwgen4.pcc"
@@ -150,11 +150,11 @@ Bool is_simple_replacement( Exp exp)
 }
           } break;
         case a_Exp::tag_DOTexp: {
-          if (_DOTstd::exp(exp)->_1) {
-            switch (_DOTstd::exp(exp)->_1->tag__) {
+          if (_DOTexp(exp)->_1) {
+            switch (_DOTexp(exp)->_1->tag__) {
               case a_Exp::tag_SELECTORexp: {
 #line 119 "../../prop-src/rwgen4.pcc"
-               exp = _SELECTORstd::exp(_DOTexp(exp)->_1)->_1; 
+               exp = _SELECTORexp(_DOTexp(exp)->_1)->_1; 
 #line 119 "../../prop-src/rwgen4.pcc"
                 } break;
               default: { goto L2; } break;
@@ -163,12 +163,12 @@ Bool is_simple_replacement( Exp exp)
           } break;
         case a_Exp::tag_SELECTORexp: {
 #line 120 "../../prop-src/rwgen4.pcc"
-         exp = _SELECTORstd::exp(exp)->_1; 
+         exp = _SELECTORexp(exp)->_1; 
 #line 120 "../../prop-src/rwgen4.pcc"
           } break;
         case a_Exp::tag_MARKEDexp: {
 #line 121 "../../prop-src/rwgen4.pcc"
-         exp = _MARKEDstd::exp(exp)->_2; 
+         exp = _MARKEDexp(exp)->_2; 
 #line 121 "../../prop-src/rwgen4.pcc"
           } break;
         default: { goto L2; } break;
@@ -195,7 +195,7 @@ void RewritingCompiler::gen_replacement
 	trs && trs->gen_replacement(*this,current_rule->rule_number,exp);
   pr(
        "%^{ redex = DEBUG_%S(%e,redex,%S_file_name,%i,%s);",
-       Fmap->class_name, (optimized ? IDstd::exp("repl__") : exp),
+       Fmap->class_name, (optimized ? IDexp("repl__") : exp),
        Fmap->class_name, current_rule_line(), current_rule_text()
     );
   pr ("%^  r__ = 1; goto replacement__; }");

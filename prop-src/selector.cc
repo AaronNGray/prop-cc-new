@@ -39,7 +39,7 @@ static const Quark cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q4("unta
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp select( Exp e, Cons c, Ty t) { return SELECTORstd::exp( e, c, t); }
+Exp select( Exp e, Cons c, Ty t) { return SELECTORexp( e, c, t); }
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -186,7 +186,7 @@ Exp MatchCompiler::make_select
                         Id nm = mangle(c->name);
                   
                         if (c->opt & OPTunboxed)
-                           result = APPstd::exp( IDexp( 
+                           result = APPexp( IDexp( 
 #line 103 "../../prop-src/selector.pcc"
 #line 103 "../../prop-src/selector.pcc"
                   cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q1
@@ -196,7 +196,7 @@ Exp MatchCompiler::make_select
                   else
                   {
                     if ((_DATATYPEtycon(_TYCONty(c->alg_ty)->_1)->opt & OPTtaggedpointer) && c->tag != 0)
-                      e = APPstd::exp( IDexp( 
+                      e = APPexp( IDexp( 
 #line 107 "../../prop-src/selector.pcc"
 #line 107 "../../prop-src/selector.pcc"
                   cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q2
@@ -206,9 +206,9 @@ Exp MatchCompiler::make_select
                   if (_DATATYPEtycon(_TYCONty(c->alg_ty)->_1)->opt & OPTsubclassless) // No subclass hierarchy
                   {
                     if (simple)
-                      result = ARROWstd::exp( e, nm);
+                      result = ARROWexp( e, nm);
                     else
-                      result = DEREFstd::exp( e);
+                      result = DEREFexp( e);
                   }
                   else // with subclass hierachy
                   {
@@ -224,7 +224,7 @@ Exp MatchCompiler::make_select
                   )
                   {
                     downcast_exp =
-                        CASTstd::exp( mkptrty( mkidty( _DATATYPEtycon(_TYCONty(c->alg_ty)->_1)->id + 
+                        CASTexp( mkptrty( mkidty( _DATATYPEtycon(_TYCONty(c->alg_ty)->_1)->id + 
 #line 123 "../../prop-src/selector.pcc"
 #line 123 "../../prop-src/selector.pcc"
                   cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q3
@@ -251,7 +251,7 @@ Exp MatchCompiler::make_select
 #line 130 "../../prop-src/selector.pcc"
                           
                           downcast_exp =
-                                  CASTstd::exp( mkptrty( mkidty( _DATATYPEtycon(_TYCONty(c->alg_ty)->_1)->id + 
+                                  CASTexp( mkptrty( mkidty( _DATATYPEtycon(_TYCONty(c->alg_ty)->_1)->id + 
 #line 132 "../../prop-src/selector.pcc"
 #line 132 "../../prop-src/selector.pcc"
                           cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q3
@@ -275,7 +275,7 @@ Exp MatchCompiler::make_select
                   
                   }
                   else
-                    downcast_exp = APPstd::exp( IDexp( 
+                    downcast_exp = APPexp( IDexp( 
 #line 139 "../../prop-src/selector.pcc"
 #line 139 "../../prop-src/selector.pcc"
                   cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q3
@@ -284,9 +284,9 @@ Exp MatchCompiler::make_select
                  + nm), e);
                   
                             if (simple)
-                              result = ARROWstd::exp( downcast_exp, nm);
+                              result = ARROWexp( downcast_exp, nm);
                             else
-                              result = DEREFstd::exp( downcast_exp);
+                              result = DEREFexp( downcast_exp);
                           }
                         }
                       
@@ -306,7 +306,7 @@ Exp MatchCompiler::make_select
 #line 149 "../../prop-src/selector.pcc"
 #line 149 "../../prop-src/selector.pcc"
 
-  return use_projection ? DOTstd::exp(result,component) : result;
+  return use_projection ? DOTexp(result,component) : result;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -360,7 +360,7 @@ Exp MatchCompiler::tag_name_of( Cons cons, Bool normalized)
                       L10:; 
 #line 184 "../../prop-src/selector.pcc"
                       
-                      return IDstd::exp( Quark( "a_", _DATATYPEtycon(_TYCONty(cons->alg_ty)->_1)->id, "::tag_", mangle( cons->name)));
+                      return IDexp( Quark( "a_", _DATATYPEtycon(_TYCONty(cons->alg_ty)->_1)->id, "::tag_", mangle( cons->name)));
                       
 #line 186 "../../prop-src/selector.pcc"
                     } else {
@@ -369,7 +369,7 @@ Exp MatchCompiler::tag_name_of( Cons cons, Bool normalized)
 #line 188 "../../prop-src/selector.pcc"
                       
                       int this_tag = tag_of(cons) + (normalized ? _DATATYPEtycon(_TYCONty(cons->alg_ty)->_1)->unit : 0);
-                      return LITERALstd::exp(INTlit(this_tag));
+                      return LITERALexp(INTlit(this_tag));
                       
 #line 191 "../../prop-src/selector.pcc"
                     }
@@ -407,7 +407,7 @@ Exp MatchCompiler::tag_name_of( Cons cons, Bool normalized)
                             L14:; 
 #line 175 "../../prop-src/selector.pcc"
                             
-                            return IDstd::exp( mangle( cons->name));
+                            return IDexp( mangle( cons->name));
                             
 #line 177 "../../prop-src/selector.pcc"
                           } else {
@@ -415,7 +415,7 @@ Exp MatchCompiler::tag_name_of( Cons cons, Bool normalized)
                             L15:; 
 #line 179 "../../prop-src/selector.pcc"
                             
-                            return CASTstd::exp( integer_ty, IDexp( mangle( cons->name)));
+                            return CASTexp( integer_ty, IDexp( mangle( cons->name)));
                             
 #line 181 "../../prop-src/selector.pcc"
                           }
@@ -504,7 +504,7 @@ Exp MatchCompiler::untag( Exp e, Ty ty)
                   
 #line 217 "../../prop-src/selector.pcc"
                   
-                  return APPstd::exp( IDexp( 
+                  return APPexp( IDexp( 
 #line 218 "../../prop-src/selector.pcc"
 #line 218 "../../prop-src/selector.pcc"
                   cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q4
@@ -578,7 +578,7 @@ Exp MatchCompiler::untag_one( Exp e, Cons c)
 #line 250 "../../prop-src/selector.pcc"
                     
                     if (_DATATYPEtycon(_TYCONty(c->alg_ty)->_1)->opt & OPTtaggedpointer)
-                      e = APPstd::exp( IDexp( 
+                      e = APPexp( IDexp( 
 #line 252 "../../prop-src/selector.pcc"
 #line 252 "../../prop-src/selector.pcc"
                     cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q5
@@ -586,9 +586,9 @@ Exp MatchCompiler::untag_one( Exp e, Cons c)
 #line 252 "../../prop-src/selector.pcc"
                     ),e);
                     else if (_DATATYPEtycon(_TYCONty(c->alg_ty)->_1)->opt & OPTtagless)
-                      e = LITERALstd::exp( INTlit(0));
+                      e = LITERALexp( INTlit(0));
                     else
-                      e = ARROWstd::exp( e, 
+                      e = ARROWexp( e, 
 #line 256 "../../prop-src/selector.pcc"
 #line 256 "../../prop-src/selector.pcc"
                     cocofmcocofm_p_r_o_pcn_s_r_cfm_s_e_l_e_c_t_o_rco_c_c_Q6
@@ -637,7 +637,7 @@ Exp MatchCompiler::untag_one( Exp e, Cons c)
                             
                             L26:; 
 #line 248 "../../prop-src/selector.pcc"
-                           return CASTstd::exp( integer_ty, e); 
+                           return CASTexp( integer_ty, e); 
 #line 248 "../../prop-src/selector.pcc"
                           }
                         }

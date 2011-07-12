@@ -103,7 +103,7 @@ Exp mkvariable( Pat p)
   match (deref_all(p->ty))
   {
   DATATYPEty({ qualifiers, terms, unit ... },_) | qualifiers & QUALunifiable:
-    {  return APPstd::exp( IDexp( terms[unit]->name), TUPLEexp(#[])); }
+    {  return APPexp( IDexp( terms[unit]->name), TUPLEexp(#[])); }
   | _:
     {
       error( "%L%p with type %T is not unifiable\n", p, p->ty);
@@ -128,7 +128,7 @@ Bool   write_mode = false;
 fun pat2exp NOpat: Exp:
       { return NOexp; }
   | pat2exp p as IDpat(id,_,_):
-      { return write_mode ? mkvariable(p) : IDstd::exp(id); }
+      { return write_mode ? mkvariable(p) : IDexp(id); }
   | pat2exp INDpat(id,i,_) | actual_args != #[]:
       {
         int k = 0;
@@ -143,23 +143,23 @@ fun pat2exp NOpat: Exp:
   | pat2exp INDpat(id,_,ty):
       {
         boundvars = #[.(id,ty) ... boundvars];
-        return IDstd::exp(id);
+        return IDexp(id);
       }
-  | pat2exp LITERALpat l:        { return LITERALstd::exp(l); }
+  | pat2exp LITERALpat l:        { return LITERALexp(l); }
   | pat2exp TYPEDpat(p,_):       { return pat2std::exp(p); }
   | pat2exp ASpat(_,p,_,_):      { return pat2std::exp(p); }
   | pat2exp CONTEXTpat(_,p):     { return pat2std::exp(p); }
-  | pat2exp TUPLEpat ps:         { return TUPLEstd::exp(pat2exp(ps)); }
-  | pat2exp EXTUPLEpat ps:       { return EXTUPLEstd::exp(pat2exp(ps)); }
-  | pat2exp RECORDpat(ps,_):     { return RECORDstd::exp(pat2exp(ps)); }
+  | pat2exp TUPLEpat ps:         { return TUPLEexp(pat2exp(ps)); }
+  | pat2exp EXTUPLEpat ps:       { return EXTUPLEexp(pat2exp(ps)); }
+  | pat2exp RECORDpat(ps,_):     { return RECORDexp(pat2exp(ps)); }
   | pat2exp GUARDpat(p,e):       { return pat2std::exp(p); }
   | pat2exp MARKEDpat(_,p):      { return pat2std::exp(p); }
-  | pat2exp CONSpat(ONEcons{name...}): { return IDstd::exp(name); }
-  | pat2exp APPpat(CONSpat c,e): { return CONSstd::exp(c,#[],pat2exp(e)); }
+  | pat2exp CONSpat(ONEcons{name...}): { return IDexp(name); }
+  | pat2exp APPpat(CONSpat c,e): { return CONSexp(c,#[],pat2exp(e)); }
   | pat2exp LISTpat { cons, nil, head, tail ... }:
-      { return LISTstd::exp(cons,nil,pat2exp(head),pat2exp(tail)); }
+      { return LISTexp(cons,nil,pat2exp(head),pat2exp(tail)); }
   | pat2exp VECTORpat { cons, elements ... }:
-      { return VECTORstd::exp(cons,pat2exp(elements)); }
+      { return VECTORexp(cons,pat2exp(elements)); }
   | pat2exp p as WILDpat _ | write_mode:
       { return mkvariable(p); }
   | pat2exp p: { bug("pat2exp: %p", p); return NOexp; }
@@ -215,14 +215,14 @@ Exp DatatypeCompiler::lookup_law( Id id, Exps args)
         if (arity != length(args))
         {
           error( "%Larity mismatch between law %p and arguments %f\n",
-	            pat, TUPLEstd::exp(args));
+	            pat, TUPLEexp(args));
           return NOexp;
         }
         Exp exp = pat2std::exp(pat);
         actual_args = #[];
         if (application_error)
           error( "%Lcannot apply law %p with arguments %f\n",
-                pat, TUPLEstd::exp(args));
+                pat, TUPLEexp(args));
         return exp;
       }
       else

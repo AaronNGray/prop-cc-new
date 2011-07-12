@@ -21,7 +21,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp select( Exp e, Cons c, Ty t) { return SELECTORstd::exp( e, c, t); }
+Exp select( Exp e, Cons c, Ty t) { return SELECTORexp( e, c, t); }
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -100,17 +100,17 @@ Exp MatchCompiler::make_select
       Id nm = mangle(name);
 
       if (this_opt & OPTunboxed)
-         result = APPstd::exp( IDexp( #"deref_" + name), e);
+         result = APPexp( IDexp( #"deref_" + name), e);
       else
       {
         if ((opt & OPTtaggedpointer) && tag != 0)
-          e = APPstd::exp( IDexp( #"derefp"), e);
+          e = APPexp( IDexp( #"derefp"), e);
         if (opt & OPTsubclassless) // No subclass hierarchy
         {
           if (simple)
-            result = ARROWstd::exp( e, nm);
+            result = ARROWexp( e, nm);
           else
-            result = DEREFstd::exp( e);
+            result = DEREFexp( e);
         }
         else // with subclass hierachy
         {
@@ -120,7 +120,7 @@ Exp MatchCompiler::make_select
           if (options.inline_casts && tyvars == #[])
           {
             downcast_exp =
-                CASTstd::exp( mkptrty( mkidty( id + #"_" + nm, #[])), e);
+                CASTexp( mkptrty( mkidty( id + #"_" + nm, #[])), e);
           }
           else if (options.inline_casts && expected_ty != NOty)
           {
@@ -129,25 +129,25 @@ Exp MatchCompiler::make_select
 		    TYCONty(_,tys):
               {
                 downcast_exp =
-                        CASTstd::exp( mkptrty( mkidty( id + #"_" + nm, tys)), e);
+                        CASTexp( mkptrty( mkidty( id + #"_" + nm, tys)), e);
               }
             | _:
               { bug( "%Lmake_select"); }
             }
           }
           else
-            downcast_exp = APPstd::exp( IDexp( #"_" + nm), e);
+            downcast_exp = APPexp( IDexp( #"_" + nm), e);
 
           if (simple)
-            result = ARROWstd::exp( downcast_exp, nm);
+            result = ARROWexp( downcast_exp, nm);
           else
-            result = DEREFstd::exp( downcast_exp);
+            result = DEREFexp( downcast_exp);
         }
       }
     }
   |  _: // skip
   }
-  return use_projection ? DOTstd::exp(result,component) : result;
+  return use_projection ? DOTexp(result,component) : result;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -173,21 +173,21 @@ Exp MatchCompiler::tag_name_of( Cons cons, Bool normalized)
   | ONEcons { name, ty = NOty, alg_ty = DATATYPEty({ arg ... },_) ... }
         | arg == 0:
     {
-      return IDstd::exp( mangle( name));
+      return IDexp( mangle( name));
     }
   | ONEcons { name, ty = NOty, alg_ty = DATATYPEty({ arg ... },_) ... }:
     {
-      return CASTstd::exp( integer_ty, IDexp( mangle( name)));
+      return CASTexp( integer_ty, IDexp( mangle( name)));
     }
   | ONEcons { name, alg_ty = DATATYPEty({ id, arg, unit, tyvars ... },_) ... }
 	    | !normalized && tyvars == #[] && arg > 1:
     {
-      return IDstd::exp( Quark( "a_", id, "::tag_", mangle( name)));
+      return IDexp( Quark( "a_", id, "::tag_", mangle( name)));
     }
   | ONEcons { alg_ty = DATATYPEty({ arg, unit ... },_) ... }:
     {
       int this_tag = tag_of(cons) + (normalized ? unit : 0);
-      return LITERALstd::exp(INTlit(this_tag));
+      return LITERALexp(INTlit(this_tag));
     }
   | _:
     { return NOexp; }
@@ -215,7 +215,7 @@ Exp MatchCompiler::untag( Exp e, Ty ty)
     }
   | DATATYPEty ({ arg ... },_) | arg > 0:
     {
-      return APPstd::exp( IDexp( #"untag"), e);
+      return APPexp( IDexp( #"untag"), e);
     }
   | _:
     { return e; }
@@ -245,15 +245,15 @@ Exp MatchCompiler::untag_one( Exp e, Cons c)
         | arg == 0:
     { return e; }
   | ONEcons { ty = NOty ... }:
-    { return CASTstd::exp( integer_ty, e); }
+    { return CASTexp( integer_ty, e); }
   | ONEcons { alg_ty = DATATYPEty({ qualifiers, opt ... }, _) ... }:
     {
       if (opt & OPTtaggedpointer)
-        e = APPstd::exp( IDexp( #"untagp"),e);
+        e = APPexp( IDexp( #"untagp"),e);
       else if (opt & OPTtagless)
-        e = LITERALstd::exp( INTlit(0));
+        e = LITERALexp( INTlit(0));
       else
-        e = ARROWstd::exp( e, #"tag__");
+        e = ARROWexp( e, #"tag__");
       return e;
     }
   | _:

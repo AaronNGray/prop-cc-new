@@ -132,8 +132,8 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
 #line 112 "../../prop-src/infgen.pcc"
 ) {
             
-            if (_less_string(_BINOPstd::exp(exp)->_1,"==")) {
-              if (_equal_string(_BINOPstd::exp(exp)->_1,"!=")) {
+            if (_less_string(_BINOPexp(exp)->_1,"==")) {
+              if (_equal_string(_BINOPexp(exp)->_1,"!=")) {
               if (
 #line 111 "../../prop-src/infgen.pcc"
               neg
@@ -142,17 +142,17 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                 
                 L2:; 
 #line 111 "../../prop-src/infgen.pcc"
-               *cnf = BINOPstd::exp("==",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3); return cnf+1;
+               *cnf = BINOPexp("==",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3); return cnf+1;
 #line 111 "../../prop-src/infgen.pcc"
               } else {
                 
                 L3:; 
 #line 112 "../../prop-src/infgen.pcc"
-               *cnf = PREFIXstd::exp("!",exp); return cnf+1;
+               *cnf = PREFIXexp("!",exp); return cnf+1;
 #line 112 "../../prop-src/infgen.pcc"
               }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,"&&")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,"&&")) {
               if (
 #line 104 "../../prop-src/infgen.pcc"
               (! neg)
@@ -161,12 +161,12 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                 
                 L4:; 
 #line 104 "../../prop-src/infgen.pcc"
-               cnf = flatten(_BINOPstd::exp(exp)->_2,cnf,neg); exp = _BINOPexp(exp)->_3; 
+               cnf = flatten(_BINOPexp(exp)->_2,cnf,neg); exp = _BINOPexp(exp)->_3; 
 #line 104 "../../prop-src/infgen.pcc"
               } else {
                  goto L3; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,"<")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,"<")) {
               if (
 #line 108 "../../prop-src/infgen.pcc"
               neg
@@ -175,12 +175,12 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                 
                 L5:; 
 #line 108 "../../prop-src/infgen.pcc"
-               *cnf = BINOPstd::exp(">=",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3); return cnf+1;
+               *cnf = BINOPexp(">=",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3); return cnf+1;
 #line 108 "../../prop-src/infgen.pcc"
               } else {
                  goto L3; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,"<=")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,"<=")) {
               if (
 #line 109 "../../prop-src/infgen.pcc"
               neg
@@ -189,14 +189,14 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                 
                 L6:; 
 #line 109 "../../prop-src/infgen.pcc"
-               *cnf = BINOPstd::exp(">",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3);  return cnf+1;
+               *cnf = BINOPexp(">",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3);  return cnf+1;
 #line 109 "../../prop-src/infgen.pcc"
               } else {
                  goto L3; }
 }
               else { goto L3; }
             } else {
-              if (_equal_string(_BINOPstd::exp(exp)->_1,"==")) {
+              if (_equal_string(_BINOPexp(exp)->_1,"==")) {
               if (
 #line 110 "../../prop-src/infgen.pcc"
               neg
@@ -205,12 +205,12 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                 
                 L7:; 
 #line 110 "../../prop-src/infgen.pcc"
-               *cnf = BINOPstd::exp("!=",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3); return cnf+1;
+               *cnf = BINOPexp("!=",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3); return cnf+1;
 #line 110 "../../prop-src/infgen.pcc"
               } else {
                  goto L3; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,">")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,">")) {
               if (
 #line 106 "../../prop-src/infgen.pcc"
               neg
@@ -219,12 +219,12 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                 
                 L8:; 
 #line 106 "../../prop-src/infgen.pcc"
-               *cnf = BINOPstd::exp("<=",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3); return cnf+1;
+               *cnf = BINOPexp("<=",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3); return cnf+1;
 #line 106 "../../prop-src/infgen.pcc"
               } else {
                  goto L3; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,">=")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,">=")) {
               if (
 #line 107 "../../prop-src/infgen.pcc"
               neg
@@ -233,12 +233,12 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                 
                 L9:; 
 #line 107 "../../prop-src/infgen.pcc"
-               *cnf = BINOPstd::exp("<",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3);  return cnf+1;
+               *cnf = BINOPexp("<",_BINOPexp(exp)->_2,_BINOPexp(exp)->_3);  return cnf+1;
 #line 107 "../../prop-src/infgen.pcc"
               } else {
                  goto L3; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,"||")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,"||")) {
               if (
 #line 105 "../../prop-src/infgen.pcc"
               neg
@@ -247,7 +247,7 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                 
                 L10:; 
 #line 105 "../../prop-src/infgen.pcc"
-               cnf = flatten(_BINOPstd::exp(exp)->_2,cnf,neg); exp = _BINOPexp(exp)->_3; 
+               cnf = flatten(_BINOPexp(exp)->_2,cnf,neg); exp = _BINOPexp(exp)->_3; 
 #line 105 "../../prop-src/infgen.pcc"
               } else {
                  goto L3; }
@@ -256,8 +256,8 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
             }
           } else {
             
-            if (_less_string(_BINOPstd::exp(exp)->_1,"==")) {
-              if (_equal_string(_BINOPstd::exp(exp)->_1,"!=")) {
+            if (_less_string(_BINOPexp(exp)->_1,"==")) {
+              if (_equal_string(_BINOPexp(exp)->_1,"!=")) {
               if (
 #line 111 "../../prop-src/infgen.pcc"
               neg
@@ -271,7 +271,7 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
 #line 113 "../../prop-src/infgen.pcc"
               }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,"&&")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,"&&")) {
               if (
 #line 104 "../../prop-src/infgen.pcc"
               (! neg)
@@ -280,7 +280,7 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                  goto L4; } else {
                  goto L11; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,"<")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,"<")) {
               if (
 #line 108 "../../prop-src/infgen.pcc"
               neg
@@ -289,7 +289,7 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                  goto L5; } else {
                  goto L11; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,"<=")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,"<=")) {
               if (
 #line 109 "../../prop-src/infgen.pcc"
               neg
@@ -300,7 +300,7 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
 }
               else { goto L11; }
             } else {
-              if (_equal_string(_BINOPstd::exp(exp)->_1,"==")) {
+              if (_equal_string(_BINOPexp(exp)->_1,"==")) {
               if (
 #line 110 "../../prop-src/infgen.pcc"
               neg
@@ -309,7 +309,7 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                  goto L7; } else {
                  goto L11; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,">")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,">")) {
               if (
 #line 106 "../../prop-src/infgen.pcc"
               neg
@@ -318,7 +318,7 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                  goto L8; } else {
                  goto L11; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,">=")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,">=")) {
               if (
 #line 107 "../../prop-src/infgen.pcc"
               neg
@@ -327,7 +327,7 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
                  goto L9; } else {
                  goto L11; }
 }
-              else if (_equal_string(_BINOPstd::exp(exp)->_1,"||")) {
+              else if (_equal_string(_BINOPexp(exp)->_1,"||")) {
               if (
 #line 105 "../../prop-src/infgen.pcc"
               neg
@@ -347,22 +347,22 @@ Exp * flatten( Exp exp, Exp * cnf, Bool neg)
 #line 112 "../../prop-src/infgen.pcc"
 ) {
             
-            if (_equal_string(_PREFIXstd::exp(exp)->_1,"!")) {
+            if (_equal_string(_PREFIXexp(exp)->_1,"!")) {
             L12:; 
 #line 103 "../../prop-src/infgen.pcc"
-           exp = _PREFIXstd::exp(exp)->_2; neg = !neg; 
+           exp = _PREFIXexp(exp)->_2; neg = !neg; 
 #line 103 "../../prop-src/infgen.pcc"
 }
             else { goto L3; }
           } else {
             
-            if (_equal_string(_PREFIXstd::exp(exp)->_1,"!")) { goto L12; }
+            if (_equal_string(_PREFIXexp(exp)->_1,"!")) { goto L12; }
             else { goto L11; }
           }
           } break;
         case a_Exp::tag_MARKEDexp: {
 #line 102 "../../prop-src/infgen.pcc"
-         exp = _MARKEDstd::exp(exp)->_2; 
+         exp = _MARKEDexp(exp)->_2; 
 #line 102 "../../prop-src/infgen.pcc"
           } break;
         default: {
@@ -402,57 +402,57 @@ Bool partition( Exp exp, int &obj)
     switch (exp->tag__) {
       case a_Exp::tag_RELexp: {
 #line 139 "../../prop-src/infgen.pcc"
-       obj = _RELstd::exp(exp)->RELexp; return true; 
+       obj = _RELexp(exp)->RELexp; return true; 
 #line 139 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_DOTexp: {
 #line 134 "../../prop-src/infgen.pcc"
-       return partition(_DOTstd::exp(exp)->_1,obj); 
+       return partition(_DOTexp(exp)->_1,obj); 
 #line 134 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_SELECTORexp: {
 #line 133 "../../prop-src/infgen.pcc"
-       return partition(_SELECTORstd::exp(exp)->_1,obj); 
+       return partition(_SELECTORexp(exp)->_1,obj); 
 #line 133 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_DEREFexp: {
 #line 132 "../../prop-src/infgen.pcc"
-       return partition(_DEREFstd::exp(exp)->DEREFexp,obj); 
+       return partition(_DEREFexp(exp)->DEREFexp,obj); 
 #line 132 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_ARROWexp: {
 #line 135 "../../prop-src/infgen.pcc"
-       return partition(_ARROWstd::exp(exp)->_1,obj); 
+       return partition(_ARROWexp(exp)->_1,obj); 
 #line 135 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_INDEXexp: {
 #line 141 "../../prop-src/infgen.pcc"
-       return partition(_INDEXstd::exp(exp)->_1,_INDEXexp(exp)->_2,obj); 
+       return partition(_INDEXexp(exp)->_1,_INDEXexp(exp)->_2,obj); 
 #line 141 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_BINOPexp: {
 #line 143 "../../prop-src/infgen.pcc"
-       return partition(_BINOPstd::exp(exp)->_2,_BINOPexp(exp)->_3,obj); 
+       return partition(_BINOPexp(exp)->_2,_BINOPexp(exp)->_3,obj); 
 #line 143 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_PREFIXexp: {
 #line 130 "../../prop-src/infgen.pcc"
-       return partition(_PREFIXstd::exp(exp)->_2,obj); 
+       return partition(_PREFIXexp(exp)->_2,obj); 
 #line 130 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_POSTFIXexp: {
 #line 131 "../../prop-src/infgen.pcc"
-       return partition(_POSTFIXstd::exp(exp)->_2,obj); 
+       return partition(_POSTFIXexp(exp)->_2,obj); 
 #line 131 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_APPexp: {
 #line 140 "../../prop-src/infgen.pcc"
-       return partition(_APPstd::exp(exp)->_1,_APPexp(exp)->_2,obj); 
+       return partition(_APPexp(exp)->_1,_APPexp(exp)->_2,obj); 
 #line 140 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_ASSIGNexp: {
 #line 142 "../../prop-src/infgen.pcc"
-       return partition(_ASSIGNstd::exp(exp)->_1,_ASSIGNexp(exp)->_2,obj); 
+       return partition(_ASSIGNexp(exp)->_1,_ASSIGNexp(exp)->_2,obj); 
 #line 142 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_IFexp: {
@@ -460,7 +460,7 @@ Bool partition( Exp exp, int &obj)
        return partition(
 #line 153 "../../prop-src/infgen.pcc"
 #line 153 "../../prop-src/infgen.pcc"
-        list_1_(_IFstd::exp(exp)->_1,list_1_(_IFexp(exp)->_2,list_1_(_IFexp(exp)->_3)))
+        list_1_(_IFexp(exp)->_1,list_1_(_IFexp(exp)->_2,list_1_(_IFexp(exp)->_3)))
 #line 153 "../../prop-src/infgen.pcc"
 #line 153 "../../prop-src/infgen.pcc"
         ,obj); 
@@ -468,12 +468,12 @@ Bool partition( Exp exp, int &obj)
         } break;
       case a_Exp::tag_TUPLEexp: {
 #line 147 "../../prop-src/infgen.pcc"
-       return partition(_TUPLEstd::exp(exp)->TUPLEexp,obj); 
+       return partition(_TUPLEexp(exp)->TUPLEexp,obj); 
 #line 147 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_RECORDexp: {
 #line 148 "../../prop-src/infgen.pcc"
-       return partition(_RECORDstd::exp(exp)->RECORDexp,obj); 
+       return partition(_RECORDexp(exp)->RECORDexp,obj); 
 #line 148 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_LISTexp: {
@@ -481,7 +481,7 @@ Bool partition( Exp exp, int &obj)
        return partition(
 #line 151 "../../prop-src/infgen.pcc"
 #line 151 "../../prop-src/infgen.pcc"
-        list_1_(_LISTstd::exp(exp)->_4,_LISTexp(exp)->_3)
+        list_1_(_LISTexp(exp)->_4,_LISTexp(exp)->_3)
 #line 151 "../../prop-src/infgen.pcc"
 #line 151 "../../prop-src/infgen.pcc"
         , obj); 
@@ -489,52 +489,52 @@ Bool partition( Exp exp, int &obj)
         } break;
       case a_Exp::tag_VECTORexp: {
 #line 150 "../../prop-src/infgen.pcc"
-       return partition(_VECTORstd::exp(exp)->_2,obj); 
+       return partition(_VECTORexp(exp)->_2,obj); 
 #line 150 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_CONSexp: {
 #line 136 "../../prop-src/infgen.pcc"
-       return partition(_CONSstd::exp(exp)->_3,obj); 
+       return partition(_CONSexp(exp)->_3,obj); 
 #line 136 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_CASTexp: {
 #line 138 "../../prop-src/infgen.pcc"
-       return partition(_CASTstd::exp(exp)->_2,obj); 
+       return partition(_CASTexp(exp)->_2,obj); 
 #line 138 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_EQexp: {
 #line 144 "../../prop-src/infgen.pcc"
-       return partition(_EQstd::exp(exp)->_2,_EQexp(exp)->_3,obj); 
+       return partition(_EQexp(exp)->_2,_EQexp(exp)->_3,obj); 
 #line 144 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_UNIFYexp: {
 #line 145 "../../prop-src/infgen.pcc"
-       return partition(_UNIFYstd::exp(exp)->_2,_UNIFYexp(exp)->_3,obj); 
+       return partition(_UNIFYexp(exp)->_2,_UNIFYexp(exp)->_3,obj); 
 #line 145 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_LTexp: {
 #line 146 "../../prop-src/infgen.pcc"
-       return partition(_LTstd::exp(exp)->_2,_LTexp(exp)->_3,obj); 
+       return partition(_LTexp(exp)->_2,_LTexp(exp)->_3,obj); 
 #line 146 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_HASHexp: {
 #line 137 "../../prop-src/infgen.pcc"
-       return partition(_HASHstd::exp(exp)->_2,obj); 
+       return partition(_HASHexp(exp)->_2,obj); 
 #line 137 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_SENDexp: {
 #line 149 "../../prop-src/infgen.pcc"
-       return partition(_SENDstd::exp(exp)->_2,obj); 
+       return partition(_SENDexp(exp)->_2,obj); 
 #line 149 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_SETLexp: {
 #line 152 "../../prop-src/infgen.pcc"
-       return partition(_SETLstd::exp(exp)->_2,obj); 
+       return partition(_SETLexp(exp)->_2,obj); 
 #line 152 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_MARKEDexp: {
 #line 129 "../../prop-src/infgen.pcc"
-       return partition(_MARKEDstd::exp(exp)->_2,obj); 
+       return partition(_MARKEDexp(exp)->_2,obj); 
 #line 129 "../../prop-src/infgen.pcc"
         } break;
       case a_Exp::tag_LITERALexp:
@@ -616,13 +616,13 @@ Bool partition( LabExps es, int &obj)
 //  Create an and expression.
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp mkandstd::exp( Exp a, Exp b)
+Exp mkandexp( Exp a, Exp b)
 {
   if (a == NOexp)
     return b;
   if (b == NOexp)
     return a;
-  return BINOPstd::exp("&&",a, b);
+  return BINOPexp("&&",a, b);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -669,7 +669,7 @@ int decompose( int n, Exp exps[], Exp selects[], Exp joins[])
         if (selects[obj] == NOexp)
           selects[obj] = cnf[j];
         else
-          selects[obj] = mkandstd::exp( selects[obj], cnf[j]);
+          selects[obj] = mkandexp( selects[obj], cnf[j]);
         debug_msg ("select: %e\n", cnf[j]);
       }
       else
@@ -677,7 +677,7 @@ int decompose( int n, Exp exps[], Exp selects[], Exp joins[])
         if (joins[obj] == NOexp)
           joins[obj] = cnf[j];
         else
-          joins[obj] = mkandstd::exp( joins[obj], cnf[j]);
+          joins[obj] = mkandexp( joins[obj], cnf[j]);
         debug_msg ("join: %e\n", cnf[j]);
       }
       if (obj > max_object)
@@ -876,7 +876,7 @@ int partition_inference_rules
                       if (e)
                       {
                         join_map.insert( (HashTable::Key) node_number,
-                           BINOPstd::exp( "&&", (Exp) join_map.value(e), joins[i]));
+                           BINOPexp( "&&", (Exp) join_map.value(e), joins[i]));
                       }
                       else
                         join_map.insert( (HashTable::Key) node_number, joins[i]);

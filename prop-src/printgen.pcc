@@ -101,7 +101,7 @@ void DatatypeHierarchy::generate_print_implementation
   if (k != EXTERNAL_INSTANTIATION) return;
 
   if (arity > 1)
-    C.pr( "%^switch (%U)%^{%+", IDstd::exp(#"obj__"), ty);
+    C.pr( "%^switch (%U)%^{%+", IDexp(#"obj__"), ty);
 
   for (int i = 0; i < arity; i++)
   {
@@ -243,15 +243,15 @@ void DatatypeHierarchy::generate_formatted_printer
   int N = length(tyl);
   int index = 1;
 
-  Exp exp = select(IDstd::exp("obj__"),cons,mono_ty);
+  Exp exp = select(IDexp("obj__"),cons,mono_ty);
 
   for_each (ProductionSymbol, f, fmt)
   {
     match (f)
     {
-    NONTERMsym l: { gen_print_field(C,DOTstd::exp(exp,l),component_ty(ty,l)); }
+    NONTERMsym l: { gen_print_field(C,DOTexp(exp,l),component_ty(ty,l)); }
     | POSNONTERMsym i:
-          { gen_print_field(C,DOTstd::exp(exp,index_of(i)),component_ty(ty,i)); }
+          { gen_print_field(C,DOTexp(exp,index_of(i)),component_ty(ty,i)); }
     | TERMsym c:
       { C.pr( "%^strm__ << '%s';", print_char(c)); }
     | TERMSTRINGsym s:
@@ -295,8 +295,8 @@ void DatatypeHierarchy::generate_formatted_printer
               "%-%^}"
               "%-%^}",
               class_name, tys, nil->name,
-              DOTstd::exp(select(IDexp("l__"),cons,mono_ty),"_2"),
-              DOTstd::exp(select(IDexp("l__"),cons,mono_ty),"_1")
+              DOTexp(select(IDexp("l__"),cons,mono_ty),"_2"),
+              DOTexp(select(IDexp("l__"),cons,mono_ty),"_1")
             );
       }
     | SPECIALsym '{': { C.pr("%^strm__.indent().newline().tab();"); }
@@ -307,9 +307,9 @@ void DatatypeHierarchy::generate_formatted_printer
         if (N == 1)
           gen_print_field(C, exp, ty);
         else if (label_list == #[])
-          gen_print_field( C, DOTstd::exp( exp, index_of( index)),tyl->#1);
+          gen_print_field( C, DOTexp( exp, index_of( index)),tyl->#1);
         else
-          gen_print_field( C, DOTstd::exp( exp, label_list->#1),tyl->#1);
+          gen_print_field( C, DOTexp( exp, label_list->#1),tyl->#1);
 
         C.pr(" // %T", tyl->#1);
         if (tyl != #[])

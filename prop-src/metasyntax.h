@@ -54,7 +54,7 @@ public:
   //
   ////////////////////////////////////////////////////////////////////////////
   void install_grammar( Id grammar_name, GramExp grammar);
-  Exp parse_std::exp( Id grammar_name, const char *);
+  Exp parse_exp( Id grammar_name, const char *);
   Pat parse_pat( Id grammar_name, const char *);
   std::ostream& print_report( std::ostream&);
 

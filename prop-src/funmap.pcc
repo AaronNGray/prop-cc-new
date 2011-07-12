@@ -35,6 +35,7 @@ typedef TreeGrammar::Cost           TreeCost;
 typedef HashTable::Key              Key;
 typedef HashTable::Value            Value;
 
+TreeTerm new_term(Mem& mem, short int f, unsigned char n, TreeTerm * subterms);
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  Instantiate the vector id type
@@ -95,8 +96,8 @@ int decor_rewrite( Pat pat, int rule, int kid, PatternVarEnv& E)
       Id attrib_name = #"#" + id;
       Id cost_name   = #"$" + id;
       Ty ty = mkvar();
-      E.add( attrib_name, SYNstd::exp( kid, rule, mkvar(), true), ty, ISpositive);
-      E.add( cost_name, COSTstd::exp(kid),  ty, ISpositive);
+      E.add( attrib_name, SYNexp( kid, rule, mkvar(), true), ty, ISpositive);
+      E.add( cost_name, COSTexp(kid),  ty, ISpositive);
       kid = kid+1;
       pat = p;
     }
@@ -126,8 +127,8 @@ int decor_rewrite (Pats pats, int rule, int kid, PatternVarEnv& E)
 int decor_rewrite( Pat pat, int rule, PatternVarEnv& E)
 {
   Ty ty = mkvar();
-  E.add( #"##", THISSYNstd::exp(rule,mkvar(),true), ty, ISpositive);
-  E.add( #"$$", THISCOSTstd::exp(), ty, ISpositive);
+  E.add( #"##", THISSYNexp(rule,mkvar(),true), ty, ISpositive);
+  E.add( #"$$", THISCOSTexp(), ty, ISpositive);
   return decor_rewrite( pat, rule, 0, E);
 }
 
@@ -354,8 +355,8 @@ Pat FunctorMap::make_guard( Pat pat, Exp& e)
   | APPpat(a,b):           { new_pat = APPpat( make_guard( a, e), make_guard( b, e)); }
   | LITERALpat (l as (INTlit _ || REALlit _ || CHARlit _ || BOOLlit _)):
     {
-      Exp guard_exp = BINOPstd::exp( "==", pat->selector, LITERALexp(l));
-      e = e == NOexp ? guard_exp : BINOPstd::exp( "&&", e, guard_exp);
+      Exp guard_exp = BINOPexp( "==", pat->selector, LITERALexp(l));
+      e = e == NOexp ? guard_exp : BINOPexp( "&&", e, guard_exp);
       new_pat = WILDpat();
     }
   | LISTpat{ cons, nil, head = ps, tail = p}:
@@ -1040,8 +1041,8 @@ Exp FunctorMap::cost_expr( Id lhs, Pat pat)
 {
   match (pat)
    {
-     NOexp:   { return LITERALstd::exp( INTlit(0)); }
-   | _:       { return cost_expr( lhs, pat, LITERALstd::exp( INTlit(1))); }
+     NOexp:   { return LITERALexp( INTlit(0)); }
+   | _:       { return cost_expr( lhs, pat, LITERALexp( INTlit(1))); }
    }
 }
 
@@ -1084,13 +1085,13 @@ Exp FunctorMap::cost_expr( Id lhs, Pat pat, Exp exp)
 
   Ty state_rec_ty = mkptrty( mkidty( Quark( class_name,"_StateRec"),#[]));
   Exp cost_e =
-     INDEXstd::exp(
-       ARROWstd::exp(
-          CASTstd::exp( state_rec_ty,
-              APPstd::exp( ARROWexp( pat->selector, "get_state_rec"), TUPLEexp(#[]))),
-              "cost"), LITERALstd::exp( INTlit( int( var_map[lhs]))));
+     INDEXexp(
+       ARROWexp(
+          CASTexp( state_rec_ty,
+              APPexp( ARROWexp( pat->selector, "get_state_rec"), TUPLEexp(#[]))),
+              "cost"), LITERALexp( INTlit( int( var_map[lhs]))));
 
-  return exp == NOexp ? cost_e : BINOPstd::exp( "+", cost_e,exp);
+  return exp == NOexp ? cost_e : BINOPexp( "+", cost_e,exp);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

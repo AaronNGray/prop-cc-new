@@ -221,7 +221,7 @@ std::ostream& CodeGen::outv( const char * fmt, std::va_list arg)
     switch (e->tag__) {
       case a_Exp::tag_MARKEDexp: {
 #line 174 "../../prop-src/codegen.pcc"
-       pr ("%D", MARKEDdecl( _MARKEDstd::exp(e)->_1, EXPdecl(_MARKEDexp(e)->_2))); 
+       pr ("%D", MARKEDdecl( _MARKEDexp(e)->_1, EXPdecl(_MARKEDexp(e)->_2))); 
 #line 174 "../../prop-src/codegen.pcc"
         } break;
       default: {
@@ -270,7 +270,7 @@ std::ostream& CodeGen::outv( const char * fmt, std::va_list arg)
             if (p == TYbody)
             {
               pr ("%^const int len_;%^");
-              body_ty = mkarrayty( ty, LITERALstd::exp( INTlit(0)));
+              body_ty = mkarrayty( ty, LITERALexp( INTlit(0)));
             }
             else
             {

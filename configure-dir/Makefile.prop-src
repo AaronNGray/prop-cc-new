@@ -9,7 +9,7 @@ CC_INCLUDE	= -I../include
 COPTS		= -O6 -pedantic
 LDOPTS		= -lg++
 CFLAGS		= $(CC_INCLUDE) $(COPTS)
-LDFLAGS		= -L../lib -lprop $(LDOPTS) $(gcc-iostream-lib) -lm
+LDFLAGS		= -L../lib-src -lprop $(LDOPTS) -lm
 PROP_OPTS_BASIC	= -strict $(CC_INCLUDE) -save_space -report -v2
 PROP_OPTS	= $(PROP_OPTS_BASIC) -O14
 
@@ -20,7 +20,7 @@ PROP_H_SRC= \
 	ir.ph ast.ph basics.ph parsegen.ph keywords.ph parser.ph \
 	collection.ph setl-ast.ph setlgen.ph matchcom.ph \
 	trs.ph timespace.ph env.ph funmap.ph metasyntax.ph \
-	pat.ph grsgen.ph graphtype.ph graphedges.ph \
+	pat.ph list.ph grsgen.ph graphtype.ph graphedges.ph \
 	aggen.ph datatype.ph rwmix.ph
 #	dataflow.ph bitfield.ph wam.ph constraint.ph logicgen.ph 
 
@@ -172,8 +172,6 @@ T%.cc:	T%.pcc
 	$(PROP) $(PROP_OPTS) $<
 %.cc:	%.pcc
 	$(PROP) $(PROP_OPTS) $<
-list.o:	list.cc
-	$(CC) -c $(CFLAGS) -fexternal-templates $<
 %.o:	%.cc
 	$(CC) -c $(CFLAGS) $<
 

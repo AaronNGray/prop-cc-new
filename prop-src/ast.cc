@@ -21,7 +21,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp component_std::exp(Exps exps, int n)
+Exp component_exp(Exps exps, int n)
 {
   Exps es = exps;
   int  i  = n;
@@ -53,7 +53,7 @@ Exp component_std::exp(Exps exps, int n)
 #line 24 "../../prop-src/ast.pcc"
 #line 24 "../../prop-src/ast.pcc"
 
-  error( "%Lexpression %e does not have component %i\n", TUPLEstd::exp(exps), n);
+  error( "%Lexpression %e does not have component %i\n", TUPLEexp(exps), n);
   return NOexp;
 }
 
@@ -63,9 +63,9 @@ Exp component_std::exp(Exps exps, int n)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp component_std::exp(Exps exps, Id n)
+Exp component_exp(Exps exps, Id n)
 {
-  return component_std::exp(exps,std::atol(n+1));
+  return component_exp(exps,std::atol(n+1));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -74,7 +74,7 @@ Exp component_std::exp(Exps exps, Id n)
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp component_std::exp( LabExps labeled_exps, Id n)
+Exp component_exp( LabExps labeled_exps, Id n)
 {
   LabExps les = labeled_exps;
   
@@ -106,7 +106,7 @@ Exp component_std::exp( LabExps labeled_exps, Id n)
 #line 52 "../../prop-src/ast.pcc"
 
   error( "%Lexpression %e does not have component %s\n",
-         RECORDstd::exp(labeled_exps), n);
+         RECORDexp(labeled_exps), n);
   return NOexp;
 }
 #line 57 "../../prop-src/ast.pcc"

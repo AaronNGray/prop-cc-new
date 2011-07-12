@@ -53,7 +53,6 @@ prop-main.cc:	prop-main.pcc
 aggen.cc:	aggen.pcc ir.ph basics.ph 
 datatype.cc:	datatype.pcc ir.ph basics.ph ast.ph datatype.ph 
 instance.cc:	instance.pcc ir.ph basics.ph ast.ph datatype.ph 
-list.cc:	list.pcc basics.ph 
 visualize.cc:	visualize.pcc 
 visual2.cc:	visual2.pcc basics.ph ir.ph 
 rwmix.cc:	rwmix.pcc rwmix.ph ir.ph basics.ph ast.ph 
@@ -79,5 +78,4 @@ graphtype.h:	graphtype.ph basics.ph
 graphedges.h:	graphedges.ph basics.ph graphtype.ph 
 aggen.h:	aggen.ph ir.ph basics.ph 
 datatype.h:	datatype.ph basics.ph ast.ph 
-listimpl.h:	listimpl.ph basics.ph 
 rwmix.h:	rwmix.ph 

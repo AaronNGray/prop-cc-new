@@ -241,7 +241,7 @@ private:
   
   Decls mkcode(Decls);
   Pat   mkconspat(Cons);
-  Exp   lookup_std::exp(Id);
+  Exp   lookup_exp(Id);
   Ty    lookup_tyvar(Id);
   Pat   lookup_patvar(Id);
   void  add_parse_stack_binding( int, int, int);

@@ -703,7 +703,7 @@ void PropParser::pop_rw_stack()
 ///////////////////////////////////////////////////////////////////////////////
 
 Pat  mark( Pat  p) { p = MARKEDpat(Loc(),p); return p; }
-Exp  mark( Exp  e) { e = MARKEDstd::exp(Loc(),e); return e; }
+Exp  mark( Exp  e) { e = MARKEDexp(Loc(),e); return e; }
 Decl mark( Decl d) { if (d != NOdecl) d = MARKEDdecl(Loc(),d); return d; }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -747,18 +747,18 @@ VECTORpat(lookup_cons(a), len, array, ps, flex1, flex2)
 ;
 }
 
-Exp mkliststd::exp( Id cons, Id nil, Exps es, Exp e = NOexp)
+Exp mklistexp( Id cons, Id nil, Exps es, Exp e = NOexp)
 {
-  return LISTstd::exp(lookup_cons(cons), lookup_cons(nil), es, e);
+  return LISTexp(lookup_cons(cons), lookup_cons(nil), es, e);
 }
 
-Exp mkappstd::exp( Exp a, Exp b)
+Exp mkappexp( Exp a, Exp b)
 {
   Cons c = NOcons;
 /*
    match (a) and (b)
-   {  IDexp id, RECORDexp _ | c = find_cons(id): { return CONSstd::exp(c,#[],b); }
-   |  _:                                         { return APPstd::exp(a,b); }
+   {  IDexp id, RECORDexp _ | c = find_cons(id): { return CONSexp(c,#[],b); }
+   |  _:                                         { return APPexp(a,b); }
    }
 */
   
@@ -770,12 +770,12 @@ Exp mkappstd::exp( Exp a, Exp b)
       case a_Exp::tag_IDexp: {
         if (
 #line 178 "../../prop-src/parser-util.pcc"
-        (c = find_cons(_IDstd::exp(a)->IDexp))
+        (c = find_cons(_IDexp(a)->IDexp))
 #line 178 "../../prop-src/parser-util.pcc"
 ) {
           
 #line 178 "../../prop-src/parser-util.pcc"
-         return CONSstd::exp( c, 
+         return CONSexp( c, 
 #line 178 "../../prop-src/parser-util.pcc"
 #line 178 "../../prop-src/parser-util.pcc"
           nil_1_
@@ -787,7 +787,7 @@ Exp mkappstd::exp( Exp a, Exp b)
           
           L1:; 
 #line 179 "../../prop-src/parser-util.pcc"
-         return APPstd::exp( a, b); 
+         return APPexp( a, b); 
 #line 179 "../../prop-src/parser-util.pcc"
         }
         } break;
@@ -800,15 +800,15 @@ Exp mkappstd::exp( Exp a, Exp b)
 
 }
 
-Exp mkvecstd::exp( Id vec, Exps es)
+Exp mkvecexp( Id vec, Exps es)
 {
   Used::vector = true;
-  return VECTORstd::exp( lookup_cons( vec), es);
+  return VECTORexp( lookup_cons( vec), es);
 }
 
 TermDef mklistterm( Id c, Ty a, Ty b, Decls d)
 {  //match (b)
-   //{  ! DEFVALty _: { b = DEFVALty(b,LITERALstd::exp(INTlit(0))); }
+   //{  ! DEFVALty _: { b = DEFVALty(b,LITERALexp(INTlit(0))); }
    //|  _: // skip
    //}
    return 
@@ -820,7 +820,7 @@ TERMdef(c, mktuplety(list_1_(a,list_1_(b))), d, nil_1_, NOpat, nil_1_, OPTnone, 
 ;
 }
 
-Exp extuplestd::exp( Exps es) { mark_tuple_used(length(es)); return EXTUPLEexp(es); }
+Exp extupleexp( Exps es) { mark_tuple_used(length(es)); return EXTUPLEexp(es); }
 Pat extuplepat( Pats ps) { mark_tuple_used(length(ps)); return EXTUPLEpat(ps); }
 Ty  extuplety( Tys ts)   { mark_tuple_used(length(ts));
                           return TYCONty( (TyCon)EXTUPLEtycon, ts); }
@@ -864,7 +864,7 @@ void PropParser::count_lines ()
 //  Method to lookup an expression from the pattern environment.
 ///////////////////////////////////////////////////////////////////////////////
 
-Exp PropParser::lookup_std::exp(Id id)
+Exp PropParser::lookup_exp(Id id)
 {
   Bool from_current;
   Exp e = pv_env.lookup(id,&from_current);
@@ -891,7 +891,7 @@ Exp PropParser::lookup_std::exp(Id id)
       } break;
       default: {
 #line 246 "../../prop-src/parser-util.pcc"
-       return IDstd::exp(id); 
+       return IDexp(id); 
 #line 246 "../../prop-src/parser-util.pcc"
       }
     }
@@ -1004,7 +1004,7 @@ void PropParser::add_parse_stack_binding
 cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q1
 #line 309 "../../prop-src/parser-util.pcc"
 #line 309 "../../prop-src/parser-util.pcc"
-, SYNstd::exp( 0, -symbol_number, NOty, false), junk_ty);
+, SYNexp( 0, -symbol_number, NOty, false), junk_ty);
   else
     pv_env.add( 
 #line 311 "../../prop-src/parser-util.pcc"
@@ -1013,7 +1013,7 @@ cocofmcocofm_p_r_o_pcn_s_r_cfm_p_a_r_s_e_rcn_u_t_i_lco_c_c_Q2
 #line 311 "../../prop-src/parser-util.pcc"
 #line 311 "../../prop-src/parser-util.pcc"
  + item_number,
-            SYNstd::exp( nonterm_number, -symbol_number, NOty, false), junk_ty);
+            SYNexp( nonterm_number, -symbol_number, NOty, false), junk_ty);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
