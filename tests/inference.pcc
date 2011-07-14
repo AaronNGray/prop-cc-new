@@ -57,14 +57,16 @@ inference Triangle {
   and num (y) where x < y
   and num (z) where y < z && x * x + y * y == z * z
   -----------------------------------------------------
-      { cout << x << " * " << x << " + " 
+      { std::cout << x << " * " << x << " + " 
              << y << " * " << y << " = "
              << z << " * " << z << '\n';
       };
 };
 
 int main()
-{ 
+{
+   using namespace std;
+ 
    Triangle triangle;   // instantiate an inference module
    int top;         
 

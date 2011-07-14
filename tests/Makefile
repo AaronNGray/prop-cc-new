@@ -9,7 +9,7 @@
 CC	= g++
 CINCLUDE= -I../include
 COPTS	= -O6 -pedantic
-LDOPTS	= -lg++
+# LDOPTS	= -lg++
 CFLAGS	= $(COPTS) $(CINCLUDE)
 LDFLAGS	= -L../lib -lprop $(LDOPTS)
 RM	= /bin/rm 

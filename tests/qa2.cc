@@ -48,7 +48,7 @@ int main(int argc, const char * argv[])
       ac.add_string(i,keywords[i].len, keywords[i].string);
    ac.finish();
 
-   ac.gen_code(cout, "ac");
+   ac.gen_code(std::cout, "ac");
    assert(ac.size() == 11);
 
    printf("OK\n");

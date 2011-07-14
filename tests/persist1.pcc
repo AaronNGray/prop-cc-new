@@ -7,7 +7,7 @@
 //  is preserved.
 //////////////////////////////////////////////////////////////////////////////
 #include <iostream>
-#include <fstream.h>
+#include <fstream>
 #include <cassert>
 #include <cstring>
 #include <AD/generic/generic.h>  // Definition of type Bool
@@ -68,7 +68,7 @@ Bool equal(EXP a, EXP b)
    |  add(a,b), add(c,d): { return equal(a,c) && equal(b,d); }
    |  sub(a,b), sub(c,d): { return equal(a,c) && equal(b,d); }
    |  mul(a,b), mul(c,d): { return equal(a,c) && equal(b,d); }
-   |  std::div(a,b), div(c,d): { return equal(a,c) && equal(b,d); }
+   |  div(a,b), div(c,d): { return equal(a,c) && equal(b,d); }
    |  _,        _       : { return false; }
    }
 }
@@ -81,10 +81,10 @@ int main()
    // Create an expression with sharing
    EXP e1 = add(num(1), var("x"));
    EXP e2 = mul(e1,e1);
-   EXP e3 = std::div(e2,e2);
+   EXP e3 = div(e2,e2);
    EXP e4 = sub(e3,e3);
    EXP e5 = mul(e4,e4);
-   EXP e6 = std::div(e5,e5);
+   EXP e6 = div(e5,e5);
    EXP e7 = sub(e6,e6);
    EXP e8 = add(var("foo"),e7);
 

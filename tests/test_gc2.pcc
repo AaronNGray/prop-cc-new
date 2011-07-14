@@ -31,7 +31,7 @@ ostream& operator << (ostream& f, EXP e)
    |  add(a,b): { return f << '(' << a << " + " << b << ')'; }
    |  sub(a,b): { return f << '(' << a << " - " << b << ')'; }
    |  mul(a,b): { return f << '(' << a << " * " << b << ')'; }
-   |  std::div(a,b): { return f << '(' << a << " / " << b << ')'; }
+   |  div(a,b): { return f << '(' << a << " / " << b << ')'; }
    }
 }
 
@@ -46,7 +46,7 @@ void change (EXP& e, EXP t)
    |  add(a,b): { change(a,t); change(b,t); }
    |  sub(a,b): { change(a,t); change(b,t); }
    |  mul(a,b): { change(a,t); change(b,t); }
-   |  std::div(a,b): { change(a,t); change(b,t); }
+   |  div(a,b): { change(a,t); change(b,t); }
    }
 }
 
@@ -58,11 +58,11 @@ void do_something()
    //
    // (0 + x * 2) / (1 * 5 + 1 * 3) / (0 / y);
    //
-   EXP t1   = std::div(div(add(num(0), mul(var('x'),num(2))), 
+   EXP t1   = div(div(add(num(0), mul(var('x'),num(2))), 
                       add(mul(num(1), num(5)),mul(num(1),num(3)))),
-                  std::div(num(0),var('y')));
+                  div(num(0),var('y')));
    EXP t2   = add(t1,t1);
-   EXP term = std::div(mul(t2,t2),t2);
+   EXP term = div(mul(t2,t2),t2);
    t2       = om;
 
    cout << "[1] " << term << '\n';
