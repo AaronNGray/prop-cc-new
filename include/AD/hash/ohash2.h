@@ -109,7 +109,7 @@ public:
   ////////////////////////////////////////////////////////////////////
   void clear();                      // clears out the hash table
   Ix   lookup(const K&) const;       // lookup entry by key
-  Ix   insert(const K, const V);     // insert a new entry
+  Ix   insert(K, V);     // insert a new entry
   Bool remove
     (const K&);             // remove an old entry
 
@@ -316,7 +316,7 @@ Ix OHashTable2<K,V,C>::lookup(const K& key) const
 //////////////////////////////////////////////////////////////////////////
 
 template <class K, class V, class C>
-Ix OHashTable2<K,V,C>::insert(const K key, const V value)
+Ix OHashTable2<K,V,C>::insert(K key, V value)
 {  /////////////////////////////////////////////////////////////////////
   // Make sure we have at least one unused cell.
   /////////////////////////////////////////////////////////////////////
