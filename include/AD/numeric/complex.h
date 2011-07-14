@@ -45,7 +45,7 @@ struct Complex
   /////////////////////////////////////////////////////////////////
   inline Complex(double x = 0.0, double y = 0.0) : real(x), imag(y)
   {}
-  inline Complex(Complex& c) : real(c.real), imag(c.imag)
+  inline Complex(const Complex& c) : real(c.real), imag(c.imag)
   {}
 
   /////////////////////////////////////////////////////////////////
@@ -100,7 +100,7 @@ struct Complex
   }
   friend Complex polar(double r, double theta);
   friend double norm(const Complex& c);
-  friend double std::abs(const Complex& c)
+  friend double abs(const Complex& c)
   {
     return std::sqrt(norm(c));
   }
@@ -109,22 +109,22 @@ struct Complex
   // Trignometric and logarithmic functions
   /////////////////////////////////////////////////////////////////
   friend Complex sin(const Complex&);
-  friend Complex std::cos(const Complex&);
-  friend Complex std::tan(const Complex&);
-  friend Complex std::sinh(const Complex&);
-  friend Complex std::cosh(const Complex&);
-  friend Complex std::tanh(const Complex&);
-  friend Complex std::asin(const Complex&);
-  friend Complex std::astd::cos(const Complex&);
-  friend Complex std::atan(const Complex&);
-  friend Complex astd::sinh(const Complex&);
-  friend Complex astd::cosh(const Complex&);
-  friend Complex astd::tanh(const Complex&);
-  friend Complex std::log(const Complex&);
-  friend Complex std::exp(const Complex&);
-  friend Complex std::pow(const Complex&, const Complex&);
-  friend Complex std::pow(double, const Complex&);
-  friend Complex std::pow(const Complex&, double);
+  friend Complex cos(const Complex&);
+  friend Complex tan(const Complex&);
+  friend Complex sinh(const Complex&);
+  friend Complex cosh(const Complex&);
+  friend Complex tanh(const Complex&);
+  friend Complex asin(const Complex&);
+  friend Complex acos(const Complex&);
+  friend Complex atan(const Complex&);
+  friend Complex asinh(const Complex&);
+  friend Complex acosh(const Complex&);
+  friend Complex atanh(const Complex&);
+  friend Complex log(const Complex&);
+  friend Complex exp(const Complex&);
+  friend Complex pow(const Complex&, const Complex&);
+  friend Complex pow(double, const Complex&);
+  friend Complex pow(const Complex&, double);
 
   /////////////////////////////////////////////////////////////////
   // Input and output

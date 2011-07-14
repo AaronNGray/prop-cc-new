@@ -11,7 +11,7 @@ ad		=	$(ADLIB_PATH)/AD
 D		=	$(ADLIB_PATH)/AD/numeric
 
 #OBJS	= bcd.o bigint.o complex.o fixpt.o gauss.o gaussint.o 
-OBJS	= bcd.o bigint.o fixpt.o gauss.o 
+OBJS	= bcd.o bigint.o complex.o fixpt.o gauss.o 
 OBJS2	= matrix.o pmatrix.o polynom.o rabin.o ratio.o simplex.o solovay.o
 OBJS3	= tensor.o trapez.o vector.o vector3d.o z.o 
 
