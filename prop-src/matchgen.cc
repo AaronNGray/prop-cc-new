@@ -1590,7 +1590,7 @@ void MatchCompiler::gen_match_variables( MatchExps es, Ty ty)
 #line 1225 "matchgen.pcc"
         } else {
           switch ((int)((Ty_TYCONty *)_V8)->_1) {
-            case ((int)TUPLEtycon): {
+            case ((int)v_TUPLEtycon): {
 #line 1224 "matchgen.pcc"
              tys = ((Ty_TYCONty *)_V8)->_2; 
 #line 1224 "matchgen.pcc"

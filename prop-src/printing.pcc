@@ -450,7 +450,7 @@ std::ostream& operator << (std::ostream& f, Ty ty)
         f << "signed ";
       if ((ty_parameter == TYformal || ty_parameter == TYsimpleformal)
 	      && (q & QUALclass))
-        f << (TYCONty((TyCon)REFtycon,#[ QUALty(QUALconst,t) ]));
+        f << (TYCONty(REFtycon,#[ QUALty(QUALconst,t) ]));
       else
         f << t;
       if (q & QUALconst)
@@ -555,7 +555,7 @@ Id open_of( Cons c)
       return Quark(s);
     }
   | _:
-    { return "<\?\?>["; }
+    { return "<??" ">["; }
   }
 }
 

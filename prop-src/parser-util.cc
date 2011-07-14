@@ -823,7 +823,7 @@ TERMdef(c, mktuplety(list_1_(a,list_1_(b))), d, nil_1_, NOpat, nil_1_, OPTnone, 
 Exp extupleexp( Exps es) { mark_tuple_used(length(es)); return EXTUPLEexp(es); }
 Pat extuplepat( Pats ps) { mark_tuple_used(length(ps)); return EXTUPLEpat(ps); }
 Ty  extuplety( Tys ts)   { mark_tuple_used(length(ts));
-                          return TYCONty( (TyCon)EXTUPLEtycon, ts); }
+                          return TYCONty( EXTUPLEtycon, ts); }
 
 ///////////////////////////////////////////////////////////////////////////////
 //  Function to build a piece of verbatim code.

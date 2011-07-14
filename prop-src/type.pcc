@@ -63,14 +63,14 @@ Ty mkvar() { return VARty(NOty); }
 /////////////////////////////////////////////////////////////////////////////
 
 Ty mkptrty( Ty ty)                   { return TYCONty( POINTERtycon, #[ty]); }
-Ty mkrefty( Ty ty)                   { return TYCONty( (TyCon)REFtycon, #[ty]); }
-Ty mkfunty( Ty a, Ty b)              { return TYCONty( (TyCon)FUNtycon, #[a,b]); }
+Ty mkrefty( Ty ty)                   { return TYCONty( REFtycon, #[ty]); }
+Ty mkfunty( Ty a, Ty b)              { return TYCONty( FUNtycon, #[a,b]); }
 Ty mkarrayty( Ty a, Exp e)           { return TYCONty( ARRAYtycon(e), #[a]); }
 Ty mkidty( Id id, Tys args)          { return TYCONty( IDtycon(id), args); }
 Ty mkidvarty( Id id, TyVars args)    { return TYCONty( IDtycon(id), tyvars_to_tys(args)); }
-Ty mktuplety( Tys tys)               { return TYCONty( (TyCon)TUPLEtycon, tys); }
+Ty mktuplety( Tys tys)               { return TYCONty( TUPLEtycon, tys); }
 Ty mkrecordty( Ids l, Tys t, Bool f) { return TYCONty( RECORDtycon(l,f), t); }
-Ty mktypety()                        { return TYCONty( (TyCon)TYPEtycon,#[]); }
+Ty mktypety()                        { return TYCONty( TYPEtycon,#[]); }
 Tys tyvars_to_tys ( TyVars a)
 {
   match (a)
@@ -880,7 +880,7 @@ Ty type_of( Pat pat)
   | LITERALpat l:        { t = type_of( l); }
   | LEXEMEpat _:         { t = string_ty; }
   | TUPLEpat ps:         { t = mktuplety( type_of( ps)); }
-  | EXTUPLEpat ps:       { t = TYCONty( (TyCon)EXTUPLEtycon, type_of( ps)); }
+  | EXTUPLEpat ps:       { t = TYCONty( EXTUPLEtycon, type_of( ps)); }
   | GUARDpat( p, _):     { t = type_of( p); }
   | CONTEXTpat( _, p):   { t = type_of( p); }
   | RECORDpat( ps, flex):

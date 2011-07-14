@@ -172,14 +172,14 @@ list_1_(ty)
 #line 65 "type.pcc"
 #line 65 "type.pcc"
 ); }
-Ty mkrefty( Ty ty)                   { return TYCONty( (TyCon)REFtycon, 
+Ty mkrefty( Ty ty)                   { return TYCONty( REFtycon, 
 #line 66 "type.pcc"
 #line 66 "type.pcc"
 list_1_(ty)
 #line 66 "type.pcc"
 #line 66 "type.pcc"
 ); }
-Ty mkfunty( Ty a, Ty b)              { return TYCONty( (TyCon)FUNtycon, 
+Ty mkfunty( Ty a, Ty b)              { return TYCONty( FUNtycon, 
 #line 67 "type.pcc"
 #line 67 "type.pcc"
 list_1_(a,list_1_(b))
@@ -195,9 +195,9 @@ list_1_(a)
 ); }
 Ty mkidty( Id id, Tys args)          { return TYCONty( IDtycon(id), args); }
 Ty mkidvarty( Id id, TyVars args)    { return TYCONty( IDtycon(id), tyvars_to_tys(args)); }
-Ty mktuplety( Tys tys)               { return TYCONty( (TyCon)TUPLEtycon, tys); }
+Ty mktuplety( Tys tys)               { return TYCONty( TUPLEtycon, tys); }
 Ty mkrecordty( Ids l, Tys t, Bool f) { return TYCONty( RECORDtycon(l,f), t); }
-Ty mktypety()                        { return TYCONty( (TyCon)TYPEtycon,
+Ty mktypety()                        { return TYCONty( TYPEtycon,
 #line 73 "type.pcc"
 #line 73 "type.pcc"
 nil_1_
@@ -848,7 +848,7 @@ Bool is_gc_ty( Ty ty)
             }
           } else {
             switch ((int)((Ty_TYCONty *)ty)->_1) {
-              case ((int)POINTERtycon): {
+              case ((int)v_POINTERtycon): {
                 if (((Ty_TYCONty *)ty)->_2) {
                   if (((Ty_TYCONty *)ty)->_2->_2) { goto L16; } else {
 #line 332 "type.pcc"
@@ -857,7 +857,7 @@ Bool is_gc_ty( Ty ty)
                   }
                 } else { goto L16; }
                 } break;
-              case ((int)REFtycon): {
+              case ((int)v_REFtycon): {
                 if (((Ty_TYCONty *)ty)->_2) {
                   if (((Ty_TYCONty *)ty)->_2->_2) { goto L16; } else {
 #line 331 "type.pcc"
@@ -923,7 +923,7 @@ Bool is_pointer_ty( Ty ty)
           }
         } else {
           switch ((int)((Ty_TYCONty *)_V6)->_1) {
-            case ((int)POINTERtycon): { goto L17; } break;
+            case ((int)v_POINTERtycon): { goto L17; } break;
             default: { goto L18; } break;
           }
         }
@@ -1000,7 +1000,7 @@ Bool is_embeddable_ty( Ty ty)
             }
           } else {
             switch ((int)((Ty_TYCONty *)_V7)->_1) {
-              case ((int)POINTERtycon): {
+              case ((int)v_POINTERtycon): {
                 if (((Ty_TYCONty *)_V7)->_2) {
                   if (((Ty_TYCONty *)_V7)->_2->_2) { goto L22; } else {
                     if (
@@ -1048,7 +1048,7 @@ Bool is_embeddable_ty( Ty ty)
             }
           } else {
             switch ((int)((Ty_TYCONty *)_V7)->_1) {
-              case ((int)POINTERtycon): {
+              case ((int)v_POINTERtycon): {
                 if (((Ty_TYCONty *)_V7)->_2) {
                   if (((Ty_TYCONty *)_V7)->_2->_2) { goto L24; } else {
                     if (
@@ -1212,7 +1212,7 @@ int arity_of( Ty ty)
           }
         } else {
           switch ((int)((Ty_TYCONty *)_V10)->_1) {
-            case ((int)TUPLEtycon): { goto L28; } break;
+            case ((int)v_TUPLEtycon): { goto L28; } break;
             default: { goto L29; } break;
           }
         }
@@ -1478,7 +1478,7 @@ Ty component_ty( Ty record_ty, Id label)
           }
         } else {
           switch ((int)((Ty_TYCONty *)_V13)->_1) {
-            case ((int)TUPLEtycon): {
+            case ((int)v_TUPLEtycon): {
               if (
 #line 543 "type.pcc"
               (label[0] == '_')
@@ -1529,7 +1529,7 @@ Ty component_ty( Ty tuple_ty, int n)
         if (boxed(((Ty_TYCONty *)_V14)->_1)) {
           L37:; } else {
           switch ((int)((Ty_TYCONty *)_V14)->_1) {
-            case ((int)TUPLEtycon): {
+            case ((int)v_TUPLEtycon): {
 #line 566 "type.pcc"
               
               int i; Tys ts;
@@ -1575,7 +1575,7 @@ Ty apply_ty( Ty cons_ty, Tys tys)
 #line 620 "type.pcc"
         } else {
           switch ((int)((Ty_TYCONty *)cons_ty)->_1) {
-            case ((int)FUNtycon): {
+            case ((int)v_FUNtycon): {
               if (((Ty_TYCONty *)cons_ty)->_2) {
 #line 619 "type.pcc"
                return ((Ty_TYCONty *)cons_ty)->_2->_1; 
@@ -1629,7 +1629,7 @@ Ty apply_ty( Ty cons_ty, Tys tys)
 #line 611 "type.pcc"
                 } else {
                   switch ((int)((Ty_TYCONty *)_V15)->_1) {
-                    case ((int)FUNtycon): {
+                    case ((int)v_FUNtycon): {
                       if (((Ty_TYCONty *)_V15)->_2) {
                         if (((Ty_TYCONty *)_V15)->_2->_2) {
                           if (((Ty_TYCONty *)_V15)->_2->_2->_2) { goto L39; } else {
@@ -1716,7 +1716,7 @@ Bool unify( TyCon a, TyCon b)
           }
         } else {
           switch ((int)b) {
-            case ((int)POINTERtycon): { goto L43; } break;
+            case ((int)v_POINTERtycon): { goto L43; } break;
             default: { goto L41; } break;
           }
         }
@@ -1761,11 +1761,11 @@ Bool unify( TyCon a, TyCon b)
     }
   } else {
     switch ((int)a) {
-      case ((int)POINTERtycon): { goto L42; } break;
-      case ((int)REFtycon): {
+      case ((int)v_POINTERtycon): { goto L42; } break;
+      case ((int)v_REFtycon): {
         if (boxed(b)) { goto L41; } else {
           switch ((int)b) {
-            case ((int)REFtycon): {
+            case ((int)v_REFtycon): {
 #line 636 "type.pcc"
              return true; 
 #line 636 "type.pcc"
@@ -1774,10 +1774,10 @@ Bool unify( TyCon a, TyCon b)
           }
         }
         } break;
-      case ((int)TUPLEtycon): {
+      case ((int)v_TUPLEtycon): {
         if (boxed(b)) { goto L41; } else {
           switch ((int)b) {
-            case ((int)TUPLEtycon): {
+            case ((int)v_TUPLEtycon): {
 #line 638 "type.pcc"
              return true; 
 #line 638 "type.pcc"
@@ -1786,10 +1786,10 @@ Bool unify( TyCon a, TyCon b)
           }
         }
         } break;
-      case ((int)EXTUPLEtycon): {
+      case ((int)v_EXTUPLEtycon): {
         if (boxed(b)) { goto L41; } else {
           switch ((int)b) {
-            case ((int)EXTUPLEtycon): {
+            case ((int)v_EXTUPLEtycon): {
 #line 639 "type.pcc"
              return true; 
 #line 639 "type.pcc"
@@ -1798,10 +1798,10 @@ Bool unify( TyCon a, TyCon b)
           }
         }
         } break;
-      case ((int)FUNtycon): {
+      case ((int)v_FUNtycon): {
         if (boxed(b)) { goto L41; } else {
           switch ((int)b) {
-            case ((int)FUNtycon): {
+            case ((int)v_FUNtycon): {
 #line 641 "type.pcc"
              return true; 
 #line 641 "type.pcc"
@@ -1813,7 +1813,7 @@ Bool unify( TyCon a, TyCon b)
       default: {
         if (boxed(b)) { goto L41; } else {
           switch ((int)b) {
-            case ((int)TYPEtycon): {
+            case ((int)v_TYPEtycon): {
 #line 640 "type.pcc"
              return true; 
 #line 640 "type.pcc"
@@ -2379,7 +2379,7 @@ Ty type_of( Pat pat)
         } break;
       case a_Pat::tag_EXTUPLEpat: {
 #line 883 "type.pcc"
-       t = TYCONty( (TyCon)EXTUPLEtycon, type_of( ((Pat_EXTUPLEpat *)pat)->EXTUPLEpat)); 
+       t = TYCONty( EXTUPLEtycon, type_of( ((Pat_EXTUPLEpat *)pat)->EXTUPLEpat)); 
 #line 883 "type.pcc"
         } break;
       case a_Pat::tag_RECORDpat: {
@@ -3259,27 +3259,27 @@ unsigned int ty_hash( HashTable::Key k)
             }
           } else {
             switch ((int)_V26) {
-              case ((int)POINTERtycon): {
+              case ((int)v_POINTERtycon): {
 #line 1408 "type.pcc"
                h = 37; 
 #line 1408 "type.pcc"
                 } break;
-              case ((int)REFtycon): {
+              case ((int)v_REFtycon): {
 #line 1409 "type.pcc"
                h = 47; 
 #line 1409 "type.pcc"
                 } break;
-              case ((int)TUPLEtycon): {
+              case ((int)v_TUPLEtycon): {
 #line 1412 "type.pcc"
                h = 173; 
 #line 1412 "type.pcc"
                 } break;
-              case ((int)EXTUPLEtycon): {
+              case ((int)v_EXTUPLEtycon): {
 #line 1413 "type.pcc"
                h = 467; 
 #line 1413 "type.pcc"
                 } break;
-              case ((int)FUNtycon): {
+              case ((int)v_FUNtycon): {
 #line 1410 "type.pcc"
                h = 79; 
 #line 1410 "type.pcc"

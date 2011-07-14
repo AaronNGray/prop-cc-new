@@ -489,7 +489,7 @@ void print_parameter( std::ostream& f, Ty ty, Id id, Parameter p)
           }
         } else {
           switch ((int)((Ty_TYCONty *)_V1)->_1) {
-            case ((int)TUPLEtycon): {
+            case ((int)v_TUPLEtycon): {
 #line 285 "printing.pcc"
               
               int i = 1;
@@ -585,7 +585,7 @@ std::ostream& operator << (std::ostream& f, Ty ty)
           f << "signed ";
         if ((ty_parameter == TYformal || ty_parameter == TYsimpleformal)
         	      && (((Ty_QUALty *)ty)->_1 & QUALclass))
-          f << (TYCONty((TyCon)REFtycon,
+          f << (TYCONty(REFtycon,
 #line 453 "printing.pcc"
 #line 453 "printing.pcc"
         list_1_(QUALty(QUALconst,((Ty_QUALty *)ty)->_2))
@@ -776,7 +776,7 @@ std::ostream& operator << (std::ostream& f, Ty ty)
           }
         } else {
           switch ((int)((Ty_TYCONty *)ty)->_1) {
-            case ((int)POINTERtycon): {
+            case ((int)v_POINTERtycon): {
               if (((Ty_TYCONty *)ty)->_2) {
                 if (((Ty_TYCONty *)ty)->_2->_2) { goto L4; } else {
 #line 381 "printing.pcc"
@@ -785,7 +785,7 @@ std::ostream& operator << (std::ostream& f, Ty ty)
                 }
               } else { goto L4; }
               } break;
-            case ((int)REFtycon): {
+            case ((int)v_REFtycon): {
               if (((Ty_TYCONty *)ty)->_2) {
                 if (((Ty_TYCONty *)ty)->_2->_2) { goto L4; } else {
 #line 382 "printing.pcc"
@@ -794,17 +794,17 @@ std::ostream& operator << (std::ostream& f, Ty ty)
                 }
               } else { goto L4; }
               } break;
-            case ((int)TUPLEtycon): {
+            case ((int)v_TUPLEtycon): {
 #line 387 "printing.pcc"
              print_tuple(f,((Ty_TYCONty *)ty)->_2); 
 #line 387 "printing.pcc"
               } break;
-            case ((int)EXTUPLEtycon): {
+            case ((int)v_EXTUPLEtycon): {
 #line 388 "printing.pcc"
              print_mktuple(f,((Ty_TYCONty *)ty)->_2); 
 #line 388 "printing.pcc"
               } break;
-            case ((int)FUNtycon): {
+            case ((int)v_FUNtycon): {
               if (((Ty_TYCONty *)ty)->_2) {
                 if (((Ty_TYCONty *)ty)->_2->_2) {
                   if (((Ty_TYCONty *)ty)->_2->_2->_2) { goto L4; } else {
@@ -949,7 +949,7 @@ Id open_of( Cons c)
 #line 556 "printing.pcc"
   } else {
 #line 558 "printing.pcc"
-   return "<\?\?>["; 
+   return "<??" ">["; 
 #line 558 "printing.pcc"
   }
 }

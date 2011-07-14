@@ -6,10 +6,10 @@
 //  they are portable across platforms.  Furthermore, pointer sharing
 //  is preserved.
 //////////////////////////////////////////////////////////////////////////////
-#include <iostream.h>
-#include <fstream.h>
-#include <assert.h>
-#include <string.h>
+#include <iostream>
+#include <fstream>
+#include <cassert>
+#include <cstring>
 #include <AD/generic/generic.h>  // Definition of type Bool
 #include <AD/persist/pstream.h>  // persistence streams
 
@@ -79,7 +79,9 @@ Bool equal(EXP a, EXP b)
 //  The main program just writes out an expression; then read it back.
 //////////////////////////////////////////////////////////////////////////////
 int main()
-{  
+{
+   using namespace std;
+
    // Create an expression with sharing
    EXP e1 = add(num(1), var("x"));
    EXP e2 = mul(e1,e1);

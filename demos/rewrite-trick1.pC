@@ -1,4 +1,4 @@
-#include <iostream.h>
+#include <iostream>
 #include <AD/generic/generic.h>
 
 class Rewritable 
@@ -32,6 +32,8 @@ rewrite Silly {
 
 int main() 
 {
+   using namespace std;
+
    Exp e = ADD(NUM(0),NUM(3));
    Silly S;
    cout << "Before = " << e << '\n';

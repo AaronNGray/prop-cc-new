@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.6),
-//  last updated on Nov 2, 1999.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "logic3.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -32,12 +32,15 @@ static const Quark _l_o_g_i_c_3co_h_Q5("<->");
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_Wff_defined
 #define datatype_Wff_defined
-   class a_Wff;
-   typedef a_Wff * Wff;
+  class a_Wff;
+  typedef a_Wff * Wff;
 #endif
 
-#  define True (Wff)0
-#  define False (Wff)1
+#  define v_True 0
+#  define v_False 1
+
+#  define True (Wff)v_True
+#  define False (Wff)v_False
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -46,14 +49,14 @@ static const Quark _l_o_g_i_c_3co_h_Q5("<->");
 ///////////////////////////////////////////////////////////////////////////////
 class a_Wff : public TermObj {
 public:
-   enum Tag_Wff {
-      tag_Var = 0, tag_Op = 1, tag_Not = 2
-   };
+  enum Tag_Wff {
+    tag_Var = 0, tag_Op = 1, tag_Not = 2
+  };
 
 public:
-   const Tag_Wff tag__; // variant tag
+  const Tag_Wff tag__; // variant tag
 protected:
-   inline a_Wff(Tag_Wff t__) : tag__(t__) {}
+  inline a_Wff(Tag_Wff t__) : tag__(t__) {}
 public:
 };
 inline int boxed(const a_Wff * x) { return (unsigned long)x >= 2; }
@@ -64,7 +67,7 @@ inline int untag(const a_Wff * x) { return boxed(x) ? x->tag__ + 2 : (int)x; }
 //
 ///////////////////////////////////////////////////////////////////////////////
 class PrettyOStream;
-extern ostream& operator<<(ostream&, Wff);
+extern std::ostream& operator<<(std::ostream&, Wff);
 extern PrettyOStream& operator<<(PrettyOStream&, Wff);
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -74,11 +77,11 @@ extern PrettyOStream& operator<<(PrettyOStream&, Wff);
 class Wff_Var : public a_Wff {
 public:
 #line 10 "logic3.ph"
-   Quark Var; 
-   inline Wff_Var (Quark const & x_Var)
-    : a_Wff(tag_Var), Var(x_Var)
-   {
-   }
+  Quark Var; 
+  inline Wff_Var (Quark const & x_Var)
+   : a_Wff(tag_Var), Var(x_Var)
+  {
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -89,11 +92,11 @@ public:
 class Wff_Op : public a_Wff {
 public:
 #line 10 "logic3.ph"
-   Quark _1; Wff _2; Wff _3; 
-   inline Wff_Op (Quark const & x_1, Wff x_2, Wff x_3)
-    : a_Wff(tag_Op), _1(x_1), _2(x_2), _3(x_3)
-   {
-   }
+  Quark _1; Wff _2; Wff _3; 
+  inline Wff_Op (Quark const & x_1, Wff x_2, Wff x_3)
+   : a_Wff(tag_Op), _1(x_1), _2(x_2), _3(x_3)
+  {
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -104,11 +107,11 @@ public:
 class Wff_Not : public a_Wff {
 public:
 #line 11 "logic3.ph"
-   Wff Not; 
-   inline Wff_Not (Wff x_Not)
-    : a_Wff(tag_Not), Not(x_Not)
-   {
-   }
+  Wff Not; 
+  inline Wff_Not (Wff x_Not)
+   : a_Wff(tag_Not), Not(x_Not)
+  {
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -118,15 +121,15 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 inline a_Wff * Var (Quark const & x_Var)
 {
-   return new Wff_Var (x_Var);
+  return new Wff_Var (x_Var);
 }
 inline a_Wff * Op (Quark const & x_1, Wff x_2, Wff x_3)
 {
-   return new Wff_Op (x_1, x_2, x_3);
+  return new Wff_Op (x_1, x_2, x_3);
 }
 inline a_Wff * Not (Wff x_Not)
 {
-   return new Wff_Not (x_Not);
+  return new Wff_Not (x_Not);
 }
 ///////////////////////////////////////////////////////////////////////////////
 //

@@ -261,17 +261,23 @@ void DatatypeClass::generate_persistence_implementation
     error( "%Lpersist object id is undefined for %s%P\n",
            root->datatype_name, tys);
 
-  //
-  // Generate a default constructor for this class
-  //
+   //
+   // Generate the necessary stream overload.
+   //
+   C.pr("Postream& operator << (Postream& strm__, %s *obj__)",
+      class_name);
+   C.pr("%n{ strm__ << (PObject*) obj__; return strm__; }%n");
 
-  C.pr( "%^%s%P::%s()", class_name, tys, class_name);
-
-  if (this != root && root->has_variant_tag)
-    C.pr( " : %s%P(tag_%S)", root->class_name, tys, constructor_name);
-  C.pr( "%^{%+");
-  gen_class_constructor_body( C, tys, k);
-  C.pr( "%-%^}");
+   //
+   // Generate a default constructor for this class
+   //
+   if (this != root && root->has_variant_tag) {
+      C.pr("%^%s%P::%s()", class_name, tys, class_name);
+      C.pr(" : %s%P(tag_%S)", root->class_name, tys, constructor_name);
+      C.pr("%^{%+"); 
+      gen_class_constructor_body(C,tys,k);
+      C.pr("%-%^}");
+   }
 
   //
   // Generate the object type for this class
@@ -298,10 +304,10 @@ void DatatypeClass::generate_persistence_implementation
   // Generate the read method
   //
   Exp self_exp = DEREFexp( IDexp( 
-#line 200 "persistgen.pcc"
+#line 206 "persistgen.pcc"
 _p_e_r_s_i_s_t_g_e_nco_c_c_Q1
-#line 200 "persistgen.pcc"
-#line 200 "persistgen.pcc"
+#line 206 "persistgen.pcc"
+#line 206 "persistgen.pcc"
 ));
   C.pr( "%^Pistream& %s%P::persist_read(Pistream& strm__)"
         "%^{%+",
@@ -367,8 +373,8 @@ void DatatypeClass::gen_field_persist_IO
   Bool is_reading = io[0] == '>';
 
   
-#line 264 "persistgen.pcc"
-#line 309 "persistgen.pcc"
+#line 270 "persistgen.pcc"
+#line 315 "persistgen.pcc"
 {
   Ty _V5 = deref(ty);
   if (_V5) {
@@ -377,19 +383,19 @@ void DatatypeClass::gen_field_persist_IO
         if (boxed(((Ty_TYCONty *)_V5)->_1)) {
           switch (((Ty_TYCONty *)_V5)->_1->tag__) {
             case a_TyCon::tag_RECORDtycon: {
-#line 279 "persistgen.pcc"
+#line 285 "persistgen.pcc"
               
               Ids ls; Tys ts;
               for( ls = ((TyCon_RECORDtycon *)((Ty_TYCONty *)_V5)->_1)->_1, ts = ((Ty_TYCONty *)_V5)->_2; ls && ts; ls = ls->_2, ts = ts->_2)
                 gen_field_persist_IO( C, DOTexp( exp, ls->_1), ts->_1, tys, k, io);
               
-#line 283 "persistgen.pcc"
+#line 289 "persistgen.pcc"
               } break;
             case a_TyCon::tag_ARRAYtycon: {
               if (((Ty_TYCONty *)_V5)->_2) {
                 if (((Ty_TYCONty *)_V5)->_2->_2) {
                   L3:; 
-#line 299 "persistgen.pcc"
+#line 305 "persistgen.pcc"
                   
                   if (toplevel)
                     exp = DOTexp( exp, mangle(cons->name));
@@ -401,9 +407,9 @@ void DatatypeClass::gen_field_persist_IO
                   
                   C.pr( " // %T", _V5);
                   
-#line 309 "persistgen.pcc"
+#line 315 "persistgen.pcc"
                 } else {
-#line 285 "persistgen.pcc"
+#line 291 "persistgen.pcc"
                   
                   C.pr(
                         "%^{%+"
@@ -412,18 +418,18 @@ void DatatypeClass::gen_field_persist_IO
                         ((TyCon_ARRAYtycon *)((Ty_TYCONty *)_V5)->_1)->ARRAYtycon
                       );
                   gen_field_persist_IO( C, INDEXexp( exp, IDexp( 
-#line 292 "persistgen.pcc"
-#line 292 "persistgen.pcc"
+#line 298 "persistgen.pcc"
+#line 298 "persistgen.pcc"
                   _p_e_r_s_i_s_t_g_e_nco_c_c_Q2
-#line 292 "persistgen.pcc"
-#line 292 "persistgen.pcc"
+#line 298 "persistgen.pcc"
+#line 298 "persistgen.pcc"
                   )), ((Ty_TYCONty *)_V5)->_2->_1, tys, k, io);
                   C.pr(
                         "%-%^}"
                         "%-%^}"
                       );
                   
-#line 297 "persistgen.pcc"
+#line 303 "persistgen.pcc"
                 }
               } else { goto L3; }
               } break;
@@ -431,16 +437,7 @@ void DatatypeClass::gen_field_persist_IO
           }
         } else {
           switch ((int)((Ty_TYCONty *)_V5)->_1) {
-            case ((int)TUPLEtycon): {
-#line 267 "persistgen.pcc"
-              
-              int i = 1;
-              for_each ( Ty, ty, ((Ty_TYCONty *)_V5)->_2)
-                gen_field_persist_IO( C, DOTexp( exp, index_of(i++)), ty, tys, k, io);
-              
-#line 271 "persistgen.pcc"
-              } break;
-            case ((int)EXTUPLEtycon): {
+            case ((int)v_TUPLEtycon): {
 #line 273 "persistgen.pcc"
               
               int i = 1;
@@ -448,6 +445,15 @@ void DatatypeClass::gen_field_persist_IO
                 gen_field_persist_IO( C, DOTexp( exp, index_of(i++)), ty, tys, k, io);
               
 #line 277 "persistgen.pcc"
+              } break;
+            case ((int)v_EXTUPLEtycon): {
+#line 279 "persistgen.pcc"
+              
+              int i = 1;
+              for_each ( Ty, ty, ((Ty_TYCONty *)_V5)->_2)
+                gen_field_persist_IO( C, DOTexp( exp, index_of(i++)), ty, tys, k, io);
+              
+#line 283 "persistgen.pcc"
               } break;
             default: { goto L3; } break;
           }
@@ -457,11 +463,11 @@ void DatatypeClass::gen_field_persist_IO
     }
   } else { goto L3; }
 }
-#line 310 "persistgen.pcc"
-#line 310 "persistgen.pcc"
+#line 316 "persistgen.pcc"
+#line 316 "persistgen.pcc"
 
 }
-#line 312 "persistgen.pcc"
+#line 318 "persistgen.pcc"
 /*
 ------------------------------- Statistics -------------------------------
 Merge matching rules         = yes

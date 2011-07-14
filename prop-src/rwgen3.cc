@@ -809,7 +809,7 @@ void RewritingCompiler::gen_treelabel_match( Match m, Ty ty, Ty alg_ty, int k)
                               }
                             } else {
                               switch ((int)((Ty_TYCONty *)arg_ty)->_1) {
-                                case ((int)TUPLEtycon): {
+                                case ((int)v_TUPLEtycon): {
 #line 583 "rwgen3.pcc"
                                   
                                   int i = 1;
