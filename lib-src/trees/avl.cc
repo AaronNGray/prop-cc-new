@@ -28,7 +28,7 @@
 // Balance a right skewed tree: (assume h(R) - h(X) = 2)
 // case (1)
 //     T              R
-//    / \            / \
+//    / \            / \                  .
 //   X   R     =>   T   Z
 //        \        / .
 //         Z      X   R
@@ -38,16 +38,16 @@
 //     T             R
 //    / \           / \           R is not lthreaded
 //   X   R     =>  T   Z
-//      / \       / \
+//      / \       / \                     .
 //     Y   Z     X   Y
 //
 // case (3)
 //     T                S
-//    / \             /   \
+//    / \             /   \               .
 //   X   R     =>    T     R
-//      / \         / \   / \
+//      / \         / \   / \             .
 //     S   Z       X   A B   Z
-//    / \
+//    / \                                 .
 //   A   B
 //
 // returns true if the tree has decreased in height
