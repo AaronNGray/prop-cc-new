@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.5),
-//  last updated on Jun 18, 1997.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "phase4.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -28,30 +28,30 @@
 #line 25 "phase4.ph"
 class Phase4 : public BURS, virtual public PaigeGoyal {
 private:
-   Phase4(const Phase4&);               // no copy constructor
-   void operator = (const Phase4&); // no assignment
+  Phase4(const Phase4&);               // no copy constructor
+  void operator = (const Phase4&); // no assignment
 public:
-   struct Phase4_StateRec * stack__, * stack_top__;
+  struct Phase4_StateRec * stack__, * stack_top__;
 public:
-   void labeler(const char *, int&, int);
-   void labeler(Quark, int&, int);
-          void  labeler(Exp & redex, int&, int);
-   inline virtual void  operator () (Exp & redex) { int s; labeler(redex,s,0); }
-          void  labeler(a_List<Exp> *  & redex, int&, int);
-   inline virtual void  operator () (a_List<Exp> *  & redex) { int s; labeler(redex,s,0); }
-          void  labeler(Literal & redex, int&, int);
-   inline virtual void  operator () (Literal & redex) { int s; labeler(redex,s,0); }
+  void labeler(const char *, int&, int);
+  void labeler(Quark, int&, int);
+         void  labeler(Exp & redex, int&, int);
+  inline virtual void  operator () (Exp & redex) { int s; labeler(redex,s,0); }
+         void  labeler(a_List<Exp> *  & redex, int&, int);
+  inline virtual void  operator () (a_List<Exp> *  & redex) { int s; labeler(redex,s,0); }
+         void  labeler(Literal & redex, int&, int);
+  inline virtual void  operator () (Literal & redex) { int s; labeler(redex,s,0); }
 private:
 #line 16 "phase4.ph"
- 
-   public:
-               Phase4();
-      virtual ~Phase4();
-   
-      virtual Exp phase4(Exp);
-   protected:
-      Exp make_projection(Id x, Id y, Ids xs, Exps, const IdSet&, Exp predicate);
-      Exp decompose_conjunct(Exp, Ids xs, Exps, Exp predicate);
+
+  public:
+              Phase4();
+     virtual ~Phase4();
+  
+     virtual Exp phase4(Exp);
+  protected:
+     Exp make_projection(Id x, Id y, Ids xs, Exps, const IdSet&, Exp predicate);
+     Exp decompose_conjunct(Exp, Ids xs, Exps, Exp predicate);
 #line 25 "phase4.ph"
 };
 #line 25 "phase4.ph"

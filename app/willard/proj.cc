@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.5),
-//  last updated on Jun 18, 1997.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "proj.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -56,35 +56,35 @@ nil_1_
 #line 31 "proj.pcc"
 #line 40 "proj.pcc"
 {
-   for (;;) {
-      if (xs) {
-         if (As) {
+  for (;;) {
+    if (xs) {
+      if (As) {
 #line 33 "proj.pcc"
-          if (Invisible.contains(xs->_1))
-            	 {  P = EXISTS(xs->_1,As->_1,P); }
-                     else
-            	 {  visible_xs = 
+      if (Invisible.contains(xs->_1))
+        	 {  P = EXISTS(xs->_1,As->_1,P); }
+                 else
+        	 {  visible_xs = 
 #line 36 "proj.pcc"
 #line 36 "proj.pcc"
-            list_1_(xs->_1,visible_xs)
+        list_1_(xs->_1,visible_xs)
 #line 36 "proj.pcc"
 #line 36 "proj.pcc"
-            ;
-            	    visible_As = 
+        ;
+        	    visible_As = 
 #line 37 "proj.pcc"
 #line 37 "proj.pcc"
-            list_1_(As->_1,visible_As)
+        list_1_(As->_1,visible_As)
 #line 37 "proj.pcc"
 #line 37 "proj.pcc"
-            ;
-            }
-            	 xs = xs->_2; As = As->_2;
-            
+        ;
+        }
+        	 xs = xs->_2; As = As->_2;
+        
 #line 40 "proj.pcc"
-         } else { goto L1; }
       } else { goto L1; }
-   }
-   L1:;
+    } else { goto L1; }
+  }
+  L1:;
 }
 #line 41 "proj.pcc"
 #line 41 "proj.pcc"
@@ -131,170 +131,170 @@ static const TreeTables::ShortState Projection_mu_8_2[4] = {
 
 inline void  Projection::labeler(char const * redex,int& s__,int)
 {
-   {
+  {
 s__ = 0;
-   }
+  }
 }
 
 inline void  Projection::labeler(Quark redex,int& s__,int)
 {
-   {
+  {
 s__ = 0;
-   }
+  }
 }
 
 void  Projection::labeler (Exp & redex, int& s__, int r__)
 {
 replacement__:
-   int cached__;
-   if (r__ && boxed(redex) && (cached__ = redex->get_rewrite_state()) != BURS::undefined_state)
-   { s__ = cached__; return; }
-   switch(redex->tag__) {
-      case a_Exp::tag_OP: { 
-         int s0__;
-         int s1__;
-         labeler(_OP(redex)->_1, s0__, r__);
-         labeler(_OP(redex)->_2, s1__, r__);
-         s__ = 0;} break;
-      case a_Exp::tag_APP: { 
-         int s0__;
-         int s1__;
-         labeler(_APP(redex)->_1, s0__, r__);
-         labeler(_APP(redex)->_2, s1__, r__);
-         s__ = 0;} break;
-      case a_Exp::tag_LIT: { 
-         int s0__;
-         labeler(_LIT(redex)->LIT, s0__, r__);
-         s__ = 0;} break;
-      case a_Exp::tag_ID: { 
-         int s0__;
-         labeler(_ID(redex)->ID, s0__, r__);
-         s__ = 0;} break;
-      case a_Exp::tag_TUPLE: { 
-         int s0__;
-         labeler(_TUPLE(redex)->TUPLE, s0__, r__);
-         s__ = 0;} break;
-      case a_Exp::tag_FORALL: { 
-         int s0__;
-         int s1__;
-         int s2__;
-         labeler(_FORALL(redex)->_1, s0__, r__);
-         labeler(_FORALL(redex)->_2, s1__, r__);
-         labeler(_FORALL(redex)->_3, s2__, r__);
-         s__ = 0;} break;
-      case a_Exp::tag_EXISTS: { 
-         int s0__;
-         int s1__;
-         int s2__;
-         labeler(_EXISTS(redex)->_1, s0__, r__);
-         labeler(_EXISTS(redex)->_2, s1__, r__);
-         labeler(_EXISTS(redex)->_3, s2__, r__);
-         s__ = 0;} break;
-      case a_Exp::tag_GUARD: { 
-         int s0__;
-         int s1__;
-         labeler(_GUARD(redex)->_1, s0__, r__);
-         labeler(_GUARD(redex)->_2, s1__, r__);
-         s__ = 1;} break;
-      case a_Exp::tag_GENERATOR: { 
-         int s0__;
-         int s1__;
-         int s2__;
-         s0__ = 0; // Ids
-         labeler(_GENERATOR(redex)->_2, s1__, r__);
-         labeler(_GENERATOR(redex)->_3, s2__, r__);
-         s__ = Projection_theta_8[0][0][Projection_mu_8_2[s2__]]; } break;
-      default: { 
-         int s0__;
-         int s1__;
-         int s2__;
-         labeler(_LET(redex)->_1, s0__, r__);
-         labeler(_LET(redex)->_2, s1__, r__);
-         labeler(_LET(redex)->_3, s2__, r__);
-         s__ = 0;} break;
-   }
-   const TreeTables::ShortRule * o__ = Projection_accept_vector + Projection_accept_base[s__];
+  int cached__;
+  if (r__ && boxed(redex) && (cached__ = redex->get_rewrite_state()) != BURS::undefined_state)
+  { s__ = cached__; return; }
+  switch(redex->tag__) {
+    case a_Exp::tag_OP: { 
+      int s0__;
+      int s1__;
+      labeler(_OP(redex)->_1, s0__, r__);
+      labeler(_OP(redex)->_2, s1__, r__);
+      s__ = 0;} break;
+    case a_Exp::tag_APP: { 
+      int s0__;
+      int s1__;
+      labeler(_APP(redex)->_1, s0__, r__);
+      labeler(_APP(redex)->_2, s1__, r__);
+      s__ = 0;} break;
+    case a_Exp::tag_LIT: { 
+      int s0__;
+      labeler(_LIT(redex)->LIT, s0__, r__);
+      s__ = 0;} break;
+    case a_Exp::tag_ID: { 
+      int s0__;
+      labeler(_ID(redex)->ID, s0__, r__);
+      s__ = 0;} break;
+    case a_Exp::tag_TUPLE: { 
+      int s0__;
+      labeler(_TUPLE(redex)->TUPLE, s0__, r__);
+      s__ = 0;} break;
+    case a_Exp::tag_FORALL: { 
+      int s0__;
+      int s1__;
+      int s2__;
+      labeler(_FORALL(redex)->_1, s0__, r__);
+      labeler(_FORALL(redex)->_2, s1__, r__);
+      labeler(_FORALL(redex)->_3, s2__, r__);
+      s__ = 0;} break;
+    case a_Exp::tag_EXISTS: { 
+      int s0__;
+      int s1__;
+      int s2__;
+      labeler(_EXISTS(redex)->_1, s0__, r__);
+      labeler(_EXISTS(redex)->_2, s1__, r__);
+      labeler(_EXISTS(redex)->_3, s2__, r__);
+      s__ = 0;} break;
+    case a_Exp::tag_GUARD: { 
+      int s0__;
+      int s1__;
+      labeler(_GUARD(redex)->_1, s0__, r__);
+      labeler(_GUARD(redex)->_2, s1__, r__);
+      s__ = 1;} break;
+    case a_Exp::tag_GENERATOR: { 
+      int s0__;
+      int s1__;
+      int s2__;
+      s0__ = 0; // Ids
+      labeler(_GENERATOR(redex)->_2, s1__, r__);
+      labeler(_GENERATOR(redex)->_3, s2__, r__);
+      s__ = Projection_theta_8[0][0][Projection_mu_8_2[s2__]]; } break;
+    default: { 
+      int s0__;
+      int s1__;
+      int s2__;
+      labeler(_LET(redex)->_1, s0__, r__);
+      labeler(_LET(redex)->_2, s1__, r__);
+      labeler(_LET(redex)->_3, s2__, r__);
+      s__ = 0;} break;
+  }
+  const TreeTables::ShortRule * o__ = Projection_accept_vector + Projection_accept_base[s__];
 accept__:
-   switch (*o__) {
-      case 1: if ((length(_GENERATOR(redex)->_1) == length(_GENERATOR(redex)->_2)))
-      {
+  switch (*o__) {
+    case 1: if ((length(_GENERATOR(redex)->_1) == length(_GENERATOR(redex)->_2)))
+    {
 #line 69 "proj.pcc"
-       IdSet S1;
-         IdSet S2;
-         free_vars(_GENERATOR(redex)->_1,S1);
-         free_vars(_GENERATOR(redex)->_3,S2);
-         remove_vars(S1,S2);
-         if (S1.size() > 0) 
+    IdSet S1;
+      IdSet S2;
+      free_vars(_GENERATOR(redex)->_1,S1);
+      free_vars(_GENERATOR(redex)->_3,S2);
+      remove_vars(S1,S2);
+      if (S1.size() > 0) 
 #line 74 "proj.pcc"
 #line 74 "proj.pcc"
-         { redex = DEBUG_Projection(make_projection(S1,_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,True,_GENERATOR(redex)->_3),redex,Projection_file_name,68,"GENERATOR (xs, As, e) | (length(redex!GENERATOR.1) == length(redex!GENERATOR.2)): ...");
-           r__ = 1; goto replacement__; }
+      { redex = DEBUG_Projection(make_projection(S1,_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,True,_GENERATOR(redex)->_3),redex,Projection_file_name,68,"GENERATOR (xs, As, e) | (length(redex!GENERATOR.1) == length(redex!GENERATOR.2)): ...");
+        r__ = 1; goto replacement__; }
 #line 74 "proj.pcc"
 #line 74 "proj.pcc"
-         
-         
+      
+      
 #line 75 "proj.pcc"
 }
-      else { ++o__; goto accept__; } break;
-      case 0: if ((length(_GENERATOR(redex)->_1) == length(_GENERATOR(redex)->_2)))
-      {
+    else { ++o__; goto accept__; } break;
+    case 0: if ((length(_GENERATOR(redex)->_1) == length(_GENERATOR(redex)->_2)))
+    {
 #line 61 "proj.pcc"
-       IdSet S1;
-         IdSet S2;
-         free_vars(_GENERATOR(redex)->_1,S1);
-         free_vars(_GUARD(_GENERATOR(redex)->_3)->_2,S2);
-         remove_vars(S1,S2);
-         if (S1.size() > 0) 
+    IdSet S1;
+      IdSet S2;
+      free_vars(_GENERATOR(redex)->_1,S1);
+      free_vars(_GUARD(_GENERATOR(redex)->_3)->_2,S2);
+      remove_vars(S1,S2);
+      if (S1.size() > 0) 
 #line 66 "proj.pcc"
 #line 66 "proj.pcc"
-         { redex = DEBUG_Projection(make_projection(S1,_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,_GUARD(_GENERATOR(redex)->_3)->_1,_GUARD(_GENERATOR(redex)->_3)->_2),redex,Projection_file_name,60,"GENERATOR (xs, As, GUARD (p, e)) | (length(redex!GENERATOR.1) == length(redex!GENERATOR.2)): ...");
-           r__ = 1; goto replacement__; }
+      { redex = DEBUG_Projection(make_projection(S1,_GENERATOR(redex)->_1,_GENERATOR(redex)->_2,_GUARD(_GENERATOR(redex)->_3)->_1,_GUARD(_GENERATOR(redex)->_3)->_2),redex,Projection_file_name,60,"GENERATOR (xs, As, GUARD (p, e)) | (length(redex!GENERATOR.1) == length(redex!GENERATOR.2)): ...");
+        r__ = 1; goto replacement__; }
 #line 66 "proj.pcc"
 #line 66 "proj.pcc"
-         
-         
+      
+      
 #line 67 "proj.pcc"
 }
-      else { ++o__; goto accept__; } break;
-   }
-   if (boxed(redex)) {
-      redex->set_rewrite_state(s__);
-   }
-   
+    else { ++o__; goto accept__; } break;
+  }
+  if (boxed(redex)) {
+    redex->set_rewrite_state(s__);
+  }
+  
 }
 
 void  Projection::labeler (Literal & redex, int& s__, int r__)
 {
 replacement__:
-   switch(redex->tag__) {
-      case a_Literal::tag_INT: { 
-         int s0__;
-         s0__ = 0; // int
-         s__ = 0;} break;
-      case a_Literal::tag_STRING: { 
-         int s0__;
-         labeler(_STRING(redex)->STRING, s0__, r__);
-         s__ = 0;} break;
-      default: { 
-         int s0__;
-         s0__ = 0; // Bool
-         s__ = 0;} break;
-   }
-   
+  switch(redex->tag__) {
+    case a_Literal::tag_INT: { 
+      int s0__;
+      s0__ = 0; // int
+      s__ = 0;} break;
+    case a_Literal::tag_STRING: { 
+      int s0__;
+      labeler(_STRING(redex)->STRING, s0__, r__);
+      s__ = 0;} break;
+    default: { 
+      int s0__;
+      s0__ = 0; // Bool
+      s__ = 0;} break;
+  }
+  
 }
 
 void  Projection::labeler (a_List<Exp> *  & redex, int& s__, int r__)
 {
 replacement__:
-   if ((redex)) {
-      int s0__;
-      int s1__;
-      labeler(redex->_1, s0__, r__);
-      labeler(redex->_2, s1__, r__);
-      s__ = 0;
-   } else {s__ = 0;
-   }
-   
+  if ((redex)) {
+    int s0__;
+    int s1__;
+    labeler(redex->_1, s0__, r__);
+    labeler(redex->_2, s1__, r__);
+    s__ = 0;
+  } else {s__ = 0;
+  }
+  
 }
 
 #line 76 "proj.pcc"

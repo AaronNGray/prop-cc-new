@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.5),
-//  last updated on Jun 18, 1997.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "paige.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -132,20 +132,20 @@ Exp PaigeGoyal::make_let(Ids xs, Exps es, Exp exp)
 #line 65 "paige.pcc"
 #line 71 "paige.pcc"
 {
-   for (;;) {
-      if (xs) {
-         if (es) {
+  for (;;) {
+    if (xs) {
+      if (es) {
 #line 67 "paige.pcc"
-          Id  x = xs->_1;
-            	 Exp e = es->_1; 
-            	 exp = LET(x,e,exp); 
-            	 xs = xs->_2; es = es->_2;
-                  
+      Id  x = xs->_1;
+        	 Exp e = es->_1; 
+        	 exp = LET(x,e,exp); 
+        	 xs = xs->_2; es = es->_2;
+              
 #line 71 "paige.pcc"
-         } else { goto L1; }
       } else { goto L1; }
-   }
-   L1:;
+    } else { goto L1; }
+  }
+  L1:;
 }
 #line 72 "paige.pcc"
 #line 72 "paige.pcc"
@@ -166,16 +166,16 @@ void PaigeGoyal::define_range(Ids xs, Exps es)
 #line 85 "paige.pcc"
 #line 86 "paige.pcc"
 {
-   for (;;) {
-      if (ids) {
-         if (exps) {
+  for (;;) {
+    if (ids) {
+      if (exps) {
 #line 86 "paige.pcc"
-           define_range(ids->_1,exps->_1); ids = ids->_2; exps = exps->_2; 
+       define_range(ids->_1,exps->_1); ids = ids->_2; exps = exps->_2; 
 #line 86 "paige.pcc"
-         } else { goto L2; }
       } else { goto L2; }
-   }
-   L2:;
+    } else { goto L2; }
+  }
+  L2:;
 }
 #line 87 "paige.pcc"
 #line 87 "paige.pcc"
@@ -272,14 +272,14 @@ void PaigeGoyal::push_quantifier(Ids xs)
 #line 158 "paige.pcc"
 #line 158 "paige.pcc"
 {
-   for (;;) {
-      if (xs) {
+  for (;;) {
+    if (xs) {
 #line 158 "paige.pcc"
-        push_quantifier(xs->_1); xs = xs->_2; 
+     push_quantifier(xs->_1); xs = xs->_2; 
 #line 158 "paige.pcc"
-      } else { goto L3; }
-   }
-   L3:;
+    } else { goto L3; }
+  }
+  L3:;
 }
 #line 158 "paige.pcc"
 #line 158 "paige.pcc"
@@ -290,14 +290,14 @@ void PaigeGoyal::pop_quantifier(Ids xs)
 #line 161 "paige.pcc"
 #line 161 "paige.pcc"
 {
-   for (;;) {
-      if (xs) {
+  for (;;) {
+    if (xs) {
 #line 161 "paige.pcc"
-        pop_quantifier(xs->_1); xs = xs->_2; 
+     pop_quantifier(xs->_1); xs = xs->_2; 
 #line 161 "paige.pcc"
-      } else { goto L4; }
-   }
-   L4:;
+    } else { goto L4; }
+  }
+  L4:;
 }
 #line 161 "paige.pcc"
 #line 161 "paige.pcc"

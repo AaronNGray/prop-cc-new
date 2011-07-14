@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
-#include <std::strstream.h>
-#include <fstream.h>
+#include <strstream>
+#include <fstream>
 #include <AD/visualize/vcg.h>
 
 //
@@ -64,7 +64,7 @@ public:
 int main()
 {
    VisualizeCFG V;
-   ostd::strstream S;
+   std::ostrstream S;
    const char * G = "A Sample Graph";
    const char * a = "a";
    const char * b = "b";
@@ -115,7 +115,7 @@ int main()
    //  translate it into GDL
    V.print_GDL_on(S);
 
-   ofstream TMP("./cfg.vcg");
+   std::ofstream TMP("./cfg.vcg");
    TMP << S.str();
    TMP.close();
    std::system("xvcg ./cfg.vcg");

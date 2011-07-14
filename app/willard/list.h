@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.5),
-//  last updated on Jun 18, 1997.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "list.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -27,21 +27,21 @@ a_List<T> *
    {  
 #line 10 "list.ph"
 {
-   if (a) {
+  if (a) {
 #line 10 "list.ph"
-     return 
-#line 10 "list.ph"
-#line 10 "list.ph"
-      list_1_(a->_1,append(a->_2,b))
+   return 
 #line 10 "list.ph"
 #line 10 "list.ph"
-      ; 
+    list_1_(a->_1,append(a->_2,b))
 #line 10 "list.ph"
-   } else {
+#line 10 "list.ph"
+    ; 
+#line 10 "list.ph"
+  } else {
 #line 9 "list.ph"
-     return b; 
+   return b; 
 #line 9 "list.ph"
-   }
+  }
 }
 #line 11 "list.ph"
 #line 11 "list.ph"
@@ -68,20 +68,20 @@ nil_1_
 #line 17 "list.ph"
 #line 18 "list.ph"
 {
-   for (;;) {
-      if (a) {
+  for (;;) {
+    if (a) {
 #line 18 "list.ph"
-        r = 
-#line 18 "list.ph"
-#line 18 "list.ph"
-         list_1_(a->_1,r)
+     r = 
 #line 18 "list.ph"
 #line 18 "list.ph"
-         ; a = a->_2; 
+      list_1_(a->_1,r)
 #line 18 "list.ph"
-      } else { goto L1; }
-   }
-   L1:;
+#line 18 "list.ph"
+      ; a = a->_2; 
+#line 18 "list.ph"
+    } else { goto L1; }
+  }
+  L1:;
 }
 #line 19 "list.ph"
 #line 19 "list.ph"
@@ -99,14 +99,14 @@ a_List<T> *
       
 #line 27 "list.ph"
 {
-   for (;;) {
-      if (a) {
+  for (;;) {
+    if (a) {
 #line 27 "list.ph"
-        a = a->_2; i++; 
+     a = a->_2; i++; 
 #line 27 "list.ph"
-      } else { goto L2; }
-   }
-   L2:;
+    } else { goto L2; }
+  }
+  L2:;
 }
 #line 28 "list.ph"
 #line 28 "list.ph"

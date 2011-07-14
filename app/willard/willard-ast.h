@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.5),
-//  last updated on Jun 18, 1997.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "willard-ast.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -31,7 +31,9 @@ template <class T> class a_List;
 #define List(T) a_List<T> *
 #endif
 
-#  define nil_1_ 0
+#  define v_nil_1_ 0
+
+#  define nil_1_ v_nil_1_
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -41,9 +43,9 @@ template <class T> class a_List;
 template <class T> class a_List : public ConsCounter {
 public:
 #line 10 "willard-ast.ph"
-   T _1; a_List<T> *  _2; 
-   a_List (T x_1, a_List<T> *  x_2);
-   a_List (T x_1);
+  T _1; a_List<T> *  _2; 
+  a_List (T x_1, a_List<T> *  x_2);
+  a_List (T x_1);
 };
 template <class T> inline int boxed(const a_List<T> * x) { return x != 0; }
 template <class T> inline int untag(const a_List<T> * x) { return x ? 1 : 0; }
@@ -82,8 +84,8 @@ template <class T> extern a_List<T> * list_1_ (T x_1);
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_Literal_defined
 #define datatype_Literal_defined
-   class a_Literal;
-   typedef a_Literal * Literal;
+  class a_Literal;
+  typedef a_Literal * Literal;
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -93,8 +95,8 @@ template <class T> extern a_List<T> * list_1_ (T x_1);
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_Exp_defined
 #define datatype_Exp_defined
-   class a_Exp;
-   typedef a_Exp * Exp;
+  class a_Exp;
+  typedef a_Exp * Exp;
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -122,14 +124,14 @@ typedef a_List<Exp> *  Exps;
 ///////////////////////////////////////////////////////////////////////////////
 class a_Literal : public ConsCounter {
 public:
-   enum Tag_Literal {
-      tag_INT = 0, tag_STRING = 1, tag_BOOL = 2
-   };
+  enum Tag_Literal {
+    tag_INT = 0, tag_STRING = 1, tag_BOOL = 2
+  };
 
 public:
-   const Tag_Literal tag__; // variant tag
+  const Tag_Literal tag__; // variant tag
 protected:
-   inline a_Literal(Tag_Literal t__) : tag__(t__) {}
+  inline a_Literal(Tag_Literal t__) : tag__(t__) {}
 public:
 };
 inline int boxed(const a_Literal *) { return 1; }
@@ -142,8 +144,8 @@ inline int untag(const a_Literal * x) { return x->tag__; }
 class Literal_INT : public a_Literal {
 public:
 #line 16 "willard-ast.ph"
-   int INT; 
-   Literal_INT (int x_INT);
+  int INT; 
+  Literal_INT (int x_INT);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -154,8 +156,8 @@ public:
 class Literal_STRING : public a_Literal {
 public:
 #line 17 "willard-ast.ph"
-   char const * STRING; 
-   Literal_STRING (char const * x_STRING);
+  char const * STRING; 
+  Literal_STRING (char const * x_STRING);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -166,8 +168,8 @@ public:
 class Literal_BOOL : public a_Literal {
 public:
 #line 18 "willard-ast.ph"
-   Bool BOOL; 
-   Literal_BOOL (Bool x_BOOL);
+  Bool BOOL; 
+  Literal_BOOL (Bool x_BOOL);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -194,17 +196,17 @@ inline Literal_BOOL * _BOOL(const a_Literal * _x_) { return (Literal_BOOL *)_x_;
 ///////////////////////////////////////////////////////////////////////////////
 class a_Exp : public ConsCounter, public TermObj {
 public:
-   enum Tag_Exp {
-      tag_OP = 0, tag_APP = 1, tag_LIT = 2, 
-      tag_ID = 3, tag_TUPLE = 4, tag_FORALL = 5, 
-      tag_EXISTS = 6, tag_GUARD = 7, tag_GENERATOR = 8, 
-      tag_LET = 9
-   };
+  enum Tag_Exp {
+    tag_OP = 0, tag_APP = 1, tag_LIT = 2, 
+    tag_ID = 3, tag_TUPLE = 4, tag_FORALL = 5, 
+    tag_EXISTS = 6, tag_GUARD = 7, tag_GENERATOR = 8, 
+    tag_LET = 9
+  };
 
 public:
-   const Tag_Exp tag__; // variant tag
+  const Tag_Exp tag__; // variant tag
 protected:
-   inline a_Exp(Tag_Exp t__) : tag__(t__) {}
+  inline a_Exp(Tag_Exp t__) : tag__(t__) {}
 public:
 };
 inline int boxed(const a_Exp *) { return 1; }
@@ -217,8 +219,8 @@ inline int untag(const a_Exp * x) { return x->tag__; }
 class Exp_OP : public a_Exp {
 public:
 #line 20 "willard-ast.ph"
-   Id _1; Exps _2; 
-   Exp_OP (Id x_1, Exps x_2);
+  Id _1; Exps _2; 
+  Exp_OP (Id x_1, Exps x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -229,8 +231,8 @@ public:
 class Exp_APP : public a_Exp {
 public:
 #line 21 "willard-ast.ph"
-   Id _1; Exps _2; 
-   Exp_APP (Id x_1, Exps x_2);
+  Id _1; Exps _2; 
+  Exp_APP (Id x_1, Exps x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -241,8 +243,8 @@ public:
 class Exp_LIT : public a_Exp {
 public:
 #line 22 "willard-ast.ph"
-   Literal LIT; 
-   Exp_LIT (Literal x_LIT);
+  Literal LIT; 
+  Exp_LIT (Literal x_LIT);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -253,8 +255,8 @@ public:
 class Exp_ID : public a_Exp {
 public:
 #line 23 "willard-ast.ph"
-   Id ID; 
-   Exp_ID (Id x_ID);
+  Id ID; 
+  Exp_ID (Id x_ID);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -265,8 +267,8 @@ public:
 class Exp_TUPLE : public a_Exp {
 public:
 #line 24 "willard-ast.ph"
-   Exps TUPLE; 
-   Exp_TUPLE (Exps x_TUPLE);
+  Exps TUPLE; 
+  Exp_TUPLE (Exps x_TUPLE);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -277,8 +279,8 @@ public:
 class Exp_FORALL : public a_Exp {
 public:
 #line 25 "willard-ast.ph"
-   Id _1; Exp _2; Exp _3; 
-   Exp_FORALL (Id x_1, Exp x_2, Exp x_3);
+  Id _1; Exp _2; Exp _3; 
+  Exp_FORALL (Id x_1, Exp x_2, Exp x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -289,8 +291,8 @@ public:
 class Exp_EXISTS : public a_Exp {
 public:
 #line 26 "willard-ast.ph"
-   Id _1; Exp _2; Exp _3; 
-   Exp_EXISTS (Id x_1, Exp x_2, Exp x_3);
+  Id _1; Exp _2; Exp _3; 
+  Exp_EXISTS (Id x_1, Exp x_2, Exp x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -301,8 +303,8 @@ public:
 class Exp_GUARD : public a_Exp {
 public:
 #line 27 "willard-ast.ph"
-   Exp _1; Exp _2; 
-   Exp_GUARD (Exp x_1, Exp x_2);
+  Exp _1; Exp _2; 
+  Exp_GUARD (Exp x_1, Exp x_2);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -313,8 +315,8 @@ public:
 class Exp_GENERATOR : public a_Exp {
 public:
 #line 28 "willard-ast.ph"
-   Ids _1; Exps _2; Exp _3; 
-   Exp_GENERATOR (Ids x_1, Exps x_2, Exp x_3);
+  Ids _1; Exps _2; Exp _3; 
+  Exp_GENERATOR (Ids x_1, Exps x_2, Exp x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -325,8 +327,8 @@ public:
 class Exp_LET : public a_Exp {
 public:
 #line 29 "willard-ast.ph"
-   Id _1; Exp _2; Exp _3; 
-   Exp_LET (Id x_1, Exp x_2, Exp x_3);
+  Id _1; Exp _2; Exp _3; 
+  Exp_LET (Id x_1, Exp x_2, Exp x_3);
 };
 
 ///////////////////////////////////////////////////////////////////////////////

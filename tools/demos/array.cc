@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.2),
-//  last updated on Mar 14, 1997.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "array.pcc".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -20,11 +20,13 @@
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_BTree_defined
 #define datatype_BTree_defined
-   class a_BTree;
-   typedef a_BTree * BTree;
+  class a_BTree;
+  typedef a_BTree * BTree;
 #endif
 
-#  define empty (BTree)0
+#  define v_empty 0
+
+#  define empty (BTree)v_empty
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -33,19 +35,18 @@
 ///////////////////////////////////////////////////////////////////////////////
 class a_BTree {
 public:
-   enum Tag_BTree {
-      tag_leaf = 0, tag_node = 1
-   };
+  enum Tag_BTree {
+    tag_leaf = 0, tag_node = 1
+  };
 
 public:
-   const Tag_BTree tag__; // variant tag
+  const Tag_BTree tag__; // variant tag
 protected:
-   inline a_BTree(Tag_BTree t__) : tag__(t__) {}
+  inline a_BTree(Tag_BTree t__) : tag__(t__) {}
 public:
 };
 inline int boxed(const a_BTree * x) { return x != 0; }
 inline int untag(const a_BTree * x) { return x ? (x->tag__+1) : 0; }
-
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Class for datatype constructor BTree::leaf
@@ -54,11 +55,11 @@ inline int untag(const a_BTree * x) { return x ? (x->tag__+1) : 0; }
 class BTree_leaf : public a_BTree {
 public:
 #line 8 "array.pcc"
-   String leaf; 
-   inline BTree_leaf (String const & x_leaf)
-    : a_BTree(tag_leaf), leaf(x_leaf)
-   {
-   }
+  String leaf; 
+  inline BTree_leaf (String const & x_leaf)
+   : a_BTree(tag_leaf), leaf(x_leaf)
+  {
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -69,11 +70,17 @@ public:
 class BTree_node : public a_BTree {
 public:
 #line 9 "array.pcc"
-   int _1; int _2; BTree _3[10]; 
-   inline BTree_node (int x_1, int x_2, BTree x_3[10])
-    : a_BTree(tag_node), _1(x_1), _2(x_2), _3(x_3)
-   {
-   }
+  int _1; int _2; BTree _3[10]; 
+  inline BTree_node (int x_1, int x_2, BTree x_3[10])
+   : a_BTree(tag_node), _1(x_1), _2(x_2)
+  {
+    {
+      for (int i__ = 0; i__ < (10); i__++)
+      {
+        _3[i__] = x_3[i__];
+      }
+    }
+  }
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -82,9 +89,13 @@ public:
 //
 ///////////////////////////////////////////////////////////////////////////////
 inline a_BTree * leaf (String const & x_leaf)
-{ return new BTree_leaf (x_leaf); }
+{
+  return new BTree_leaf (x_leaf);
+}
 inline a_BTree * node (int x_1, int x_2, BTree x_3[10])
-{ return new BTree_node (x_1, x_2, x_3); }
+{
+  return new BTree_node (x_1, x_2, x_3);
+}
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Downcasting functions for BTree

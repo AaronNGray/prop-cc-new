@@ -1,5 +1,7 @@
 #include "tiny.ph"
 
+#include <cstring>
+
 Env eval(Statement stmt, Env env)
 {  match (stmt) {
       case ASSIGN(x,e):    return env.update(x,eval(e,env)); 

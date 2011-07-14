@@ -16,7 +16,7 @@ datatype Wff =  falsity
              |  disj(Wff, Wff)    // disjunction
              |  conj(Wff, Wff)    // conjunction
              |  implies(Wff, Wff) // implication
-             |  not (Wff)         // negation
+             |  not_ (Wff)         // negation
 public:
 {
    friend Bool eval(const Wff, const Bool []);  // Evaluate a wff

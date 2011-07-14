@@ -11,7 +11,7 @@ template <class T>
    }
 
 template <class T>
-   ostream& operator << (ostream& out, List<T> l)
+   std::ostream& operator << (std::ostream& out, List<T> l)
    {  match (l) {
          case nil:       return out;
          case cons(h,t): out << h; 
@@ -24,7 +24,7 @@ instantiate datatype List<int>;
 
 int main()
 {  List<int> l = cons(1,cons(2,cons(3,nil)));
-   cout << "length [" << l << "] = " << length(l) << '\n';
+   std::cout << "length [" << l << "] = " << length(l) << '\n';
    return 0;
 }
 

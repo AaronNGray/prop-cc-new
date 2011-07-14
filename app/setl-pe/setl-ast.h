@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.2),
-//  last updated on Mar 14, 1997.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "setl-ast.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -22,17 +22,17 @@
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_Exp_defined
 #define datatype_Exp_defined
-   class a_Exp;
-   typedef a_Exp * Exp;
+  class a_Exp;
+  typedef a_Exp * Exp;
 #endif
 
 enum Prim {
-   XXclXX = 0, XXcnXX = 1, XXckXX = 2, 
-   XXcpXX = 3, XXdkdnXX = 4, XXdnXX = 5, 
-   XXdmXX = 6, XXdoXX = 7, XXdodnXX = 8, 
-   XXdmdnXX = 9, XXcpdnXX = 10, XXcdXX = 11, 
-   XX_a_r_bXX = 12, XX_d_i_vXX = 13, XX_m_o_dXX = 14, 
-   XX_w_i_t_hXX = 15, XX_l_e_s_sXX = 16
+  XXclXX = 0, XXcnXX = 1, XXckXX = 2, 
+  XXcpXX = 3, XXdkdnXX = 4, XXdnXX = 5, 
+  XXdmXX = 6, XXdoXX = 7, XXdodnXX = 8, 
+  XXdmdnXX = 9, XXcpdnXX = 10, XXcdXX = 11, 
+  XX_a_r_bXX = 12, XX_d_i_vXX = 13, XX_m_o_dXX = 14, 
+  XX_w_i_t_hXX = 15, XX_l_e_s_sXX = 16
 };
 
 
@@ -44,8 +44,8 @@ enum Prim {
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_Decl_defined
 #define datatype_Decl_defined
-   class a_Decl;
-   typedef a_Decl * Decl;
+  class a_Decl;
+  typedef a_Decl * Decl;
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -55,8 +55,8 @@ enum Prim {
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_Term_defined
 #define datatype_Term_defined
-   class a_Term;
-   typedef a_Term * Term;
+  class a_Term;
+  typedef a_Term * Term;
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -66,11 +66,13 @@ enum Prim {
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_Ty_defined
 #define datatype_Ty_defined
-   class a_Ty;
-   typedef a_Ty * Ty;
+  class a_Ty;
+  typedef a_Ty * Ty;
 #endif
 
-#  define NOty (Ty)0
+#  define v_NOty 0
+
+#  define NOty (Ty)v_NOty
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -79,8 +81,8 @@ enum Prim {
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_LabeledExp_defined
 #define datatype_LabeledExp_defined
-   class a_LabeledExp;
-   typedef a_LabeledExp * LabeledExp;
+  class a_LabeledExp;
+  typedef a_LabeledExp * LabeledExp;
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -90,8 +92,8 @@ enum Prim {
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef datatype_Literal_defined
 #define datatype_Literal_defined
-   class a_Literal;
-   typedef a_Literal * Literal;
+  class a_Literal;
+  typedef a_Literal * Literal;
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -143,26 +145,26 @@ typedef a_List<Ty> *  Tys;
 ///////////////////////////////////////////////////////////////////////////////
 class a_Exp : public GCObject {
 public:
-   enum Tag_Exp {
-      tag_IDexp = 0, tag_LITexp = 1, tag_APPexp = 2, 
-      tag_TUPLEexp = 3, tag_RECORDexp = 4, tag_SETexp = 5, 
-      tag_CASEexp = 6, tag_IFexp = 7, tag_WHILEexp = 8, 
-      tag_SEQexp = 9, tag_LETexp = 10, tag_PRIMexp = 11
-   };
+  enum Tag_Exp {
+    tag_IDexp = 0, tag_LITexp = 1, tag_APPexp = 2, 
+    tag_TUPLEexp = 3, tag_RECORDexp = 4, tag_SETexp = 5, 
+    tag_CASEexp = 6, tag_IFexp = 7, tag_WHILEexp = 8, 
+    tag_SEQexp = 9, tag_LETexp = 10, tag_PRIMexp = 11
+  };
 
 public:
-   const Tag_Exp tag__; // variant tag
+  const Tag_Exp tag__; // variant tag
 protected:
-   inline a_Exp(Tag_Exp t__) : tag__(t__) {}
+  inline a_Exp(Tag_Exp t__) : tag__(t__) {}
 public:
-   virtual ~a_Exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  virtual ~a_Exp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 inline int boxed(const a_Exp *) { return 1; }
@@ -175,16 +177,16 @@ inline int untag(const a_Exp * x) { return x->tag__; }
 class Exp_IDexp : public a_Exp {
 public:
 #line 6 "setl-ast.ph"
-   Id IDexp; 
-   Exp_IDexp (Id x_IDexp);
-   ~Exp_IDstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Id IDexp; 
+  Exp_IDexp (Id x_IDexp);
+  ~Exp_IDexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -196,16 +198,16 @@ public:
 class Exp_LITexp : public a_Exp {
 public:
 #line 8 "setl-ast.ph"
-   Literal LITexp; 
-   Exp_LITexp (Literal x_LITexp);
-   ~Exp_LITstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Literal LITexp; 
+  Exp_LITexp (Literal x_LITexp);
+  ~Exp_LITexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -217,16 +219,16 @@ public:
 class Exp_APPexp : public a_Exp {
 public:
 #line 9 "setl-ast.ph"
-   Exp _1; Exp _2; 
-   Exp_APPexp (Exp x_1, Exp x_2);
-   ~Exp_APPstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Exp _1; Exp _2; 
+  Exp_APPexp (Exp x_1, Exp x_2);
+  ~Exp_APPexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -238,16 +240,16 @@ public:
 class Exp_TUPLEexp : public a_Exp {
 public:
 #line 10 "setl-ast.ph"
-   Exps TUPLEexp; 
-   Exp_TUPLEexp (Exps x_TUPLEexp);
-   ~Exp_TUPLEstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Exps TUPLEexp; 
+  Exp_TUPLEexp (Exps x_TUPLEexp);
+  ~Exp_TUPLEexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -259,16 +261,16 @@ public:
 class Exp_RECORDexp : public a_Exp {
 public:
 #line 11 "setl-ast.ph"
-   LabeledExps RECORDexp; 
-   Exp_RECORDexp (LabeledExps x_RECORDexp);
-   ~Exp_RECORDstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  LabeledExps RECORDexp; 
+  Exp_RECORDexp (LabeledExps x_RECORDexp);
+  ~Exp_RECORDexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -280,16 +282,16 @@ public:
 class Exp_SETexp : public a_Exp {
 public:
 #line 12 "setl-ast.ph"
-   Exps SETexp; 
-   Exp_SETexp (Exps x_SETexp);
-   ~Exp_SETstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Exps SETexp; 
+  Exp_SETexp (Exps x_SETexp);
+  ~Exp_SETexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -301,16 +303,16 @@ public:
 class Exp_CASEexp : public a_Exp {
 public:
 #line 13 "setl-ast.ph"
-   Exp _1; Exps _2; 
-   Exp_CASEexp (Exp x_1, Exps x_2);
-   ~Exp_CASEstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Exp _1; Exps _2; 
+  Exp_CASEexp (Exp x_1, Exps x_2);
+  ~Exp_CASEexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -322,16 +324,16 @@ public:
 class Exp_IFexp : public a_Exp {
 public:
 #line 14 "setl-ast.ph"
-   Exp _1; Exp _2; Exp _3; 
-   Exp_IFexp (Exp x_1, Exp x_2, Exp x_3);
-   ~Exp_IFstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Exp _1; Exp _2; Exp _3; 
+  Exp_IFexp (Exp x_1, Exp x_2, Exp x_3);
+  ~Exp_IFexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -343,16 +345,16 @@ public:
 class Exp_WHILEexp : public a_Exp {
 public:
 #line 15 "setl-ast.ph"
-   Exp _1; Exp _2; 
-   Exp_WHILEexp (Exp x_1, Exp x_2);
-   ~Exp_WHILEstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Exp _1; Exp _2; 
+  Exp_WHILEexp (Exp x_1, Exp x_2);
+  ~Exp_WHILEexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -364,16 +366,16 @@ public:
 class Exp_SEQexp : public a_Exp {
 public:
 #line 16 "setl-ast.ph"
-   Exps SEQexp; 
-   Exp_SEQexp (Exps x_SEQexp);
-   ~Exp_SEQstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Exps SEQexp; 
+  Exp_SEQexp (Exps x_SEQexp);
+  ~Exp_SEQexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -385,16 +387,16 @@ public:
 class Exp_LETexp : public a_Exp {
 public:
 #line 17 "setl-ast.ph"
-   Decls _1; Exp _2; 
-   Exp_LETexp (Decls x_1, Exp x_2);
-   ~Exp_LETstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Decls _1; Exp _2; 
+  Exp_LETexp (Decls x_1, Exp x_2);
+  ~Exp_LETexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -406,16 +408,16 @@ public:
 class Exp_PRIMexp : public a_Exp {
 public:
 #line 18 "setl-ast.ph"
-   Prim PRIMexp; 
-   Exp_PRIMexp (Prim x_PRIMexp);
-   ~Exp_PRIMstd::exp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Prim PRIMexp; 
+  Exp_PRIMexp (Prim x_PRIMexp);
+  ~Exp_PRIMexp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -444,7 +446,7 @@ extern a_Exp * PRIMexp (Prim x_PRIMexp);
 //
 ///////////////////////////////////////////////////////////////////////////////
 class PrettyOStream;
-extern ostream& operator<<(ostream&, Prim);
+extern std::ostream& operator<<(std::ostream&, Prim);
 extern PrettyOStream& operator<<(PrettyOStream&, Prim);
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -453,19 +455,19 @@ extern PrettyOStream& operator<<(PrettyOStream&, Prim);
 ///////////////////////////////////////////////////////////////////////////////
 class a_Decl : public GCObject {
 public:
-   enum Tag_Decl {
-      tag_TYPEdecl = 0, tag_DATATYPEdecl = 1
-   };
+  enum Tag_Decl {
+    tag_TYPEdecl = 0, tag_DATATYPEdecl = 1
+  };
 
 public:
-   virtual ~a_Decl();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  virtual ~a_Decl();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 inline int boxed(const a_Decl *) { return 1; }
@@ -475,9 +477,9 @@ inline int boxed(const a_Decl *) { return 1; }
 //
 ///////////////////////////////////////////////////////////////////////////////
 inline int untagp(const a_Decl * x)
-   { return (unsigned long)x & 3; }
+  { return (unsigned long)x & 3; }
 inline a_Decl * derefp(const a_Decl * x)
-   { return (a_Decl*)((unsigned long)x & ~3); }
+  { return (a_Decl*)((unsigned long)x & ~3); }
 inline int untag(const a_Decl * x) { return untagp(x); }
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -487,16 +489,16 @@ inline int untag(const a_Decl * x) { return untagp(x); }
 class Decl_TYPEdecl : public a_Decl {
 public:
 #line 26 "setl-ast.ph"
-   Id _1; Ids _2; Ty _3; 
-   Decl_TYPEdecl (Id x_1, Ids x_2, Ty x_3);
-   ~Decl_TYPEdecl();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Id _1; Ids _2; Ty _3; 
+  Decl_TYPEdecl (Id x_1, Ids x_2, Ty x_3);
+  ~Decl_TYPEdecl();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -508,16 +510,16 @@ public:
 class Decl_DATATYPEdecl : public a_Decl {
 public:
 #line 28 "setl-ast.ph"
-   Id _1; Ids _2; Terms _3; 
-   Decl_DATATYPEdecl (Id x_1, Ids x_2, Terms x_3);
-   ~Decl_DATATYPEdecl();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Id _1; Ids _2; Terms _3; 
+  Decl_DATATYPEdecl (Id x_1, Ids x_2, Terms x_3);
+  ~Decl_DATATYPEdecl();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -537,16 +539,16 @@ extern a_Decl * DATATYPEdecl (Id x_1, Ids x_2, Terms x_3);
 class a_Term : public GCObject {
 public:
 #line 30 "setl-ast.ph"
-   Id _1; Ty _2; 
-   a_Term (Id x_1, Ty x_2);
-   virtual ~a_Term();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Id _1; Ty _2; 
+  a_Term (Id x_1, Ty x_2);
+  virtual ~a_Term();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 inline int boxed(const a_Term *) { return 1; }
@@ -566,16 +568,16 @@ extern a_Term * TERM (Id x_1, Ty x_2);
 class a_Ty : public GCObject {
 public:
 #line 34 "setl-ast.ph"
-   Ty VARty; 
-   a_Ty (Ty x_VARty);
-   virtual ~a_Ty();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Ty VARty; 
+  a_Ty (Ty x_VARty);
+  virtual ~a_Ty();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 inline int boxed(const a_Ty * x) { return x != 0; }
@@ -595,16 +597,16 @@ extern a_Ty * VARty (Ty x_VARty);
 class a_LabeledExp : public GCObject {
 public:
 #line 36 "setl-ast.ph"
-   Id id; Exp exp; 
-   a_LabeledExp (Id x_id, Exp x_exp);
-   virtual ~a_LabeledExp();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  Id id; Exp exp; 
+  a_LabeledExp (Id x_id, Exp x_exp);
+  virtual ~a_LabeledExp();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 inline int boxed(const a_LabeledExp *) { return 1; }
@@ -623,20 +625,20 @@ extern a_LabeledExp * LABELEDexp (Id x_id, Exp x_exp);
 ///////////////////////////////////////////////////////////////////////////////
 class a_Literal : public GCObject {
 public:
-   enum Tag_Literal {
-      tag_INTlit = 0, tag_REALlit = 1, tag_STRINGlit = 2, 
-      tag_CHARlit = 3
-   };
+  enum Tag_Literal {
+    tag_INTlit = 0, tag_REALlit = 1, tag_STRINGlit = 2, 
+    tag_CHARlit = 3
+  };
 
 public:
-   virtual ~a_Literal();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  virtual ~a_Literal();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 inline int boxed(const a_Literal *) { return 1; }
@@ -646,9 +648,9 @@ inline int boxed(const a_Literal *) { return 1; }
 //
 ///////////////////////////////////////////////////////////////////////////////
 inline int untagp(const a_Literal * x)
-   { return (unsigned long)x & 3; }
+  { return (unsigned long)x & 3; }
 inline a_Literal * derefp(const a_Literal * x)
-   { return (a_Literal*)((unsigned long)x & ~3); }
+  { return (a_Literal*)((unsigned long)x & ~3); }
 inline int untag(const a_Literal * x) { return untagp(x); }
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -658,16 +660,16 @@ inline int untag(const a_Literal * x) { return untagp(x); }
 class Literal_INTlit : public a_Literal {
 public:
 #line 38 "setl-ast.ph"
-   int INTlit; 
-   Literal_INTlit (int x_INTlit);
-   ~Literal_INTlit();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  int INTlit; 
+  Literal_INTlit (int x_INTlit);
+  ~Literal_INTlit();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -679,16 +681,16 @@ public:
 class Literal_REALlit : public a_Literal {
 public:
 #line 40 "setl-ast.ph"
-   double REALlit; 
-   Literal_REALlit (double x_REALlit);
-   ~Literal_REALlit();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  double REALlit; 
+  Literal_REALlit (double x_REALlit);
+  ~Literal_REALlit();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -700,16 +702,16 @@ public:
 class Literal_STRINGlit : public a_Literal {
 public:
 #line 41 "setl-ast.ph"
-   char const * STRINGlit; 
-   Literal_STRINGlit (char const * x_STRINGlit);
-   ~Literal_STRINGlit();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  char const * STRINGlit; 
+  Literal_STRINGlit (char const * x_STRINGlit);
+  ~Literal_STRINGlit();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 
@@ -721,16 +723,16 @@ public:
 class Literal_CHARlit : public a_Literal {
 public:
 #line 42 "setl-ast.ph"
-   char CHARlit; 
-   Literal_CHARlit (char x_CHARlit);
-   ~Literal_CHARlit();
-   ////////////////////////////////////////////////////////////////////////////
-   //
-   // Method for garbage collection tracing
-   //
-   ////////////////////////////////////////////////////////////////////////////
+  char CHARlit; 
+  Literal_CHARlit (char x_CHARlit);
+  ~Literal_CHARlit();
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Method for garbage collection tracing
+  //
+  /////////////////////////////////////////////////////////////////////////////
 protected:
-   virtual void trace(GC *);
+  virtual void trace(GC *);
 public:
 };
 

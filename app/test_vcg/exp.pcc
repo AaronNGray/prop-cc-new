@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
-#include <std::strstream.h>
-#include <fstream.h>
+#include <strstream>
+#include <fstream>
 #include <AD/visualize/vcg.h>
 
 //
@@ -57,10 +57,10 @@ int main()
    V . end_graph(G);
 
    //  translate it into GDL
-   ostd::strstream S;
+   std::ostrstream S;
    V.print_GDL_on(S);
 
-   ofstream TMP("./exp.vcg");
+   std::ofstream TMP("./exp.vcg");
    TMP << S.str();
    TMP.close();
    std::system("xvcg ./exp.vcg");

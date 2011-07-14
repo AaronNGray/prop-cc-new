@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.3.2),
-//  last updated on Mar 14, 1997.
+//  This file is generated automatically using Prop (version 2.4.0),
+//  last updated on Jul 1, 2011.
 //  The original source file is "setl-syntax.ph".
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -24,43 +24,43 @@
 #line 18 "setl-syntax.ph"
 class SETLSyntax : public LR1Parser {
 public:
-   ////////////////////////////////////////////////////////////////////////////
-   // Parser table type definitions
-   ////////////////////////////////////////////////////////////////////////////
-   typedef LR1Parser               Super;
-   typedef Super::Offset           Offset;
-   typedef Super::State            State;
-   typedef Super::Rule             Rule;
-   typedef Super::Symbol           Symbol;
-   typedef Super::ProductionLength ProductionLength;
-   typedef Super::ShortSymbol      ShortSymbol;
-   typedef Super::EquivMap         EquivMap;
-   enum { INITIAL_STACK_SIZE_ = 256,
-          MAX_STACK_SIZE_     = 8192
-        };
+  /////////////////////////////////////////////////////////////////////////////
+  // Parser table type definitions
+  /////////////////////////////////////////////////////////////////////////////
+  typedef LR1Parser               Super;
+  typedef Super::Offset           Offset;
+  typedef Super::State            State;
+  typedef Super::Rule             Rule;
+  typedef Super::Symbol           Symbol;
+  typedef Super::ProductionLength ProductionLength;
+  typedef Super::ShortSymbol      ShortSymbol;
+  typedef Super::EquivMap         EquivMap;
+  enum { INITIAL_STACK_SIZE_ = 256,
+         MAX_STACK_SIZE_     = 8192
+       };
 protected:
-   ////////////////////////////////////////////////////////////////////////////
-   // Semantic value stack
-   ////////////////////////////////////////////////////////////////////////////
-   union SETLSyntax_semantic_stack_type * t__, * bot__;
-   int stack_size__;
-   int heap_allocated__;
+  /////////////////////////////////////////////////////////////////////////////
+  // Semantic value stack
+  /////////////////////////////////////////////////////////////////////////////
+  union SETLSyntax_semantic_stack_type * t__, * bot__;
+  int stack_size__;
+  int heap_allocated__;
 public:
-   ////////////////////////////////////////////////////////////////////////////
-   // Constructor and parsing method
-   ////////////////////////////////////////////////////////////////////////////
-   SETLSyntax();
-   virtual void parse();
-   void action_driver(const Rule);
+  /////////////////////////////////////////////////////////////////////////////
+  // Constructor and parsing method
+  /////////////////////////////////////////////////////////////////////////////
+  SETLSyntax();
+  virtual void parse();
+  void action_driver(const Rule);
 private:
-   void adjust_stack(int);
-   void grow_semantic_stack();
+  void adjust_stack(int);
+  void grow_semantic_stack();
 #line 13 "setl-syntax.ph"
-   
-   protected:
-      IOLexerBuffer lexer_buf;
-   public:
-      int get_token();
+  
+  protected:
+     IOLexerBuffer lexer_buf;
+  public:
+     int get_token();
 #line 18 "setl-syntax.ph"
 };
 #line 18 "setl-syntax.ph"
