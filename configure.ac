@@ -23,7 +23,75 @@ dnl ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 dnl POSSIBILITY OF SUCH DAMAGE.
 
 AC_INIT([prop], [2.4.1])
+AC_CONFIG_HEADER(include/AD/config/config.h)
 AM_INIT_AUTOMAKE
 
-AC_CONFIG_FILES([Makefile])
+AC_PROG_SED
+
+changequote(<<, >>)dnl
+VERSION_MAJOR=`echo $VERSION | $SED 's/\([0-9]\+\)\.\([0-9]\+\)\.\([0-9]\+\)/\1/'`
+VERSION_MINOR=`echo $VERSION | $SED 's/\([0-9]\+\)\.\([0-9]\+\)\.\([0-9]\+\)/\2/'`
+VERSION_POINT=`echo $VERSION | $SED 's/\([0-9]\+\)\.\([0-9]\+\)\.\([0-9]\+\)/\3/'`
+changequote([, ])dnl
+
+AC_SUBST(VERSION_MAJOR)
+AC_SUBST(VERSION_MINOR)
+AC_SUBST(VERSION_POINT)
+
+VERSION_AGE=0
+AC_SUBST(VERSION_AGE)
+
+AC_PROG_CXX
+AC_PROG_LIBTOOL
+
+AC_DEFINE(PROP_BOOL_IS_DEFINED, [],
+	[Define if your compiler understands the bool type.]
+)
+AC_DEFINE(PROP_EXPLICIT_IS_DEFINED, [],
+	[Define if your compiler understands the explicit keyword.]
+)
+
+AC_CHECK_HEADER(sys/time.h)
+AC_CHECK_HEADER(sys/resource.h)
+AC_CHECK_FUNC(getrusage,
+	AC_DEFINE(PROP_HAS_GETRUSAGE, [],
+		[Define if your system has getrusage(...).]
+	),
+)
+
+AC_CHECK_HEADER(sys/times.h)
+AC_CHECK_FUNC(times,
+	AC_DEFINE(PROP_HAS_TIMES, [],
+		[Define if your system has times(...).]
+	),
+)
+
+AC_CONFIG_FILES([
+	Makefile
+	lib-src/Makefile
+        lib-src/automata/Makefile
+	lib-src/contain/Makefile
+	lib-src/csp/Makefile
+        lib-src/gc/Makefile
+	lib-src/generic/Makefile
+        lib-src/graph/Makefile
+	lib-src/graphtype/Makefile
+	lib-src/hash/Makefile
+	lib-src/memory/Makefile
+	lib-src/numeric/Makefile
+	lib-src/persist/Makefile
+	lib-src/pretty/Makefile
+	lib-src/prettypr/Makefile
+	lib-src/prop/Makefile
+	lib-src/rete/Makefile
+	lib-src/rewrite/Makefile
+	lib-src/strings/Makefile
+	lib-src/symbolic/Makefile
+	lib-src/trees/Makefile
+	lib-src/tries/Makefile
+	lib-src/backend-tools/Makefile
+	lib-src/visualize/Makefile
+	prop-src/Makefile
+])
+AC_OUTPUT()
 

@@ -22,21 +22,11 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-SUFFIXES = .pcc .ph
+AM_CPPFLAGS = -I$(top_srcdir)/include
 
-PROP = ./prop
+include $(top_srcdir)/prop.am
 
-CC_INCLUDE      = -I../include
-PROP_OPTS_BASIC	= -strict $(CC_INCLUDE) -save_space -report -v2
-PROP_OPTS       = $(PROP_OPTS_BASIC) -O14
-
-.ph.h:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
-
-.pcc.cc:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
-
-PROP_PH_HEADERS = \
+prop_headers_ph = \
 	ir.ph ast.ph basics.ph parsegen.ph keywords.ph parser.ph \
 	collection.ph setl-ast.ph setlgen.ph matchcom.ph \
 	trs.ph timespace.ph env.ph funmap.ph metasyntax.ph \
@@ -44,7 +34,7 @@ PROP_PH_HEADERS = \
 	aggen.ph datatype.ph rwmix.ph
 #	dataflow.ph bitfield.ph wam.ph constraint.ph logicgen.ph 
 
-PROP_PCC_SOURCES = \
+prop_sources_pcc = \
 	persistgen.pcc gcgen.pcc printgen.pcc \
 	matchcom.pcc matchgen.pcc infgen.pcc type.pcc \
 	printing.pcc datagen.pcc codegen.pcc compiler.pcc indexing.pcc \
@@ -61,20 +51,24 @@ PROP_PCC_SOURCES = \
 	visualize.pcc visual2.pcc rwmix.pcc
 #	dataflow.pcc bitfield.pcc constraint.pcc logicgen.pcc wam.pcc 
 
+EXTRA_DIST = $(prop_headers_ph) $(prop_sources_pcc)
+
 bin_PROGRAMS = prop
 
 prop_SOURCES = \
-	$(PROP_PCC_HEADERS:.ph=.h) \
-	$(PROP_PCC_SOURCES:.pcc=.cc) \
+	$(prop_headers_ph:.ph=.h) \
+	$(prop_sources_pcc:.pcc=.cc) \
 	automake.cc frontend.cc functortab.cc \
 	hashtab.cc labelgen.cc options.cc \
 	patchlev.cc patenv.cc process.cc textbuf.cc 
 BUILT_SOURCES = \
-	$(PROP_PCC_HEADERS:.ph=.h) \
-	$(PROP_PCC_SOURCES:.pcc=.cc) \
+	$(prop_headers_ph:.ph=.h) \
+	$(prop_sources_pcc:.pcc=.cc)
 
-prop_HEADERS = \
+noinst_HEADERS = \
 	author.h automake.h classdef.h codegen.h compiler.h \
 	config.h datagen.h functortab.h hashtab.h infgen.h labelgen.h \
 	options.h rwgen.h textbuf.h type.h visualize.h
+
+prop_LDADD = $(top_builddir)/lib-src/libprop.la
 

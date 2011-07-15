@@ -1,7 +1,10 @@
 #ifndef configuration_h
 #define configuration_h
 
+#if 0
 #define VERSION                  "2.4"         // major version number
+#endif
+
 #define FILE_SEPARATOR           ':'           // search file separator
 #define PATH_SEPARATOR           '/'           // path separator
 #define DEFAULT_SEARCH_PATH      "."           // default search path

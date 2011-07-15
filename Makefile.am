@@ -23,6 +23,6 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 EXTRA_DIST = VERSION
-SUBDIRS = prop-src
+SUBDIRS = lib-src prop-src
 DIST_SUBDIRS = VisualStudio2010
 
