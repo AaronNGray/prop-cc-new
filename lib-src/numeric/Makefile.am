@@ -28,6 +28,7 @@ noinst_LTLIBRARIES = libnumeric.la
 
 libnumeric_la_SOURCES = \
 	bcd.cc bigint.cc complex.cc fixpt.cc gauss.cc \
-	matrix.cc pmatrix.cc polynom.cc rabin.cc ratio.cc simplex.cc solovay.cc \
+	matrix.cc pmatrix.cc polynom.cc rabin.cc random.cc \
+	ratio.cc simplex.cc solovay.cc \
 	tensor.cc trapez.cc vector.cc vector3d.cc z.cc 
 

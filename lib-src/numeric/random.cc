@@ -28,7 +28,7 @@
 // Generate random number x, 0 <= x < range.
 //
 
-BigInt make_random( BigInt& range)
+BigInt make_random(const BigInt& range)
 {
   return 0;
 }

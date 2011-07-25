@@ -71,8 +71,8 @@ CONFIG_CLEAN_VPATH_FILES =
 LTLIBRARIES = $(noinst_LTLIBRARIES)
 libnumeric_la_LIBADD =
 am_libnumeric_la_OBJECTS = bcd.lo bigint.lo complex.lo fixpt.lo \
-	gauss.lo matrix.lo pmatrix.lo polynom.lo rabin.lo ratio.lo \
-	simplex.lo solovay.lo tensor.lo trapez.lo vector.lo \
+	gauss.lo matrix.lo pmatrix.lo polynom.lo rabin.lo random.lo \
+	ratio.lo simplex.lo solovay.lo tensor.lo trapez.lo vector.lo \
 	vector3d.lo z.lo
 libnumeric_la_OBJECTS = $(am_libnumeric_la_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/include/AD/config
@@ -216,7 +216,8 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 noinst_LTLIBRARIES = libnumeric.la
 libnumeric_la_SOURCES = \
 	bcd.cc bigint.cc complex.cc fixpt.cc gauss.cc \
-	matrix.cc pmatrix.cc polynom.cc rabin.cc ratio.cc simplex.cc solovay.cc \
+	matrix.cc pmatrix.cc polynom.cc rabin.cc random.cc \
+	ratio.cc simplex.cc solovay.cc \
 	tensor.cc trapez.cc vector.cc vector3d.cc z.cc 
 
 all: all-am
@@ -280,6 +281,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pmatrix.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/polynom.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rabin.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/random.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ratio.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/simplex.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/solovay.Plo@am__quote@

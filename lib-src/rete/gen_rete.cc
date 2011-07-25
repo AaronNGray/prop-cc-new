@@ -257,3 +257,9 @@ void ReteInterp::remove_left( NodeId n, Fact* token[])
     break;
   }
 }
+
+void ReteInterp::fire()
+{
+  /* empty */
+}
+

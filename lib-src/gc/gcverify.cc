@@ -191,6 +191,12 @@ void GCVerifier::grow_heap( std::size_t)
   error("grow_heap is unimplemented");
 }
 
+std::size_t GCVerifier::min_growth ()
+{
+  error("min_growth is unimplemented");
+  return 0;
+}
+
 Statistics GCVerifier::statistics()
 {
   Statistics s;
