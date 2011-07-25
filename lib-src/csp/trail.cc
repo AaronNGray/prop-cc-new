@@ -68,3 +68,16 @@ void UnificationTrail::grow_trail()
 
 void UnificationTrail::grow_CP()
 {}
+
+void UnificationTrail::init_trail()
+{}
+
+void UnificationTrail::cleanup_trail()
+{}
+
+void UnificationTrail::init_CP()
+{}
+
+void UnificationTrail::cleanup_CP()
+{}
+

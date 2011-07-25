@@ -214,7 +214,10 @@ private:
   {
     return my_edge_sets[node->label_num()];
   }
-  EdgeSet * operator [] (const NodeObject * node);
+  EdgeSet * operator [] (const NodeObject * node)
+  {
+    return my_edge_sets[node->label_num()];
+  }
   void add_node (NodeObject *);
   void grow(int i);
 };

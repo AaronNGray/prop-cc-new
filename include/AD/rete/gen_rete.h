@@ -114,15 +114,15 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   //  Methods to enter/remove tokens from the conflict set.
   ///////////////////////////////////////////////////////////////////////////
-  virtual void activate   (RuleId, int, Fact * []);
-  virtual void deactivate (RuleId, int, Fact * []);
+  virtual void activate   (RuleId, int, Fact * []) = 0;
+  virtual void deactivate (RuleId, int, Fact * []) = 0;
 
   ///////////////////////////////////////////////////////////////////////////
   //  Methods to assert and retract facts from the network.
   ///////////////////////////////////////////////////////////////////////////
   virtual void clear        ();
-  virtual void assert_fact  (Fact *);
-  virtual void retract_fact (Fact *);
+  virtual void assert_fact  (Fact *) = 0;
+  virtual void retract_fact (Fact *) = 0;
   inline ReteInterp& operator << (Fact * f)
   {
     assert_fact(f);
