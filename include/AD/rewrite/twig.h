@@ -77,7 +77,7 @@ public:
   virtual void open   ();
   virtual void close  ();
   virtual void reduce ();
-  virtual void action (Rule);
+  // virtual void action (Rule);
 
   /////////////////////////////////////////////////////////////////////////
   //  Error handler: can be redefined in subclasses.

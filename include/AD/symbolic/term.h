@@ -91,8 +91,8 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   virtual Bool                 unify (SymbolicExpr *, SymbolicUnifier&) = 0;
   virtual SymbolicExpr *       eval  (SymbolicEnvironment&) const;
-  virtual SymbolicExprPrinter& print (SymbolicExprPrinter&) const = 0;
-  virtual SymbolicExprReader&  read  (SymbolicExprReader&) = 0;
+//  virtual SymbolicExprPrinter& print (SymbolicExprPrinter&) const = 0;
+//  virtual SymbolicExprReader&  read  (SymbolicExprReader&) = 0;
 };
 
 #endif

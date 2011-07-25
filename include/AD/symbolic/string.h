@@ -52,8 +52,8 @@ public:
   ///////////////////////////////////////////////////////////////////////////
   virtual Bool                 unify (SymbolicExpr *, SymbolicUnifier&);
   virtual SymbolicExpr *       eval  (SymbolicEnvironment&) const;
-  virtual SymbolicExprPrinter& print (SymbolicExprPrinter&) const;
-  virtual SymbolicExprReader&  read  (SymbolicExprReader&);
+//  virtual SymbolicExprPrinter& print (SymbolicExprPrinter&) const;
+//  virtual SymbolicExprReader&  read  (SymbolicExprReader&);
 
 protected:
   String string;

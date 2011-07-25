@@ -199,6 +199,7 @@ void CodeEmitter::register_char(unsigned char name, CharAction action)
 //
 //////////////////////////////////////////////////////////////////////////////
 
+#if 0
 CodeEmitter& CodeEmitter::operator << (char c)
 {
   return emit("%{char}",c);
@@ -253,6 +254,7 @@ CodeEmitter& CodeEmitter::operator << (float f)
 {
   return emit("%{float}",f);
 }
+#endif
 
 //////////////////////////////////////////////////////////////////////////////
 //

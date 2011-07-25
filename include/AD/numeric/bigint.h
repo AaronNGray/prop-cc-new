@@ -182,35 +182,55 @@ public:
   friend BigInt operator -  (const BigInt&);
   friend BigInt operator +  (const BigInt&, const BigInt&);
   friend BigInt operator +  (int, const BigInt&);
+  friend BigInt operator +  (long, const BigInt&);
   friend BigInt operator +  (const BigInt&, int);
+  friend BigInt operator +  (const BigInt&, long);
   friend BigInt operator -  (const BigInt&, const BigInt&);
   friend BigInt operator -  (int, const BigInt&);
+  friend BigInt operator -  (long, const BigInt&);
   friend BigInt operator -  (const BigInt&, int);
+  friend BigInt operator -  (const BigInt&, long);
   friend BigInt operator *  (const BigInt&, const BigInt&);
   friend BigInt operator *  (int, const BigInt&);
+  friend BigInt operator *  (long, const BigInt&);
   friend BigInt operator *  (const BigInt&, int);
+  friend BigInt operator *  (const BigInt&, long);
   friend BigInt operator /  (const BigInt&, const BigInt&);
   friend BigInt operator /  (int, const BigInt&);
+  friend BigInt operator /  (long, const BigInt&);
   friend BigInt operator /  (const BigInt&, int);
+  friend BigInt operator /  (const BigInt&, long);
   friend BigInt operator %  (const BigInt&, const BigInt&);
   friend BigInt operator %  (int, const BigInt&);
+  friend BigInt operator %  (long, const BigInt&);
   friend BigInt operator %  (const BigInt&, int);
+  friend BigInt operator %  (const BigInt&, long);
   friend void   div_mod     (const BigInt&, const BigInt&, BigInt&, BigInt&);
   friend BigInt operator << (const BigInt&, const BigInt&);
   friend BigInt operator << (int, const BigInt&);
+  friend BigInt operator << (long, const BigInt&);
   friend BigInt operator << (const BigInt&, int);
+  friend BigInt operator << (const BigInt&, long);
   friend BigInt operator >> (const BigInt&, const BigInt&);
   friend BigInt operator >> (int, const BigInt&);
+  friend BigInt operator >> (long, const BigInt&);
   friend BigInt operator >> (const BigInt&, int);
+  friend BigInt operator >> (const BigInt&, long);
   friend BigInt operator |  (const BigInt&, const BigInt&);
   friend BigInt operator |  (int, const BigInt&);
+  friend BigInt operator |  (long, const BigInt&);
   friend BigInt operator |  (const BigInt&, int);
+  friend BigInt operator |  (const BigInt&, long);
   friend BigInt operator &  (const BigInt&, const BigInt&);
   friend BigInt operator &  (int, const BigInt&);
+  friend BigInt operator &  (long, const BigInt&);
   friend BigInt operator &  (const BigInt&, int);
+  friend BigInt operator &  (const BigInt&, long);
   friend BigInt operator ^  (const BigInt&, const BigInt&);
   friend BigInt operator ^  (int, const BigInt&);
+  friend BigInt operator ^  (long, const BigInt&);
   friend BigInt operator ^  (const BigInt&, int);
+  friend BigInt operator ^  (const BigInt&, long);
   //   friend BigInt not         (const BigInt&);
   friend BigInt complement  (const BigInt&);
   friend unsigned int hash  (const BigInt&);
@@ -305,6 +325,7 @@ public:
   {
     D = andor(D,D,n.D,'^');
   }
+
   inline void operator += (int n)
   {
     D = addsub(D,D,n,false);
@@ -346,6 +367,47 @@ public:
     D = andor(D,D,n,'^');
   }
 
+  inline void operator += (long n)
+  {
+    D = addsub(D,D,n,false);
+  }
+  inline void operator -= (long n)
+  {
+    D = addsub(D,D,n,true);
+  }
+  inline void operator *= (long n)
+  {
+    D = mul(D,D,n);
+  }
+  inline void operator /= (long n)
+  {
+    D = div(D,D,n);
+  }
+  inline void operator %= (long n)
+  {
+    D = mod(D,D,n);
+  }
+  inline void operator <<=(long n)
+  {
+    D = shift(D,D,n,1);
+  }
+  inline void operator >>=(long n)
+  {
+    D = shift(D,D,n,-1);
+  }
+  inline void operator |= (long n)
+  {
+    D = andor(D,D,n,'|');
+  }
+  inline void operator &= (long n)
+  {
+    D = andor(D,D,n,'&');
+  }
+  inline void operator ^= (long n)
+  {
+    D = andor(D,D,n,'^');
+  }
+
   ///////////////////////////////////////////////////////////
   // Comparisons are inlined for efficiency
   ///////////////////////////////////////////////////////////
@@ -361,6 +423,14 @@ public:
   {
     return cmp(b.D,a) == 0;
   }
+  inline friend Bool operator == (const BigInt& a, long b)
+  {
+    return cmp(a.D,b) == 0;
+  }
+  inline friend Bool operator == (long a, const BigInt& b)
+  {
+    return cmp(b.D,a) == 0;
+  }
   inline friend Bool operator != (const BigInt& a, const BigInt& b)
   {
     return cmp(a.D,b.D) != 0;
@@ -370,6 +440,14 @@ public:
     return cmp(a.D,b) != 0;
   }
   inline friend Bool operator != (int a, const BigInt& b)
+  {
+    return cmp(b.D,a) != 0;
+  }
+  inline friend Bool operator != (const BigInt& a, long b)
+  {
+    return cmp(a.D,b) != 0;
+  }
+  inline friend Bool operator != (long a, const BigInt& b)
   {
     return cmp(b.D,a) != 0;
   }
@@ -385,6 +463,14 @@ public:
   {
     return cmp(b.D,a) <= 0;
   }
+  inline friend Bool operator > (const BigInt& a, long b)
+  {
+    return cmp(a.D,b) > 0;
+  }
+  inline friend Bool operator > (long a, const BigInt& b)
+  {
+    return cmp(b.D,a) <= 0;
+  }
   inline friend Bool operator < (const BigInt& a, const BigInt& b)
   {
     return cmp(a.D,b.D) < 0;
@@ -394,6 +480,14 @@ public:
     return cmp(a.D,b) < 0;
   }
   inline friend Bool operator < (int a, const BigInt& b)
+  {
+    return cmp(b.D,a) >= 0;
+  }
+  inline friend Bool operator < (const BigInt& a, long b)
+  {
+    return cmp(a.D,b) < 0;
+  }
+  inline friend Bool operator < (long a, const BigInt& b)
   {
     return cmp(b.D,a) >= 0;
   }
@@ -409,6 +503,14 @@ public:
   {
     return cmp(b.D,a) < 0;
   }
+  inline friend Bool operator >= (const BigInt& a, long b)
+  {
+    return cmp(a.D,b) >= 0;
+  }
+  inline friend Bool operator >= (long a, const BigInt& b)
+  {
+    return cmp(b.D,a) < 0;
+  }
   inline friend Bool operator <= (const BigInt& a, const BigInt& b)
   {
     return cmp(a.D,b.D) <= 0;
@@ -418,6 +520,14 @@ public:
     return cmp(a.D,b) <= 0;
   }
   inline friend Bool operator <= (int a, const BigInt& b)
+  {
+    return cmp(b.D,a) > 0;
+  }
+  inline friend Bool operator <= (const BigInt& a, long b)
+  {
+    return cmp(a.D,b) <= 0;
+  }
+  inline friend Bool operator <= (long a, const BigInt& b)
   {
     return cmp(b.D,a) > 0;
   }
@@ -459,6 +569,14 @@ inline BigInt operator +  (const BigInt& a, const BigInt& b)
 {
   return BigInt(addsub(0,a.D,b.D,false));
 }
+inline BigInt operator +  (int a, const BigInt& b)
+{
+  return BigInt(addsub(0,b.D,a,false));
+}
+inline BigInt operator +  (const BigInt& a, int b)
+{
+  return BigInt(addsub(0,a.D,b,false));
+}
 inline BigInt operator +  (long a, const BigInt& b)
 {
   return BigInt(addsub(0,b.D,a,false));
@@ -479,15 +597,31 @@ inline BigInt operator -  (const BigInt& a, int b)
 {
   return BigInt(addsub(0,a.D,b,true));
 }
+inline BigInt operator -  (long a, const BigInt& b)
+{
+  return BigInt(addsub(0,a,b.D,true));
+}
+inline BigInt operator -  (const BigInt& a, long b)
+{
+  return BigInt(addsub(0,a.D,b,true));
+}
 inline BigInt operator *  (const BigInt& a, const BigInt& b)
 {
   return BigInt(mul(0,a.D,b.D));
+}
+inline BigInt operator *  (int a, const BigInt& b)
+{
+  return BigInt(mul(0,b.D,a));
+}
+inline BigInt operator *  (const BigInt& a, int b)
+{
+  return BigInt(mul(0,a.D,b));
 }
 inline BigInt operator *  (long a, const BigInt& b)
 {
   return BigInt(mul(0,b.D,a));
 }
-inline BigInt operator *  (const BigInt& a, int b)
+inline BigInt operator *  (const BigInt& a, long b)
 {
   return BigInt(mul(0,a.D,b));
 }
@@ -496,6 +630,14 @@ inline BigInt operator /  (const BigInt& a, const BigInt& b)
   return BigInt(div(0,a.D,b.D));
 }
 inline BigInt operator /  (int a, const BigInt& b)
+{
+  return BigInt(div(0,a,b.D));
+}
+inline BigInt operator /  (const BigInt& a, int b)
+{
+  return BigInt(div(0,a.D,b));
+}
+inline BigInt operator /  (long a, const BigInt& b)
 {
   return BigInt(div(0,a,b.D));
 }
@@ -515,6 +657,14 @@ inline BigInt operator %  (const BigInt& a, int b)
 {
   return BigInt(mod(0,a.D,b));
 }
+inline BigInt operator %  (long a, const BigInt& b)
+{
+  return BigInt(mod(0,a,b.D));
+}
+inline BigInt operator %  (const BigInt& a, long b)
+{
+  return BigInt(mod(0,a.D,b));
+}
 inline BigInt operator << (const BigInt& a, const BigInt& b)
 {
   return BigInt(shift(0,a.D,b.D,1));
@@ -524,6 +674,14 @@ inline BigInt operator << (int a, const BigInt& b)
   return BigInt(shift(0,a,b.D,1));
 }
 inline BigInt operator << (const BigInt& a, int b)
+{
+  return BigInt(shift(0,a.D,b,1));
+}
+inline BigInt operator << (long a, const BigInt& b)
+{
+  return BigInt(shift(0,a,b.D,1));
+}
+inline BigInt operator << (const BigInt& a, long b)
 {
   return BigInt(shift(0,a.D,b,1));
 }
@@ -539,9 +697,25 @@ inline BigInt operator >> (const BigInt& a, int b)
 {
   return BigInt(shift(0,a.D,b,-1));
 }
+inline BigInt operator >> (long a, const BigInt& b)
+{
+  return BigInt(shift(0,a,b.D,-1));
+}
+inline BigInt operator >> (const BigInt& a, long b)
+{
+  return BigInt(shift(0,a.D,b,-1));
+}
 inline BigInt operator |  (const BigInt& a, const BigInt& b)
 {
   return BigInt(andor(0,a.D,b.D,'|'));
+}
+inline BigInt operator |  (int a, const BigInt& b)
+{
+  return BigInt(andor(0,b.D,a,'|'));
+}
+inline BigInt operator |  (const BigInt& a, int b)
+{
+  return BigInt(andor(0,a.D,b,'|'));
 }
 inline BigInt operator |  (long a, const BigInt& b)
 {
@@ -555,6 +729,14 @@ inline BigInt operator &  (const BigInt& a, const BigInt& b)
 {
   return BigInt(andor(0,a.D,b.D,'&'));
 }
+inline BigInt operator &  (int a, const BigInt& b)
+{
+  return BigInt(andor(0,b.D,a,'&'));
+}
+inline BigInt operator &  (const BigInt& a, int b)
+{
+  return BigInt(andor(0,a.D,b,'&'));
+}
 inline BigInt operator &  (long a, const BigInt& b)
 {
   return BigInt(andor(0,b.D,a,'&'));
@@ -566,6 +748,14 @@ inline BigInt operator &  (const BigInt& a, long b)
 inline BigInt operator ^  (const BigInt& a, const BigInt& b)
 {
   return BigInt(andor(0,a.D,b.D,'^'));
+}
+inline BigInt operator ^  (int a, const BigInt& b)
+{
+  return BigInt(andor(0,b.D,a,'^'));
+}
+inline BigInt operator ^  (const BigInt& a, int b)
+{
+  return BigInt(andor(0,a.D,b,'^'));
 }
 inline BigInt operator ^  (long a, const BigInt& b)
 {

@@ -86,7 +86,7 @@ public:
   //  Method to emit code (takes variable argument list)
   //
   ////////////////////////////////////////////////////////////////////////////
-  virtual CodeEmitter& emit (const char *, ...);
+  // virtual CodeEmitter& emit (const char *, ...);
 
   ////////////////////////////////////////////////////////////////////////////
   //
@@ -103,6 +103,7 @@ public:
   //
   ////////////////////////////////////////////////////////////////////////////
 
+#if 0
   virtual CodeEmitter& operator << (char);
   virtual CodeEmitter& operator << (unsigned char);
   virtual CodeEmitter& operator << (short);
@@ -115,6 +116,7 @@ public:
   virtual CodeEmitter& operator << (float);
   virtual CodeEmitter& operator << (const char *);
   virtual CodeEmitter& operator << (void (*)(CodeEmitter&));
+#endif
 
   ////////////////////////////////////////////////////////////////////////////
   //

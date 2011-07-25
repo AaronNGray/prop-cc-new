@@ -251,7 +251,7 @@ public:
   //
   ///////////////////////////////////////////////////////////////////////////
   GraphObject();
-  GraphObject(const GraphObject&);
+  // GraphObject(const GraphObject&);
   GraphObject(Mem&);
   virtual ~GraphObject();
 
@@ -628,7 +628,7 @@ class edge_filter : public edge_iterator
   };
 
 protected:
-  virtual PrettyOStream& print (PrettyOStream&) const;
+  // virtual PrettyOStream& print (PrettyOStream&) const;
 
 private:
   friend class node_iterator;

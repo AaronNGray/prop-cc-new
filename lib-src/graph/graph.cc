@@ -60,12 +60,14 @@ GraphObject::GraphObject(Mem& m) : mem(m)
   init();
 }
 
+#if 0
 GraphObject::GraphObject(const Graph& G)
     : mem(G.mem)
 {
   init();
   *this = G;
 }
+#endif
 
 GraphObject::~GraphObject()
 {
