@@ -44,6 +44,8 @@ AC_SUBST(VERSION_AGE)
 AC_PROG_CXX
 AC_PROG_LIBTOOL
 
+AC_PATH_PROGS([PROP], [prop prop-cc], [nonexistent])
+
 AC_DEFINE(PROP_BOOL_IS_DEFINED, [],
 	[Define if your compiler understands the bool type.]
 )
@@ -68,6 +70,7 @@ AC_CHECK_FUNC(times,
 
 AC_CONFIG_FILES([
 	Makefile
+	include/Makefile
 	lib-src/Makefile
         lib-src/automata/Makefile
 	lib-src/contain/Makefile

@@ -787,6 +787,7 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
+PROP
 CXXCPP
 CPP
 OTOOL64
@@ -4961,13 +4962,13 @@ if test "${lt_cv_nm_interface+set}" = set; then
 else
   lt_cv_nm_interface="BSD nm"
   echo "int some_variable = 0;" > conftest.$ac_ext
-  (eval echo "\"\$as_me:4964: $ac_compile\"" >&5)
+  (eval echo "\"\$as_me:4965: $ac_compile\"" >&5)
   (eval "$ac_compile" 2>conftest.err)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:4967: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
+  (eval echo "\"\$as_me:4968: $NM \\\"conftest.$ac_objext\\\"\"" >&5)
   (eval "$NM \"conftest.$ac_objext\"" 2>conftest.err > conftest.out)
   cat conftest.err >&5
-  (eval echo "\"\$as_me:4970: output\"" >&5)
+  (eval echo "\"\$as_me:4971: output\"" >&5)
   cat conftest.out >&5
   if $GREP 'External.*some_variable' conftest.out > /dev/null; then
     lt_cv_nm_interface="MS dumpbin"
@@ -6173,7 +6174,7 @@ ia64-*-hpux*)
   ;;
 *-*-irix6*)
   # Find out which ABI we are using.
-  echo '#line 6176 "configure"' > conftest.$ac_ext
+  echo '#line 6177 "configure"' > conftest.$ac_ext
   if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
   (eval $ac_compile) 2>&5
   ac_status=$?
@@ -8764,11 +8765,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:8767: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:8768: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:8771: \$? = $ac_status" >&5
+   echo "$as_me:8772: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -9103,11 +9104,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9106: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9107: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:9110: \$? = $ac_status" >&5
+   echo "$as_me:9111: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -9208,11 +9209,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9211: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9212: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:9215: \$? = $ac_status" >&5
+   echo "$as_me:9216: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -9263,11 +9264,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:9266: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:9267: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:9270: \$? = $ac_status" >&5
+   echo "$as_me:9271: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -12066,7 +12067,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12069 "configure"
+#line 12070 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -12162,7 +12163,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12165 "configure"
+#line 12166 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -14182,11 +14183,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:14185: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14186: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>conftest.err)
    ac_status=$?
    cat conftest.err >&5
-   echo "$as_me:14189: \$? = $ac_status" >&5
+   echo "$as_me:14190: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s "$ac_outfile"; then
      # The compiler can only warn and ignore the option if not recognized
      # So say no if there are warnings other than the usual output.
@@ -14281,11 +14282,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:14284: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14285: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:14288: \$? = $ac_status" >&5
+   echo "$as_me:14289: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -14333,11 +14334,11 @@ else
    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
    -e 's:$: $lt_compiler_flag:'`
-   (eval echo "\"\$as_me:14336: $lt_compile\"" >&5)
+   (eval echo "\"\$as_me:14337: $lt_compile\"" >&5)
    (eval "$lt_compile" 2>out/conftest.err)
    ac_status=$?
    cat out/conftest.err >&5
-   echo "$as_me:14340: \$? = $ac_status" >&5
+   echo "$as_me:14341: \$? = $ac_status" >&5
    if (exit $ac_status) && test -s out/conftest2.$ac_objext
    then
      # The compiler can only warn and ignore the option if not recognized
@@ -15321,6 +15322,53 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 
+for ac_prog in prop prop-cc
+do
+  # Extract the first word of "$ac_prog", so it can be a program name with args.
+set dummy $ac_prog; ac_word=$2
+{ $as_echo "$as_me:$LINENO: checking for $ac_word" >&5
+$as_echo_n "checking for $ac_word... " >&6; }
+if test "${ac_cv_path_PROP+set}" = set; then
+  $as_echo_n "(cached) " >&6
+else
+  case $PROP in
+  [\\/]* | ?:[\\/]*)
+  ac_cv_path_PROP="$PROP" # Let the user override the test with a path.
+  ;;
+  *)
+  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+  for ac_exec_ext in '' $ac_executable_extensions; do
+  if { test -f "$as_dir/$ac_word$ac_exec_ext" && $as_test_x "$as_dir/$ac_word$ac_exec_ext"; }; then
+    ac_cv_path_PROP="$as_dir/$ac_word$ac_exec_ext"
+    $as_echo "$as_me:$LINENO: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+done
+IFS=$as_save_IFS
+
+  ;;
+esac
+fi
+PROP=$ac_cv_path_PROP
+if test -n "$PROP"; then
+  { $as_echo "$as_me:$LINENO: result: $PROP" >&5
+$as_echo "$PROP" >&6; }
+else
+  { $as_echo "$as_me:$LINENO: result: no" >&5
+$as_echo "no" >&6; }
+fi
+
+
+  test -n "$PROP" && break
+done
+test -n "$PROP" || PROP="nonexistent"
+
+
 
 cat >>confdefs.h <<\_ACEOF
 #define PROP_BOOL_IS_DEFINED /**/
@@ -15907,7 +15955,7 @@ _ACEOF
 fi
 
 
-ac_config_files="$ac_config_files Makefile lib-src/Makefile lib-src/automata/Makefile lib-src/contain/Makefile lib-src/csp/Makefile lib-src/gc/Makefile lib-src/generic/Makefile lib-src/graph/Makefile lib-src/graphtype/Makefile lib-src/hash/Makefile lib-src/memory/Makefile lib-src/numeric/Makefile lib-src/persist/Makefile lib-src/pretty/Makefile lib-src/prettypr/Makefile lib-src/prop/Makefile lib-src/rete/Makefile lib-src/rewrite/Makefile lib-src/strings/Makefile lib-src/symbolic/Makefile lib-src/trees/Makefile lib-src/tries/Makefile lib-src/backend-tools/Makefile lib-src/visualize/Makefile prop-src/Makefile"
+ac_config_files="$ac_config_files Makefile include/Makefile lib-src/Makefile lib-src/automata/Makefile lib-src/contain/Makefile lib-src/csp/Makefile lib-src/gc/Makefile lib-src/generic/Makefile lib-src/graph/Makefile lib-src/graphtype/Makefile lib-src/hash/Makefile lib-src/memory/Makefile lib-src/numeric/Makefile lib-src/persist/Makefile lib-src/pretty/Makefile lib-src/prettypr/Makefile lib-src/prop/Makefile lib-src/rete/Makefile lib-src/rewrite/Makefile lib-src/strings/Makefile lib-src/symbolic/Makefile lib-src/trees/Makefile lib-src/tries/Makefile lib-src/backend-tools/Makefile lib-src/visualize/Makefile prop-src/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -16905,6 +16953,7 @@ do
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "include/Makefile") CONFIG_FILES="$CONFIG_FILES include/Makefile" ;;
     "lib-src/Makefile") CONFIG_FILES="$CONFIG_FILES lib-src/Makefile" ;;
     "lib-src/automata/Makefile") CONFIG_FILES="$CONFIG_FILES lib-src/automata/Makefile" ;;
     "lib-src/contain/Makefile") CONFIG_FILES="$CONFIG_FILES lib-src/contain/Makefile" ;;

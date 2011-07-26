@@ -181,6 +181,7 @@ PACKAGE_STRING = prop 2.4.1
 PACKAGE_TARNAME = prop
 PACKAGE_VERSION = 2.4.1
 PATH_SEPARATOR = :
+PROP = nonexistent
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
@@ -233,7 +234,7 @@ mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /usr/local
+prefix = /tmp/ptmp
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -244,7 +245,7 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-SUBDIRS = lib-src prop-src
+SUBDIRS = include lib-src prop-src
 DIST_SUBDIRS = VisualStudio2010
 all: all-recursive
 
