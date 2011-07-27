@@ -24,6 +24,7 @@
 
 AM_CPPFLAGS = -I$(top_srcdir)/include
 
+PROP_OPTS_LOCAL = -save_space
 include $(top_srcdir)/prop.am
 
 # automake does not automatically generate the dependency includes,
@@ -143,17 +144,19 @@ prop_sources_pcc = \
 
 EXTRA_DIST = $(prop_headers_ph) $(prop_sources_pcc)
 
+CLEANFILES = *.report
+
 bin_PROGRAMS = prop
 
 prop_SOURCES = \
 	$(prop_headers_ph:.ph=.h) \
+	author.h automake.h classdef.h codegen.h compiler.h \
+	config.h datagen.h functortab.h hashtab.h infgen.h labelgen.h \
+	options.h patenv.h rwgen.h textbuf.h type.h visualize.h \
 	$(prop_sources_pcc:.pcc=.cc) \
 	automake.cc frontend.cc functortab.cc \
 	hashtab.cc labelgen.cc options.cc \
-	patchlev.cc patenv.cc process.cc textbuf.cc \
-	author.h automake.h classdef.h codegen.h compiler.h \
-	config.h datagen.h functortab.h hashtab.h infgen.h labelgen.h \
-	options.h patenv.h rwgen.h textbuf.h type.h visualize.h
+	patchlev.cc patenv.cc process.cc textbuf.cc
 
 BUILT_SOURCES = \
 	$(prop_headers_ph:.ph=.h) \

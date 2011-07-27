@@ -27,7 +27,7 @@ include $(top_srcdir)/prop.am
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/treegram.Pph@am__quote@
 
 BUILT_SOURCES = \
-	AD/automata/treegram.ph
+	AD/automata/treegram.h
 
 EXTRA_DIST = \
 	AD/automata/treegram.ph

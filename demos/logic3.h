@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
+//  This file is generated automatically using Prop (version 2.4.1.0),
 //  last updated on Jul 1, 2011.
 //  The original source file is "logic3.ph".
 ///////////////////////////////////////////////////////////////////////////////
@@ -54,13 +54,18 @@ public:
   };
 
 public:
-  const Tag_Wff tag__; // variant tag
-protected:
-  inline a_Wff(Tag_Wff t__) : tag__(t__) {}
-public:
 };
 inline int boxed(const a_Wff * x) { return (unsigned long)x >= 2; }
-inline int untag(const a_Wff * x) { return boxed(x) ? x->tag__ + 2 : (int)x; }
+///////////////////////////////////////////////////////////////////////////////
+//
+// Embbeded tag extraction functions
+//
+///////////////////////////////////////////////////////////////////////////////
+inline int untagp(const a_Wff * x)
+  { return (unsigned long)x & 3; }
+inline a_Wff * derefp(const a_Wff * x)
+  { return (a_Wff*)((unsigned long)x & ~3); }
+inline int untag(const a_Wff * x) { return boxed(x) ? untagp(x) + 2 : (int)x; }
 ///////////////////////////////////////////////////////////////////////////////
 //
 //  Pretty printing methods for Wff
@@ -79,7 +84,7 @@ public:
 #line 10 "logic3.ph"
   Quark Var; 
   inline Wff_Var (Quark const & x_Var)
-   : a_Wff(tag_Var), Var(x_Var)
+   : Var(x_Var)
   {
   }
 };
@@ -94,7 +99,7 @@ public:
 #line 10 "logic3.ph"
   Quark _1; Wff _2; Wff _3; 
   inline Wff_Op (Quark const & x_1, Wff x_2, Wff x_3)
-   : a_Wff(tag_Op), _1(x_1), _2(x_2), _3(x_3)
+   : _1(x_1), _2(x_2), _3(x_3)
   {
   }
 };
@@ -109,7 +114,7 @@ public:
 #line 11 "logic3.ph"
   Wff Not; 
   inline Wff_Not (Wff x_Not)
-   : a_Wff(tag_Not), Not(x_Not)
+   : Not(x_Not)
   {
   }
 };
@@ -121,24 +126,17 @@ public:
 ///////////////////////////////////////////////////////////////////////////////
 inline a_Wff * Var (Quark const & x_Var)
 {
-  return new Wff_Var (x_Var);
+  return (a_Wff*)((unsigned long)(new Wff_Var (x_Var))|a_Wff::tag_Var);
 }
 inline a_Wff * Op (Quark const & x_1, Wff x_2, Wff x_3)
 {
-  return new Wff_Op (x_1, x_2, x_3);
+  return (a_Wff*)((unsigned long)(new Wff_Op (x_1, x_2, x_3))|a_Wff::tag_Op);
 }
 inline a_Wff * Not (Wff x_Not)
 {
-  return new Wff_Not (x_Not);
+  return (a_Wff*)((unsigned long)(new Wff_Not (x_Not))|a_Wff::tag_Not);
 }
-///////////////////////////////////////////////////////////////////////////////
-//
-// Downcasting functions for Wff
-//
-///////////////////////////////////////////////////////////////////////////////
-inline Wff_Var * _Var(const a_Wff * _x_) { return (Wff_Var *)_x_; }
-inline Wff_Op * _Op(const a_Wff * _x_) { return (Wff_Op *)_x_; }
-inline Wff_Not * _Not(const a_Wff * _x_) { return (Wff_Not *)_x_; }
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // Definition of law And
@@ -189,8 +187,8 @@ Number of ifs generated      = 0
 Number of switches generated = 0
 Number of labels             = 0
 Number of gotos              = 0
-Adaptive matching            = disabled
+Adaptive matching            = enabled
 Fast string matching         = disabled
-Inline downcasts             = disabled
+Inline downcasts             = enabled
 --------------------------------------------------------------------------
 */

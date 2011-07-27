@@ -238,12 +238,12 @@ top_build_prefix = ../../
 top_builddir = ../..
 top_srcdir = ../..
 AM_CPPFLAGS = -I$(top_srcdir)/include
-SUFFIXES = .pcc .ph
+SUFFIXES = .pcc .ph .pC
 PROPWRAP = $(top_srcdir)/propwrap
 PROPWRAP_ARGS = $(PROP) $(top_builddir)
 PROPPP_FLAGS = -I$(top_srcdir)/include
 PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -save_space -report -v2
-PROP_OPTS = $(PROP_OPTS_BASIC) -O14
+PROP_OPTS = $(PROP_OPTS_BASIC) -O14 $(PROP_OPTS_LOCAL)
 noinst_LTLIBRARIES = librewrite.la
 librewrite_la_sources_pcc = \
 	b_rules.pcc
@@ -257,7 +257,7 @@ librewrite_la_SOURCES = \
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .pcc .ph .cc .h .lo .o .obj
+.SUFFIXES: .pcc .ph .pC .C .cc .h .lo .o .obj
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/prop.am $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -546,6 +546,11 @@ uninstall-am:
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 .pcc.cc:
+	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
+	if test -s $(DEPDIR)/`basename $*.Tppo`; then $(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`; fi
+	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
+
+.pC.C:
 	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
 	if test -s $(DEPDIR)/`basename $*.Tppo`; then $(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`; fi
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<

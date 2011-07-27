@@ -102,6 +102,7 @@ AC_CONFIG_FILES([
 	lib-src/backend-tools/Makefile
 	lib-src/visualize/Makefile
 	prop-src/Makefile
+	demos/Makefile
 ])
 AC_OUTPUT()
 

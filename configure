@@ -15968,7 +15968,7 @@ _ACEOF
 fi
 
 
-ac_config_files="$ac_config_files Makefile include/Makefile lib-src/Makefile lib-src/automata/Makefile lib-src/contain/Makefile lib-src/csp/Makefile lib-src/gc/Makefile lib-src/generic/Makefile lib-src/graph/Makefile lib-src/graphtype/Makefile lib-src/hash/Makefile lib-src/memory/Makefile lib-src/numeric/Makefile lib-src/persist/Makefile lib-src/pretty/Makefile lib-src/prettypr/Makefile lib-src/prop/Makefile lib-src/rete/Makefile lib-src/rewrite/Makefile lib-src/strings/Makefile lib-src/symbolic/Makefile lib-src/trees/Makefile lib-src/tries/Makefile lib-src/backend-tools/Makefile lib-src/visualize/Makefile prop-src/Makefile"
+ac_config_files="$ac_config_files Makefile include/Makefile lib-src/Makefile lib-src/automata/Makefile lib-src/contain/Makefile lib-src/csp/Makefile lib-src/gc/Makefile lib-src/generic/Makefile lib-src/graph/Makefile lib-src/graphtype/Makefile lib-src/hash/Makefile lib-src/memory/Makefile lib-src/numeric/Makefile lib-src/persist/Makefile lib-src/pretty/Makefile lib-src/prettypr/Makefile lib-src/prop/Makefile lib-src/rete/Makefile lib-src/rewrite/Makefile lib-src/strings/Makefile lib-src/symbolic/Makefile lib-src/trees/Makefile lib-src/tries/Makefile lib-src/backend-tools/Makefile lib-src/visualize/Makefile prop-src/Makefile demos/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -16991,6 +16991,7 @@ do
     "lib-src/backend-tools/Makefile") CONFIG_FILES="$CONFIG_FILES lib-src/backend-tools/Makefile" ;;
     "lib-src/visualize/Makefile") CONFIG_FILES="$CONFIG_FILES lib-src/visualize/Makefile" ;;
     "prop-src/Makefile") CONFIG_FILES="$CONFIG_FILES prop-src/Makefile" ;;
+    "demos/Makefile") CONFIG_FILES="$CONFIG_FILES demos/Makefile" ;;
 
   *) { { $as_echo "$as_me:$LINENO: error: invalid argument: $ac_config_target" >&5
 $as_echo "$as_me: error: invalid argument: $ac_config_target" >&2;}
