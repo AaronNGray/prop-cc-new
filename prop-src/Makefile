@@ -64,7 +64,6 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 
-
 pkgdatadir = $(datadir)/prop
 pkgincludedir = $(includedir)/prop
 pkglibdir = $(libdir)/prop
@@ -83,8 +82,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = i686-pc-linux-gnu
 host_triplet = i686-pc-linux-gnu
-DIST_COMMON = $(noinst_HEADERS) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in $(top_srcdir)/prop.am
+DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
+	$(top_srcdir)/prop.am
 bin_PROGRAMS = prop$(EXEEXT)
 subdir = prop-src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -146,7 +145,6 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	$(LDFLAGS) -o $@
 SOURCES = $(prop_SOURCES)
 DIST_SOURCES = $(prop_SOURCES)
-HEADERS = $(noinst_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -159,13 +157,13 @@ AUTOMAKE = ${SHELL} /home/half/anl/prop-cc/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
+CFLAGS =  -Wno-deprecated
 CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2
+CXXFLAGS = -g -O2 -Wno-deprecated
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -313,16 +311,14 @@ prop_SOURCES = \
 	$(prop_sources_pcc:.pcc=.cc) \
 	automake.cc frontend.cc functortab.cc \
 	hashtab.cc labelgen.cc options.cc \
-	patchlev.cc patenv.cc process.cc textbuf.cc 
+	patchlev.cc patenv.cc process.cc textbuf.cc \
+	author.h automake.h classdef.h codegen.h compiler.h \
+	config.h datagen.h functortab.h hashtab.h infgen.h labelgen.h \
+	options.h patenv.h rwgen.h textbuf.h type.h visualize.h
 
 BUILT_SOURCES = \
 	$(prop_headers_ph:.ph=.h) \
 	$(prop_sources_pcc:.pcc=.cc)
-
-noinst_HEADERS = \
-	author.h automake.h classdef.h codegen.h compiler.h \
-	config.h datagen.h functortab.h hashtab.h infgen.h labelgen.h \
-	options.h rwgen.h textbuf.h type.h visualize.h
 
 prop_LDADD = $(top_builddir)/lib-src/libprop.la
 all: $(BUILT_SOURCES)
@@ -588,7 +584,7 @@ distdir: $(DISTFILES)
 check-am: all-am
 check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
-all-am: Makefile $(PROGRAMS) $(HEADERS)
+all-am: Makefile $(PROGRAMS)
 installdirs:
 	for dir in "$(DESTDIR)$(bindir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
