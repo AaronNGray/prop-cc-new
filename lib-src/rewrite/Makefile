@@ -173,7 +173,7 @@ PACKAGE_STRING = prop 2.4.1
 PACKAGE_TARNAME = prop
 PACKAGE_VERSION = 2.4.1
 PATH_SEPARATOR = :
-PROP = $(top_builddir)/prop-src/prop
+PROP = true
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
@@ -226,7 +226,7 @@ mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /tmp/ptmp
+prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -239,6 +239,8 @@ top_builddir = ../..
 top_srcdir = ../..
 AM_CPPFLAGS = -I$(top_srcdir)/include
 SUFFIXES = .pcc .ph
+
+# PROP = $(top_builddir)/prop-src/prop
 PROPPP_FLAGS = -I$(top_srcdir)/include
 PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -save_space -report -v2
 PROP_OPTS = $(PROP_OPTS_BASIC) -O14
@@ -539,10 +541,16 @@ uninstall-am:
 
 
 .ph.h:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
+	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tpph
+	$(am__mv) $(DEPDIR)/$*.Tpph $(DEPDIR)/$*.Pph
+	$(PROP) $(PROP_OPTS) $<
 
 .pcc.cc:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
+	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tppo
+	$(am__mv) $(DEPDIR)/$*.Tppo $(DEPDIR)/$*.Ppo
+	$(PROP) $(PROP_OPTS) $<
+
+include ./$(DEPDIR)/b_rules.Ppo
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

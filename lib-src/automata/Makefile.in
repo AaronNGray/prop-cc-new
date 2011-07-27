@@ -180,7 +180,7 @@ PACKAGE_STRING = @PACKAGE_STRING@
 PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
-PROP = $(top_builddir)/prop-src/prop
+PROP = @PROP@
 RANLIB = @RANLIB@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
@@ -246,6 +246,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include
 SUFFIXES = .pcc .ph
+
+# PROP = $(top_builddir)/prop-src/prop
 PROPPP_FLAGS = -I$(top_srcdir)/include
 PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -save_space -report -v2
 PROP_OPTS = $(PROP_OPTS_BASIC) -O14
@@ -592,10 +594,18 @@ uninstall-am:
 
 
 .ph.h:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
+@AMDEP_TRUE@	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tpph
+@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/$*.Tpph $(DEPDIR)/$*.Pph
+	$(PROP) $(PROP_OPTS) $<
 
 .pcc.cc:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
+@AMDEP_TRUE@	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tppo
+@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/$*.Tppo $(DEPDIR)/$*.Ppo
+	$(PROP) $(PROP_OPTS) $<
+
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/treegram.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/topdowng.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/treegen.Ppo@am__quote@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -206,7 +206,7 @@ PACKAGE_STRING = @PACKAGE_STRING@
 PACKAGE_TARNAME = @PACKAGE_TARNAME@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
-PROP = $(top_builddir)/prop-src/prop
+PROP = @PROP@
 RANLIB = @RANLIB@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
@@ -272,9 +272,16 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I$(top_srcdir)/include
 SUFFIXES = .pcc .ph
+
+# PROP = $(top_builddir)/prop-src/prop
 PROPPP_FLAGS = -I$(top_srcdir)/include
 PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -save_space -report -v2
 PROP_OPTS = $(PROP_OPTS_BASIC) -O14
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dataflow.Ppo@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bitfield.Ppo@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/constraint.Ppo@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/logicgen.Ppo@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wam.Ppo@am__quote@
 prop_headers_ph = \
 	ir.ph ast.ph basics.ph parsegen.ph keywords.ph parser.ph \
 	collection.ph setl-ast.ph setlgen.ph matchcom.ph \
@@ -701,10 +708,99 @@ uninstall-am: uninstall-binPROGRAMS
 
 
 .ph.h:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
+@AMDEP_TRUE@	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tpph
+@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/$*.Tpph $(DEPDIR)/$*.Pph
+	$(PROP) $(PROP_OPTS) $<
 
 .pcc.cc:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
+@AMDEP_TRUE@	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tppo
+@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/$*.Tppo $(DEPDIR)/$*.Ppo
+	$(PROP) $(PROP_OPTS) $<
+
+# automake does not automatically generate the dependency includes,
+# so that is done here manually...
+
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ir.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ast.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/basics.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parsegen.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/keywords.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parser.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/collection.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setl-ast.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setlgen.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/matchcom.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/trs.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/timespace.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/env.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/funmap.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/metasyntax.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pat.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/grsgen.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/graphtype.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/graphedges.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/aggen.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/datatype.Pph@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rwmix.Pph@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dataflow.Pph@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/bitfield.Pph@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/wam.Pph@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/constraint.Pph@am__quote@
+#@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/logicgen.Pph@am__quote@
+
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/persistgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gcgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/printgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/matchcom.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/matchgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/infgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/type.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/printing.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/datagen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/codegen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/compiler.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/indexing.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ast.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/constr.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parsegen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lexeme.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lexer.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/trs.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/trs2.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/trs3.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rwgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rwgen2.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rwgen3.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rwgen4.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rwgen5.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lawgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parser-util.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parser.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setl-ast.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/documentation.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/collection.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setlgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/setltype.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/timespace.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/env.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/funmap.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/metasyntax.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pat.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/grsgen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/selector.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/graphtype.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/graphrep.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/graphops.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/graphreport.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/classdef.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/prop-main.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/aggen.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/datatype.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/instance.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/visualize.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/visual2.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rwmix.Ppo@am__quote@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

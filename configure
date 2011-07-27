@@ -15366,7 +15366,7 @@ fi
 
   test -n "$PROP" && break
 done
-test -n "$PROP" || PROP="nonexistent"
+test -n "$PROP" || PROP="true"
 
 
 

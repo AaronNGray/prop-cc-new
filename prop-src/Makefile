@@ -206,7 +206,7 @@ PACKAGE_STRING = prop 2.4.1
 PACKAGE_TARNAME = prop
 PACKAGE_VERSION = 2.4.1
 PATH_SEPARATOR = :
-PROP = $(top_builddir)/prop-src/prop
+PROP = true
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
@@ -259,7 +259,7 @@ mandir = ${datarootdir}/man
 mkdir_p = /bin/mkdir -p
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /tmp/ptmp
+prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
@@ -272,9 +272,16 @@ top_builddir = ..
 top_srcdir = ..
 AM_CPPFLAGS = -I$(top_srcdir)/include
 SUFFIXES = .pcc .ph
+
+# PROP = $(top_builddir)/prop-src/prop
 PROPPP_FLAGS = -I$(top_srcdir)/include
 PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -save_space -report -v2
 PROP_OPTS = $(PROP_OPTS_BASIC) -O14
+#include ./$(DEPDIR)/dataflow.Ppo
+#include ./$(DEPDIR)/bitfield.Ppo
+#include ./$(DEPDIR)/constraint.Ppo
+#include ./$(DEPDIR)/logicgen.Ppo
+#include ./$(DEPDIR)/wam.Ppo
 prop_headers_ph = \
 	ir.ph ast.ph basics.ph parsegen.ph keywords.ph parser.ph \
 	collection.ph setl-ast.ph setlgen.ph matchcom.ph \
@@ -701,10 +708,99 @@ uninstall-am: uninstall-binPROGRAMS
 
 
 .ph.h:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
+	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tpph
+	$(am__mv) $(DEPDIR)/$*.Tpph $(DEPDIR)/$*.Pph
+	$(PROP) $(PROP_OPTS) $<
 
 .pcc.cc:
-	if [ -x "$(PROP)" ]; then $(PROP) $(PROP_OPTS) $<; elif [ -f $@ ]; then touch $@; fi
+	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tppo
+	$(am__mv) $(DEPDIR)/$*.Tppo $(DEPDIR)/$*.Ppo
+	$(PROP) $(PROP_OPTS) $<
+
+# automake does not automatically generate the dependency includes,
+# so that is done here manually...
+
+include ./$(DEPDIR)/ir.Pph
+include ./$(DEPDIR)/ast.Pph
+include ./$(DEPDIR)/basics.Pph
+include ./$(DEPDIR)/parsegen.Pph
+include ./$(DEPDIR)/keywords.Pph
+include ./$(DEPDIR)/parser.Pph
+include ./$(DEPDIR)/collection.Pph
+include ./$(DEPDIR)/setl-ast.Pph
+include ./$(DEPDIR)/setlgen.Pph
+include ./$(DEPDIR)/matchcom.Pph
+include ./$(DEPDIR)/trs.Pph
+include ./$(DEPDIR)/timespace.Pph
+include ./$(DEPDIR)/env.Pph
+include ./$(DEPDIR)/funmap.Pph
+include ./$(DEPDIR)/metasyntax.Pph
+include ./$(DEPDIR)/pat.Pph
+include ./$(DEPDIR)/list.Pph
+include ./$(DEPDIR)/grsgen.Pph
+include ./$(DEPDIR)/graphtype.Pph
+include ./$(DEPDIR)/graphedges.Pph
+include ./$(DEPDIR)/aggen.Pph
+include ./$(DEPDIR)/datatype.Pph
+include ./$(DEPDIR)/rwmix.Pph
+#include ./$(DEPDIR)/dataflow.Pph
+#include ./$(DEPDIR)/bitfield.Pph
+#include ./$(DEPDIR)/wam.Pph
+#include ./$(DEPDIR)/constraint.Pph
+#include ./$(DEPDIR)/logicgen.Pph
+
+include ./$(DEPDIR)/persistgen.Ppo
+include ./$(DEPDIR)/gcgen.Ppo
+include ./$(DEPDIR)/printgen.Ppo
+include ./$(DEPDIR)/matchcom.Ppo
+include ./$(DEPDIR)/matchgen.Ppo
+include ./$(DEPDIR)/infgen.Ppo
+include ./$(DEPDIR)/type.Ppo
+include ./$(DEPDIR)/printing.Ppo
+include ./$(DEPDIR)/datagen.Ppo
+include ./$(DEPDIR)/codegen.Ppo
+include ./$(DEPDIR)/compiler.Ppo
+include ./$(DEPDIR)/indexing.Ppo
+include ./$(DEPDIR)/ast.Ppo
+include ./$(DEPDIR)/constr.Ppo
+include ./$(DEPDIR)/parsegen.Ppo
+include ./$(DEPDIR)/lexeme.Ppo
+include ./$(DEPDIR)/lexer.Ppo
+include ./$(DEPDIR)/trs.Ppo
+include ./$(DEPDIR)/trs2.Ppo
+include ./$(DEPDIR)/trs3.Ppo
+include ./$(DEPDIR)/rwgen.Ppo
+include ./$(DEPDIR)/rwgen2.Ppo
+include ./$(DEPDIR)/rwgen3.Ppo
+include ./$(DEPDIR)/rwgen4.Ppo
+include ./$(DEPDIR)/rwgen5.Ppo
+include ./$(DEPDIR)/lawgen.Ppo
+include ./$(DEPDIR)/parser-util.Ppo
+include ./$(DEPDIR)/parser.Ppo
+include ./$(DEPDIR)/setl-ast.Ppo
+include ./$(DEPDIR)/documentation.Ppo
+include ./$(DEPDIR)/collection.Ppo
+include ./$(DEPDIR)/setlgen.Ppo
+include ./$(DEPDIR)/setltype.Ppo
+include ./$(DEPDIR)/timespace.Ppo
+include ./$(DEPDIR)/env.Ppo
+include ./$(DEPDIR)/funmap.Ppo
+include ./$(DEPDIR)/metasyntax.Ppo
+include ./$(DEPDIR)/pat.Ppo
+include ./$(DEPDIR)/grsgen.Ppo
+include ./$(DEPDIR)/selector.Ppo
+include ./$(DEPDIR)/graphtype.Ppo
+include ./$(DEPDIR)/graphrep.Ppo
+include ./$(DEPDIR)/graphops.Ppo
+include ./$(DEPDIR)/graphreport.Ppo
+include ./$(DEPDIR)/classdef.Ppo
+include ./$(DEPDIR)/prop-main.Ppo
+include ./$(DEPDIR)/aggen.Ppo
+include ./$(DEPDIR)/datatype.Ppo
+include ./$(DEPDIR)/instance.Ppo
+include ./$(DEPDIR)/visualize.Ppo
+include ./$(DEPDIR)/visual2.Ppo
+include ./$(DEPDIR)/rwmix.Ppo
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

@@ -26,6 +26,10 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 
 include $(top_srcdir)/prop.am
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/treegram.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/topdowng.Ppo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/treegen.Ppo@am__quote@
+
 noinst_LTLIBRARIES = libautomata.la
 
 libautomata_la_sources_pcc = \

@@ -26,6 +26,8 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 
 include $(top_srcdir)/prop.am
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/b_rules.Ppo@am__quote@
+
 noinst_LTLIBRARIES = librewrite.la
 
 librewrite_la_sources_pcc = \
