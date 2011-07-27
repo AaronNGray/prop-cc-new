@@ -23,5 +23,5 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 SUBDIRS = include lib-src prop-src
-DIST_SUBDIRS = VisualStudio2010
+EXTRA_DIST = VisualStudio2010
 

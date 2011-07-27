@@ -41,7 +41,14 @@ AC_SUBST(VERSION_POINT)
 VERSION_AGE=0
 AC_SUBST(VERSION_AGE)
 
+AC_LANG(C++)
+
 AC_PROG_CXX
+if test "${GXX}"x = yesx; then
+	CXXFLAGS="${CXXFLAGS} -Wno-deprecated"
+	CFLAGS="${CFLAGS} -Wno-deprecated"
+fi
+
 AC_PROG_LIBTOOL
 
 AC_PATH_PROGS([PROP], [prop prop-cc], [true])

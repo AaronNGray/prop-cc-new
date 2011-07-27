@@ -27,5 +27,5 @@ AM_CPPFLAGS = -I$(top_srcdir)/include
 noinst_LTLIBRARIES = libgraph.la
 
 libgraph_la_SOURCES = \
-	graph.cc node.cc edge.cc graphaux.cc
+	graph.cc node.cc edge.cc graphaux.cc graphinline.h
 

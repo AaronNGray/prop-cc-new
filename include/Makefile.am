@@ -29,6 +29,9 @@ include $(top_srcdir)/prop.am
 BUILT_SOURCES = \
 	AD/automata/treegram.ph
 
+EXTRA_DIST = \
+	AD/automata/treegram.ph
+
 include_HEADERS = propdefs.h
 nobase_include_HEADERS = \
 	AD/automata/acgen.h \

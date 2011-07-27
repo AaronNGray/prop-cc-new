@@ -89,6 +89,7 @@ AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
 	distdir dist dist-all distcheck
 ETAGS = etags
 CTAGS = ctags
+DIST_SUBDIRS = $(SUBDIRS)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -246,7 +247,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 SUBDIRS = include lib-src prop-src
-DIST_SUBDIRS = VisualStudio2010
+EXTRA_DIST = VisualStudio2010
 all: all-recursive
 
 .SUFFIXES:
