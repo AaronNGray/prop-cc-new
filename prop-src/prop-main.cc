@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
-//  This file is generated automatically using Prop (version 2.4.0),
+//  This file is generated automatically using Prop (version 2.4.1.0),
 //  last updated on Jul 1, 2011.
 //  The original source file is "prop-main.pcc".
 ///////////////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 static const char * HELP_MESSAGE =
-"%s version %s.%s, last updated on %s\n"
+"%s version %s\n"
 "usage: %s [options] <files>\n"
 "options:  [-automake]\n"
 "          [-d -debug] [-G -GNU] [-html] [-I<path>]\n"
@@ -410,7 +410,7 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
   ////////////////////////////////////////////////////////////////////////////
   if (help || file_count == 0)
   {
-    error( HELP_MESSAGE, prog_name, VERSION, PATCH_LEVEL, LAST_UPDATED, prog_name);
+    error( HELP_MESSAGE, prog_name, VERSION, prog_name);
     std::exit(1);
   }
 }

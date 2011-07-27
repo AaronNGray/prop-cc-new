@@ -156,7 +156,7 @@ prop_SOURCES = \
 	$(prop_sources_pcc:.pcc=.cc) \
 	automake.cc frontend.cc functortab.cc \
 	hashtab.cc labelgen.cc options.cc \
-	patchlev.cc patenv.cc process.cc textbuf.cc
+	patenv.cc process.cc textbuf.cc
 
 BUILT_SOURCES = \
 	$(prop_headers_ph:.ph=.h) \

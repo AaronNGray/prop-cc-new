@@ -153,11 +153,10 @@ static void emit_headers( Compiler& C)
 {
   C.pr
   ("%^%/"
-   "%^//  This file is generated automatically using Prop (version %s.%s),"
-   "%^//  last updated on %s."
+   "%^//  This file is generated automatically using Prop (version %s)."
    "%^//  The original source file is \"%s\"."
    "%^%/\n",
-   VERSION, PATCH_LEVEL, LAST_UPDATED, options.input_file_name
+   VERSION, options.input_file_name
   );
 
   C.emit_header_text();

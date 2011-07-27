@@ -117,8 +117,8 @@ am__objects_2 = persistgen.$(OBJEXT) gcgen.$(OBJEXT) \
 	rwmix.$(OBJEXT)
 am_prop_OBJECTS = $(am__objects_1) $(am__objects_2) automake.$(OBJEXT) \
 	frontend.$(OBJEXT) functortab.$(OBJEXT) hashtab.$(OBJEXT) \
-	labelgen.$(OBJEXT) options.$(OBJEXT) patchlev.$(OBJEXT) \
-	patenv.$(OBJEXT) process.$(OBJEXT) textbuf.$(OBJEXT)
+	labelgen.$(OBJEXT) options.$(OBJEXT) patenv.$(OBJEXT) \
+	process.$(OBJEXT) textbuf.$(OBJEXT)
 prop_OBJECTS = $(am_prop_OBJECTS)
 prop_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 DEFAULT_INCLUDES = -I. -I$(top_builddir)/include/AD/config
@@ -316,7 +316,7 @@ prop_SOURCES = \
 	$(prop_sources_pcc:.pcc=.cc) \
 	automake.cc frontend.cc functortab.cc \
 	hashtab.cc labelgen.cc options.cc \
-	patchlev.cc patenv.cc process.cc textbuf.cc
+	patenv.cc process.cc textbuf.cc
 
 BUILT_SOURCES = \
 	$(prop_headers_ph:.ph=.h) \
@@ -448,7 +448,6 @@ include ./$(DEPDIR)/parsegen.Po
 include ./$(DEPDIR)/parser-util.Po
 include ./$(DEPDIR)/parser.Po
 include ./$(DEPDIR)/pat.Po
-include ./$(DEPDIR)/patchlev.Po
 include ./$(DEPDIR)/patenv.Po
 include ./$(DEPDIR)/persistgen.Po
 include ./$(DEPDIR)/printgen.Po

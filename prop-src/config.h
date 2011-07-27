@@ -15,7 +15,4 @@
 #define MAX_VECTOR_LEN           10            // max vector elements
 #define MAX_TUPLE_ARITY          12            // maximum arity of .(...)
 
-extern const char * PATCH_LEVEL;
-extern const char * LAST_UPDATED;
-
 #endif
