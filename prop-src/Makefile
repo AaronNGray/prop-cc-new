@@ -705,12 +705,12 @@ uninstall-am: uninstall-binPROGRAMS
 
 .ph.h:
 	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tpph`
-	$(am__mv) $(DEPDIR)/`basename $*.Tpph` $(DEPDIR)/`basename $*.Pph`
+	if test -s $(DEPDIR)/`basename $*.Tpph`; then $(am__mv) $(DEPDIR)/`basename $*.Tpph` $(DEPDIR)/`basename $*.Pph`; fi
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 .pcc.cc:
 	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
-	$(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`
+	if test -s $(DEPDIR)/`basename $*.Tppo`; then $(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`; fi
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 # automake does not automatically generate the dependency includes,

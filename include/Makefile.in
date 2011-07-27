@@ -749,12 +749,12 @@ uninstall-am: uninstall-includeHEADERS uninstall-nobase_includeHEADERS
 
 .ph.h:
 @AMDEP_TRUE@	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tpph`
-@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/`basename $*.Tpph` $(DEPDIR)/`basename $*.Pph`
+@AMDEP_TRUE@	if test -s $(DEPDIR)/`basename $*.Tpph`; then $(am__mv) $(DEPDIR)/`basename $*.Tpph` $(DEPDIR)/`basename $*.Pph`; fi
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 .pcc.cc:
 @AMDEP_TRUE@	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
-@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`
+@AMDEP_TRUE@	if test -s $(DEPDIR)/`basename $*.Tppo`; then $(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`; fi
 	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/treegram.Pph@am__quote@
