@@ -594,13 +594,13 @@ uninstall-am:
 
 
 .ph.h:
-	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tpph
-	$(am__mv) $(DEPDIR)/$*.Tpph $(DEPDIR)/$*.Pph
+	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tpph`
+	$(am__mv) $(DEPDIR)/`basename $*.Tpph` $(DEPDIR)/`basename $*.Pph`
 	$(PROP) $(PROP_OPTS) $<
 
 .pcc.cc:
-	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tppo
-	$(am__mv) $(DEPDIR)/$*.Tppo $(DEPDIR)/$*.Ppo
+	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
+	$(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`
 	$(PROP) $(PROP_OPTS) $<
 
 include ./$(DEPDIR)/treegram.Ppo

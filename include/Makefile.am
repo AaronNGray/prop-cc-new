@@ -22,6 +22,13 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
+include $(top_srcdir)/prop.am
+
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/treegram.Pph@am__quote@
+
+BUILT_SOURCES = \
+	AD/automata/treegram.ph
+
 include_HEADERS = propdefs.h
 nobase_include_HEADERS = \
 	AD/automata/acgen.h \

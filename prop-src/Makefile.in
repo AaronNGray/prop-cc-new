@@ -708,13 +708,13 @@ uninstall-am: uninstall-binPROGRAMS
 
 
 .ph.h:
-@AMDEP_TRUE@	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tpph
-@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/$*.Tpph $(DEPDIR)/$*.Pph
+@AMDEP_TRUE@	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tpph`
+@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/`basename $*.Tpph` $(DEPDIR)/`basename $*.Pph`
 	$(PROP) $(PROP_OPTS) $<
 
 .pcc.cc:
-@AMDEP_TRUE@	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/$*.Tppo
-@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/$*.Tppo $(DEPDIR)/$*.Ppo
+@AMDEP_TRUE@	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
+@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`
 	$(PROP) $(PROP_OPTS) $<
 
 # automake does not automatically generate the dependency includes,
