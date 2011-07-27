@@ -100,53 +100,53 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
 am__objects_1 = exp.$(OBJEXT)
-am_exp_OBJECTS = $(am__objects_1)
-exp_OBJECTS = $(am_exp_OBJECTS)
+nodist_exp_OBJECTS = $(am__objects_1)
+exp_OBJECTS = $(nodist_exp_OBJECTS)
 exp_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_2 = inference.$(OBJEXT)
-am_inference_OBJECTS = $(am__objects_2)
-inference_OBJECTS = $(am_inference_OBJECTS)
+nodist_inference_OBJECTS = $(am__objects_2)
+inference_OBJECTS = $(nodist_inference_OBJECTS)
 inference_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_3 = logic.$(OBJEXT)
-am_logic_OBJECTS = $(am__objects_3)
-logic_OBJECTS = $(am_logic_OBJECTS)
+nodist_logic_OBJECTS = $(am__objects_3)
+logic_OBJECTS = $(nodist_logic_OBJECTS)
 logic_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_4 = logic2.$(OBJEXT)
-am_logic2_OBJECTS = $(am__objects_4)
-logic2_OBJECTS = $(am_logic2_OBJECTS)
+nodist_logic2_OBJECTS = $(am__objects_4)
+logic2_OBJECTS = $(nodist_logic2_OBJECTS)
 logic2_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_5 =
 am__objects_6 = logic3.$(OBJEXT)
-am_logic3_OBJECTS = $(am__objects_5) $(am__objects_6)
-logic3_OBJECTS = $(am_logic3_OBJECTS)
+nodist_logic3_OBJECTS = $(am__objects_5) $(am__objects_6)
+logic3_OBJECTS = $(nodist_logic3_OBJECTS)
 logic3_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_7 = persistence.$(OBJEXT)
-am_persistence_OBJECTS = $(am__objects_7)
-persistence_OBJECTS = $(am_persistence_OBJECTS)
+nodist_persistence_OBJECTS = $(am__objects_7)
+persistence_OBJECTS = $(nodist_persistence_OBJECTS)
 persistence_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_8 = prog.$(OBJEXT)
-am_prog_OBJECTS = $(am__objects_8)
-prog_OBJECTS = $(am_prog_OBJECTS)
+nodist_prog_OBJECTS = $(am__objects_8)
+prog_OBJECTS = $(nodist_prog_OBJECTS)
 prog_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_9 = rewrite-trick1.$(OBJEXT)
-am_rewrite_trick1_OBJECTS = $(am__objects_9)
-rewrite_trick1_OBJECTS = $(am_rewrite_trick1_OBJECTS)
+nodist_rewrite_trick1_OBJECTS = $(am__objects_9)
+rewrite_trick1_OBJECTS = $(nodist_rewrite_trick1_OBJECTS)
 rewrite_trick1_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_10 = rewrite-trick2.$(OBJEXT)
-am_rewrite_trick2_OBJECTS = $(am__objects_10)
-rewrite_trick2_OBJECTS = $(am_rewrite_trick2_OBJECTS)
+nodist_rewrite_trick2_OBJECTS = $(am__objects_10)
+rewrite_trick2_OBJECTS = $(nodist_rewrite_trick2_OBJECTS)
 rewrite_trick2_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_11 = rewrite-trick3.$(OBJEXT)
-am_rewrite_trick3_OBJECTS = $(am__objects_11)
-rewrite_trick3_OBJECTS = $(am_rewrite_trick3_OBJECTS)
+nodist_rewrite_trick3_OBJECTS = $(am__objects_11)
+rewrite_trick3_OBJECTS = $(nodist_rewrite_trick3_OBJECTS)
 rewrite_trick3_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_12 = rewrite-trick4.$(OBJEXT)
-am_rewrite_trick4_OBJECTS = $(am__objects_12)
-rewrite_trick4_OBJECTS = $(am_rewrite_trick4_OBJECTS)
+nodist_rewrite_trick4_OBJECTS = $(am__objects_12)
+rewrite_trick4_OBJECTS = $(nodist_rewrite_trick4_OBJECTS)
 rewrite_trick4_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 am__objects_13 = rewrite-trick5.$(OBJEXT)
-am_rewrite_trick5_OBJECTS = $(am__objects_13)
-rewrite_trick5_OBJECTS = $(am_rewrite_trick5_OBJECTS)
+nodist_rewrite_trick5_OBJECTS = $(am__objects_13)
+rewrite_trick5_OBJECTS = $(nodist_rewrite_trick5_OBJECTS)
 rewrite_trick5_DEPENDENCIES = $(top_builddir)/lib-src/libprop.la
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/include/AD/config
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -170,16 +170,15 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(exp_SOURCES) $(inference_SOURCES) $(logic_SOURCES) \
-	$(logic2_SOURCES) $(logic3_SOURCES) $(persistence_SOURCES) \
-	$(prog_SOURCES) $(rewrite_trick1_SOURCES) \
-	$(rewrite_trick2_SOURCES) $(rewrite_trick3_SOURCES) \
-	$(rewrite_trick4_SOURCES) $(rewrite_trick5_SOURCES)
-DIST_SOURCES = $(exp_SOURCES) $(inference_SOURCES) $(logic_SOURCES) \
-	$(logic2_SOURCES) $(logic3_SOURCES) $(persistence_SOURCES) \
-	$(prog_SOURCES) $(rewrite_trick1_SOURCES) \
-	$(rewrite_trick2_SOURCES) $(rewrite_trick3_SOURCES) \
-	$(rewrite_trick4_SOURCES) $(rewrite_trick5_SOURCES)
+SOURCES = $(nodist_exp_SOURCES) $(nodist_inference_SOURCES) \
+	$(nodist_logic_SOURCES) $(nodist_logic2_SOURCES) \
+	$(nodist_logic3_SOURCES) $(nodist_persistence_SOURCES) \
+	$(nodist_prog_SOURCES) $(nodist_rewrite_trick1_SOURCES) \
+	$(nodist_rewrite_trick2_SOURCES) \
+	$(nodist_rewrite_trick3_SOURCES) \
+	$(nodist_rewrite_trick4_SOURCES) \
+	$(nodist_rewrite_trick5_SOURCES)
+DIST_SOURCES =
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -324,18 +323,18 @@ rewrite_trick2_sources_pcc = rewrite-trick2.pC
 rewrite_trick3_sources_pcc = rewrite-trick3.pC
 rewrite_trick4_sources_pcc = rewrite-trick4.pC
 rewrite_trick5_sources_pcc = rewrite-trick5.pC
-logic_SOURCES = $(logic_sources_pcc:.pC=.C)
-logic2_SOURCES = $(logic2_sources_pcc:.pC=.C)
-logic3_SOURCES = $(logic3_headers_ph:.ph=.h) $(logic3_sources_pcc:.pC=.C)
-inference_SOURCES = $(inference_sources_pcc:.pC=.C)
-persistence_SOURCES = $(persistence_sources_pcc:.pC=.C)
-prog_SOURCES = $(prog_sources_pcc:.pC=.C)
-exp_SOURCES = $(exp_sources_pcc:.pC=.C)
-rewrite_trick1_SOURCES = $(rewrite_trick1_sources_pcc:.pC=.C)
-rewrite_trick2_SOURCES = $(rewrite_trick2_sources_pcc:.pC=.C)
-rewrite_trick3_SOURCES = $(rewrite_trick3_sources_pcc:.pC=.C)
-rewrite_trick4_SOURCES = $(rewrite_trick4_sources_pcc:.pC=.C)
-rewrite_trick5_SOURCES = $(rewrite_trick5_sources_pcc:.pC=.C)
+nodist_logic_SOURCES = $(logic_sources_pcc:.pC=.C)
+nodist_logic2_SOURCES = $(logic2_sources_pcc:.pC=.C)
+nodist_logic3_SOURCES = $(logic3_headers_ph:.ph=.h) $(logic3_sources_pcc:.pC=.C)
+nodist_inference_SOURCES = $(inference_sources_pcc:.pC=.C)
+nodist_persistence_SOURCES = $(persistence_sources_pcc:.pC=.C)
+nodist_prog_SOURCES = $(prog_sources_pcc:.pC=.C)
+nodist_exp_SOURCES = $(exp_sources_pcc:.pC=.C)
+nodist_rewrite_trick1_SOURCES = $(rewrite_trick1_sources_pcc:.pC=.C)
+nodist_rewrite_trick2_SOURCES = $(rewrite_trick2_sources_pcc:.pC=.C)
+nodist_rewrite_trick3_SOURCES = $(rewrite_trick3_sources_pcc:.pC=.C)
+nodist_rewrite_trick4_SOURCES = $(rewrite_trick4_sources_pcc:.pC=.C)
+nodist_rewrite_trick5_SOURCES = $(rewrite_trick5_sources_pcc:.pC=.C)
 EXTRA_DIST = \
 	$(logic_sources_pcc) \
 	$(logic2_sources_pcc) \
@@ -353,18 +352,18 @@ EXTRA_DIST = \
 	$(rewrite_trick5_sources_pcc)
 
 BUILT_SOURCES = \
-	$(logic_SOURCES) \
-	$(logic2_SOURCES) \
-	$(logic3_SOURCES) \
-	$(inference_SOURCES) \
-	$(persistence_SOURCES) \
-	$(prog_SOURCES) \
-	$(exp_SOURCES) \
-	$(rewrite_trick1_SOURCES) \
-	$(rewrite_trick2_SOURCES) \
-	$(rewrite_trick3_SOURCES) \
-	$(rewrite_trick4_SOURCES) \
-	$(rewrite_trick5_SOURCES)
+	$(nodist_logic_SOURCES) \
+	$(nodist_logic2_SOURCES) \
+	$(nodist_logic3_SOURCES) \
+	$(nodist_inference_SOURCES) \
+	$(nodist_persistence_SOURCES) \
+	$(nodist_prog_SOURCES) \
+	$(nodist_exp_SOURCES) \
+	$(nodist_rewrite_trick1_SOURCES) \
+	$(nodist_rewrite_trick2_SOURCES) \
+	$(nodist_rewrite_trick3_SOURCES) \
+	$(nodist_rewrite_trick4_SOURCES) \
+	$(nodist_rewrite_trick5_SOURCES)
 
 CLEANFILES = \
 	$(BUILT_SOURCES) \

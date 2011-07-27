@@ -269,11 +269,12 @@ top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
 AM_CPPFLAGS = -I$(top_srcdir)/include
+PROP_OPTS_LOCAL = -save_space
 SUFFIXES = .pcc .ph .pC
 PROPWRAP = $(top_srcdir)/propwrap
 PROPWRAP_ARGS = $(PROP) $(top_builddir)
 PROPPP_FLAGS = -I$(top_srcdir)/include
-PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -save_space -report -v2
+PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -report -v2
 PROP_OPTS = $(PROP_OPTS_BASIC) -O14 $(PROP_OPTS_LOCAL)
 #include ./$(DEPDIR)/dataflow.Ppo
 #include ./$(DEPDIR)/bitfield.Ppo

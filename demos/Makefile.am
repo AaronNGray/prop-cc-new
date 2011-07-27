@@ -63,18 +63,18 @@ noinst_PROGRAMS = \
 	rewrite-trick1 rewrite-trick2 rewrite-trick3 \
 	rewrite-trick4 rewrite-trick5 
 
-logic_SOURCES = $(logic_sources_pcc:.pC=.C)
-logic2_SOURCES = $(logic2_sources_pcc:.pC=.C)
-logic3_SOURCES =  $(logic3_headers_ph:.ph=.h) $(logic3_sources_pcc:.pC=.C)
-inference_SOURCES = $(inference_sources_pcc:.pC=.C)
-persistence_SOURCES = $(persistence_sources_pcc:.pC=.C)
-prog_SOURCES = $(prog_sources_pcc:.pC=.C)
-exp_SOURCES = $(exp_sources_pcc:.pC=.C)
-rewrite_trick1_SOURCES = $(rewrite_trick1_sources_pcc:.pC=.C)
-rewrite_trick2_SOURCES = $(rewrite_trick2_sources_pcc:.pC=.C)
-rewrite_trick3_SOURCES = $(rewrite_trick3_sources_pcc:.pC=.C)
-rewrite_trick4_SOURCES = $(rewrite_trick4_sources_pcc:.pC=.C)
-rewrite_trick5_SOURCES = $(rewrite_trick5_sources_pcc:.pC=.C)
+nodist_logic_SOURCES = $(logic_sources_pcc:.pC=.C)
+nodist_logic2_SOURCES = $(logic2_sources_pcc:.pC=.C)
+nodist_logic3_SOURCES =  $(logic3_headers_ph:.ph=.h) $(logic3_sources_pcc:.pC=.C)
+nodist_inference_SOURCES = $(inference_sources_pcc:.pC=.C)
+nodist_persistence_SOURCES = $(persistence_sources_pcc:.pC=.C)
+nodist_prog_SOURCES = $(prog_sources_pcc:.pC=.C)
+nodist_exp_SOURCES = $(exp_sources_pcc:.pC=.C)
+nodist_rewrite_trick1_SOURCES = $(rewrite_trick1_sources_pcc:.pC=.C)
+nodist_rewrite_trick2_SOURCES = $(rewrite_trick2_sources_pcc:.pC=.C)
+nodist_rewrite_trick3_SOURCES = $(rewrite_trick3_sources_pcc:.pC=.C)
+nodist_rewrite_trick4_SOURCES = $(rewrite_trick4_sources_pcc:.pC=.C)
+nodist_rewrite_trick5_SOURCES = $(rewrite_trick5_sources_pcc:.pC=.C)
 
 EXTRA_DIST = \
 	$(logic_sources_pcc) \
@@ -93,18 +93,18 @@ EXTRA_DIST = \
 	$(rewrite_trick5_sources_pcc)
  
 BUILT_SOURCES = \
-	$(logic_SOURCES) \
-	$(logic2_SOURCES) \
-	$(logic3_SOURCES) \
-	$(inference_SOURCES) \
-	$(persistence_SOURCES) \
-	$(prog_SOURCES) \
-	$(exp_SOURCES) \
-	$(rewrite_trick1_SOURCES) \
-	$(rewrite_trick2_SOURCES) \
-	$(rewrite_trick3_SOURCES) \
-	$(rewrite_trick4_SOURCES) \
-	$(rewrite_trick5_SOURCES)
+	$(nodist_logic_SOURCES) \
+	$(nodist_logic2_SOURCES) \
+	$(nodist_logic3_SOURCES) \
+	$(nodist_inference_SOURCES) \
+	$(nodist_persistence_SOURCES) \
+	$(nodist_prog_SOURCES) \
+	$(nodist_exp_SOURCES) \
+	$(nodist_rewrite_trick1_SOURCES) \
+	$(nodist_rewrite_trick2_SOURCES) \
+	$(nodist_rewrite_trick3_SOURCES) \
+	$(nodist_rewrite_trick4_SOURCES) \
+	$(nodist_rewrite_trick5_SOURCES)
 
 CLEANFILES = \
 	$(BUILT_SOURCES) \
