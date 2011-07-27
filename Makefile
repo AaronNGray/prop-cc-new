@@ -249,7 +249,7 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-SUBDIRS = include lib-src prop-src demos
+SUBDIRS = include lib-src prop-src bin demos
 EXTRA_DIST = VisualStudio2010
 dist_noinst_SCRIPTS = propwrap
 all: all-recursive

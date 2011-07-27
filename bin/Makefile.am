@@ -22,8 +22,11 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-SUBDIRS = include lib-src prop-src bin demos
-EXTRA_DIST = VisualStudio2010
+dist_noinst_SCRIPTS = grammar2latex prop-filter
 
-dist_noinst_SCRIPTS = propwrap
+BUILT_SOURCES = prop
+prop: $(top_builddir)/prop-src/prop
+	$(LN_S) $(top_builddir)/prop-src/prop prop$(EXEEXT)
+
+CLEANFILES = $(BUILT_SOURCES)
 

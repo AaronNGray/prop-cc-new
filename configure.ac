@@ -50,6 +50,7 @@ if test "${GXX}"x = yesx; then
 fi
 
 AC_PROG_LIBTOOL
+AC_PROG_LN_S
 
 AC_PATH_PROGS([PROP], [prop prop-cc], [nonexistent])
 
@@ -102,6 +103,7 @@ AC_CONFIG_FILES([
 	lib-src/backend-tools/Makefile
 	lib-src/visualize/Makefile
 	prop-src/Makefile
+	bin/Makefile
 	demos/Makefile
 ])
 AC_OUTPUT()
