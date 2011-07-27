@@ -51,7 +51,7 @@ fi
 
 AC_PROG_LIBTOOL
 
-AC_PATH_PROGS([PROP], [prop prop-cc], [true])
+AC_PATH_PROGS([PROP], [prop prop-cc], [nonexistent])
 
 AC_DEFINE(PROP_BOOL_IS_DEFINED, [],
 	[Define if your compiler understands the bool type.]

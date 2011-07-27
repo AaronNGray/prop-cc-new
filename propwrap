@@ -1,3 +1,5 @@
+#! /bin/sh
+
 # Copyright (c) 2011 Argonne National Laboratory
 # All rights reserved.
 # 
@@ -22,22 +24,19 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-SUFFIXES = .pcc .ph
+installed_prop="$1"
+shift
 
-PROPWRAP = $(top_srcdir)/propwrap
-PROPWRAP_ARGS = $(PROP) $(top_builddir)
+top_builddir="$1"
+shift
 
-PROPPP_FLAGS    = -I$(top_srcdir)/include
-PROP_OPTS_BASIC	= -strict $(PROPPP_FLAGS) -save_space -report -v2
-PROP_OPTS       = $(PROP_OPTS_BASIC) -O14
+prop="$top_builddir/prop-src/prop"
 
-.ph.h:
-@AMDEP_TRUE@	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tpph`
-@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/`basename $*.Tpph` $(DEPDIR)/`basename $*.Pph`
-	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
+if test -x "$prop"; then
+	exec "$prop" ${1+"$@"}
+elif test \( "$installed_prop" != nonexistent \) -a -x "$installed_prop"; then
+	exec "$installed_prop" ${1+"$@"}
+fi
 
-.pcc.cc:
-@AMDEP_TRUE@	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
-@AMDEP_TRUE@	$(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`
-	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
+exit 0
 

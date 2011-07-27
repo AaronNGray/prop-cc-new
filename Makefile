@@ -39,6 +39,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
+
 pkgdatadir = $(datadir)/prop
 pkgincludedir = $(includedir)/prop
 pkglibdir = $(libdir)/prop
@@ -58,8 +59,9 @@ POST_UNINSTALL = :
 build_triplet = i686-pc-linux-gnu
 host_triplet = i686-pc-linux-gnu
 subdir = .
-DIST_COMMON = README $(am__configure_deps) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in $(top_srcdir)/configure \
+DIST_COMMON = README $(am__configure_deps) $(dist_noinst_SCRIPTS) \
+	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
+	$(top_srcdir)/configure \
 	$(top_srcdir)/include/AD/config/config.h.in AUTHORS COPYING \
 	ChangeLog INSTALL NEWS config.guess config.sub depcomp \
 	install-sh ltmain.sh missing
@@ -73,6 +75,7 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/include/AD/config/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
+SCRIPTS = $(dist_noinst_SCRIPTS)
 SOURCES =
 DIST_SOURCES =
 RECURSIVE_TARGETS = all-recursive check-recursive dvi-recursive \
@@ -182,7 +185,7 @@ PACKAGE_STRING = prop 2.4.1
 PACKAGE_TARNAME = prop
 PACKAGE_VERSION = 2.4.1
 PATH_SEPARATOR = :
-PROP = true
+PROP = nonexistent
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
@@ -248,6 +251,7 @@ top_builddir = .
 top_srcdir = .
 SUBDIRS = include lib-src prop-src
 EXTRA_DIST = VisualStudio2010
+dist_noinst_SCRIPTS = propwrap
 all: all-recursive
 
 .SUFFIXES:
@@ -624,7 +628,7 @@ distcleancheck: distclean
 	       exit 1; } >&2
 check-am: all-am
 check: check-recursive
-all-am: Makefile
+all-am: Makefile $(SCRIPTS)
 installdirs: installdirs-recursive
 installdirs-am:
 install: install-recursive

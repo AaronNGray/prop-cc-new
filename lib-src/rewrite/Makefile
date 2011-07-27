@@ -173,7 +173,7 @@ PACKAGE_STRING = prop 2.4.1
 PACKAGE_TARNAME = prop
 PACKAGE_VERSION = 2.4.1
 PATH_SEPARATOR = :
-PROP = true
+PROP = nonexistent
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
@@ -239,8 +239,8 @@ top_builddir = ../..
 top_srcdir = ../..
 AM_CPPFLAGS = -I$(top_srcdir)/include
 SUFFIXES = .pcc .ph
-
-# PROP = $(top_builddir)/prop-src/prop
+PROPWRAP = $(top_srcdir)/propwrap
+PROPWRAP_ARGS = $(PROP) $(top_builddir)
 PROPPP_FLAGS = -I$(top_srcdir)/include
 PROP_OPTS_BASIC = -strict $(PROPPP_FLAGS) -save_space -report -v2
 PROP_OPTS = $(PROP_OPTS_BASIC) -O14
@@ -541,14 +541,14 @@ uninstall-am:
 
 
 .ph.h:
-	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tpph`
+	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tpph`
 	$(am__mv) $(DEPDIR)/`basename $*.Tpph` $(DEPDIR)/`basename $*.Pph`
-	$(PROP) $(PROP_OPTS) $<
+	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 .pcc.cc:
-	$(PROP) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
+	$(PROPWRAP) $(PROPWRAP_ARGS) -M $(PROP_OPTS) $< > $(DEPDIR)/`basename $*.Tppo`
 	$(am__mv) $(DEPDIR)/`basename $*.Tppo` $(DEPDIR)/`basename $*.Ppo`
-	$(PROP) $(PROP_OPTS) $<
+	$(PROPWRAP) $(PROPWRAP_ARGS) $(PROP_OPTS) $<
 
 include ./$(DEPDIR)/b_rules.Ppo
 

@@ -25,3 +25,5 @@
 SUBDIRS = include lib-src prop-src
 EXTRA_DIST = VisualStudio2010
 
+dist_noinst_SCRIPTS = propwrap
+
