@@ -424,7 +424,9 @@ static const DFATables::Rule _X1_accept_rule [ 224 ] = {
 static int run_prog( const char * prog, int argc, const char * argv[])
 {
   char command[4096];
-  std::strcpy( command, prog);
+  std::strcpy( command, "\"");
+  std::strcat( command, prog);
+  std::strcat( command, "\"");
   for (int i = 0; i < argc; i++)
   {
     std::strcat( command, " ");
