@@ -372,10 +372,10 @@ list_1_(integer_ty,list_1_(mkptrty(QUALty(QUALconst,ty))))
             if (! anchored)
               (*output) << '\n';
 #ifdef _MSC_VER
-			char *filename = new char[ std::strlen( f)];
+            char *filename = new char[ std::strlen( f) + 1];
 
-			const char *s = f;
-			char *d = filename;
+            const char *s = f;
+            char *d = filename;
 
             for ( ; *s != '\0'; ++s, ++d)
               if ( *s != '\\')
@@ -385,6 +385,8 @@ list_1_(integer_ty,list_1_(mkptrty(QUALty(QUALconst,ty))))
             *d = '\0';
 
             (*output) << "#line " << l << " \"" << filename << "\"\n";
+
+            delete filename;
 #else
             (*output)<< "#line " << l << " \"" << f << "\"\n";
 #endif
